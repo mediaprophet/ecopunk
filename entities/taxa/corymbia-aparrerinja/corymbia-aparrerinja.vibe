@@ -1,0 +1,121 @@
+module <https://civics.au/ecopunk/modules/corymbia_aparrerinja>;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Corymbia aparrerinja (Ghost Gum / Aparrerinja) — VibeScript Biocultural Logic
+// ─────────────────────────────────────────────────────────────────────────────
+
+pure fn taxon_record() -> Record {
+    return {
+        scientificName: "Corymbia aparrerinja K.D.Hill & L.A.S.Johnson",
+        vernacularName: "Ghost Gum",
+        arrernteName: "Aparrerinja",
+        gbifKey: 3180424.0,
+        gbifIri: "https://www.gbif.org/species/3180424",
+        apcIri: "https://id.biodiversity.org.au/name/apni/119973",
+        rank: "SPECIES",
+        family: "Myrtaceae",
+        genus: "Corymbia",
+        ontologicalClass: "bio:DarwinianTaxon",
+        governanceLane: "EnforcePermissiveCommons",
+        perpetualRoyaltiesProhibited: 1.0
+    };
+}
+
+// Seasonal phenology across Central Australian arid cycle (Month 1 = Jan, Month 12 = Dec)
+pure fn phenology_for_month(month: float) -> Record {
+    if month == 12.0 || month == 1.0 || month == 2.0 {
+        // High summer: peak profuse corymbose cream flowering + high nectarivory
+        return {
+            phase: "SummerFlowering",
+            floweringIntensity: 0.95,
+            foliarGrowthRate: 0.40,
+            nectarYieldGramsPerDay: 48.0,
+            barkAlbedo: 0.76,
+            leafTranspirationPermill: 18.0,
+            avianForagers: "Honeyeaters, Budgerigars, Red-tailed Black Cockatoos"
+        };
+    }
+    if month >= 3.0 && month <= 5.0 {
+        // Autumn: fruit capsule development, seed shedding, gradual bark exfoliation
+        return {
+            phase: "FruitingAndSeedShed",
+            floweringIntensity: 0.05,
+            foliarGrowthRate: 0.15,
+            nectarYieldGramsPerDay: 2.0,
+            barkAlbedo: 0.72,
+            leafTranspirationPermill: 12.0,
+            avianForagers: "Seed-eating finches, Galahs"
+        };
+    }
+    if month >= 6.0 && month <= 8.0 {
+        // Winter: dry cold desert nights, dormancy, maximum bark brightness
+        return {
+            phase: "WinterQuiescence",
+            floweringIntensity: 0.0,
+            foliarGrowthRate: 0.02,
+            nectarYieldGramsPerDay: 0.0,
+            barkAlbedo: 0.78,
+            leafTranspirationPermill: 5.0,
+            avianForagers: "Resident insectivores sheltering in hollows"
+        };
+    }
+    // Spring (Sept-Nov): pre-monsoonal flush, flower bud initiation
+    return {
+        phase: "SpringBudInitiation",
+        floweringIntensity: 0.25,
+        foliarGrowthRate: 0.75,
+        nectarYieldGramsPerDay: 12.0,
+        barkAlbedo: 0.74,
+        leafTranspirationPermill: 15.0,
+        avianForagers: "Desert woodswallows, Honeyeaters"
+    };
+}
+
+// High-albedo thermal protection model
+pure fn albedo_reflectance(component: string) -> Record {
+    if component == "trunk_bark" {
+        return {
+            visibleAlbedo: 0.742,
+            uvAlbedo: 0.650,
+            jakobHanikaC0: 0.742,
+            jakobHanikaC1: 0.0185,
+            jakobHanikaC2: -0.0092,
+            thermalReflectionPercent: 74.0,
+            cambiumMaxTempCAt45Amb: 36.8
+        };
+    }
+    if component == "pendulous_leaves" {
+        return {
+            visibleAlbedo: 0.284,
+            uvAlbedo: 0.082,
+            jakobHanikaC0: 0.284,
+            jakobHanikaC1: -0.120,
+            jakobHanikaC2: 0.085,
+            thermalReflectionPercent: 28.0,
+            cambiumMaxTempCAt45Amb: 42.1
+        };
+    }
+    return {
+        visibleAlbedo: 0.15,
+        uvAlbedo: 0.05,
+        jakobHanikaC0: 0.15,
+        jakobHanikaC1: 0.0,
+        jakobHanikaC2: 0.0,
+        thermalReflectionPercent: 15.0,
+        cambiumMaxTempCAt45Amb: 45.0
+    };
+}
+
+// Biocultural Arrernte context & Indigenous art legacy
+pure fn biocultural_custodianship() -> Record {
+    return {
+        languageGroup: "Arrernte (Central Australia)",
+        country: "Tjoritja (West MacDonnell Ranges), Mparntwe (Alice Springs)",
+        sacredSites: "Ntaria (Hermannsburg) Twin Ghost Gums",
+        artisticHeritage: "Albert Namatjira (1902-1959) watercolor school",
+        dreamingConnection: "Songlines and ancestral shelter markers",
+        licenceClass: "SocialPermissiveCommons",
+        productionObligationDischarged: 1.0,
+        freedomOfThoughtAffirmed: 1.0
+    };
+}

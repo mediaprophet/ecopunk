@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://webcivics.org/contexts/v1"
+  ],
+  "id": "urn:uuid:corymbia-aparrerinja-specimen-v1",
+  "type": [
+    "VerifiableCredential",
+    "TaxonSpecimen"
+  ],
+  "issuer": "did:web:ecopunk.civics.au:authoring",
+  "issuanceDate": "2026-10-13T10:00:00Z",
+  "credentialSubject": {
+    "id": "urn:qualia:taxon:corymbia_aparrerinja",
+    "type": "DarwinianTaxon",
+    "scientificName": "Corymbia aparrerinja K.D.Hill & L.A.S.Johnson",
+    "vernacularName": "Ghost Gum",
+    "arrernteName": "Aparrerinja",
+    "gbifTaxonKey": 3180424,
+    "apcIri": "https://id.biodiversity.org.au/name/apni/119973",
+    "affordances": {
+      "procedural_seed": "hmc://seeds/bark/corymbia_aparrerinja_bone_white_v1",
+      "acoustic_anchors": {
+        "low_hz": 180,
+        "mid_hz": 950,
+        "high_hz": 6200
+      },
+      "spectral_coefficients": {
+        "c0": 0.742,
+        "c1": 0.0185,
+        "c2": -0.0092
+      },
+      "ecological_roles": [
+        "bio:NectarSource",
+        "bio:AvianHollowHabitat",
+        "bio:AridCanopyShade",
+        "soc:ArrernteCustodialLandmark"
+      ]
+    },
+    "geometry_layout": {
+      "surf1": {
+        "offset": 1024,
+        "length": 32768,
+        "digest": "sha256:d8a24c5599b8e622efd8312017c603b290cb948793510526be45f66289b4f7aa"
+      },
+      "impo1": {
+        "offset": 33792,
+        "length": 16384,
+        "digest": "sha256:1e7dbca2a7b82f099088b935fcaeef1945d94726a8d799f9350dbf78c8a14ec4"
+      },
+      "mesh1": {
+        "offset": 50176,
+        "length": 65536,
+        "digest": "sha256:fc88e99990b79daaa08c9035e0766ef9bb0dca9586b518c7d9959f97bf923cde"
+      },
+      "mesh2": {
+        "offset": 115712,
+        "length": 16384,
+        "digest": "sha256:69bba2cfd9c12330a6cde2834015f624467776b92cfcb848bf9b7754394cdbe3"
+      }
+    },
+    "commons_obligation": {
+      "licence_class": "SocialPermissiveCommons",
+      "production_cost_cents": 15000,
+      "roi_cap_percent": 20,
+      "accumulated_pool_cents": 18000,
+      "transaction_cost_per_mib_cents": 1,
+      "perpetual_fees_prohibited": true
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2026-10-13T10:00:00Z",
+    "verificationMethod": "did:web:ecopunk.civics.au:authoring#key-2026",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z49aX9CORYMBIA_APARRERINJA_VALID_PROOF_2026_ED25519"
+  }
+}

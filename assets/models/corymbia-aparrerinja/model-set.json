@@ -1,0 +1,2118 @@
+{
+  "schema": "ecopunk-model-review-v1",
+  "taxon": "urn:qualia:taxon:corymbia_aparrerinja",
+  "scientificName": "Corymbia aparrerinja",
+  "title": "Ghost gum biosphere model studies",
+  "status": "authored prototype; visual and cultural review pending",
+  "styleTier": "T2 stylized prototype",
+  "epistemicStatus": "Procedural illustration derived from project traits; not a scan, occurrence record, or verified botanical specimen",
+  "sourceFiles": [
+    "entities/taxa/corymbia-aparrerinja/traits.json",
+    "entities/taxa/corymbia-aparrerinja/corymbia-aparrerinja-manifest.json"
+  ],
+  "compiler": "game-demo pinned QualiaDB WASM asset_compile_10d_with_provenance",
+  "visualReferences": [
+    {
+      "url": "https://bie.ala.org.au/species/https://id.biodiversity.org.au/taxon/apni/51289371#gallery",
+      "observer": "Fagg, M.",
+      "observation": "Photograph of a mature multi-stem tree with a broad, irregular crown; gallery image dated 2016-10-03.",
+      "use": "visual reference for multi-stem-tree; no photograph bytes included in the model set"
+    },
+    {
+      "url": "https://bie.ala.org.au/species/https://id.biodiversity.org.au/taxon/apni/51289371#gallery",
+      "observer": "Dean Nicolle",
+      "observation": "Gallery photographs show smaller, open-crowned ghost gums among rocky outcrops.",
+      "use": "visual reference for rocky-open-tree; no photograph bytes included in the model set"
+    }
+  ],
+  "lodGroups": [
+    {
+      "root": "mature-tree",
+      "levels": [
+        {
+          "model": "mature-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "mature-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "mature-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    },
+    {
+      "root": "juvenile-tree",
+      "levels": [
+        {
+          "model": "juvenile-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "juvenile-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "juvenile-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    },
+    {
+      "root": "multi-stem-tree",
+      "levels": [
+        {
+          "model": "multi-stem-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "multi-stem-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "multi-stem-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    },
+    {
+      "root": "rocky-open-tree",
+      "levels": [
+        {
+          "model": "rocky-open-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "rocky-open-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "rocky-open-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    },
+    {
+      "root": "ground-scorched-tree",
+      "levels": [
+        {
+          "model": "ground-scorched-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "ground-scorched-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "ground-scorched-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    },
+    {
+      "root": "canopy-scorched-tree",
+      "levels": [
+        {
+          "model": "canopy-scorched-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "canopy-scorched-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "canopy-scorched-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    },
+    {
+      "root": "epicormic-regrowth-tree",
+      "levels": [
+        {
+          "model": "epicormic-regrowth-tree",
+          "level": "hero",
+          "intent": "close inspection"
+        },
+        {
+          "model": "epicormic-regrowth-tree-mid",
+          "level": "mid",
+          "intent": "mid-distance"
+        },
+        {
+          "model": "epicormic-regrowth-tree-far",
+          "level": "far",
+          "intent": "distant view"
+        }
+      ]
+    }
+  ],
+  "graph": {
+    "source": "graph/ecology-graph.json",
+    "sourceSha256": "e94ea054e6c5c02430c6efe596208ee5ea851b497389e0da3f7ac75d755269a7",
+    "sourceBytes": 15194,
+    "volume": "graph/ecology.q42",
+    "volumeSha256": "49a03af33491172383038ab6f750e3fc56d0192da3e10ba32e88b056d49c3d65",
+    "volumeBytes": 19519,
+    "claims": 29,
+    "gaps": 8
+  },
+  "animations": [
+    {
+      "id": "ground-fire-sequence",
+      "label": "Ground fire and observed epicormic response",
+      "evidence": "Illustrative state sequence; timing, fire temperature and survival probability are unknown",
+      "frames": [
+        {
+          "model": "mature-tree",
+          "time": 0
+        },
+        {
+          "model": "ground-scorched-tree",
+          "time": 1
+        },
+        {
+          "model": "epicormic-regrowth-tree",
+          "time": 2
+        }
+      ]
+    },
+    {
+      "id": "canopy-scorch-sequence",
+      "label": "Canopy scorch scenario",
+      "evidence": "Illustrative exposure state only; crown-fire outcome is not established for this species",
+      "frames": [
+        {
+          "model": "mature-tree",
+          "time": 0
+        },
+        {
+          "model": "canopy-scorched-tree",
+          "time": 1
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "mature-tree",
+      "label": "Mature ghost gum · branching silhouette",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/mature-tree-chalk-bark.10d",
+          "sha256": "f51ccf4c6e433b3d1e76f370771614248949b06c85fc60b3c2104993d4815347",
+          "bytes": 68183,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 3770,
+          "triangles": 7488
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/mature-tree-branchwork.10d",
+          "sha256": "605c60527c60d09e08ccbf5b898468ee086223cb0089eb78c8a5ad91b24901e8",
+          "bytes": 28715,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1656,
+          "triangles": 3024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/mature-tree-irregular-canopy.10d",
+          "sha256": "b473075552822813fead014bef8ea0db4eddee15334673a788468ae44e73a334",
+          "bytes": 154433,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/mature-tree-falcate-foliage.10d",
+          "sha256": "42cf93df5330075cd4b7d8694664f849ca3a402dd7592204ced0262365a6ef1d",
+          "bytes": 553600,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 46080,
+          "triangles": 46080
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/mature-tree-cream-buds.10d",
+          "sha256": "acbbf0f4a12e339563ffaaf4573833d32c3cab2a13957dc93892ed3b93a94490",
+          "bytes": 22055,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "juvenile-tree",
+      "label": "Juvenile ghost gum · growth stage",
+      "scale": "organism, 4 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/juvenile-tree-chalk-bark.10d",
+          "sha256": "dd1b5876d3d327b541c36c43a1c90a4d9d05d8d5a2c6d2cf74ce1653b827b69c",
+          "bytes": 68185,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 3770,
+          "triangles": 7488
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/juvenile-tree-branchwork.10d",
+          "sha256": "ce32c8876a9065205d7a8e72edb5518816fbb8d2751b9c5cbfab63ac82b467a6",
+          "bytes": 28717,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1656,
+          "triangles": 3024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/juvenile-tree-irregular-canopy.10d",
+          "sha256": "fb3f60f9026a6f1f2e54716cbe5b03d481a2bf9c4e3b0d0c436531376475c8d1",
+          "bytes": 154435,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/juvenile-tree-falcate-foliage.10d",
+          "sha256": "ffbf36cdc3ae3942fef9c9f365124c2d1fa5677525891b8db91e80bbdd601cba",
+          "bytes": 553602,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 46080,
+          "triangles": 46080
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/juvenile-tree-cream-buds.10d",
+          "sha256": "6716763a959a3f9deb3ec59ee2b5cb2dbd69c9c2da5b8c3855cfc70a01618068",
+          "bytes": 22057,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "multi-stem-tree",
+      "label": "Multi-stem ghost gum · broad crown",
+      "scale": "organism, 12 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/multi-stem-tree-chalk-bark.10d",
+          "sha256": "d7acfa0a3e59a86a9aa6fe9e7ecccc0ae01dbe0b95d889f9dda0d54c62f2b142",
+          "bytes": 89811,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 4974,
+          "triangles": 9888
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/multi-stem-tree-branchwork.10d",
+          "sha256": "0bf6c55ca80538689de362bd7bdeb3e989bcae80ef8eb064d0d3351863616c94",
+          "bytes": 28719,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1656,
+          "triangles": 3024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/multi-stem-tree-irregular-canopy.10d",
+          "sha256": "4aab55b5c32812b63bbc62d34fb8fbc45415e841e25ea1964fd7a9fef1b6c66c",
+          "bytes": 154437,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/multi-stem-tree-falcate-foliage.10d",
+          "sha256": "504e8f0fe54a736ca64c87fb7f4d4eff259b46e6f28b88db384d7c470d354970",
+          "bytes": 553604,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 46080,
+          "triangles": 46080
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/multi-stem-tree-cream-buds.10d",
+          "sha256": "f50e4f5c2da4afb93ff619d95e701d477662caa39d5036ceb20d344af66dca5c",
+          "bytes": 22059,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "rocky-open-tree",
+      "label": "Rocky-site ghost gum · open crown",
+      "scale": "organism, 7 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/rocky-open-tree-chalk-bark.10d",
+          "sha256": "3140efeb4bfc9286c55f71ea87a001f87c1e350b58c2605c32af1fb32c90f140",
+          "bytes": 55467,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 3058,
+          "triangles": 6080
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/rocky-open-tree-branchwork.10d",
+          "sha256": "bc12d79027c82ebbf0834f2d111ae011d811b3edf2577ffcb95cc03af6192210",
+          "bytes": 19359,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1104,
+          "triangles": 2016
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/rocky-open-tree-irregular-canopy.10d",
+          "sha256": "76f37818cc5f874dddc59b13cf6b3b7f18e7ba31586cf2e13a7815efdf35af56",
+          "bytes": 103173,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 6720,
+          "triangles": 10368
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/rocky-open-tree-falcate-foliage.10d",
+          "sha256": "20027fc7a815bd58823a96a88f8d0dc178f484ce5fb53a202b4a17c58e048c20",
+          "bytes": 369284,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 30720,
+          "triangles": 30720
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/rocky-open-tree-cream-buds.10d",
+          "sha256": "25227162a732abf8683bdcf07da45783cee7367c165b1cb9d3c9b92e738e2c33",
+          "bytes": 12879,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 840,
+          "triangles": 1200
+        }
+      ]
+    },
+    {
+      "id": "ground-scorched-tree",
+      "label": "Ground-fire scorch · illustrative state",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/ground-scorched-tree-chalk-bark.10d",
+          "sha256": "696f0008c0cea6f83bf82937ed0c02fa5696a640cd3c09956f71d34a188a9c28",
+          "bytes": 68192,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 3770,
+          "triangles": 7488
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/ground-scorched-tree-branchwork.10d",
+          "sha256": "b0f27ddcb90ca8b716c8531ee4537b452e7525f38024501a1537446749bee070",
+          "bytes": 28724,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1656,
+          "triangles": 3024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/ground-scorched-tree-irregular-canopy.10d",
+          "sha256": "50085f83f79e8984439c413a4b82f4fe14043d0bee3ea2f2927c83c696839e51",
+          "bytes": 154442,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/ground-scorched-tree-falcate-foliage.10d",
+          "sha256": "ee7fd13fdd751966c9e5b7095c1d83f54e350f17a755dd47c841e3e515f6d5d4",
+          "bytes": 553609,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 46080,
+          "triangles": 46080
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree/lower-trunk-scorch",
+          "label": "lower-trunk-scorch",
+          "file": "10d/ground-scorched-tree-lower-trunk-scorch.10d",
+          "sha256": "c4998831fb5c2e2ba467c5e7af312110cfc185dc56f4c5b5e216ef541ce69e37",
+          "bytes": 1528,
+          "rgba": [
+            0.17,
+            0.14,
+            0.12,
+            1
+          ],
+          "vertices": 50,
+          "triangles": 96
+        }
+      ]
+    },
+    {
+      "id": "canopy-scorched-tree",
+      "label": "Canopy scorch · illustrative state",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/canopy-scorched-tree-chalk-bark.10d",
+          "sha256": "287d861108089a02aa466e902fd0ab9f48116e659a6721342eeb2b5cbbcb18a4",
+          "bytes": 68192,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 3770,
+          "triangles": 7488
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/canopy-scorched-tree-branchwork.10d",
+          "sha256": "ad503dc0003473df99fd1b247fe42cab5e7fa1fb12d325ada889c212cac8f442",
+          "bytes": 28724,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1656,
+          "triangles": 3024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/canopy-scorched-tree-irregular-canopy.10d",
+          "sha256": "fe6e1e104ce312dd8aeed2a4a903d2797a9669e34fa2c39c142eeb85771cb600",
+          "bytes": 39098,
+          "rgba": [
+            0.16,
+            0.17,
+            0.15,
+            1
+          ],
+          "vertices": 2520,
+          "triangles": 3888
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/canopy-scorched-tree-falcate-foliage.10d",
+          "sha256": "5db8995b77e724fb17005f551520bcd946dfc0a47f87c0e042484caf9fdd1f6a",
+          "bytes": 17929,
+          "rgba": [
+            0.2,
+            0.17,
+            0.14,
+            1
+          ],
+          "vertices": 1440,
+          "triangles": 1440
+        }
+      ]
+    },
+    {
+      "id": "epicormic-regrowth-tree",
+      "label": "Post-fire shoots · illustrative state",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/epicormic-regrowth-tree-chalk-bark.10d",
+          "sha256": "abfc74cb79cbc2898b59c196e1554e77d136827b25ce47b9d2cbaa26129a1e5c",
+          "bytes": 68195,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 3770,
+          "triangles": 7488
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree/branchwork",
+          "label": "branchwork",
+          "file": "10d/epicormic-regrowth-tree-branchwork.10d",
+          "sha256": "d6286acbebc90e1b93ea4b5f431250fc2056ebb6dcc44afe76c536243683028f",
+          "bytes": 28727,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1656,
+          "triangles": 3024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/epicormic-regrowth-tree-irregular-canopy.10d",
+          "sha256": "db5fda973dc6da63e68d5ac60efdebc95dadb9c4e094aa6b61235c5c597b4946",
+          "bytes": 154445,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/epicormic-regrowth-tree-falcate-foliage.10d",
+          "sha256": "4eddac9f91aeb842cdbd0f0f129fe1fe0e59c5df22b9080c885112f587dfbad3",
+          "bytes": 553612,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 46080,
+          "triangles": 46080
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree/lower-trunk-scorch",
+          "label": "lower-trunk-scorch",
+          "file": "10d/epicormic-regrowth-tree-lower-trunk-scorch.10d",
+          "sha256": "93721d11a11a070f6127d66e4e4a577d9b6925fb3c92101e02f1f059cb3aa95b",
+          "bytes": 1531,
+          "rgba": [
+            0.17,
+            0.14,
+            0.12,
+            1
+          ],
+          "vertices": 50,
+          "triangles": 96
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree/epicormic-shoots",
+          "label": "epicormic-shoots",
+          "file": "10d/epicormic-regrowth-tree-epicormic-shoots.10d",
+          "sha256": "9e621d1e6299321df81ef761be8df34751b8712ffec3160b13bc077af9874416",
+          "bytes": 19733,
+          "rgba": [
+            0.46,
+            0.61,
+            0.32,
+            1
+          ],
+          "vertices": 1260,
+          "triangles": 1920
+        }
+      ]
+    },
+    {
+      "id": "mature-tree-mid",
+      "label": "mature-tree · mid-distance geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/mature-tree-mid-chalk-bark.10d",
+          "sha256": "7d0f48497af0d69eab0a4dde39ccbef1af024a472242462ddaad3ae3e6aea3f6",
+          "bytes": 12891,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/mature-tree-mid-branchwork.10d",
+          "sha256": "b7e9df0499d5e0f96cf9935edd9d7703681066edbae4fa627e8587d9c85f0c87",
+          "bytes": 20943,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/mature-tree-mid-irregular-canopy.10d",
+          "sha256": "8d4f1ddf903ad7df685fd0721b6e25eda87ddad0fb094c0095d5478110c0c612",
+          "bytes": 154437,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/mature-tree-mid-falcate-foliage.10d",
+          "sha256": "b52dc3a7636285242ebef505b201653da3b7386305dbd5c4dabdd8f94fd54505",
+          "bytes": 131972,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 10944,
+          "triangles": 10944
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-mid/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/mature-tree-mid-cream-buds.10d",
+          "sha256": "ae1f3041c781c9cd5349cc19656fa53d6472746b7e963dd45f736e3c171632b7",
+          "bytes": 22059,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "mature-tree-far",
+      "label": "mature-tree · distant geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/mature-tree-far-chalk-bark.10d",
+          "sha256": "90ffef5d68ff06ddacb926354aeb1217fe179b47fe2cfbe7c3dfae1ae573f54d",
+          "bytes": 12891,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/mature-tree-far-branchwork.10d",
+          "sha256": "13251b1b0f5cca29084546bbb52ded4b09094eefaaba4b99a3616edf5443a2c5",
+          "bytes": 20943,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/mature-tree-far-irregular-canopy.10d",
+          "sha256": "313016fd0cd5802e1886669622c8604d56fba5f5f14bc2b708a88a3f09c9d7d6",
+          "bytes": 77541,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 5040,
+          "triangles": 7776
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/mature-tree-far-falcate-foliage.10d",
+          "sha256": "e858e23aa59c5f7c6fdfdbe61b12bcf66cc88d8b0579388433102403dc71a675",
+          "bytes": 31748,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 2592,
+          "triangles": 2592
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/mature-tree-far/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/mature-tree-far-cream-buds.10d",
+          "sha256": "a14482ea7ded0f5c689e64a66316a92e9dbdd1c5d848d50c6859fd4c07bc9801",
+          "bytes": 22059,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "juvenile-tree-mid",
+      "label": "juvenile-tree · mid-distance geometry",
+      "scale": "organism, 4 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/juvenile-tree-mid-chalk-bark.10d",
+          "sha256": "e95acb33d8a338415aea0fd4b09ff0d3257c1ba1c28d205aa15ca3f95f59520d",
+          "bytes": 12893,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/juvenile-tree-mid-branchwork.10d",
+          "sha256": "f18ff1729780b2b6b955f03092ae2d3d0abb55dcd41d59c96e06bca80057f0f5",
+          "bytes": 20945,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/juvenile-tree-mid-irregular-canopy.10d",
+          "sha256": "df867894cfa258399c6177970a0984afc4ee61452c1cc3e397cb5aa65f70fcbb",
+          "bytes": 154439,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/juvenile-tree-mid-falcate-foliage.10d",
+          "sha256": "3c3cff2e5168c34a72ec68f885bbdee27951514cb8c9424dca27368979da09ad",
+          "bytes": 131974,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 10944,
+          "triangles": 10944
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-mid/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/juvenile-tree-mid-cream-buds.10d",
+          "sha256": "b727ada5e7f4bacd5e542f5edb22a4871b910b6911d6b447931169fe6cac6797",
+          "bytes": 22061,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "juvenile-tree-far",
+      "label": "juvenile-tree · distant geometry",
+      "scale": "organism, 4 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/juvenile-tree-far-chalk-bark.10d",
+          "sha256": "ec0131c5a052bac58e2a948442a804cfb7b7b223332a674d3eba2b9cd2369f44",
+          "bytes": 12893,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/juvenile-tree-far-branchwork.10d",
+          "sha256": "462473596059ece640c789c5c7103e0c2a9a5175ddae67851e29c4e52d0cee48",
+          "bytes": 20945,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/juvenile-tree-far-irregular-canopy.10d",
+          "sha256": "535c8d40427479514a3855511d5ff1521dfd3dcc8537443e09e585bb5fcf4e2b",
+          "bytes": 77543,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 5040,
+          "triangles": 7776
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/juvenile-tree-far-falcate-foliage.10d",
+          "sha256": "116bbe0f95e5d4d65f83c8d228b404b421a0ca4d05f42be7b584d58b8c1ea834",
+          "bytes": 31750,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 2592,
+          "triangles": 2592
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/juvenile-tree-far/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/juvenile-tree-far-cream-buds.10d",
+          "sha256": "ae02391feed69d634ddbe70224b3fa1d792ed3e94b3c6d211ec861973ff663b6",
+          "bytes": 22061,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "multi-stem-tree-mid",
+      "label": "multi-stem-tree · mid-distance geometry",
+      "scale": "organism, 12 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/multi-stem-tree-mid-chalk-bark.10d",
+          "sha256": "5342e4947dda2d1a1efd1ce88e61d5757172591d89f5c5a20a3bcb8019918f55",
+          "bytes": 15439,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 842,
+          "triangles": 1624
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/multi-stem-tree-mid-branchwork.10d",
+          "sha256": "6be513edb5d80f99457da688a48330e426b70cc1a6f6d7a2e61332eff710c6cd",
+          "bytes": 20947,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/multi-stem-tree-mid-irregular-canopy.10d",
+          "sha256": "c5df2e42623d90020aaa9b957dc44ed5b6f77d4708d219a4fece076ae7998681",
+          "bytes": 154441,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/multi-stem-tree-mid-falcate-foliage.10d",
+          "sha256": "347adf7381e4d1abe44869bcf34e59ad20dc1626cd78e15d19db65970dcf75bc",
+          "bytes": 131976,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 10944,
+          "triangles": 10944
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-mid/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/multi-stem-tree-mid-cream-buds.10d",
+          "sha256": "af2b31dab6684359fcfaebb1ddcb9e0101481ca0a440f2d6291b332fe7ea5597",
+          "bytes": 22063,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "multi-stem-tree-far",
+      "label": "multi-stem-tree · distant geometry",
+      "scale": "organism, 12 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/multi-stem-tree-far-chalk-bark.10d",
+          "sha256": "f3abf2cff95454393af831a69a13abd91e3f1f12f950e78f1211dfd60c0c4a39",
+          "bytes": 15439,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 842,
+          "triangles": 1624
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/multi-stem-tree-far-branchwork.10d",
+          "sha256": "b8da3974c60f4e3ee1d16dcc4581d879e09b08734e994ec17cd2235304682359",
+          "bytes": 20947,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/multi-stem-tree-far-irregular-canopy.10d",
+          "sha256": "0483f6f958afde1c103478bb0df6de5617171987b337fd1c29f3d07dce3fdc87",
+          "bytes": 77545,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 5040,
+          "triangles": 7776
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/multi-stem-tree-far-falcate-foliage.10d",
+          "sha256": "4c43041c994cc8cbb52631a68ecdb31b90da2880fca9e629523ca0210aaebc0c",
+          "bytes": 31752,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 2592,
+          "triangles": 2592
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/multi-stem-tree-far/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/multi-stem-tree-far-cream-buds.10d",
+          "sha256": "b916eacf18c3c0acaf501c138979a1466721dbd8b22f7e6bd9de711c789a7ea8",
+          "bytes": 22063,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 1470,
+          "triangles": 2100
+        }
+      ]
+    },
+    {
+      "id": "rocky-open-tree-mid",
+      "label": "rocky-open-tree · mid-distance geometry",
+      "scale": "organism, 7 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/rocky-open-tree-mid-chalk-bark.10d",
+          "sha256": "48dd5446d317f4895c46a78553a975169d70bd6490a3eaf50235c1a72387c2df",
+          "bytes": 9967,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 530,
+          "triangles": 1024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/rocky-open-tree-mid-branchwork.10d",
+          "sha256": "7c4162433c37bb994713c5af7a3c1bbed3b1ccd775892873e52ff726d68567e7",
+          "bytes": 14179,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 816,
+          "triangles": 1440
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/rocky-open-tree-mid-irregular-canopy.10d",
+          "sha256": "f4211275e769bb12ada92189f39c5e2825233b221db0b11816b6322d3155009d",
+          "bytes": 103177,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 6720,
+          "triangles": 10368
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/rocky-open-tree-mid-falcate-foliage.10d",
+          "sha256": "efd896d2d1e109aa1abb0a56084bd818891892600a7f83310a61753fcbc45b65",
+          "bytes": 88200,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 7296,
+          "triangles": 7296
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-mid/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/rocky-open-tree-mid-cream-buds.10d",
+          "sha256": "24316f0796ac1b5ce315a6ef6b10af8e3138405c4f9d7cf6eb56aaebc56b5302",
+          "bytes": 12883,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 840,
+          "triangles": 1200
+        }
+      ]
+    },
+    {
+      "id": "rocky-open-tree-far",
+      "label": "rocky-open-tree · distant geometry",
+      "scale": "organism, 7 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/rocky-open-tree-far-chalk-bark.10d",
+          "sha256": "bb3dcd45a95d777adf1d109a0969bd1a4d473739a29f84cbc4cb45bc6b9d4287",
+          "bytes": 9967,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 530,
+          "triangles": 1024
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/rocky-open-tree-far-branchwork.10d",
+          "sha256": "20254d48e0508ee8958813d8ff7a9b3e8df35e9b87d1dc9de29a9deda8cdaa4f",
+          "bytes": 14179,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 816,
+          "triangles": 1440
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/rocky-open-tree-far-irregular-canopy.10d",
+          "sha256": "3f663c01248878fec1a4835cbac2d14c2d0d0f77e1a312853552c5000f4ddda9",
+          "bytes": 51913,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 3360,
+          "triangles": 5184
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/rocky-open-tree-far-falcate-foliage.10d",
+          "sha256": "7d7143f9147f769e3a8d105848f469485a1bfeb2322040e23b7528b43e68cc93",
+          "bytes": 21384,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 1728,
+          "triangles": 1728
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/rocky-open-tree-far/cream-buds",
+          "label": "cream-buds",
+          "file": "10d/rocky-open-tree-far-cream-buds.10d",
+          "sha256": "39d23cb4b66901b6c9151583fd79dc82c4f7da419201ccf1aa526742685973e8",
+          "bytes": 12883,
+          "rgba": [
+            0.89,
+            0.83,
+            0.6,
+            1
+          ],
+          "vertices": 840,
+          "triangles": 1200
+        }
+      ]
+    },
+    {
+      "id": "ground-scorched-tree-mid",
+      "label": "ground-scorched-tree · mid-distance geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/ground-scorched-tree-mid-chalk-bark.10d",
+          "sha256": "2b3b0654f40704797b6ae96a5fc43c3a6d84987d34ca1dacfad9d765496c9f2a",
+          "bytes": 12900,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/ground-scorched-tree-mid-branchwork.10d",
+          "sha256": "93712c01b498f8f35b648099e5a0d5513868230965129e56cf0e837e28af6f4b",
+          "bytes": 20952,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/ground-scorched-tree-mid-irregular-canopy.10d",
+          "sha256": "5305a2885eed54e85f2d91881805240bd4a5a02923b360c4cf151a97f2db84e6",
+          "bytes": 154446,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/ground-scorched-tree-mid-falcate-foliage.10d",
+          "sha256": "73481fdd5c45f1a1f07edc04b00c7b109f73a308d5488ee1f9691485e0755191",
+          "bytes": 131981,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 10944,
+          "triangles": 10944
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-mid/lower-trunk-scorch",
+          "label": "lower-trunk-scorch",
+          "file": "10d/ground-scorched-tree-mid-lower-trunk-scorch.10d",
+          "sha256": "23653564590e01b367258ff09f70693c399a168dcdb3d581cd6722d07571815c",
+          "bytes": 1532,
+          "rgba": [
+            0.17,
+            0.14,
+            0.12,
+            1
+          ],
+          "vertices": 50,
+          "triangles": 96
+        }
+      ]
+    },
+    {
+      "id": "ground-scorched-tree-far",
+      "label": "ground-scorched-tree · distant geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/ground-scorched-tree-far-chalk-bark.10d",
+          "sha256": "fae4d45461b11ded9aa1d850569911a4b3cd639711bd072a7978ed50eaa219d3",
+          "bytes": 12900,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/ground-scorched-tree-far-branchwork.10d",
+          "sha256": "ef4c6a7e9fafe8b50af13ef4ed172e4d3acf8c08ee10d5d42c6db48178bdc808",
+          "bytes": 20952,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/ground-scorched-tree-far-irregular-canopy.10d",
+          "sha256": "ea34dc6304f58b2e4116396d942c0144c1bd082adfb2c3ecb5382a12fd54e4bd",
+          "bytes": 77550,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 5040,
+          "triangles": 7776
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/ground-scorched-tree-far-falcate-foliage.10d",
+          "sha256": "397d75b32aa77e125f9ccd404a813c3282373ba7c06d766944441bc99c834b6f",
+          "bytes": 31757,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 2592,
+          "triangles": 2592
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/ground-scorched-tree-far/lower-trunk-scorch",
+          "label": "lower-trunk-scorch",
+          "file": "10d/ground-scorched-tree-far-lower-trunk-scorch.10d",
+          "sha256": "8102dc68c7a487d67f758c03609873e08f688a000e201689d4b179f1160ce58f",
+          "bytes": 1532,
+          "rgba": [
+            0.17,
+            0.14,
+            0.12,
+            1
+          ],
+          "vertices": 50,
+          "triangles": 96
+        }
+      ]
+    },
+    {
+      "id": "canopy-scorched-tree-mid",
+      "label": "canopy-scorched-tree · mid-distance geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/canopy-scorched-tree-mid-chalk-bark.10d",
+          "sha256": "f0e7b00738d31beea4983942cffa51d062590219f125d25580dc2c1a20313b9f",
+          "bytes": 12900,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/canopy-scorched-tree-mid-branchwork.10d",
+          "sha256": "799e58d30e3f8a4f0ff5c81048fab864a53e25e46be88448897c04c006e0b061",
+          "bytes": 20952,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/canopy-scorched-tree-mid-irregular-canopy.10d",
+          "sha256": "0d6d9b14cffd25aad63e8e20957c8343b8cfc8df5935a105e41bf7275becb823",
+          "bytes": 39102,
+          "rgba": [
+            0.16,
+            0.17,
+            0.15,
+            1
+          ],
+          "vertices": 2520,
+          "triangles": 3888
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/canopy-scorched-tree-mid-falcate-foliage.10d",
+          "sha256": "e9ff0069ec76e699a45fc0282a2806f6d10aab44b092cdf49b297b82e992cd57",
+          "bytes": 6701,
+          "rgba": [
+            0.2,
+            0.17,
+            0.14,
+            1
+          ],
+          "vertices": 504,
+          "triangles": 504
+        }
+      ]
+    },
+    {
+      "id": "canopy-scorched-tree-far",
+      "label": "canopy-scorched-tree · distant geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/canopy-scorched-tree-far-chalk-bark.10d",
+          "sha256": "b58b6f7715dbd791d9d2f4d59660e3b27c67d860b1d6f0d1a8ad7e524874e999",
+          "bytes": 12900,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/canopy-scorched-tree-far-branchwork.10d",
+          "sha256": "dfd4e3f666db32e626a1c63f1d7fc7077d663f3a983037803a475c15d18aed80",
+          "bytes": 20952,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/canopy-scorched-tree-far-irregular-canopy.10d",
+          "sha256": "d1c9f9823cf7b5895e48b94713d6ec529a1e285770b7286a390c535fd0eb1aea",
+          "bytes": 19878,
+          "rgba": [
+            0.16,
+            0.17,
+            0.15,
+            1
+          ],
+          "vertices": 1260,
+          "triangles": 1944
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/canopy-scorched-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/canopy-scorched-tree-far-falcate-foliage.10d",
+          "sha256": "903f5448a46a910486ad1c9810db9f071d2dc134dfb683f6f4fd800306b219d2",
+          "bytes": 2381,
+          "rgba": [
+            0.2,
+            0.17,
+            0.14,
+            1
+          ],
+          "vertices": 144,
+          "triangles": 144
+        }
+      ]
+    },
+    {
+      "id": "epicormic-regrowth-tree-mid",
+      "label": "epicormic-regrowth-tree · mid-distance geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-mid/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/epicormic-regrowth-tree-mid-chalk-bark.10d",
+          "sha256": "7c346a4d129761fea008689d650b5c4037b3b8cf520c32a4a18108c4fda6c3b3",
+          "bytes": 12903,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-mid/branchwork",
+          "label": "branchwork",
+          "file": "10d/epicormic-regrowth-tree-mid-branchwork.10d",
+          "sha256": "522266e0fba0252c51908dc1dc8c0c84117829aee687d860b51128aa5dd3a7a8",
+          "bytes": 20955,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-mid/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/epicormic-regrowth-tree-mid-irregular-canopy.10d",
+          "sha256": "d25e3dd1e59b0ce847f7a5dfc73c5e24ebb44b1a9936fbc5697d77bc03b993be",
+          "bytes": 154449,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 10080,
+          "triangles": 15552
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-mid/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/epicormic-regrowth-tree-mid-falcate-foliage.10d",
+          "sha256": "d4b50073513a0934b03df921d80996a4c6f06665e3bd92d1c4aad76a22777c69",
+          "bytes": 131984,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 10944,
+          "triangles": 10944
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-mid/lower-trunk-scorch",
+          "label": "lower-trunk-scorch",
+          "file": "10d/epicormic-regrowth-tree-mid-lower-trunk-scorch.10d",
+          "sha256": "1c8c73036f23d263173347aa8f8ef42a07a7e5e004018a15edc3ec85abd25a91",
+          "bytes": 1535,
+          "rgba": [
+            0.17,
+            0.14,
+            0.12,
+            1
+          ],
+          "vertices": 50,
+          "triangles": 96
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-mid/epicormic-shoots",
+          "label": "epicormic-shoots",
+          "file": "10d/epicormic-regrowth-tree-mid-epicormic-shoots.10d",
+          "sha256": "ac048cfb59c780391073caf69801d0a394582c98bb391a5d79ac54750138a5b0",
+          "bytes": 19737,
+          "rgba": [
+            0.46,
+            0.61,
+            0.32,
+            1
+          ],
+          "vertices": 1260,
+          "triangles": 1920
+        }
+      ]
+    },
+    {
+      "id": "epicormic-regrowth-tree-far",
+      "label": "epicormic-regrowth-tree · distant geometry",
+      "scale": "organism, 15 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-far/chalk-bark",
+          "label": "chalk-bark",
+          "file": "10d/epicormic-regrowth-tree-far-chalk-bark.10d",
+          "sha256": "3c0e3d85c6f2ab8d623422dadc61dfec3e865a5dd57e7baa0fe4a32c1525ebd0",
+          "bytes": 12903,
+          "rgba": [
+            0.82,
+            0.79,
+            0.7,
+            1
+          ],
+          "vertices": 698,
+          "triangles": 1344
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-far/branchwork",
+          "label": "branchwork",
+          "file": "10d/epicormic-regrowth-tree-far-branchwork.10d",
+          "sha256": "edf5f1acf3e56a85cca113dbadb2916b7606faae4ed869b7ca600a1ad146846d",
+          "bytes": 20955,
+          "rgba": [
+            0.43,
+            0.37,
+            0.28,
+            1
+          ],
+          "vertices": 1224,
+          "triangles": 2160
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-far/irregular-canopy",
+          "label": "irregular-canopy",
+          "file": "10d/epicormic-regrowth-tree-far-irregular-canopy.10d",
+          "sha256": "ee28791a239f61843dfa21b63f24809a5ef9794100104e2b13c9795732036660",
+          "bytes": 77553,
+          "rgba": [
+            0.25,
+            0.35,
+            0.27,
+            1
+          ],
+          "vertices": 5040,
+          "triangles": 7776
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-far/falcate-foliage",
+          "label": "falcate-foliage",
+          "file": "10d/epicormic-regrowth-tree-far-falcate-foliage.10d",
+          "sha256": "c7e722fdcf53e2a2d28b5d7ee2801460d37fad6c34ee708ef228c9b7e89f05e1",
+          "bytes": 31760,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 2592,
+          "triangles": 2592
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-far/lower-trunk-scorch",
+          "label": "lower-trunk-scorch",
+          "file": "10d/epicormic-regrowth-tree-far-lower-trunk-scorch.10d",
+          "sha256": "191f0b5510c32b6158d80ca188fc017e8a1a41d10a67a0752916bf3a7df969ca",
+          "bytes": 1535,
+          "rgba": [
+            0.17,
+            0.14,
+            0.12,
+            1
+          ],
+          "vertices": 50,
+          "triangles": 96
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/epicormic-regrowth-tree-far/epicormic-shoots",
+          "label": "epicormic-shoots",
+          "file": "10d/epicormic-regrowth-tree-far-epicormic-shoots.10d",
+          "sha256": "5060ccdbbc7cf2a4310e1e15c522ec1623eb2e999ee17350a0f75ad0c1d3320d",
+          "bytes": 19737,
+          "rgba": [
+            0.46,
+            0.61,
+            0.32,
+            1
+          ],
+          "vertices": 1260,
+          "triangles": 1920
+        }
+      ]
+    },
+    {
+      "id": "leaf-study",
+      "label": "Falcate leaf · anatomy study",
+      "scale": "organ, 120 mm",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/leaf-study/blade",
+          "label": "blade",
+          "file": "10d/leaf-study-blade.10d",
+          "sha256": "2fc7f702f59c4f904622c115117adface3d41f7c7005e6f955d80f33ed103bfe",
+          "bytes": 677,
+          "rgba": [
+            0.38,
+            0.49,
+            0.39,
+            1
+          ],
+          "vertices": 4,
+          "triangles": 4
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/leaf-study/midrib",
+          "label": "midrib",
+          "file": "10d/leaf-study-midrib.10d",
+          "sha256": "325a21eb25a1af4ab6f0ac7e99d802a19356edb395cd0f92fc5cfb5d894e59ca",
+          "bytes": 858,
+          "rgba": [
+            0.69,
+            0.73,
+            0.57,
+            1
+          ],
+          "vertices": 14,
+          "triangles": 24
+        }
+      ]
+    },
+    {
+      "id": "flower-study",
+      "label": "Cream flower · reproductive detail",
+      "scale": "organ, 35 mm",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/flower-study/receptacle",
+          "label": "receptacle",
+          "file": "10d/flower-study-receptacle.10d",
+          "sha256": "d3a499b254865155a6a47f7c7f390212a7c8a988175d2fe65aaa4be86a90d598",
+          "bytes": 3308,
+          "rgba": [
+            0.72,
+            0.65,
+            0.45,
+            1
+          ],
+          "vertices": 165,
+          "triangles": 280
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/flower-study/stamens",
+          "label": "stamens",
+          "file": "10d/flower-study-stamens.10d",
+          "sha256": "90f5dcf7cf9c08a2fc7ebacb2e2b0920729b79d3bfdcfc662d57ecc6a141d75f",
+          "bytes": 7545,
+          "rgba": [
+            0.96,
+            0.91,
+            0.74,
+            1
+          ],
+          "vertices": 432,
+          "triangles": 720
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/flower-study/pedicel",
+          "label": "pedicel",
+          "file": "10d/flower-study-pedicel.10d",
+          "sha256": "509ab6fc774e2365f80a3651654129c2fd2cfac9e690a4f1b5e5d8549ccb4290",
+          "bytes": 933,
+          "rgba": [
+            0.39,
+            0.42,
+            0.29,
+            1
+          ],
+          "vertices": 18,
+          "triangles": 32
+        }
+      ]
+    },
+    {
+      "id": "gumnut-study",
+      "label": "Woody capsule · seed vessel",
+      "scale": "organ, 25 mm",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/gumnut-study/capsule",
+          "label": "capsule",
+          "file": "10d/gumnut-study-capsule.10d",
+          "sha256": "18e82ba80dd7cb38dd9b5fefa768fccf87540c7e47b9ffaa582e1cb46635cd66",
+          "bytes": 3305,
+          "rgba": [
+            0.47,
+            0.4,
+            0.31,
+            1
+          ],
+          "vertices": 165,
+          "triangles": 280
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/gumnut-study/rim",
+          "label": "rim",
+          "file": "10d/gumnut-study-rim.10d",
+          "sha256": "2e1fbb7964b2d7517a04510233a40318030a2b4d179429aa5be99153a4b90f6a",
+          "bytes": 2933,
+          "rgba": [
+            0.66,
+            0.57,
+            0.43,
+            1
+          ],
+          "vertices": 144,
+          "triangles": 240
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/gumnut-study/pedicel",
+          "label": "pedicel",
+          "file": "10d/gumnut-study-pedicel.10d",
+          "sha256": "144f40bd82213865250667a0c3ae7bb2426fb820f4f5f0918dafd7abfe038ec4",
+          "bytes": 897,
+          "rgba": [
+            0.35,
+            0.32,
+            0.26,
+            1
+          ],
+          "vertices": 16,
+          "triangles": 28
+        }
+      ]
+    },
+    {
+      "id": "bark-study",
+      "label": "Powdery chalk bark · surface study",
+      "scale": "structure, 1.4 m",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/bark-study/surface",
+          "label": "surface",
+          "file": "10d/bark-study-surface.10d",
+          "sha256": "91376cc886107b2b0fd0d60ed22cb2155dcb7f2acbd4c5755a43221b9face9a2",
+          "bytes": 1363,
+          "rgba": [
+            0.84,
+            0.81,
+            0.73,
+            1
+          ],
+          "vertices": 42,
+          "triangles": 80
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/bark-study/weathering",
+          "label": "weathering",
+          "file": "10d/bark-study-weathering.10d",
+          "sha256": "30bde418a77edf2beafc859dba0fbe77cf733975eed43c1725857b78595422cb",
+          "bytes": 4282,
+          "rgba": [
+            0.58,
+            0.52,
+            0.42,
+            1
+          ],
+          "vertices": 228,
+          "triangles": 380
+        }
+      ]
+    }
+  ]
+}
