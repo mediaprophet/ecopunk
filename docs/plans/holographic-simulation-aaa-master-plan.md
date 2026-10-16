@@ -273,7 +273,84 @@ graph TD
 
 ---
 
-## 9. Master Phased Implementation Roadmap & Verification Gates
+## 9. Pillar 8: Comprehensive Playability, Control Mechanics & Interactive Game Loop
+
+```mermaid
+stateDiagram-v2
+    [*] --> Standby: Hub Initialized
+    Standby --> OutboundDrive: Start Outbound Trip (W / Gamepad RT)
+    OutboundDrive --> RoadsideHazard: Wildlife Crosses Corridor
+    RoadsideHazard --> OutboundDrive: Hazard Cleared / Safe Stop
+    OutboundDrive --> CampArrival: Reach Campsite Sector (x >= 16.9)
+    CampArrival --> CampWalk: Seamless Avatar Spawn
+    CampWalk --> LandmarkInspection: Proximity <= 2.2m (E / Inspect)
+    LandmarkInspection --> CampDecision: Strategic Site Choice
+    CampDecision --> ReturnReady: Choice Verified
+    ReturnReady --> InboundDrive: Initiate Return Journey
+    InboundDrive --> RoundTripComplete: Reach Talbingo Hub (x <= -5.4)
+    RoundTripComplete --> Standby: Reset or Choose New Sector
+```
+
+### 9.1 Multi-Mode Dynamic Camera System
+The simulation eliminates static isometric viewpoints in favour of responsive, mode-specific camera mechanics:
+1. **Dynamic Vehicle Chase Camera (Driving Mode):**
+   - **Spring-Damper Tracking:** The camera trails the campervan at distance $d_{\text{chase}} = 7.5\text{m}$ and height $h_{\text{chase}} = 3.2\text{m}$, smoothly interpolating yaw towards vehicle heading $\theta_{\text{veh}}$:
+     $$\dot{\theta}_{\text{cam}} = \omega_n^2 (\theta_{\text{veh}} - \theta_{\text{cam}}) - 2 \zeta \omega_n \dot{\theta}_{\text{cam}}$$
+   - **Velocity-Coupled Field of View & Look-Ahead:** Camera FOV expands by $15\%$ and look-ahead target projects $v \cdot 0.35\text{s}$ ahead along the road spline, giving tangible acceleration sensation without motion sickness.
+2. **Third-Person Orbital Camera (Camp Walk Mode):**
+   - Anchored to the articulated explorer avatar torso ($y = 1.2\text{m}$).
+   - Smooth mouse/touch drag orbiting with pitch clamping ($[15^\circ, 78^\circ]$) and distance zoom ($[0.32\text{m}, 2.4\text{m}]$).
+   - Dynamic terrain occlusion avoidance: rays cast from avatar to camera prevent clipping into boulders or embankments.
+3. **Cinematic Mode Transitions:**
+   - Smooth Hermite cubic interpolation ($t \in [0, 1]$ over $0.75\text{s}$) when arriving at camp or mounting the vehicle for departure.
+
+### 9.2 Comprehensive Input Mapping & Gamepad Integration
+True playability requires seamless, latency-free input across all platforms:
+- **Keyboard & Mouse:**
+  - `W` / `↑` : Throttle / Walk North
+  - `S` / `↓` : Brake & Reverse / Walk South
+  - `A` / `←` : Steer Left / Walk West
+  - `D` / `→` : Steer Right / Walk East
+  - `Space` : Emergency Handbrake
+  - `E` / `Enter` : Inspect Landmark / Interact with Campsite
+  - `R` : Reset current sector
+  - `M` : Toggle Holosonic spatial wavefield
+  - `+` / `-` / Scroll Wheel : Dynamic camera zoom
+- **Standard Gamepad API (Xbox / PlayStation / Generic HID):**
+  - Left Thumbstick ($X/Y$): Proportional analog steering and camp walking direction.
+  - Right Trigger ($RT$): Proportional analog acceleration.
+  - Left Trigger ($LT$): Progressive hydraulic braking and reverse gear.
+  - Right Thumbstick ($X/Y$): Free-look camera orbital rotation.
+  - Button $A$ (Cross): Inspect landmark / Confirm camp choice.
+  - Button $B$ (Circle): Emergency handbrake.
+  - Button $Y$ (Triangle): Toggle Holosonic audio.
+  - Button $X$ (Square): Cycle camera perspective.
+  - D-Pad Left/Right: Cycle campsite sector selection.
+- **Mobile Touch Controls:**
+  - High-precision virtual control pads with pointer capture, haptic feedback triggers, and dedicated Zoom buttons.
+
+### 9.3 Driving Dynamics, Steering Feedback & Hazard Response
+- **Speed-Sensitive Steering:** Steering responsiveness scales inversely with velocity ($S_{\text{eff}} = S_0 / (1.0 + 0.04 v)$) to eliminate twitchy oversteer at highway speeds while preserving nimble turning at campsite trailheads.
+- **Auto-Centering Spring Torque:** Steering wheel returns to neutral with exponential decay ($\tau = 0.12\text{s}$) upon key/stick release.
+- **Shoulder Grip Penalty:** Leaving paved road reduces traction by $32\%$ and triggers physical micro-vibrations and gravel sound synthesis.
+- **Wildlife Encounter Logic:** Roadside fauna detection with visual warning reticle; drivers can perform smooth deceleration to observe native wildlife without abrupt failure states.
+
+### 9.4 Full Interactive Campsite Loop
+1. **Camp Spawn & Exploration:** Arriving at the campsite spawns the fully articulated Australian explorer avatar equipped with Akubra hat, bush pack, bedroll, and hiking boots.
+2. **Interactive Landmark Discovery:** Walk to real-world landmarks (e.g. Jounama Karst Skarn, historic Yarrangobilly riverbank hut, Three Mile Dam granite tors). A dynamic HUD distance reticle indicates proximity.
+3. **Contextual Inspection & Action:** When within $2.2\text{m}$, the "Inspect" prompt activates, triggering a 528 Hz harmonic chime and revealing detailed geological, hydrological, and biological insights.
+4. **Site Selection Challenge:** Test knowledge of local alpine conditions (e.g. avoiding flood-prone river flats, marshy peat bogs, or falling gum branches).
+5. **Return Trip Simulation:** Board the vehicle, execute a turnaround, and complete the return drive down the Kosciuszko mountain corridor with descent telemetry (engine braking, road curvature tracking).
+
+### 9.5 Retro-Modern AAA HUD & Telemetry Dashboard
+- **Speedometer & G-Meter:** Circular analog dial and digital readout (km/h) with acceleration and cornering lateral-G telemetry.
+- **Elevation Corridor Profile:** Real-time cross-section profile of the Snowy Mountains Highway B72 showing current altitude, gradient ($\%$) and climb/descent rate.
+- **Digital Compass Rose:** 360° heading indicator with true north alignment.
+- **Live Geology & Geospatial Badge:** Instant GSNSW stratigraphic classification, rock age, and WGS84 GPS coordinate readout.
+
+---
+
+## 10. Master Phased Implementation Roadmap & Verification Gates
 
 ```mermaid
 gantt
