@@ -329,6 +329,46 @@ mindmap
 
 ---
 
+### Domain 9: Heliophysics, Space Weather & Planetary Electrodynamics
+
+Space weather exerts profound, multi-scale physical forcing on the Earth system beyond diurnal sunlight, driving the 11-year Schwabe sunspot cycle, 22-year Hale magnetic polarity reversal, thermospheric heating, ionospheric electron density ($N_e$), Galactic Cosmic Ray (GCR) cloud nucleation, and the Global Electric Circuit (GEC).
+
+#### 9.1 Real-Time Solar Wind, Interplanetary Magnetic Field & Magnetosphere
+* **Target Datasets:**
+  * **NOAA Space Weather Prediction Center (SWPC):** Real-time JSON/REST streams from DSCOVR and ACE at L1 (solar wind velocity $v_{\text{sw}}$, proton density $N_p$, IMF total strength $B_{\text{total}}$, and vertical orientation $B_z$ governing dayside magnetic reconnection) (`https://services.swpc.noaa.gov/`).
+  * **Planetary K-index ($K_p$) & Geomagnetic Storm Watches:** Global 3-hour geomagnetic disturbance indices ($K_p \in [0, 9]$) and Dst ring current depression (`https://www.swpc.noaa.gov/products/planetary-k-index`).
+  * **GOES-R Solar Ultraviolet Imager (SUVI) & X-ray Sensor (XRS):** Solar flare classifications (C, M, X class), coronal hole high-speed stream boundaries, and coronal mass ejection (CME) shock fronts (`https://data.ngdc.noaa.gov/platforms/solar-space-observing-satellites/goes/`).
+  * **NOAA OVATION Auroral Model:** Hemispheric auroral precipitation power in Gigawatts ($GW$) and spatial auroral oval boundaries for the Southern Hemisphere (`https://services.swpc.noaa.gov/images/aurora-forecast-southern-hemisphere.jpg`).
+* **Format:** JSON REST API, NetCDF4, FITS imagery.
+* **Gemini Discovery Queries:**
+  * `NOAA SWPC real-time solar wind JSON API DSCOVR ACE Bz Kp index`
+  * `GOES solar flare X-ray flux real time data feed JSON SWPC`
+
+#### 9.2 Australian Regional Space Weather & Ionospheric Monitoring
+* **Target Datasets:**
+  * **Australian Space Weather Forecasting Centre (ASWFC - Bureau of Meteorology):** Regional Australian geomagnetic observatories (Canberra, Gnangara, Charters Towers, Macquarie Island, Mawson) providing localized $K$-indices, ground magnetic field rate of change ($dB/dt$), and geomagnetically induced currents (GIC) (`https://www.sws.bom.gov.au/`).
+  * **Australian Ionospheric Total Electron Content (TEC) & T-index:** Real-time 2D ionospheric maps over the Australian continent, high-frequency (HF) radio absorption, and ionosonde soundings from Camden and Canberra (`https://www.sws.bom.gov.au/HF_Systems/1/1`).
+  * **Learmonth Solar Observatory (BOM / USAF):** Optical patrol (H-alpha) and solar radio burst monitoring at 245–8800 MHz.
+* **Format:** JSON REST, NetCDF, CSV.
+* **Gemini Discovery Queries:**
+  * `Australian Space Weather Forecasting Centre ASWFC API magnetometer ionosphere TEC`
+  * `Bureau of Meteorology space weather services Canberra magnetometer data`
+
+#### 9.3 Heliophysical Cycles, Solar Radio Flux & Cosmic Rays
+* **Target Datasets:**
+  * **Solar Radio Flux 10.7 cm ($F_{10.7}$):** Daily solar extreme ultraviolet (EUV) proxy measurements in solar flux units (sfu) from Penticton DRAO / BOM (`https://www.spaceweather.com/`).
+  * **Thermosphere Climate Index (TCI):** NASA TIMED/SABER daily global infrared power radiated by Nitric Oxide (NO at 5.3 µm) and $\text{CO}_2$ (at 15 µm) ($2.0–50.0 \times 10^{10}\text{ W}$), quantifying upper-atmospheric thermal expansion across solar cycles (`https://spaceweatherarchive.com/what-is-tci/`).
+  * **International Sunspot Number Time Series (SIDC / Royal Observatory of Belgium):** Historical daily, monthly, and yearly sunspot numbers $R_z$ from 1700 to present, mapping the 11-year Schwabe cycle and 22-year Hale double-cycle polarity flips (`https://www.sidc.be/SILSO/datafiles`).
+  * **International Cosmic Ray Database (NMDB) & Australian Neutron Monitors:** High-altitude and sea-level neutron monitor count rates (Kingston, Tasmania; Mawson, Antarctica), measuring Galactic Cosmic Ray (GCR) flux modulated inversely by heliospheric magnetic shielding (`https://www.nmdb.eu/`).
+  * **NASA OMNIWeb Interplanetary Archive:** 1-hour and 1-minute combined multi-satellite solar wind, plasma, and IMF data spanning solar cycles 19 through 25 (`https://omniweb.gsfc.nasa.gov/`).
+* **Format:** Tabular CSV / ASCII, NetCDF, JSON.
+* **Gemini Discovery Queries:**
+  * `SILSO International Sunspot Number data download CSV SIDC Belgium`
+  * `NMDB Neutron Monitor Database cosmic ray download Kingston Mawson`
+  * `NASA OMNIWeb solar wind interplanetary magnetic field archive download`
+
+---
+
 ## 3. Formal Ontology Corpus Acquisition & Mapping
 
 The table below lists the exact W3C/OBO ontology files to download, their authoritative IRIs, target named graph in QualiaDB, and their semantic function in `.q42` compilation.
@@ -403,6 +443,7 @@ classDiagram
 | **`tk:` / `bc:`** | Local Contexts Traditional Knowledge | `https://localcontexts.org/ontology/tk-bc.ttl` | `urn:qualia:ontology:localcontexts` | Traditional Knowledge & Biocultural Labels, cultural protocol constraints |
 | **`geo:`** | OGC GeoSPARQL | `http://www.opengis.net/ont/geosparql` | `urn:qualia:ontology:geo` | Spatial geometries, topological relationships, geodetic features |
 | **`qudt:`** | Quantities, Units, Dimensions & Types | `http://qudt.org/schema/qudt/` | `urn:qualia:ontology:qudt` | Physical units of measure (pascals, meters, grams, seconds, watts) |
+| **`spaceweather:`** | Space Weather & Aeronomy Vocabulary (WMO/NASA SPASE) | `https://spase-group.org/data/schema/` | `urn:qualia:ontology:spaceweather` | Solar wind parameters, IMF vectors, geomagnetic storm indices, ionospheric TEC |
 
 ---
 
@@ -583,6 +624,17 @@ qudt_ttl              = "http://qudt.org/2.1/schema/qudt"
 sosa_ttl              = "http://www.w3.org/ns/sosa/"
 odrl_ttl              = "http://www.w3.org/ns/odrl/2/ODRL22.ttl"
 local_contexts_ttl    = "https://localcontexts.org/ontology/tk-bc.ttl"
+
+[space_weather.heliophysics]
+noaa_swpc_plasma_json = "https://services.swpc.noaa.gov/products/solar-wind/plasma-7-day.json"
+noaa_swpc_mag_json    = "https://services.swpc.noaa.gov/products/solar-wind/mag-7-day.json"
+noaa_swpc_kp_json     = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
+noaa_swpc_xray_json   = "https://services.swpc.noaa.gov/json/goes/primary/xrays-7-day.json"
+bom_aswfc_mag_api     = "https://www.sws.bom.gov.au/Geophysical/1/1"
+bom_aswfc_tec_map     = "https://www.sws.bom.gov.au/HF_Systems/6/5"
+sidc_sunspot_csv      = "https://www.sidc.be/SILSO/DATA/SN_d_tot_V2.0.csv"
+nmdb_cosmic_ray_api   = "https://www.nmdb.eu/nest/search.php"
+nasa_omniweb_dap      = "https://omniweb.gsfc.nasa.gov/cgi/nx1.cgi"
 ```
 
 ---
@@ -597,5 +649,6 @@ To execute this plan, use the following prioritized search and retrieval order:
 - [ ] **Step 4: Download AusTraits v5.0 Parquet/CSV dataset** from Zenodo.
 - [ ] **Step 5: Extract USGS splib07b ASCII spectra** for Quartz, Feldspar, Kaolinite, Basalt, and Granite.
 - [ ] **Step 6: Ingest BoM Geofabric Surface Water Network** covering Tumut River & Blowering Reservoir.
-- [ ] **Step 7: Download AIATSIS First Nations Language Map** GeoJSON for the Ngarigo, Walgalu, and Wiradjuri boundaries.
-- [ ] **Step 8: Execute `compile_raster_to_m64`** in `qualia-geospatial` to produce the first live `.m64` Mode 0x02 terrain chunk.
+- [ ] **Step 7: Ingest NOAA SWPC & BOM ASWFC Space Weather Feeds** (11-year sunspot $R_z$, 22-year Hale cycle, solar wind $B_z$, $K_p$, cosmic ray flux).
+- [ ] **Step 8: Download AIATSIS First Nations Language Map** GeoJSON for the Ngarigo, Walgalu, and Wiradjuri boundaries.
+- [ ] **Step 9: Execute `compile_raster_to_m64`** in `qualia-geospatial` to produce the first live `.m64` Mode 0x02 terrain chunk.
