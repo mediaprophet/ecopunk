@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecopunk — 3D Holographic Earth-Terrain & Spatio-Temporal Linguistics</title>
+  <meta name="description" content="Holographic 3D Earth-Terrain continuum physics engine, diachronic isogloss mapping, and sonic toponym spatial wave-field streamer in QualiaDB & Ecopunk.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- 3D Canvas Layer -->
+    <canvas id="viewport-canvas"></canvas>
+
+    <!-- Overlay filters -->
+    <div class="vignette-overlay"></div>
+    <div class="scanlines-overlay"></div>
+
+    <!-- UI Overlay Grid -->
+    <div class="ui-layer">
+      <!-- Top Navigation Bar -->
+      <header class="glass-panel top-nav ui-interactive">
+        <div class="brand-section">
+          <div class="brand-logo">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <h1 class="brand-title">ECOPUNK</h1>
+              <span class="brand-badge">Holo Continuum v0.40</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Normative Observer Shader Mode Selector -->
+        <nav class="shader-modes-bar" aria-label="Observer Projection Modes">
+          <button class="mode-btn active" data-mode="0" id="mode-pbr" title="Spectral Cook-Torrance PBR + CIE 1931 XYZ">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            Spectral PBR
+          </button>
+          <button class="mode-btn" data-mode="1" id="mode-toon" title="Cel-Shaded Toon with Discrete Steps & Sobel Inking">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Cel Toon
+          </button>
+          <button class="mode-btn" data-mode="2" id="mode-watercolor" title="Storybook Watercolor with Kubelka-Munk Diffusion">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            </svg>
+            Watercolor
+          </button>
+          <button class="mode-btn" data-mode="3" id="mode-hud" title="Tactical / GPR HUD with Dielectric Contrast Wireframe">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            GPR HUD
+          </button>
+          <button class="mode-btn" data-mode="4" id="mode-thermal" title="Planck Blackbody Thermal Infrared Pseudocolor">
+            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+            </svg>
+            Thermal IR
+          </button>
+        </nav>
+
+        <!-- Telemetry Strip -->
+        <div class="telemetry-strip">
+          <div class="telemetry-item">
+            <span class="status-dot"></span>
+            <span id="fps-counter">60 FPS</span>
+          </div>
+          <div class="telemetry-item">
+            <span>VRAM:</span>
+            <span id="vram-counter" style="color: var(--accent-cyan);">42.0 / 256 MiB</span>
+          </div>
+          <div class="telemetry-item">
+            <span>FrameLock:</span>
+            <span style="color: var(--accent-emerald);">64B UDP SYNC</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Left Sidebar: Spatio-Temporal Linguistics -->
+      <aside class="glass-panel left-sidebar ui-interactive">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Spatio-Temporal Linguistics
+          </div>
+          <span class="brand-badge">sl:Lect</span>
+        </div>
+
+        <div class="panel-body">
+          <!-- Active Diachronic Isogloss -->
+          <div class="sub-card">
+            <div class="card-label">
+              <span>Active Isogloss Variety</span>
+              <span style="color: var(--accent-emerald);">4D Valid</span>
+            </div>
+            <div class="card-value" id="isogloss-name">Pre-Colonial Kinship Songline Lect</div>
+            <div class="card-desc" id="isogloss-details">
+              Continuous acoustic prosody; seasonal ceremony; oral custodianship.
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-cyan); display: flex; justify-content: space-between;">
+              <span>Enclosing Radius: 12.0 km</span>
+              <span>ICCPR Art. 27: Fiduciary</span>
+            </div>
+          </div>
+
+          <!-- Sonic Toponym Wave-Field Streamer -->
+          <div class="sub-card" style="flex: 1;">
+            <div class="card-label">
+              <span>Sonic Toponyms (Wave Streamer)</span>
+              <span>Click to Play</span>
+            </div>
+            <div class="card-desc">
+              Spatial wave-field playback with real-time inverse-square SPL falloff & Doppler pitch tracking:
+            </div>
+            <div id="toponym-list" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+              <!-- Injected by app.js -->
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Sidebar: Subsurface Stratigraphy & Specimen Loupe -->
+      <aside class="glass-panel right-sidebar ui-interactive">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-magenta)" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+            </svg>
+            Subsurface Matter-64
+          </div>
+          <span class="brand-badge">.m64 Strata</span>
+        </div>
+
+        <div class="panel-body">
+          <!-- 6-Layer Stratigraphic Column -->
+          <div class="sub-card">
+            <div class="card-label">
+              <span>6-Layer Stratigraphic Column</span>
+              <span id="exc-status" style="color: var(--text-dim);">Nominal Stack (Uncut)</span>
+            </div>
+            <div class="strata-stack">
+              <div class="stratum-bar stratum-0" title="Topsoil: Sw = 42%, Mannings n = 0.035">
+                <span>L0: Topsoil / Humus</span>
+                <span>Sw 42%</span>
+              </div>
+              <div class="stratum-bar stratum-1" title="Clay / Silt: Kaolinite, Sw = 78%">
+                <span>L1: Kaolinite Clay</span>
+                <span>Sw 78%</span>
+              </div>
+              <div class="stratum-bar stratum-2" title="Gravel: Permeability k = 4.2e-11 m²">
+                <span>L2: Alluvial Gravel</span>
+                <span>k: 4.2e-11</span>
+              </div>
+              <div class="stratum-bar stratum-3" title="Weathered Clasts: Mohr-Coulomb c = 34 kPa">
+                <span>L3: Weathered Clasts</span>
+                <span>c: 34 kPa</span>
+              </div>
+              <div class="stratum-bar stratum-4" title="Basalt: Biot poroelastic Vp = 2840 m/s">
+                <span>L4: Fractured Basalt</span>
+                <span>Vp: 2840 m/s</span>
+              </div>
+              <div class="stratum-bar stratum-5" title="Solid Bedrock: Vp = 5400 m/s">
+                <span>L5: Solid Bedrock</span>
+                <span>Vp: 5400 m/s</span>
+              </div>
+            </div>
+            <div class="card-desc" style="font-family: var(--font-mono); font-size: 0.65rem;">
+              Voigt-Reuss-Hill Elasticity: K_VRH = 38.4 GPa · CRIM ε_eff = 8.4
+            </div>
+          </div>
+
+          <!-- 10D Specimen Loupe: Corymbia aparrerinja -->
+          <div class="sub-card">
+            <div class="card-label">
+              <span>Specimen Loupe (10D Manifold)</span>
+              <span style="color: var(--accent-cyan);">Jakob-Hanika</span>
+            </div>
+            <div class="card-value">Corymbia aparrerinja</div>
+            <div class="card-desc">
+              Ghost Gum · Central Australian arid zone specimen with high-albedo bark reflection.
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem;">
+                <span style="color: var(--text-muted);">Allometric Height:</span>
+                <span id="specimen-height-val" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent-cyan);">14.5 m</span>
+              </div>
+              <input type="range" id="specimen-height" min="0.5" max="25.0" step="0.5" value="14.5" class="timeline-slider">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim);">
+                <span>Bark Albedo: <strong id="specimen-refl" style="color: #fff;">74.2%</strong></span>
+                <span>Arrernte Custodianship: Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Floating Action Buttons -->
+      <div class="action-toolbar ui-interactive">
+        <button class="action-btn" id="btn-excavate" data-tooltip="Excavation Tool (Carve CSG Cavity)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/>
+          </svg>
+        </button>
+        <button class="action-btn" id="btn-reset-view" data-tooltip="Reset Camera Orbit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/>
+          </svg>
+        </button>
+        <button class="action-btn active" id="btn-audio-toggle" data-tooltip="Toggle Spatial Audio">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Bottom Control Strip: Timeline & Spectrum Bar -->
+      <footer class="glass-panel bottom-strip ui-interactive">
+        <div class="timeline-control">
+          <div class="era-year-badge" id="era-year">1920 CE</div>
+          <div class="timeline-slider-wrap">
+            <input type="range" id="timeline-slider" min="1800" max="2030" step="1" value="1920" class="timeline-slider">
+            <div class="timeline-meta">
+              <span>1800 CE (Pre-Colonial Songlines)</span>
+              <span>1860 (Cadastral Baseline)</span>
+              <span>1920 (Mining/Crown Grants)</span>
+              <span>1980 (ILUA Registers)</span>
+              <span>2030 (Modern Continuum)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Audio Spectrum Oscilloscope -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="text-align: right;">
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-cyan);">ACOUSTIC WAVE TENSOR</div>
+            <div style="font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-dim);">Doppler + Inverse-Square</div>
+          </div>
+          <div class="audio-visualizer-box">
+            <canvas id="audio-canvas" width="200" height="40"></canvas>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="terrain.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -107,8 +107,8 @@ down — ecopunk layer packs should satisfy:
 | "declarative render profile cannot alter IDs/coordinates/route graph" | style is a consumer-side profile; layers are style-neutral |
 
 Also relevant: doc 40 shows game-demo adopting the *same* modalities stack
-(deontic for park-law rules, Allen for diurnal/seasonal timing, REA value-flow
-for resource balances, A* over track graphs, units for telemetry) — ecopunk
+(deontic for park-law rules, Allen for diurnal/seasonal timing, REA
+socioeconomics for resource balances, A* over track graphs, units for telemetry) — ecopunk
 layers carrying time/duration/units semantics will be directly consumable.
 
 ## 6. Pipeline implications (amends `pipeline.md`, to fold in)

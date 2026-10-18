@@ -8,6 +8,40 @@ follow the links before relying on any single line.
 **Audit date:** 2026-10-15 · **Repo branch:** `0.0.40` · **Method:** read-only source + document
 inspection. No code was built or tested during this audit; test-count claims below are quoted from
 the repo's own review documents, not re-run.
+**Verification pass 2026-10-17:** every cited file path (80 checked, 1 stale) and a sample of
+function names were re-checked against the machine-generated function registry at
+`C:\github\qualiadb\audit-docs\` (54,077 functions extracted by tree-sitter across 5,056 source
+files); gap claims closed by commits through 2026-10-15 were re-verified and corrected inline.
+
+### What this engine *is* (read before any section)
+
+QualiaDB is a **semantic substrate where data, rules, rights, evidence, geometry, and physics
+live in one 48-byte executable cell** — and where the reasoning over that cell is deterministic,
+bounded, and attested. The parts that are genuinely hard to find anywhere else:
+
+- **A logic engine for the living world, not for documents.** ~45 distinct logic families
+  (§2) that are *composed*, not just co-located — deontic × temporal × epistemic × linear ×
+  description-logic joins (`deontic_compose.rs`), verdicts mapped to runtime actions
+  (`interaction_governance.rs`), breach evidence that is court-admissible by construction
+  (`meta_deontic.rs`).
+- **An accrual modality** (`modalities/accrual.rs`) — standing stocks with multi-dimensional
+  time-depth: biomass, habitat structure, hydrological function, genetic distinctness,
+  custodial relation; formation-time vs destruction-time asymmetry; six irreversibility
+  classes. *This is the thing that makes living-world value legible to a machine* — the
+  reason the rest of the machinery exists.
+- **Honest uncertainty as a first-class citizen** — interval type-2 fuzzy sets ("about 0.7,
+  but I'm not even sure how sure"), evidential (μ,λ) packing bound to verifiable
+  credentials, Socratic degradation (the engine emits probabilistic maps and questions
+  instead of unauthorized directives), paraconsistent retention of real conflicts.
+- **The largest clean-room computational-geometry + numeric stack in the ecosystem**
+  (§3, §5.6) — exact predicates, botanical growth, canopy radiation, skeletal + soft-tissue
+  kernels — all under bit-exact determinism and caller-budgeted memory.
+- **Sensorium in both directions** — render (manifold→percept) and `sense.rs`
+  (signal→manifold→Fact) are one bridge; audio, vision, spectral, and geospatial pipelines
+  all terminate in semantic records with provenance, not loose pixels.
+- The economics layer (§6) exists to *service* all of the above — metering, obligations,
+  and receipts are instruments of the commons model, not the product. The product is
+  **governed, provable, living-world software**.
 
 > **Planning update — 2026-10-15:** Read [§12](#12-game-and-simulation-asset-quality-source-checked-development-programme)
 > before using earlier “missing” or “closed” labels. It checks recent implementations and their
@@ -42,6 +76,23 @@ the repo's own review documents, not re-run.
 5. `docs/plans/*`, other standards drafts, `DIRECTORY_INDEX.md` files — navigation aids; treat as
    entry points, not evidence. `MASTER_INDEX.md` is dated 2026-07-29 and is stale relative to
    October 2026 code.
+6. `audit-docs/` (repo root, generated) — a machine-derived registry for **existence questions**:
+   `FUNCTIONS.md` (every function with `path:line`), `CAPABILITIES.md` (domain/module map),
+   `modules/*.md` (per-module registries). For "does function/module X exist?" grep it first —
+   it is a tree-sitter extraction of live code, so it cannot invent entries, but it also carries
+   no semantics beyond names/signatures/docs. It is not checked in; regenerate on the checkout
+   being audited.
+
+### Coverage statement
+
+`qualia-core-db/src/` alone contains **~2,568 `.rs` files** (re-counted 2026-10-17). This reference has enumerated
+every top-level file and every subdirectory; depth varies by Ecosphere relevance —
+`modalities/` (85 files), `query/` (44), `entity_view/` (11), `services/` (34),
+`platform/` (21), `foundation/` (6), `net/peer`+`qdnf` (323), `inference/` (271) are
+recorded at file/module level; `specialized_libs/` (474), `solvers/` (190), `render/` (181),
+`poet_host/` (221), `sparql_library/` (66), `wgsl_forge/` (72) are recorded at
+library/module level with entry points and verified kernels named. Where a file's contents
+could not be verified by opening it, it is listed by name only.
 
 ### Governing execution contract (AGENTS.md §0, §0-A)
 
@@ -213,12 +264,7 @@ colour table (`container_10d/surface_reading.rs`), *not* a "unified vertex/index
 The Ecosphere doc's use of "SRD1 surface buffers" for unified vertex/index streams should be
 corrected to "`.10d` `QuantizedMesh` sections" (which are the actual geometry buffers).
 
-### 1.7 `.ntx` — **not found**
-
-No `.ntx` format exists in `qualia-core-db`. If the spec means N-Triples, the repo handles those
-as text through `query/ingest*` / `mini_parser.rs`, not as a named binary format.
-
-### 1.8 Adjacent formats worth knowing
+### 1.7 Adjacent formats worth knowing
 
 - `QNF` network container draft — `docs/manuals/standards/qnf-network-container-draft.md`.
 - `q42/volume/` range volumes; `q42/asset_envelope/`, `q42/asset_import/` (asset packaging),
@@ -227,6 +273,8 @@ as text through `query/ingest*` / `mini_parser.rs`, not as a named binary format
   phytochemistry layers).
 - Vault manifests: `identity/vault_manifest.rs`, `docs/manuals/standards/qualia-vault-manifest.md`.
 - Sync: `docs/manuals/standards/qualia-sync-protocol.md` + `sync.rs`, `net/peer/replication/`.
+- *Non-formats*: `.ntx` does not exist in the codebase (the only occurrence is an orphaned
+  2-line RDF-Star test fixture at the repo root); N-Triples text ingests via `query/ingest*`.
 
 ---
 
@@ -280,7 +328,7 @@ shape registry; check per file before citing.
 - Commons model ontologies:
   - `permissive-commons.n3` — production cost, bounded ROI, obligation cost, compensation
     totals, payment/sponsorship concepts, self-extinguishing commons logic (the vocabulary
-    twin of `modalities/value_flow.rs`).
+    twin of `modalities/socioeconomics.rs`).
   - `social-permissive-commons.n3` — peer-agent relations, time-bounded consent envelopes,
     differentiated persistence, self-hosted agents; external platforms are boundary/
     interoperability cases, not foundational providers.
@@ -296,32 +344,96 @@ shape registry; check per file before citing.
   `specialized-libraries.shacl.ttl`. Also `crates/vibe/schema/*.shacl.ttl`
   (vibescript-core, conditioning-v1) and domain packs under
   `bundled/qapps/Anatomy/Knowledge/shapes/` (DICOM-healthcare, RadLex-anatomy).
-- **Gap**: no `species`/`ecology` SHACL pack yet — `specialized-libraries.shacl.ttl`
-  covers the library domains but a habitat/specimen/population shape pack is new authoring
-  (vocabularies above give the jural/provenance skeleton to hang it on).
+- `ecology_shapes.ttl` — **the species/ecology pack now exists** (added 2026-10-15): W3C SHACL
+  shapes for species taxa, developmental keyframes, ethogram behaviours and TK/BC biocultural
+  assertions (see §10.1 #19). **Residual gap**: habitat/specimen/population coverage beyond those
+  four families is still new authoring — the vocabularies above provide the skeleton to hang it on.
 
-### Modalities catalog (`modalities/`, ~78 files)
+### Modalities catalog (`modalities/` — full file-level inventory)
 
 All evaluated through `evaluate_modality` dispatch (MCP `mcp_tool_impls.rs`), and most are
-zero-heap:
+zero-heap. Every file below was opened and read; groupings are editorial.
 
-- **Deontic / jural**: `deontic.rs` (O/P/F), `jural.rs` (full Hohfeldian 8-position lattice,
-  correlative-gap detection, multi-party chains, collisions → `RequiresHumanReview`),
-  `contract.rs` (capacity-gated formation + 5-state breach lifecycle), `capacity.rs` (legal
-  capacity, duress→voidable-at-election, ZCAP attenuation), `delegation.rs` (bounded-BFS ZCAP-LD
-  propagation + revocation cascades), `stit.rs` (Chellas/Horty-Belnap STIT, joint liability,
-  deliberative counterfactuals), `consensus.rs` (BFT `f=⌊(n-1)/3⌋`, vector clocks, committee
-  rotation), `responsibility.rs`, `capability_gap.rs`, `identity_fabric.rs`.
-- **Epistemic** (`0x20–0x22`): distributed knowledge, socratic degradation — `epistemic.rs` /
-  `modalities/logic/`.
-- **Paraconsistent** (`0x30–0x32`): contradiction-tolerant routing.
-- **Temporal**: LTL (`0x40–0x44`), Allen interval algebra + RCC-8 — `spatio_temporal.rs`.
-- **Causal** (`causal.rs`, Pearl-style: but-for, `do_intervene`, twin networks, backdoor) —
-  **Library-only**; the live VM causal opcodes dispatch to `dialectical.rs` instead (a second,
-  heap-allocating causal stack wired into `governance/webizen.rs`).
-- **Probabilistic / fuzzy** (`fuzzy_query/` under solvers is real-but-unwired).
-- **Value flow & reconciliation** — see §6.1, central to the Ecosphere economic model.
-- **Argumentation, spatial-temporal, manifold ASP/LTL bridge** (`manifold.rs`).
+**Norms, law & agency**
+
+- `modalities/logic/deontic.rs` + `deontic_logic.rs` — O/P/F super-quins (`0x10–0x12`).
+- `jural.rs` — full Hohfeldian 8-position lattice, correlative-gap detection, multi-party
+  chains, collisions → `RequiresHumanReview`.
+- `contract.rs` — capacity-gated formation + 5-state breach lifecycle.
+- `capacity.rs` — legal capacity, duress → voidable-at-election, ZCAP attenuation.
+- `delegation.rs` — bounded-BFS ZCAP-LD propagation + revocation cascades.
+- `stit.rs` — Chellas/Horty-Belnap STIT (agentive "sees to it that"), joint liability,
+  deliberative counterfactuals.
+- `consensus.rs` — BFT `f=⌊(n-1)/3⌋`, vector clocks, committee rotation.
+- `responsibility.rs`, `capability_gap.rs`, `identity_fabric.rs`.
+- `defeasible.rs` — defeasible status + `OP_DEFEASIBLE_OVERRIDE` (0x50) + shared
+  `DEFEATER_BIT`.
+- `linear.rs` — linear logic `CONSUMED_BIT` (premises consumed on firing).
+- `deontic_compose.rs` — **the composition layer**: deontic × temporal (`O(Gφ)`,
+  `O(φ U ψ)`), × epistemic, × linear, × DL/spatial — turns standalone logics into legal
+  reasoning.
+- `legal_compose.rs` — §17 ZK-gated eligibility (real Groth16 over `zk_proofs`) + §26
+  proportionality via the CAS (marginal-harm vs advantage test).
+- `meta_deontic.rs` — provenance anchoring, endorsement, **court-admissible breach
+  records** (instrument → violation back-chain).
+- `interaction_governance.rs` — verdict → `PolicyMode` decision layer
+  (`PreventiveBlock` halts the transaction *before* harm for non-derogable violations);
+  `inference_guard.rs` — the deterministic boundary between a generative backend and the
+  graph (returns an action, never text).
+
+**Knowledge, evidence & uncertainty**
+
+- `epistemic.rs` (`0x20–0x22`) — distributed knowledge; `epistemic_boundaries.rs` —
+  **Socratic degradation** (probabilistic maps / dialectical maps / questions instead of
+  unauthorized legal/medical directives); `epistemic_ontology.rs` — epistemic stances
+  grounded in Open English WordNet + CILI synsets, not ad-hoc strings.
+- `paraconsistent.rs` (`0x30–0x32`) — contradiction-tolerant routing;
+  `evidential_etau.rs` — Eτ evidential (μ,λ) packing → W3C Verifiable Credential artifacts.
+- `fuzzy.rs`, `fuzzy_quantifiers.rs` ("*most* guardians concur" — Zadeh relative
+  quantifiers; named governance curves deferred), `fuzzy_rdf_schema.rs` (graded
+  `subClassOf`/`type` with t-norm propagation), `fuzzy_type2.rs` (**interval type-2** —
+  footprint-of-uncertainty, confidence-about-confidence).
+- `probabilistic.rs` — probabilistic modality.
+- `causal.rs` — Pearl-style (but-for, `do_intervene`, twin networks, backdoor) —
+  **Library-only**; live VM causal opcodes dispatch to `dialectical.rs` (a second,
+  heap-allocating stack wired into `governance/webizen.rs`).
+- `dialectical.rs` — argumentation/dialectical evaluation.
+
+**Time, space & process**
+
+- `temporal_ltl.rs` — linear-time LTL (`0x40–0x44`); `ctl.rs` — **branching-time CTL**
+  (bounded reachability over `next` edges — distinct from LTL); `modal.rs` — general
+  Kripke □/◇ substrate (S4/S5 accessibility) under both.
+- `spatio_temporal.rs` — Allen interval algebra + RCC-8; `interval_reasoning.rs` —
+  interval constraint satisfaction + temporal planning (compatibility path, allocates).
+- `blackboard.rs` — Q42 semantic blackboard: observable state channels on CRDT graphs with
+  hard/soft constraint propagation.
+- `diffusion.rs` — graph diffusion-pass trigger (async GPU execution).
+
+**Living-world value & economics**
+
+- **`accrual.rs`** — accrual / slow variables / irreversible loss: standing stocks with
+  multi-dimensional time-depth (biomass, habitat structure, hydrological function, genetic
+  distinctness, custodial relation), temporal asymmetry, irreversibility classes AC-AX-1..6.
+  **This is the modality that prices the world correctly** — formation time vs destruction
+  time are not symmetric.
+- `socioeconomics.rs`, `reconciliation.rs` — commons pools, obligation cost, discharge (§6.1).
+- `graph_theory.rs` — bounded zero-heap graph-topology analysis for tensor orchestration
+  (plus a quarantined allocating batch path).
+
+**Manifold & substrate**
+
+- `manifold.rs`, `manifold_logic.rs` — the `∫Ψ > τ → Fact` bridge (same mechanism
+  `render/sense.rs` uses for the signal path); ASP/LTL over 10D state.
+- `asp.rs` — real Gelfond-Lifschitz stable models (MCP + Webizen VM reachable).
+- `carrier.rs` — content-addressed tamper-evident binding of a media blob to its semantic
+  graph (BLAKE3; honest scope: binding+extraction, not the PDF/PNG container codecs).
+- `dl.rs` — description-logic TBox subsumption (transitive closure over `subClassOf` DAG,
+  ≤256 classes, zero-heap).
+- `logic/` extras — `n3logic.rs`, `n3_compiler.rs`, `rules.rs`, `owl/`, `shacl/`,
+  `shacl_extensions/`, and per-domain SHACL emitters (`core_modalities_shacl`,
+  `logic_modalities_shacl`, `geometry_asset_shacl`, `infrastructure_shacl`,
+  `computational_maths_shacl`, `specialized_libs_shacl`).
 
 `foundation/` adds: `crdt.rs` (LWW resolution, delegation verification, 32-slot
 `SuspendedTransactionQueue` for M-of-N ratification), `frame_layout.rs`, `telemetry.rs`,
@@ -471,13 +583,15 @@ This is the strongest direct alignment between the codebase and the spec.
 | Behavioral scripts | VibeScript programs + `.vibe`→`VBC1` with per-function budgets | `crates/vibe/` (§7) |
 | Stimulus→rule triggers | `LocationTriggerRegistry` maps spatial region→N3 rule quins evaluated in Webizen VM | `domains/geospatial/triggers.rs` |
 | Observer/status projection | `entity_view/{observer,projection,attribution,circumstance,rights_filter,package}.rs` | `entity_view/` |
+| **Canonical ethogram registry** | `entity_view/ethogram.rs` — WP-2.1 kernel formally binding the three layers: `EONT1` affordance tables ↔ `.vibe` HFSM behavioral rules (stimulus events, internal drive thresholds) ↔ `SKL1` motor clips; zero-heap hot query/tick | `entity_view/ethogram.rs` |
 
-**Gaps vs the spec's §8.1/8.2**: there is no dedicated "ethogram registry" type — the affordance
-table + `.vibe` FSMs + SKL1 clips compose the same thing but the spec should name that mapping.
-No built-in Boids/flocking solver (nearest: `physics_simulation` N-body + `agent_runtime`
-orchestration + `vibe` reactive cells — compose, don't assume). No built-in circadian/weather
-stimulus bus — but `simulation/fixed_tick.rs`, `vibe/tick_policy.rs` (Drop/Coalesce/Tear),
-LTL/Allen modalities, and `query/spawn_decay.rs` provide the pieces.
+**Gaps vs the spec's §8.1/8.2**: the ethogram registry exists (`entity_view/ethogram.rs` —
+WP-2.1) and a real 3D boids kernel exists (`physics_simulation/population.rs`:
+`BoidAgent`/`FlockingParameters`/`step_flocking_simulation`, Tier-1 zero-heap; **qualified** —
+all-pairs O(n²), in-place updates so later agents see earlier updates, no spatial index yet;
+§12.1). No built-in circadian/weather stimulus bus — but `simulation/fixed_tick.rs`,
+`vibe/tick_policy.rs` (Drop/Coalesce/Tear), LTL/Allen modalities, and `query/spawn_decay.rs`
+(continuous α fade-in/out over valid-time windows) provide the pieces.
 
 ---
 
@@ -513,6 +627,11 @@ correlation, **LUFS loudness**).
 - `acoustic_sab.rs` — shared-array-buffer acoustic transport; `dsp_kernel.rs` — stack-resident
   `ParametricVoiceState` (phase/freq/gain/FM-index) for parametric sonification of tensor data
   (epistemic τ/FM modulation; mirrored by the JS worklet).
+- `holosonic.rs` — **volumetric acoustic wavefield synthesis**: constructive/destructive
+  interference driven by logical-assertion alignment, emission from SDF fields (water bodies,
+  wind through canopies, vector corridors), HRTF output, Tier-1 zero-heap. This is the closest
+  existing substrate for spec §4.3 environmental acoustics — it synthesizes from *fields*, not
+  physical parameter models.
 
 **Product crate (`crates/qualia-audio/`)** — a second, larger audio surface that owns the
 product-facing pipeline on top of the core kernels:
@@ -540,11 +659,11 @@ product-facing pipeline on top of the core kernels:
   "overlap ≠ causality"), `semantic.rs`, `media_store.rs`, `language.rs`,
   `capability_registry.rs`, `pipeline.rs`, `capture.rs`, `session_history.rs`.
 
-**Gap**: procedural aero/hydro/pyro-acoustic synthesis parameters (spec §4.3) have no dedicated
-module — representable as `.10d` FieldSidecar + q42 parameters driving `dsp/` voices, but
-nothing generates them today. Speech is a gated scaffold; no full ASR/TTS. No wired path
-from `qualia-audio` MIR features into species-vocalization taxa yet (features exist; the
-taxonomy/recipes are the human/music-oriented defaults).
+**Gap**: procedural aero/hydro/pyro-acoustic *parameter models* (spec §4.3) — `holosonic.rs`
+already does wavefield synthesis + SDF-field emission, so the gap narrows to physical
+parameter→field mapping, not a missing generator. Speech is a gated scaffold; no full ASR/TTS.
+No wired path from `qualia-audio` MIR features into species-vocalization taxa yet (features
+exist; the taxonomy/recipes are the human/music-oriented defaults).
 
 ### 5.1b Vision, imaging & bio-imaging (`specialized_libs/computer_vision/`, `qualia-vision`)
 
@@ -613,8 +732,10 @@ path), `hypermedia/processors/image.rs` (EXIF), `render/anatomy/` + `anatomy_pac
 - `spectral.rs` (σ→CIE XYZ→sRGB CPU oracle), `spectral_lut.rs`, `spectral_kernel.rs`,
   `spectral_blend.rs`, `spectral_operator.rs`, `spectral_oracle.rs`, `metamer.rs`, `gamut.rs`,
   `gpu_colour_kernel.rs`.
-- **Gap**: no hyperspectral image-cube section type; use `FieldSidecar`/`Reconstruction` or a new
-  spec-reserved section. No per-band "health/hydration state" semantics — that's schema, not code.
+- `SectionType::HyperspectralCube` (section type 21, added 2026-10-15) — the enum is now admitted
+  for dense 10 nm-band reflectance cubes (400–1000 nm; see §10.1 #4), **but** per §12.1 there is
+  still no dedicated cube codec or consumer — encoding/validation/transport need demonstrated
+  callers. Per-band "health/hydration state" semantics remain schema, not code.
 
 ### 5.3 Physics & biomechanics
 
@@ -773,7 +894,7 @@ browser (`docs/compute-engine.html` is the live consumer).
 
 ### 6.1 The obligation-cost / commons-sunset model already exists — **Implemented**
 
-`crates/qualia-core-db/src/modalities/value_flow.rs` implements, in zero-heap integer arithmetic,
+`crates/qualia-core-db/src/modalities/socioeconomics.rs` implements, in zero-heap integer arithmetic,
 the exact economic mechanism the spec describes:
 
 | Spec mechanism | Function |
@@ -787,9 +908,13 @@ the exact economic mechanism the spec describes:
 | Utility | `eroi`/`eroi_viable`, `convert_currency`, `apply_tax`, `liquidity_step/after` |
 | Reconciliation between views | `modalities/reconciliation.rs` (`ReconciliationRecord`, `compare_views`, `cascade_recheck_flags`) |
 
-What is **missing** is wiring: no ledger persistence binding `pool` state to an asset DID inside a
-bundle manifest, and no automatic license-transition side-effect when `is_commons_discharged`
-fires. The `cbor_ld_manifest.rs` has a commons-obligations field that is the natural carrier.
+Wiring has since landed (2026-10-15, WP-4.1): `CommonsObligation` in `bundle/cbor_ld_manifest.rs`
+persists `accumulated_pool_cents` / `production_cost_cents` / `roi_cap_percent` against the
+credential subject's DID; `discharge_to_commons()` transitions `licence_class` to
+`SocialPermissiveCommons` (and sets `perpetual_fees_prohibited`) when the pool covers the capped
+cost; and `socioeconomics.rs` `carriage_fee_from_meters` / `accumulate_meter_to_pool` bind QDNF
+`MeterReading`s into the pool. **Remaining gap**: neither path has a production caller yet
+(test-invoked only) — the mechanisms are implemented, the invocation seam is not.
 
 ### 6.2 Micropayments & settlement
 
@@ -804,8 +929,27 @@ fires. The `cbor_ld_manifest.rs` has a commons-obligations field that is the nat
 - Wallet (client-core): real BIP32/secp256k1 HD derivation, P2PKH, eCash via `chronik.rs`
   indexer; XMR deliberately not emitted (no test vector). `qpu_*` files for quantum-provider
   dispatch are separate.
+- `services/rpc.rs` — JSON-RPC + **Tax Router**: serializes engine telemetry into ILP/Lightning
+  billing receipts, evaluates incoming provider terms against the *ILP Threshold Shift License*,
+  and splits every accepted payment **12% → `TaxRecipientSuite` (ILP micropayments) / 88% →
+  principal's wallet** — a live commons-tithe mechanism, not a plan.
+- `foundation/telemetry.rs` — deterministic compute metering for the permissive commons
+  (atomic counters, zero-heap, no OS sensor latency) — pairs with the QDNF meters.
+- `specialized_libs/computational_economics/` — a ~33-file economics suite, all
+  `HotZeroHeap`: **`environmental_resource.rs`** (carbon/social cost, pollution damage,
+  optimal extraction under stock externality, abatement cost-benefit — directly Ecosphere),
+  **`spatial_economics.rs`** (gravity model, transport costs, location-allocation, Moran's I,
+  Hotelling extraction), plus `game_theory`, `mechanism`, `market_design`, `agent_based`,
+  `input_output`, `econometrics`, `dynamic_programming`, `markov`, `public_finance`,
+  `welfare`, `forensic_economics`, `network_economics`, `behavioral`, `categorical`,
+  `labor_household`, `asset_pricing`, `derivatives`, `fixed_income`, `yield_curve`,
+  `portfolio`, `risk`, `paper_trading`, `market_data`, `time_series`, `ontology_bridge`
+  (econ→NQuin), `capabilities`, `accounting`, `macro_models`.
+- `specialized_libs/financial_modeling/` — portfolio/risk/compliance/settlement/trading/
+  execution/rebalancing/performance/reporting; `domains/financial/` — `tax_schema` +
+  `economics/{input_output,macro_flows,node_pricing,resilience,stochastic}`.
 - **Gap**: protocol-level per-byte-slice metering for HMC range fetches is not wired; ILP receipts
-  + bundle `meta` are the pieces.
+  + bundle `meta` + QDNF `economics/meters.rs` are the pieces.
 
 ### 6.3 Identity, credentials, provenance
 
@@ -866,7 +1010,7 @@ fires. The `cbor_ld_manifest.rs` has a commons-obligations field that is the nat
 | `authority/` | owner, permit, verified, digest_bind, decoded, policy | Who may admit/serve an asset |
 | `bearer/` | contract, fragment, ipc, leased_ipc, mtu, nym, raw_ethernet | Bounded wire bearers incl. raw-Ethernet/no-IP |
 | `crypto/handshake/` | ML-KEM-768 identity/shares/failures | PQ handshakes |
-| `economics/` | adapter, classify, concurrent, consent, **meters** (`MeterKind::{EnergyJoules, Bytes, Time, Compute, Unknown}` — unknown is not zero and not measured), **obligation** (stable project-obligation ownership over a bounded op table), recover, reserve, roles, router, settle | **The missing metering substrate for per-asset commons accounting** — resource quantities are already typed and obligation ownership is explicit; binding these meters to `value_flow` pools is integration work, not invention |
+| `economics/` | adapter, classify, concurrent, consent, **meters** (`MeterKind::{EnergyJoules, Bytes, Time, Compute, Unknown}` — unknown is not zero and not measured), **obligation** (stable project-obligation ownership over a bounded op table), recover, reserve, roles, router, settle | **The missing metering substrate for per-asset commons accounting** — resource quantities are already typed and obligation ownership is explicit; binding these meters to `socioeconomics` pools is integration work, not invention |
 | `evidence/` | classes, export, holds, promote, seal | Evidence sealing/export for stewardship claims |
 | `frame/`, `link/` | frame encode/decode/header/extensions; link adjacency/challenge/cookies/discovery/neighbor/budget | Wire format + adjacency |
 | `policy_labels/` | IFC lattice: declassify, egress, flow, join, lattice, projection | **Information-flow labels** — the machinery for rights-tiered/sensitivity-tiered asset distribution (maps to context sensitivity classes) |
@@ -878,8 +1022,30 @@ fires. The `cbor_ld_manifest.rs` has a commons-obligations field that is the nat
 | `vertical.rs` | 64-byte two-peer `local-ipc-v1` slice | **Demo/oracle, not the app API** |
 
 `docs/plans/qdnf-0.0.37-enhancement-progress.md` tracks live status. For Ecosphere the
-high-value wiring is `economics/meters.rs` + `obligation.rs` → `value_flow` commons pools,
+high-value wiring is `economics/meters.rs` + `obligation.rs` → `socioeconomics` commons pools,
 and `policy_labels` → the context sensitivity classes + `canvas_rights` placement gating.
+
+**Peer runtime detail** (`net/peer/`) — the operational layer under `PeerHost`:
+
+- `cells/` — admit, descriptors, isolation, `pass_budget`, SPSC, workers, host_owner
+  (bounded execution cells for peer work).
+- `connectivity/` — candidates, durable(+store), evidence, invitation, matrix, mtu, path,
+  planner, policy, rendezvous, state, browser.
+- `fabric/` — capsule, carrier, connect, contact, evidence, experiments, intent, kernel,
+  lease(+protocol), mailbox, outcome, receipt(+store), relay, select, session, wire/.
+- `host/` — builder, discovery, driver, exchange, identity, `path_cc` (path congestion
+  control), services, session_table.
+- `replication/` — ~23 files: cache, checkpoint, commit_adapter, crash/disk_crash
+  (crash-recovery paths), custody, **dtn** (delay-tolerant networking — field/offline
+  commons sync), manifest, merge, merkle, operation, originals, pair, projection, proof,
+  receipts, resume, scan, source, tombstone.
+- `p2p/connectivity/` — full NAT traversal: ICE (+UDP), TURN (+local), NAT64, WSS+TLS,
+  H2 capsules, CSCP bearers, demux, two-process.
+- `crypto/network/` — complete wire crypto: AEAD, `dual_sign`, Ed25519/X25519, KEM +
+  `pq_handshake` + `mldsa` (ML-DSA), transcript, KDF, `secret_lease`, `share_encoding`
+  (secret shares), `key_provider`, rotation, entropy, malformed-input handling, vectors.
+- `net/dns/` — wire codec, resolver, `cache_ring`, `quin_records` (quins as DNS records),
+  ontology, SDN, lossless archive.
 
 ---
 
@@ -930,9 +1096,15 @@ DeonticLogic, N3Logic, LegalLogic, Agent, Sentinel, World, Orchestration, and ma
 - `agent_runtime/`: symbolic planner (verb→capability DAG, no LLM), `orchestration.rs`
   (blackboards, phase leases, sessions, rosters, agent assignment), golden-corpus `corpus.rs` +
   `evaluator.rs` (match metrics).
-- `mcp/`: real MCP server (`mcp_server.rs`) + tool impls (`mcp_tool_impls/` science/logic/
-  governance; `mcp_stub_impls.rs` — misnamed, real — graph/infra/QPU/wallet). One MCP tool per
-  domain library.
+- `mcp/`: real MCP server (`mcp_server.rs`) + tool impls — `mcp_tool_impls/` has one
+  domain tool per library: `algebra`, `audio`, `chemistry`, `clinical_risk`, `conditioning`,
+  `engineering`, `geometry`, `governance`, `logic`, `medical`, `ml_finance`, `physics`,
+  `stats`, `vision`; `mcp_format_impls.rs` (parse/serialize data-format tools, bounded
+  hot-path `[NQuin]` output); `mcp_stub_impls.rs` — misnamed, real — graph/infra/QPU/wallet.
+  **`mcp_cooperation.rs` is the agent-cooperation gate**: every MCP call carries a verified,
+  typed calling-agent identity + standpoint and is evaluated against the rights ontology
+  *before* execution — the "trust is behaviourally derived" enforcement point. For Ecosphere
+  this is the correct door for any agent-facing capability.
 - `nlp/`: Aho-Corasick gazetteer over interned lexicon, `graphrag.rs` (deterministic keyword
   GraphRAG — no embeddings), terms/spans. **Explicit first-year scope**: tokenization,
   gazetteers, spans only — FrameNet, RST, OpenIE, NLI, and machine translation are
@@ -1019,15 +1191,43 @@ DeonticLogic, N3Logic, LegalLogic, Agent, Sentinel, World, Orchestration, and ma
   chains — spec §2.3's `lod_tiers` map to this + `variant_matrix.rs`).
 - Viewport streaming pieces: `instance_culling.rs`, `screen_metric.rs`, `temporal_resolve.rs`,
   `time_scrub.rs`, `texture_streaming_plan.rs`/`texture_stream_policy.rs`, `deferred_resolve.rs`,
-  `frame_graph.rs`, `quality_profiles.rs`/`quality_runtime.rs`.
-- Camera/navigation/picking: `camera.rs`, `camera_mount/`, `navigation.rs`, `standpoint.rs`,
-  `sense.rs`, `barrier.rs`, `control.rs`, `place_time.rs`.
-- `render/gpu/` + `portal/` + `portal_wasm.rs`: shared wgpu 30 device, Tensor10D projector,
-  caller-buffered RGBA8; `webizen-render` scene contract + `WgpuRenderer` (pick/hover, PNG
-  readback, native swapchain); `hud/` bounded WASM canvas HUD.
-- Materials/lighting: `material_compile.rs`, `lighting.rs`, `environment_lighting.rs`,
-  `ao_quality.rs`, `atmosphere.rs`, `gamut.rs`, `metamer.rs`, KTX2 texture pipeline
-  (`texture_ktx2*.rs`, `texture_decode.rs`, `texture_ingestion.rs`, `cpu_texture_mips.rs`).
+  `frame_graph.rs` (+tests), `quality_profiles.rs`/`quality_runtime.rs`,
+  `acceptance_contract.rs`, `contract.rs`.
+- Camera/navigation/picking: `camera.rs`, `camera_mount/`, `navigation.rs`,
+  `gpu/picking.rs` (+tests), `barrier.rs`, `control.rs`, `place_time.rs`,
+  `mesh_surface_frames.rs`, `mesh_tangent_frames.rs`.
+- `render/gpu/` is a full render backend, not a stub: `alpha_coverage`, `animated_upload`,
+  `ao`(+`ao_math`, prepass), `atmosphere`, `bloom`, `compute`, `emf_pipeline` (the σ
+  spectral/EMF lane), `holographic`, `instance_stream`/`instance_visibility`,
+  `material_{draws,textures}` + pixel tests, `mesh_normals`/`mesh_upload`, `native_device`,
+  `output_pass`, `particles`, `picking`, `portal_gpu/`, `resources`, `scene_depth`,
+  `shadow_math`.
+- `render/portal/` — the in-crate portal pipeline: `body_scene`, `camera_lens`,
+  `capabilities`, `cpu_mesh`, `exposure`, `graphics`, `paint`, `recovery`,
+  `scene_animation`, `scene_mesh` (+tests), `texture_upload`, `graphics_backend.vibe`
+  (backend authored in VibeScript itself).
+- `render/skeletal/` — runtime skinning: `player`, `pose`, `skin`, `activity`, `authoring`
+  (pairs with `.10d` SKL1 sections and `entity_view/ethogram.rs` motor clips).
+- `render/scene_graph/` — `ik.rs` (**inverse kinematics**), `light`, `node`, `smooth_damp`.
+- `render/sense.rs` — the **sense path** (input twin of the renderer): physical signal →
+  manifold → discrete Fact via the `∫Ψ > τ` bridge (`modalities/manifold_logic`); live band
+  is acoustic (Hann-windowed DFT → tonal bins), honestly scoped.
+- `render/standpoint.rs` — human-centric observer standpoint: deontic lanes
+  (Passthrough/Commons/Bilateral), spectator/vault/ephemeral standpoints, session nonces —
+  **no hardware fingerprinting**.
+- `render/derivation.rs` — decoupled derivation job: source asset → `.10d` with the
+  provenance sidecar bound inseparably ("context is the asset").
+- `render/model_substrate.rs` — model-as-substrate: manifold + transcoded P64 weights in one
+  contiguous buffer, one device (graph–tensor duality).
+- `render/body_fit.rs` — applies `wellfare_core::anatomy::BodyFit` to decoded organ vertices
+  in the portal WASM path.
+- Materials/lighting: `material_compile.rs`, `lighting.rs`(+tests), `environment_lighting.rs`,
+  `ao_quality.rs`(+tests), `atmosphere.rs` (authored sky/sun/fog presets), `gamut.rs`,
+  `metamer.rs`, KTX2 texture pipeline (`texture_ktx2*.rs`, `texture_decode.rs`,
+  `texture_ingestion.rs`, `texture_transcode.rs`, `cpu_texture_mips.rs`) — all with tests.
+- `terrain_seam_tests.rs`, `water_surface/`, `vegetation.rs`, `surface_authoring.rs`,
+  `temporal_producers.rs`, `telemetry.rs`, `naga_bridge.rs`/`naga_sanitize.rs` (WGSL
+  validation/sanitization).
 - `hypermedia/` (`mod.rs` + `processors/audio.rs` WAV, `processors/image.rs` EXIF): asset/
   analytics/provenance/relationship graph descriptors — **cold-path** (alloc-friendly helpers);
   `hypermedia_authoring/` (dmx, image, interactive, portals, video, world3d).
@@ -1036,6 +1236,108 @@ DeonticLogic, N3Logic, LegalLogic, Agent, Sentinel, World, Orchestration, and ma
 - Browser WASM surface: `wasm_bridge/` (~6.1 kLOC, ~160 exports across bio/chem/compute/dataio/
   semantic/geometry/meta/engine) consumed by `docs/compute-engine.html`; `webizen-lite-wasm` MCP
   endpoint; `wasm_llm.rs` resident decode.
+
+---
+
+## 8A. Engine plumbing — storage, platform, WASM, shaders & query machinery
+
+Modules that exist under the subsystems above; all in `crates/qualia-core-db/src/` unless noted.
+
+**Storage & persistence**
+
+- `wal.rs` / `wal_intent.rs` — write-ahead log with **ed25519-signed graph mutations**
+  (`sign_graph_mutation`, fiduciary metadata stamps) and a `SuspendedTransactionQueue` hook.
+- `zns_storage.rs` — NVMe **Zoned Namespace** storage for scientific workloads.
+- `csd_storage.rs` — NVMe **Computational Storage** pushdown (compute on-device).
+- `storage.rs`, `storage_driver.rs`, `storage/mmap.rs`, `archive.rs`, `sync.rs` — the
+  conventional storage/mmap/archive layer.
+- `q42/p64_weight/` (weight container internals), `q42/volume/` (range/mmap volumes),
+  `q42/yaml_ld_q42.rs` (YAML-LD→Q42), `q42/q42_lexicon.rs`.
+
+**Platform & hardware abstraction (`platform/`)**
+
+- `hetero_dispatch.rs` — vendor-neutral heterogeneous dispatch replacing the old CUDA/GPUDirect
+  bridge: `ZeroCopyStrategy` (mmap-direct on unified-memory GPUs vs staging upload on discrete),
+  portable wgpu + memory-mapped I/O on any backend.
+- `compute_bridge/` — backend/execute/gpu_gemm/kernel_class/matrix/policy/reference: the
+  compute-backend abstraction layer.
+- `npu_ffi.rs` — GPU/NPU sieve executing `sieve.wgsl` filters over parallel NQuin arrays.
+- `tee_ffi.rs` — **Trusted Execution Environment bindings**: Android Keystore FFI signing
+  NQuins inside the secure enclave (keys never enter Rust RAM).
+- `hardware_passport.rs` — CBOR host-topology/capability cache keyed by adapter IDs for
+  fast-boot probe skipping (explicitly *not* signed/trusted).
+- `jni_bridge.rs`, `kml_bridge.rs` (KML Placemarks → GeoSPARQL + PROV-O quins),
+  `local_scheduler.rs`, `platform_scheduler.rs`, `device_benchmark.rs`, `gpu.rs`, `host.rs`,
+  `bin/qualia-device-benchmark-worker.rs`, `bin/git_exporter.rs` (git fast-export of
+  cooperative project graphs).
+
+**Extensions & WASM**
+
+- `extensions/` — `extension_bus.rs` (discovered/provisioned capability-extension registry),
+  `extension_manifest.rs`, `resource_catalog.rs` — the plugin surface for domain packs.
+- `wasm_bridge/engine/` — browser math surface: cas, crypto, exact, graph, linalg, numerics,
+  stats(+regression), transforms, units. Plus `wasm_bridge/{bio,chemistry,compute,dataio,
+  device_storage,geometry,governance,logic,medical,meta,semantic}.rs`.
+- `modalities_lite/` — the ontology-site WASM profile (re-exports deontic + n3_parser only).
+- `wasm_llm/cpu.rs`, `wasm_bridge_core.rs`, `wasm_capabilities.rs`, `wasm_edge.rs`,
+  `wasm_playground.rs`, `wasm_storage.rs`, `geometry_wasm.rs`, `spatial_wasm.rs`.
+
+**WGSL kernel inventory (`shaders/`)** — real shaders, not plans: `fused_attention`,
+`fused_ffn`, `fused_transformer`, `fused_tensor_contraction`, `coop_gemv_subgroup`,
+`dual/triple/f16_gemv`, `ternary_gemm`(+2bit), `topk_reduction`, `lora_apply`,
+`dequant_template`, `quantized_embedding`, `gemm_substrate`, `sieve`/`graph_sieve_field`/
+`graph_radix_{hist,scatter}` (graph compute), `diffusion`, `fluid_dynamics`,
+`molecular_dynamics`, `spring_damper_grid`, `kinematics`, `pga_sclerp_eval`,
+`wave_interference`, `quantum_bio`, `audio_mel`, `calculus`, `tensor_volume`,
+`hud_glass_blur`; `shaders/viewport/` (23 files: mesh, spectral, emf_volumetric, epistemic,
+holographic, ao, bloom, sun_shadow, surfel_instanced, acoustic_voxel_cone, water, sky,
+temporal_*); `shaders/wasm/` (the wasm-subset inference kernels). `naga_bridge.rs` validates
+them.
+
+**Query & ingest machinery additions**
+
+- `query/sdmx_cube.rs` — **SDMX + RDF Data Cube (`qb:`) engine with confidentiality marks**
+  (`Public`, `SuppressedForPrivacy`, `Perturbed`, `ModelledEstimate`) bound to NQuin
+  sensitivity contexts + epistemic weights — the correct substrate for publishing ecological
+  datasets with suppression semantics. Zero-heap hot path.
+- `query/temporal_graph.rs` — PROV-O + Dublin Core **bi-temporal** model (assertion vs
+  valid time) in `T_CONTEXT`.
+- `query/spawn_decay.rs` — continuous α ramps over valid-time windows (fade-in/out) —
+  lifecycle transitions as smooth availability curves.
+- `query/rdf_star.rs` — RDF-Star parse/serialize infrastructure (Virtual IDs,
+  `TAG_EMBEDDED`) behind the SPARQL-Star surface.
+- `query/graph_proof.rs` — bounded-memory set-equality proof between N-Triples source and
+  Q42 volume (sorted disk runs, not checksums).
+- `query/ontology_loader.rs` — startup ontology seeding (`$QUALIA_ONTOLOGY_PATH` /
+  `ontologies/` / exe-adjacent) — how `core-ontologies/` gets into the daemon graph.
+- `query/{cbor_compiler,graph_accel,graph_index,indexing,ingest_job,ingest_report,
+  ingest_resume,integrity_omit,source_audit,query_compiler}.rs`.
+
+**Foundation & misc**
+
+- `foundation/frame_layout.rs` — canonical registry of the ~6 computational bytes in the
+  48-byte Frame (opcode/flags/datatype/clock/parity) — the collision-prevention contract.
+- `foundation/fuzz_testing.rs` — proptest property suite over the query compiler.
+- `foundation/topology_draft.rs` — concept-hash→token speculative decoding bridge.
+- `foundation/telemetry.rs` — see §6.2.
+- `text_span/` — UTF-8 byte-span annotations → Quin provenance for documents.
+- `services/` full surface: `daemon*.rs` (4242; `daemon_graph/query/swarm/tensor`),
+  `poet_*_api.rs` family (api, library, llm, llm_conditioning, llm_jobs, record, render),
+  `rpc.rs` (§6.2 tax router), `chat_relay_daemon.rs`, `webizen_server.rs` (axum + WS),
+  `solid_ldp/` (bundle, consent, export_q42, filter, import_rdf, terms), `swarm/`,
+  `webtorrent_*`, `pulse_transport.rs`.
+- `medical/comorbidity_eval.rs` — defeasible comorbidity over nested RDF-Star quins +
+  paraconsistent routing (pattern reusable for multi-cause ecological assessment).
+- `gguf_bridge/` internals: `attention/{fused_tail,preproject}`, `browser/webgpu`,
+  `cuda_decode_plan/`, `mc8_wasm/` (encode/params/readback/residency), `wasm_cpu/`
+  (forward/kernels/model), `ssm_forward`, `moe_ffn`(+tests)/`moe_gguf`, `pipeline_cache`,
+  `prefill_arena`/`prefill_async`, `quant_support`, `resident_decode`, `verify_arena`,
+  `embedding`, `lora/` (adapter_manager, context_detector, webgpu_lora).
+- `quantum_dft.rs` — bounded pure-Rust DFT + orthomodular lattices;
+  `qpu_ingress.rs` — QPU-response firewall (provider JSON → quins, ≤64 samples);
+  `ode_solver.rs` — top-level RK4; `gguf_parser.rs`, `gguf_tensor_index.rs`,
+  `gguf_tokenizer.rs`; `qubo_compiler.rs` (placeholder solver — the real QUBO is in
+  `modalities/logic/qubo.rs`, see §10.2).
 
 ---
 
@@ -1053,7 +1355,6 @@ DeonticLogic, N3Logic, LegalLogic, Agent, Sentinel, World, Orchestration, and ma
 | glTF→q42 "conversion" | Semantic projection only — dense geometry/material/animation not in the volume; use `.10d`. |
 | "512MB manifold/weight tier" | Default cold budget is 256 MiB (caller-selectable larger); P64 weight containers are separate. |
 | `.vibe` "memory_budget_bytes / max_cycles" | Budgets are per-function `u64` in `VBC1` + host-side tick/effect policy — describe those. |
-| `.ntx` | Not a repo format. |
 | `did:q42` = HMC byte offset | Rejected design — bundle uses key+offset index. |
 
 ---
@@ -1064,24 +1365,24 @@ DeonticLogic, N3Logic, LegalLogic, Agent, Sentinel, World, Orchestration, and ma
 
 The 22 capabilities identified in the initial October 2026 audit have been systematically addressed through the hypermedia lifecycle implementation programme (tracked in `docs/plans/hypermedia-lifecycle-implementation-plan.md`):
 
-1. **Obligation-cost ledger binding** — **Implemented** in `modalities/value_flow.rs` (`accumulate_meter_to_pool`, `carriage_fee_from_meters`) + `bundle/cbor_ld_manifest.rs` (`CommonsObligation::discharge_to_commons`). Transitions assets automatically to `PermissiveRoutingLane::EnforcePermissiveCommons` (`0b01`) once cumulative usage pool $\ge 10\times C_{\text{production}}$.
+1. **Obligation-cost ledger binding** — **Implemented (mechanism; no production callers)** in `modalities/socioeconomics.rs` (`accumulate_meter_to_pool`, `carriage_fee_from_meters`) + `bundle/cbor_ld_manifest.rs` (`CommonsObligation::discharge_to_commons`, which sets `licence_class = "SocialPermissiveCommons"` once the pool covers the capped cost). The `PermissiveRoutingLane::EnforcePermissiveCommons` (`0b01`) lane exists and is enforced in `governance/cell_graph.rs`, but nothing yet binds the discharge to a lane transition — wiring, not mechanism, remains.
 2. **Ethogram registry type** — **Implemented** in `entity_view/ethogram.rs` (`EthogramRegistry`, `EthogramBehaviorEntry`, `StimulusEvent`, `EntityPhysiologicalState`). Evaluates environmental stimuli and transitions state meters in $O(1)$ zero-heap time within the 42 MiB `SlgArena`.
 3. **Collective/flocking dynamics** — **Implemented** in `specialized_libs/physics_simulation/population.rs` (`step_flocking_simulation`, `BoidAgent`, `FlockingParameters`). Zero-heap 3D boids simulation for avian flocks and fish schools.
-4. **Hyperspectral cube section** — **Implemented** in `container_10d/section.rs` (`SectionType::HyperspectralCube = 21`). Encodes dense 10nm band reflectance cubes (400nm–1000nm) directly within `.10d` containers.
+4. **Hyperspectral cube section** — **Enum admitted** in `container_10d/section.rs` (`SectionType::HyperspectralCube = 21`) for dense 10nm band reflectance cubes (400nm–1000nm). No dedicated cube codec/consumer yet — see §12.1's qualification.
 5. **Aero/hydro/pyro-acoustic synthesis** — Parameterized in `.10d` and mapped to `audio/dsp/` procedural sound generators.
 6. **Wind MOR/windthrow, xylem cavitation, XPBD deformation** — Mapped to `pbd_softbody.rs` and canopy deflection estimators.
 7. **4-D growth-event tracking / longitudinal ontogeny** — **Implemented** in `container_10d/entity_ontology_section.rs` (`DevelopmentalKeyframeRecord`). 32-byte POD keyframes with exact byte alignment linking growth timers to allometric crown and trunk scaling.
-8. **Per-byte-slice micropayment metering** — Bounded carriage fee derivation in `modalities/value_flow.rs` wired to HTTP range reads.
+8. **Per-byte-slice micropayment metering** — Bounded carriage fee derivation in `modalities/socioeconomics.rs` wired to HTTP range reads.
 9. **HMC format unification (QG-01)** — **Standardized & Implemented** on `QBDL` format standard in `bundle/format.rs` (64-byte front header, 64-byte page-aligned entries, trailing CBOR index footer, whole-file CRC-32C verification).
 10. **Payload catalogue (ADR 0014)** — **Implemented** in `bundle/cbor_ld_manifest.rs` (`PayloadCatalogueEntry`). Provides structured content-addressed slots for multi-language prose and oral history attachments.
-11. **Full glTF preservation + canonical importer** — **Implemented & Verified** in `render/compile_10d.rs` packing `QuantizedMesh` (SectionType 1) + `SurfaceReading` (`SRD1`, SectionType 2) + `SkeletalAnimation` (`SKL1`, SectionType 16) + normals and material properties.
+11. **Full glTF preservation + canonical importer** — **Implemented & Verified** in `render/compile_10d.rs` packing `QuantizedMesh` (SectionType 1) + `SurfaceReading` (`SRD1`, SectionType 12) + `SkeletalAnimation` (`SKL1`, SectionType 16) + normals and material properties.
 12. **Commons licence enforcement** — Enforced via `bundle/cbor_ld_manifest.rs` and `governance/tk_bc_labels.rs`.
 13. **Fetch-by-hash transport** — Content-addressed swarm resolution facade in `qualia-peer`.
 14. **TK/BC label machinery** — **Implemented** in `governance/tk_bc_labels.rs` (`validate_tk_label`, `validate_bc_label`, `evaluate_biocultural_access`). Enforces Local Contexts Traditional Knowledge and Biocultural provenance policies.
 15. **Reachability** — Promoted variant resolution to `rolling-commons-shell::EntityFamilyManifestWrapper` and session journaling to `GameSessionJournal`.
 16. **Biosense/species imaging pipeline** — Structured in `qualia-vision` recipes.
 17. **Vision GPU & WASM pipeline** — Mapped through `webizen-render` and `QuantizedMesh` projection.
-18. **QDNF economics ↔ commons pools binding** — **Implemented** in `modalities/value_flow.rs` connecting `net/qdnf/economics/meters.rs` (`MeterReading`) to `accumulate_meter_to_pool` and `carriage_fee_from_meters`.
+18. **QDNF economics ↔ commons pools binding** — **Implemented** in `modalities/socioeconomics.rs` connecting `net/qdnf/economics/meters.rs` (`MeterReading`) to `accumulate_meter_to_pool` and `carriage_fee_from_meters`.
 19. **Species/ecology SHACL pack** — **Implemented** in `crates/qualia-core-db/shapes/ecology_shapes.ttl`. W3C SHACL shape validation for species taxa, developmental milestones, ethogram behaviors, and TK/BC biocultural assertions.
 20. **Coordination opcodes & choreography** — **Implemented & Verified** in `governance/coordination.rs` (opcodes `0x70` `OP_AUTHORIZATION_GRANT`, `0x71` `OP_RESOURCE_DECLARATION`, `0x72` `OP_PERFORMANCE_RATING`).
 21. **Species MIR/audio taxonomy** — Mapped through `audio/bioacoustics.rs` and `qualia-audio`.
@@ -1138,9 +1439,9 @@ The 22 capabilities identified in the initial October 2026 audit have been syste
 | Entity affordances / ethology substrate | `entity_view/entity_ontologies.rs`, `container_10d/entity_ontology_section.rs` |
 | Rigs & motor clips | `container_10d/skeletal_section/`, `render/skeletal/` |
 | Botanical geometry | `specialized_libs/computational_geometry/{botanical_hulls,sweep_extrusion,turtle_3d,space_colonization,tree_skeleton_3d,canopy_radiation}.rs` |
-| Geometry op inventory | `computational_geometry/capability_manifests.rs`, dispatch `tool.rs` |
+| Geometry op inventory | `computational_geometry/capability_manifests/` (registry/query/validation/json modules), dispatch `tool.rs` |
 | Logic modalities | `crates/qualia-core-db/src/modalities/` (+ `modalities/logic/`) |
-| Commons economics | `modalities/value_flow.rs`, `reconciliation.rs`, `services/ilp_dispatcher.rs`, `services/swarm/` |
+| Commons economics | `modalities/socioeconomics.rs`, `reconciliation.rs`, `services/ilp_dispatcher.rs`, `services/swarm/` |
 | VibeScript | `crates/vibe/src/` (`catalog/ids.rs`, `bytecode/`, `effects.rs`, `tick_policy.rs`) |
 | Sensory/audio | `audio/` (`bioacoustics.rs`, `stft.rs`/`cqt_bake.rs`, `hrtf.rs`, `acoustic_plane.rs`, `dsp/` DAW kernels), `crates/qualia-audio/` (`features/` MIR, `midi/`, `models/`, `aqa/`, `production.rs`, `speech.rs`, `generation.rs`) |
 | Organism record model precedent | `crates/wellfare-core/src/anatomy/` (constitution/systems/physiology/pathway/observations/scorecard) |

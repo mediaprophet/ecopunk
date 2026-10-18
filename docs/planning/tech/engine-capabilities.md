@@ -74,7 +74,7 @@ incorporates-by-reference, capacity-gated) · `legal_compose` (**ZK-gated
 eligibility via real Groth16 `zk_proofs`**, selective disclosure,
 `translation_status`; §26 **proportionality** — native-only, differentiates harm
 expression via symbolic CAS) · `consensus` (obligations survive partition;
-joint obligations suspend until sync — complements CRDT LWW) · **`value_flow`
+joint obligations suspend until sync — complements CRDT LWW) · **`socioeconomics`
 (Permissive Commons economics**: `commons_cost` = production_cost × (1+capped ROI),
 `royalty`, `pool_after`, `is_commons_discharged` — **usage obligations discharge at
 a cost threshold, then use is freed globally**; integer arithmetic, zero-heap) ·

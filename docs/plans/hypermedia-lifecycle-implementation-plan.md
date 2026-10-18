@@ -60,7 +60,7 @@ To satisfy both massive parallel rendering and deterministic zero-heap logical v
 
 | Gap # | Reference from §10.1 & §10.2 | Lifecycle Assignment | Primary Module Targets in QualiaDB |
 |---|---|---|---|
-| **Gap 1** | Obligation-cost ledger binding & sunset hook | **Lifecycle 4 (Economic)** | `modalities/value_flow.rs`, `bundle/cbor_ld_manifest.rs` |
+| **Gap 1** | Obligation-cost ledger binding & sunset hook | **Lifecycle 4 (Economic)** | `modalities/socioeconomics.rs`, `bundle/cbor_ld_manifest.rs` |
 | **Gap 2** | Ethogram registry formalization | **Lifecycle 2 (Biological)** | `entity_view/entity_ontologies.rs`, `container_10d/entity_ontology_section.rs` |
 | **Gap 3** | Collective / flocking dynamics (boids solver) | **Lifecycle 3 (Spatial)** | `specialized_libs/physics_simulation/`, `agent_runtime/orchestration.rs` |
 | **Gap 4** | Hyperspectral cube section | **Lifecycle 1 (Asset)** | `container_10d/section.rs`, `render/spectral_basis.rs` |
@@ -77,7 +77,7 @@ To satisfy both massive parallel rendering and deterministic zero-heap logical v
 | **Gap 15** | Reachability promotion of library-only ops | **Lifecycle 5 (Runtime)** | `vibe/src/catalog/`, `poet_host/`, `wasm_bridge/` |
 | **Gap 16** | Biosense & species imaging pipeline recipes | **Lifecycle 2 (Biological)** | `specialized_libs/computer_vision/bio/`, `crates/qualia-vision/` |
 | **Gap 17** | Vision GPU backplane & WASM runtime pathway | **Lifecycle 5 (Runtime)** | `crates/qualia-vision/src/gpu.rs`, `render/gpu/`, `wgsl_forge/` |
-| **Gap 18** | QDNF economics meters $\to$ value flow pools | **Lifecycle 4 (Economic)** | `net/qdnf/economics/meters.rs`, `modalities/value_flow.rs` |
+| **Gap 18** | QDNF economics meters $\to$ socioeconomics pools | **Lifecycle 4 (Economic)** | `net/qdnf/economics/meters.rs`, `modalities/socioeconomics.rs` |
 | **Gap 19** | Species/ecology SHACL pack & runtime verification | **Lifecycle 2 (Biological)** | `core-ontologies/`, `shapes/`, `modalities/logic/shacl.rs` |
 | **Gap 20** | Multi-agent coordination choreography (0x70–0x7F) | **Lifecycle 4 (Economic)** | `governance/coordination.rs`, `governance/illocution.rs` |
 | **Gap 21** | Species bioacoustics MIR & call taxonomy | **Lifecycle 2 (Biological)** | `audio/bioacoustics.rs`, `crates/qualia-audio/src/features/` |
@@ -111,7 +111,7 @@ graph TD
     end
 
     subgraph 4. Stewardship & Commons Sunset Lifecycle
-        Meter[QDNF Meters: Joules/Bytes] --> Pool[ValueFlow Recovery Pool]
+        Meter[QDNF Meters: Joules/Bytes] --> Pool[Socioeconomics Recovery Pool]
         Pool --> CapCheck{Pool >= 10x Base Cost?}
         CapCheck -->|Yes| Sunset[Commons Sunset Trigger]
         Sunset --> Freed[Permissive Commons 0b01]
@@ -222,7 +222,7 @@ graph TD
   $$\text{Total Obligation Cost } C_{\text{total}} = C_{\text{production}} \times (1 + \text{ROI}_{\text{capped}}), \quad \text{where } \text{ROI}_{\text{capped}} \le \min(\text{ROI}, \text{ROI}_{\text{max}})$$
   $$\text{Recovery Fee Cap } C_{\text{cap}} \le 10 \times C_{\text{production}}$$
 * **Implementation**:
-  - Wire `net/qdnf/economics/meters.rs` (`EnergyJoules`, `NetBytes`, `TimeSeconds`, `TypedCompute`) directly into `modalities/value_flow.rs`.
+  - Wire `net/qdnf/economics/meters.rs` (`EnergyJoules`, `NetBytes`, `TimeSeconds`, `TypedCompute`) directly into `modalities/socioeconomics.rs`.
   - When commercial usage payments accumulate such that $\text{Pool} \ge C_{\text{total}}$, execute the **Commons Sunset Hook**:
     1. Emit a signed `DeonticVerdict` releasing all usage restrictions.
     2. Transition metadata routing lane to `PermissiveRoutingLane::Commons` (`0b01`).
@@ -271,7 +271,7 @@ gantt
     Cellular SlgArena Graph Partitioning     :         p3b, after p3a, 4d
     Boids Flocking & XPBD Softbody (Gap 3,6) :         p3c, after p3b, 4d
     section Phase 4: Economic Lifecycle
-    QDNF Meters -> ValueFlow Binding (Gap 18):         p4a, after p3c, 3d
+    QDNF Meters -> Socioeconomics Binding (Gap 18):         p4a, after p3c, 3d
     Commons Sunset Trigger (Gap 1)           :         p4b, after p4a, 3d
     TK/BC Labels & Coordination ISA (Gap 14) :         p4c, after p4b, 3d
     section Phase 5: Runtime & Session
@@ -286,7 +286,7 @@ gantt
 | **M1: Container & Variant Unification** | Phase 1 (QBDL + VariantMatrix + glTF) | `node scripts/verify-game-release.mjs` | $100\%$ SHA-256 and CRC-32C verification; $O(1)$ variant selection in $\le 5\mu\text{s}$. |
 | **M2: Ethogram & Ontogeny Engine** | Phase 2 (EONT1 + Vibe FSM + SKL1) | `cargo test -p qualia-core-db test_ethogram` | Zero-heap execution; stimulus event transitions meters and selects clip in $\le 10\mu\text{s}$. |
 | **M3: Spatial Corridor & Cellular Graph** | Phase 3 (Multi-Res Terrain + 42MB Cells) | In-engine traversal test | Smooth travel along 280m+ corridor between Kestrel Flats and Saltwind Reach with $\ge 60$ FPS. |
-| **M4: Commons Economic Sunset** | Phase 4 (QDNF Meters + ValueFlow) | `cargo test -p qualia-core-db test_value_flow` | Asset pool reaching $10\times$ production cap automatically releases asset to `0b01` Commons. |
+| **M4: Commons Economic Sunset** | Phase 4 (QDNF Meters + Socioeconomics) | `cargo test -p qualia-core-db socioeconomics` | Asset pool reaching $10\times$ production cap automatically releases asset to `0b01` Commons. |
 | **M5: Offline Field Sync & Telemetry** | Phase 5 (.q42j Journal + Live HUD) | Browser automated test suite | Offline survey entries commit to `.q42j` and merge cleanly on reconnect; telemetry HUD functional. |
 
 ---
@@ -340,7 +340,7 @@ gantt
 - [ ] **WP-3.5 (Gap 5)**: Wire physical parameter to voice procedural sound synthesis in `audio/dsp/`.
 
 #### Phase 4: Commons Stewardship & Economic Sunset Lifecycle (WP-4)
-- [x] **WP-4.1 (Gap 18)**: Bind `net/qdnf/economics/meters.rs` (`EnergyJoules`, `NetBytes`, `TimeSeconds`, `TypedCompute`) into `modalities/value_flow.rs`.
+- [x] **WP-4.1 (Gap 18)**: Bind `net/qdnf/economics/meters.rs` (`EnergyJoules`, `NetBytes`, `TimeSeconds`, `TypedCompute`) into `modalities/socioeconomics.rs`.
 - [x] **WP-4.2 (Gap 1)**: Implement automatic Commons Sunset trigger in `bundle/cbor_ld_manifest.rs` transitioning assets to `PermissiveRoutingLane::Commons` (`0b01`) once recovery pool $\ge 10\times C_{\text{production}}$.
 - [ ] **WP-4.3 (Gap 8)**: Implement per-byte-slice micropayment metering hook on bundle HTTP range reads.
 - [ ] **WP-4.4 (Gap 12)**: Implement strict Commons license enforcement and derivation union in `domain_licence/`.
@@ -373,7 +373,7 @@ gantt
 | 2026-10-15 | `WP-2.4` | Authored and registered ecological and ethological SHACL shape pack | `crates/qualia-core-db/shapes/ecology_shapes.ttl` | W3C SHACL syntax validated |
 | 2026-10-15 | `WP-3.1` | Added continuous landscape height, organic radial feathering & corridor patch | `crates/rolling-commons-shell/src/terrain.rs` | WASM compiles clean |
 | 2026-10-15 | `WP-3.2/3.3` | Implemented 42MB CellularLogicGraph & zero-heap 3D Boids flocking | `qualia-core-db` cell_graph.rs & population.rs | Zero-heap Sentinel verified |
-| 2026-10-15 | `WP-4.1/4.2` | Bound QDNF meters to ValueFlow pools & automated Commons Sunset trigger | `qualia-core-db` value_flow.rs & cbor_ld_manifest.rs | Capped multiplier logic verified |
+| 2026-10-15 | `WP-4.1/4.2` | Bound QDNF meters to Socioeconomics pools & automated Commons Sunset trigger | `qualia-core-db` socioeconomics.rs & cbor_ld_manifest.rs | Capped multiplier logic verified |
 | 2026-10-15 | `WP-4.5` | Implemented Traditional Knowledge & Biocultural label validation policies | `crates/qualia-core-db/src/governance/tk_bc_labels.rs` | Local Contexts standard verified |
 | 2026-10-15 | `WP-5.7` | Implemented offline append-only `.q42j` session journaling & CRDT sync | `crates/rolling-commons-shell/src/session_journal.rs` | WASM check passed (code 0) |
 

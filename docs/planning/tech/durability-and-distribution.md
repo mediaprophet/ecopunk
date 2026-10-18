@@ -103,13 +103,13 @@ hosting SLA.
 
 ## 5. Commons infrastructure economics (the ontologically-defined rails)
 
-Verified in `core-ontologies/permissive-commons.n3` + `modalities/value_flow`:
+Verified in `core-ontologies/permissive-commons.n3` + `modalities/socioeconomics`:
 
 - **`pc:Micropayment`** — "ILP / streaming micropayments into the obligation"
   (ILP = Interledger Protocol); **`pc:SponsorshipLumpSum`** — a sponsor pays
   down the pool, liberating the work for all; **`pc:paidVia`** links works →
   payment methods.
-- **`value_flow`** semantics: `commons_cost` = production cost × (1 + capped
+- **`socioeconomics`** semantics: `commons_cost` = production cost × (1 + capped
   ROI), per-use royalty accrues into the pool, `is_commons_discharged` frees
   the work globally at threshold.
 
@@ -141,7 +141,7 @@ deploy-side, not code-side.
 3. **Every ingest/spec** that names an external resource records *both*
    address classes; an HTTP URL alone is an incomplete reference (the LOD
    dead-link rule extended to ourselves).
-4. **Availability becomes an economic object**: `pc:paidVia` + `value_flow`
+4. **Availability becomes an economic object**: `pc:paidVia` + `socioeconomics`
    pools on packs; hosting/relay is incentivised commons work, not unpaid
    dependency.
 

@@ -46,7 +46,7 @@ rule: obligation = work done (+ capped ROI), discharged, freed globally.
   obligations must name their anchor; asymmetric relations need heightened
   consent validity.
 
-## 2. Category-of-agent fee & sharing rules (`value_flow` — verified)
+## 2. Category-of-agent fee & sharing rules (`socioeconomics` — verified)
 
 `royalty(base, agent_multiplier_percent)` — **the royalty scales by agent
 category** ("a corporate user pays a higher multiple than a non-profit").

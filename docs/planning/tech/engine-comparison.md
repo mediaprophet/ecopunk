@@ -60,7 +60,7 @@ itself* can run in a browser tab or on an edge device.
 | Machine→human boundary | none | `ontology_align` **type-forbidden** from asserting `exactMatch` — human ratification is a type-level invariant **[verified]** |
 | Provenance | PROV-O data (if authored) | provenance *fields* in every quin (context/metadata/parity), `text_span` anchors, `source_audit`, asset envelopes w/ licence inheritance **[verified]** |
 | Licensing | portal-level note | machine-checkable `LicencePolicy`, **unknown licence fails closed**, derived works inherit union of obligations **[verified]** |
-| Commons economics | none | `value_flow`: capped-ROI royalty pools that **discharge at threshold then free globally** **[verified]** |
+| Commons economics | none | `socioeconomics`: capped-ROI royalty pools that **discharge at threshold then free globally** **[verified]** |
 | Execution model | server-side daemon | local-first volumes; WASM profiles → **the engine runs in the browser** **[verified]** |
 | Identity | user accounts at the app tier | DID fabric, k-of-n relational recovery, ZCAP-LD delegation **[verified]** |
 | Network | HTTP endpoints | QDNF fabric: authority, contracts, evidence, policy labels, replication, raw-ethernet + acoustic-BLE bearers **[verified]** |

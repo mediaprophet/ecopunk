@@ -140,11 +140,11 @@ interface/spec decisions. Status tags as in the capability map.
 ### S13 · "Knowledge work that pays its cost, then becomes free"
 
 - **Traditional:** a licence text + goodwill.
-- **QualiaDB:** `value_flow` — `commons_cost` (production + *capped* ROI),
+- **QualiaDB:** `socioeconomics` — `commons_cost` (production + *capped* ROI),
   per-use royalties into a pool, `is_commons_discharged` flips the work to
   globally-free at threshold. Extraction-resistant by construction; the
   accounting is integer arithmetic in the graph.
-- **Evidence:** `value_flow.rs` — **verified**.
+- **Evidence:** `socioeconomics.rs` — **verified**.
 
 ### S14 · "Ask why the answer is what it is"
 

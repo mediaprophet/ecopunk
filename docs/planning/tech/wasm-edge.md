@@ -127,7 +127,7 @@ planning:
   handling where needed); it isn't an automation tier.
 
 - **The economics follow the same ladder.** Non-profit/community agent
-  categories get their own royalty multipliers (`value_flow`), and a hosting
+  categories get their own royalty multipliers (`socioeconomics`), and a hosting
   org accrues `pc:Micropayment` for the infrastructure it provides — so a
   for-purpose org's participation can partially self-fund rather than being
   pure cost.
