@@ -59,7 +59,7 @@ Each entity, biological species, abiotic object, subject, or topic is encapsulat
 **2.1 Modular Layer Stack & QualiaDB Native Formats**
 
 * **Layer 0: Core Identity, Provenance & Deontic Rights Manifest**: Taxonomic identifiers, vernacular names across languages, cryptographic hashes, contributor/AI generation provenance, and Humanitarian ICT / Commercial rights metadata. Encoded as an **NQuin** knowledge graph in `.q42` semantic volumes using **Deontic Logic opcodes (`0x10..0x12`)** for obligations, permissions, and prohibitions.
-* **Layer 1: Multi-Scale Structural & Spatial Embodiment (3D, Morphology, Partonomy)**: Macroscopic to microscopic geometry, skeletal rigs, growth grammars, and material shaders. Encoded as **`.10d` manifold tensors** with **`SRD1` surface buffers** (unified vertex and index buffers) and procedurally synthesized via QualiaDB's **PlantGL computational geometry engine** (`BotanicalHulls` Cescatti envelopes, `SweepExtrusion` Bishop frame paths, `Turtle3D` L-systems).
+* **Layer 1: Multi-Scale Structural & Spatial Embodiment (3D, Morphology, Partonomy)**: Macroscopic to microscopic geometry, skeletal rigs, growth grammars, and material shaders. Encoded as **`.10d` manifold tensors** with **`SRD1` surface buffers** (unified vertex and index buffers) and procedurally synthesized via QualiaDB's **Botanical Morphogenesis & Computational Geometry engine** (`BotanicalHulls` Cescatti envelopes, `SweepExtrusion` Bishop frame paths, `Turtle3D` L-systems).
 * **Layer 2: Sensory & Spectral Library (Audio, Visual, Multispectral)**: Bioacoustics, physical interaction audio, microscopy, and hyperspectral reflectance maps. Packed as compressed sensory shards and high-dimensional spectral curve tensors within the `.hmc` container.
 * **Layer 3: Physical, Biomechanical & Environmental Dynamics**: Parametric response curves for kinematics, wind aeroelasticity, xylem hydraulics, fire combustion, and soil/substrate physics. Encoded as calibrated response tensors and **LTL temporal formulas (`0x40..0x44`)** evaluated in zero-heap hot loops.
 * **Layer 4: Physiological Logic & Behavioral State Machines**: Autonomous rules, circadian/phenological cycles, tropisms, and metabolic state transitions. Implemented natively in **VibeScript (`.vibe`)** and executed in the sandboxed **`VibeVm`** with bounded cycle guarantees, eliminating unconstrained runtime garbage collection.
@@ -136,7 +136,7 @@ The QualiaDB memory model separates **deterministic hot-path reasoning** from **
 * **Decoupled 512MB Manifold, Neural Weight & Cold Geometry Tier**:
   * Analogous to how QualiaDB's LLM runtime (`p64_weight.rs`, `resident_model.rs`, GGUF weight container streaming) operates outside the 42MB Prolog Sentinel, memory-intensive assets—including 10D manifold tensors, neural model weights, high-resolution botanical geometry construction, and micro-CT tomographic volumes—are managed in an explicit, caller-allocated budget tier (typically **up to 512MB** per construction workgroup or resident model).
   * **Tier 1 (Mandatory Zero-Heap Hot Path)**: Bounded strictly by the 42MB `SlgArena` ceiling per cell. Evaluator loops, query kernels, and GPU/WASM boundary transfers strictly prohibit `Vec`, `String`, or `Box` allocations. The caller supplies fixed-size `&mut [T]` output buffers, and local state uses stack arrays `[T; N]`.
-  * **Tier 2 (Cold Construction / Authoring & 512MB Weight Containers)**: One-shot mesh builders (PlantGL botanical envelopes, Bishop frame profile sweeps, Delaunay triangulation, convex hulls) and large-scale tensor/weight containers operate in caller-owned arenas (`geometry_workspace.rs`) under an explicit byte budget (default 256 MiB to 512 MiB). Construction checks allocations against this budget and fails closed upon exhaustion, guaranteeing reproducible, hashable, attestable assets without risk of unmanaged heap exhaustion.
+  * **Tier 2 (Cold Construction / Authoring & 512MB Weight Containers)**: One-shot mesh builders (QualiaDB botanical envelopes, Bishop frame profile sweeps, Delaunay triangulation, convex hulls) and large-scale tensor/weight containers operate in caller-owned arenas (`geometry_workspace.rs`) under an explicit byte budget (default 256 MiB to 512 MiB). Construction checks allocations against this budget and fails closed upon exhaustion, guaranteeing reproducible, hashable, attestable assets without risk of unmanaged heap exhaustion.
 
 ### **2.6.3 Binary Storage Formats: `.q42`, `.10d`, and `.hmc`**
 * **`.q42` Semantic Volumes**: Binary zero-copy knowledge volumes comprising a 64-byte Header, object-sorted SuperBlocks, `BIDX` block index table, and postings index. Enables instant memory-mapped lookups of taxonomic partonomy, ethnobotanical records, and ecological interactions without JSON/CBOR parsing overhead.
@@ -144,7 +144,7 @@ The QualiaDB memory model separates **deterministic hot-path reasoning** from **
 * **VibeScript (`.vibe`) Logic Runtime**: Behavioral ethograms, phenological growth rules, and environmental responses are authored in VibeScript and executed in the deterministic `VibeVm`. VibeScript runs sandboxed with bounded execution cycles, ensuring that user-authored species behaviors cannot crash or stall host simulations.
 * **HMC (Hypermedia Container) Binary Bundles**: Packaged using QualiaDB's deterministic `BundleWriter` and `BundleReader`. The HMC format enforces 64-byte aligned entry boundaries, whole-bundle CRC-32C verification, and an entry metadata index that enables zero-copy byte-range streaming over decentralized peer networks without requiring local unpacking.
 
-### **2.6.4 PlantGL & QualiaDB Computational Geometry Library**
+### **2.6.4 QualiaDB Botanical Morphogenesis & Computational Geometry Library**
 Ecosphere 3D assets discard naive "triangle soup" approaches in favor of QualiaDB's unified computational geometry pipeline:
 * **`BotanicalHulls`**: Cescatti 1997 asymmetric crown envelope parameterized by 6 biological scalars ($H, H_{\text{base}}, R_{\text{max}}, c_1, c_2, c_3$). Produces smooth, biologically accurate foliage canopies with 85% fewer triangles than disjoint sphere clusters.
 * **`SweepExtrusion`**: Rotation-minimizing Bishop frame profile sweeps with per-station scaling, twisting, and cross-section interpolation for organic trunks, branches, vascular xylem/phloem bundles, and root systems.
@@ -401,7 +401,7 @@ layers:
     byte_length: 1845200
     format: "QualiaDB Tensor10D / SRD1 Surface Buffer"
     computational_geometry:
-      engine: "PlantGL / QualiaDB Native"
+      engine: "QualiaDB Native Botanical Morphogenesis (computational_geometry)"
       foliage_hull:
         primitive: "BotanicalHull::Cescatti1997"
         parameters: { height: 14.5, crown_base: 2.8, r_max: 4.2, c1: 1.8, c2: 2.4, c3: 0.85 }

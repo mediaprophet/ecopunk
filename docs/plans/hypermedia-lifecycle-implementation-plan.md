@@ -10,7 +10,7 @@ _Associated Audits: [`QualiaDB Capability Reference.md`](file:///c:/github/ecopu
 The platform under development is **not a conventional rigid video game engine**; it is an **Offline-First General-Purpose Hypermedia Engine**:
 
 1. **Spatialized Knowledge Graphs & Digital Twins**: Navigates seamlessly across continuous spatial scales, from macro-geography (regional driving corridors, continental biodiversity maps, watershed networks) down to micro-scale biological entities (species partonomy, cellular tissue structures, botanical envelopes, and allometric growth).
-2. **Deterministic Heterogeneous Representation**: Direct, unified execution of formal logic (`NQuin` universal quads/quins, Deontic/Epistemic/LTL modalities, 0x70–0x7F multi-agent Sentinel coordination), 10D manifold tensors, watertight indexed computational geometry (`PlantGL`), and sandboxed execution (`VibeScript` bytecode `VBC1`).
+2. **Deterministic Heterogeneous Representation**: Direct, unified execution of formal logic (`NQuin` universal quads/quins, Deontic/Epistemic/LTL modalities, 0x70–0x7F multi-agent Sentinel coordination), 10D manifold tensors, watertight indexed computational geometry (QualiaDB native `computational_geometry`), and sandboxed execution (`VibeScript` bytecode `VBC1`).
 3. **Decentralized Post-Extractive Economics**: Content-addressed `.hmc` (`QBDL`) bundles, verifiable obligation cost recovery with automatic transition to the Permissive Commons once audited production costs are satisfied, and local append-only `.q42j` transaction journals for field observations and peer-to-peer sync.
 
 This document reviews the **22 capability gaps** identified in [`QualiaDB Capability Reference.md` §10.1 & §10.2](file:///c:/github/ecopunk/docs/QualiaDB%20Capability%20Reference.md#L1056-L1155) and establishes a rigorous, actionable implementation plan centered around the **5 core lifecycles** of the hypermedia engine.
@@ -45,7 +45,7 @@ To satisfy both massive parallel rendering and deterministic zero-heap logical v
 │   Caller-budgeted arenas (default 256 MiB, up to 512 MiB for complex asset clusters)   │
 │                                                                                        │
 │    • 10D Manifold Tensors (.10d)          • P64 / GGUF Neural Weights (.p64)           │
-│    • PlantGL Botanical Geometries         • High-Resolution Texture Atlases (KTX2)     │
+│    • QualiaDB Botanical Geometries        • High-Resolution Texture Atlases (KTX2)     │
 │    • Skeletal Motor Clips (SKL1)          • Point Clouds & Hyperspectral Cubes         │
 │    • Dynamic Multi-Resolution Heightfield Meshes (QuantizedMesh + SRD1 Color Tables)   │
 └────────────────────────────────────────────────────────────────────────────────────────┘
@@ -90,7 +90,7 @@ To satisfy both massive parallel rendering and deterministic zero-heap logical v
 ```mermaid
 graph TD
     subgraph 1. Ingestion & Asset Packaging Lifecycle
-        Raw[Multi-Modal Raw Assets] --> Importer[glTF / PlantGL Importer]
+        Raw[Multi-Modal Raw Assets] --> Importer[glTF / Procedural Botanical Importer]
         Importer --> Q10D[10D Manifold Container]
         Q10D --> QBDL[QBDL HMC Bundle]
         QBDL --> VMatrix[Variant Matrix Resolution]
@@ -362,7 +362,7 @@ gantt
 
 | Date | Task ID | Description | Artifact / Commit | Verification Result |
 |---|---|---|---|---|
-| 2026-10-15 | `WP-1.1` | Pushed PlantGL + adaptive stride fixes upstream; pinned `qualia.ref` | `7eb4438fd7205c0a6fd859deb02e13b58cd0baa3` | Remote tracking synced |
+| 2026-10-15 | `WP-1.1` | Pushed botanical geometry + adaptive stride fixes upstream; pinned `qualia.ref` | `7eb4438fd7205c0a6fd859deb02e13b58cd0baa3` | Remote tracking synced |
 | 2026-10-15 | `WP-5.1` | Single-pass HMC hydration; eliminated duplicate scene rebuild | `web/game.html` | Startup time dramatically reduced |
 | 2026-10-15 | `WP-5.2` | Async frame yielding during heavy asset processing | `web/game.html` | No UI thread lockup |
 | 2026-10-15 | `WP-5.3` | Engine Diagnostics Drawer & in-game telemetry HUD | `web/game.html` | Live FPS, memory & latency verified |
