@@ -360,6 +360,70 @@ classDiagram
 
 ---
 
+### 3.2 Authoritative Species RDF & Linked Data Endpoints
+
+To satisfy the **SHACL-First Living Entities Convention** (`docs/manuals/standards/shacl-first-vs-owl-ok-class-list.md`), all biological organisms, species, specimens, and Country are modeled as `rdfs:Class` and validated via SHACL shapes. **`owl:Thing` is strictly forbidden for living entities and persons.**
+
+The following table details the authoritative Australian Linked Data endpoints and SPARQL interfaces for retrieving canonical species RDF:
+
+| Linked Data Source | Endpoint / SPARQL URL | Target Graph | Protocols & Formats | Query Scope / Retrieval Focus |
+|:---|:---|:---|:---|:---|
+| **Australian National Species List (auNSL)** | `https://biodiversity.org.au/voc/` & `https://catalogue.linked.data.gov.au/def/nsl` | `urn:qualia:ontology:aunsl_taxa` | Linked Data REST / JSON-LD / Turtle | Authoritative taxonomic concepts, scientific names, nomenclatural status, and persistent LSID identifiers for Australian flora (APC) and fauna (AFD). |
+| **TERN GraphDB SPARQL** | `https://graphdb.tern.org.au/repositories/tern_repository` | `urn:qualia:ontology:tern_surveillance` | SPARQL 1.1 Protocol / Turtle | Plot observations, floristic vouchers, vegetation strata, and ecological surveillance links matching Australian subalpine and coastal biomes. |
+| **Atlas of Living Australia (ALA) Linked Data** | `https://api.ala.org.au/occurrences/` & DwC RDF | `urn:qualia:ontology:ala_occurrences` | Darwin Core RDF / Turtle / JSON-LD | 100M+ occurrence records, coordinate precision, phenological dates (flowering, fruiting), and specimen images. |
+| **Wikidata SPARQL (Australian Biota)** | `https://query.wikidata.org/sparql` | `urn:qualia:ontology:wikidata_biota` | SPARQL 1.1 / JSON / Turtle | Cross-links between NCBI Taxon IDs, auNSL LSIDs, IUCN conservation status, and vernacular names in First Nations languages (Ngarigo, Wiradjuri, D'harawal, Yuin, Kulin). |
+| **Global Biotic Interactions (GloBI)** | `https://api.globalbioticinteractions.org/` & RDF Dumps | `urn:qualia:ontology:globi_interactions` | RDF Turtle / TSV edge list | Empirical inter-species relational graph: predator-prey, herbivore-plant, pollinator-flower, and mycorrhizal associations. |
+| **PLAZI TreatmentBank** | `http://tb.plazi.org/GgServer/sparql` | `urn:qualia:ontology:plazi_treatments` | SPARQL 1.1 / RDF XML / Turtle | Published taxonomic morphological descriptions, anatomical diagnoses, and holotype records. |
+
+#### Example auNSL / Wikidata SPARQL Discovery Query
+```sparql
+# Query Australian Subalpine & East Coast Biota with Indigenous Toponyms & IUCN Status
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?taxon ?scientificName ?commonName ?iucnStatus ?ncbiId WHERE {
+  ?taxon wdt:P171* wd:Q25378 ; # Subtree of Eukaryota
+         wdt:P183 wd:Q408 ;    # Endemic or native to Australia
+         wdt:P225 ?scientificName .
+  OPTIONAL { ?taxon wdt:P141 ?iucnStatus . }
+  OPTIONAL { ?taxon wdt:P685 ?ncbiId . }
+  OPTIONAL { ?taxon rdfs:label ?commonName . FILTER(LANG(?commonName) = "en") }
+}
+LIMIT 5000
+```
+
+---
+
+### 3.3 Key Indicator Species Manifest (East Coast Corridor)
+
+This manifest binds the East Coast Australia biological corridor—from the subalpine snowfields of Kosciuszko and Talbingo to the coastal forests of Sydney Basin and South-East Queensland—to explicit biophysical traits, procedural PlantGL geometry, anatomical faunal pelts, and Holosonic audio:
+
+| Species & Taxon Identifier | Common & First Nations Name | Habitat & Elev. Range | Biophysical Traits (AusTraits / AnAge) | Holographic 3D Embodiment ([`holographic-simulation-aaa-master-plan.md`](file:///c:/github/ecopunk/docs/plans/holographic-simulation-aaa-master-plan.md)) | Holosonic Audio Profile ([`Ecosphere Assets.md`](file:///c:/github/ecopunk/docs/Ecosphere%20Assets.md) §4.3) |
+|:---|:---|:---|:---|:---|:---|
+| ***Eucalyptus pauciflora***<br>`auNSL:taxa/apc/29456`<br>`NCBI:116962` | Snow Gum<br>*Ngarigo / Walgalu* | Subalpine ridges & frost hollows<br>(1100m – 1900m) | LMA: $185\text{ g/m}^2$<br>Wood Density: $780\text{ kg/m}^3$<br>$P_{50}: -4.5\text{ MPa}$<br>Epicormic resprouter | **PlantGL:** Multi-leader contorted cubic Bézier splines; wind-sheared leaning trunks; Cescatti asymmetric crown; mottled cream/olive/burnt-orange peeling ribbons; thick waxy falcate leaves with green SSS. | High-frequency sibilant wind hiss through stiff falcate foliage; dry ribbon bark fluttering in gale-force gusts. |
+| ***Eucalyptus delegatensis***<br>`auNSL:taxa/apc/29081`<br>`NCBI:116952` | Alpine Ash / Woollybutt | Wet montane slopes<br>(900m – 1450m) | Max H: $65\text{m}$<br>Wood Density: $620\text{ kg/m}^3$<br>Obligate seeder (fire-sensitive) | **PlantGL:** Towering straight columnar trunks rising 12–18m before first branch; Bishop frame sweep with furrowed stringybark buttress on lower 60%; smooth white aloft. | Deep resonant branch swaying ($0.8\text{ Hz}$); low-frequency canopy roar under Beaufort 6+ winds. |
+| ***Acacia pycnantha***<br>`auNSL:taxa/apc/41982`<br>`NCBI:53896` | Golden Wattle | Well-drained soils, open forest<br>(0m – 900m) | Nitrogen-fixing nodules<br>Phyllode $SLA: 6.2\text{ m}^2/\text{kg}$<br>High serotiny & hard seed coat | **PlantGL:** Multi-stemmed domed shrub ($4–8\text{m}$); smooth red-brown bark; abundant golden globular flower clusters (`#F5C222`) emitting floral scent markers. | Soft whisper in breeze; pod snapping acoustic trigger upon midday solar desiccation. |
+| ***Callistemon citrinus***<br>`auNSL:taxa/apc/30412`<br>`NCBI:164478` | River Bottlebrush | Riparian corridors & creek banks<br>(0m – 1100m) | Flood-resilient root plate<br>High stem elasticity ($E: 5.8\text{ GPa}$) | **PlantGL:** Flexible arching weeping stems; papery grey bark; dense cylindrical crimson spikes (`#C41E28`) along stream banks. | Water-flow interaction resonance; stem deflection and splash when river stage height rises. |
+| ***Poa sieberiana***<br>`auNSL:taxa/apc/34125`<br>`NCBI:367204` | Alpine Tussock Grass | Montane meadows & boulder fields<br>(600m – 2200m) | Frost-hardy ($T_{\min}: -18^\circ\text{C}$)<br>Deep fine fibrous root mat | **Procedural Grass Instances:** Dense hemisphere hummocks ($0.4\text{m}$); straw-gold and olive-green needle blades; real-time wind wave propagation. | High-pitch grass rustle ($3.2\text{ kHz}$); crunch underfoot when frozen. |
+| ***Macropus giganteus***<br>`auNSL:taxa/afd/4512`<br>`NCBI:9315` | Eastern Grey Kangaroo | Grassy woodlands & alpine clearings<br>(0m – 1600m) | Adult Mass: $45–66\text{ kg}$<br>Hopping Efficiency: $v_{\text{hop}} \le 18\text{ m/s}$<br>BMR: $68\text{ W}$ | **Anatomical Skeleton & Pelt:** Natural subalpine winter pelt: woolly grey-brown (`#544E45`), ventral chest cream-grey (`#8C8578`), charcoal muzzle/paws (`#221F1B`); pentapedal tail locomotion and elastic Achilles tendon IK. | Deep guttural cough alarm call; rhythmic low-frequency ground-thumping footfalls. |
+| ***Vombatus ursinus***<br>`auNSL:taxa/afd/4580`<br>`NCBI:29139` | Bare-Nosed Wombat | Subalpine forests & creek banks<br>(0m – 1800m) | Adult Mass: $25–35\text{ kg}$<br>Fossorial excavator<br>BMR: $32\text{ W}$ (low metabolism) | **Anatomical Skeleton & Pelt:** Robust planar barrel silhouette, muscular limbs with heavy digging claws, grizzled earth-brown coat (`#42362B`); rolling waddling gait. | Rasping warning hiss; subterranean soil excavation thuds. |
+| ***Ornithorhynchus anatinus***<br>`auNSL:taxa/afd/4401`<br>`NCBI:9258` | Platypus | Mountain streams & freshwater pools<br>(0m – 1200m) | Body Mass: $1.2–2.4\text{ kg}$<br>Electroreceptive bill<br>Waterproof double-layer pelt | **Aquatic Kinematics:** Dorsoventrally flattened body, paddle-shaped tail, webbed forefeet; undulating semi-aquatic swimming and diving. | Subtle surface paddling ripples; diving plunge sound ($280\text{ Hz}$ resonance). |
+| ***Banksia integrifolia***<br>`auNSL:taxa/apc/27850`<br>`NCBI:54950` | Coast Banksia | Coastal dunes & headlands<br>(0m – 300m) | Salt-spray tolerant<br>Proteoid cluster roots<br>Serotinous woody cones | **PlantGL:** Wind-sculpted gnarled trunks; dark rugose bark; silvery-white leaf undersides; cylindrical pale yellow flower spikes. | Dry foliage clatter under coastal gale; woody cone popping during fire front. |
+
+---
+
+### 3.4 Packaging into Hypermedia Containers (`.hmc`)
+
+Following the definitive specifications in [`Ecosphere Assets.md`](file:///c:/github/ecopunk/docs/Ecosphere%20Assets.md) and [`digital-twin-asset-requirements.md`](file:///c:/github/ecopunk/docs/planning/tech/assets/digital-twin-asset-requirements.md):
+1. **Root Master Index (`entry 0`)**: Cryptographically signed `manifest.json` indexing byte offsets, whole-file CRC-32C, and deontic rights.
+2. **Layer 0 (`.q42` Semantic Volume)**: 48-byte `NQuin` records containing taxonomic partonomy, trophic edges, and ethnobotanical facts, bounded within the 42MB `SlgArena` Sentinel.
+3. **Layer 1 (`.10d` SRD1 Surface Buffer)**: PlantGL procedural envelopes and Bishop sweeps converted into flat vertex/index buffers for WebGPU rendering.
+4. **Layer 2 (`.10d` Spectral Tensors & Audio)**: Multispectral curves ($380–2500\text{ nm}$) and Holosonic audio synthesis shards.
+5. **Layer 3 & 4 (Physics & VibeScript)**: Aeroelastic response curves, LTL temporal traces (`0x40..0x44`), and deterministic `VibeVm` behavioral state machines.
+
+---
+
 ## 4. Multi-Physical Enrichment & Mathematical Coupling
 
 Once raw tabular and spatial data are ingested into `.q42`, each entity and constituent is bound to explicit physical tensors required by the simulation kernels in `qualia-sim` and WebGPU compute shaders:
