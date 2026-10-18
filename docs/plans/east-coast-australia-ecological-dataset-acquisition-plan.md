@@ -87,20 +87,25 @@ mindmap
 #### 1.1 Digital Elevation Models & Micro-Topography
 * **Target Datasets:**
   * **Geoscience Australia ELVIS Elevation Portal:** 1m and 5m High-Resolution LiDAR Digital Elevation Models (DEMs) covering Snowy River, Tumut River, Talbingo, and coastal catchments; 1-second (~30m) SRTM-derived hydrologically enforced DEM.
+  * **NSW Spatial Services FSDF & Spatial Collaboration Portal:** Sub-meter to 2m LiDAR DEMs, 3D hydro-enforced stream lines, cadastral parcels, road centrelines, and state forest bounds (`https://portal.spatial.nsw.gov.au/server/rest/services/`).
+  * **ACTmapi Open Data Portal:** Sub-meter LiDAR point clouds across Namadgi/Brindabella ranges, urban tree canopy inventory, and micro-catchments (`https://actmapi.act.gov.au/`).
+  * **Vicmap Elevation / DataShare Victoria:** 1m–10m LiDAR and photogrammetric DEMs across Victorian Alps, Gippsland, and Melbourne catchments (`https://datashare.maps.vic.gov.au/`).
+  * **Queensland QSpatial & Queensland Globe:** High-resolution coastal LiDAR DEMs (Noosa/SEQ) and 10m regional elevation grids (`https://qldspatial.information.qld.gov.au/`).
   * **Copernicus GLO-30 / GLO-90 DEM:** Continental-scale 30m/90m synthetic aperture radar elevation model for seamless horizon skirts.
   * **MERIT Hydro / HydroSHEDS:** Hydro-enforced global DEM with conditioned flow paths, river channel widths, and catchment accumulation rasters.
-* **Format & Resolution:** Cloud-Optimized GeoTIFF (COG), 1m / 5m / 30m grid, float32 elevation in millimeters AHD (`EPSG:5711`).
+* **Format & Resolution:** Cloud-Optimized GeoTIFF (COG), LAS/LAZ point clouds, GeoPackage, float32 elevation in millimeters AHD (`EPSG:5711`).
 * **Licensing:** Creative Commons Attribution 4.0 International (CC BY 4.0).
 * **Gemini Discovery Queries:**
   * `"Geoscience Australia" ELVIS "elevation information system" LiDAR DEM GeoTIFF Snowy Mountains Talbingo`
+  * `NSW Spatial Services FSDF LiDAR DEM download WFS REST API`
+  * `Vicmap Elevation DataShare Victoria LiDAR DEM Alpine Gippsland`
   * `Copernicus DEM GLO-30 Australia East Coast Cloud Optimized GeoTIFF AWS S3`
-  * `MERIT Hydro conditioned DEM flow accumulation river network Australia`
 
 #### 1.2 Geology, Lithostratigraphy & Structural Faults
 * **Target Datasets:**
-  * **NSW Seamless Geology Project (v2.2, Geological Survey of NSW):** Continuous statewide lithostratigraphy, bedrock formations, metamorphic grades, fault lines, shear zones, and dykes across Lachlan Fold Belt and Sydney Basin.
+  * **NSW Seamless Geology Project (v2.2, Geological Survey of NSW / MinView):** Continuous statewide lithostratigraphy, bedrock formations, metamorphic grades, fault lines, shear zones, and dykes across Lachlan Fold Belt and Sydney Basin (`https://minview.geoscience.nsw.gov.au/`).
   * **Geological Survey of Victoria (GSV) Seamless Geology:** Southern extension covering Gippsland, Victorian Alps, and Melbourne regolith.
-  * **Geoscience Australia 1:1 Million National Surface Geology:** Continental geological unit polygons and age determinations.
+  * **Geoscience Australia 1:1 Million National Surface Geology:** Continental geological unit polygons and age determinations (`https://pid.geoscience.gov.au/def/voc/`).
 * **Format & Resolution:** OGC GeoPackage (`.gpkg`), ESRI Shapefile, OGC WFS 2.0 Web Feature Service endpoints.
 * **Attributes to Extract:** Formation name, stratigraphic age, lithological class (e.g., Granodiorite, Quartzose Sandstone, Basalt, Alluvium), structural dip/strike, weathering grade.
 * **Gemini Discovery Queries:**
@@ -108,7 +113,7 @@ mindmap
   * `"Geoscience Australia" "Surface Geology of Australia" 1:1M WFS GeoPackage`
   * `"Geological Survey of Victoria" seamless geology data download`
 
-#### 1.3 Soil Horizons & Subsurface Geotechnical Grids (SLGA)
+#### 1.3 Soil Horizons & Subsurface Geotechnical Grids (SLGA & eSPADE)
 * **Target Datasets:**
   * **CSIRO Soil and Landscape Grid of Australia (SLGA):** Continuous 90m national rasters for 6 standardized depth intervals matching EcoPunk's 6 subsurface strata layers:
     * Depth 1: 0–5 cm (Surface organic matter / humic epipedon)
@@ -118,21 +123,26 @@ mindmap
     * Depth 5: 60–100 cm (B2/C transition / weathered regolith)
     * Depth 6: 100–200 cm (Saprolite / deep regolith to bedrock)
   * Attributes per depth layer: Clay %, Silt %, Sand %, Bulk Density ($g/cm^3$), Available Water Capacity ($AWC$ %), Effective Cation Exchange Capacity ($ECEC$), Total Nitrogen %, Organic Carbon %, pH ($1:5 \text{ CaCl}_2$).
-  * **ASRIS (Australian Soil Resource Information System):** Isbell Australian Soil Classification (ASC) order polygons (Dermosols, Kurosols, Tenosols, Organosols, Vertosols).
-* **Format & Resolution:** Cloud-Optimized GeoTIFF, 3-arcsecond (~90m) raster grid, CSIRO Data Access Portal (DAP).
+  * **NSW eSPADE (Soil & Land Information System):** Empirical field soil pit observations, laboratory pedology profiles, acid sulfate soil risk maps, and land capability classes across NSW (`https://espade.environment.nsw.gov.au/`).
+  * **ISRIC SoilGrids v2.0 & WoSIS:** Harmonized global soil properties across the exact same 6 standard depth intervals (fallback / boundary validation).
+  * **NCI THREDDS Data Server:** Direct programmatic OPeNDAP/NetCDF slicing of continental SLGA and ANUClimate grids (`https://thredds.nci.org.au/thredds/catalog.html`).
+* **Format & Resolution:** Cloud-Optimized GeoTIFF, 3-arcsecond (~90m) raster grid, OPeNDAP NetCDF, CSV profiles.
 * **Gemini Discovery Queries:**
   * `"Soil and Landscape Grid of Australia" CSIRO Data Access Portal SLGA GeoTIFF clay sand bulk density`
-  * `ASRIS "Australian Soil Resource Information System" national soil order Isbell download`
+  * `eSPADE NSW soil profile database soil pit laboratory chemistry download`
+  * `NCI THREDDS OPeNDAP SLGA soil grids Australia programmatic slice`
 
 #### 1.4 Mineralogical Optical Spectra (Kubelka-Munk Radiative Transfer)
 * **Target Datasets:**
   * **USGS Spectral Library (splib07b):** Laboratory spectrometer reflectance curves across 380 nm to 2500 nm for pure minerals (quartz, orthoclase, muscovite, kaolinite, goethite, hematite, basalt, calcite, pyrite, alluvial gold).
   * **NASA JPL ECOSTRESS Spectral Library (v2.0):** Terrestrial rocks, soils, and weathered regolith spectral reflectance curves.
+  * **PROSPECT-D / EcoSIS Spectral Library:** Directional-hemispherical reflectance and transmittance spectra ($400–2500\text{ nm}$) linked to biochemical constituents (chlorophyll $C_{ab}$, carotenoids $C_{ar}$, water $C_w$, dry matter $C_m$).
 * **Format & Resolution:** ASCII `.txt` / CSV / NetCDF spectral curves sampled at $\le 10\text{ nm}$ wavelength intervals.
 * **Attributes to Extract:** Absorption coefficient $K_i(\lambda)$ and scattering coefficient $S_i(\lambda)$ in 8 primary engine wavebands: Ultraviolet (380–400nm), Blue (400–500nm), Green (500–600nm), Red (600–700nm), NIR-1 (700–850nm), NIR-2 (850–1100nm), SWIR-1 (1100–1700nm), SWIR-2 (1700–2500nm).
 * **Gemini Discovery Queries:**
   * `USGS "Spectral Library Version 7" splib07b mineral reflectance data download`
   * `NASA JPL ECOSTRESS spectral library rocks minerals soil spectra ASCII`
+  * `EcoSIS spectral library leaf reflectance transmittance PROSPECT-D`
 
 ---
 
@@ -140,12 +150,15 @@ mindmap
 
 #### 2.1 River Networks, Catchment Basins & Surface Water
 * **Target Datasets:**
-  * **Bureau of Meteorology (BoM) Australian Hydrological Geospatial Fabric (Geofabric):** Surface Cartography, Surface Network, Surface Catchments, and Hydrologic Reporting Units covering the Murray-Darling Basin and East Coast Drainage Divisions.
-  * **BoM Water Data Online:** Real-time and historical hourly streamflow gauge stations (discharge $m^3/s$, stage height $m$, water temperature, electrical conductivity).
-* **Format & Resolution:** GeoPackage, OGC WaterML 2.0 / SOS (Sensor Observation Service) REST API.
+  * **Bureau of Meteorology (BoM) Australian Hydrological Geospatial Fabric (Geofabric):** Surface Cartography, Surface Network, Surface Catchments, and Hydrologic Reporting Units covering the Murray-Darling Basin and East Coast Drainage Divisions (`http://geofabric.bom.gov.au/`).
+  * **BoM Water Data Online & SOS2 Web Services:** Real-time and historical hourly streamflow gauge stations (discharge $m^3/s$, stage height $m$, water temperature, electrical conductivity) (`http://www.bom.gov.au/waterdata/services`).
+  * **Digital Earth Australia (DEA) WaterBodies:** High-resolution multi-decadal satellite wetness and surface inundation surface area time series for every dam, billabong, and lake across Eastern Australia (`https://ows.dea.ga.gov.au/`).
+  * **MERIT Hydro & HydroATLAS (Lehner et al.):** Hydro-enforced global 3-arcsecond (~90m) flow direction, upstream drainage area, stream order (Strahler), and 280 hydro-environmental catchment attributes.
+* **Format & Resolution:** GeoPackage, OGC WaterML 2.0 / SOS REST API, Cloud-Optimized GeoTIFF.
 * **Gemini Discovery Queries:**
   * `"Bureau of Meteorology" Geofabric "Surface Cartography" download GeoPackage`
   * `BoM "Water Data Online" streamflow gauge discharge API Murray-Darling East Coast`
+  * `Digital Earth Australia WaterBodies surface water inundation time series download`
 
 #### 2.2 Groundwater Aquifers & Hydrogeology
 * **Target Datasets:**
@@ -159,23 +172,27 @@ mindmap
 #### 2.3 Aquatic Bio-Optics & Solute Concentrations
 * **Target Datasets:**
   * **CSIRO Aquatic Bio-Optics Database & Inland Water Quality:** Jerlov optical water type classifications, colored dissolved organic matter ($CDOM$) absorption slope $S_{\text{CDOM}}$, total suspended sediment ($TSS$) specific scattering, chlorophyll-$a$ absorption spectra $a_{\text{chla}}(\lambda)$.
-* **Format & Resolution:** NetCDF / CSV tables.
+  * **AUSRIVAS (Australian River Assessment System):** Benthic macroinvertebrate taxa tolerances (SIGNAL2 grades), linking stream dissolved oxygen, turbidity, and substrate cobble size to aquatic insect presence (`https://ausrivas.ewater.org.au/`).
+* **Format & Resolution:** NetCDF / CSV tables, Access DB.
 * **Gemini Discovery Queries:**
   * `CSIRO inland water quality bio-optical properties CDOM chlorophyll absorption dataset`
-  * `Jerlov water types coastal inland water optical scattering absorption spectrum`
+  * `AUSRIVAS macroinvertebrate water quality SIGNAL2 scores Australia river assessment`
 
 ---
 
 ### Domain 3: Atmosphere, Microclimate & Radiative Transfer
 
-#### 3.1 Daily & Hourly Climatological Surfaces
+#### 3.1 Daily & Hourly Climatological Surfaces & Eddy Covariance
 * **Target Datasets:**
   * **Bureau of Meteorology SILO Gridded Data (DES Queensland / BoM):** 0.05° (~5km) daily spatial rasters from 1889 to present: Maximum Temperature, Minimum Temperature, Daily Rainfall ($mm$), Pan Evaporation ($mm$), Vapor Pressure Deficit ($VPD$ in $kPa$), Net Radiation ($MJ/m^2$).
   * **ECMWF ERA5-Land Reanalysis:** 9km hourly atmospheric fields (10m $U/V$ wind vectors, surface solar radiation downwards $SSRD$, boundary layer height, 2m dewpoint temperature).
-* **Format & Resolution:** NetCDF-4 (`.nc`), Cloud-Optimized GeoTIFF.
+  * **CHELSA v2.1 (Climatologies at High Resolution):** 30-arcsec (~1km) orographically corrected temperature, precipitation, and 19 BIOCLIM variables accounting for cold-air drainage and windward/leeward rain shadows in the Snowy Mountains (`https://chelsa-climate.org/`).
+  * **FLUXNET2015 / OzFlux (TERN):** Continuous half-hourly empirical measurements of Net Ecosystem Exchange ($NEE$), Latent Heat Flux ($LE$), Sensible Heat Flux ($H$), and soil heat flux at the **Tumbarumba OzFlux tower** (`-35.6566°S, 148.1517°E`, wet sclerophyll *Eucalyptus delegatensis* forest on the western border of the Talbingo micro-scene) and Cumberland Plain / Nimmo Plains towers (`https://www.ozflux.org.au/`).
+* **Format & Resolution:** NetCDF-4 (`.nc`), Cloud-Optimized GeoTIFF, CSV.
 * **Gemini Discovery Queries:**
   * `SILO gridded climate data BoM Queensland 5km daily NetCDF rainfall temperature VPD`
-  * `ERA5-Land hourly dataset Australia wind radiation Copernicus Climate Data Store`
+  * `OzFlux Tumbarumba eddy covariance half-hourly flux data download TERN`
+  * `CHELSA climate bioclimatic variables Australia 30 arcsec GeoTIFF`
 
 #### 3.2 Solar Position, Sky Radiation & Atmospheric Aerosols
 * **Target Datasets:**
@@ -190,9 +207,13 @@ mindmap
 
 ### Domain 4: Botany, Plant Functional Types & Metamer Biophysics
 
-#### 4.1 Plant Trait Databases (AusTraits & TRY)
+#### 4.1 Plant Trait Databases, Plot Surveillance & Remote Sensing
 * **Target Datasets:**
-  * **AusTraits Database (v5.0+):** The authoritative open-access synthesized database of Australian plant traits (28,000+ taxa, 500+ traits, 1M+ observations).
+  * **AusTraits Database (v5.0+):** The authoritative open-access synthesized database of Australian plant traits (28,000+ taxa, 500+ traits, 1M+ observations, Zenodo DOI: `10.5281/zenodo.3568417`).
+  * **Flora of Australia & EUCLID (Centre for Australian National Biodiversity Research):** Detailed botanical keys for 900+ *Eucalyptus*, *Corymbia*, and *Angophora* taxa: bark type (stringybark, ironbark, box, ribbon gum), juvenile vs. adult leaf morphology, bud/fruit dimensions, and oil gland density (`https://profiles.ala.org.au/`).
+  * **TERN AusPlots & EcoPlots:** Standardized $100\text{m} \times 100\text{m}$ field survey plots across Australia: basal area, canopy cover fractions, litter depth, coarse woody debris, and exact voucher-verified species co-occurrence matrices (`https://ecoplots.tern.org.au/`).
+  * **NASA GEDI (Global Ecosystem Dynamics Investigation) L2A/L2B/L4A:** 25m footprint waveforms providing empirical vertical foliage profiles (Plant Area Index by 5m height bin), canopy top height, and aboveground biomass density.
+  * **ETH / Meta Global Canopy Height (Lang et al. / Tolan et al.):** 1m to 10m continuous wall-to-wall tree height raster (COG) across Eastern Australia.
   * **TRY Plant Trait Database:** Global standardized plant trait database.
 * **Attributes to Extract:**
   * Specific Leaf Area ($SLA$ in $m^2/kg$, leaf mass per area $LMA$)
@@ -203,19 +224,25 @@ mindmap
   * Rooting depth ($D_{\text{root}}$ in $m$) and root-to-shoot ratio ($R:S$)
   * Fire response strategy (epicormic resprouter, basal lignotuber, obligate seed bank)
   * Leaf tensile modulus and petiole bending stiffness ($EI$)
-* **Format:** Parquet / CSV tabular database, Zenodo release repository.
+* **Format:** Parquet / CSV tabular database, COG, HDF5, RDF Turtle.
 * **Gemini Discovery Queries:**
   * `AusTraits database download Zenodo Australian plant traits CSV parquet`
-  * `TRY plant trait database specific leaf area wood density stomatal conductance`
+  * `EUCLID eucalypts identification keys bark leaves fruit CANBR profiles`
+  * `TERN AusPlots plot surveillance vegetation structure basal area download`
+  * `NASA GEDI L2B canopy height profile Australia Snowy Mountains`
 
-#### 4.2 Vegetation Mapping & Ecological Communities
+#### 4.2 High-Resolution Vegetation Mapping & Communities
 * **Target Datasets:**
+  * **NSW State Vegetation Type Map (SVTM - DPE / SEED):** Plant Community Types (PCTs) mapped at 5m–25m resolution across NSW, distinguishing frost-hollow *Poa* tussock grassland from adjacent *Eucalyptus pauciflora* woodland at Talbingo (`https://datasets.seed.nsw.gov.au/`).
+  * **Victorian Ecological Vegetation Classes (EVCs - Vicmap / DataShare):** Statewide fine-scale native vegetation groups (`NV2005_EVCBCS`) across Victorian alpine and montane biomes.
+  * **Queensland Regional Ecosystems (RE - QSpatial):** 1:10,000 coastal / 1:50,000 inland vegetation communities across South-East Queensland (Noosa corridor).
   * **National Vegetation Information System (NVIS v6.0 - DAWE):** Major Vegetation Groups (MVGs, 33 classes) and Major Vegetation Subgroups (MVSs, 85 classes) at 100m grid resolution across Australia.
   * **Atlas of Living Australia (ALA):** Geo-referenced plant species observation occurrences (100M+ records) across Eastern Australia, including phenological dates of flowering and fruiting.
-* **Format & Resolution:** Cloud-Optimized GeoTIFF (NVIS 100m raster), Darwin Core Archive (DwC-A / Parquet) for ALA occurrences.
+* **Format & Resolution:** Cloud-Optimized GeoTIFF, GeoPackage / ESRI Shapefile, Darwin Core Archive (DwC-A).
 * **Gemini Discovery Queries:**
-  * `NVIS "National Vegetation Information System" version 6.0 Major Vegetation Groups download raster`
-  * `Atlas of Living Australia "Darwin Core Archive" species occurrence download API`
+  * `NSW State Vegetation Type Map SVTM Plant Community Types PCT GeoPackage download`
+  * `Victoria Ecological Vegetation Classes EVC DataShare map download`
+  * `Queensland Regional Ecosystems spatial dataset QSpatial download`
 
 #### 4.3 Plant Morphogenetic Grammars & Allometry
 * **Target Datasets:**
@@ -236,14 +263,20 @@ mindmap
 * **Gemini Discovery Queries:**
   * `Movebank animal tracking data download Australia wombat kangaroo GPS accelerometer`
 
-#### 5.2 Animal Functional Traits & Life Histories
+#### 5.2 Animal Functional Traits, Checklists & Life Histories
 * **Target Datasets:**
+  * **Australian Faunal Directory (AFD - DCCEEW):** Official taxonomic checklist, holotype records, and distributional bounds for Australian vertebrates and invertebrates (`https://biodiversity.org.au/afd/home`).
+  * **SPRAT (Species Profile and Threats Database - EPBC Act):** Threat abatement profiles, foraging/breeding habitat polygons, and ecological community thresholds for threatened species (`https://www.environment.gov.au/cgi-bin/sprat/public/sprat.pl`).
+  * **BirdLife Australia (Birdata & Australian Bird Data v1.0):** Morphological, ecological, and life-history traits for all Australian bird taxa (clutch size, foraging stratum, migration class, beak dimensions, wing loading) (`https://birdata.birdlife.org.au/`).
+  * **Australian National Insect Collection (ANIC - CSIRO) & AusPollinators:** Insect occurrences, host-plant associations, and thermal tolerance bounds for native bees (*Tetragonula*, *Amegilla*), beetles, and alpine moths (Bogong moth *Agrotis infusa*) (`https://data.csiro.au/`).
   * **AnAge (The Animal Ageing and Longevity Database):** Adult body mass ($kg$), basal metabolic rate ($BMR$ in Watts), body temperature ($^\circ\text{C}$), gestation duration, longevity.
   * **Encyclopedia of Life (EOL) TraitBank:** Dietary guild (herbivore, browser, grazer, insectivore, carnivore), foraging stratum (terrestrial, arboreal, fossorial, aquatic), locomotion class.
   * **GloBI (Global Biotic Interactions):** Graph of empirical ecological interactions (predator-prey, herbivore-plant, pollinator-flower).
-* **Format:** Tabular TSV / CSV, RDF Turtle.
+* **Format:** Tabular TSV / CSV, RDF Turtle, DwC-A.
 * **Gemini Discovery Queries:**
-  * `AnAge database download longevity metabolic rate body mass species CSV`
+  * `Australian Faunal Directory checklist download RDF Darwin Core`
+  * `SPRAT Species Profile and Threats Database shapefile download`
+  * `Birdata Australian bird traits dataset Dryad Zenodo download`
   * `GloBI Global Biotic Interactions download edge list TSV Australia`
 
 ---
@@ -253,11 +286,12 @@ mindmap
 #### 6.1 Fungal Traits & Mycorrhizal Networks
 * **Target Datasets:**
   * **FungalTraits Database (Polme et al.):** Functional traits of fungi (ectomycorrhizal, arbuscular mycorrhizal, saprotrophic, wood-decay white/brown rot), primary host plant taxa, sporocarp fruiting temperature/moisture triggers.
-  * **Earth Microbiome Project / Bioplatforms Australia Soil Microbiome:** Soil microbial biomass carbon ($MBC$), decomposition decay constants ($k_{\text{decay}}$), bacterial/fungal ratios.
-* **Format:** Tabular CSV / Excel, Zenodo archive.
+  * **Fungimap & Australian Microbiome Initiative (Bioplatforms Australia):** Georeferenced soil eDNA amplicon sequences (16S bacterial, ITS fungal) paired directly with soil chemistry at TERN AusPlots sites (`https://data.bioplatforms.com/`).
+  * **Earth Microbiome Project / CSIRO Soil Microbiome:** Soil microbial biomass carbon ($MBC$), decomposition decay constants ($k_{\text{decay}}$), bacterial/fungal ratios.
+* **Format:** Tabular CSV / Excel, FASTQ / OTU tables, Zenodo archive.
 * **Gemini Discovery Queries:**
   * `FungalTraits database Polme et al download mycorrhizal saprotrophic traits CSV`
-  * `Bioplatforms Australia soil microbiome data portal CSIRO`
+  * `Australian Microbiome Initiative soil eDNA data portal Bioplatforms TERN`
 
 ---
 
@@ -348,12 +382,24 @@ classDiagram
 | **`po:`** | Plant Ontology | `http://purl.obolibrary.org/obo/po.owl` | `urn:qualia:ontology:po` | Botanical anatomical structures (phytomers, blades, petioles, roots, bark) |
 | **`to:`** | Plant Trait Ontology | `http://purl.obolibrary.org/obo/to.owl` | `urn:qualia:ontology:to` | Physiological plant traits (hydraulic resistance, stomatal conductance, $SLA$) |
 | **`pato:`** | Phenotype & Trait Ontology | `http://purl.obolibrary.org/obo/pato.owl` | `urn:qualia:ontology:pato` | Physical qualities (elasticity, porosity, friction, color, roughness) |
+| **`ro:`** | Relation Ontology (OBO) | `http://purl.obolibrary.org/obo/ro.owl` | `urn:qualia:ontology:ro` | Standardized ecological/causal edges (`part_of`, `trophically_interacts_with`, `has_host`) |
+| **`ecocore:`** | Core Ecological Entities | `http://purl.obolibrary.org/obo/ecocore.owl` | `urn:qualia:ontology:ecocore` | Trophic roles (autotroph, detritivore, browser), foraging strategies, guilds |
+| **`peco:`** | Plant Experimental Conditions | `http://purl.obolibrary.org/obo/peco.owl` | `urn:qualia:ontology:peco` | Abiotic/biotic exposure regimens (frost, drought stress, irradiance intensity) |
+| **`flopo:`** | Flora Phenotype Ontology | `http://purl.obolibrary.org/obo/flopo.owl` | `urn:qualia:ontology:flopo` | Fine-grained morphology (leaf serration, bark fissuring, inflorescence geometry) |
+| **`bco:`** | Biological Collections Ontology | `http://purl.obolibrary.org/obo/bco.owl` | `urn:qualia:ontology:bco` | Field sampling provenance, specimen vouchers, observational protocols |
+| **`sweet:`** | Semantic Web for Earth & Env. | `http://sweetontology.net/` | `urn:qualia:ontology:sweet` | Earth systems: hydrology, geomorphology, thermodynamics, pedogenesis |
+| **`sosa:` / `ssn:`** | Sensor, Observation, Sample, Actuator | `http://www.w3.org/ns/sosa/` | `urn:qualia:ontology:sosa` | Weather stations, flux towers, stream gauges, acoustic sensor observation logs |
+| **`time:` / `gts:`** | OWL-Time & Geologic TimeScale | `http://www.w3.org/2006/time#` | `urn:qualia:ontology:time` | Phenological intervals, diurnal cycles, Indigenous seasons, bedrock ages |
+| **`geosciml:`** | OGC GeoSciML (v4.1) | `http://resource.geosciml.org/schema/cgi/geosciml/4.1/` | `urn:qualia:ontology:geosciml` | Geologic units, shear displacement structures, lithological rock composition |
+| **`hy_p:`** | OGC HY_Features (Hydrology) | `https://www.opengis.net/def/appschema/hy_features/hyf/` | `urn:qualia:ontology:hy_features` | Catchment topological graphs, nexus points, river reaches (BoM Geofabric) |
 | **`chebi:`** | Chemical Entities of Biological Interest | `http://purl.obolibrary.org/obo/chebi.owl` | `urn:qualia:ontology:chebi` | Organic polymers (lignin, cellulose), minerals ($\text{SiO}_2$, calcite), nutrients |
 | **`ncbitaxon:`** | NCBI Organismal Taxonomy | `http://purl.obolibrary.org/obo/ncbitaxon.owl` | `urn:qualia:ontology:ncbitaxon` | Full taxonomic hierarchy for flora, fauna, fungi, and bacterial species |
 | **`uberon:`** | Integrated Cross-Species Anatomy | `http://purl.obolibrary.org/obo/uberon.owl` | `urn:qualia:ontology:uberon` | Animal musculoskeletal structures, limb joints, locomotion organs |
 | **`tern:`** | TERN Ecosystem Surveillance | `https://w3id.org/tern/ontologies/tern/` | `urn:qualia:ontology:tern` | Australian plot observations, vegetation structure, soil surveys |
 | **`aunsl:`** | Australian National Soil Legislation | Bundled in `qualia-core-db/ontologies/aunsl.ttl` | `urn:qualia:ontology:aunsl` | Australian Soil Classification (Isbell) soil orders, horizons, chemistry |
 | **`dwc:`** | Darwin Core Biodiversity Standard | `http://rs.tdwg.org/dwc/terms/` | `urn:qualia:ontology:dwc` | Biodiversity occurrences, sampling events, specimen taxonomy |
+| **`odrl:`** | W3C Open Digital Rights Language (v2.2) | `http://www.w3.org/ns/odrl/2/` | `urn:qualia:ontology:odrl` | Deontic rights, licensing permissions, cultural stewardship constraints |
+| **`prov:`** | W3C PROV-O | `http://www.w3.org/ns/prov#` | `urn:qualia:ontology:prov` | Cryptographic provenance from custodian COG/CSV to compiled `.q42`/`.m64` |
 | **`tk:` / `bc:`** | Local Contexts Traditional Knowledge | `https://localcontexts.org/ontology/tk-bc.ttl` | `urn:qualia:ontology:localcontexts` | Traditional Knowledge & Biocultural Labels, cultural protocol constraints |
 | **`geo:`** | OGC GeoSPARQL | `http://www.opengis.net/ont/geosparql` | `urn:qualia:ontology:geo` | Spatial geometries, topological relationships, geodetic features |
 | **`qudt:`** | Quantities, Units, Dimensions & Types | `http://qudt.org/schema/qudt/` | `urn:qualia:ontology:qudt` | Physical units of measure (pascals, meters, grams, seconds, watts) |
@@ -371,9 +417,15 @@ The following table details the authoritative Australian Linked Data endpoints a
 | **Australian National Species List (auNSL)** | `https://biodiversity.org.au/voc/` & `https://catalogue.linked.data.gov.au/def/nsl` | `urn:qualia:ontology:aunsl_taxa` | Linked Data REST / JSON-LD / Turtle | Authoritative taxonomic concepts, scientific names, nomenclatural status, and persistent LSID identifiers for Australian flora (APC) and fauna (AFD). |
 | **TERN GraphDB SPARQL** | `https://graphdb.tern.org.au/repositories/tern_repository` | `urn:qualia:ontology:tern_surveillance` | SPARQL 1.1 Protocol / Turtle | Plot observations, floristic vouchers, vegetation strata, and ecological surveillance links matching Australian subalpine and coastal biomes. |
 | **Atlas of Living Australia (ALA) Linked Data** | `https://api.ala.org.au/occurrences/` & DwC RDF | `urn:qualia:ontology:ala_occurrences` | Darwin Core RDF / Turtle / JSON-LD | 100M+ occurrence records, coordinate precision, phenological dates (flowering, fruiting), and specimen images. |
+| **AGLDWG Loc-I (Location Index)** | `https://linked.data.gov.au/dataset/loci` | `urn:qualia:ontology:loci` | GeoSPARQL / OGC API / Turtle | Connects ABS statistical blocks, BoM Geofabric catchments, and G-NAF via `geo:sfWithin`, `geo:sfTouches`. |
+| **GA Geological Vocabularies** | `https://vocabs.gsq.digital/` & `https://pid.geoscience.gov.au/def/voc/` | `urn:qualia:ontology:ga_vocabs` | SKOS / RDF Turtle | Lithology, alteration types, stratigraphic eras (ICS Geologic TimeScale), and borehole logs. |
+| **GBIF Backbone Taxonomy API** | `https://api.gbif.org/v1/species/` | `urn:qualia:ontology:gbif_backbone` | REST JSON-LD / Darwin Core | Global resolution of taxon keys, cross-mapped to NCBI, Catalogue of Life (CoL), and IUCN Red List. |
+| **Catalogue of Life (CoL) ChecklistBank** | `https://api.checklistbank.org/` | `urn:qualia:ontology:col_checklist` | ColDP / JSON-LD / TSV | Comprehensive global species hierarchies and synonymy resolution. |
+| **Open Tree of Life (OToL)** | `https://api.opentreeoflife.org/v3/` | `urn:qualia:ontology:otol_phylo` | Newick / NexSON / RDF | Synthetic phylogenetic tree of life for evolutionary distance and trait imputation. |
 | **Wikidata SPARQL (Australian Biota)** | `https://query.wikidata.org/sparql` | `urn:qualia:ontology:wikidata_biota` | SPARQL 1.1 / JSON / Turtle | Cross-links between NCBI Taxon IDs, auNSL LSIDs, IUCN conservation status, and vernacular names in First Nations languages (Ngarigo, Wiradjuri, D'harawal, Yuin, Kulin). |
 | **Global Biotic Interactions (GloBI)** | `https://api.globalbioticinteractions.org/` & RDF Dumps | `urn:qualia:ontology:globi_interactions` | RDF Turtle / TSV edge list | Empirical inter-species relational graph: predator-prey, herbivore-plant, pollinator-flower, and mycorrhizal associations. |
 | **PLAZI TreatmentBank** | `http://tb.plazi.org/GgServer/sparql` | `urn:qualia:ontology:plazi_treatments` | SPARQL 1.1 / RDF XML / Turtle | Published taxonomic morphological descriptions, anatomical diagnoses, and holotype records. |
+| **OpenBiodiv LOD Graph** | `http://graph.openbiodiv.net/` | `urn:qualia:ontology:openbiodiv` | SPARQL 1.1 / RDF Turtle | Combines Pensoft, Plazi, and GBIF taxonomic concepts via OpenBiodiv-O and FaBiO. |
 
 #### Example auNSL / Wikidata SPARQL Discovery Query
 ```sparql
@@ -474,6 +526,63 @@ The operational workflow to execute this acquisition plan is automated via dedic
     • Generates 16-KB GPU ConstituentLUT (256 x 64B flat binary table)
     • Compiles .m64 Mode 0x02 Strata Column Chunks (6-depth layers)
     • Packages .10d Manifold Heightfields & River Vector Geofabric
+```
+
+### 5.1 Direct Programmatic Ingestion Endpoints Registry (`config/endpoints.toml`)
+
+The machine-actionable REST, STAC, WCS, OPeNDAP, and SPARQL endpoints below are pre-wired for execution via `scripts/fetch_east_coast_data.py`:
+
+```toml
+# ============================================================================
+# ECOPUNK DATA ACQUISITION ENDPOINT REGISTRY
+# Bounding Box (Talbingo Micro): [148.15, -36.20, 148.65, -35.40] (EPSG:4326)
+# ============================================================================
+
+[geospatial.australia]
+dea_stac_api          = "https://explorer.sandbox.dea.ga.gov.au/stac"
+elvis_fsdf_stac       = "https://elvis.ga.gov.au/api/v1/search"
+nsw_spatial_rest      = "https://portal.spatial.nsw.gov.au/server/rest/services"
+nsw_seed_ckan_api     = "https://datasets.seed.nsw.gov.au/api/3/action"
+gsnsw_geology_wfs     = "https://gs.geoscience.nsw.gov.au/geoserver/wfs"
+actmapi_arcgis_rest   = "https://data.actmapi.act.gov.au/arcgis/rest/services"
+vic_datashare_wfs     = "https://opendata.maps.vic.gov.au/geoserver/wfs"
+csiro_slga_wcs        = "https://www.asris.csiro.au/arcgis/services/TERN"
+nci_thredds_dap       = "https://thredds.nci.org.au/thredds/dodsC"
+bom_geofabric_wfs     = "http://geofabric.bom.gov.au/simplefeatures/ows"
+bom_water_sos2        = "http://www.bom.gov.au/waterdata/services"
+
+[biodiversity.australia]
+ala_biocache_api      = "https://biocache-ws.ala.org.au/ws/occurrences/search"
+aunsl_sparql          = "https://biodiversity.org.au/nsl/services/sparql"
+tern_graphdb_sparql   = "https://graphdb.tern.org.au/repositories/tern_repository"
+bionet_nsw_odata      = "https://data.bionet.nsw.gov.au/biosvcapp/odata"
+austraits_zenodo_api  = "https://zenodo.org/api/records/7368074" # Concept DOI: 10.5281/zenodo.3568417
+a2o_acoustic_api      = "https://api.acousticobservatory.org"
+
+[lod_cloud.international]
+wikidata_sparql       = "https://query.wikidata.org/sparql"
+gbif_species_api      = "https://api.gbif.org/v1/species"
+globi_interactions    = "https://api.globalbioticinteractions.org/interaction"
+plazi_treatment_sparql= "http://tb.plazi.org/GgServer/sparql"
+col_checklist_api     = "https://api.checklistbank.org"
+opentree_phylo_api    = "https://api.opentreeoflife.org/v3"
+agldwg_vocab_sparql   = "https://vocabs.ardc.edu.au/repository/api/sparql"
+
+[ontologies.obo_w3c]
+envo_owl              = "http://purl.obolibrary.org/obo/envo.owl"
+po_owl                = "http://purl.obolibrary.org/obo/po.owl"
+to_owl                = "http://purl.obolibrary.org/obo/to.owl"
+pato_owl              = "http://purl.obolibrary.org/obo/pato.owl"
+ro_owl                = "http://purl.obolibrary.org/obo/ro.owl"
+ecocore_owl           = "http://purl.obolibrary.org/obo/ecocore.owl"
+flopo_owl             = "http://purl.obolibrary.org/obo/flopo.owl"
+chebi_owl             = "http://purl.obolibrary.org/obo/chebi.owl"
+uberon_owl            = "http://purl.obolibrary.org/obo/uberon.owl"
+geosparql_ttl         = "http://www.opengis.net/ont/geosparql"
+qudt_ttl              = "http://qudt.org/2.1/schema/qudt"
+sosa_ttl              = "http://www.w3.org/ns/sosa/"
+odrl_ttl              = "http://www.w3.org/ns/odrl/2/ODRL22.ttl"
+local_contexts_ttl    = "https://localcontexts.org/ontology/tk-bc.ttl"
 ```
 
 ---
