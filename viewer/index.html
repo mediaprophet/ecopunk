@@ -3,258 +3,364 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ecopunk — 3D Holographic Earth-Terrain & Spatio-Temporal Linguistics</title>
-  <meta name="description" content="Holographic 3D Earth-Terrain continuum physics engine, diachronic isogloss mapping, and sonic toponym spatial wave-field streamer in QualiaDB & Ecopunk.">
+  <title>EcoPunk — East Coast Australia 3D Ecological Continuum, 105 Flora & 64 Fauna Simulation</title>
+  <meta name="description" content="QualiaDB 3D Earth-Terrain continuum engine, 105 East Coast Australian flora species, 64 articulated fauna species, 6 CSIRO SLGA soil strata, and multi-view observer projections.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app-container">
-    <!-- 3D Canvas Layer -->
+    <!-- 3D WebGL Canvas Layer -->
     <canvas id="viewport-canvas"></canvas>
 
-    <!-- Overlay filters -->
+    <!-- Subtle optical framing -->
     <div class="vignette-overlay"></div>
-    <div class="scanlines-overlay"></div>
 
     <!-- UI Overlay Grid -->
     <div class="ui-layer">
-      <!-- Top Navigation Bar -->
+      <!-- Top Navigation Bar: Brand, Sector Selector, 6 View Modes, 6 Shader Modes, Telemetry -->
       <header class="glass-panel top-nav ui-interactive">
-        <div class="brand-section">
-          <div class="brand-logo">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+        <div class="top-row">
+          <div class="brand-section">
+            <div class="brand-logo">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <h1 class="brand-title">ECOPUNK</h1>
+                <span class="brand-badge">QualiaDB v0.40 · East Coast Continuum</span>
+              </div>
+              <div class="brand-subtitle" id="sector-subtitle">
+                GDA2020 · 105 Flora · 64 Fauna · .q42 / .m64 / .10d Live Substrate
+              </div>
+            </div>
           </div>
-          <div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <h1 class="brand-title">ECOPUNK</h1>
-              <span class="brand-badge">Holo Continuum v0.40</span>
+
+          <!-- East Coast Sector Selector -->
+          <div class="sector-selector-wrap">
+            <label for="sector-select" class="ctrl-label">SECTOR BIOME</label>
+            <select id="sector-select" class="sector-select">
+              <option value="talbingo_pines">1. Talbingo Gorge &amp; Blowering Shore (385–1180m)</option>
+              <option value="jounama_karst">2. Jounama Creek Karst Valley (420–890m)</option>
+              <option value="yarrangobilly_cliff">3. Yarrangobilly Limestone Cliff &amp; Thermal Pool (920–1280m)</option>
+              <option value="three_mile_dam">4. Three Mile Dam Subalpine Frost Hollow (1380–1680m)</option>
+              <option value="sydney_sandstone">5. Sydney Basin Hawkesbury Sandstone Gorge (120–780m)</option>
+              <option value="noosa_headland">6. Noosa / SEQ Subtropical Coastal Headland (0–240m)</option>
+            </select>
+          </div>
+
+          <!-- Live Telemetry Strip -->
+          <div class="telemetry-strip">
+            <div class="telemetry-item">
+              <span class="status-dot"></span>
+              <span id="fps-counter">60 FPS</span>
+            </div>
+            <div class="telemetry-item">
+              <strong id="gpu-backend-badge" style="color: var(--accent-cyan);">WEBGPU · WGSL FORGE v2</strong>
+            </div>
+            <div class="telemetry-item">
+              <span>Flora:</span>
+              <strong id="flora-count-badge" style="color: var(--accent-emerald);">105 Taxa</strong>
+            </div>
+            <div class="telemetry-item">
+              <span>Fauna:</span>
+              <strong id="fauna-count-badge" style="color: var(--accent-amber);">64 Active</strong>
+            </div>
+            <div class="telemetry-item">
+              <span>Quins:</span>
+              <strong id="quin-count-badge" style="color: var(--accent-cyan);">7,634 .q42</strong>
             </div>
           </div>
         </div>
 
-        <!-- 5 Normative Observer Shader Mode Selector -->
-        <nav class="shader-modes-bar" aria-label="Observer Projection Modes">
-          <button class="mode-btn active" data-mode="0" id="mode-pbr" title="Spectral Cook-Torrance PBR + CIE 1931 XYZ">
-            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-            </svg>
-            Spectral PBR
-          </button>
-          <button class="mode-btn" data-mode="1" id="mode-toon" title="Cel-Shaded Toon with Discrete Steps & Sobel Inking">
-            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-            Cel Toon
-          </button>
-          <button class="mode-btn" data-mode="2" id="mode-watercolor" title="Storybook Watercolor with Kubelka-Munk Diffusion">
-            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-            </svg>
-            Watercolor
-          </button>
-          <button class="mode-btn" data-mode="3" id="mode-hud" title="Tactical / GPR HUD with Dielectric Contrast Wireframe">
-            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-            GPR HUD
-          </button>
-          <button class="mode-btn" data-mode="4" id="mode-thermal" title="Planck Blackbody Thermal Infrared Pseudocolor">
-            <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
-            </svg>
-            Thermal IR
-          </button>
-        </nav>
+        <!-- Second Header Row: 6 Spatial Camera Views + 6 Normative Observer Shaders -->
+        <div class="bottom-nav-row">
+          <!-- 6 Spatial Camera / View Modes -->
+          <nav class="modes-group" id="view-modes-bar" aria-label="Spatial View Modes">
+            <span class="group-tag">VIEW</span>
+            <button class="mode-btn active" data-view="aerial_orbit" id="view-aerial" title="3D Helicopter Orbital Survey across valley &amp; ridges">
+              Aerial Survey
+            </button>
+            <button class="mode-btn" data-view="ground_walk" id="view-walk" title="First-Person Ground Explorer (WASD + Mouse Look)">
+              Ground Walk
+            </button>
+            <button class="mode-btn" data-view="fauna_tracker" id="view-tracker" title="Follow-Cam locked onto active moving wildlife agent">
+              Fauna Tracker
+            </button>
+            <button class="mode-btn" data-view="specimen_loupe" id="view-loupe" title="3D Specimen Studio &amp; Anatomical Osteology / Vascular X-Ray">
+              3D Specimen Studio
+            </button>
+            <button class="mode-btn" data-view="subsurface_cutaway" id="view-cutaway" title="3D Geological &amp; 6-Layer CSIRO SLGA Soil Cross-Section">
+              Subsurface Cutaway
+            </button>
+            <button class="mode-btn" data-view="corridor_gis" id="view-gis" title="Top-Down Orthographic Topographic &amp; Trophic Network Map">
+              Corridor GIS
+            </button>
+          </nav>
 
-        <!-- Telemetry Strip -->
-        <div class="telemetry-strip">
-          <div class="telemetry-item">
-            <span class="status-dot"></span>
-            <span id="fps-counter">60 FPS</span>
-          </div>
-          <div class="telemetry-item">
-            <span>VRAM:</span>
-            <span id="vram-counter" style="color: var(--accent-cyan);">42.0 / 256 MiB</span>
-          </div>
-          <div class="telemetry-item">
-            <span>FrameLock:</span>
-            <span style="color: var(--accent-emerald);">64B UDP SYNC</span>
-          </div>
+          <!-- 6 Normative Observer Shader Modes -->
+          <nav class="modes-group" id="shader-modes-bar" aria-label="Observer Projection Modes">
+            <span class="group-tag">SHADER</span>
+            <button class="mode-btn active" data-mode="0" id="mode-pbr" title="Cook-Torrance Microfacet PBR + ACES Filmic + Zero-Haze">
+              Spectral PBR
+            </button>
+            <button class="mode-btn" data-mode="1" id="mode-toon" title="Botanical Art-Bible Cel Shading + Edge Inking">
+              Cel Toon
+            </button>
+            <button class="mode-btn" data-mode="2" id="mode-watercolor" title="Namatjira Storybook Watercolor + Kubelka-Munk Wash">
+              Watercolor
+            </button>
+            <button class="mode-btn" data-mode="3" id="mode-hud" title="Tactical GPR Dielectric Radar + 3D Trophic Food-Web Arcs">
+              GPR &amp; Trophic HUD
+            </button>
+            <button class="mode-btn" data-mode="4" id="mode-thermal" title="Planck Blackbody Thermal IR (Endotherm BMR Glow + NDVI)">
+              Thermal IR
+            </button>
+            <button class="mode-btn" data-mode="5" id="mode-helio" title="Heliophysics Magnetosphere, Aurora Australis &amp; Bioacoustic Wavefronts">
+              Helio &amp; Bioacoustics
+            </button>
+          </nav>
         </div>
       </header>
 
-      <!-- Left Sidebar: Spatio-Temporal Linguistics -->
+      <!-- Left Sidebar: 105 Flora, 64 Fauna & Indigenous Sonic Toponym Browser -->
       <aside class="glass-panel left-sidebar ui-interactive">
-        <div class="panel-header">
-          <div class="panel-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
-            Spatio-Temporal Linguistics
-          </div>
-          <span class="brand-badge">sl:Lect</span>
+        <div class="sidebar-tabs">
+          <button class="tab-btn active" data-tab="flora" id="tab-btn-flora">Flora (105)</button>
+          <button class="tab-btn" data-tab="fauna" id="tab-btn-fauna">Fauna (64)</button>
+          <button class="tab-btn" data-tab="country" id="tab-btn-country">Country &amp; Audio</button>
         </div>
 
-        <div class="panel-body">
-          <!-- Active Diachronic Isogloss -->
-          <div class="sub-card">
-            <div class="card-label">
-              <span>Active Isogloss Variety</span>
-              <span style="color: var(--accent-emerald);">4D Valid</span>
-            </div>
-            <div class="card-value" id="isogloss-name">Pre-Colonial Kinship Songline Lect</div>
-            <div class="card-desc" id="isogloss-details">
-              Continuous acoustic prosody; seasonal ceremony; oral custodianship.
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-cyan); display: flex; justify-content: space-between;">
-              <span>Enclosing Radius: 12.0 km</span>
-              <span>ICCPR Art. 27: Fiduciary</span>
-            </div>
+        <!-- TAB 1: FLORA CATALOG (105 Species) -->
+        <div class="tab-pane active" id="tab-flora">
+          <div class="filter-bar">
+            <input type="text" id="flora-search" class="search-input" placeholder="Search 105 flora (e.g. Snow Gum, Banksia, Fern)...">
+            <select id="flora-guild-filter" class="filter-select">
+              <option value="all">All Botanical Guilds (105)</option>
+              <option value="contorted_gum">Subalpine &amp; Twisted Gums</option>
+              <option value="columnar_ash">Tall Columnar Ash &amp; Forest Gums</option>
+              <option value="spreading_eucalypt">Spreading Woodlands &amp; Bloodwoods</option>
+              <option value="wattle_dome">Acacias / Golden Wattles</option>
+              <option value="banksia_cone_shrub">Banksias, Grevilleas &amp; Proteaceae</option>
+              <option value="waratah_shrub">Waratahs &amp; Showy Endemics</option>
+              <option value="weeping_riparian">Riparian Bottlebrushes &amp; Melaleucas</option>
+              <option value="conifer_pyramidal">Ancient Conifers &amp; Casuarinas</option>
+              <option value="rainforest_buttress">Rainforest Figs &amp; Nothofagus</option>
+              <option value="tree_fern">Tree Ferns, Cycads, Palms &amp; Grass Trees</option>
+              <option value="tussock_grass">Alpine Tussock Grasses, Sedges &amp; Herbs</option>
+            </select>
           </div>
+          <div class="catalog-list" id="flora-list"></div>
+        </div>
 
-          <!-- Sonic Toponym Wave-Field Streamer -->
-          <div class="sub-card" style="flex: 1;">
-            <div class="card-label">
-              <span>Sonic Toponyms (Wave Streamer)</span>
-              <span>Click to Play</span>
+        <!-- TAB 2: FAUNA CATALOG (64 Species) -->
+        <div class="tab-pane" id="tab-fauna">
+          <div class="filter-bar">
+            <input type="text" id="fauna-search" class="search-input" placeholder="Search 64 fauna (e.g. Kangaroo, Wombat, Platypus, Lyrebird)...">
+            <select id="fauna-class-filter" class="filter-select">
+              <option value="all">All Taxonomic Classes (64)</option>
+              <option value="Mammalia">Mammals: Macropods, Wombats, Koala, Platypus (20)</option>
+              <option value="Aves">Birds: Lyrebird, Eagle, Cockatoos, Parrots (20)</option>
+              <option value="Reptilia">Reptiles: Goanna, Dragons, Pythons, Elapids (10)</option>
+              <option value="Amphibia">Amphibians: Corroboree &amp; East Coast Frogs (6)</option>
+              <option value="Aquatic">Freshwater Fish &amp; Spiny Crayfish (4)</option>
+              <option value="Insecta">Invertebrates: Bogong Moth, Katydid, Native Bee (4)</option>
+            </select>
+          </div>
+          <div class="catalog-list" id="fauna-list"></div>
+        </div>
+
+        <!-- TAB 3: BIOCULTURAL STEWARDSHIP & SONIC TOPONYMS -->
+        <div class="tab-pane" id="tab-country">
+          <div class="panel-body">
+            <div class="sub-card">
+              <div class="card-label">
+                <span>Custodial Country &amp; Language</span>
+                <span style="color: var(--accent-emerald);">CARE / TK Verified</span>
+              </div>
+              <div class="card-value" id="country-name">Walgalu &amp; Ngarigo Country</div>
+              <div class="card-desc" id="country-details">
+                High Country songlines, seasonal Bogong moth (Agrotis infusa) aestivation grounds, and dual-named hydrological corridors.
+              </div>
+              <div class="meta-row">
+                <span id="isogloss-name">Pre-Colonial Kinship Songline Lect</span>
+                <span>SocialPermissiveCommons</span>
+              </div>
             </div>
-            <div class="card-desc">
-              Spatial wave-field playback with real-time inverse-square SPL falloff & Doppler pitch tracking:
-            </div>
-            <div id="toponym-list" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
-              <!-- Injected by app.js -->
+
+            <div class="sub-card" style="flex: 1;">
+              <div class="card-label">
+                <span>Sonic Toponyms &amp; Field Stations</span>
+                <span>Click to Emit Wave</span>
+              </div>
+              <div id="toponym-list" class="toponym-list-wrap"></div>
             </div>
           </div>
         </div>
       </aside>
 
-      <!-- Right Sidebar: Subsurface Stratigraphy & Specimen Loupe -->
+      <!-- Right Sidebar: Comprehensive Asset Informatics, 6-Layer SLGA Soil Strata & Physics Controls -->
       <aside class="glass-panel right-sidebar ui-interactive">
         <div class="panel-header">
           <div class="panel-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-magenta)" stroke-width="2">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
-            Subsurface Matter-64
+            <span id="inspector-header-title">Qualia .q42 Asset Informatics</span>
           </div>
-          <span class="brand-badge">.m64 Strata</span>
+          <span class="brand-badge" id="inspector-type-badge">FLORA · .10D</span>
         </div>
 
         <div class="panel-body">
-          <!-- 6-Layer Stratigraphic Column -->
-          <div class="sub-card">
-            <div class="card-label">
-              <span>6-Layer Stratigraphic Column</span>
-              <span id="exc-status" style="color: var(--text-dim);">Nominal Stack (Uncut)</span>
+          <!-- Selected Flora / Fauna Comprehensive Informatics Card -->
+          <div class="sub-card" id="specimen-inspector-card">
+            <div class="inspector-title-row">
+              <div>
+                <div class="card-value" id="insp-common-name">Snow Gum</div>
+                <div class="insp-sci-name" id="insp-sci-name">Eucalyptus pauciflora Sieber ex Spreng.</div>
+              </div>
+              <div class="color-swatches" id="insp-swatches"></div>
             </div>
-            <div class="strata-stack">
-              <div class="stratum-bar stratum-0" title="Topsoil: Sw = 42%, Mannings n = 0.035">
-                <span>L0: Topsoil / Humus</span>
-                <span>Sw 42%</span>
-              </div>
-              <div class="stratum-bar stratum-1" title="Clay / Silt: Kaolinite, Sw = 78%">
-                <span>L1: Kaolinite Clay</span>
-                <span>Sw 78%</span>
-              </div>
-              <div class="stratum-bar stratum-2" title="Gravel: Permeability k = 4.2e-11 m²">
-                <span>L2: Alluvial Gravel</span>
-                <span>k: 4.2e-11</span>
-              </div>
-              <div class="stratum-bar stratum-3" title="Weathered Clasts: Mohr-Coulomb c = 34 kPa">
-                <span>L3: Weathered Clasts</span>
-                <span>c: 34 kPa</span>
-              </div>
-              <div class="stratum-bar stratum-4" title="Basalt: Biot poroelastic Vp = 2840 m/s">
-                <span>L4: Fractured Basalt</span>
-                <span>Vp: 2840 m/s</span>
-              </div>
-              <div class="stratum-bar stratum-5" title="Solid Bedrock: Vp = 5400 m/s">
-                <span>L5: Solid Bedrock</span>
-                <span>Vp: 5400 m/s</span>
-              </div>
+
+            <div class="insp-indigenous" id="insp-indigenous">
+              🪃 Ngurambang / Karjong · Ngarigo and Walgalu Country
             </div>
-            <div class="card-desc" style="font-family: var(--font-mono); font-size: 0.65rem;">
-              Voigt-Reuss-Hill Elasticity: K_VRH = 38.4 GPa · CRIM ε_eff = 8.4
+
+            <!-- Action Buttons for Selected Specimen -->
+            <div class="insp-actions">
+              <button class="mini-btn primary" id="btn-open-loupe">Inspect 3D Studio</button>
+              <button class="mini-btn" id="btn-track-entity">Locate / Track</button>
+              <button class="mini-btn active" id="btn-toggle-xray">X-Ray Wireframe</button>
+              <button class="mini-btn" id="btn-play-call">🔊 Acoustic</button>
+            </div>
+
+            <!-- Dynamic Biophysical / Ethological Metrics Grid -->
+            <div class="metrics-grid" id="insp-metrics-grid"></div>
+
+            <!-- N3Logic / Trophic / Spectral Summary -->
+            <div class="insp-footer-box" id="insp-extra-details"></div>
+
+            <!-- Allometric Growth / Scale Scrubber -->
+            <div class="slider-row">
+              <div style="display: flex; justify-content: space-between; font-size: 0.7rem;">
+                <span style="color: var(--text-muted);">Allometric Scale / Ontogeny:</span>
+                <span id="specimen-height-val" class="mono-val">12.0 m (1.0x)</span>
+              </div>
+              <input type="range" id="specimen-height" min="0.35" max="1.85" step="0.05" value="1.0" class="timeline-slider">
             </div>
           </div>
 
-          <!-- 10D Specimen Loupe: Corymbia aparrerinja -->
+          <!-- 6-Layer CSIRO SLGA Subsurface Stratigraphy & GSNSW Lithology -->
           <div class="sub-card">
             <div class="card-label">
-              <span>Specimen Loupe (10D Manifold)</span>
-              <span style="color: var(--accent-cyan);">Jakob-Hanika</span>
+              <span>CSIRO SLGA 6-Depth Strata (.m64)</span>
+              <span id="exc-status" style="color: var(--accent-emerald);">GSNSW Verified</span>
             </div>
-            <div class="card-value">Corymbia aparrerinja</div>
-            <div class="card-desc">
-              Ghost Gum · Central Australian arid zone specimen with high-albedo bark reflection.
+            <div class="geol-unit-banner" id="geol-unit-banner">
+              Blowering Formation Dacitic Tuff &amp; Talbingo Basalt
             </div>
-            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem;">
-                <span style="color: var(--text-muted);">Allometric Height:</span>
-                <span id="specimen-height-val" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent-cyan);">14.5 m</span>
+            <div class="strata-stack" id="strata-stack-list"></div>
+          </div>
+
+          <!-- Atmosphere, Wind Aeroelasticity & Space Weather Controls -->
+          <div class="sub-card">
+            <div class="card-label">
+              <span>Microclimate, Wind &amp; Heliophysics</span>
+              <span id="weather-readout" class="mono-val">10:30 · 6.5 m/s</span>
+            </div>
+            <div class="env-sliders">
+              <div class="env-slider-item">
+                <span>Solar Time</span>
+                <input type="range" id="slider-time" min="5.5" max="19.5" step="0.25" value="10.5" class="timeline-slider">
+                <span id="val-time" class="mono-val">10:30</span>
               </div>
-              <input type="range" id="specimen-height" min="0.5" max="25.0" step="0.5" value="14.5" class="timeline-slider">
-              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim);">
-                <span>Bark Albedo: <strong id="specimen-refl" style="color: #fff;">74.2%</strong></span>
-                <span>Arrernte Custodianship: Verified</span>
+              <div class="env-slider-item">
+                <span>Beaufort Wind</span>
+                <input type="range" id="slider-wind" min="0.0" max="26.0" step="0.5" value="6.5" class="timeline-slider">
+                <span id="val-wind" class="mono-val">6.5 m/s</span>
+              </div>
+              <div class="env-slider-item">
+                <span>Cutaway Z</span>
+                <input type="range" id="slider-cutaway" min="-45.0" max="60.0" step="1.0" value="60.0" class="timeline-slider">
+                <span id="val-cutaway" class="mono-val">Uncut</span>
+              </div>
+              <div class="env-slider-item">
+                <span>Solar Kp</span>
+                <input type="range" id="slider-kp" min="0.0" max="9.0" step="0.5" value="3.2" class="timeline-slider">
+                <span id="val-kp" class="mono-val">Kp 3.2</span>
               </div>
             </div>
           </div>
         </div>
       </aside>
 
-      <!-- Floating Action Buttons -->
+      <!-- Floating Quick Action Buttons -->
       <div class="action-toolbar ui-interactive">
-        <button class="action-btn" id="btn-excavate" data-tooltip="Excavation Tool (Carve CSG Cavity)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="action-btn" id="btn-excavate" data-tooltip="CSG Soil Excavation Tool (Carve Trench)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/>
           </svg>
         </button>
+        <button class="action-btn" id="btn-next-fauna" data-tooltip="Cycle Tracked Wildlife Agent">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </button>
         <button class="action-btn" id="btn-reset-view" data-tooltip="Reset Camera Orbit">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/>
           </svg>
         </button>
-        <button class="action-btn active" id="btn-audio-toggle" data-tooltip="Toggle Spatial Audio">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="action-btn active" id="btn-audio-toggle" data-tooltip="Toggle Holosonic Spatial Audio">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
           </svg>
         </button>
       </div>
 
-      <!-- Bottom Control Strip: Timeline & Spectrum Bar -->
+      <!-- Bottom Control Strip: Diachronic Timeline & Holosonic Spectrum Bar -->
       <footer class="glass-panel bottom-strip ui-interactive">
         <div class="timeline-control">
-          <div class="era-year-badge" id="era-year">1920 CE</div>
+          <div class="era-year-badge" id="era-year">2026 CE</div>
           <div class="timeline-slider-wrap">
-            <input type="range" id="timeline-slider" min="1800" max="2030" step="1" value="1920" class="timeline-slider">
+            <input type="range" id="timeline-slider" min="1780" max="2030" step="1" value="2026" class="timeline-slider">
             <div class="timeline-meta">
-              <span>1800 CE (Pre-Colonial Songlines)</span>
-              <span>1860 (Cadastral Baseline)</span>
-              <span>1920 (Mining/Crown Grants)</span>
-              <span>1980 (ILUA Registers)</span>
-              <span>2030 (Modern Continuum)</span>
+              <span>1780 CE (Pre-Colonial Songlines)</span>
+              <span>1860 (Gunter Cadastre)</span>
+              <span>1949 (Snowy Hydro Scheme)</span>
+              <span>1995 (auNSL / CARE Registry)</span>
+              <span>2026 (QualiaDB Living Commons)</span>
             </div>
           </div>
+        </div>
+
+        <!-- Live Fauna Ethology Ticker -->
+        <div class="ethology-ticker" id="ethology-ticker">
+          <span class="ticker-dot"></span>
+          <span id="ethology-status-text">N3Logic Active: 64 Fauna Autonomous Agents · Crepuscular Grazing &amp; Thermal Soaring</span>
         </div>
 
         <!-- Real-time Audio Spectrum Oscilloscope -->
         <div style="display: flex; align-items: center; gap: 10px;">
           <div style="text-align: right;">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-cyan);">ACOUSTIC WAVE TENSOR</div>
-            <div style="font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-dim);">Doppler + Inverse-Square</div>
+            <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--accent-cyan);">HOLOSONIC WAVEFIELD</div>
+            <div style="font-family: var(--font-mono); font-size: 0.58rem; color: var(--text-dim);">A2O + Inverse-Square</div>
           </div>
           <div class="audio-visualizer-box">
-            <canvas id="audio-canvas" width="200" height="40"></canvas>
+            <canvas id="audio-canvas" width="160" height="34"></canvas>
           </div>
         </div>
       </footer>
     </div>
   </div>
 
+  <script src="data/catalog_bundle.js"></script>
+  <script src="data/wgsl_shader_bundle.js"></script>
   <script src="audio.js"></script>
+  <script src="flora_engine.js"></script>
+  <script src="fauna_engine.js"></script>
+  <script src="webgpu_engine.js"></script>
   <script src="terrain.js"></script>
   <script src="app.js"></script>
 </body>

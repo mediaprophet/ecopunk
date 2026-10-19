@@ -1,0 +1,131 @@
+# CSIRO Soil & Landscape Grid of Australia (SLGA) 6-Depth Strata Model
+# Matches QualiaDB M64StrataColumnRecord & BankedConstituentLut specifications.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix envo: <http://purl.obolibrary.org/obo/envo.owl#> .
+@prefix slga: <urn:qualia:slga:depth:> .
+@prefix geo: <urn:qualia:geology:> .
+
+# Depth 1: 0 - 5 cm (Surface Humic Epipedon)
+slga:depth_1 a envo:SoilHorizon ;
+    rdfs:label "Surface Organic Humus (0-5cm)" ;
+    envo:depth_top_cm 0 ;
+    envo:depth_bottom_cm 5 ;
+    envo:clay_percentage 14.5 ;
+    envo:silt_percentage 32.0 ;
+    envo:sand_percentage 53.5 ;
+    envo:bulk_density_g_cm3 1.15 ;
+    envo:organic_carbon_pct 4.8 ;
+    envo:darcy_permeability_ms "3.5e-5"^^xsd:decimal ;
+    envo:cohesion_kpa 12.0 ;
+    envo:friction_angle_deg 28.0 .
+
+# Depth 2: 5 - 15 cm (A-Horizon Topsoil)
+slga:depth_2 a envo:SoilHorizon ;
+    rdfs:label "A-Horizon Topsoil (5-15cm)" ;
+    envo:depth_top_cm 5 ;
+    envo:depth_bottom_cm 15 ;
+    envo:clay_percentage 18.2 ;
+    envo:silt_percentage 28.4 ;
+    envo:sand_percentage 53.4 ;
+    envo:bulk_density_g_cm3 1.30 ;
+    envo:organic_carbon_pct 2.4 ;
+    envo:darcy_permeability_ms "1.8e-5"^^xsd:decimal ;
+    envo:cohesion_kpa 16.0 ;
+    envo:friction_angle_deg 30.0 .
+
+# Depth 3: 15 - 30 cm (A2/B1 Transition Horizon)
+slga:depth_3 a envo:SoilHorizon ;
+    rdfs:label "Transition Zone (15-30cm)" ;
+    envo:depth_top_cm 15 ;
+    envo:depth_bottom_cm 30 ;
+    envo:clay_percentage 24.5 ;
+    envo:silt_percentage 25.0 ;
+    envo:sand_percentage 50.5 ;
+    envo:bulk_density_g_cm3 1.42 ;
+    envo:organic_carbon_pct 1.2 ;
+    envo:darcy_permeability_ms "8.5e-6"^^xsd:decimal ;
+    envo:cohesion_kpa 22.0 ;
+    envo:friction_angle_deg 26.0 .
+
+# Depth 4: 30 - 60 cm (B-Horizon Illuvial Clay)
+slga:depth_4 a envo:SoilHorizon ;
+    rdfs:label "B-Horizon Illuvial Clay (30-60cm)" ;
+    envo:depth_top_cm 30 ;
+    envo:depth_bottom_cm 60 ;
+    envo:clay_percentage 36.8 ;
+    envo:silt_percentage 22.1 ;
+    envo:sand_percentage 41.1 ;
+    envo:bulk_density_g_cm3 1.55 ;
+    envo:organic_carbon_pct 0.6 ;
+    envo:darcy_permeability_ms "1.2e-7"^^xsd:decimal ;
+    envo:cohesion_kpa 38.0 ;
+    envo:friction_angle_deg 22.0 .
+
+# Depth 5: 60 - 100 cm (B2/C Weathered Regolith)
+slga:depth_5 a envo:SoilHorizon ;
+    rdfs:label "Weathered Regolith / Saprolite (60-100cm)" ;
+    envo:depth_top_cm 60 ;
+    envo:depth_bottom_cm 100 ;
+    envo:clay_percentage 28.0 ;
+    envo:silt_percentage 20.0 ;
+    envo:sand_percentage 52.0 ;
+    envo:bulk_density_g_cm3 1.68 ;
+    envo:darcy_permeability_ms "4.5e-6"^^xsd:decimal ;
+    envo:cohesion_kpa 45.0 ;
+    envo:friction_angle_deg 34.0 .
+
+# Depth 6: 100 - 200 cm (Deep Saprolite to Bedrock)
+slga:depth_6 a envo:SoilHorizon ;
+    rdfs:label "Deep Saprolite to Bedrock (100-200cm)" ;
+    envo:depth_top_cm 100 ;
+    envo:depth_bottom_cm 200 ;
+    envo:bulk_density_g_cm3 1.95 ;
+    envo:darcy_permeability_ms "2.0e-8"^^xsd:decimal ;
+    envo:cohesion_kpa 80.0 ;
+    envo:friction_angle_deg 38.0 .
+
+# Regional Lithostratigraphic Units
+geo:talbingo_basalt a envo:RockUnit ;
+    rdfs:label "Talbingo Basalt (Devonian)" ;
+    envo:density_kg_m3 2850 ;
+    envo:youngs_modulus_gpa 65.0 ;
+    envo:poissons_ratio 0.24 ;
+    envo:acoustic_p_wave_ms 4200 .
+
+geo:blowing_dacitic_tuff a envo:RockUnit ;
+    rdfs:label "Blowering Formation Dacitic Tuff (Silurian)" ;
+    envo:density_kg_m3 2720 ;
+    envo:youngs_modulus_gpa 58.0 ;
+    envo:poissons_ratio 0.23 ;
+    envo:acoustic_p_wave_ms 4500 .
+
+geo:jounama_limestone a envo:RockUnit ;
+    rdfs:label "Lower Jounama Creek Limestone & Skarn (Silurian)" ;
+    envo:density_kg_m3 2710 ;
+    envo:youngs_modulus_gpa 62.0 ;
+    envo:poissons_ratio 0.26 ;
+    envo:acoustic_p_wave_ms 5100 .
+
+geo:yarrangobilly_limestone a envo:RockUnit ;
+    rdfs:label "Yarrangobilly Limestone Karst (Upper Silurian)" ;
+    envo:density_kg_m3 2730 ;
+    envo:youngs_modulus_gpa 68.0 ;
+    envo:poissons_ratio 0.28 ;
+    envo:acoustic_p_wave_ms 5400 .
+
+geo:kosciuszko_granodiorite a envo:RockUnit ;
+    rdfs:label "Kosciuszko Granodiorite (Silurian-Devonian)" ;
+    envo:density_kg_m3 2680 ;
+    envo:youngs_modulus_gpa 55.0 ;
+    envo:poissons_ratio 0.22 ;
+    envo:acoustic_p_wave_ms 4800 .
+
+geo:hawkesbury_sandstone a envo:RockUnit ;
+    rdfs:label "Hawkesbury Sandstone (Middle Triassic)" ;
+    envo:density_kg_m3 2420 ;
+    envo:youngs_modulus_gpa 24.0 ;
+    envo:poissons_ratio 0.20 ;
+    envo:acoustic_p_wave_ms 3100 .

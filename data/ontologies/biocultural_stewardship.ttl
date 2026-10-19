@@ -1,0 +1,71 @@
+# East Coast Australia Biocultural Stewardship & Songline Ontology
+# Compliant with W3C Turtle 1.1, Local Contexts TK/BC Labels, CARE Principles, and ODRL 2.2.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tk: <https://localcontexts.org/ontology/tk-bc.ttl#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ro: <http://purl.obolibrary.org/obo/ro.owl#> .
+@prefix qualia: <urn:qualia:taxon:> .
+@prefix country: <urn:qualia:biocultural:> .
+
+# Custodial Country & Language Nations
+country:walgalu_country a tk:CustodialCountry , rdfs:Class ;
+    rdfs:label "Walgalu Country (Tumut, Talbingo & Bogong Peaks)"@en ;
+    tk:language_group "Walgalu / Wolgalu" ;
+    tk:aiatsis_code "S47" ;
+    tk:care_governance "Collective Benefit, Authority to Control, Responsibility, Ethics" ;
+    tk:songline_corridor "Bogong Moth High-Country Migration Pathway" ;
+    geo:hasBoundingBox "POLYGON((148.15 -36.05, 148.60 -36.05, 148.60 -35.40, 148.15 -35.40, 148.15 -36.05))" .
+
+country:ngarigo_country a tk:CustodialCountry , rdfs:Class ;
+    rdfs:label "Ngarigo Country (Monaro Tablelands & Snowy High Plains)"@en ;
+    tk:language_group "Ngarigo" ;
+    tk:aiatsis_code "S46" ;
+    tk:care_governance "Ngarigo Custodial Knowledge Governance" ;
+    tk:songline_corridor "Kunama Namadgi & Kiandra Frost-Hollow Gathering Track" .
+
+country:wiradjuri_country a tk:CustodialCountry , rdfs:Class ;
+    rdfs:label "Wiradjuri Country (Lower Tumut & Murrumbidgee River Valleys)"@en ;
+    tk:language_group "Wiradjuri" ;
+    tk:aiatsis_code "D10" ;
+    tk:cultural_ethic "Yindyamarra (Respect, Gentleness, Honour, Slowness)" .
+
+country:darug_gundungurra_country a tk:CustodialCountry , rdfs:Class ;
+    rdfs:label "Darug & Gundungurra Country (Blue Mountains Sandstone Escarpments)"@en ;
+    tk:language_group "Darug and Gundungurra" ;
+    tk:aiatsis_code "S64_S60" ;
+    tk:songline_corridor "Govetts Leap to Coxs River Dreaming Track" .
+
+country:kabi_kabi_country a tk:CustodialCountry , rdfs:Class ;
+    rdfs:label "Kabi Kabi / Gubbi Gubbi Country (Noosa Headland & Cooloola Sandmass)"@en ;
+    tk:language_group "Kabi Kabi (Gubbi Gubbi)" ;
+    tk:aiatsis_code "E29" ;
+    tk:songline_corridor "Bunya Mountains to Coastal Mullet Sea-Path" .
+
+# Cultural Fire Stewardship (Cool Burning / Mosaic Patch Burning)
+country:cultural_cool_burn a tk:StewardshipPractice ;
+    rdfs:label "Low-Intensity Mosaic Cultural Cool Burn"@en ;
+    tk:flame_height_max_m "0.65"^^xsd:decimal ;
+    tk:soil_heating_max_c "65.0"^^xsd:decimal ;
+    tk:canopy_scorch_pct "0.0"^^xsd:decimal ;
+    tk:return_interval_years "4"^^xsd:integer ;
+    tk:season_window "Late Autumn to Early Winter Dew-Point Burning" ;
+    ro:regenerates qualia:poa_sieberiana , qualia:lomandra_longifolia , qualia:microseris_lanceolata ;
+    ro:protects_canopy_of qualia:eucalyptus_pauciflora , qualia:corymbia_gummifera .
+
+# Seasonal Ecological Indicators
+country:bogong_ceremony_season a tk:PhenologicalSeason ;
+    rdfs:label "Bugung (Bogong Moth) High-Country Gathering Season"@en ;
+    tk:months "November to February" ;
+    tk:indicator_flora qualia:craspedia_variabilis , qualia:stylidium_graminifolium ;
+    tk:indicator_fauna qualia:agrotis_infusa ;
+    tk:elevation_zone_m "1400 to 2228" .
+
+country:yarrangobilly_thermal_healing a tk:SacredHydrologicalSite ;
+    rdfs:label "Yarrangobilly Warm-Spring Healing Basin"@en ;
+    tk:custodian country:walgalu_country ;
+    tk:water_temperature_c "27.0"^^xsd:decimal ;
+    tk:mineral_signature "Calcium-Magnesium Bicarbonate Travertine Spring" .

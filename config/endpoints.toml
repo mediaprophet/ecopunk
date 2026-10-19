@@ -1,0 +1,61 @@
+# ============================================================================
+# ECOPUNK DATA ACQUISITION ENDPOINT REGISTRY
+# Bounding Box (Talbingo Micro): [148.15, -36.20, 148.65, -35.40] (EPSG:4326)
+# ============================================================================
+
+[geospatial.australia]
+dea_stac_api          = "https://explorer.sandbox.dea.ga.gov.au/stac"
+elvis_fsdf_stac       = "https://elvis.ga.gov.au/api/v1/search"
+nsw_spatial_rest      = "https://portal.spatial.nsw.gov.au/server/rest/services"
+nsw_seed_ckan_api     = "https://datasets.seed.nsw.gov.au/api/3/action"
+gsnsw_geology_wfs     = "https://gs.geoscience.nsw.gov.au/geoserver/wfs"
+actmapi_arcgis_rest   = "https://data.actmapi.act.gov.au/arcgis/rest/services"
+vic_datashare_wfs     = "https://opendata.maps.vic.gov.au/geoserver/wfs"
+csiro_slga_wcs        = "https://www.asris.csiro.au/arcgis/services/TERN"
+nci_thredds_dap       = "https://thredds.nci.org.au/thredds/dodsC"
+bom_geofabric_wfs     = "http://geofabric.bom.gov.au/simplefeatures/ows"
+bom_water_sos2        = "http://www.bom.gov.au/waterdata/services"
+
+[biodiversity.australia]
+ala_biocache_api      = "https://biocache-ws.ala.org.au/ws/occurrences/search"
+aunsl_sparql          = "https://biodiversity.org.au/nsl/services/sparql"
+tern_graphdb_sparql   = "https://graphdb.tern.org.au/repositories/tern_repository"
+bionet_nsw_odata      = "https://data.bionet.nsw.gov.au/biosvcapp/odata"
+austraits_zenodo_api  = "https://zenodo.org/api/records/7368074" # Concept DOI: 10.5281/zenodo.3568417
+a2o_acoustic_api      = "https://api.acousticobservatory.org"
+
+[lod_cloud.international]
+wikidata_sparql       = "https://query.wikidata.org/sparql"
+gbif_species_api      = "https://api.gbif.org/v1/species"
+globi_interactions    = "https://api.globalbioticinteractions.org/interaction"
+plazi_treatment_sparql= "http://tb.plazi.org/GgServer/sparql"
+col_checklist_api     = "https://api.checklistbank.org"
+opentree_phylo_api    = "https://api.opentreeoflife.org/v3"
+agldwg_vocab_sparql   = "https://vocabs.ardc.edu.au/repository/api/sparql"
+
+[ontologies.obo_w3c]
+envo_owl              = "http://purl.obolibrary.org/obo/envo.owl"
+po_owl                = "http://purl.obolibrary.org/obo/po.owl"
+to_owl                = "http://purl.obolibrary.org/obo/to.owl"
+pato_owl              = "http://purl.obolibrary.org/obo/pato.owl"
+ro_owl                = "http://purl.obolibrary.org/obo/ro.owl"
+ecocore_owl           = "http://purl.obolibrary.org/obo/ecocore.owl"
+flopo_owl             = "http://purl.obolibrary.org/obo/flopo.owl"
+chebi_owl             = "http://purl.obolibrary.org/obo/chebi.owl"
+uberon_owl            = "http://purl.obolibrary.org/obo/uberon.owl"
+geosparql_ttl         = "http://www.opengis.net/ont/geosparql"
+qudt_ttl              = "http://qudt.org/2.1/schema/qudt"
+sosa_ttl              = "http://www.w3.org/ns/sosa/"
+odrl_ttl              = "http://www.w3.org/ns/odrl/2/ODRL22.ttl"
+local_contexts_ttl    = "https://localcontexts.org/ontology/tk-bc.ttl"
+
+[space_weather.heliophysics]
+noaa_swpc_plasma_json = "https://services.swpc.noaa.gov/products/solar-wind/plasma-7-day.json"
+noaa_swpc_mag_json    = "https://services.swpc.noaa.gov/products/solar-wind/mag-7-day.json"
+noaa_swpc_kp_json     = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
+noaa_swpc_xray_json   = "https://services.swpc.noaa.gov/json/goes/primary/xrays-7-day.json"
+bom_aswfc_mag_api     = "https://www.sws.bom.gov.au/Geophysical/1/1"
+bom_aswfc_tec_map     = "https://www.sws.bom.gov.au/HF_Systems/6/5"
+sidc_sunspot_csv      = "https://www.sidc.be/SILSO/DATA/SN_d_tot_V2.0.csv"
+nmdb_cosmic_ray_api   = "https://www.nmdb.eu/nest/search.php"
+nasa_omniweb_dap      = "https://omniweb.gsfc.nasa.gov/cgi/nx1.cgi"

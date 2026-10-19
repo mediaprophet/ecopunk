@@ -1,0 +1,138 @@
+# East Coast Australia Indicator Taxa RDF
+# Compliant with W3C Turtle 1.1, Darwin Core (dwc), auNSL, and TERN ontologies.
+# Managed under QualiaDB Permissive Commons ("World of God" Living Commons).
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix ro: <http://purl.obolibrary.org/obo/ro.owl#> .
+@prefix envo: <http://purl.obolibrary.org/obo/envo.owl#> .
+@prefix po: <http://purl.obolibrary.org/obo/po.owl#> .
+@prefix to: <http://purl.obolibrary.org/obo/to.owl#> .
+@prefix tern: <https://w3id.org/tern/ontologies/tern/> .
+@prefix aunsl: <https://biodiversity.org.au/voc/taxa/> .
+@prefix tk: <https://localcontexts.org/ontology/tk-bc.ttl#> .
+@prefix qualia: <urn:qualia:taxon:> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+# 1. Eucalyptus pauciflora (Snow Gum)
+qualia:eucalyptus_pauciflora a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Eucalyptus pauciflora Sieber ex Spreng." ;
+    dwc:genus "Eucalyptus" ;
+    dwc:family "Myrtaceae" ;
+    dwc:vernacularName "Snow Gum"@en , "White Sally"@en ;
+    rdfs:label "Snow Gum" ;
+    aunsl:lsid "https://id.biodiversity.org.au/name/apni/116962" ;
+    dwc:taxonRank "species" ;
+    to:plant_height_max "20.0"^^xsd:decimal ;
+    to:plant_height_typical "12.0"^^xsd:decimal ;
+    to:wood_density "780.0"^^xsd:decimal ;
+    to:leaf_mass_per_area "185.0"^^xsd:decimal ;
+    to:xylem_p50 "-4.5"^^xsd:decimal ;
+    to:fire_response "epicormic_resprouter" ;
+    envo:biome_preference "Montane subalpine woodland" ;
+    envo:elevation_min "1100"^^xsd:integer ;
+    envo:elevation_max "1900"^^xsd:integer ;
+    tk:custodial_country "Ngarigo and Walgalu Country" ;
+    ro:co_occurs_with qualia:poa_sieberiana ;
+    ro:provides_habitat_for qualia:vombatus_ursinus , qualia:agrotis_infusa .
+
+# 2. Eucalyptus delegatensis (Alpine Ash)
+qualia:eucalyptus_delegatensis a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Eucalyptus delegatensis R.T.Baker" ;
+    dwc:genus "Eucalyptus" ;
+    dwc:family "Myrtaceae" ;
+    dwc:vernacularName "Alpine Ash"@en , "Woollybutt"@en ;
+    rdfs:label "Alpine Ash" ;
+    aunsl:lsid "https://id.biodiversity.org.au/name/apni/116952" ;
+    dwc:taxonRank "species" ;
+    to:plant_height_max "65.0"^^xsd:decimal ;
+    to:wood_density "620.0"^^xsd:decimal ;
+    to:fire_response "obligate_seeder" ;
+    envo:elevation_min "900"^^xsd:integer ;
+    envo:elevation_max "1450"^^xsd:integer ;
+    ro:co_occurs_with qualia:eucalyptus_pauciflora .
+
+# 3. Poa sieberiana (Alpine Tussock Grass)
+qualia:poa_sieberiana a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Poa sieberiana Spreng." ;
+    dwc:genus "Poa" ;
+    dwc:family "Poaceae" ;
+    dwc:vernacularName "Alpine Tussock Grass"@en , "Snow Grass"@en ;
+    rdfs:label "Alpine Tussock Grass" ;
+    aunsl:lsid "https://id.biodiversity.org.au/name/apni/119954" ;
+    dwc:taxonRank "species" ;
+    to:plant_height_typical "0.45"^^xsd:decimal ;
+    to:specific_leaf_area "11.2"^^xsd:decimal ;
+    to:fire_response "basal_resprouter" ;
+    to:cold_tolerance "-20.0"^^xsd:decimal ;
+    ro:foraged_by qualia:vombatus_ursinus , qualia:macropus_giganteus ;
+    tk:custodial_country "Ngarigo Country" .
+
+# 4. Acacia pycnantha (Golden Wattle)
+qualia:acacia_pycnantha a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Acacia pycnantha Benth." ;
+    dwc:genus "Acacia" ;
+    dwc:family "Fabaceae" ;
+    dwc:vernacularName "Golden Wattle"@en ;
+    rdfs:label "Golden Wattle" ;
+    aunsl:lsid "https://id.biodiversity.org.au/name/apni/41982" ;
+    dwc:taxonRank "species" ;
+    to:plant_height_max "8.0"^^xsd:decimal ;
+    to:specific_leaf_area "6.2"^^xsd:decimal ;
+    to:symbiont "Rhizobium_nitrogen_fixing" ;
+    envo:elevation_max "900"^^xsd:integer .
+
+# 5. Callistemon citrinus (River Bottlebrush)
+qualia:callistemon_citrinus a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Callistemon citrinus (Curtis) Skeels" ;
+    dwc:genus "Callistemon" ;
+    dwc:family "Myrtaceae" ;
+    dwc:vernacularName "River Bottlebrush"@en , "Crimson Bottlebrush"@en ;
+    rdfs:label "River Bottlebrush" ;
+    aunsl:lsid "https://id.biodiversity.org.au/name/apni/30412" ;
+    dwc:taxonRank "species" ;
+    to:stem_elasticity_gpa "5.8"^^xsd:decimal ;
+    envo:biome_preference "Riparian corridor" .
+
+# 6. Macropus giganteus (Eastern Grey Kangaroo)
+qualia:macropus_giganteus a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Macropus giganteus Shaw, 1790" ;
+    dwc:genus "Macropus" ;
+    dwc:family "Macropodidae" ;
+    dwc:vernacularName "Eastern Grey Kangaroo"@en ;
+    rdfs:label "Eastern Grey Kangaroo" ;
+    aunsl:lsid "https://biodiversity.org.au/afd/taxa/4512" ;
+    dwc:taxonRank "species" ;
+    to:adult_mass_kg "55.0"^^xsd:decimal ;
+    to:hopping_velocity_max_ms "18.0"^^xsd:decimal ;
+    to:bmr_watts "68.0"^^xsd:decimal ;
+    ro:trophically_interacts_with qualia:poa_sieberiana .
+
+# 7. Vombatus ursinus (Bare-Nosed Wombat)
+qualia:vombatus_ursinus a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Vombatus ursinus (Shaw, 1800)" ;
+    dwc:genus "Vombatus" ;
+    dwc:family "Vombatidae" ;
+    dwc:vernacularName "Bare-Nosed Wombat"@en , "Common Wombat"@en ;
+    rdfs:label "Bare-Nosed Wombat" ;
+    aunsl:lsid "https://biodiversity.org.au/afd/taxa/4580" ;
+    dwc:taxonRank "species" ;
+    to:adult_mass_kg "30.0"^^xsd:decimal ;
+    to:locomotion_class "fossorial_excavator" ;
+    to:bmr_watts "32.0"^^xsd:decimal ;
+    ro:trophically_interacts_with qualia:poa_sieberiana ;
+    ro:shelters_under qualia:eucalyptus_pauciflora .
+
+# 8. Banksia integrifolia (Coast Banksia)
+qualia:banksia_integrifolia a dwc:Taxon , rdfs:Class ;
+    dwc:scientificName "Banksia integrifolia L.f." ;
+    dwc:genus "Banksia" ;
+    dwc:family "Proteaceae" ;
+    dwc:vernacularName "Coast Banksia"@en ;
+    rdfs:label "Coast Banksia" ;
+    aunsl:lsid "https://id.biodiversity.org.au/name/apni/27850" ;
+    dwc:taxonRank "species" ;
+    to:plant_height_max "15.0"^^xsd:decimal ;
+    envo:biome_preference "Coastal dune woodland" .

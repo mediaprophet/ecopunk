@@ -1,0 +1,92 @@
+{
+  "daemon": "qualia-core-db-mcp",
+  "graph_quin_count": 7634,
+  "ontologies_ingested": [
+    {
+      "file": "data/ontologies/east_coast_flora_100.ttl",
+      "quins": 4568,
+      "species": 105
+    },
+    {
+      "file": "data/ontologies/east_coast_fauna_64.ttl",
+      "quins": 2744,
+      "species": 64
+    },
+    {
+      "file": "data/ontologies/subsurface_strata.ttl",
+      "quins": 103
+    },
+    {
+      "file": "data/ontologies/biocultural_stewardship.ttl",
+      "quins": 57
+    },
+    {
+      "file": "data/ontologies/heliophysics_climate.ttl",
+      "quins": 42
+    },
+    {
+      "file": "data/ontologies/east_coast_taxa.ttl",
+      "quins": 120
+    }
+  ],
+  "deontic_governance": {
+    "tool": "deontic_govern",
+    "policy_mode": "Prioritize",
+    "permits_execution": true,
+    "licence": "SocialPermissiveCommons",
+    "perpetual_royalties_prohibited": true
+  },
+  "computational_geometry": {
+    "tool": "computational_geometry",
+    "op": "delaunay_2",
+    "triangle_count": 8,
+    "triangles": [
+      [
+        0,
+        1,
+        5
+      ],
+      [
+        1,
+        0,
+        6
+      ],
+      [
+        1,
+        2,
+        5
+      ],
+      [
+        2,
+        1,
+        6
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        3,
+        2,
+        6
+      ],
+      [
+        3,
+        4,
+        5
+      ],
+      [
+        4,
+        3,
+        6
+      ]
+    ]
+  },
+  "substrates": {
+    "q42": "assets/terrain/east_coast_strata.q42",
+    "m64": "assets/terrain/talbingo_catchment.m64",
+    "h10d": "assets/terrain/talbingo_heightfield.10d",
+    "lut_16kb": "assets/terrain/constituent_lut_16kb.bin"
+  }
+}

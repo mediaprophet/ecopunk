@@ -14,5 +14,7 @@ serde_json = { workspace = true }
 qualia-core-db = { workspace = true }
 qualia-geospatial = { workspace = true }
 qualia-sim = { workspace = true }
+rio_api = { workspace = true }
+rio_turtle = { workspace = true }
 
 [dev-dependencies]
