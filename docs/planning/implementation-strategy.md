@@ -27,7 +27,7 @@ The dependency triangle to keep straight:
    ecopunk ── produces packs/corpus ──► qualiaDB (engine)
         ▲                                  ▲
         │  hero assets, authored media     │  capabilities
-        └── poet + poet-*craft ────────────┘  land upstream
+        └── poet + poet authoring studios ─┘  land upstream
 ```
 
 **ecopunk's role in the loop:** the sourced, licensed, provenance-bearing
@@ -38,10 +38,10 @@ Y, that is ecopunk work.
 
 ## 2. The authoring uplift (model quality)
 
-Model quality uplift runs through the **`poet-*craft` suite** (per-medium
+Model quality uplift runs through the **Poet authoring studio suite** (per-medium
 tools — see `tech/interfaces.md` §6) + agent-friendly authoring upstream.
 ecopunk's stake: our style-tier quality gates (`assets/style-and-scale.md`)
-define the *bar*; the *craft tools produce the assets that meet it.
+define the *bar*; the *studio tools produce the assets that meet it.
 
 ## 3. Delivery targets (from style-and-scale §8)
 

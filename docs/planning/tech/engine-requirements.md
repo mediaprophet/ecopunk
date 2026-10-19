@@ -69,8 +69,8 @@ investigation).
 | ID | Need | Surfaced in | Status | Blocks |
 |---|---|---|---|---|
 | G25 | Media-pack spec beyond 3D (bioacoustic `.wav`+observations, field video, plates/documents) | assets/media-types.md | **eco-spec** | media contribution kinds |
-| G26 | Hero-asset production chain in *craft tools (which species first, which tool) | implementation-strategy; remediation R5 (hero-scene capture priorities) | **eco-spec** | quality uplift; R5 visual slice — biosphere species uplift remains the future driver |
-| G27 | AI-assisted asset disclosure+review label (generated ≠ authored ≠ captured) | style-and-scale §8 | **eco-spec + governance decision** | artcraft-produced assets |
+| G26 | Hero-asset production chain in studio tools (which species first, which tool) | implementation-strategy; remediation R5 (hero-scene capture priorities) | **eco-spec** | quality uplift; R5 visual slice — biosphere species uplift remains the future driver |
+| G27 | AI-assisted asset disclosure+review label (generated ≠ authored ≠ captured) | style-and-scale §8 | **eco-spec + governance decision** | art_studio-produced assets |
 | G28 | Raster spectral ingest (SPD/CQT sheets → `αμσ` payload lanes) | tensor-10d §5/§7 | **upstream-planned** | spectral-truth assets |
 
 ## GAP-07 — Trust & security

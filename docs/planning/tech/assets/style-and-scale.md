@@ -135,7 +135,7 @@ which targets each artifact was built/budgeted for:
 | **Mobile / tablet** | tight memory+thermal budgets; reduced LOD set; compressed textures; battery-aware | entry profile — a degraded-but-honest tier, never false-fidelity |
 | **Desktop / laptop** | full LOD set, hero-quality within style tier | reference target |
 | **AR** | low-latency pose-stable assets; small LOD set near eye-distance; anchor-compatible bounds; brightness/readability in real-world light | anchors per `ar_anchor.rs`; in-air overlays need authored spatial bounds |
-| **Film / TV (linear HD)** | pre-rendered quality ceiling — offscreen budgets; deterministic frames; full spectral fidelity (`αμσ` truth layer feeds the grade); **no real-time LOD compromise needed** — deliverable is the *video*, so assets should be authored at max fidelity even where no device could show them live | `poet-filmcraft` is the production tool (clean-room NLE, WASM-capable) — linear output is a *first-class ecopunk product*, not a render demo |
+| **Film / TV (linear HD)** | pre-rendered quality ceiling — offscreen budgets; deterministic frames; full spectral fidelity (`αμσ` truth layer feeds the grade); **no real-time LOD compromise needed** — deliverable is the *video*, so assets should be authored at max fidelity even where no device could show them live | `poet-film_studio` is the production tool (clean-room NLE, WASM-capable) — linear output is a *first-class ecopunk product*, not a render demo |
 
 Rule: delivery class is **declared per artifact**, like style tier — the same
 eucalypt may ship T3-mobile + T3-desktop + T5-cinematic variants; all derive

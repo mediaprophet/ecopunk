@@ -128,21 +128,21 @@ linguistic→`nlp`, governance acts→`governance`/`cooperative`.
   obligations check at manifest time); never let a machine proposal
   self-ratify.
 
-## 6. The poet-* craft suite — production toolchain siblings (verified on disk)
+## 6. The poet-* studio suite — production toolchain siblings (verified on disk)
 
-Poet is the host; the **`poet-*craft` family** are the per-medium production
+Poet is the host; the **`poet-*studio` family** are the per-medium production
 tools (each its own repo/conventions — several carry independent rule systems
-such as craftrules/never-crash + clean-room asset rules):
+such as studiorules/never-crash + clean-room asset rules):
 
-`artcraft` (AI image/video *generation* — Tauri app, provider clients) ·
-`cadcraft` (CAD) · `deckcraft` (presentations) · **`filmcraft`** (clean-room
+`art_studio` (AI image/video *generation* — Tauri app, provider clients) ·
+`cad_studio` (CAD) · `deck_studio` (presentations) · **`film_studio`** (clean-room
 pure-Rust NLE, Premiere-parity target, native + WASM — the film/TV delivery
-path) · `gridcraft` · `lightcraft` · `pdfcraft` · `photocraft` (PS-parity) ·
-`soundcraft` (audio) · `vectorcraft` (Illustrator-parity) · `wordcraft`.
+path) · `grid_studio` · `light_studio` · `pdf_studio` · `photo_studio` (PS-parity) ·
+`sound_studio` (audio) · `vector_studio` (Illustrator-parity) · `word_studio`.
 
 For ecopunk this is the **asset-production chain**: hero assets, cinematic
 renders, field-guide documents, audio sonifications, CAD-derived anatomy —
-authored in *craft tools, bound into packs through Poet. Uplifting model
+authored in studio tools, bound into packs through Poet. Uplifting model
 quality = uplifting what these tools produce, plus agent-friendly authoring
 (the user's current upstream direction) so contribution chains can be
 agent-assisted while remaining human-ratified.

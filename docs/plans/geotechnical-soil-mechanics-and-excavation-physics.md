@@ -11,7 +11,7 @@
 
 ## 1. Executive Summary: The Continuum vs. The Mouse Click
 
-In conventional video games and voxel engines (e.g. Minecraft, Terraria, or heightfield sculpting brushes), environmental destruction is treated as a **dimensionless, instantaneous raycast event**: a mouse click sends a zero-thickness ray $\mathbf{r}(t) = \mathbf{o} + t\mathbf{d}$ into space; upon intersecting a polygon or voxel boundary, a discrete $1\text{m}^3$ block is instantaneously deleted or an arbitrary spherical depression is depressed into the vertex buffer.
+In conventional video games and voxel engines (e.g. voxel sandboxes, Terraria, or heightfield sculpting brushes), environmental destruction is treated as a **dimensionless, instantaneous raycast event**: a mouse click sends a zero-thickness ray $\mathbf{r}(t) = \mathbf{o} + t\mathbf{d}$ into space; upon intersecting a polygon or voxel boundary, a discrete $1\text{m}^3$ block is instantaneously deleted or an arbitrary spherical depression is depressed into the vertex buffer.
 
 **In the real physical world—and within the EcoPunk / QualiaDB continuum—soil is not an array of discrete boolean blocks.** It is an **anisotropic, elastoplastic, multi-phase granular medium** composed of mineral skeletons (sand, silt, clay), organic humic polymers, pore water, pore air, and living tensile root networks. 
 

@@ -14,7 +14,7 @@ and delivery targets — per wasm-edge §6's participation-tier rule.
 | **Explorer** | the canvas: Chora `biosphere_world` + layer families; space×time×scale navigation (zoom out → biome; zoom in → tissue → cell → molecule) | native `portal` preferred / `wasm-scientific` | `query_region` + `SpatiotemporalQuadTree` + scale-continuum + AR layers where present |
 | **Educational / guided** | curriculum-shaped paths through the graph (lesson = sequence + activities + assessment hooks) | webcivics | pack-declared learning paths; `q`>0 sandboxing for exercises |
 | **Field / AR** | in-situ: anchored annotations "in-air", species proposals from live capture, offline-first | native mobile / edge profile | `ar_anchor` + location triggers + observation→Poet chain; offline packs |
-| **Cinematic / linear** | non-interactive deliverables — documentary sequences, museum displays, broadcast assets from the same governed corpus | offline render / no runtime profile | max-fidelity variants (style-and-scale §8 film/TV class); poet-filmcraft production |
+| **Cinematic / linear** | non-interactive deliverables — documentary sequences, museum displays, broadcast assets from the same governed corpus | offline render / no runtime profile | max-fidelity variants (style-and-scale §8 film/TV class); poet film_studio production |
 | **Sanctuary-side companion** | the personal join: *my* health/place/interest meets the commons — pathology-vs-phytochemistry queries run on-device, never server-side | native / scientific | Sanctuary volume + downloaded packs + in-browser kernels |
 
 ## 2. Cross-surface invariants (all products share)
@@ -64,7 +64,7 @@ and delivery targets — per wasm-edge §6's participation-tier rule.
 | Explorer | G1 raster→FIEL (some layers), G7 browser animation, G21 pack-bound worlds |
 | Educational | encyclopedia first + learning-path section spec (eco-spec) |
 | Field/AR | G22 anchor→layer pipeline, offline pack format confirmed |
-| Cinematic | G26 hero assets, filmcraft maturity, spectral-truth assets (G28) |
+| Cinematic | G26 hero assets, film_studio maturity, spectral-truth assets (G28) |
 | Sanctuary | wasm-scientific stability, pack distribution (G11–G15) |
 
 ## 5. Open questions

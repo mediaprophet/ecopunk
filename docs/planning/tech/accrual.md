@@ -83,7 +83,7 @@ pairing matters for both domains:
 - **Biosphere:** a stand of trees, a soil profile, a reef — the "investor" is
   the place itself and the living community; its spent decades don't come
   back either.
-- **Made world:** even artefacts carry constitutive time — a craft tradition's
+- **Made world:** even artefacts carry constitutive time — an artisanal tradition's
   embodied skill, a codebase's decades of accrued correctness.
 
 **Compensation consequence:** fair compensation (COMP-AX) discharges the

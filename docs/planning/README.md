@@ -34,7 +34,7 @@ Two decisions govern everything below:
 | File | Contents |
 |---|---|
 | [charter.md](charter.md) | Vision, purpose, relationship to QualiaDB, governing principles, non-goals |
-| [implementation-strategy.md](implementation-strategy.md) | RD&D frame + proposed phase order — game-demo as driver/test-case, Phase 0A remediation prerequisite, Phase 1 thin-slice target, poet-*craft uplift | draft v0.3 |
+| [implementation-strategy.md](implementation-strategy.md) | RD&D frame + proposed phase order — game-demo as driver/test-case, Phase 0A remediation prerequisite, Phase 1 thin-slice target, poet studio uplift | draft v0.3 |
 | [requirements.md](requirements.md) | Comprehensive requirements register (REQ-* IDs, all domains) |
 | [architecture.md](architecture.md) | Layered system architecture, pipeline, package types, distribution model |
 | [domain-model.md](domain-model.md) | Domain model — living/made partition, scale ladder, border kind-family, entity & relation classes, spatio-temporal rules | draft v0.1 |

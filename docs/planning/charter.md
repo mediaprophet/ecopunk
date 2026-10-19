@@ -123,8 +123,8 @@ ecopunk and QualiaDB share a creator and co-evolve:
 Related projects in the same ecosystem that this planning should stay aware of:
 `wellfare` (personal health/welfare vault — the micro-anatomy precedent via the Anatomy
 qapp), `webizen-*` (platform surfaces), `ontology` (shared vocabulary work), `poet` +
-`poet-*craft` (the authoring environment family — asset production chain: artcraft,
-cadcraft, filmcraft, photocraft, soundcraft, vectorcraft, etc.), `game-demo` (Maslows
+`poet-*studio` (the authoring environment family — asset production chain: art_studio,
+cad_studio, film_studio, photo_studio, sound_studio, vector_studio, etc.), `game-demo` (Maslows
 Challenge — the downstream consumer AND the RD&D driver: its needs force real engine
 implementation).
 

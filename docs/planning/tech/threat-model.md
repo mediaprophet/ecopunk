@@ -27,7 +27,7 @@ fail-closed licence/sensitivity gates, content-addressed packs.
 | T9 | **Dependency/API capture** — upstream source feeds poisoned or altered silently | a source changes content retroactively | snapshot + hash + retrieval provenance; source_catalogue `Unverified`/`Restricted` statuses | drift-detection on re-fetch (hash-compare cadence) |
 | T10 | **Economic attack** — spam obligations, wash-hosting for micropayments | obligation-pool manipulation | capped-ROI + discharge rules; usury circuit-breaker; category-scoped multipliers; budgets independent (energy/time/compute never mix) | settlement-rail specifics once G11 lands |
 | T11 | **Coerced contribution** — contributors pressured to surrender rights/consent | asymmetric-power relations | `CoercedConsentFlag` + heightened-validity rules (GDPR-Recital-43-style); asymmetric-power detection in `spc:` | contribution-flow UX must surface the coercion check, not bury it |
-| T12 | **Model adversarial inputs** — crafted images/audio fool classifiers | proposal streams polluted at inference edge | proposals stay proposals; modelDigest recorded per observation | confidence-distribution monitoring; adversarial-input awareness in classifier packs |
+| T12 | **Model adversarial inputs** — adversarially generated images/audio fool classifiers | proposal streams polluted at inference edge | proposals stay proposals; modelDigest recorded per observation | confidence-distribution monitoring; adversarial-input awareness in classifier packs |
 
 ## 2. The security posture this encodes
 
