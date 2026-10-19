@@ -1,0 +1,281 @@
+module <https://ecopunk.au/modules/east_coast_biosphere_statements>;
+
+// Canonical VibeScript (vibe-0.1) Darwin Core & Biosphere Statement Emitter
+// Executed natively via `vibe::load_program` + `vibe::eval_function` + `PoetSnapshot` (Zero V8).
+// Uses `quin.statement(...)` to emit parity-sealed 48-byte NQuins with `generate_60bit_token`.
+
+pure fn taxon_for(render_key: string) -> Record {
+    if render_key == "corymbia_aparrerinja" {
+        return {bound: 1.0, gbifKey: 5418403.0, iri: "https://www.gbif.org/species/5418403",
+            rank: "SPECIES", scientificName: "Corymbia aparrerinja K.D.Hill & L.A.S.Johnson",
+            commonName: "Ghost Gum (Ilwempe)", assetFamily: "ecopunk:asset/flora/corymbia-aparrerinja",
+            rankNote: "", accrualNote: "Sacred centennial desert/gorge ghost gum with deep phreatophytic taproot",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "eucalyptus_pauciflora" {
+        return {bound: 1.0, gbifKey: 3176787.0, iri: "https://www.gbif.org/species/3176787",
+            rank: "SPECIES", scientificName: "Eucalyptus pauciflora Sieber ex Spreng.",
+            commonName: "Snow Gum", assetFamily: "ecopunk:asset/flora/eucalyptus-pauciflora",
+            rankNote: "", accrualNote: "Subalpine twisted snow gum with lignotuber regeneration",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "eucalyptus_regnans" {
+        return {bound: 1.0, gbifKey: 3176945.0, iri: "https://www.gbif.org/species/3176945",
+            rank: "SPECIES", scientificName: "Eucalyptus regnans F.Muell.",
+            commonName: "Mountain Ash", assetFamily: "ecopunk:asset/flora/eucalyptus-regnans",
+            rankNote: "", accrualNote: "Tallest flowering plant on Earth; multi-century hollows are horizon-exceeding",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "eucalyptus_camaldulensis" {
+        return {bound: 1.0, gbifKey: 3176695.0, iri: "https://www.gbif.org/species/3176695",
+            rank: "SPECIES", scientificName: "Eucalyptus camaldulensis Dehnh.",
+            commonName: "River Red Gum", assetFamily: "ecopunk:asset/flora/eucalyptus-camaldulensis",
+            rankNote: "", accrualNote: "Keystone riparian floodplain tree; 500-year hollow bearer",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "acacia_pycnantha" {
+        return {bound: 1.0, gbifKey: 2978604.0, iri: "https://www.gbif.org/species/2978604",
+            rank: "SPECIES", scientificName: "Acacia pycnantha Benth.",
+            commonName: "Golden Wattle", assetFamily: "ecopunk:asset/flora/acacia-pycnantha",
+            rankNote: "", accrualNote: "Nitrogen-fixing pioneer shrub",
+            maturityIri: "qualia:accrual:Decadal", irreversibilityIri: ""};
+    }
+    if render_key == "banksia_serrata" {
+        return {bound: 1.0, gbifKey: 2891793.0, iri: "https://www.gbif.org/species/2891793",
+            rank: "SPECIES", scientificName: "Banksia serrata L.f.",
+            commonName: "Old Man Banksia", assetFamily: "ecopunk:asset/flora/banksia-serrata",
+            rankNote: "", accrualNote: "Serotinous woody follicles and gnarled fire-adapted trunk",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "xanthorrhoea_australis" {
+        return {bound: 1.0, gbifKey: 2779409.0, iri: "https://www.gbif.org/species/2779409",
+            rank: "SPECIES", scientificName: "Xanthorrhoea australis R.Br.",
+            commonName: "Austral Grass Tree", assetFamily: "ecopunk:asset/flora/xanthorrhoea-australis",
+            rankNote: "", accrualNote: "Slow caudex accrual (~1-2cm/yr); multi-century fire record",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "dicksonia_antarctica" {
+        return {bound: 1.0, gbifKey: 2650934.0, iri: "https://www.gbif.org/species/2650934",
+            rank: "SPECIES", scientificName: "Dicksonia antarctica Labill.",
+            commonName: "Soft Tree Fern", assetFamily: "ecopunk:asset/flora/dicksonia-antarctica",
+            rankNote: "", accrualNote: "Ancient wet-gully tree fern with fibrous epiphytic caudex",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    if render_key == "telopea_speciosissima" {
+        return {bound: 1.0, gbifKey: 5637219.0, iri: "https://www.gbif.org/species/5637219",
+            rank: "SPECIES", scientificName: "Telopea speciosissima (Sm.) R.Br.",
+            commonName: "New South Wales Waratah", assetFamily: "ecopunk:asset/flora/telopea-speciosissima",
+            rankNote: "", accrualNote: "Pyrogenic lignotuberous sandstone shrub",
+            maturityIri: "qualia:accrual:Decadal", irreversibilityIri: ""};
+    }
+    if render_key == "themeda_triandra" {
+        return {bound: 1.0, gbifKey: 2705116.0, iri: "https://www.gbif.org/species/2705116",
+            rank: "SPECIES", scientificName: "Themeda triandra Forssk.",
+            commonName: "Kangaroo Grass", assetFamily: "ecopunk:asset/flora/themeda-triandra",
+            rankNote: "", accrualNote: "Foundational fire-managed perennial tussock grass",
+            maturityIri: "qualia:accrual:Decadal", irreversibilityIri: ""};
+    }
+    if render_key == "vallisneria_australis" {
+        return {bound: 1.0, gbifKey: 5329448.0, iri: "https://www.gbif.org/species/5329448",
+            rank: "SPECIES", scientificName: "Vallisneria australis S.W.L.Jacobs & Les",
+            commonName: "Ribbon Weed (Eelgrass)", assetFamily: "ecopunk:asset/flora/vallisneria-australis",
+            rankNote: "", accrualNote: "Submerged benthic freshwater macrophyte",
+            maturityIri: "qualia:accrual:Decadal", irreversibilityIri: ""};
+    }
+    if render_key == "macropus_giganteus" {
+        return {bound: 1.0, gbifKey: 2440126.0, iri: "https://www.gbif.org/species/2440126",
+            rank: "SPECIES", scientificName: "Macropus giganteus Shaw, 1790",
+            commonName: "Eastern Grey Kangaroo", assetFamily: "ecopunk:asset/fauna/macropus-giganteus",
+            rankNote: "", accrualNote: "", maturityIri: "", irreversibilityIri: ""};
+    }
+    if render_key == "vombatus_ursinus" {
+        return {bound: 1.0, gbifKey: 2440014.0, iri: "https://www.gbif.org/species/2440014",
+            rank: "SPECIES", scientificName: "Vombatus ursinus (Shaw, 1800)",
+            commonName: "Common Wombat", assetFamily: "ecopunk:asset/fauna/vombatus-ursinus",
+            rankNote: "", accrualNote: "", maturityIri: "", irreversibilityIri: ""};
+    }
+    if render_key == "ornithorhynchus_anatinus" {
+        return {bound: 1.0, gbifKey: 2433433.0, iri: "https://www.gbif.org/species/2433433",
+            rank: "SPECIES", scientificName: "Ornithorhynchus anatinus (Shaw, 1799)",
+            commonName: "Platypus", assetFamily: "ecopunk:asset/fauna/ornithorhynchus-anatinus",
+            rankNote: "", accrualNote: "", maturityIri: "", irreversibilityIri: ""};
+    }
+    if render_key == "phascolarctos_cinereus" {
+        return {bound: 1.0, gbifKey: 2440004.0, iri: "https://www.gbif.org/species/2440004",
+            rank: "SPECIES", scientificName: "Phascolarctos cinereus (Goldfuss, 1817)",
+            commonName: "Koala", assetFamily: "ecopunk:asset/fauna/phascolarctos-cinereus",
+            rankNote: "", accrualNote: "", maturityIri: "", irreversibilityIri: ""};
+    }
+    if render_key == "aquila_audax" {
+        return {bound: 1.0, gbifKey: 2480452.0, iri: "https://www.gbif.org/species/2480452",
+            rank: "SPECIES", scientificName: "Aquila audax (Latham, 1801)",
+            commonName: "Wedge-Tailed Eagle", assetFamily: "ecopunk:asset/fauna/aquila-audax",
+            rankNote: "", accrualNote: "", maturityIri: "", irreversibilityIri: ""};
+    }
+    if render_key == "maccullochella_peelii" {
+        return {bound: 1.0, gbifKey: 2394750.0, iri: "https://www.gbif.org/species/2394750",
+            rank: "SPECIES", scientificName: "Maccullochella peelii (Mitchell, 1838)",
+            commonName: "Murray Cod", assetFamily: "ecopunk:asset/fauna/maccullochella-peelii",
+            rankNote: "", accrualNote: "Long-lived apex freshwater fish of Murray-Darling rivers",
+            maturityIri: "qualia:accrual:Centennial", irreversibilityIri: "qualia:accrual:HorizonExceeding"};
+    }
+    return {bound: 0.0, gbifKey: 0.0, iri: "", rank: "", scientificName: "",
+        commonName: "", assetFamily: "", rankNote: "", accrualNote: "", maturityIri: "", irreversibilityIri: ""};
+}
+
+pure fn dwc_rank(gbif_rank: string) -> string {
+    if gbif_rank == "SPECIES" { return "species"; }
+    if gbif_rank == "GENUS" { return "genus"; }
+    if gbif_rank == "FAMILY" { return "family"; }
+    if gbif_rank == "ORDER" { return "order"; }
+    return "";
+}
+
+pure fn stmt(s: string, p: string, o: string) -> Record {
+    return {s: s, p: p, o: o,
+        quin: quin.statement(subject: s, predicate: p, object: o, context: 0)};
+}
+
+pure fn dwc_statements_for(render_key: string, asset_iri: string) -> List {
+    let t = taxon_for(render_key);
+    if t.bound == 0.0 {
+        return [];
+    }
+    let taxon = t.iri;
+    let mut statements = [
+        stmt(taxon, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "http://rs.tdwg.org/dwc/terms/Taxon"),
+        stmt(taxon, "http://rs.tdwg.org/dwc/terms/taxonID", taxon),
+        stmt(taxon, "http://rs.tdwg.org/dwc/terms/scientificName", t.scientificName),
+        stmt(taxon, "http://rs.tdwg.org/dwc/terms/taxonRank", dwc_rank(t.rank)),
+        stmt(taxon, "http://rs.tdwg.org/dwc/terms/vernacularName", t.commonName)
+    ];
+    if asset_iri != "" {
+        statements = statements.push(stmt(asset_iri,
+            "http://xmlns.com/foaf/0.1/depicts", taxon));
+        if t.maturityIri != "" {
+            statements = statements.push(stmt(asset_iri,
+                "qualia:accrual:maturityClass", t.maturityIri));
+        }
+        if t.irreversibilityIri != "" {
+            statements = statements.push(stmt(asset_iri,
+                "qualia:accrual:irreversibilityClass", t.irreversibilityIri));
+        }
+    }
+    return statements;
+}
+
+pure fn sector_environment_for(sector_key: string) -> Record {
+    if sector_key == "talbingo" {
+        return {
+            sector_id: "talbingo",
+            title: "Talbingo — Tumut River Gorge & Bogong Foothills",
+            lat_deg: -35.5854,
+            lon_deg: 148.3240,
+            elev_ahd_m: 385.0,
+            water_level_y: -1.1,
+            water_rgb_r: 0.06,
+            water_rgb_g: 0.30,
+            water_rgb_b: 0.42,
+            sun_x: 0.45,
+            sun_y: 0.72,
+            sun_z: 0.52,
+            cam_yaw: 0.48,
+            cam_pitch: 0.34,
+            cam_dist: 1.55
+        };
+    }
+    if sector_key == "yarrangobilly" {
+        return {
+            sector_id: "yarrangobilly",
+            title: "Yarrangobilly — Silurian Karst Gorge & Thermal Pool",
+            lat_deg: -35.7248,
+            lon_deg: 148.4872,
+            elev_ahd_m: 945.0,
+            water_level_y: -1.3,
+            water_rgb_r: 0.08,
+            water_rgb_g: 0.44,
+            water_rgb_b: 0.48,
+            sun_x: -0.38,
+            sun_y: 0.76,
+            sun_z: 0.52,
+            cam_yaw: -0.52,
+            cam_pitch: 0.38,
+            cam_dist: 1.48
+        };
+    }
+    if sector_key == "three_mile_dam" {
+        return {
+            sector_id: "three_mile_dam",
+            title: "Three Mile Dam — Subalpine Frost Hollow & Snow Gum Basin",
+            lat_deg: -35.8842,
+            lon_deg: 148.4512,
+            elev_ahd_m: 1445.0,
+            water_level_y: -0.95,
+            water_rgb_r: 0.07,
+            water_rgb_g: 0.28,
+            water_rgb_b: 0.46,
+            sun_x: 0.52,
+            sun_y: 0.64,
+            sun_z: -0.56,
+            cam_yaw: 0.72,
+            cam_pitch: 0.30,
+            cam_dist: 1.52
+        };
+    }
+    if sector_key == "sydney_sandstone" {
+        return {
+            sector_id: "sydney_sandstone",
+            title: "Sydney Basin — Hawkesbury Sandstone Escarpment & Gully",
+            lat_deg: -33.7125,
+            lon_deg: 150.3118,
+            elev_ahd_m: 620.0,
+            water_level_y: -1.4,
+            water_rgb_r: 0.10,
+            water_rgb_g: 0.34,
+            water_rgb_b: 0.38,
+            sun_x: 0.40,
+            sun_y: 0.78,
+            sun_z: 0.48,
+            cam_yaw: -0.35,
+            cam_pitch: 0.36,
+            cam_dist: 1.50
+        };
+    }
+    if sector_key == "noosa_headland" {
+        return {
+            sector_id: "noosa_headland",
+            title: "Noosa Headland — Subtropical Wallum Heath & Coastal Estuary",
+            lat_deg: -26.3812,
+            lon_deg: 153.0915,
+            elev_ahd_m: 18.0,
+            water_level_y: -0.85,
+            water_rgb_r: 0.05,
+            water_rgb_g: 0.46,
+            water_rgb_b: 0.54,
+            sun_x: 0.32,
+            sun_y: 0.82,
+            sun_z: 0.47,
+            cam_yaw: 0.28,
+            cam_pitch: 0.29,
+            cam_dist: 1.45
+        };
+    }
+    return {
+        sector_id: "jounama_karst",
+        title: "Jounama Creek — Bogong Peaks & Subterranean Karst",
+        lat_deg: -35.6120,
+        lon_deg: 148.3680,
+        elev_ahd_m: 520.0,
+        water_level_y: -1.2,
+        water_rgb_r: 0.06,
+        water_rgb_g: 0.32,
+        water_rgb_b: 0.44,
+        sun_x: -0.45,
+        sun_y: 0.70,
+        sun_z: 0.55,
+        cam_yaw: 0.15,
+        cam_pitch: 0.42,
+        cam_dist: 1.40
+    };
+}

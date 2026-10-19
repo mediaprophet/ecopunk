@@ -9,8 +9,13 @@ bytemuck = { version = "1.16", features = ["derive"] }
 crc32c = "0.6"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-qualia-core-db = { path = "../qualiaDB/crates/qualia-core-db", default-features = false, features = ["wgsl-forge", "gpu-runtime"] }
+qualia-core-db = { path = "../qualiaDB/crates/qualia-core-db", default-features = false, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-dx12", "wgsl-forge", "privacy-he"] }
 qualia-geospatial = { path = "../qualiaDB/crates/qualia-geospatial" }
 qualia-sim = { path = "../qualiaDB/crates/qualia-sim" }
+vibe = { path = "../qualiaDB/crates/vibe" }
+webizen-render = { path = "../qualiaDB/crates/webizen-render" }
 rio_api = "0.8"
 rio_turtle = "0.8"
+sha2 = "0.10"
+image = { version = "0.25", default-features = false, features = ["png"] }
+

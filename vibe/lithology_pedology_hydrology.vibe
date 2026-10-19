@@ -1,0 +1,80 @@
+module <https://civics.au/ecopunk/modules/lithology_pedology_hydrology>;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Lithology, 6-Layer CSIRO SLGA Soil Pedology, Krumbein Phi Riverbed Pebbles,
+// and Bio-Geo-Optical Refractive Water VibeScript Module
+// ─────────────────────────────────────────────────────────────────────────────
+
+pure fn evaluate_water_optics(regime: string, depth_m: float) -> Record {
+    if regime == "yarrangobilly_thermal_karst" {
+        return {
+            refractiveIndexPhase: 1.333,
+            refractiveIndexGroup: 1.341,
+            cdomUgPerL: 0.8,
+            turbidityNtu: 0.35,
+            chlorophyllUgPerL: 0.25,
+            henyeyGreensteinG: 0.84,
+            causticContrast: 0.92,
+            benthicPebbleVisibilityM: 8.5,
+            waterDepthM: depth_m
+        };
+    }
+    if regime == "alpine_armored_cobble_stream" {
+        return {
+            refractiveIndexPhase: 1.333,
+            refractiveIndexGroup: 1.340,
+            cdomUgPerL: 1.4,
+            turbidityNtu: 0.55,
+            chlorophyllUgPerL: 0.40,
+            henyeyGreensteinG: 0.82,
+            causticContrast: 0.88,
+            benthicPebbleVisibilityM: 6.5,
+            waterDepthM: depth_m
+        };
+    }
+    return {
+        refractiveIndexPhase: 1.334,
+        refractiveIndexGroup: 1.342,
+        cdomUgPerL: 6.5,
+        turbidityNtu: 1.8,
+        chlorophyllUgPerL: 1.2,
+        henyeyGreensteinG: 0.80,
+        causticContrast: 0.72,
+        benthicPebbleVisibilityM: 4.2,
+        waterDepthM: depth_m
+    };
+}
+
+pure fn evaluate_sediment_krumbein_phi(zone: string) -> Record {
+    if zone == "thalweg_imbricated_cobble_armor" {
+        return {
+            meanPhi: -6.4,
+            stdPhi: 0.85,
+            medianDiameterMm: 84.4,
+            sphericityPsi: 0.74,
+            porosityFraction: 0.26,
+            imbricationDipDeg: 18.5,
+            lithologyMix: "Palaeozoic Dacitic Tuff, Silurian Limestone, Vein Quartz, Basalt"
+        };
+    }
+    if zone == "riffle_variegated_pebble_bar" {
+        return {
+            meanPhi: -4.2,
+            stdPhi: 1.10,
+            medianDiameterMm: 18.4,
+            sphericityPsi: 0.79,
+            porosityFraction: 0.31,
+            imbricationDipDeg: 12.0,
+            lithologyMix: "Smoky Quartz, Red Jasper, Granodiorite, Chert, Greywacke"
+        };
+    }
+    return {
+        meanPhi: 1.8,
+        stdPhi: 0.65,
+        medianDiameterMm: 0.29,
+        sphericityPsi: 0.82,
+        porosityFraction: 0.38,
+        imbricationDipDeg: 4.5,
+        lithologyMix: "Alluvial Quartz Sand, Muscovite Mica Flakes, Heavy Ilmenite Placer"
+    };
+}

@@ -1,0 +1,139 @@
+module <https://civics.au/ecopunk/modules/east_coast_flora_305>;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// East Coast Australia 305-Taxon Botanical & Leaf Biophysics VibeScript Module
+// Couples Leaf Economics Spectrum (LES), Shinozaki Pipe Model Theory,
+// Raunkiaer Life-Form Dynamics, and Jakob-Hanika Spectral Reflectance
+// ─────────────────────────────────────────────────────────────────────────────
+
+pure fn catalog_manifest() -> Record {
+    return {
+        catalogId: "urn:qualia:catalog:east_coast_flora_305",
+        totalTaxa: 305.0,
+        strataCount: 7.0,
+        referenceDatum: "GDA2020_AHD_AusPix",
+        taxonomyRegistry: "auNSL_APC_APNI_2026",
+        traitDatabase: "AusTraits_v5.0.0",
+        governanceLane: "EnforcePermissiveCommons",
+        perpetualRoyaltiesProhibited: 1.0
+    };
+}
+
+pure fn leaf_economics_archetype(guild: string) -> Record {
+    if guild == "sclerophyll_eucalypt" {
+        return {
+            lmaGramsPerM2: 210.0,
+            veinDensityMmPerMm2: 16.5,
+            loopinessAlpha: 0.85,
+            branchingAngleRad: 0.55,
+            tissueElasticModulusMpa: 45.0,
+            turgorCouplingK: 22.0,
+            leafLengthM: 0.16,
+            leafWidthM: 0.035,
+            jakobHanikaC0: -0.22,
+            jakobHanikaC1: 0.19,
+            jakobHanikaC2: -0.31
+        };
+    }
+    if guild == "proteaceae_banksia_waratah" {
+        return {
+            lmaGramsPerM2: 245.0,
+            veinDensityMmPerMm2: 18.2,
+            loopinessAlpha: 0.92,
+            branchingAngleRad: 0.68,
+            tissueElasticModulusMpa: 58.0,
+            turgorCouplingK: 18.0,
+            leafLengthM: 0.14,
+            leafWidthM: 0.042,
+            jakobHanikaC0: -0.18,
+            jakobHanikaC1: 0.22,
+            jakobHanikaC2: -0.28
+        };
+    }
+    if guild == "acacia_phyllode_bipinnate" {
+        return {
+            lmaGramsPerM2: 165.0,
+            veinDensityMmPerMm2: 14.0,
+            loopinessAlpha: 0.62,
+            branchingAngleRad: 0.32,
+            tissueElasticModulusMpa: 38.0,
+            turgorCouplingK: 28.0,
+            leafLengthM: 0.11,
+            leafWidthM: 0.018,
+            jakobHanikaC0: -0.25,
+            jakobHanikaC1: 0.24,
+            jakobHanikaC2: -0.34
+        };
+    }
+    if guild == "pteridophyte_fern_frond" {
+        return {
+            lmaGramsPerM2: 68.0,
+            veinDensityMmPerMm2: 8.5,
+            loopinessAlpha: 0.18,
+            branchingAngleRad: 0.74,
+            tissueElasticModulusMpa: 12.0,
+            turgorCouplingK: 64.0,
+            leafLengthM: 1.45,
+            leafWidthM: 0.42,
+            jakobHanikaC0: -0.32,
+            jakobHanikaC1: 0.36,
+            jakobHanikaC2: -0.42
+        };
+    }
+    if guild == "monocot_tussock_sedge" {
+        return {
+            lmaGramsPerM2: 82.0,
+            veinDensityMmPerMm2: 12.4,
+            loopinessAlpha: 0.06,
+            branchingAngleRad: 0.08,
+            tissueElasticModulusMpa: 22.0,
+            turgorCouplingK: 58.0,
+            leafLengthM: 0.55,
+            leafWidthM: 0.008,
+            jakobHanikaC0: -0.16,
+            jakobHanikaC1: 0.28,
+            jakobHanikaC2: -0.26
+        };
+    }
+    return {
+        lmaGramsPerM2: 115.0,
+        veinDensityMmPerMm2: 11.2,
+        loopinessAlpha: 0.55,
+        branchingAngleRad: 0.62,
+        tissueElasticModulusMpa: 26.0,
+        turgorCouplingK: 42.0,
+        leafLengthM: 0.09,
+        leafWidthM: 0.032,
+        jakobHanikaC0: -0.24,
+        jakobHanikaC1: 0.25,
+        jakobHanikaC2: -0.30
+    };
+}
+
+pure fn evaluate_fire_regeneration(strategy: string, fireline_intensity_kw_m: float) -> Record {
+    if strategy == "epicormic_resprouter" {
+        if fireline_intensity_kw_m > 3500.0 {
+            return {
+                crownScorchFraction: 0.92,
+                epicormicBudFlush: 1.0,
+                lignotuberSprout: 1.0,
+                serotinousSeedRelease: 0.65,
+                recoveryMonths: 14.0
+            };
+        }
+        return {
+            crownScorchFraction: 0.35,
+            epicormicBudFlush: 0.85,
+            lignotuberSprout: 0.40,
+            serotinousSeedRelease: 0.25,
+            recoveryMonths: 6.0
+        };
+    }
+    return {
+        crownScorchFraction: 0.98,
+        epicormicBudFlush: 0.0,
+        lignotuberSprout: 0.15,
+        serotinousSeedRelease: 1.0,
+        recoveryMonths: 36.0
+    };
+}

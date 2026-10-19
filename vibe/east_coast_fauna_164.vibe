@@ -1,0 +1,71 @@
+module <https://civics.au/ecopunk/modules/east_coast_fauna_164>;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// East Coast Australia 164-Taxon Zoological Kinematics & Ethology VibeScript
+// Couples Kleiber Allometric Metabolism, Articulated SKL1 Joint Gaits,
+// Benthic/Terrestrial/Arboreal/Avian Habitat Strata, and 16-State Ethograms
+// ─────────────────────────────────────────────────────────────────────────────
+
+pure fn catalog_manifest() -> Record {
+    return {
+        catalogId: "urn:qualia:catalog:east_coast_fauna_164",
+        totalTaxa: 164.0,
+        mammaliaCount: 45.0,
+        avesCount: 55.0,
+        reptiliaCount: 26.0,
+        amphibiaCount: 16.0,
+        actinopterygiiAndInvertebrataCount: 22.0,
+        governanceLane: "EnforcePermissiveCommons",
+        perpetualRoyaltiesProhibited: 1.0
+    };
+}
+
+pure fn evaluate_kleiber_metabolism(mass_kg: float, is_endotherm: float, ambient_temp_c: float) -> Record {
+    if is_endotherm > 0.5 {
+        return {
+            basalMetabolicWatts: 3.4 * mass_kg,
+            coreBodyTempC: 36.6,
+            thermalContrastAboveAmbientC: 36.6 - ambient_temp_c,
+            infraredRadianceNormalized: 0.84
+        };
+    }
+    return {
+        basalMetabolicWatts: 0.42 * mass_kg,
+        coreBodyTempC: ambient_temp_c + 2.4,
+        thermalContrastAboveAmbientC: 2.4,
+        infraredRadianceNormalized: 0.31
+    };
+}
+
+pure fn evaluate_ethogram_transition(guild: string, solar_hour: float, disturbance_dist_m: float) -> Record {
+    if disturbance_dist_m < 14.0 {
+        return {
+            state: "EVASIVE_FLIGHT_OR_REFUGE",
+            locomotionMultiplier: 2.4,
+            vocalizing: 1.0,
+            vigilanceLevel: 1.0
+        };
+    }
+    if guild == "benthic_electroreceptor_forager" {
+        return {
+            state: "BENTHIC_PEBBLE_ELECTRORECEPTION",
+            locomotionMultiplier: 1.0,
+            vocalizing: 0.0,
+            vigilanceLevel: 0.45
+        };
+    }
+    if solar_hour < 7.5 || solar_hour > 17.0 {
+        return {
+            state: "CREPUSCULAR_FORAGING_ACTIVE",
+            locomotionMultiplier: 1.15,
+            vocalizing: 0.75,
+            vigilanceLevel: 0.62
+        };
+    }
+    return {
+        state: "DIURNAL_GRAZING_OR_SOARING",
+        locomotionMultiplier: 0.85,
+        vocalizing: 0.35,
+        vigilanceLevel: 0.40
+    };
+}

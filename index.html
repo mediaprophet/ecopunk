@@ -3,13 +3,670 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoPunk — East Coast Australia Ecological Continuum (WebGPU + WGSL Forge)</title>
-  <script>
-    window.location.replace('./viewer/index.html' + window.location.search + window.location.hash);
-  </script>
-  <meta http-equiv="refresh" content="0; url=./viewer/index.html" />
+  <title>EcoPunk × QualiaDB — 100% Zero-V8 Native Holo-Simulation Portal (305 Flora · 164 Fauna · .hmc / .10d / .q42 / .m64 / .vibe)</title>
+  <style>
+    :root {
+      --bg-0: #050911;
+      --bg-1: #0a1220;
+      --bg-2: #101d33;
+      --border: rgba(56, 189, 248, 0.22);
+      --border-hi: rgba(45, 212, 191, 0.65);
+      --text: #e2f1ff;
+      --muted: #8babc8;
+      --accent: #2dd4bf;
+      --accent-2: #38bdf8;
+      --amber: #f59e0b;
+      --crimson: #f43f5e;
+      --emerald: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 18% 0%, #0d213a 0%, var(--bg-0) 65%);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.55;
+      min-height: 100vh;
+      padding-bottom: 4rem;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, pre {
+      font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+      font-size: 0.86rem;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(5, 9, 17, 0.86);
+      backdrop-filter: blur(12px);
+      padding: 1.25rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .brand-orb {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+    }
+    .brand h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .badge {
+      padding: 0.28rem 0.68rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: rgba(16, 29, 51, 0.75);
+      color: var(--text);
+    }
+    .badge.zero-v8 {
+      border-color: var(--accent);
+      background: rgba(45, 212, 191, 0.14);
+      color: #5eead4;
+    }
+    .badge.dx12 {
+      border-color: var(--accent-2);
+      background: rgba(56, 189, 248, 0.14);
+      color: #7dd3fc;
+    }
+    .badge.amber {
+      border-color: rgba(245, 158, 11, 0.5);
+      background: rgba(245, 158, 11, 0.13);
+      color: #fcd34d;
+    }
+    main {
+      max-width: 1480px;
+      margin: 1.75rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+    /* Pure CSS Radio State Machine for Zero-V8 Interactive Viewport */
+    .viewport-shell {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    }
+    .viewport-shell input[type="radio"] {
+      display: none;
+    }
+    .tab-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+      gap: 0.4rem;
+      padding: 0.75rem;
+      background: rgba(5, 9, 17, 0.75);
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-bar label {
+      cursor: pointer;
+      padding: 0.55rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      background: rgba(16, 29, 51, 0.55);
+      transition: all 0.16s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .tab-bar label:hover {
+      border-color: var(--accent-2);
+      background: rgba(56, 189, 248, 0.12);
+    }
+    .tab-bar .tab-id {
+      font-size: 0.68rem;
+      font-family: monospace;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tab-bar .tab-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    #scene-1:checked ~ .tab-bar label[for="scene-1"],
+    #scene-2:checked ~ .tab-bar label[for="scene-2"],
+    #scene-3:checked ~ .tab-bar label[for="scene-3"],
+    #scene-4:checked ~ .tab-bar label[for="scene-4"],
+    #scene-5:checked ~ .tab-bar label[for="scene-5"],
+    #scene-6:checked ~ .tab-bar label[for="scene-6"],
+    #scene-7:checked ~ .tab-bar label[for="scene-7"],
+    #scene-8:checked ~ .tab-bar label[for="scene-8"] {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.22), rgba(56, 189, 248, 0.16));
+      box-shadow: 0 0 18px rgba(45, 212, 191, 0.2);
+    }
+    .slides {
+      position: relative;
+    }
+    .slide {
+      display: none;
+      grid-template-columns: 1fr 390px;
+      gap: 0;
+    }
+    @media (max-width: 1080px) {
+      .slide { grid-template-columns: 1fr; }
+    }
+    #scene-1:checked ~ .slides .slide-1,
+    #scene-2:checked ~ .slides .slide-2,
+    #scene-3:checked ~ .slides .slide-3,
+    #scene-4:checked ~ .slides .slide-4,
+    #scene-5:checked ~ .slides .slide-5,
+    #scene-6:checked ~ .slides .slide-6,
+    #scene-7:checked ~ .slides .slide-7,
+    #scene-8:checked ~ .slides .slide-8 {
+      display: grid;
+    }
+    .frame-view {
+      position: relative;
+      background: #03060c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .frame-view img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .frame-view:hover img {
+      transform: scale(1.03);
+    }
+    .hud-overlay {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      background: rgba(5, 9, 17, 0.82);
+      border: 1px solid var(--border-hi);
+      border-radius: 8px;
+      padding: 0.45rem 0.75rem;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #a7f3d0;
+      pointer-events: none;
+    }
+    .frame-inspector {
+      padding: 1.35rem;
+      background: rgba(10, 18, 32, 0.95);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+    .frame-inspector h2 {
+      font-size: 1.08rem;
+      color: #fff;
+    }
+    .frame-inspector p {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .kv-list {
+      display: grid;
+      gap: 0.45rem;
+      background: rgba(5, 9, 17, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+    .kv-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.77rem;
+      border-bottom: 1px dashed rgba(56, 189, 248, 0.14);
+      padding-bottom: 0.3rem;
+    }
+    .kv-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .kv-key { color: var(--muted); }
+    .kv-val { color: var(--accent); font-family: monospace; font-weight: 600; }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      color: var(--accent-2);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.14);
+    }
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1rem;
+      margin-top: 0.85rem;
+    }
+    .gallery-item {
+      background: rgba(5, 9, 17, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.78rem;
+    }
+    .gallery-caption strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+  </style>
 </head>
-<body style="background:#070c14;color:#d6f5ef;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-  <p>Launching <a href="./viewer/index.html" style="color:#00f2fe;">EcoPunk WebGPU 3D Ecological Continuum Viewer</a>…</p>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-orb"></div>
+      <div>
+        <h1>EcoPunk × QualiaDB — Native Zero-V8 Holographic Simulation</h1>
+        <p>100% Native Rust + VibeScript (<code>vibe-0.1</code>) + <code>PortalGpu</code> (<code>wgpu</code> DirectX 12) + <code>.hmc</code> / <code>.10d</code> / <code>.q42</code> / <code>.m64</code> · Zero JavaScript · Zero V8</p>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge zero-v8">0 JS Files · 0 &lt;script&gt; Tags · Zero V8</span>
+      <span class="badge dx12">wgpu DirectX 12 PortalGpu</span>
+      <span class="badge amber">305 Flora (.q42 + .10d)</span>
+      <span class="badge amber">164 Fauna (.q42 + .m64)</span>
+      <span class="badge">HMC3 Bundle: 10.64 MB (20 Sections)</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Pure CSS3 Interactive 8-Mode Native PortalGpu Viewport -->
+    <section class="viewport-shell">
+      <input type="radio" name="portal-scene" id="scene-1" checked />
+      <input type="radio" name="portal-scene" id="scene-2" />
+      <input type="radio" name="portal-scene" id="scene-3" />
+      <input type="radio" name="portal-scene" id="scene-4" />
+      <input type="radio" name="portal-scene" id="scene-5" />
+      <input type="radio" name="portal-scene" id="scene-6" />
+      <input type="radio" name="portal-scene" id="scene-7" />
+      <input type="radio" name="portal-scene" id="scene-8" />
+
+      <div class="tab-bar">
+        <label for="scene-1">
+          <span class="tab-id">01 · PBR Continuum [0x00]</span>
+          <span class="tab-title">Talbingo &amp; Tumut Gorge</span>
+        </label>
+        <label for="scene-2">
+          <span class="tab-id">02 · 6-Layer SLGA Soil</span>
+          <span class="tab-title">Yarrangobilly Cutaway</span>
+        </label>
+        <label for="scene-3">
+          <span class="tab-id">03 · Botanical Loupe</span>
+          <span class="tab-title">Snow Gum Falcate Blades</span>
+        </label>
+        <label for="scene-4">
+          <span class="tab-id">04 · Zoological Tracker</span>
+          <span class="tab-title">Eastern Grey Kangaroo</span>
+        </label>
+        <label for="scene-5">
+          <span class="tab-id">05 · Stylized Cel-Toon</span>
+          <span class="tab-title">Sydney Sandstone &amp; Waratah</span>
+        </label>
+        <label for="scene-6">
+          <span class="tab-id">06 · Namatjira Wash</span>
+          <span class="tab-title">Noosa Headland Lagoon</span>
+        </label>
+        <label for="scene-7">
+          <span class="tab-id">07 · GPR &amp; Trophic [0x02]</span>
+          <span class="tab-title">Three Mile Dam Radar HUD</span>
+        </label>
+        <label for="scene-8">
+          <span class="tab-id">08 · Planck Thermal [0x01]</span>
+          <span class="tab-title">Jounama Karst FLIR 8–14µm</span>
+        </label>
+      </div>
+
+      <div class="slides">
+        <!-- Slide 1 -->
+        <div class="slide slide-1">
+          <div class="frame-view">
+            <img src="assets/renders/01_talbingo_aerial_pbr.png" alt="Talbingo & Tumut River Gorge Native PortalGpu Render" />
+            <div class="hud-overlay">10d/sector-talbingo.10d · CRC32C 0x71DE684B · WATER_QUALITY_CINEMATIC (Tier 2)</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>01 · Talbingo &amp; Tumut River Gorge (PBR Continuum)</h2>
+            <p>Rendered natively via <code>PortalGpu::new_offscreen(1280, 720, 256)</code> on DirectX 12 with 5 <code>MAT4</code> submeshes, <code>EnvironmentProbeSet</code> IBL, cascaded sun shadows, half-res SSAO, and BVH shoreline SDF refractive water.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-talbingo.10d</span></div>
+              <div class="kv-row"><span class="kv-key">Geometry Payload</span><span class="kv-val">41,720 verts · 40,210 tris</span></div>
+              <div class="kv-row"><span class="kv-key">Foliage Architecture</span><span class="kv-val">Cescatti Crown + 3D Falcate Blades</span></div>
+              <div class="kv-row"><span class="kv-key">Hydrologic Optics</span><span class="kv-val">Snell + Beer-Lambert + Pebbles</span></div>
+              <div class="kv-row"><span class="kv-key">AG-12 Veg Instances</span><span class="kv-val">64 Evaluated (Bend + Wind)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide-2">
+          <div class="frame-view">
+            <img src="assets/renders/02_yarrangobilly_cutaway_strata.png" alt="Yarrangobilly 6-Layer CSIRO SLGA Soil Cutaway" />
+            <div class="hud-overlay">10d/sector-yarrangobilly.10d · 6-Layer CSIRO SLGA Soil &amp; Silurian Karst Cutaway</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>02 · Yarrangobilly River &amp; 6-Layer SLGA Soil Cutaway</h2>
+            <p>Exposes the stepped 6-layer CSIRO Soil &amp; Landscape Grid of Australia (SLGA) pedological profile directly in the foreground beneath the river valley: O-Horizon Alpine Peat, A1 Biomantle Loam, A2 Bleached Quartz Sand, B2 Red-Ochre Ferrosol Clay, C Saprolite Grus, and R Silurian Karst Bedrock.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-yarrangobilly.10d</span></div>
+              <div class="kv-row"><span class="kv-key">Geometry Payload</span><span class="kv-val">44,024 verts · 41,362 tris</span></div>
+              <div class="kv-row"><span class="kv-key">Soil Horizons</span><span class="kv-val">L0 Peat .. L5 Silurian Karst</span></div>
+              <div class="kv-row"><span class="kv-key">Riverbed Cobbles</span><span class="kv-val">220 3D Imbricated Pebbles</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide slide-3">
+          <div class="frame-view">
+            <img src="assets/renders/03_flora_specimen_loupe_snow_gum.png" alt="Flora Specimen Loupe — Snow Gum & Ghost Gum" />
+            <div class="hud-overlay">10d/specimen-flora_loupe.10d · 3D Phyllotactic Falcate Leaf Blades &amp; Venation</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>03 · Botanical Specimen Loupe (<em>Eucalyptus pauciflora</em> &amp; <em>Corymbia aparrerinja</em>)</h2>
+            <p>Close-up inspection of multi-trunk contorted Snow Gum and Ghost Gum crowns with compact Cescatti core foliage, secondary forked branchlets, and multi-shell 3D falcate (sickle-shaped) sclerophyllous leaf blades hanging at golden-angle (137.5°) spirals.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/corymbia_aparrerinja.10d</span></div>
+              <div class="kv-row"><span class="kv-key">Leaf Biophysics</span><span class="kv-val">PROSPECT-D + SGGX Microflake</span></div>
+              <div class="kv-row"><span class="kv-key">Understory Strata</span><span class="kv-val">Dicksonia + Xanthorrhoea + Poa</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide slide-4">
+          <div class="frame-view">
+            <img src="assets/renders/04_fauna_tracker_kangaroo.png" alt="Fauna Tracker — Eastern Grey Kangaroo" />
+            <div class="hud-overlay">10d/specimen-fauna_tracker.10d · Articulated 3D Macropus giganteus &amp; River Shingle</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>04 · Zoological Specimen Tracker (<em>Macropus giganteus</em>)</h2>
+            <p>Close-up biotelemetry view of articulated 3D Eastern Grey Kangaroos, Common Wombats, submerged Platypus &amp; Murray Cod, and soaring Wedge-Tailed Eagles backed by <code>fauna_164.q42</code> and <code>fauna_kinematics_164.m64</code>.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">Fauna Catalog</span><span class="kv-val">q42/fauna-164.q42 (164 Species)</span></div>
+              <div class="kv-row"><span class="kv-key">Kinematics</span><span class="kv-val">m64/fauna-kinematics-164.m64</span></div>
+              <div class="kv-row"><span class="kv-key">Benthic Stream</span><span class="kv-val">Platypus + Murray Cod Underwater</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide slide-5">
+          <div class="frame-view">
+            <img src="assets/renders/05_sydney_sandstone_cel_toon.png" alt="Sydney Sandstone & Waratah Cel-Toon" />
+            <div class="hud-overlay">10d/sector-sydney_sandstone.10d · ShadingModel::Stylized Cel-Toon Quantization</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>05 · Sydney Hawkesbury Sandstone &amp; Waratah (Stylized Cel-Toon)</h2>
+            <p>Rendered using <code>ShadingModel::Stylized</code> and quantized 4-band pigment stepping across golden Hawkesbury sandstone benches, <em>Telopea speciosissima</em> crimson Waratah blooms, and sclerophyllous eucalypt woodland.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-sydney_sandstone.10d</span></div>
+              <div class="kv-row"><span class="kv-key">Shading Model</span><span class="kv-val">ShadingModel::Stylized</span></div>
+              <div class="kv-row"><span class="kv-key">Keystone Flora</span><span class="kv-val">Telopea speciosissima + Angophora</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide slide-6">
+          <div class="frame-view">
+            <img src="assets/renders/06_noosa_headland_watercolor.png" alt="Noosa Headland Namatjira Watercolor Wash" />
+            <div class="hud-overlay">10d/sector-noosa_headland.10d · Namatjira Ochre &amp; Coral Sea Pigment Granulation</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>06 · Noosa Pandanus Headland &amp; Lagoon (Namatjira Watercolor)</h2>
+            <p>Inspired by Albert Namatjira's Australian landscape watercolors: warm burnt-ochre and sienna headlands, luminous cream ghost-gum trunks, soft sage foliage granulation, and turquoise Coral Sea surf.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-noosa_headland.10d</span></div>
+              <div class="kv-row"><span class="kv-key">Lagoon Bathymetry</span><span class="kv-val">Wide Coastal Estuary + Reef</span></div>
+              <div class="kv-row"><span class="kv-key">Pigment Palette</span><span class="kv-val">Ochre · Sienna · Ultramarine</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide slide-7">
+          <div class="frame-view">
+            <img src="assets/renders/07_three_mile_dam_gpr_hud.png" alt="Three Mile Dam GPR & Trophic Energy HUD" />
+            <div class="hud-overlay">10d/sector-three_mile_dam.10d · Observer Mode 0x02 GPR Radar &amp; 0x05 Trophic Arcs</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>07 · Three Mile Dam Subalpine Basin (GPR &amp; Trophic HUD)</h2>
+            <p>Visualizes 3D Ground-Penetrating Radar (GPR) cyan dielectric wave-reflector ribbons across the subalpine snow-gum basin together with golden parabolic trophic energy-flow arcs linking primary producers, herbivores, and apex raptors.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-three_mile_dam.10d</span></div>
+              <div class="kv-row"><span class="kv-key">GPR Wave Ribbons</span><span class="kv-val">7 Subsurface Dielectric Profiles</span></div>
+              <div class="kv-row"><span class="kv-key">Trophic Network</span><span class="kv-val">3D Parabolic Energy-Flow Arcs</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide slide-8">
+          <div class="frame-view">
+            <img src="assets/renders/08_jounama_karst_thermal_ir.png" alt="Jounama Karst Radiometric Planck Blackbody Thermal IR" />
+            <div class="hud-overlay">10d/sector-jounama_karst.10d · Observer Mode 0x01 Planck Blackbody Thermal IR (8–14 µm)</div>
+          </div>
+          <div class="frame-inspector">
+            <h2>08 · Jounama Gorge (Planck Blackbody Thermal IR <code>0x01</code>)</h2>
+            <p>Radiometric 8–14 µm FLIR Ironbow thermal infrared projection: cold river water (280 K) is deep midnight navy, transpiring eucalypt foliage (285 K) is cool indigo-teal, solar-heated karst boulders (299 K) glow crimson-orange, and endothermic 310 K Australian fauna glow in blazing white-hot gold!</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-jounama_karst.10d</span></div>
+              <div class="kv-row"><span class="kv-key">River Water (280 K)</span><span class="kv-val">Deep Thermal Navy [0.05, 0.06, 0.26]</span></div>
+              <div class="kv-row"><span class="kv-key">Karst Boulders (299 K)</span><span class="kv-val">Solar-Warmed Crimson-Orange</span></div>
+              <div class="kv-row"><span class="kv-key">Fauna Endotherms (310 K)</span><span class="kv-val">Incandescent White-Gold Emissive</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All 8 Native PortalGpu Renders Comparison Grid -->
+    <section class="card">
+      <h3>
+        <span>All 8 Native <code>PortalGpu</code> (<code>wgpu</code> DirectX 12) Offscreen Renders (1280×720 RGBA8)</span>
+        <span class="badge zero-v8">Compiled via cargo run --release --bin compile_east_coast_substrate</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/renders/01_talbingo_aerial_pbr.png" alt="01 Talbingo PBR" />
+          <div class="gallery-caption"><strong>01 · Talbingo &amp; Tumut Gorge (PBR)</strong>Multi-shell 3D falcate leaf blades, transparent water &amp; riverbed pebbles.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/02_yarrangobilly_cutaway_strata.png" alt="02 Yarrangobilly Cutaway" />
+          <div class="gallery-caption"><strong>02 · Yarrangobilly 6-Layer SLGA Soil Cutaway</strong>Stepped foreground pedological trench (Peat, Loam, Sand, Ferrosol Clay, Saprolite, Karst).</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/03_flora_specimen_loupe_snow_gum.png" alt="03 Flora Specimen Loupe" />
+          <div class="gallery-caption"><strong>03 · Botanical Specimen Loupe (Snow Gum)</strong>Close-up of Cescatti crown, forked branchlets &amp; 3D falcate leaf blades.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/04_fauna_tracker_kangaroo.png" alt="04 Fauna Tracker Kangaroo" />
+          <div class="gallery-caption"><strong>04 · Zoological Specimen Tracker (Kangaroo)</strong>Articulated 3D <em>Macropus giganteus</em>, Wombat &amp; river shingle bar.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/05_sydney_sandstone_cel_toon.png" alt="05 Sydney Sandstone Cel Toon" />
+          <div class="gallery-caption"><strong>05 · Sydney Sandstone &amp; Waratah (Cel-Toon)</strong>Quantized stylized botanical illustration mode.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/06_noosa_headland_watercolor.png" alt="06 Noosa Headland Watercolor" />
+          <div class="gallery-caption"><strong>06 · Noosa Headland (Namatjira Watercolor)</strong>Warm ochre/sienna pigment granulation &amp; turquoise Coral Sea lagoon.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/07_three_mile_dam_gpr_hud.png" alt="07 Three Mile Dam GPR HUD" />
+          <div class="gallery-caption"><strong>07 · Three Mile Dam (GPR &amp; Trophic HUD)</strong>3D cyan dielectric radar profiles &amp; golden trophic energy arcs.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/renders/08_jounama_karst_thermal_ir.png" alt="08 Jounama Karst Thermal IR" />
+          <div class="gallery-caption"><strong>08 · Jounama Karst (Planck Thermal IR 0x01)</strong>8–14 µm FLIR Ironbow with incandescent 310 K endothermic fauna.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Binary Container Manifest & Zero-V8 Architecture Summary -->
+    <div class="section-grid">
+      <section class="card">
+        <h3>
+          <span>Native Binary Substrate Manifest (<code>east_coast_holo_20.hmc</code>)</span>
+          <span class="badge">HMC3 · 20 Sections · CRC32C Verified</span>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>HMC3 Section / Artifact</th>
+              <th>Format</th>
+              <th>Payload &amp; Capabilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>vibe/east-coast-20-biosphere</code></td>
+              <td><code>vibe-0.1</code></td>
+              <td>7 Native VibeScript AST modules (<code>terrain</code>, <code>flora</code>, <code>fauna</code>, <code>hydro</code>, <code>atmo</code>, <code>trophic</code>, <code>observer</code>)</td>
+            </tr>
+            <tr>
+              <td><code>q42/flora-305.q42</code></td>
+              <td><code>Q42\0</code></td>
+              <td>305 Australian Flora Species (64B stride: PROSPECT-D, SGGX, Cescatti crown, Pipe-Model)</td>
+            </tr>
+            <tr>
+              <td><code>q42/fauna-164.q42</code></td>
+              <td><code>Q42\0</code></td>
+              <td>164 Australian Fauna Species (64B stride: Kleiber metabolic scaling, thermal mass, vocal Hz)</td>
+            </tr>
+            <tr>
+              <td><code>m64/flora-rest-305.m64</code></td>
+              <td><code>M64\0</code></td>
+              <td>305 × 64B column-major <code>f32[16]</code> rest-pose affine matrices</td>
+            </tr>
+            <tr>
+              <td><code>m64/fauna-kinematics-164.m64</code></td>
+              <td><code>M64\0</code></td>
+              <td>164 × 64B locomotion gait &amp; articulated skeletal basis matrices</td>
+            </tr>
+            <tr>
+              <td><code>10d/corymbia_aparrerinja.10d</code></td>
+              <td><code>10D\x01</code></td>
+              <td>7-submesh Ghost Gum Digital Twin (<code>SURF1</code>, <code>IMPO1</code>, <code>MESH1</code>, <code>VOX0</code>, <code>PROV1</code>)</td>
+            </tr>
+            <tr>
+              <td><code>10d/sector-*.10d</code> (×6)</td>
+              <td><code>10D\x01</code></td>
+              <td>6 Full East Coast 3D Sector Scenes + <code>MAT4</code> + <code>UV0_1</code> + <code>NRM1</code> + <code>CLR1</code> + <code>PROV1</code></td>
+            </tr>
+            <tr>
+              <td><code>10d/water-*.10d</code> (×6)</td>
+              <td><code>10D\x01</code></td>
+              <td>6 High-Resolution Shoreline &amp; River Bathymetry Water Meshes</td>
+            </tr>
+            <tr>
+              <td><code>tex/*.rgba8</code> (×4)</td>
+              <td><code>RGBA8</code></td>
+              <td>4 Resident Mipmapped 256×256 PBR Textures (Leaf Venation, Bark, Pebbles, SLGA Soil)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h3>
+          <span>Zero-V8 Native Execution &amp; Architecture Report</span>
+          <a href="docs/reports/zero-v8-qualiadb-vibescript-architecture-report.md" class="badge dx12">Read Full Technical Report →</a>
+        </h3>
+        <p style="font-size:0.84rem;color:var(--muted);margin-bottom:0.9rem;">
+          Every layer of the simulation—terrain synthesis, 6-layer CSIRO SLGA pedology, 305-species botanical geometry, 164-species zoological kinematics, VibeScript compilation, <code>.hmc</code>/<code>.10d</code>/<code>.q42</code>/<code>.m64</code> binary sealing, and DirectX 12 GPU rendering—executes natively in Rust with <strong>zero V8 engine involvement</strong>.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Subsystem</th>
+              <th>Native QualiaDB / EcoPunk Implementation</th>
+              <th>V8 / JS Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Simulation &amp; Scripting</td>
+              <td><code>qualia_core_db::poet_host::compile_vibe_module</code> (<code>vibe-0.1</code>)</td>
+              <td><strong>0 Bytes</strong></td>
+            </tr>
+            <tr>
+              <td>3D Scene &amp; Asset Containers</td>
+              <td><code>container_10d</code> (<code>.10d</code>) + <code>HmcBundleBuilder</code> (<code>.hmc</code>) + <code>.q42</code> + <code>.m64</code></td>
+              <td><strong>0 Bytes</strong></td>
+            </tr>
+            <tr>
+              <td>GPU Rendering Pipeline</td>
+              <td><code>PortalGpu::new_offscreen</code> (<code>wgpu</code> DirectX 12 + WGSL Shaders)</td>
+              <td><strong>0 Bytes</strong></td>
+            </tr>
+            <tr>
+              <td>Interactive Showcase UI</td>
+              <td>Pure HTML5 + CSS3 <code>:checked</code> State Machine</td>
+              <td><strong>0 &lt;script&gt; Tags</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
 </body>
 </html>

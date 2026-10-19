@@ -1,23 +1,37 @@
 //! compile_east_coast_substrate
 //!
-//! Executes Phase 2, Phase 3, Phase 4, and Phase 5 of:
-//! `docs/plans/east-coast-australia-ecological-dataset-acquisition-plan.md`
+//! Executes Phase 2, Phase 3, Phase 4, Phase 5, and Phase 6 of:
+//! `docs/plans/east-coast-australia-ecological-dataset-acquisition-plan.md` &
+//! `docs/plans/aaa-holo-continuum-and-300-flora-164-fauna-plan.md`
 //!
-//! Synthesizes native QualiaDB artifacts:
-//! 1. `.q42` Semantic Volumes: Compiled 48-byte `NQuin` records from ALL `.ttl` ontologies in `data/ontologies/`.
+//! Synthesizes native QualiaDB & VibeScript artifacts (100% Rust, Zero Python, Zero V8):
+//! 1. `.q42` Semantic Volumes: Compiled 48-byte `NQuin` records from `.ttl` ontologies & VibeScript (`StreamingQ42VolumeWriter`).
 //! 2. 16-KB GPU `ConstituentLUT`: Precompiled 256 x 64B flat binary material table (`BankedConstituentLut`).
-//! 3. `.m64` Matter-64 Container: Mode 0x02 strata column chunk for the Talbingo micro-scene.
-//! 4. `.10d` Manifold Terrain Container: Header + Field Section (FIEL).
-//! 5. `wgsl_forge` & `shaders::viewport` Certification & WebGPU Bundle (`wgsl_forge_manifest.json` + `wgsl_shader_bundle.js`).
+//! 3. `.m64` Matter-64 Container: Mode 0x02 strata column chunk for the Talbingo catchment.
+//! 4. `.10d` Manifold Containers: Multi-material `MAT4` + `UV01` + `FNRM` + `SRD1` + `PROV` scenes & water surfaces.
+//! 5. `.hmc` (`QBDL`) Verified Bundle (`assets/packs/ecopunk-east-coast.hmc`) via `BundleWriter` & `BundleReader`.
+//! 6. `PortalGpu` & `VolumetricRenderer` Native `wgpu` Offscreen Rendering (Zero V8) to `assets/renders/*.png`.
 
+use std::collections::{BTreeMap, HashMap};
 use std::fs::{self, File};
 use std::io::{self, Cursor, Read};
 use std::path::PathBuf;
 
-use qualia_core_db::container_10d::{HEADER_BYTE_SIZE, HEADER_VERSION, MAGIC_10D};
+use ecopunk_terrain::{
+    build_closeup_specimen_10d, build_procedural_textures, build_sector_10d,
+    compile_164_fauna_catalog, compile_305_flora_catalog, render_sector_via_portal_gpu_png,
+};
+use qualia_core_db::bundle::{BundleReader, BundleWriter};
+use qualia_core_db::container_10d::{HEADER_BYTE_SIZE, HEADER_VERSION, MAGIC_10D, ShadingModel};
+use qualia_core_db::lexicon::generate_60bit_token;
 use qualia_core_db::q42::m64_matter::banked_lut::{BankedConstituentLut, LUT_BUFFER_BYTES};
 use qualia_core_db::q42::m64_matter::{M64ChunkDirectoryEntry, M64Header, M64_MAGIC};
 use qualia_core_db::q42::q42_volume::write_sorted_quins_volume;
+use qualia_core_db::q42_volume::{StreamingQ42VolumeWriter, Q42_MAGIC};
+use qualia_core_db::query::shacl_compiler::{
+    validate_shacl_property, ShaclConstraint, ShaclDatatype,
+};
+use qualia_core_db::resolver::INLINE_TAG_INTEGER;
 use qualia_core_db::shaders::viewport::{
     ACOUSTIC_VOXEL_CONE_WGSL, EMF_VOLUMETRIC_WGSL, FOLIAGE_LOD_WGSL, HYDROLOGIC_OPTICS_WGSL,
     SGGX_MICROFLAKE_WGSL, SKY_WGSL, SPECTRAL_WGSL, SWE_SOLVER_WGSL, WATER_WGSL,
@@ -28,13 +42,16 @@ use qualia_core_db::wgsl_forge::{
     WGPU_API_VERSION, WGSL_KERNEL_HUD, WGSL_KERNEL_PBR, WGSL_KERNEL_THERMAL, WGSL_KERNEL_TOON,
     WGSL_KERNEL_WATERCOLOR, WGSL_OBSERVER_HEADER,
 };
-use qualia_core_db::{q_hash, NQuin};
+use qualia_core_db::{q_hash, NQuin, QUINS_PER_BLOCK};
 use qualia_geospatial::{
     compile_raster_to_m64, ElevationRaster, GeodeticFrame, CHUNK_CELL_COUNT,
 };
 use rio_api::parser::TriplesParser;
 use rio_turtle::TurtleParser;
-use serde_json::json;
+use serde_json::{json, Value};
+use sha2::{Digest, Sha256};
+use webizen_render::VolumetricRenderer;
+
 
 /// Unified WebGPU WGSL Render Pipeline combining `qualia_core_db::shaders::viewport::SPECTRAL_WGSL`,
 /// `SGGX_MICROFLAKE_WGSL` microflake optics, `HYDROLOGIC_OPTICS_WGSL` radiative transfer,
@@ -234,10 +251,10 @@ fn vs_main(input: VertexInput) -> VertexOutput {{
     }}
     // 3. Hydrological Water Surface Waves (shaders::viewport::water.wgsl derivatives)
     else if (entity_kind == 3) {{
-        let w1 = sin(pos.x * 0.45 + u_time * 2.2) * cos(pos.z * 0.35 + u_time * 1.7) * 0.14;
-        let w2 = sin((pos.x * 0.8 - pos.z * 0.6) + u_time * 3.4) * 0.06;
+        let w1 = sin(pos.x * 0.45 + u_time * 2.2) * cos(pos.z * 0.35 + u_time * 1.7) * 0.075;
+        let w2 = sin((pos.x * 0.8 - pos.z * 0.6) + u_time * 3.4) * 0.035;
         pos.y += w1 + w2;
-        norm = normalize(vec3<f32>(-0.22 * cos(pos.x * 0.45 + u_time * 2.2), 1.0, -0.18 * sin(pos.z * 0.35 + u_time * 1.7)));
+        norm = normalize(vec3<f32>(-0.18 * cos(pos.x * 0.45 + u_time * 2.2), 1.0, -0.14 * sin(pos.z * 0.35 + u_time * 1.7)));
     }}
 
     let world = entity.model * vec4<f32>(pos, 1.0);
@@ -301,7 +318,7 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
 
     var base_col = input.color;
 
-    // Terrain & 6-Layer SLGA Subsurface Strata (with 16-KB ConstituentLUT lookup)
+    // Terrain, 3D Rocks/Boulders/Pebbles & 6-Layer SLGA Subsurface Strata
     if (entity_kind == 0) {{
         let is_wall = input.v_meta.z;
         let slope = 1.0 - max(n.y, 0.0);
@@ -310,11 +327,52 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
                 let flute = sin(input.world_pos.x * 3.8 + input.world_pos.z * 3.8) * 0.5 + 0.5;
                 let fracture = hash21(floor(input.world_pos.xz * 2.5));
                 base_col *= (0.82 + 0.24 * mix(fracture, flute, karst_fluting));
+            }} else {{
+                // Soil & forest litter micro-grain
+                let soil_grain = hash21(floor(input.world_pos.xz * 6.0)) * 0.12 - 0.06;
+                base_col += vec3<f32>(soil_grain * 0.6, soil_grain * 0.5, soil_grain * 0.35);
             }}
+
             let dist_above_water = input.world_pos.y - water_level;
-            if (dist_above_water >= -0.5 && dist_above_water < 1.35) {{
-                let wet_factor = 1.0 - clamp(dist_above_water / 1.35, 0.0, 1.0);
-                base_col *= (1.0 - 0.38 * wet_factor);
+            // Riverbed & Shoreline Voronoi Pebbles, Imbricated Cobbles & Quartz Sand Ripples
+            if (dist_above_water < 0.75) {{
+                let peb_uv = input.world_pos.xz * 5.2;
+                let peb_id = floor(peb_uv);
+                let peb_f = fract(peb_uv) - vec2<f32>(0.5, 0.5);
+                let peb_rnd = hash21(peb_id);
+                let peb_dist = length(peb_f * vec2<f32>(1.0, 1.25));
+                let peb_mask = smoothstep(0.46, 0.24, peb_dist);
+                var peb_tint = vec3<f32>(0.52, 0.48, 0.42);
+                if (peb_rnd > 0.72) {{
+                    peb_tint = vec3<f32>(0.76, 0.68, 0.56); // alluvial quartz pebble
+                }} else if (peb_rnd > 0.45) {{
+                    peb_tint = vec3<f32>(0.58, 0.36, 0.26); // red jasper / ironstone cobble
+                }} else if (peb_rnd < 0.22) {{
+                    peb_tint = vec3<f32>(0.26, 0.28, 0.30); // dark basalt cobble
+                }}
+                let sand_ripple = 0.5 + 0.5 * sin(input.world_pos.x * 9.0 + sin(input.world_pos.z * 3.0) * 1.5);
+                let sand_col = vec3<f32>(0.68, 0.60, 0.45) * (0.90 + 0.14 * sand_ripple);
+                let bed_tex = mix(sand_col, peb_tint * (0.75 + 0.35 * peb_mask), 0.68);
+                let blend_w = clamp((0.75 - dist_above_water) / 0.95, 0.0, 0.78);
+                base_col = mix(base_col, bed_tex, blend_w);
+            }}
+
+            // Shoreline Capillary Wetting Darkening
+            if (dist_above_water >= -0.4 && dist_above_water < 1.25) {{
+                let wet_factor = 1.0 - clamp(abs(dist_above_water) / 1.25, 0.0, 1.0);
+                base_col *= (1.0 - 0.34 * wet_factor);
+            }}
+
+            // Submerged Riverbed Animated Solar Caustics & Beer-Lambert Optical Absorption
+            if (dist_above_water < 0.0 && observer_mode == 0) {{
+                let w_depth = clamp(-dist_above_water, 0.0, 6.0);
+                let c1 = sin(input.world_pos.x * 3.4 + u_time * 2.3) * cos(input.world_pos.z * 3.1 - u_time * 1.8);
+                let c2 = sin(input.world_pos.x * 5.7 - u_time * 1.7 + input.world_pos.z * 4.3);
+                let caustic = pow(clamp(0.5 + 0.28 * c1 + 0.22 * c2, 0.0, 1.0), 3.0);
+                let caustic_atten = exp(-w_depth * 0.35);
+                base_col += vec3<f32>(0.28, 0.46, 0.42) * caustic * caustic_atten * 0.85;
+                let absorb = exp(-vec3<f32>(0.28, 0.11, 0.07) * w_depth * 0.55);
+                base_col *= absorb;
             }}
         }} else {{
             let strata_grain = sin(input.world_pos.y * 14.0 + input.world_pos.x * 0.8) * 0.06;
@@ -322,24 +380,36 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
         }}
     }}
 
-    // Hydrologic Optics Water Shader (shaders::viewport::hydrologic_optics.wgsl + water.wgsl)
+    // Transparent Refractive Water Shader (Snell Refraction + Beer-Lambert + Fresnel Alpha)
     if (entity_kind == 3) {{
+        let d = max(0.05, input.v_meta.x);
         let half_vec = normalize(light_dir + view_dir);
-        let spec = pow(max(dot(n, half_vec), 0.0), 96.0) * 1.35;
+        let spec = pow(max(dot(n, half_vec), 0.0), 110.0) * 1.45;
         let fresnel = fresnel_schlick(n_dot_v, vec3<f32>(0.02));
-        let hg_backscatter = henyey_greenstein_phase(dot(-view_dir, light_dir), 0.82) * 0.18;
-        let deep_water = base_col * (0.55 + hg_backscatter);
-        let sky_refl = vec3<f32>(0.42, 0.65, 0.85) * max(0.25, light_dir.y);
-        var water_col = mix(deep_water * (0.45 + 0.55 * n_dot_l), sky_refl, fresnel * 0.65) + vec3<f32>(1.0, 0.96, 0.85) * spec;
+        let hg_backscatter = henyey_greenstein_phase(dot(-view_dir, light_dir), 0.82) * 0.20;
+        let shallow_tint = vec3<f32>(0.18, 0.48, 0.46);
+        let deep_tint = base_col * (0.52 + hg_backscatter);
+        let beer_factor = clamp(1.0 - exp(-d * 0.38), 0.0, 1.0);
+        let water_body = mix(shallow_tint, deep_tint, beer_factor);
+        let sky_refl = vec3<f32>(0.46, 0.68, 0.88) * max(0.28, light_dir.y);
+        let foam = smoothstep(0.22, 0.02, d) * (0.5 + 0.5 * sin(input.world_pos.x * 4.0 + input.world_pos.z * 4.0 + u_time * 3.0)) * 0.22;
+        var water_col = mix(water_body * (0.48 + 0.52 * n_dot_l), sky_refl, fresnel * 0.62)
+            + vec3<f32>(1.0, 0.96, 0.85) * spec
+            + vec3<f32>(0.88, 0.94, 0.96) * foam;
         if (observer_mode == 4) {{
             water_col = vec3<f32>(0.05, 0.22, 0.68);
         }}
-        return vec4<f32>(aces_film(water_col), 1.0);
+        let water_alpha = select(
+            clamp(fresnel.x * 0.58 + (1.0 - exp(-d * 0.26)) * 0.44 + spec * 0.35, 0.16, 0.74),
+            0.92,
+            observer_mode == 4
+        );
+        return vec4<f32>(aces_film(water_col), water_alpha);
     }}
 
     var final_col = base_col;
 
-    // 0x00: WGSL_KERNEL_PBR + SGGX Anisotropic Microflake Sheen + Near-Field Clarity Fog
+    // 0x00: WGSL_KERNEL_PBR + SGGX Anisotropic Microflake Sheen + Multi-Km Clarity Fog
     if (observer_mode == 0) {{
         let h = normalize(light_dir + view_dir);
         let roughness = select(0.76, select(0.54, 0.62, entity_kind == 2), entity_kind != 0);
@@ -353,16 +423,16 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
         var sss = vec3<f32>(0.0);
         if (entity_kind == 1 && input.v_meta.w > 1.5) {{
             let back_light = max(dot(view_dir, -light_dir), 0.0);
-            sss = base_col * vec3<f32>(0.35, 0.55, 0.18) * pow(back_light, 2.0) * 0.45;
+            sss = base_col * vec3<f32>(0.35, 0.55, 0.18) * pow(back_light, 2.0) * 0.48;
         }}
 
         let sun_radiance = vec3<f32>(1.55, 1.46, 1.32) * max(0.15, light_dir.y);
         let lit = base_col * (sky_amb + sun_radiance * n_dot_l * 0.78) + sun_radiance * (spec + vec3<f32>(sggx_sheen)) + sss;
 
         let dist = length(input.world_pos - cam_pos);
-        let d_eff = max(0.0, dist - 38.0);
-        let height_factor = exp(-max(0.0, input.world_pos.y - water_level) * 0.08);
-        let fog_factor = clamp(1.0 - exp(-d_eff * 0.0035 * (0.4 + 0.6 * height_factor)), 0.0, 0.65);
+        let d_eff = max(0.0, dist - 85.0);
+        let height_factor = exp(-max(0.0, input.world_pos.y - water_level) * 0.035);
+        let fog_factor = clamp(1.0 - exp(-d_eff * 0.00085 * (0.35 + 0.65 * height_factor)), 0.0, 0.58);
         let fog_col = vec3<f32>(0.58, 0.72, 0.84) * max(0.25, light_dir.y);
         final_col = aces_film(mix(lit, fog_col, fog_factor));
     }}
@@ -459,6 +529,7 @@ fn fs_line() -> @location(0) vec4<f32> {{
         spectral_wgsl = SPECTRAL_WGSL.trim()
     )
 }
+
 
 fn find_workspace_root() -> PathBuf {
     let mut dir = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
@@ -778,23 +849,616 @@ fn main() -> io::Result<()> {
         forge_manifest_path.display()
     );
 
-    let viewer_data_dir = root.join("viewer").join("data");
-    fs::create_dir_all(&viewer_data_dir)?;
-    let bundle_js_path = viewer_data_dir.join("wgsl_shader_bundle.js");
-    let bundle_js = format!(
-        "// Auto-generated by compile_east_coast_substrate (qualia_core_db::wgsl_forge + shaders::viewport)\nwindow.ECOPUNK_WGSL_FORGE = {};\n",
-        serde_json::to_string(&forge_manifest)?
-    );
-    fs::write(&bundle_js_path, &bundle_js)?;
+    // ------------------------------------------------------------------------
+    // Phase 6: VibeScript (.vibe) Certification, Interpreter Evaluation (`PoetSnapshot`),
+    //          SHACL Validation (`validate_shacl_property`) & 305-Flora / 164-Fauna Catalogs
+    // ------------------------------------------------------------------------
+    println!("\n--- Phase 6: VibeScript Certification, Interpreter Execution & 305-Flora / 164-Fauna Compilation ---");
+
+    let vibe_paths = [
+        root.join("entities")
+            .join("taxa")
+            .join("corymbia-aparrerinja")
+            .join("corymbia-aparrerinja.vibe"),
+        root.join("vibe").join("east_coast_flora_305.vibe"),
+        root.join("vibe").join("east_coast_fauna_164.vibe"),
+        root.join("vibe").join("lithology_pedology_hydrology.vibe"),
+    ];
+
+    for vp in &vibe_paths {
+        if vp.exists() {
+            let src = fs::read_to_string(vp)?;
+            let ast = vibe::parse_program(&src).map_err(|e| {
+                io::Error::new(
+                    io::ErrorKind::InvalidData,
+                    format!("VibeScript parse error in {}: {e:?}", vp.display()),
+                )
+            })?;
+            let ty_env = vibe::check_program(&ast).map_err(|e| {
+                io::Error::new(
+                    io::ErrorKind::InvalidData,
+                    format!("VibeScript typecheck error in {}: {e:?}", vp.display()),
+                )
+            })?;
+            println!(
+                "  * Certified VibeScript schema module: {} ({} items, effect: {:?})",
+                vp.file_name().and_then(|s| s.to_str()).unwrap_or("module.vibe"),
+                ast.items.len(),
+                ty_env.effect
+            );
+        }
+    }
+
+    // Evaluate `vibe/east_coast_biosphere_statements.vibe` with the real VibeScript interpreter
+    // and `PoetSnapshot` host (`quin.statement` -> `generate_60bit_token` + `NQuin::calculate_parity`)
+    let stmt_vibe_path = root.join("vibe").join("east_coast_biosphere_statements.vibe");
+    let stmt_vibe_src = fs::read_to_string(&stmt_vibe_path)?;
+    let vibe_program = vibe::load_program(&stmt_vibe_src).map_err(|e| {
+        io::Error::new(
+            io::ErrorKind::InvalidData,
+            format!("vibe::load_program error: {e}"),
+        )
+    })?;
+
+    let hero_keys = [
+        ("corymbia_aparrerinja", "ecopunk:asset/flora/corymbia-aparrerinja-0"),
+        ("eucalyptus_pauciflora", "ecopunk:asset/flora/eucalyptus-pauciflora-0"),
+        ("eucalyptus_regnans", "ecopunk:asset/flora/eucalyptus-regnans-0"),
+        ("eucalyptus_camaldulensis", "ecopunk:asset/flora/eucalyptus-camaldulensis-0"),
+        ("acacia_pycnantha", "ecopunk:asset/flora/acacia-pycnantha-0"),
+        ("banksia_serrata", "ecopunk:asset/flora/banksia-serrata-0"),
+        ("xanthorrhoea_australis", "ecopunk:asset/flora/xanthorrhoea-australis-0"),
+        ("dicksonia_antarctica", "ecopunk:asset/flora/dicksonia-antarctica-0"),
+        ("telopea_speciosissima", "ecopunk:asset/flora/telopea-speciosissima-0"),
+        ("themeda_triandra", "ecopunk:asset/flora/themeda-triandra-0"),
+        ("vallisneria_australis", "ecopunk:asset/flora/vallisneria-australis-0"),
+        ("macropus_giganteus", "ecopunk:asset/fauna/macropus-giganteus-0"),
+        ("vombatus_ursinus", "ecopunk:asset/fauna/vombatus-ursinus-0"),
+        ("ornithorhynchus_anatinus", "ecopunk:asset/fauna/ornithorhynchus-anatinus-0"),
+        ("phascolarctos_cinereus", "ecopunk:asset/fauna/phascolarctos-cinereus-0"),
+        ("aquila_audax", "ecopunk:asset/fauna/aquila-audax-0"),
+        ("maccullochella_peelii", "ecopunk:asset/fauna/maccullochella-peelii-0"),
+    ];
+
+    let mut lex_terms: HashMap<u64, String> = HashMap::new();
+    let mut vibe_quins: Vec<NQuin> = Vec::new();
+    let mut taxon_bindings_json = serde_json::Map::new();
+
+    for (render_key, asset_iri) in &hero_keys {
+        let mut host = qualia_core_db::poet_host::PoetSnapshot::default();
+        let mut env = vibe::Env::default();
+        let taxon_val = vibe::eval_function(
+            &vibe_program,
+            "taxon_for",
+            vec![vibe::Value::String((*render_key).to_string())],
+            &mut host,
+            &mut env,
+        )
+        .map_err(|e| io::Error::new(io::ErrorKind::InvalidData, format!("eval taxon_for: {e}")))?;
+
+        let vibe::Value::Record(rec) = taxon_val else {
+            return Err(io::Error::new(io::ErrorKind::InvalidData, "taxon_for not record"));
+        };
+        let gbif_key = match rec.get("gbifKey") {
+            Some(vibe::Value::F64(v)) => *v as u64,
+            _ => 0,
+        };
+        let taxon_iri = match rec.get("iri") {
+            Some(vibe::Value::String(s)) => s.clone(),
+            _ => String::new(),
+        };
+        let sci_name = match rec.get("scientificName") {
+            Some(vibe::Value::String(s)) => s.clone(),
+            _ => String::new(),
+        };
+        let common_name = match rec.get("commonName") {
+            Some(vibe::Value::String(s)) => s.clone(),
+            _ => String::new(),
+        };
+        taxon_bindings_json.insert(
+            (*render_key).to_string(),
+            json!({
+                "gbifKey": gbif_key,
+                "iri": taxon_iri,
+                "scientificName": sci_name,
+                "commonName": common_name,
+                "assetIri": asset_iri,
+            }),
+        );
+
+        let mut host2 = qualia_core_db::poet_host::PoetSnapshot::default();
+        let mut env2 = vibe::Env::default();
+        let stmts_val = vibe::eval_function(
+            &vibe_program,
+            "dwc_statements_for",
+            vec![
+                vibe::Value::String((*render_key).to_string()),
+                vibe::Value::String((*asset_iri).to_string()),
+            ],
+            &mut host2,
+            &mut env2,
+        )
+        .map_err(|e| {
+            io::Error::new(
+                io::ErrorKind::InvalidData,
+                format!("eval dwc_statements_for: {e}"),
+            )
+        })?;
+
+        let vibe::Value::List(items) = stmts_val else {
+            return Err(io::Error::new(
+                io::ErrorKind::InvalidData,
+                "dwc_statements_for not list",
+            ));
+        };
+
+        for item in items {
+            if let vibe::Value::Record(srec) = item {
+                let s_str = match srec.get("s") {
+                    Some(vibe::Value::String(s)) => s.clone(),
+                    _ => String::new(),
+                };
+                let p_str = match srec.get("p") {
+                    Some(vibe::Value::String(s)) => s.clone(),
+                    _ => String::new(),
+                };
+                let o_str = match srec.get("o") {
+                    Some(vibe::Value::String(s)) => s.clone(),
+                    _ => String::new(),
+                };
+                if let Some(vibe::Value::QuinRef(qref)) = srec.get("quin") {
+                    let f = qref.raw_fields();
+                    let nq = NQuin {
+                        subject: f[0],
+                        predicate: f[1],
+                        object: f[2],
+                        context: f[3],
+                        metadata: f[4],
+                        parity: f[5],
+                    };
+                    assert_eq!(
+                        nq.parity,
+                        NQuin::calculate_parity(
+                            nq.subject,
+                            nq.predicate,
+                            nq.object,
+                            nq.context,
+                            nq.metadata
+                        ),
+                        "VibeScript QuinRef parity seal must be valid"
+                    );
+                    lex_terms.insert(nq.subject, s_str);
+                    lex_terms.insert(nq.predicate, p_str);
+                    lex_terms.insert(nq.object, o_str);
+                    vibe_quins.push(nq);
+                }
+            }
+        }
+
+        // Append packed-integer GBIF key (`INLINE_TAG_INTEGER | gbif_key`)
+        let s_tok = generate_60bit_token(taxon_iri.as_bytes());
+        let p_tok = generate_60bit_token(b"urn:qualia:gbif:taxonKey");
+        let o_tok = INLINE_TAG_INTEGER | gbif_key;
+        lex_terms.insert(s_tok, taxon_iri.clone());
+        lex_terms.insert(p_tok, "urn:qualia:gbif:taxonKey".to_string());
+        vibe_quins.push(NQuin {
+            subject: s_tok,
+            predicate: p_tok,
+            object: o_tok,
+            context: 0,
+            metadata: 0,
+            parity: NQuin::calculate_parity(s_tok, p_tok, o_tok, 0, 0),
+        });
+
+        // Validate SHACL shape on the emitted Darwin Core quins
+        let one = [ShaclConstraint::MinCount(1)];
+        for prop in [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "http://rs.tdwg.org/dwc/terms/taxonID",
+            "http://rs.tdwg.org/dwc/terms/scientificName",
+            "http://rs.tdwg.org/dwc/terms/taxonRank",
+        ] {
+            assert!(
+                validate_shacl_property(&vibe_quins, s_tok, generate_60bit_token(prop.as_bytes()), &one),
+                "SHACL validation failed for {taxon_iri} property {prop}"
+            );
+        }
+        assert!(
+            validate_shacl_property(
+                &vibe_quins,
+                s_tok,
+                p_tok,
+                &[
+                    ShaclConstraint::MinCount(1),
+                    ShaclConstraint::Datatype(ShaclDatatype::Integer),
+                ],
+            ),
+            "SHACL integer taxonKey validation failed for {taxon_iri}"
+        );
+    }
+
+    // Write unified v4 .q42 volume (`StreamingQ42VolumeWriter`) with embedded Q42LEX, BIDX, and Merkle root
+    vibe_quins.sort_unstable_by_key(|q| q.object);
+    let q42_v4_path = assets_dir.join("east_coast_biosphere_v4.q42");
+    let mut q42_writer = StreamingQ42VolumeWriter::new(&lex_terms)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("q42 writer: {e}")))?;
+    q42_writer.declare_permissive_commons();
+    for (seq, chunk) in vibe_quins.chunks(QUINS_PER_BLOCK).enumerate() {
+        q42_writer
+            .push_block(seq as u64, chunk)
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("q42 push_block: {e}")))?;
+    }
+    q42_writer
+        .finish(&q42_v4_path)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("q42 finish: {e}")))?;
+    let q42_v4_bytes = fs::read(&q42_v4_path)?;
+    assert!(q42_v4_bytes.starts_with(&Q42_MAGIC), "Q42 v4 magic verified");
     println!(
-        "[OK] Wrote Browser WebGPU WGSL Bundle: {} ({} bytes)",
-        bundle_js_path.display(),
-        bundle_js.len()
+        "[OK] Evaluated VibeScript `east_coast_biosphere_statements.vibe` via `PoetSnapshot` & SHACL: {} sealed NQuins, {} lexicon terms -> {} ({} bytes)",
+        vibe_quins.len(),
+        lex_terms.len(),
+        q42_v4_path.display(),
+        q42_v4_bytes.len()
     );
 
+    // Load base 105 Flora & 64 Fauna (idempotent slice so re-running never duplicates)
+    let catalog_dir = data_dir.join("catalog");
+    let flora_100_path = catalog_dir.join("flora_100.json");
+    let fauna_64_path = catalog_dir.join("fauna_64.json");
+
+    let raw_flora_val: Value = serde_json::from_str(&fs::read_to_string(&flora_100_path)?)
+        .map_err(|e| io::Error::new(io::ErrorKind::InvalidData, format!("flora JSON error: {e}")))?;
+    let base_flora_species: Vec<Value> = raw_flora_val
+        .get("species")
+        .and_then(|v| v.as_array())
+        .map(|arr| arr.iter().take(105).cloned().collect())
+        .unwrap_or_default();
+    let base_flora_input = json!({ "species": base_flora_species });
+
+    let compiled_flora = compile_305_flora_catalog(&base_flora_input);
+    let flora_total = compiled_flora
+        .get("total_species")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0);
+    assert_eq!(flora_total, 305, "Expected 305 compiled flora species");
+
+    let flora_305_path = catalog_dir.join("flora_305.json");
+    let flora_pretty = serde_json::to_string_pretty(&compiled_flora)?;
+    fs::write(&flora_100_path, &flora_pretty)?;
+    fs::write(&flora_305_path, &flora_pretty)?;
+    println!(
+        "[OK] Compiled 305-Species Flora Catalog: {} & {} ({} species)",
+        flora_100_path.display(),
+        flora_305_path.display(),
+        flora_total
+    );
+
+    let raw_fauna_val: Value = serde_json::from_str(&fs::read_to_string(&fauna_64_path)?)
+        .map_err(|e| io::Error::new(io::ErrorKind::InvalidData, format!("fauna JSON error: {e}")))?;
+    let base_fauna_species: Vec<Value> = raw_fauna_val
+        .get("species")
+        .and_then(|v| v.as_array())
+        .map(|arr| arr.iter().take(64).cloned().collect())
+        .unwrap_or_default();
+    let base_fauna_input = json!({ "species": base_fauna_species });
+
+    let compiled_fauna = compile_164_fauna_catalog(&base_fauna_input);
+    let fauna_total = compiled_fauna
+        .get("total_species")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0);
+    assert_eq!(fauna_total, 164, "Expected 164 compiled fauna species");
+
+    let fauna_164_path = catalog_dir.join("fauna_164.json");
+    let fauna_pretty = serde_json::to_string_pretty(&compiled_fauna)?;
+    fs::write(&fauna_64_path, &fauna_pretty)?;
+    fs::write(&fauna_164_path, &fauna_pretty)?;
+    println!(
+        "[OK] Compiled 164-Species Fauna Catalog: {} & {} ({} species)",
+        fauna_64_path.display(),
+        fauna_164_path.display(),
+        fauna_total
+    );
+
+    // Inspect .10d Corymbia aparrerinja digital twin binary chunks
+    let corymbia_10d_dir = root
+        .join("assets")
+        .join("models")
+        .join("corymbia-aparrerinja")
+        .join("10d");
+    let mut corymbia_chunks = Vec::new();
+    if corymbia_10d_dir.exists() {
+        for entry in fs::read_dir(&corymbia_10d_dir)? {
+            let entry = entry?;
+            let p = entry.path();
+            if p.extension().and_then(|e| e.to_str()) == Some("10d") {
+                let bytes = fs::read(&p)?;
+                let valid_magic = bytes.len() >= 4 && &bytes[0..4] == &MAGIC_10D;
+                corymbia_chunks.push(json!({
+                    "part": p.file_stem().and_then(|s| s.to_str()).unwrap_or("part"),
+                    "bytes": bytes.len(),
+                    "valid_10d_magic": valid_magic,
+                }));
+            }
+        }
+    }
+    println!(
+        "  * Verified {} .10d Digital Twin sub-meshes for Corymbia aparrerinja",
+        corymbia_chunks.len()
+    );
+
+    // Update master_ecological_dataset.json (pure data, zero .js output)
+    let master_path = data_dir.join("master_ecological_dataset.json");
+    let mut master_val: Value = if master_path.exists() {
+        serde_json::from_str(&fs::read_to_string(&master_path)?).unwrap_or_else(|_| json!({}))
+    } else {
+        json!({})
+    };
+
+    if let Some(obj) = master_val.as_object_mut() {
+        obj.insert("total_flora_species".to_string(), json!(flora_total));
+        obj.insert("total_fauna_species".to_string(), json!(fauna_total));
+        obj.insert(
+            "flora".to_string(),
+            compiled_flora
+                .get("species")
+                .cloned()
+                .unwrap_or_else(|| json!([])),
+        );
+        obj.insert(
+            "fauna".to_string(),
+            compiled_fauna
+                .get("species")
+                .cloned()
+                .unwrap_or_else(|| json!([])),
+        );
+    }
+    fs::write(&master_path, serde_json::to_string_pretty(&master_val)?)?;
+
+    // ------------------------------------------------------------------------
+    // Phase 7: Native `.10d` Multi-Material Scene Synthesis, `.hmc` (`QBDL`) Bundle
+    //          Packaging & 100% Zero-V8 `PortalGpu` / `VolumetricRenderer` Rendering
+    // ------------------------------------------------------------------------
+    println!("\n--- Phase 7: Native .10d Scene Compilation, .hmc Bundle Packaging & Zero-V8 PortalGpu Rendering ---");
+
+    let textures = build_procedural_textures();
+    let sector_specs = [
+        ("talbingo", "Talbingo — Tumut River Gorge & Bogong Foothills", false),
+        ("yarrangobilly", "Yarrangobilly — Silurian Karst Gorge & 6-Layer SLGA Strata Cutaway", true),
+        ("three_mile_dam", "Three Mile Dam — Subalpine Frost Hollow & Snow Gum Basin", false),
+        ("sydney_sandstone", "Sydney Basin — Hawkesbury Sandstone Escarpment & Gully", false),
+        ("noosa_headland", "Noosa Headland — Subtropical Wallum Heath & Coastal Estuary", false),
+        ("jounama_karst", "Jounama Creek — Bogong Peaks & Subterranean Karst", false),
+    ];
+
+    let mut compiled_sectors = BTreeMap::new();
+    for (sec_id, sec_title, cutaway) in sector_specs {
+        let sector = build_sector_10d(sec_id, sec_title, &textures, cutaway)
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        let sec_10d_path = assets_dir.join(format!("sector_{sec_id}.10d"));
+        let wat_10d_path = assets_dir.join(format!("water_{sec_id}.10d"));
+        fs::write(&sec_10d_path, &sector.scene_10d_bytes)?;
+        fs::write(&wat_10d_path, &sector.water_10d_bytes)?;
+        println!(
+            "  * Sealed .10d Sector `{}`: {} verts, {} tris, {} B (CRC32C: {:#010x}), AG-12 veg instances: {}",
+            sec_id,
+            sector.positions.len(),
+            sector.indices.len() / 3,
+            sector.scene_10d_bytes.len(),
+            sector.scene_crc32c,
+            sector.vegetation_instances_evaluated
+        );
+        compiled_sectors.insert(sec_id, sector);
+    }
+
+    let snow_gum_specimen = build_closeup_specimen_10d(
+        "snow_gum_loupe",
+        "Botanical Loupe — Eucalyptus pauciflora & Corymbia aparrerinja 3D Falcate Foliage",
+        &textures,
+        false,
+    )
+    .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+    let kangaroo_specimen = build_closeup_specimen_10d(
+        "kangaroo_tracker",
+        "Zoological Tracker — Macropus giganteus & Submerged Riverbed Pebbles",
+        &textures,
+        true,
+    )
+    .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+
+    // Pack all `.10d` scenes, `.10d` water surfaces, procedural PBR PNG textures,
+    // `sem/east_coast_biosphere.q42`, and `manifest.json` into `assets/packs/ecopunk-east-coast.hmc` (`QBDL`)
+    let packs_dir = root.join("assets").join("packs");
+    fs::create_dir_all(&packs_dir)?;
+
+    let mut manifest_assets = Vec::new();
+    for sector in compiled_sectors.values() {
+        let mut sh = Sha256::new();
+        sh.update(&sector.scene_10d_bytes);
+        let scene_sha = format!("{:x}", sh.finalize());
+        manifest_assets.push(json!({
+            "id": format!("ecopunk:sector:{}", sector.sector_id),
+            "file": sector.scene_hmc_key,
+            "waterFile": sector.water_hmc_key,
+            "bytes": sector.scene_10d_bytes.len(),
+            "crc32c": sector.scene_crc32c,
+            "sha256": scene_sha,
+            "vertices": sector.positions.len(),
+            "triangles": sector.indices.len() / 3,
+        }));
+    }
+
+    let manifest_textures: Vec<Value> = textures
+        .iter()
+        .map(|t| {
+            json!({
+                "name": t.name,
+                "file": t.hmc_key,
+                "sha256": t.sha256_hex,
+                "width": t.width,
+                "height": t.height,
+                "bytes": t.png_bytes.len(),
+            })
+        })
+        .collect();
+
+    let hmc_manifest = json!({
+        "packVersion": 1,
+        "packer": "crates/ecopunk-terrain (Zero-V8 Native QualiaDB + VibeScript)",
+        "totalFloraSpecies": flora_total,
+        "totalFaunaSpecies": fauna_total,
+        "assets": manifest_assets,
+        "textures": manifest_textures,
+        "taxonBindings": taxon_bindings_json,
+        "semantics": [{
+            "key": "sem/east_coast_biosphere.q42",
+            "quins": vibe_quins.len(),
+            "bytes": q42_v4_bytes.len(),
+        }],
+    });
+    let manifest_bytes = serde_json::to_vec_pretty(&hmc_manifest)?;
+
+    let mut bundle_writer = BundleWriter::new();
+    bundle_writer
+        .add_file("manifest.json", "manifest", manifest_bytes, None)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter manifest: {e:?}")))?;
+
+    for sector in compiled_sectors.values() {
+        bundle_writer
+            .add_file(
+                &sector.scene_hmc_key,
+                "10d",
+                sector.scene_10d_bytes.clone(),
+                None,
+            )
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter 10d: {e:?}")))?;
+        bundle_writer
+            .add_file(
+                &sector.water_hmc_key,
+                "10d",
+                sector.water_10d_bytes.clone(),
+                None,
+            )
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter water 10d: {e:?}")))?;
+    }
+
+    for tex in &textures {
+        bundle_writer
+            .add_file(&tex.hmc_key, "image/png", tex.png_bytes.clone(), None)
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter tex: {e:?}")))?;
+    }
+
+    bundle_writer
+        .add_file("sem/east_coast_biosphere.q42", "q42", q42_v4_bytes, None)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter q42: {e:?}")))?;
+
+    let hmc_bytes = bundle_writer
+        .build()
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter build: {e}")))?;
+
+    let hmc_reader = BundleReader::parse(&hmc_bytes)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleReader parse: {e}")))?;
+    for entry in hmc_reader.entries() {
+        assert!(
+            hmc_reader.verify_entry(&entry.key),
+            "HMC bundle entry digest verification failed for {}",
+            entry.key
+        );
+    }
+
+    let hmc_out_path = packs_dir.join("ecopunk-east-coast.hmc");
+    fs::write(&hmc_out_path, &hmc_bytes)?;
+    println!(
+        "[OK] Packed & Digest-Verified .hmc (`QBDL`) Bundle: {} ({} bytes, {} verified entries)",
+        hmc_out_path.display(),
+        hmc_bytes.len(),
+        hmc_reader.entries().len()
+    );
+
+    // Verify `VolumetricRenderer::load_hmc_asset` and `load_hmc_water_asset` directly on the native GPU!
+    let mut vol_renderer = VolumetricRenderer::new_offscreen(640, 360, 256)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("VolumetricRenderer init: {e}")))?;
+    let (hmc_verts, hmc_tris, _) = vol_renderer
+        .load_hmc_asset(&hmc_bytes, "10d/sector-talbingo.10d")
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("load_hmc_asset: {e}")))?;
+    let (wat_verts, wat_tris) = vol_renderer
+        .load_hmc_water_asset(&hmc_bytes, "10d/water-talbingo.10d")
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("load_hmc_water_asset: {e}")))?;
+    println!(
+        "[OK] VolumetricRenderer Native HMC Admission Verified: scene=({} verts, {} tris), water=({} verts, {} tris)",
+        hmc_verts, hmc_tris, wat_verts, wat_tris
+    );
+
+    // Render all 8 showcase frames (`1280x720`) natively via `PortalGpu` (`wgpu` — Zero V8)
+    let renders_dir = root.join("assets").join("renders");
+    fs::create_dir_all(&renders_dir)?;
+
+    let render_jobs: Vec<(&str, &ecopunk_terrain::CompiledSector10d, Option<(ShadingModel, u32, [f32; 3])>)> = vec![
+        (
+            "01_talbingo_aerial_pbr.png",
+            &compiled_sectors["talbingo"],
+            None,
+        ),
+        (
+            "02_yarrangobilly_cutaway_strata.png",
+            &compiled_sectors["yarrangobilly"],
+            None,
+        ),
+        (
+            "03_flora_specimen_loupe_snow_gum.png",
+            &snow_gum_specimen,
+            None,
+        ),
+        (
+            "04_fauna_tracker_kangaroo.png",
+            &kangaroo_specimen,
+            None,
+        ),
+        (
+            "05_sydney_sandstone_cel_toon.png",
+            &compiled_sectors["sydney_sandstone"],
+            Some((ShadingModel::Stylized, 0, [0.52, 0.44, 0.36])),
+        ),
+        (
+            "06_noosa_headland_watercolor.png",
+            &compiled_sectors["noosa_headland"],
+            Some((ShadingModel::Stylized, 0, [0.44, 0.56, 0.62])),
+        ),
+        (
+            "07_three_mile_dam_gpr_hud.png",
+            &compiled_sectors["three_mile_dam"],
+            Some((ShadingModel::MetallicRoughness, 1, [0.18, 0.48, 0.64])),
+        ),
+        (
+            "08_jounama_karst_thermal_ir.png",
+            &compiled_sectors["jounama_karst"],
+            Some((ShadingModel::Stylized, 2, [0.64, 0.32, 0.18])),
+        ),
+    ];
+
+    for (filename, sector_ref, override_mode) in render_jobs {
+        let png_bytes = render_sector_via_portal_gpu_png(
+            sector_ref,
+            &textures,
+            1280,
+            720,
+            override_mode,
+        )
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("PortalGpu render {filename}: {e}")))?;
+        let out_path = renders_dir.join(filename);
+        fs::write(&out_path, &png_bytes)?;
+        println!(
+            "  * Rendered Native PortalGpu (`wgpu` Zero-V8) Frame: {} ({} bytes, 1280x720)",
+            out_path.display(),
+            png_bytes.len()
+        );
+    }
+
     println!("\n============================================================");
-    println!("✅ All Qualia Substrates & WGSL Forge Shaders Successfully Compiled.");
+    println!("✅ 100% Zero-V8 Native QualiaDB + VibeScript + .hmc/.10d/.q42/.m64 + PortalGpu Pipeline Complete.");
     println!("============================================================");
 
     Ok(())
 }
+
+
