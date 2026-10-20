@@ -3,31 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>EcoPunk × QualiaDB + Etalon — Interactive 60 FPS 10D Holo-Simulation & Game Engine (305 Flora · 164 Fauna · .hmc / .10d / .q42 / .m64 / .vibe)</title>
+  <title>EcoPunk × QualiaDB + Etalon — 60 FPS 3D World Continuum & 5-Scale Botanical/Biological Lab</title>
   <style>
     :root {
-      --bg-0: #040810;
-      --bg-1: #091220;
-      --bg-2: #0f1e34;
-      --border: rgba(56, 189, 248, 0.24);
-      --border-hi: rgba(45, 212, 191, 0.75);
-      --text: #e6f4ff;
-      --muted: #8babc8;
+      --bg-0: #030712;
+      --bg-1: #091322;
+      --bg-2: #0f223c;
+      --border: rgba(56, 189, 248, 0.28);
+      --border-hi: rgba(45, 212, 191, 0.85);
+      --text: #f0f9ff;
+      --muted: #94a3b8;
       --accent: #2dd4bf;
       --accent-2: #38bdf8;
       --amber: #f59e0b;
       --crimson: #f43f5e;
       --emerald: #10b981;
+      --purple: #a855f7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html, body {
       overflow-x: hidden;
-      background: radial-gradient(circle at 18% 0%, #0d213a 0%, var(--bg-0) 68%);
+      background: radial-gradient(circle at 20% 0%, #0d2746 0%, var(--bg-0) 70%);
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.48;
+      line-height: 1.46;
       min-height: 100vh;
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
     }
     a { color: var(--accent-2); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -36,19 +37,20 @@
       font-size: 0.82rem;
     }
 
+    /* Top Sticky Brand & Experience Navigation Header */
     header {
       border-bottom: 1px solid var(--border);
-      background: rgba(4, 8, 16, 0.92);
-      backdrop-filter: blur(12px);
-      padding: 0.7rem 1.25rem;
+      background: rgba(3, 7, 18, 0.94);
+      backdrop-filter: blur(14px);
+      padding: 0.65rem 1.25rem;
       position: sticky;
       top: 0;
-      z-index: 60;
+      z-index: 80;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
     .brand {
       display: flex;
@@ -57,70 +59,90 @@
       min-width: 0;
     }
     .brand-orb {
-      width: 11px;
-      height: 11px;
+      width: 12px;
+      height: 12px;
       flex-shrink: 0;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 14px var(--accent);
+      box-shadow: 0 0 16px var(--accent);
+      animation: pulse-orb 2.4s infinite ease-in-out;
+    }
+    @keyframes pulse-orb {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.28); opacity: 1; box-shadow: 0 0 22px var(--accent); }
     }
     .brand h1 {
       font-size: 1.02rem;
       font-weight: 700;
       letter-spacing: 0.01em;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .brand p {
       font-size: 0.72rem;
       color: var(--muted);
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
+
+    /* Top Experience Switcher */
+    .experience-nav {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .nav-btn {
+      cursor: pointer;
+      user-select: none;
+      padding: 0.42rem 0.95rem;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: rgba(15, 34, 60, 0.8);
+      color: var(--text);
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: rgba(45, 212, 191, 0.16);
+      color: #fff;
+    }
+    .nav-btn.active {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.32), rgba(56, 189, 248, 0.24));
+      color: #5eead4;
+      box-shadow: 0 0 16px rgba(45, 212, 191, 0.3);
+    }
+
     .badges {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
-      gap: 0.38rem;
+      gap: 0.35rem;
       scrollbar-width: none;
-      max-width: 100%;
     }
-    .badges::-webkit-scrollbar { display: none; }
     .badge {
-      padding: 0.2rem 0.58rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 999px;
-      font-size: 0.69rem;
+      font-size: 0.68rem;
       font-weight: 600;
       white-space: nowrap;
       border: 1px solid var(--border);
-      background: rgba(15, 30, 52, 0.78);
+      background: rgba(15, 30, 52, 0.85);
       color: var(--text);
-      flex-shrink: 0;
     }
-    .badge.zero-v8 {
-      border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.16);
-      color: #5eead4;
-    }
-    .badge.dx12 {
-      border-color: var(--accent-2);
-      background: rgba(56, 189, 248, 0.16);
-      color: #7dd3fc;
-    }
-    .badge.amber {
-      border-color: rgba(245, 158, 11, 0.5);
-      background: rgba(245, 158, 11, 0.14);
-      color: #fcd34d;
-    }
+    .badge.teal { border-color: var(--accent); background: rgba(45, 212, 191, 0.16); color: #5eead4; }
+    .badge.blue { border-color: var(--accent-2); background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
+    .badge.amber { border-color: rgba(245, 158, 11, 0.5); background: rgba(245, 158, 11, 0.14); color: #fcd34d; }
 
     main {
-      max-width: 1520px;
-      margin: 1rem auto;
+      max-width: 1540px;
+      margin: 0.85rem auto;
       padding: 0 1rem;
       display: grid;
-      gap: 1.35rem;
+      gap: 1.25rem;
     }
 
     .viewport-shell {
@@ -128,189 +150,158 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
       display: flex;
       flex-direction: column;
     }
-    .viewport-shell > input[type="radio"],
-    .viewport-shell > input[type="checkbox"] {
-      display: none;
-    }
 
-    .viewport-controls-bar {
+    /* Sub-Controls Bar */
+    .sub-controls-bar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 0.5rem;
-      padding: 0.5rem 0.85rem;
-      background: rgba(4, 8, 16, 0.95);
+      padding: 0.55rem 0.95rem;
+      background: rgba(3, 7, 18, 0.96);
       border-bottom: 1px solid var(--border);
     }
-    .engine-mode-group {
+    .btn-group {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.4rem;
     }
-    .engine-btn {
+    .ctrl-btn {
       cursor: pointer;
       user-select: none;
-      padding: 0.28rem 0.68rem;
+      padding: 0.28rem 0.65rem;
       border-radius: 7px;
-      font-size: 0.72rem;
+      font-size: 0.73rem;
       font-weight: 600;
       border: 1px solid var(--border);
-      background: rgba(15, 30, 52, 0.75);
+      background: rgba(15, 34, 60, 0.75);
       color: var(--text);
       transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.32rem;
+      gap: 0.35rem;
     }
-    .engine-btn:hover {
+    .ctrl-btn:hover {
       border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.15);
+      background: rgba(45, 212, 191, 0.18);
     }
-    .engine-btn.active {
+    .ctrl-btn.active {
       border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(45, 212, 191, 0.28), rgba(56, 189, 248, 0.2));
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.26), rgba(56, 189, 248, 0.18));
       color: #5eead4;
-      box-shadow: 0 0 12px rgba(45, 212, 191, 0.25);
+      box-shadow: 0 0 12px rgba(45, 212, 191, 0.22);
     }
-    .engine-btn.action-amber {
-      border-color: rgba(245, 158, 11, 0.5);
+    .ctrl-btn.action-amber {
+      border-color: rgba(245, 158, 11, 0.55);
       color: #fcd34d;
     }
-    .engine-btn.action-amber:hover {
-      background: rgba(245, 158, 11, 0.2);
+    .ctrl-btn.action-amber:hover {
+      background: rgba(245, 158, 11, 0.22);
+    }
+    .ctrl-btn.action-purple {
+      border-color: rgba(168, 85, 247, 0.55);
+      color: #d8b4fe;
+    }
+    .ctrl-btn.action-purple:hover {
+      background: rgba(168, 85, 247, 0.22);
     }
 
-    .viewport-toggles {
+    /* Slider Rows for Dissection / Driving */
+    .slider-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.38rem;
       align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      color: var(--muted);
     }
-    .toggle-pill {
-      cursor: pointer;
-      user-select: none;
-      padding: 0.26rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.71rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      background: rgba(15, 30, 52, 0.75);
-      color: var(--text);
-      transition: all 0.15s ease;
-    }
-    .toggle-pill:hover { border-color: var(--accent); }
-    #toggle-clean-hud:checked ~ .viewport-controls-bar label[for="toggle-clean-hud"],
-    #toggle-inspector:checked ~ .viewport-controls-bar label[for="toggle-inspector"] {
-      border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.22);
-      color: #5eead4;
-    }
-
-    .tab-bar {
-      display: grid;
-      grid-template-columns: repeat(8, minmax(132px, 1fr));
-      gap: 0.35rem;
-      padding: 0.5rem 0.65rem;
-      background: rgba(4, 8, 16, 0.82);
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-    }
-    .tab-bar label {
-      scroll-snap-align: start;
-      cursor: pointer;
-      user-select: none;
-      padding: 0.42rem 0.58rem;
-      border-radius: 8px;
-      border: 1px solid rgba(56, 189, 248, 0.16);
-      background: rgba(15, 30, 52, 0.55);
-      transition: all 0.16s ease;
+    .slider-item {
       display: flex;
-      flex-direction: column;
-      gap: 0.08rem;
-      min-width: 130px;
+      align-items: center;
+      gap: 0.4rem;
     }
-    .tab-bar label:hover {
-      border-color: var(--accent-2);
-      background: rgba(56, 189, 248, 0.12);
-    }
-    .tab-bar .tab-id {
-      font-size: 0.63rem;
-      font-family: monospace;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .tab-bar .tab-title {
-      font-size: 0.75rem;
+    .slider-item label {
       font-weight: 600;
       color: var(--text);
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
-    #scene-1:checked ~ .tab-bar label[for="scene-1"],
-    #scene-2:checked ~ .tab-bar label[for="scene-2"],
-    #scene-3:checked ~ .tab-bar label[for="scene-3"],
-    #scene-4:checked ~ .tab-bar label[for="scene-4"],
-    #scene-5:checked ~ .tab-bar label[for="scene-5"],
-    #scene-6:checked ~ .tab-bar label[for="scene-6"],
-    #scene-7:checked ~ .tab-bar label[for="scene-7"],
-    #scene-8:checked ~ .tab-bar label[for="scene-8"] {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(45, 212, 191, 0.26), rgba(56, 189, 248, 0.18));
-      box-shadow: 0 0 14px rgba(45, 212, 191, 0.22);
+    .slider-item input[type="range"] {
+      -webkit-appearance: none;
+      width: 95px;
+      height: 5px;
+      border-radius: 4px;
+      background: #1e3a5f;
+      outline: none;
+    }
+    .slider-item input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 0 8px var(--accent);
     }
 
-    /* Stage layout: Left = 3D Live Game / APNG Stage, Right = Live 10D Inspector */
+    /* 26.5 km Corridor Minimap & Highway Profile Ribbon */
+    .corridor-ribbon {
+      background: rgba(4, 9, 20, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 0.45rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .corridor-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .corridor-header strong { color: var(--accent); }
+    .corridor-track-wrap {
+      position: relative;
+      width: 100%;
+      height: 38px;
+      background: #061122;
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 8px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    #corridor-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Stage Layout */
     .stage-grid {
       display: grid;
-      grid-template-columns: 1fr 375px;
-      min-height: 540px;
+      grid-template-columns: 1fr 390px;
+      min-height: 570px;
       position: relative;
     }
-    #toggle-inspector:checked ~ .stage-grid {
-      grid-template-columns: 1fr;
-    }
-    #toggle-inspector:checked ~ .stage-grid .inspector-column {
-      display: none;
-    }
-    #toggle-clean-hud:checked ~ .stage-grid .live-hud-top,
-    #toggle-clean-hud:checked ~ .stage-grid .live-hud-bottom,
-    #toggle-clean-hud:checked ~ .stage-grid .hud-overlay {
-      opacity: 0;
-      pointer-events: none;
-    }
-
     .render-column {
       position: relative;
-      background: #02050a;
+      background: #02050b;
       display: flex;
       align-items: stretch;
       justify-content: center;
       overflow: hidden;
-      min-height: 500px;
-    }
-
-    #live-canvas-wrap {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      display: flex;
+      min-height: 540px;
     }
     #ecopunk-game-canvas {
       width: 100%;
       height: 100%;
-      min-height: 520px;
+      min-height: 540px;
       display: block;
       cursor: grab;
       touch-action: none;
@@ -319,9 +310,10 @@
       cursor: grabbing;
     }
 
-    .live-hud-top {
+    /* In-World HUD Elements */
+    .hud-top-bar {
       position: absolute;
-      top: 0.7rem;
+      top: 0.75rem;
       left: 0.75rem;
       right: 0.75rem;
       display: flex;
@@ -329,27 +321,28 @@
       justify-content: space-between;
       gap: 0.5rem;
       pointer-events: none;
-      transition: opacity 0.2s ease;
-      z-index: 10;
+      z-index: 20;
     }
-    .hud-chip {
-      background: rgba(4, 8, 16, 0.76);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(45, 212, 191, 0.42);
+    .hud-pill {
+      background: rgba(3, 7, 18, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(45, 212, 191, 0.45);
       border-radius: 8px;
-      padding: 0.32rem 0.65rem;
+      padding: 0.35rem 0.72rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: #d1fae5;
+      font-size: 0.72rem;
+      color: #e2f8f0;
       display: flex;
       align-items: center;
       gap: 0.55rem;
     }
-    .hud-chip strong { color: #5eead4; }
+    .hud-pill strong { color: #5eead4; }
+    .hud-pill.amber { border-color: rgba(245, 158, 11, 0.5); color: #fef3c7; }
+    .hud-pill.amber strong { color: #fcd34d; }
 
-    .live-hud-bottom {
+    .hud-bottom-bar {
       position: absolute;
-      bottom: 0.7rem;
+      bottom: 0.75rem;
       left: 0.75rem;
       right: 0.75rem;
       display: flex;
@@ -358,21 +351,47 @@
       justify-content: space-between;
       gap: 0.5rem;
       pointer-events: none;
-      transition: opacity 0.2s ease;
-      z-index: 10;
+      z-index: 20;
     }
-    .controls-hint {
-      background: rgba(4, 8, 16, 0.78);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 8px;
-      padding: 0.35rem 0.7rem;
+    .hud-prompt-box {
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 9px;
+      padding: 0.45rem 0.85rem;
       font-family: monospace;
-      font-size: 0.69rem;
+      font-size: 0.73rem;
       color: #bae6fd;
+      max-width: 600px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      pointer-events: auto;
+    }
+    .hud-prompt-box kbd {
+      background: rgba(45, 212, 191, 0.25);
+      border: 1px solid var(--accent);
+      color: #5eead4;
+      padding: 0.12rem 0.35rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .specimen-approach-prompt {
+      display: none;
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.92), rgba(56, 189, 248, 0.85));
+      color: #030712;
+      font-weight: 700;
+      padding: 0.45rem 0.95rem;
+      border-radius: 9px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(45, 212, 191, 0.6);
+      pointer-events: auto;
+      animation: bounce-prompt 1.8s infinite ease-in-out;
+    }
+    @keyframes bounce-prompt {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
-    /* Mobile Touch D-Pad */
+    /* Mobile D-Pad */
     .touch-dpad {
       pointer-events: auto;
       display: grid;
@@ -381,7 +400,7 @@
       gap: 4px;
     }
     .dpad-btn {
-      background: rgba(15, 30, 52, 0.82);
+      background: rgba(15, 34, 60, 0.85);
       border: 1px solid rgba(45, 212, 191, 0.45);
       border-radius: 6px;
       color: #e2f1ff;
@@ -393,118 +412,150 @@
       align-items: center;
       justify-content: center;
     }
-    .dpad-btn:active {
-      background: rgba(45, 212, 191, 0.35);
-    }
+    .dpad-btn:active { background: rgba(45, 212, 191, 0.4); }
 
-    /* APNG Reference View (hidden when Live 3D Game mode is active) */
-    #apng-slides-wrap {
-      width: 100%;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .apng-slide {
-      display: none;
-      width: 100%;
-      position: relative;
-    }
-    .apng-slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    #scene-1:checked ~ .stage-grid .apng-slide-1,
-    #scene-2:checked ~ .stage-grid .apng-slide-2,
-    #scene-3:checked ~ .stage-grid .apng-slide-3,
-    #scene-4:checked ~ .stage-grid .apng-slide-4,
-    #scene-5:checked ~ .stage-grid .apng-slide-5,
-    #scene-6:checked ~ .stage-grid .apng-slide-6,
-    #scene-7:checked ~ .stage-grid .apng-slide-7,
-    #scene-8:checked ~ .stage-grid .apng-slide-8 {
-      display: block;
-    }
-
-    .hud-overlay {
-      position: absolute;
-      bottom: 0.65rem;
-      left: 0.65rem;
-      background: rgba(4, 8, 16, 0.78);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(45, 212, 191, 0.45);
-      border-radius: 6px;
-      padding: 0.28rem 0.6rem;
-      font-family: monospace;
-      font-size: 0.7rem;
-      color: #a7f3d0;
-      pointer-events: none;
-    }
-
+    /* Right Inspector Column */
     .inspector-column {
-      background: rgba(9, 18, 32, 0.97);
+      background: rgba(9, 19, 34, 0.98);
       border-left: 1px solid var(--border);
-      padding: 1.1rem;
+      padding: 1.15rem;
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.85rem;
+      overflow-y: auto;
+      max-height: 800px;
     }
-    .inspector-slide { display: none; flex-direction: column; gap: 0.75rem; }
-    #scene-1:checked ~ .stage-grid .insp-1,
-    #scene-2:checked ~ .stage-grid .insp-2,
-    #scene-3:checked ~ .stage-grid .insp-3,
-    #scene-4:checked ~ .stage-grid .insp-4,
-    #scene-5:checked ~ .stage-grid .insp-5,
-    #scene-6:checked ~ .stage-grid .insp-6,
-    #scene-7:checked ~ .stage-grid .insp-7,
-    #scene-8:checked ~ .stage-grid .insp-8 {
-      display: flex;
+    .inspector-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.65rem;
     }
-    .inspector-column h2 {
-      font-size: 0.98rem;
+    .inspector-header h2 {
+      font-size: 1.05rem;
       color: #fff;
-      line-height: 1.32;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .inspector-column p {
-      font-size: 0.79rem;
+    .inspector-header .taxon-meta {
+      font-size: 0.76rem;
+      color: var(--accent);
+      font-style: italic;
+    }
+    .section-title {
+      font-size: 0.74rem;
+      font-weight: 700;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.2rem;
     }
     .kv-list {
       display: grid;
-      gap: 0.36rem;
-      background: rgba(4, 8, 16, 0.68);
+      gap: 0.35rem;
+      background: rgba(3, 7, 18, 0.72);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 0.62rem;
+      padding: 0.65rem;
     }
     .kv-row {
       display: flex;
       justify-content: space-between;
       gap: 0.5rem;
-      font-size: 0.72rem;
-      border-bottom: 1px dashed rgba(56, 189, 248, 0.14);
+      font-size: 0.73rem;
+      border-bottom: 1px dashed rgba(56, 189, 248, 0.15);
       padding-bottom: 0.22rem;
     }
     .kv-row:last-child { border-bottom: none; padding-bottom: 0; }
     .kv-key { color: var(--muted); }
     .kv-val { color: var(--accent); font-family: monospace; font-weight: 600; text-align: right; }
+    .kv-val.equation { color: #fcd34d; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; }
 
+    /* Callout Pin Layer Chips */
+    .pins-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .pin-chip {
+      cursor: pointer;
+      user-select: none;
+      padding: 0.24rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(15, 34, 60, 0.7);
+      color: #d1ecfc;
+      transition: all 0.14s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .pin-chip:hover {
+      border-color: var(--accent);
+      background: rgba(45, 212, 191, 0.2);
+    }
+    .pin-chip.active {
+      border-color: var(--accent);
+      background: rgba(45, 212, 191, 0.3);
+      color: #5eead4;
+      box-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
+    }
+    .pin-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Knowledge Card in Inspector */
+    .knowledge-card {
+      background: rgba(4, 9, 20, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.77rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .knowledge-card h4 {
+      font-size: 0.82rem;
+      color: #5eead4;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .knowledge-card p {
+      color: #cbd5e1;
+      line-height: 1.44;
+    }
+    .knowledge-card .indigenous-note {
+      background: rgba(245, 158, 11, 0.12);
+      border-left: 3px solid var(--amber);
+      padding: 0.4rem 0.6rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.73rem;
+      color: #fde68a;
+    }
+
+    /* Content Cards Below Viewport */
     .section-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
       gap: 1.25rem;
     }
     .card {
       background: var(--bg-1);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.15rem;
+      padding: 1.2rem;
       min-width: 0;
     }
     .card h3 {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       color: var(--accent-2);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -519,17 +570,17 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.77rem;
+      font-size: 0.78rem;
     }
     th, td {
       text-align: left;
-      padding: 0.44rem 0.55rem;
+      padding: 0.45rem 0.6rem;
       border-bottom: 1px solid rgba(56, 189, 248, 0.14);
     }
     th {
       color: var(--muted);
       font-weight: 600;
-      font-size: 0.69rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
     }
     .gallery-grid {
@@ -539,7 +590,7 @@
       margin-top: 0.75rem;
     }
     .gallery-item {
-      background: rgba(4, 8, 16, 0.78);
+      background: rgba(4, 9, 20, 0.85);
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
@@ -565,566 +616,766 @@
       margin-bottom: 0.12rem;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1080px) {
       .stage-grid { grid-template-columns: 1fr; }
-      .inspector-column { border-left: none; border-top: 1px solid var(--border); }
+      .inspector-column { border-left: none; border-top: 1px solid var(--border); max-height: 480px; }
     }
     @media (max-width: 768px) {
-      header { padding: 0.45rem 0.7rem; position: relative; }
-      .brand h1 { font-size: 0.86rem; }
+      header { padding: 0.45rem 0.75rem; position: relative; }
+      .brand h1 { font-size: 0.88rem; }
       .brand p { display: none; }
       main { margin: 0.5rem auto; padding: 0 0.5rem; gap: 0.85rem; }
-      #live-canvas-wrap, #ecopunk-game-canvas { min-height: 390px; }
-      .render-column { min-height: 390px; }
+      #ecopunk-game-canvas { min-height: 400px; }
+      .render-column { min-height: 400px; }
     }
   </style>
 </head>
 <body>
+  <!-- Top Header with Primary Experience Switcher -->
   <header>
     <div class="brand">
       <div class="brand-orb"></div>
       <div>
-        <h1>EcoPunk × QualiaDB + Etalon — 10D Holo-Simulation Game Engine</h1>
-        <p>10 Epics Active: 10D Scene Graph · <code>EONT1</code> Living Ontology · PGA Motor Skinning · 64 Hz XPBD + Stress-Cleavage Fracture · 4-Cascade CSM · 3D Holosonic Audio</p>
+        <h1>EcoPunk × QualiaDB + Etalon — 60 FPS 3D World &amp; 5-Scale Biological Lab</h1>
+        <p>26.5 km Driving Corridor · 5-Scale Botanical Dissection · PO: &amp; UBERON: Ontological Twins · 64 Hz XPBD Kinematics</p>
       </div>
     </div>
+
+    <!-- Primary Dual-Experience Switcher -->
+    <div class="experience-nav">
+      <button type="button" id="nav-world" class="nav-btn active" title="Switch to Experience 1: 26.5 km Drivable & Walkable World Continuum (Hotkey: [F])">
+        🌍 Experience 1: World Corridor (26.5 km)
+      </button>
+      <button type="button" id="nav-lab" class="nav-btn" title="Switch to Experience 2: 5-Scale Botanical & Biological Dissection Lab (Hotkey: [F])">
+        🔬 Experience 2: 5-Scale Dissection Lab
+      </button>
+    </div>
+
     <div class="badges">
-      <span class="badge zero-v8">60 FPS Live 3D + Etalon DX12</span>
-      <span class="badge dx12">207k Verts · 281k Tris / Sector</span>
-      <span class="badge amber">305 Flora (.q42 + PROC1/EONT1)</span>
-      <span class="badge amber">164 Fauna (PGA Motor + ABSM)</span>
-      <span class="badge">HMC3: 48.3 MB Verified</span>
+      <span class="badge teal">60 FPS WebGL2/WebGPU</span>
+      <span class="badge blue">26.5 km Corridor · 8 Sites</span>
+      <span class="badge amber">5-Scale Anatomy (.10d)</span>
     </div>
   </header>
 
   <main>
     <section class="viewport-shell">
-      <input type="radio" name="portal-scene" id="scene-1" checked />
-      <input type="radio" name="portal-scene" id="scene-2" />
-      <input type="radio" name="portal-scene" id="scene-3" />
-      <input type="radio" name="portal-scene" id="scene-4" />
-      <input type="radio" name="portal-scene" id="scene-5" />
-      <input type="radio" name="portal-scene" id="scene-6" />
-      <input type="radio" name="portal-scene" id="scene-7" />
-      <input type="radio" name="portal-scene" id="scene-8" />
-
-      <input type="checkbox" id="toggle-clean-hud" />
-      <input type="checkbox" id="toggle-inspector" />
-
-      <div class="viewport-controls-bar">
-        <div class="engine-mode-group">
-          <button type="button" id="btn-mode-live" class="engine-btn active" title="Interactive 60 FPS 3D WebGL2/WebGPU Game Viewport">🎮 Live 60 FPS 3D Game</button>
-          <button type="button" id="btn-mode-apng" class="engine-btn" title="View Native Etalon DirectX 12 PortalGpu Offscreen APNG Renders">🖼️ Etalon DX12 PortalGpu Renders</button>
-          <button type="button" id="btn-cam-mode" class="engine-btn" title="Toggle Free-Flight vs Grounded 3D Capsule Character Controller">🦅 Mode: Free-Flight (WASD)</button>
-          <button type="button" id="btn-ontogeny" class="engine-btn action-amber" title="Step .10d EONT1 DevelopmentalStage & Huxley Allometric Growth">🌱 Stage: Mature (1.00×)</button>
-          <button type="button" id="btn-fracture" class="engine-btn action-amber" title="Spawn & Cleave a Dynamic 64 Hz XPBD Boulder via PROC1 Stress-Cleavage">💥 Stress-Cleavage Rockfall</button>
-          <button type="button" id="btn-audio" class="engine-btn" title="Synthesize 3D Holosonic Binaural River, Wind & Australian Fauna Soundscape">🔇 3D Holosonic Audio: Off</button>
+      <!-- Contextual Sub-Controls Bar -->
+      <div class="sub-controls-bar">
+        <!-- World Mode Controls -->
+        <div id="world-ctrls" class="btn-group">
+          <button type="button" id="btn-rover-walk" class="ctrl-btn active" title="Toggle 4WD Rover Driving vs On-Foot Exploration (Hotkey: [E])">
+            🚗 Mode: 4WD Field Rover [E]
+          </button>
+          <button type="button" id="btn-cycle-cam" class="ctrl-btn" title="Cycle Camera: Chase Cam / Hood Cam / Free Aerial Orbit (Hotkey: [C])">
+            🎥 Camera: Chase Cam [C]
+          </button>
+          <select id="sel-fast-travel" class="ctrl-btn" style="background:#091a2f; color:#bae6fd; font-family:monospace;" title="Fast Travel along the 26.5 km Highway Corridor">
+            <option value="0">km 0.0 — Talbingo Dam (410m)</option>
+            <option value="1">km 1.8 — Humes Crossing (405m)</option>
+            <option value="2">km 4.2 — Jounama Creek (460m)</option>
+            <option value="3">km 9.5 — Yarrangobilly Karst (940m)</option>
+            <option value="4">km 13.0 — O'Hares Alpine Ash (1,180m)</option>
+            <option value="5">km 17.5 — Three Mile Dam Bog (1,460m)</option>
+            <option value="6">km 22.0 — Sydney Sandstone Gully (185m)</option>
+            <option value="7">km 26.5 — Noosa Headland (32m)</option>
+          </select>
+          <button type="button" id="btn-open-lab-f" class="ctrl-btn action-amber" title="Examine nearby flora/fauna specimen in the 5-Scale Dissection Lab (Hotkey: [F])">
+            🔬 Open Dissection Lab [F]
+          </button>
         </div>
-        <div class="viewport-toggles">
-          <label for="toggle-clean-hud" class="toggle-pill">👁️ Clean HUD</label>
-          <label for="toggle-inspector" class="toggle-pill">📐 Hide Details</label>
+
+        <!-- Lab Mode Controls -->
+        <div id="lab-ctrls" class="btn-group" style="display: none;">
+          <button type="button" class="ctrl-btn lab-scale-btn active" data-scale="1" title="Scale 1: Whole Organism & Subterranean Root Architecture (10m–35m)">
+            🌱 S1: Whole Tree &amp; Roots
+          </button>
+          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="2" title="Scale 2: Branch Phyllotaxis & 6-Layer Stem/Bark Wedge (50mm–2m)">
+            🪵 S2: 6-Layer Stem Wedge
+          </button>
+          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="3" title="Scale 3: Floral Bud Anthesis & Gumnut Capsule Dissection (5mm–150mm)">
+            🌸 S3: Flower &amp; Gumnut
+          </button>
+          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="4" title="Scale 4: Foliar Murray's Law Venation & Cellular Histology Block (50µm–50mm)">
+            🔬 S4: Leaf Histology Block
+          </button>
+          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="5" title="Scale 5: Comparative Vertebrate Anatomy (Kangaroo, Platypus, Wombat)">
+            🦘 S5: Vertebrate Anatomy
+          </button>
+          <button type="button" id="btn-return-world" class="ctrl-btn action-amber" title="Return to 26.5 km World Continuum (Hotkey: [F])">
+            🌍 Return to World [F]
+          </button>
+        </div>
+
+        <!-- Shared Shader / Audio Toggles -->
+        <div class="btn-group">
+          <select id="sel-shader-mode" class="ctrl-btn" style="background:#091a2f; color:#5eead4;" title="Select Shading Model / Scientific Sensor Kernel">
+            <option value="0">Shader: Spectral PBR (0x00)</option>
+            <option value="1">Shader: Sandstone Cel-Toon (0x01)</option>
+            <option value="2">Shader: Namatjira Watercolor (0x02)</option>
+            <option value="3">Shader: GPR Radar &amp; Trophic (0x03)</option>
+            <option value="4">Shader: Planck Thermal IR (0x04)</option>
+          </select>
+          <button type="button" id="btn-audio" class="ctrl-btn" title="Synthesize 3D Holosonic Engine, Wind & Fauna Audio">
+            🔇 Audio: Off
+          </button>
         </div>
       </div>
 
-      <div class="tab-bar">
-        <label for="scene-1" data-sector="0">
-          <span class="tab-id">01 · PBR [0x00]</span>
-          <span class="tab-title">Talbingo Gorge</span>
-        </label>
-        <label for="scene-2" data-sector="1">
-          <span class="tab-id">02 · SLGA Soil</span>
-          <span class="tab-title">Yarrangobilly Cut</span>
-        </label>
-        <label for="scene-3" data-sector="2">
-          <span class="tab-id">03 · Flora Loupe</span>
-          <span class="tab-title">Snow Gum Blades</span>
-        </label>
-        <label for="scene-4" data-sector="3">
-          <span class="tab-id">04 · Fauna Track</span>
-          <span class="tab-title">Grey Kangaroo</span>
-        </label>
-        <label for="scene-5" data-sector="4">
-          <span class="tab-id">05 · Cel-Toon</span>
-          <span class="tab-title">Sydney Sandstone</span>
-        </label>
-        <label for="scene-6" data-sector="5">
-          <span class="tab-id">06 · Watercolor</span>
-          <span class="tab-title">Noosa Headland</span>
-        </label>
-        <label for="scene-7" data-sector="6">
-          <span class="tab-id">07 · GPR [0x02]</span>
-          <span class="tab-title">Three Mile Dam</span>
-        </label>
-        <label for="scene-8" data-sector="7">
-          <span class="tab-id">08 · FLIR [0x01]</span>
-          <span class="tab-title">Jounama Thermal</span>
-        </label>
+      <!-- Experience 1: 26.5 km Interactive Corridor Ribbon Minimap -->
+      <div id="corridor-ribbon" class="corridor-ribbon">
+        <div class="corridor-header">
+          <span><strong>Snowy Mountains Highway (B72) Explorable Regional Continuum</strong> · 26.5 km Contiguous Roadbed</span>
+          <span>Click anywhere along profile to fast-travel · Live Bekker Sinkage &amp; Elevation Conformation</span>
+        </div>
+        <div class="corridor-track-wrap" id="corridor-track-wrap" title="Click along the 26.5 km highway to steer / fast-travel">
+          <canvas id="corridor-canvas" width="1400" height="38"></canvas>
+        </div>
       </div>
 
+      <!-- Experience 2: Dissection Sliders Row (Visible when Lab is active) -->
+      <div id="lab-sliders-row" class="sub-controls-bar" style="display: none; background: #061122;">
+        <div class="slider-group">
+          <div class="slider-item">
+            <label for="sl-explode">💥 Exploded Tissue:</label>
+            <input type="range" id="sl-explode" min="0" max="100" value="0" />
+            <span id="lbl-explode" style="font-family:monospace; color:#5eead4;">0%</span>
+          </div>
+          <div class="slider-item">
+            <label for="sl-slice">🔪 Slicing Plane:</label>
+            <input type="range" id="sl-slice" min="-100" max="100" value="100" />
+            <span id="lbl-slice" style="font-family:monospace; color:#5eead4;">Full</span>
+          </div>
+          <div class="slider-item" id="wrap-anthesis">
+            <label for="sl-anthesis" id="lbl-anthesis-title">🌺 Anthesis:</label>
+            <input type="range" id="sl-anthesis" min="0" max="100" value="30" />
+            <span id="lbl-anthesis-val" style="font-family:monospace; color:#5eead4;">30%</span>
+          </div>
+          <div class="slider-item" id="wrap-fauna-sel" style="display: none;">
+            <label>Taxon:</label>
+            <select id="sel-fauna-taxa" class="ctrl-btn" style="background:#0c1e36; color:#bae6fd;">
+              <option value="kangaroo">Macropus giganteus (Grey Kangaroo)</option>
+              <option value="platypus">Ornithorhynchus anatinus (Platypus)</option>
+              <option value="wombat">Vombatus ursinus (Common Wombat)</option>
+            </select>
+          </div>
+          <div class="slider-item">
+            <label>🌱 Ontogeny:</label>
+            <button type="button" id="btn-ontogeny-stepper" class="ctrl-btn action-amber" style="padding:0.15rem 0.5rem; font-size:0.7rem;">
+              Mature Adult (1.00×)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Stage Grid -->
       <div class="stage-grid">
         <div class="render-column">
-          <!-- Interactive 60 FPS 3D Game Engine Canvas -->
-          <div id="live-canvas-wrap">
-            <canvas id="ecopunk-game-canvas"></canvas>
-            <div class="live-hud-top">
-              <div class="hud-chip">
-                <span><strong id="hud-fps">60</strong> FPS</span>
-                <span>·</span>
-                <span id="hud-sector-label">01 · Talbingo &amp; Tumut Gorge (Spectral PBR)</span>
-                <span>·</span>
-                <span id="hud-lod-label">4-Tier Hybrid LOD + CSM4</span>
-              </div>
-              <div class="hud-chip">
-                <span>Tensor10D: <strong id="hud-tensor">q=0.98 v=1 α=0.92 σ=550nm</strong></span>
-                <span>·</span>
-                <span>XPBD 64Hz: <strong id="hud-xpbd">Active</strong></span>
-              </div>
+          <canvas id="ecopunk-game-canvas"></canvas>
+
+          <!-- Top HUD Display -->
+          <div class="hud-top-bar">
+            <div class="hud-pill">
+              <span><strong id="hud-fps">60</strong> FPS</span>
+              <span>·</span>
+              <span id="hud-mode-pill">World Continuum: <strong>Rover Driving</strong></span>
+              <span>·</span>
+              <span id="hud-site-pill">km 0.0 — Talbingo Dam (410m AHD)</span>
             </div>
-            <div class="live-hud-bottom">
-              <div class="controls-hint">
-                🖱️ Drag: Orbit/Look · Wheel: Zoom · ⌨️ WASD / Arrows: Move · Space/E: Ascend/Jump · Click boulders/trees to inspect 10D state
-              </div>
-              <div class="touch-dpad">
-                <div></div>
-                <button type="button" class="dpad-btn" data-move="fwd">▲</button>
-                <div></div>
-                <button type="button" class="dpad-btn" data-move="left">◀</button>
-                <button type="button" class="dpad-btn" data-move="back">▼</button>
-                <button type="button" class="dpad-btn" data-move="right">▶</button>
-              </div>
+            <div class="hud-pill amber">
+              <span id="hud-telemetry-1">Speed: <strong>0 km/h</strong></span>
+              <span>·</span>
+              <span id="hud-telemetry-2">Odo: <strong>0.0 km</strong></span>
+              <span>·</span>
+              <span id="hud-telemetry-3">Sinkage: <strong>4.2 mm</strong></span>
             </div>
           </div>
 
-          <!-- Native Etalon DirectX 12 PortalGpu Reference APNG Renders -->
-          <div id="apng-slides-wrap">
-            <div class="apng-slide apng-slide-1">
-              <img src="assets/renders/01_talbingo_aerial_pbr.png" alt="Talbingo & Tumut River Gorge Native PortalGpu Render" />
-              <div class="hud-overlay">10d/sector-talbingo.10d · 207,352 verts · 280,888 tris · WATER_QUALITY_CINEMATIC</div>
+          <!-- Bottom HUD Prompt & Mobile D-Pad -->
+          <div class="hud-bottom-bar">
+            <div>
+              <div id="hud-specimen-btn" class="specimen-approach-prompt">
+                🔍 [F] Examine Specimen in 5-Scale Botanical &amp; Biological Lab
+              </div>
+              <div id="hud-instructions" class="hud-prompt-box">
+                ⌨️ <kbd>W</kbd><kbd>S</kbd> Throttle/Brake · <kbd>A</kbd><kbd>D</kbd> Steer · <kbd>Space</kbd> Handbrake · <kbd>C</kbd> Camera · <kbd>E</kbd> Dismount/Walk · <kbd>F</kbd> Open 5-Scale Lab · Drag to Orbit
+              </div>
             </div>
-            <div class="apng-slide apng-slide-2">
-              <img src="assets/renders/02_yarrangobilly_cutaway_strata.png" alt="Yarrangobilly 6-Layer CSIRO SLGA Soil Cutaway" />
-              <div class="hud-overlay">10d/sector-yarrangobilly.10d · 209,944 verts · 6-Layer CSIRO SLGA Soil &amp; Karst Cutaway</div>
-            </div>
-            <div class="apng-slide apng-slide-3">
-              <img src="assets/renders/03_flora_specimen_loupe_snow_gum.png" alt="Flora Specimen Loupe — Snow Gum & Ghost Gum" />
-              <div class="hud-overlay">10d/specimen-flora_loupe.10d · 3D Phyllotactic Falcate Leaf Blades + PROC1 + EONT1</div>
-            </div>
-            <div class="apng-slide apng-slide-4">
-              <img src="assets/renders/04_fauna_tracker_kangaroo.png" alt="Fauna Tracker — Eastern Grey Kangaroo" />
-              <div class="hud-overlay">10d/specimen-fauna_tracker.10d · PGA Dual-Quaternion Skinning + 3-Layer ABSM</div>
-            </div>
-            <div class="apng-slide apng-slide-5">
-              <img src="assets/renders/05_sydney_sandstone_cel_toon.png" alt="Sydney Sandstone & Waratah Cel-Toon" />
-              <div class="hud-overlay">10d/sector-sydney_sandstone.10d · ShadingModel::Stylized Cel-Toon</div>
-            </div>
-            <div class="apng-slide apng-slide-6">
-              <img src="assets/renders/06_noosa_headland_watercolor.png" alt="Noosa Headland Namatjira Watercolor Wash" />
-              <div class="hud-overlay">10d/sector-noosa_headland.10d · Namatjira Ochre &amp; Coral Sea Wash</div>
-            </div>
-            <div class="apng-slide apng-slide-7">
-              <img src="assets/renders/07_three_mile_dam_gpr_hud.png" alt="Three Mile Dam GPR & Trophic Energy HUD" />
-              <div class="hud-overlay">10d/sector-three_mile_dam.10d · Mode 0x02 GPR Radar &amp; Trophic Arcs</div>
-            </div>
-            <div class="apng-slide apng-slide-8">
-              <img src="assets/renders/08_jounama_karst_thermal_ir.png" alt="Jounama Karst Radiometric Planck Blackbody Thermal IR" />
-              <div class="hud-overlay">10d/sector-jounama_karst.10d · Mode 0x01 Planck Thermal IR (8–14 µm)</div>
+
+            <!-- Touch D-Pad for Mobile/Tablet -->
+            <div class="touch-dpad">
+              <div></div>
+              <button type="button" class="dpad-btn" data-move="fwd">▲</button>
+              <div></div>
+              <button type="button" class="dpad-btn" data-move="left">◀</button>
+              <button type="button" class="dpad-btn" data-move="back">▼</button>
+              <button type="button" class="dpad-btn" data-move="right">▶</button>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Live 10D Scene Graph, EONT1 & Physics Inspector -->
+        <!-- Right Dynamic Inspector Column -->
         <div class="inspector-column">
-          <div class="inspector-slide insp-1">
-            <h2>01 · Talbingo &amp; Tumut River Gorge (PBR Continuum)</h2>
-            <p>High-resolution <code>108×108</code> terrain grid (<code>207,352 verts · 280,888 tris</code>) with isotropic 4-octave FBM biomantle loam, 4-cascade logarithmic CSM shadows, split-sum GGX IBL, and refractive Beer-Lambert river water.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-talbingo.10d</span></div>
-              <div class="kv-row"><span class="kv-key">Geometry Payload</span><span class="kv-val">207,352 verts · 280,888 tris</span></div>
-              <div class="kv-row"><span class="kv-key">Living Sections</span><span class="kv-val">PROC1 · EONT1 · MRP1 · MAT4</span></div>
-              <div class="kv-row"><span class="kv-key">Hydrologic Optics</span><span class="kv-val">Snell + Beer-Lambert + Caustics</span></div>
-              <div class="kv-row"><span class="kv-key">3D Physics &amp; Soil</span><span class="kv-val">64 Hz XPBD + Bekker SLGA</span></div>
-            </div>
+          <!-- Header Area -->
+          <div class="inspector-header">
+            <h2 id="insp-title">🌍 Talbingo Dam &amp; The Pines Foreshore</h2>
+            <div class="taxon-meta" id="insp-taxon">Eucalyptus viminalis × Corymbia aparrerinja Riparian Gallery</div>
           </div>
-          <div class="inspector-slide insp-2">
-            <h2>02 · Yarrangobilly River &amp; 6-Layer SLGA Soil Cutaway</h2>
-            <p>Foreground geological block cutaway exposing all 6 CSIRO Soil &amp; Landscape Grid of Australia (SLGA) pedological horizons: O-Horizon Alpine Peat, A1 Loam, A2 Quartz Sand, B2 Ferrosol Clay, C Saprolite Grus, and R Silurian Karst Bedrock.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-yarrangobilly.10d</span></div>
-              <div class="kv-row"><span class="kv-key">Geometry Payload</span><span class="kv-val">209,944 verts · 282,184 tris</span></div>
-              <div class="kv-row"><span class="kv-key">SLGA Horizons</span><span class="kv-val">L0 Peat .. L5 Silurian Karst</span></div>
-              <div class="kv-row"><span class="kv-key">Acoustic Reverb</span><span class="kv-val">Karst Canyon SDF Occlusion</span></div>
-            </div>
-          </div>
-          <div class="inspector-slide insp-3">
-            <h2>03 · Botanical Specimen Loupe (<em>Eucalyptus pauciflora</em> &amp; <em>Corymbia aparrerinja</em>)</h2>
-            <p>Close-up inspection of multi-trunk Snow Gum and Ghost Gum crowns with <code>EONT1</code> ontogenetic keyframes (Seedling → Sapling → Mature → Ancient Hollow-Bearing), Huxley allometry, and <code>PROC1</code> PGA motor wind oscillation.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/corymbia_aparrerinja.10d</span></div>
-              <div class="kv-row"><span class="kv-key">Leaf Biophysics</span><span class="kv-val">PROSPECT-D + SGGX Microflake</span></div>
-              <div class="kv-row"><span class="kv-key">Hybrid LOD Stream</span><span class="kv-val">B-Rep · SGGX · Surfel · Impostor</span></div>
-            </div>
-          </div>
-          <div class="inspector-slide insp-4">
-            <h2>04 · Zoological Specimen Tracker (<em>Macropus giganteus</em>)</h2>
-            <p>Articulated 18-joint PGA <code>Motor</code> dual-quaternion skeletal rigs with 2D Delaunay locomotion blend spaces, 3-layer masked ABSM, analytical Two-Bone hind-limb terrain IK, and constrained FABRIK tail counterbalance.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">Fauna Catalog</span><span class="kv-val">q42/fauna-164.q42 (164 Species)</span></div>
-              <div class="kv-row"><span class="kv-key">GPU Rig Palette</span><span class="kv-val">18 PGA Motors + TAA Motion Vecs</span></div>
-              <div class="kv-row"><span class="kv-key">IK Adaptation</span><span class="kv-val">2-Bone Hindlimb + FABRIK Tail</span></div>
-            </div>
-          </div>
-          <div class="inspector-slide insp-5">
-            <h2>05 · Sydney Hawkesbury Sandstone &amp; Waratah (Stylized Cel-Toon)</h2>
-            <p>Non-photorealistic botanical illustration kernel (<code>0x01</code>) with quantized 4-band pigment stepping, rim-inked silhouettes, stepped Hawkesbury sandstone benches, and crimson <em>Telopea speciosissima</em> Waratah blooms.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-sydney_sandstone.10d</span></div>
-              <div class="kv-row"><span class="kv-key">Shading Kernel</span><span class="kv-val">ShadingModel::Stylized (0x01)</span></div>
-              <div class="kv-row"><span class="kv-key">Keystone Flora</span><span class="kv-val">Telopea speciosissima + Angophora</span></div>
-            </div>
-          </div>
-          <div class="inspector-slide insp-6">
-            <h2>06 · Noosa Pandanus Headland &amp; Lagoon (Namatjira Watercolor)</h2>
-            <p>Kubelka-Munk pigment granulation and coffee-ring edge darkening inspired by Albert Namatjira's Australian landscape watercolors: warm red-ochre headlands, luminous ghost-gum trunks, and turquoise Coral Sea surf.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-noosa_headland.10d</span></div>
-              <div class="kv-row"><span class="kv-key">Lagoon Bathymetry</span><span class="kv-val">Wide Coastal Estuary + Reef</span></div>
-              <div class="kv-row"><span class="kv-key">Pigment Palette</span><span class="kv-val">Ochre · Sienna · Ultramarine</span></div>
-            </div>
-          </div>
-          <div class="inspector-slide insp-7">
-            <h2>07 · Three Mile Dam Subalpine Basin (GPR &amp; Trophic HUD)</h2>
-            <p>Subsurface Ground-Penetrating Radar (GPR <code>0x02</code>) dielectric permittivity wave-reflector ribbons coupled with 3D parabolic trophic energy-flow arcs linking subalpine flora, herbivores, and apex raptors.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-three_mile_dam.10d</span></div>
-              <div class="kv-row"><span class="kv-key">GPR Wave Ribbons</span><span class="kv-val">7 Subsurface Dielectric Profiles</span></div>
-              <div class="kv-row"><span class="kv-key">Trophic Network</span><span class="kv-val">3D Parabolic Energy-Flow Arcs</span></div>
-            </div>
-          </div>
-          <div class="inspector-slide insp-8">
-            <h2>08 · Jounama Gorge (Planck Blackbody Thermal IR <code>0x01</code>)</h2>
-            <p>Radiometric 8–14 µm FLIR Ironbow thermal infrared projection: cold river water (280 K) is deep navy, transpiring eucalypt foliage (285 K) is cool teal, sun-baked karst boulders (299 K) glow crimson-orange, and 310 K endothermic fauna glow white-gold.</p>
-            <div class="kv-list">
-              <div class="kv-row"><span class="kv-key">HMC3 Section</span><span class="kv-val">10d/sector-jounama_karst.10d</span></div>
-              <div class="kv-row"><span class="kv-key">River Water (280 K)</span><span class="kv-val">Deep Thermal Navy</span></div>
-              <div class="kv-row"><span class="kv-key">Fauna Endotherms (310 K)</span><span class="kv-val">Incandescent White-Gold</span></div>
+
+          <!-- Callout Pins / Histological Layers -->
+          <div>
+            <div class="section-title" id="insp-layers-title">Interactive Anatomical Layers &amp; 3D Pins:</div>
+            <div class="pins-grid" id="insp-pins-container">
+              <!-- Dynamically populated per scale -->
             </div>
           </div>
 
-          <!-- Live Dynamic Telemetry Readout -->
-          <div class="kv-list" style="margin-top:auto;">
-            <div class="kv-row"><span class="kv-key">Camera Pose (World)</span><span class="kv-val" id="insp-cam-pos">[0.00, 0.85, 2.35]</span></div>
-            <div class="kv-row"><span class="kv-key">Ontogeny Stage (EONT1)</span><span class="kv-val" id="insp-ontogeny">Mature Adult (1.00×)</span></div>
-            <div class="kv-row"><span class="kv-key">XPBD Dynamic Bodies</span><span class="kv-val" id="insp-bodies">12 Active · 0 Fractured</span></div>
-            <div class="kv-row"><span class="kv-key">Holosonic Wavefield</span><span class="kv-val" id="insp-audio">Standby (Click Audio Btn)</span></div>
+          <!-- Live Anatomical Telemetry / Biophysical Knowledge Card -->
+          <div class="knowledge-card" id="insp-knowledge-card">
+            <h4 id="insp-know-title">🔬 Plant Ontology: PO:0004535 (Woody Stem)</h4>
+            <p id="insp-know-desc">
+              Continuous multi-order hydraulic pipe architecture conforming to Shinozaki's Pipe Model theory (&eta; = 2.49). Scaffold limbs maintain structural safety factors against snow load and high-velocity katabatic mountain winds.
+            </p>
+            <div class="kv-list">
+              <div class="kv-row">
+                <span class="kv-key">Ontology IRI</span>
+                <span class="kv-val" id="insp-iri">po:0004535</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">Governing Law</span>
+                <span class="kv-val equation" id="insp-eqn">A_sapwood &prop; M_foliage</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">Histological Codec</span>
+                <span class="kv-val" id="insp-codec">Secondary Xylem Vessels + Tracheids</span>
+              </div>
+            </div>
+            <div class="indigenous-note" id="insp-indigenous">
+              <strong>Wiradjuri &amp; Walgalu Ethnobotanical Context:</strong> Manna Gum (<em>Eucalyptus viminalis</em>) sap is collected for sweet manna resin; durable bark sheets were traditionally harvested for lightweight bark canoes and shelter cladding.
+            </div>
+          </div>
+
+          <!-- Live Subsystem Telemetry -->
+          <div class="kv-list" style="margin-top: auto;">
+            <div class="kv-row"><span class="kv-key">World Coordinates</span><span class="kv-val" id="insp-coord">[0.0, 410.0, 0.0]</span></div>
+            <div class="kv-row"><span class="kv-key">Elevation AHD</span><span class="kv-val" id="insp-elev">410.0 m</span></div>
+            <div class="kv-row"><span class="kv-key">Bekker Soil Type</span><span class="kv-val" id="insp-soil">Alluvial Gravel / Loam (kc=0.9, n=0.85)</span></div>
+            <div class="kv-row"><span class="kv-key">Ontogenetic Stage</span><span class="kv-val" id="insp-stage">Mature Adult (1.00×)</span></div>
+            <div class="kv-row"><span class="kv-key">10D Asset Carrier</span><span class="kv-val" id="insp-carrier">sector_talbingo.10d (Verified)</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- All 8 Native Etalon PortalGpu Renders Comparison Grid -->
-    <section class="card">
-      <h3>
-        <span>All 8 Native <code>PortalGpu</code> (<code>etalon</code> DirectX 12) Offscreen Renders (1280×720 Animated APNG — Click Any Card to Load Sector)</span>
-        <span class="badge zero-v8">207,352 Verts · 280,888 Tris / Sector</span>
-      </h3>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-jump-sector="0">
-          <img src="assets/renders/01_talbingo_aerial_pbr.png" alt="01 Talbingo PBR" />
-          <div class="gallery-caption"><strong>01 · Talbingo &amp; Tumut Gorge (PBR)</strong>Isotropic 4-octave FBM forest loam, 3D falcate leaf blades, transparent water &amp; riverbed pebbles.</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="1">
-          <img src="assets/renders/02_yarrangobilly_cutaway_strata.png" alt="02 Yarrangobilly Cutaway" />
-          <div class="gallery-caption"><strong>02 · Yarrangobilly 6-Layer SLGA Soil Cutaway</strong>Foreground 3D geological block diagram (Peat, Loam, Sand, Ferrosol Clay, Saprolite, Karst).</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="2">
-          <img src="assets/renders/03_flora_specimen_loupe_snow_gum.png" alt="03 Flora Specimen Loupe" />
-          <div class="gallery-caption"><strong>03 · Botanical Specimen Loupe (Snow Gum)</strong>Close-up of Cescatti crown, forked branchlets &amp; 3D falcate leaf blades.</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="3">
-          <img src="assets/renders/04_fauna_tracker_kangaroo.png" alt="04 Fauna Tracker Kangaroo" />
-          <div class="gallery-caption"><strong>04 · Zoological Specimen Tracker (Kangaroo)</strong>Articulated 3D <em>Macropus giganteus</em> mob on the dry bush track &amp; river shingle bar.</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="4">
-          <img src="assets/renders/05_sydney_sandstone_cel_toon.png" alt="05 Sydney Sandstone Cel Toon" />
-          <div class="gallery-caption"><strong>05 · Sydney Sandstone &amp; Waratah (Cel-Toon)</strong>Quantized stylized botanical illustration mode.</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="5">
-          <img src="assets/renders/06_noosa_headland_watercolor.png" alt="06 Noosa Headland Watercolor" />
-          <div class="gallery-caption"><strong>06 · Noosa Headland (Namatjira Watercolor)</strong>Warm ochre/sienna pigment granulation &amp; turquoise Coral Sea lagoon.</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="6">
-          <img src="assets/renders/07_three_mile_dam_gpr_hud.png" alt="07 Three Mile Dam GPR HUD" />
-          <div class="gallery-caption"><strong>07 · Three Mile Dam (GPR &amp; Trophic HUD)</strong>3D cyan dielectric radar profiles &amp; golden trophic energy arcs.</div>
-        </div>
-        <div class="gallery-item" data-jump-sector="7">
-          <img src="assets/renders/08_jounama_karst_thermal_ir.png" alt="08 Jounama Karst Thermal IR" />
-          <div class="gallery-caption"><strong>08 · Jounama Karst (Planck Thermal IR 0x01)</strong>8–14 µm FLIR Ironbow with incandescent 310 K endothermic fauna.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10-Epic Engine Upgrade & Binary Container Manifest -->
+    <!-- Comprehensive Educational Reference & Architecture Sections -->
     <div class="section-grid">
+      <!-- 5-Scale Botanical Curriculum Guide -->
       <section class="card">
         <h3>
-          <span>Native Binary Substrate Manifest (<code>ecopunk-east-coast.hmc</code>)</span>
-          <span class="badge">QBDL · 18 Verified Entries · 48.3 MB · CRC32C</span>
+          <span>5-Scale Botanical &amp; Biological Digital Twin Architecture</span>
+          <span class="badge amber">Epic 6 Verified</span>
         </h3>
         <div class="table-scroll">
           <table>
             <thead>
               <tr>
-                <th>HMC Section / Artifact</th>
-                <th>Format</th>
-                <th>Payload &amp; Capabilities</th>
+                <th>Scale</th>
+                <th>Metric Domain</th>
+                <th>Anatomical Structures &amp; Layers</th>
+                <th>Ontology IRIs</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><code>vibe/east-coast-20-biosphere</code></td>
-                <td><code>vibe-0.1</code></td>
-                <td>7 Native VibeScript AST modules + byte-backed <code>WasmSliceQ42Reader</code> host seam</td>
+                <td><strong>Scale 1</strong></td>
+                <td>10m – 35m</td>
+                <td>5 Pipe-Model branching orders, falcate canopy, subterranean lignotuber, taproot, buttress roots, mycorrhizae</td>
+                <td><code>PO:0009006</code> · <code>PO:0025542</code> · <code>PO:0020127</code></td>
               </tr>
               <tr>
-                <td><code>q42/flora-305.q42</code></td>
-                <td><code>Q42\0</code></td>
-                <td>305 Australian Flora Species (<code>PROC1</code> synthesis, <code>EONT1</code> ontogeny, 4-tier hybrid LOD)</td>
+                <td><strong>Scale 2</strong></td>
+                <td>50mm – 2m</td>
+                <td>270° Stem wedge: Rhytidome, Phellogen, Secondary Phloem + Kino ducts, Cambium, Sapwood rays, Heartwood + Pith</td>
+                <td><code>PO:0004518</code> · <code>PO:0005417</code> · <code>PO:0005352</code></td>
               </tr>
               <tr>
-                <td><code>q42/fauna-164.q42</code></td>
-                <td><code>Q42\0</code></td>
-                <td>164 Australian Fauna Species (18-joint PGA <code>Motor</code> rigs, 3-layer ABSM, 2D Delaunay blend space)</td>
+                <td><strong>Scale 3</strong></td>
+                <td>5mm – 150mm</td>
+                <td>Umbellaster, Hypanthium, lifting Operculum, unfolding Staminal ring, Anthers, Style, 4-locule Ovary, Woody Gumnut, Seeds</td>
+                <td><code>PO:0009064</code> · <code>PO:0025283</code> · <code>PO:0009084</code></td>
               </tr>
               <tr>
-                <td><code>10d/corymbia_aparrerinja.10d</code></td>
-                <td><code>10d\0 v2</code></td>
-                <td>10-organ Ghost Gum Digital Twin (<code>SURF1</code>, <code>IMPO1</code>, <code>MESH1</code>, <code>PROC1</code>, <code>EONT1</code>, <code>MRP1</code>)</td>
+                <td><strong>Scale 4</strong></td>
+                <td>50µm – 50mm</td>
+                <td>Murray's Law venation + intramarginal vein, cuticle, epidermis, guard cells, stomatal pore, isobilateral mesophyll, 1,8-cineole oil gland</td>
+                <td><code>PO:0000032</code> · <code>PO:0002005</code> · <code>PO:0005679</code></td>
               </tr>
               <tr>
-                <td><code>10d/sector-*.10d</code> (×6)</td>
-                <td><code>10d\0 v2</code></td>
-                <td>6 East Coast 3D Sector Scenes (~207k verts / ~281k tris each + <code>MAT4</code> + <code>UV01</code> + <code>PROC1</code> + <code>EONT1</code>)</td>
-              </tr>
-              <tr>
-                <td><code>tex/*.rgba8</code> (×4)</td>
-                <td><code>RGBA8 / BC7</code></td>
-                <td>4 Resident Mipmapped 256×256 PBR Textures (Isotropic FBM Loam, Voronoi Cobbles, Bark, Venation)</td>
+                <td><strong>Scale 5</strong></td>
+                <td>Comparative</td>
+                <td>3-Layer Anatomical Twin: Articulated Osteology (diprotodont incisors, epipubic bones), Myology (elastic Achilles tendon), Skinned Integument</td>
+                <td><code>UBERON:0001434</code> · <code>UBERON:0003661</code> · <code>UBERON:0001391</code></td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
+      <!-- 26.5 km Corridor Guide -->
       <section class="card">
         <h3>
-          <span>QualiaDB + Etalon 10-Epic Superior Game Engine Architecture</span>
-          <a href="docs/plans/qualiadb-superior-game-engine-master-plan.md" class="badge dx12">View Master Plan →</a>
+          <span>26.5 km Snowy Mountains Highway (B72) Explorable Corridor</span>
+          <span class="badge blue">Contiguous 3D Continuum</span>
         </h3>
         <div class="table-scroll">
           <table>
             <thead>
               <tr>
-                <th>Epic</th>
-                <th>Engine Subsystem</th>
-                <th>EcoPunk Module</th>
+                <th>Site ID</th>
+                <th>Corridor km</th>
+                <th>Elevation</th>
+                <th>Biophysical Environment &amp; Keystone Taxa</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Epics 1 &amp; 2</strong></td>
-                <td>Zero-Heap 10D Scene Graph, <code>EONT1</code> Ontology, 2-Phase HZB &amp; 4-Tier Hybrid LOD</td>
-                <td><code>scene_graph_10d.rs</code></td>
+                <td><strong>Site 0</strong></td>
+                <td>km 0.0</td>
+                <td>410m AHD</td>
+                <td>Talbingo Dam wall &amp; Tumut River foreshore; <em>Eucalyptus viminalis</em> &amp; alluvial shingle</td>
               </tr>
               <tr>
-                <td><strong>Epics 3 &amp; 4</strong></td>
-                <td>Hardware GPU PGA <code>Motor</code> Skinning, 2D Delaunay Blend Spaces, ABSM &amp; Motor IK</td>
-                <td><code>fauna_animation_rig.rs</code></td>
+                <td><strong>Site 1</strong></td>
+                <td>km 1.8</td>
+                <td>405m AHD</td>
+                <td>Humes Crossing &amp; Blowering alluvial flats; Golden Wattle &amp; <em>Macropus giganteus</em> mobs</td>
               </tr>
               <tr>
-                <td><strong>Epic 5</strong></td>
-                <td>4-Cascade CSM, Split-Sum Cubemap IBL, Spectral Deferred &amp; Depth-Interleaved SDFs</td>
-                <td><code>scene_builder_10d.rs</code></td>
+                <td><strong>Site 2</strong></td>
+                <td>km 4.2</td>
+                <td>460m AHD</td>
+                <td>Jounama Creek Valley; montane wet sclerophyll &amp; Bogong moth granite boulder tors</td>
               </tr>
               <tr>
-                <td><strong>Epic 6</strong></td>
-                <td>64 Hz XPBD 3D Physics, Analytical SDF BVH, <code>PROC1</code> Cleavage Fracture &amp; SLGA Soil Coupling</td>
-                <td><code>physics_continuum.rs</code></td>
+                <td><strong>Site 3</strong></td>
+                <td>km 9.5</td>
+                <td>940m AHD</td>
+                <td>Yarrangobilly Silurian limestone karst gorge, thermal pool (27°C) &amp; 6-layer CSIRO soil cutaway</td>
               </tr>
               <tr>
-                <td><strong>Epics 7–10</strong></td>
-                <td>BC7/ASTC Transcoder, 3D Holosonic SDF Audio, Zero-Heap Flexbox/MSDF HUD &amp; Progressive <code>.hmc</code></td>
-                <td><code>holosonic_soundscape.rs</code> · <code>streaming_hydration.rs</code> · <code>hud_studio.rs</code></td>
+                <td><strong>Site 4</strong></td>
+                <td>km 13.0</td>
+                <td>1,180m AHD</td>
+                <td>O'Hares Alpine Ash montane forest; <em>Eucalyptus delegatensis</em> (40m boles) &amp; soft tree ferns</td>
+              </tr>
+              <tr>
+                <td><strong>Site 5</strong></td>
+                <td>km 17.5</td>
+                <td>1,460m AHD</td>
+                <td>Three Mile Dam subalpine basin; twisted snow gums (<em>E. pauciflora</em>) &amp; Corroboree frog bogs</td>
+              </tr>
+              <tr>
+                <td><strong>Site 6</strong></td>
+                <td>km 22.0</td>
+                <td>185m AHD</td>
+                <td>Sydney Hawkesbury Sandstone Gully; Scribbly Gums, Waratah blooms &amp; honeycomb benches</td>
+              </tr>
+              <tr>
+                <td><strong>Site 7</strong></td>
+                <td>km 26.5</td>
+                <td>32m AHD</td>
+                <td>Noosa Coastal Pandanus Headland; basalt headlands, coral surf &amp; Namatjira watercolor wash</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
     </div>
+
+    <!-- Native Etalon DX12 PortalGpu Renders Grid -->
+    <section class="card">
+      <h3>
+        <span>All 8 Native <code>PortalGpu</code> (<code>etalon</code> DirectX 12) Offscreen Renders (1280×720 Animated APNG)</span>
+        <span class="badge teal">207,352 Verts · 280,888 Tris / Sector</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-jump-site="0">
+          <img src="assets/renders/01_talbingo_aerial_pbr.png" alt="01 Talbingo PBR" />
+          <div class="gallery-caption"><strong>01 · Talbingo &amp; Tumut Gorge (PBR)</strong>Riparian eucalypt gallery, riverbed shingle &amp; Snell water refraction.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="1">
+          <img src="assets/renders/02_yarrangobilly_cutaway_strata.png" alt="02 Yarrangobilly Cutaway" />
+          <div class="gallery-caption"><strong>02 · Yarrangobilly 6-Layer SLGA Soil Cutaway</strong>Peat, Loam, Sand, Ferrosol Clay, Saprolite, and Silurian Karst bedrock.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="2">
+          <img src="assets/renders/03_flora_specimen_loupe_snow_gum.png" alt="03 Flora Specimen Loupe" />
+          <div class="gallery-caption"><strong>03 · Botanical Specimen Loupe (Snow Gum)</strong>3D phyllotaxis, falcate blades, Murray's Law venation &amp; intramarginal vein.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="3">
+          <img src="assets/renders/04_fauna_tracker_kangaroo.png" alt="04 Fauna Tracker Kangaroo" />
+          <div class="gallery-caption"><strong>04 · Zoological Specimen Tracker (Kangaroo)</strong>Articulated <em>Macropus giganteus</em> with elastic Achilles tendon energy spring.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="4">
+          <img src="assets/renders/05_sydney_sandstone_cel_toon.png" alt="05 Sydney Sandstone Cel Toon" />
+          <div class="gallery-caption"><strong>05 · Sydney Sandstone &amp; Waratah (Cel-Toon)</strong>Quantized 4-band posterization &amp; ink silhouette illustration mode.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="5">
+          <img src="assets/renders/06_noosa_headland_watercolor.png" alt="06 Noosa Headland Watercolor" />
+          <div class="gallery-caption"><strong>06 · Noosa Headland (Namatjira Watercolor)</strong>Warm ochre/sienna granulation &amp; turquoise Coral Sea surf wash.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="6">
+          <img src="assets/renders/07_three_mile_dam_gpr_hud.png" alt="07 Three Mile Dam GPR HUD" />
+          <div class="gallery-caption"><strong>07 · Three Mile Dam (GPR &amp; Trophic HUD)</strong>3D cyan dielectric radar ribbons &amp; golden trophic energy-flow arcs.</div>
+        </div>
+        <div class="gallery-item" data-jump-site="7">
+          <img src="assets/renders/08_jounama_karst_thermal_ir.png" alt="08 Jounama Karst Thermal IR" />
+          <div class="gallery-caption"><strong>08 · Jounama Karst (Planck Thermal IR 0x01)</strong>8–14 µm FLIR Ironbow with incandescent 310 K endothermic fauna.</div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
   (() => {
-    const canvas = document.getElementById('ecopunk-game-canvas');
-    if (!canvas) return;
-    const gl = canvas.getContext('webgl2', { antialias: true, alpha: false, depth: true })
-            || canvas.getContext('webgl', { antialias: true, alpha: false, depth: true });
-    if (!gl) return;
-
-    const SECTORS = [
-      { id: 'talbingo', label: '01 · Talbingo & Tumut Gorge (Spectral PBR)', seed: 1.1, waterY: -0.22, waterCol: [0.06, 0.36, 0.48], sunDir: [0.48, 0.74, 0.47], mode: 0, cutaway: false, yaw: 0.34, pitch: 0.28, dist: 2.25, target: [0.04, -0.02, -0.08] },
-      { id: 'yarrangobilly', label: '02 · Yarrangobilly 6-Layer CSIRO SLGA Cutaway', seed: 2.4, waterY: -0.24, waterCol: [0.06, 0.46, 0.50], sunDir: [-0.22, 0.78, 0.58], mode: 0, cutaway: true, yaw: 0.08, pitch: 0.24, dist: 2.15, target: [0.0, -0.22, 0.15] },
-      { id: 'flora_loupe', label: '03 · Botanical Specimen Loupe (Snow Gum & Ghost Gum)', seed: 1.1, waterY: -0.22, waterCol: [0.06, 0.36, 0.48], sunDir: [0.48, 0.74, 0.47], mode: 0, cutaway: false, yaw: 0.28, pitch: 0.18, dist: 0.92, target: [0.58, 0.12, -0.12] },
-      { id: 'fauna_tracker', label: '04 · Zoological Specimen Tracker (Macropus giganteus)', seed: 1.1, waterY: -0.22, waterCol: [0.06, 0.36, 0.48], sunDir: [0.48, 0.74, 0.47], mode: 0, cutaway: false, yaw: -0.52, pitch: 0.20, dist: 0.88, target: [0.70, 0.04, 0.14] },
-      { id: 'sydney_sandstone', label: '05 · Sydney Hawkesbury Sandstone & Waratah (Cel-Toon 0x01)', seed: 5.1, waterY: -0.25, waterCol: [0.06, 0.52, 0.68], sunDir: [0.40, 0.80, 0.45], mode: 1, cutaway: false, yaw: -0.32, pitch: 0.32, dist: 2.30, target: [0.0, 0.0, 0.0] },
-      { id: 'noosa_headland', label: '06 · Noosa Pandanus Headland (Namatjira Watercolor 0x02)', seed: 6.5, waterY: -0.18, waterCol: [0.10, 0.58, 0.72], sunDir: [0.32, 0.84, 0.44], mode: 2, cutaway: false, yaw: 0.26, pitch: 0.28, dist: 2.25, target: [0.0, -0.02, 0.0] },
-      { id: 'three_mile_dam', label: '07 · Three Mile Dam Subalpine Basin (GPR 0x03 & Trophic Arcs)', seed: 3.7, waterY: -0.20, waterCol: [0.04, 0.62, 0.84], sunDir: [0.48, 0.72, 0.50], mode: 3, cutaway: false, yaw: 0.38, pitch: 0.28, dist: 2.15, target: [0.0, -0.02, 0.0] },
-      { id: 'jounama_karst', label: '08 · Jounama Gorge (Planck Blackbody Thermal IR 0x04)', seed: 7.9, waterY: -0.23, waterCol: [0.05, 0.06, 0.26], sunDir: [-0.44, 0.74, 0.51], mode: 4, cutaway: false, yaw: 0.18, pitch: 0.35, dist: 2.25, target: [0.0, -0.02, 0.0] }
+    // -------------------------------------------------------------------------
+    // 1. DATA STRUCTURES: CORRIDOR SITES & 5 EDUCATIONAL SCALES
+    // -------------------------------------------------------------------------
+    const SITES = [
+      { id: 'talbingo', name: 'Talbingo Dam & The Pines Foreshore', km: 0.0, elev: 410, z: 0, roadX: 0, soil: 'Alluvial Gravel / Loam', kc: 0.9, n: 0.85, waterY: 407.5, waterCol: [0.06, 0.36, 0.48], mode: 0, desc: 'Riparian Eucalyptus viminalis & Corymbia gallery along the Tumut River foreshore.', taxon: 'Eucalyptus viminalis (Manna Gum)' },
+      { id: 'blowering', name: 'Humes Crossing & Blowering Flats', km: 1.8, elev: 405, z: 180, roadX: 4, soil: 'Alluvial Silt / Sand', kc: 0.7, n: 0.8, waterY: 402.5, waterCol: [0.06, 0.40, 0.52], mode: 0, desc: 'Broad alluvial flats with Acacia pycnantha (Golden Wattle) and grazing Macropus mobs.', taxon: 'Acacia pycnantha (Golden Wattle)' },
+      { id: 'jounama', name: 'Jounama Creek Valley & Bogong Tors', km: 4.2, elev: 460, z: 420, roadX: -8, soil: 'Montane Clay Loam / Grus', kc: 1.2, n: 0.9, waterY: 456.0, waterCol: [0.05, 0.06, 0.26], mode: 4, desc: 'Deep river valley flanked by massive rounded granitic tors providing Bogong moth aestivation shelters.', taxon: 'Eucalyptus radiata (Narrow-leaved Peppermint)' },
+      { id: 'yarrangobilly', name: 'Yarrangobilly Limestone Karst Gorge', km: 9.5, elev: 940, z: 950, roadX: 12, soil: 'Terra Rossa / Karst Gravel', kc: 1.5, n: 0.95, waterY: 934.0, waterCol: [0.06, 0.46, 0.50], mode: 0, desc: 'Steep Silurian limestone karst gorge with natural 27°C thermal pool, cave arches, and CSIRO 6-layer soil.', taxon: 'Eucalyptus dalrympleana (Mountain Gum)' },
+      { id: 'ohares', name: "O'Hares Alpine Ash Montane Forest", km: 13.0, elev: 1180, z: 1300, roadX: -14, soil: 'Montane Acid Loam', kc: 0.85, n: 0.88, waterY: 1172.0, waterCol: [0.08, 0.38, 0.45], mode: 0, desc: 'Towering straight boles of Eucalyptus delegatensis (up to 40m) over an understorey of Dicksonia antarctica.', taxon: 'Eucalyptus delegatensis (Alpine Ash)' },
+      { id: 'three_mile_dam', name: 'Three Mile Dam Subalpine Basin', km: 17.5, elev: 1460, z: 1750, roadX: 6, soil: 'Subalpine Peat / Sphagnum Bog', kc: 0.4, n: 0.65, waterY: 1457.0, waterCol: [0.04, 0.62, 0.84], mode: 3, desc: 'Subalpine frost hollow with twisted mallee Snow Gums (E. pauciflora) and Sphagnum cristatum bogs supporting Corroboree frogs.', taxon: 'Eucalyptus pauciflora (Snow Gum)' },
+      { id: 'sydney_sandstone', name: 'Sydney Hawkesbury Sandstone Gully', km: 22.0, elev: 185, z: 2200, roadX: -10, soil: 'Quartz Sandstone Rock / Skeletal Sand', kc: 3.5, n: 1.0, waterY: 178.0, waterCol: [0.06, 0.52, 0.68], mode: 1, desc: 'Stepped quartz sandstone ledges with Scribbly Gum, Banksia serrata, and Telopea speciosissima (Waratah).', taxon: 'Telopea speciosissima (Waratah)' },
+      { id: 'noosa_headland', name: 'Noosa Coastal Pandanus Basalt Headland', km: 26.5, elev: 32, z: 2650, roadX: 18, soil: 'Basaltic Clay / Coastal Beach Sand', kc: 0.5, n: 0.7, waterY: 28.0, waterCol: [0.10, 0.58, 0.72], mode: 2, desc: 'Subtropical coastal headland with Pandanus tectorius prop-roots and turquoise Coral Sea ocean surf.', taxon: 'Pandanus tectorius (Screw Pine)' }
     ];
 
-    let currentSectorIdx = 0;
-    let ontogenyStageIdx = 2;
-    const ONTOGENY_STAGES = [
-      { name: 'Seedling (0.35×)', scale: 0.35 },
-      { name: 'Sapling (0.68×)', scale: 0.68 },
-      { name: 'Mature (1.00×)', scale: 1.00 },
-      { name: 'Ancient Veteran (1.32×)', scale: 1.32 }
-    ];
-    let walkMode = false;
-    let camYaw = SECTORS[0].yaw;
-    let camPitch = SECTORS[0].pitch;
-    let camDist = SECTORS[0].dist;
-    let camTarget = [...SECTORS[0].target];
-    const keys = {};
-    let moveButtons = { fwd: false, back: false, left: false, right: false };
-
-    // Dynamic XPBD boulders & fractured cleavage debris
-    let dynamicBoulders = [];
-    let fractureCount = 0;
-
-    function hash21(x, y) {
-      const q = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
-      return q - Math.floor(q);
-    }
-
-    function sampleElevation(sec, x, z) {
-      const seed = sec.seed;
-      const meanderX = 0.28 * Math.sin(z * 1.35 + seed) + 0.11 * Math.cos(z * 2.7 - seed * 0.6);
-      const distRiver = Math.abs(x - meanderX);
-      const channelDepth = 0.36 * Math.exp(-Math.pow(distRiver / 0.42, 2));
-      let valleyRise = 0;
-      if (sec.id === 'sydney_sandstone') {
-        const raw = Math.max(0, distRiver - 0.32) * 0.72;
-        valleyRise = raw + 0.08 * Math.sin(raw * 14.0);
-      } else if (sec.id === 'noosa_headland') {
-        valleyRise = x < meanderX ? -0.16 * Math.min(1.2, meanderX - x) : Math.pow(x - meanderX, 1.25) * 0.55;
-      } else if (sec.id === 'yarrangobilly' || sec.id === 'jounama_karst') {
-        valleyRise = Math.pow(Math.max(0, distRiver - 0.26), 1.35) * 0.82;
-      } else if (sec.id === 'three_mile_dam') {
-        valleyRise = Math.pow(Math.max(0, distRiver - 0.38), 1.15) * 0.44;
-      } else {
-        valleyRise = Math.pow(Math.max(0, distRiver - 0.30), 1.25) * 0.68;
+    const SCALES = {
+      1: {
+        id: 1,
+        title: 'Scale 1: Whole Organism & Subterranean Roots',
+        domain: '10 m – 35 m',
+        taxon: 'Corymbia aparrerinja (Ghost Gum)',
+        pins: [
+          { id: 'canopy', label: 'Falcate Canopy', iri: 'po:0009006', color: '#10b981', eqn: 'r_p^2.49 = &sum; r_c^2.49 (Pipe Model)', desc: 'Pendulous falcate foliage hanging vertically to reduce peak solar heat load and midday photoinhibition.', indigenous: 'Wiradjuri & Walgalu people crush leaves in warm water as an antiseptic inhalation for respiratory ailments.' },
+          { id: 'scaffold', label: 'Scaffold Limbs', iri: 'po:0004535', color: '#38bdf8', eqn: 'M = &sigma; &middot; Z (Beam Bending)', desc: 'Primary & secondary structural boughs maintaining safety factor against extreme snow and katabatic mountain wind moments.', indigenous: 'Naturally bowed limbs were traditionally used to fashion digging sticks and hunting boomerangs.' },
+          { id: 'bole', label: 'Trunk Bole & Bark', iri: 'po:0004518', color: '#f59e0b', eqn: 'A_sapwood &prop; M_foliage', desc: 'Chalky-white deciduous smooth bark containing decorticating periderm flakes and photosynthetic green phelloderm.', indigenous: 'Smooth bark sheets were etched with cultural diamond motifs as seasonal territorial indicators.' },
+          { id: 'lignotuber', label: 'Subterranean Lignotuber', iri: 'po:0025542', color: '#f43f5e', eqn: 'Regrowth &prop; Starch Reserve (MJ)', desc: 'Swollen woody basal burl storing carbohydrate reserves and clusters of dormant epicormic meristem buds for rapid post-bushfire resprouting.', indigenous: 'The lignotuber protects the tree identity across centuries of frequent Aboriginal mosaic fire regimes.' },
+          { id: 'taproot', label: 'Primary Taproot', iri: 'po:0020127', color: '#a855f7', eqn: 'P_sink = &rho; g h + &Delta;P_capillary', desc: 'Deep vertical anchor root penetrating deep into fractured rock fissures to tap groundwater aquifers during severe droughts.', indigenous: 'Root segments were tapped for emergency potable moisture during long cross-country walkabouts.' },
+          { id: 'buttress', label: 'Lateral Buttress Roots', iri: 'po:0006310', color: '#14b8a6', eqn: '&tau;_shear = F_wind / A_soil', desc: 'Flared horizontal surface roots transferring tensile and compressive wind forces into surrounding soil substrate.', indigenous: 'Surface buttresses anchor the tree on steep Kosciuszko granite and Silurian karst slopes.' },
+          { id: 'mycorrhizae', label: 'Mycorrhizal Feeder Network', iri: 'po:0009005', color: '#fbbf24', eqn: 'J_P = P_uptake &middot; Surface_Area', desc: 'Extensive symbiotic ectomycorrhizal fungal hyphae network mobilizing phosphorus and nitrogen from weathered infertile soils.', indigenous: 'Underground fungal fruiting bodies (truffles) were harvested by bandicoots and Aboriginal foragers.' }
+        ]
+      },
+      2: {
+        id: 2,
+        title: 'Scale 2: Branch Phyllotaxis & 6-Layer Stem Wedge',
+        domain: '50 mm – 2 m',
+        taxon: 'Corymbia aparrerinja (6-Layer Anatomical Stem Wedge)',
+        pins: [
+          { id: 'rhytidome', label: 'L1: Outer Rhytidome (Periderm)', iri: 'po:0004518', color: '#f8fafc', eqn: 'R_th = d / k_suberin', desc: 'Chalky-white shed periderm protecting underlying living tissues from fire scorch, desiccation, and fungal pathogen entry.', indigenous: 'Chalk powder was used in traditional body ceremonies and rock art ochre binders.' },
+          { id: 'phellogen', label: 'L2: Phellogen & Phelloderm', iri: 'po:0005597', color: '#10b981', eqn: 'div_cork = k_cell &middot; &Delta;t', desc: 'Secondary meristem generating suberin-impregnated phellem (cork) cells outwardly and green photosynthetic phelloderm inwardly.', indigenous: 'Green photosynthetic bark allows survival when crown foliage is completely defoliated by fire.' },
+          { id: 'phloem', label: 'L3: Secondary Phloem & Kino', iri: 'po:0005417', color: '#ef4444', eqn: 'J_sugar = -L_p &middot; &Delta;&Psi;_osmotic', desc: 'Inner living bark with sieve tubes transporting sucrose downwards, interspersed with dark crimson polyphenolic kino resin ducts.', indigenous: 'Astringent kino gum was dissolved in water as a powerful coagulant and antiseptic wash.' },
+          { id: 'cambium', label: 'L4: Vascular Cambium', iri: 'po:0005598', color: '#2dd4bf', eqn: 'dr/dt = &mu;_cambium &middot; (T - T_base)', desc: 'Continuous uniseriate meristematic cylinder dividing outwards to form phloem and inwards to generate active xylem.', indigenous: 'Spring cambial activity corresponds to the flowering of wattles and arrival of migratory birds.' },
+          { id: 'sapwood', label: 'L5: Sapwood (Active Xylem)', iri: 'po:0005352', color: '#fbbf24', eqn: 'Q = (&pi; r^4 &Delta;P) / (8 &mu; L) (Hagen-Poiseuille)', desc: 'Hydraulically active secondary xylem vessels with scalariform perforations and radial medullary parenchymal storage rays.', indigenous: 'Sapwood was chosen for its flexibility in crafting coolamons and tool hafts.' },
+          { id: 'heartwood', label: 'L6: Heartwood & Central Pith', iri: 'po:0004535', color: '#b45309', eqn: '&rho;_duramen = 980 kg/m^3', desc: 'Dense, duramen core impregnated with polyphenols and tyloses, providing structural integrity and decay resistance.', indigenous: 'Aged hollowed heartwood trunks were selected to craft didgeridoos (yidaki) naturally carved by termites.' }
+        ]
+      },
+      3: {
+        id: 3,
+        title: 'Scale 3: Floral Bud Anthesis & Gumnut Dissection',
+        domain: '5 mm – 150 mm',
+        taxon: 'Myrtaceae Compound Umbellaster & Capsule Dissection',
+        pins: [
+          { id: 'hypanthium', label: 'Hypanthium (Floral Cup)', iri: 'po:0009064', color: '#10b981', eqn: 'Cup_Vol = &pi; r^2 h', desc: 'Fused calyx tube and receptacle cup protecting the sunken inferior ovary, producing rich nectar in its glandular disc.', indigenous: 'Sweet nectar was gathered at dawn by immersing flower clusters in water to make sweet bushcordial drinks.' },
+          { id: 'operculum', label: 'Operculum (Calyptriform Cap)', iri: 'po:0025283', color: '#f59e0b', eqn: 'F_shed = &sigma;_abscission &middot; A_ring', desc: 'Fused petaline/sepaline cap that seals and protects reproductive whorls until lifting off during anthesis.', indigenous: 'Opercular shedding signals the onset of peak honey-eating bird migrations.' },
+          { id: 'stamens', label: 'Staminal Ring (Filaments)', iri: 'po:0009029', color: '#fef08a', eqn: 'N_filaments &gt; 120 (Multi-whorl)', desc: 'Dense multi-whorled creamy-white filaments that start inflexed in bud and uncurl outward into a nectar-rich blossom.', indigenous: 'Blossoms serve as bio-indicators of native stingless bee (Tetragonula) foraging activity.' },
+          { id: 'anthers', label: 'Bilobed Anthers & Pollen', iri: 'po:0009066', color: '#eab308', eqn: 'Dehiscence = Longitudinal Slits', desc: 'Dorsifixed versatile anthers dehiscing along longitudinal slits to release sticky pollen grains onto visiting nectar feeders.', indigenous: 'Pollen morphology is diagnostically unique to individual eucalypt alliances.' },
+          { id: 'gynoecium', label: 'Style & Capitate Stigma', iri: 'po:0009075', color: '#2dd4bf', eqn: 'Tube_growth &prop; T_ambient', desc: 'Central terete style terminating in a receptive glandular capitate stigma elevated to maximize cross-pollination.', indigenous: 'Stigma receptivity is staggered after stamen dehiscence (protandry) to prevent self-fertilization.' },
+          { id: 'ovary', label: 'Inferior Ovary (4 Locules)', iri: 'po:0020037', color: '#ec4899', eqn: 'Axile Placentation (4 Locules)', desc: 'Longitudinally dissected inferior ovary revealing 4 locule chambers, central axile placenta, and fertile white ovules.', indigenous: 'Ovary structure differentiates Angophora, Corymbia, and Eucalyptus genera.' },
+          { id: 'gumnut', label: 'Woody Capsule & Valves', iri: 'po:0009084', color: '#854d0e', eqn: 'Dehiscence &prop; Fuel_Heat &middot; Moisture', desc: 'Mature urceolate woody fruit showing opercular scar rim and 4 sunken valves that dehisce to shed winged seeds post-fire.', indigenous: 'Hard woody gumnuts were worn as ceremonial necklaces and spun as children’s spinning tops.' }
+        ]
+      },
+      4: {
+        id: 4,
+        title: "Scale 4: Foliar Murray's Law Venation & Cellular Block",
+        domain: '50 µm – 50 mm',
+        taxon: 'Isobilateral Sclerophyll Leaf Histology Block',
+        pins: [
+          { id: 'intramarginal', label: 'Intramarginal Vein', iri: 'po:0005020', color: '#38bdf8', eqn: 'r_p^3 = &sum; r_c^3 (Murray’s Law)', desc: 'Diagnostic continuous vein running parallel to the leaf margin, looping secondary lateral veins to equalize hydraulic pressure.', indigenous: 'The continuous margin prevents hydraulic failure if an edge is damaged by chewing insects.' },
+          { id: 'cuticle', label: 'Epicuticular Wax Cuticle', iri: 'po:0000030', color: '#93c5fd', eqn: 'g_cuticle &lt; 0.002 m/s', desc: 'Crystalline epicuticular wax platelet coating sealing the leaf against uncontrolled cuticular transpiration and UV damage.', indigenous: 'Gives juvenile foliage its characteristic silvery-glaucous frost-resistant appearance.' },
+          { id: 'stomata', label: 'Amphistomatic Stomatal Complex', iri: 'po:0000032', color: '#10b981', eqn: 'J_vapor = -D &middot; (dc/dx) = g_s &middot; &Delta;w', desc: 'Sunken stomatal complexes on BOTH surfaces; paired kidney-shaped guard cells control pore aperture via turgor pressure.', indigenous: 'Amphistomaty allows rapid CO2 uptake during brief early morning fog windows in arid climates.' },
+          { id: 'palisade', label: 'Isobilateral Palisade Mesophyll', iri: 'po:0005679', color: '#15803d', eqn: 'A_CO2 = f(Light_Absorbed, Rubisco)', desc: 'Multiple dense tiers of vertically elongated chlorenchyma cells packed with chloroplasts beneath both upper and lower surfaces.', indigenous: 'Isobilateral design is specialized for pendulous leaves receiving equal morning and afternoon sunlight.' },
+          { id: 'vascular', label: 'Collateral Bundle (Xylem/Phloem)', iri: 'po:0005020', color: '#f59e0b', eqn: 'K_hydraulic &prop; r^4 / (&mu; L)', desc: 'Vascular strand with helical lignin-reinforced xylem vessels adaxially, phloem sieve tubes abaxially, and sclerenchyma girders.', indigenous: 'Sclerenchyma bundle sheath extensions give sclerophyll leaves their remarkable leathery stiffness.' },
+          { id: 'oil_gland', label: 'Schizogenous Oil Gland (1,8-Cineole)', iri: 'po:0025008', color: '#fbbf24', eqn: 'Terpenoid: C10 H18 O (1,8-Cineole)', desc: 'Translucent internal spherical cavity lined with epithelial secretory cells producing golden cineole & pinene essential oils.', indigenous: 'Aboriginal bush healers crushed oil-rich leaves as a cure for headaches, colds, and open wounds.' }
+        ]
+      },
+      5: {
+        id: 5,
+        title: 'Scale 5: Comparative Vertebrate Anatomy (3-Layer Peel)',
+        domain: 'Comparative Zoological Scale',
+        taxon: 'Macropus giganteus (Eastern Grey Kangaroo Twin)',
+        pins: [
+          { id: 'skull', label: 'Diprotodont Cranium & Diastema', iri: 'uberon:0003129', color: '#f8fafc', eqn: 'Diprotodont Dentition (I 3/1, C 0/0, P 2/2, M 4/4)', desc: 'Cranium with large procumbent lower incisors and extended diastema specialized for cropping tough sclerophyll grasses.', indigenous: 'Kangaroo jaws were traditionally mounted onto wooden handles to serve as sharp engraving chisels.' },
+          { id: 'epipubic', label: 'Epipubic Bones (Marsupialia)', iri: 'uberon:0003661', color: '#38bdf8', eqn: 'UBERON:0003661 (Epipubic Bone)', desc: 'Paired anterior pelvic bones unique to marsupials and monotremes, supporting the abdominal wall and external pouch.', indigenous: 'Diagnostic anatomical hallmark distinguishing native Australian marsupials from placental mammals.' },
+          { id: 'pes', label: 'Syndactyl 4th Metatarsal Pes', iri: 'uberon:0001448', color: '#fbbf24', eqn: 'F_thrust = m &middot; a_hop', desc: 'Massively elongated 4th digit bearing a heavy claw, with syndactylous 2nd and 3rd digits fused for fur grooming.', indigenous: 'Distinctive footprints are tracked across sand and clay pans by skilled Aboriginal hunters.' },
+          { id: 'achilles', label: 'Elastic Achilles Tendon Spring', iri: 'uberon:0001391', color: '#ef4444', eqn: 'U_strain = 0.5 &middot; k &Delta;x^2 (&eta;_recovery = 65%)', desc: 'Massive elastic tendon acting as a biomechanical spring: stores kinetic energy during landing and returns 65% on rebound!', indigenous: 'High-speed hopping efficiency allows kangaroos to cover tens of kilometers between arid waterholes with minimal metabolic energy.' },
+          { id: 'myology', label: 'Major Muscle Groups (Gastrocnemius)', iri: 'uberon:0001140', color: '#dc2626', eqn: 'P_muscle = F &middot; v', desc: 'Powerful gastrocnemius, plantaris, and gluteal muscle bellies powering saltatorial locomotion and bipedal balance.', indigenous: 'Lean red kangaroo tail meat is an esteemed, protein-rich traditional feast.' },
+          { id: 'integument', label: 'Skinned Outer Pelage & Pouch', iri: 'uberon:0002416', color: '#a855f7', eqn: 'Insulation &prop; Fur_Density', desc: 'Densely furred grey-brown pelage with thermal insulation, sensory vibrissae, and maternal marsupium (pouch).', indigenous: 'Warm kangaroo skins were traditionally sewn together with sinew to fashion waterproof booka cloaks.' }
+        ]
       }
-      const ridge = 0.14 * Math.sin(x * 2.1 + seed) * Math.cos(z * 1.9 - seed * 0.8)
-                  + 0.06 * Math.sin(x * 4.7 - z * 3.9 + seed);
-      const trackDist = Math.abs(x - (meanderX + 0.54));
-      const trackFlatten = Math.exp(-Math.pow(trackDist / 0.09, 2));
-      const rawY = sec.waterY + 0.06 - channelDepth + valleyRise + ridge * (0.35 + 0.65 * Math.min(1.0, distRiver / 1.5));
-      const trackY = sec.waterY + 0.16;
-      return rawY * (1.0 - 0.65 * trackFlatten) + trackY * (0.65 * trackFlatten);
+    };
+
+    // -------------------------------------------------------------------------
+    // 2. PARSE10D: NATIVE ZERO-HEAP BINARY .10D PARSER
+    // -------------------------------------------------------------------------
+    function parse10d(buffer) {
+      if (!buffer || buffer.byteLength < 64) {
+        throw new Error("Buffer too short for Container10dHeader (min 64 bytes)");
+      }
+      const view = new DataView(buffer);
+      const m0 = view.getUint8(0), m1 = view.getUint8(1), m2 = view.getUint8(2), m3 = view.getUint8(3);
+      if (m0 !== 0x31 || m1 !== 0x30 || m2 !== 0x64 || m3 !== 0x00) {
+        throw new Error(`Invalid magic: ${m0},${m1},${m2},${m3} expected '10d\\0'`);
+      }
+      const version = view.getUint16(4, true);
+      const secTableOffset = view.getUint32(56, true);
+      const secCount = view.getUint32(60, true);
+
+      let meshSection = null;
+      for (let i = 0; i < secCount; i++) {
+        const so = secTableOffset + i * 24;
+        const secType = view.getUint8(so);
+        const byteOffset = view.getUint32(so + 4, true);
+        const byteLength = view.getUint32(so + 8, true);
+        if (secType === 1) { // QuantizedMesh
+          meshSection = { offset: byteOffset, length: byteLength };
+          break;
+        }
+      }
+      if (!meshSection) {
+        throw new Error("No QuantizedMesh (type 1) section found in .10d");
+      }
+
+      const mo = meshSection.offset;
+      const flags = view.getUint16(mo, true);
+      const vCount = view.getUint32(mo + 4, true);
+      const triCount = view.getUint32(mo + 8, true);
+      const minX = view.getFloat32(mo + 12, true), minY = view.getFloat32(mo + 16, true), minZ = view.getFloat32(mo + 20, true);
+      const maxX = view.getFloat32(mo + 24, true), maxY = view.getFloat32(mo + 28, true), maxZ = view.getFloat32(mo + 32, true);
+
+      const positions = new Float32Array(vCount * 3);
+      let vo = mo + 40;
+      const scaleX = (maxX - minX) / 65535.0, scaleY = (maxY - minY) / 65535.0, scaleZ = (maxZ - minZ) / 65535.0;
+      for (let i = 0; i < vCount; i++) {
+        const qx = view.getUint16(vo, true);
+        const qy = view.getUint16(vo + 2, true);
+        const qz = view.getUint16(vo + 4, true);
+        positions[i * 3]     = minX + qx * scaleX;
+        positions[i * 3 + 1] = minY + qy * scaleY;
+        positions[i * 3 + 2] = minZ + qz * scaleZ;
+        vo += 6;
+      }
+
+      const indexCount = triCount * 3;
+      let indices;
+      const u16Idx = (flags & 0x0001) !== 0;
+      if (u16Idx) {
+        indices = new Uint16Array(indexCount);
+        for (let i = 0; i < indexCount; i++) {
+          indices[i] = view.getUint16(vo, true);
+          vo += 2;
+        }
+      } else {
+        indices = new Uint32Array(indexCount);
+        for (let i = 0; i < indexCount; i++) {
+          indices[i] = view.getUint32(vo, true);
+          vo += 4;
+        }
+      }
+
+      return {
+        vCount,
+        triCount,
+        min: [minX, minY, minZ],
+        max: [maxX, maxY, maxZ],
+        positions,
+        indices
+      };
     }
 
-    // Compile WebGL Shaders
-    const vsSrc = `
-      attribute vec3 aPos;
-      attribute vec3 aNorm;
-      attribute vec4 aCol;
-      attribute vec2 aMeta; // x: entityKind (0=terrain,1=trunk,2=foliage,3=water,4=fauna,5=rock), y: phaseSeed
+    // -------------------------------------------------------------------------
+    // 3. MATHEMATICAL CONTINUUM ROADBED & WORLD ELEVATION ENGINE
+    // -------------------------------------------------------------------------
+    function roadCenter(z) {
+      // 26.5 km road spline across Kosciuszko corridor
+      const t = z / 2650.0;
+      const mx = 18.0 * Math.sin(t * 7.5) + 8.0 * Math.sin(t * 16.0) - 4.0 * Math.cos(t * 3.2);
+      
+      // Elevation profile conforming to real Australian AHD markers
+      let elev = 410.0;
+      if (t < 0.08) {
+        const f = t / 0.08;
+        elev = 410.0 * (1 - f) + 405.0 * f; // Talbingo to Blowering
+      } else if (t < 0.18) {
+        const f = (t - 0.08) / 0.10;
+        elev = 405.0 * (1 - f) + 460.0 * f; // Blowering to Jounama
+      } else if (t < 0.40) {
+        const f = (t - 0.18) / 0.22;
+        elev = 460.0 * (1 - f) + 940.0 * f; // Climb to Yarrangobilly Karst
+      } else if (t < 0.55) {
+        const f = (t - 0.40) / 0.15;
+        elev = 940.0 * (1 - f) + 1180.0 * f; // Climb to O'Hares Alpine Ash
+      } else if (t < 0.72) {
+        const f = (t - 0.55) / 0.17;
+        elev = 1180.0 * (1 - f) + 1460.0 * f; // Peak at Three Mile Dam subalpine bog
+      } else if (t < 0.88) {
+        const f = (t - 0.72) / 0.16;
+        elev = 1460.0 * (1 - f) + 185.0 * f; // Portal descent to Sydney Sandstone Gully
+      } else {
+        const f = (t - 0.88) / 0.12;
+        elev = 185.0 * (1 - f) + 32.0 * f; // Portal to Noosa Headland
+      }
+
+      // Bank angle based on curvature
+      const dz = 2.0;
+      const x1 = 18.0 * Math.sin(((z - dz) / 2650.0) * 7.5) + 8.0 * Math.sin(((z - dz) / 2650.0) * 16.0);
+      const x2 = 18.0 * Math.sin(((z + dz) / 2650.0) * 7.5) + 8.0 * Math.sin(((z + dz) / 2650.0) * 16.0);
+      const curv = (x2 - 2 * mx + x1) / (dz * dz);
+      const bank = Math.max(-0.12, Math.min(0.12, -curv * 12.0));
+
+      return { x: mx, elev: elev, bank: bank };
+    }
+
+    function worldElevation(x, z) {
+      const rd = roadCenter(z);
+      const distRoad = Math.abs(x - rd.x);
+      
+      // Highway roadbed cut & fill (width: 7.2m paved deck, 1.5m shoulders)
+      const roadHalfW = 4.8;
+      const roadFlatten = Math.exp(-Math.pow(distRoad / roadHalfW, 4));
+
+      // Natural mountain topography
+      const t = z / 2650.0;
+      const riverMeander = rd.x - 24.0 * Math.sin(t * 11.0 + 1.2);
+      const distRiver = Math.abs(x - riverMeander);
+      const riverGorge = -14.0 * Math.exp(-Math.pow(distRiver / 12.0, 2));
+
+      // Flanking mountain ridges
+      const ridgeL = 55.0 * Math.pow(Math.max(0, -x + rd.x - 12.0) / 45.0, 1.25);
+      const ridgeR = 60.0 * Math.pow(Math.max(0, x - rd.x - 12.0) / 45.0, 1.25);
+      const roughness = 3.5 * Math.sin(x * 0.18 + z * 0.08) * Math.cos(z * 0.15 - x * 0.06)
+                      + 1.8 * Math.sin(x * 0.42 - z * 0.35);
+
+      const naturalElev = rd.elev + riverGorge + ridgeL + ridgeR + roughness;
+      // Blend seamlessly with the engineered highway roadbed deck
+      return naturalElev * (1.0 - roadFlatten) + rd.elev * roadFlatten;
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. WEBGL2 SHADER PIPELINE & GEOMETRY BUFFER MANAGEMENT
+    // -------------------------------------------------------------------------
+    const canvas = document.getElementById('ecopunk-game-canvas');
+    const gl = canvas.getContext('webgl2', { antialias: true, alpha: false, depth: true, powerPreference: 'high-performance' })
+            || canvas.getContext('webgl', { antialias: true, alpha: false, depth: true });
+    if (!gl) {
+      console.error("WebGL2 / WebGL not available!");
+    }
+
+    const vsSrc = `#version 300 es
+      precision highp float;
+      in vec3 aPos;
+      in vec3 aNorm;
+      in vec4 aCol;
+      in vec2 aMeta; // x: entityKind, y: layerId/submeshId
+
       uniform mat4 uViewProj;
+      uniform vec3 uCamPos;
       uniform float uTime;
       uniform float uOntogenyScale;
-      varying vec3 vWorldPos;
-      varying vec3 vNorm;
-      varying vec4 vCol;
-      varying vec2 vMeta;
+      uniform float uExplodeSeparation;
+      uniform float uAnthesisMorph;
+      uniform int uHighlightLayer;
+      uniform vec4 uClipPlane;
+
+      out vec3 vWorldPos;
+      out vec3 vNorm;
+      out vec4 vCol;
+      out vec2 vMeta;
+      out float vClipDist;
+      out float vHighlight;
+
       void main() {
         vec3 p = aPos;
         vec3 n = aNorm;
         float kind = aMeta.x;
-        float seed = aMeta.y;
-        if (kind > 0.5 && kind < 2.5) {
-          // Apply EONT1 Ontogeny allometric growth around tree base encoded in seed
-          float h = max(0.0, p.y + 0.15);
-          float sway = (kind > 1.5 ? 0.022 : 0.008) * sin(uTime * 2.1 + p.x * 5.0 + p.z * 4.0 + seed);
-          p.x += sway * (0.4 + h);
-          p.z += sway * 0.7 * cos(uTime * 1.7 + seed);
-          if (kind > 1.5) {
-            p.y += 0.006 * sin(uTime * 4.2 + p.x * 18.0 + p.z * 18.0);
+        float layer = aMeta.y;
+
+        // Exploded view separation (moves layers outwards along normal or displacement radial)
+        if (uExplodeSeparation > 0.001) {
+          float layerOffset = (layer + 1.0) * 0.18 * uExplodeSeparation;
+          p += n * layerOffset;
+        }
+
+        // Anthesis / Stomatal Opening dynamic morphing
+        if (kind > 2.5 && kind < 3.5) {
+          // Flower anthesis: lifting operculum cap & spreading staminal filaments
+          if (layer > 1.5 && layer < 2.5) {
+            // Operculum cap lifts upward & tilts
+            p.y += uAnthesisMorph * 0.42;
+            p.x += uAnthesisMorph * 0.12;
+          } else if (layer > 2.5 && layer < 3.5) {
+            // Staminal ring filaments uncurl outwards
+            float radExpand = 1.0 + uAnthesisMorph * 1.5;
+            p.xz *= radExpand;
+            p.y += uAnthesisMorph * 0.15;
           }
-        } else if (kind > 2.5 && kind < 3.5) {
-          // Gerstner River Water Waves
-          float w1 = sin(p.x * 6.0 + uTime * 2.6) * cos(p.z * 5.0 - uTime * 2.1) * 0.008;
-          float w2 = sin((p.x * 11.0 - p.z * 9.0) + uTime * 3.8) * 0.004;
-          p.y += w1 + w2;
-          n = normalize(vec3(-0.08 * cos(p.x * 6.0 + uTime * 2.6), 1.0, 0.07 * sin(p.z * 5.0 - uTime * 2.1)));
         } else if (kind > 3.5 && kind < 4.5) {
-          // PGA Motor Fauna Locomotion (Saltatory Kangaroo Hop & Raptor Soaring)
-          if (p.y > 0.32) {
-            // Aerial Raptor thermal circle + wing flap
-            float flap = sin(uTime * 5.5 + seed) * 0.035 * clamp(abs(p.x) * 2.0, 0.0, 1.0);
-            p.x += 0.12 * sin(uTime * 0.9 + seed);
-            p.z += 0.09 * cos(uTime * 0.9 + seed);
-            p.y += flap + 0.015 * cos(uTime * 1.8);
-          } else {
-            // Saltatorial Kangaroo hop along bush track
-            float hop = abs(sin(uTime * 3.6 + seed));
-            p.y += 0.048 * hop;
-            p.z += 0.035 * sin(uTime * 1.8 + seed);
+          // Stomatal aperture: guard cells expand laterally to open stomatal pore
+          if (layer > 1.5 && layer < 2.5) {
+            p.x += sign(p.x) * uAnthesisMorph * 0.08;
           }
         }
+
+        // PROC1 Wind sway for vegetation
+        if (kind > 0.5 && kind < 2.5) {
+          float h = max(0.0, p.y);
+          float sway = 0.015 * sin(uTime * 2.2 + p.x * 2.5 + p.z * 1.8 + layer) * h;
+          p.x += sway;
+          p.z += sway * 0.6;
+        }
+
         vWorldPos = p;
         vNorm = n;
         vCol = aCol;
         vMeta = aMeta;
+        vClipDist = dot(vec4(p, 1.0), uClipPlane);
+        vHighlight = (int(layer) == uHighlightLayer && uHighlightLayer >= 0) ? 1.0 : 0.0;
+
         gl_Position = uViewProj * vec4(p, 1.0);
       }
     `;
 
-    const fsSrc = `
+    const fsSrc = `#version 300 es
       precision highp float;
-      varying vec3 vWorldPos;
-      varying vec3 vNorm;
-      varying vec4 vCol;
-      varying vec2 vMeta;
+      in vec3 vWorldPos;
+      in vec3 vNorm;
+      in vec4 vCol;
+      in vec2 vMeta;
+      in float vClipDist;
+      in float vHighlight;
+
       uniform vec3 uCamPos;
       uniform vec3 uSunDir;
       uniform vec3 uWaterCol;
       uniform float uWaterY;
       uniform float uTime;
       uniform int uMode;
+      uniform vec3 uRoverPos;
+      uniform vec3 uRoverDir;
 
-      float hash21(vec2 p) {
-        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
-      }
-      float vnoise(vec2 p) {
-        vec2 i = floor(p);
-        vec2 f = fract(p);
-        vec2 u = f * f * (3.0 - 2.0 * f);
-        return mix(
-          mix(hash21(i + vec2(0.0, 0.0)), hash21(i + vec2(1.0, 0.0)), u.x),
-          mix(hash21(i + vec2(0.0, 1.0)), hash21(i + vec2(1.0, 1.0)), u.x),
-          u.y
-        );
-      }
-      float fbm(vec2 p) {
-        float v = 0.0;
-        float a = 0.5;
-        for (int i = 0; i < 4; i++) {
-          v += a * vnoise(p);
-          p = p * 2.03 + vec2(17.1, 31.7);
-          a *= 0.5;
-        }
-        return v;
-      }
+      out vec4 fragColor;
+
       vec3 acesFilm(vec3 x) {
         return clamp((x * (2.51 * x + 0.03)) / (x * (2.43 * x + 0.59) + 0.14), 0.0, 1.0);
       }
@@ -1138,88 +1389,77 @@
       }
 
       void main() {
+        // Real-time Slicing Plane clipping
+        if (vClipDist < 0.0) {
+          discard;
+        }
+
         vec3 n = normalize(vNorm);
         vec3 l = normalize(uSunDir);
         vec3 v = normalize(uCamPos - vWorldPos);
         float ndl = max(dot(n, l), 0.0);
         float ndv = max(dot(n, v), 0.0);
-        float kind = vMeta.x;
         vec3 base = vCol.rgb;
 
-        // Isotropic multi-octave micro-detail on terrain & rocks (zero striping!)
-        if (kind < 0.5 || kind > 4.5) {
-          float grain = fbm(vWorldPos.xz * 12.0) * 0.18 - 0.09;
-          base += vec3(grain * 0.7, grain * 0.65, grain * 0.5);
-          float distW = vWorldPos.y - uWaterY;
-          if (distW < 0.05 && vWorldPos.z < 0.52) {
-            // Submerged & shoreline Voronoi cobbles + solar caustics
-            float c1 = sin(vWorldPos.x * 16.0 + uTime * 2.5) * cos(vWorldPos.z * 15.0 - uTime * 2.0);
-            float caustic = pow(clamp(0.5 + 0.45 * c1, 0.0, 1.0), 3.0) * clamp(-distW * 4.0, 0.0, 1.0);
-            base += vec3(0.22, 0.38, 0.42) * caustic * 0.55;
-          }
+        // Cutaway Edge Highlighting
+        if (vClipDist < 0.02) {
+          base = vec3(0.18, 0.95, 0.78); // Luminous cut edge
         }
 
-        // Refractive Water Surface
-        if (kind > 2.5 && kind < 3.5) {
-          vec3 h = normalize(l + v);
-          float spec = pow(max(dot(n, h), 0.0), 96.0) * 1.35;
-          float fresnel = pow(1.0 - ndv, 4.0);
-          vec3 skyRefl = vec3(0.48, 0.70, 0.92);
-          float foam = smoothstep(0.38, 0.48, abs(vWorldPos.x - 0.28 * sin(vWorldPos.z * 1.35 + 1.1))) * 0.28;
-          vec3 wCol = mix(uWaterCol * (0.55 + 0.55 * ndl), skyRefl, 0.35 + 0.45 * fresnel)
-                    + vec3(1.0, 0.96, 0.86) * spec
-                    + vec3(0.88, 0.95, 0.98) * foam;
-          if (uMode == 4) {
-            wCol = vec3(0.05, 0.08, 0.28);
+        // Vehicle Headlight Spotlight Beams (shining forward from rover)
+        vec3 toHeadlight = vWorldPos - uRoverPos;
+        float dHeadlight = length(toHeadlight);
+        if (dHeadlight > 0.1 && dHeadlight < 65.0) {
+          vec3 headDir = normalize(toHeadlight);
+          float spotDot = dot(headDir, normalize(uRoverDir));
+          if (spotDot > 0.82) {
+            float spotAtten = smoothstep(0.82, 0.94, spotDot) * (1.0 - dHeadlight / 65.0);
+            base += vec3(1.0, 0.96, 0.82) * spotAtten * 0.85;
           }
-          gl_FragColor = vec4(acesFilm(wCol), 0.74);
-          return;
         }
 
         vec3 col = base;
         if (uMode == 0) {
-          // Spectral PBR + SGGX Foliage Sheen + Atmospheric Valley Perspective
+          // Mode 0: Spectral PBR + Split-Sum Specular
           vec3 h = normalize(l + v);
-          float spec = pow(max(dot(n, h), 0.0), 36.0) * (kind > 1.5 && kind < 2.5 ? 0.28 : 0.12);
-          vec3 skyAmb = mix(vec3(0.18, 0.16, 0.14), vec3(0.28, 0.38, 0.50), 0.5 + 0.5 * n.y);
-          vec3 sunRad = vec3(1.48, 1.38, 1.22);
-          vec3 sss = (kind > 1.5 && kind < 2.5)
-            ? base * vec3(0.32, 0.52, 0.18) * pow(max(dot(v, -l), 0.0), 2.0) * 0.45
-            : vec3(0.0);
-          vec3 lit = base * (skyAmb + sunRad * ndl * 0.82) + sunRad * spec + sss;
+          float spec = pow(max(dot(n, h), 0.0), 32.0) * 0.25;
+          vec3 skyAmb = mix(vec3(0.16, 0.18, 0.22), vec3(0.32, 0.44, 0.58), 0.5 + 0.5 * n.y);
+          vec3 sunCol = vec3(1.35, 1.28, 1.15);
+          col = base * (skyAmb + sunCol * ndl * 0.85) + sunCol * spec;
+          // Distance atmospheric haze along 26.5 km corridor
           float dist = length(uCamPos - vWorldPos);
-          float fog = clamp((dist - 1.8) / 5.5, 0.0, 0.55);
-          col = acesFilm(mix(lit, vec3(0.62, 0.76, 0.88), fog));
+          float fog = clamp((dist - 120.0) / 1200.0, 0.0, 0.65);
+          col = mix(col, vec3(0.55, 0.70, 0.85), fog);
+          col = acesFilm(col);
         } else if (uMode == 1) {
-          // Sydney Sandstone Cel-Toon (0x01)
-          float q = ndl > 0.66 ? 1.12 : (ndl > 0.32 ? 0.80 : 0.42);
-          float rim = smoothstep(0.16, 0.26, ndv);
-          col = base * q * (0.2 + 0.8 * rim);
+          // Mode 1: Sydney Sandstone Cel-Toon
+          float q = ndl > 0.65 ? 1.15 : (ndl > 0.30 ? 0.75 : 0.38);
+          float rim = smoothstep(0.18, 0.28, ndv);
+          col = base * q * (0.25 + 0.75 * rim);
         } else if (uMode == 2) {
-          // Noosa Namatjira Watercolor Wash (0x02)
-          float wash = smoothstep(0.08, 0.92, ndl + 0.08 * sin(vWorldPos.x * 10.0) * cos(vWorldPos.z * 10.0));
-          vec3 paper = vec3(0.97, 0.94, 0.87);
-          vec3 pig = mix(base * 0.72 + vec3(0.08, 0.03, 0.0), min(vec3(1.0), base * 1.25 + vec3(0.12, 0.06, 0.02)), wash);
-          float edge = 1.0 - 0.35 * pow(1.0 - ndv, 2.2);
-          col = mix(paper, pig * edge, 0.88);
+          // Mode 2: Namatjira Watercolor Wash
+          float wash = smoothstep(0.08, 0.92, ndl + 0.08 * sin(vWorldPos.x * 0.8) * cos(vWorldPos.z * 0.8));
+          vec3 paper = vec3(0.96, 0.93, 0.86);
+          col = mix(paper, base * (0.65 + 0.55 * wash), 0.90);
         } else if (uMode == 3) {
-          // Three Mile Dam GPR Radar & Trophic HUD (0x03)
-          float grid = step(0.92, fract(vWorldPos.x * 4.0)) + step(0.92, fract(vWorldPos.z * 4.0));
-          float contour = step(0.90, fract(vWorldPos.y * 8.0 - uTime * 0.8));
-          vec3 radar = vec3(0.02, 0.07, 0.14);
-          if (kind > 3.5 && kind < 4.5) {
-            col = vec3(1.0, 0.84, 0.22);
-          } else if (kind > 1.5 && kind < 2.5) {
-            col = mix(radar, vec3(0.12, 0.92, 0.58), 0.35 + 0.45 * ndl + 0.25 * grid);
-          } else {
-            col = mix(radar, vec3(0.05, 0.86, 1.0), clamp(grid * 0.55 + contour * 0.45 + 0.2 * ndl, 0.0, 1.0));
-          }
+          // Mode 3: Three Mile Dam GPR Radar & Trophic HUD
+          float grid = step(0.92, fract(vWorldPos.x * 0.2)) + step(0.92, fract(vWorldPos.z * 0.2));
+          float wave = step(0.88, fract(vWorldPos.y * 0.5 - uTime * 0.6));
+          vec3 radar = vec3(0.03, 0.08, 0.18);
+          col = mix(radar, vec3(0.08, 0.92, 0.65), clamp(grid * 0.4 + wave * 0.5 + 0.3 * ndl, 0.0, 1.0));
         } else {
-          // Jounama Planck Blackbody Thermal IR (0x04)
-          float heat = kind > 3.5 && kind < 4.5 ? 0.96 : (kind > 4.5 ? 0.68 + 0.22 * ndl : (kind > 0.5 ? 0.32 + 0.22 * ndl : 0.20 + 0.36 * ndl));
-          col = ironbow(heat);
+          // Mode 4: Planck Blackbody Thermal IR (FLIR Ironbow 280 K to 310 K)
+          float temp = clamp(0.25 + 0.35 * ndl + (vMeta.x > 3.5 ? 0.45 : 0.0), 0.0, 1.0);
+          col = ironbow(temp);
         }
-        gl_FragColor = vec4(col, 1.0);
+
+        // Luminous Neon Glow on Selected / Hovered Layer Pin
+        if (vHighlight > 0.5) {
+          float pulse = 0.5 + 0.5 * sin(uTime * 8.0);
+          col = mix(col, vec3(0.18, 0.98, 0.85), 0.55 + 0.35 * pulse);
+        }
+
+        fragColor = vec4(col, 1.0);
       }
     `;
 
@@ -1227,18 +1467,26 @@
       const s = gl.createShader(type);
       gl.shaderSource(s, src);
       gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.error("Shader compile error:", gl.getShaderInfoLog(s));
+      }
       return s;
     }
+
     const prog = gl.createProgram();
     gl.attachShader(prog, compileShader(gl.VERTEX_SHADER, vsSrc));
     gl.attachShader(prog, compileShader(gl.FRAGMENT_SHADER, fsSrc));
     gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.error("Program link error:", gl.getProgramInfoLog(prog));
+    }
     gl.useProgram(prog);
 
     const aPos = gl.getAttribLocation(prog, 'aPos');
     const aNorm = gl.getAttribLocation(prog, 'aNorm');
     const aCol = gl.getAttribLocation(prog, 'aCol');
     const aMeta = gl.getAttribLocation(prog, 'aMeta');
+
     const uViewProj = gl.getUniformLocation(prog, 'uViewProj');
     const uCamPos = gl.getUniformLocation(prog, 'uCamPos');
     const uSunDir = gl.getUniformLocation(prog, 'uSunDir');
@@ -1246,325 +1494,833 @@
     const uWaterY = gl.getUniformLocation(prog, 'uWaterY');
     const uTime = gl.getUniformLocation(prog, 'uTime');
     const uOntogenyScale = gl.getUniformLocation(prog, 'uOntogenyScale');
+    const uExplodeSeparation = gl.getUniformLocation(prog, 'uExplodeSeparation');
+    const uAnthesisMorph = gl.getUniformLocation(prog, 'uAnthesisMorph');
+    const uHighlightLayer = gl.getUniformLocation(prog, 'uHighlightLayer');
+    const uClipPlane = gl.getUniformLocation(prog, 'uClipPlane');
     const uMode = gl.getUniformLocation(prog, 'uMode');
+    const uRoverPos = gl.getUniformLocation(prog, 'uRoverPos');
+    const uRoverDir = gl.getUniformLocation(prog, 'uRoverDir');
 
     const vbo = gl.createBuffer();
     const ibo = gl.createBuffer();
-    const waterVbo = gl.createBuffer();
-    const waterIbo = gl.createBuffer();
-    let opaqueIndexCount = 0;
-    let waterIndexCount = 0;
+    let indexCount = 0;
 
-    function buildSectorGeometry(sec) {
-      const verts = [];
-      const indices = [];
-      let vCount = 0;
+    // -------------------------------------------------------------------------
+    // 5. MESH BUILDERS: 26.5 KM WORLD HIGHWAY & 5 DISSECTION LAB SCALES
+    // -------------------------------------------------------------------------
+    const verts = [];
+    const indices = [];
+    let vCount = 0;
 
-      function pushV(x, y, z, nx, ny, nz, r, g, b, kind, seed) {
-        verts.push(x, y, z, nx, ny, nz, r, g, b, 1.0, kind, seed);
-        return vCount++;
-      }
-      function pushTri(a, b, c) {
-        indices.push(a, b, c);
-      }
-      function addBoxOrPrism(cx, cy, cz, rx, ry, rz, yaw, colB, colT, kind, seed, sides = 8) {
-        const base = vCount;
-        const cyaw = Math.cos(yaw), syaw = Math.sin(yaw);
-        for (let ring = 0; ring <= 2; ring++) {
-          const ty = ring / 2.0;
-          const y = cy + (ty - 0.35) * ry * 1.7;
-          const prof = ring === 1 ? 1.05 : (ring === 0 ? 0.85 : 0.72);
-          const col = [
-            colB[0] * (1 - ty) + colT[0] * ty,
-            colB[1] * (1 - ty) + colT[1] * ty,
-            colB[2] * (1 - ty) + colT[2] * ty
-          ];
-          for (let s = 0; s < sides; s++) {
-            const ang = (s / sides) * Math.PI * 2.0;
-            const lx = Math.cos(ang) * rx * prof * (0.92 + 0.16 * hash21(s + seed, ring));
-            const lz = Math.sin(ang) * rz * prof * (0.92 + 0.16 * hash21(ring, s + seed));
-            const wx = cx + lx * cyaw - lz * syaw;
-            const wz = cz + lx * syaw + lz * cyaw;
-            const nx = wx - cx, ny = (ty - 0.35) * 0.8, nz = wz - cz;
-            const nl = Math.hypot(nx, ny, nz) || 1;
-            pushV(wx, y, wz, nx / nl, ny / nl, nz / nl, col[0], col[1], col[2], kind, seed);
-          }
-        }
-        const topCenter = pushV(cx, cy + ry * 1.15, cz, 0, 1, 0, colT[0], colT[1], colT[2], kind, seed);
-        for (let ring = 0; ring < 2; ring++) {
-          for (let s = 0; s < sides; s++) {
-            const s1 = (s + 1) % sides;
-            const a = base + ring * sides + s;
-            const b = base + ring * sides + s1;
-            const c = base + (ring + 1) * sides + s;
-            const d = base + (ring + 1) * sides + s1;
-            pushTri(a, c, d);
-            pushTri(a, d, b);
-          }
-        }
-        for (let s = 0; s < sides; s++) {
-          const s1 = (s + 1) % sides;
-          pushTri(base + 2 * sides + s, topCenter, base + 2 * sides + s1);
-        }
-      }
+    function resetMesh() {
+      verts.length = 0;
+      indices.length = 0;
+      vCount = 0;
+    }
+    function pushV(x, y, z, nx, ny, nz, r, g, b, kind, layer) {
+      verts.push(x, y, z, nx, ny, nz, r, g, b, 1.0, kind, layer);
+      return vCount++;
+    }
+    function pushTri(a, b, c) {
+      indices.push(a, b, c);
+    }
+    function addCylinder(p0, p1, r0, r1, colB, colT, kind, layer, sides = 8) {
+      const base = vCount;
+      const dx = p1[0] - p0[0], dy = p1[1] - p0[1], dz = p1[2] - p0[2];
+      const len = Math.hypot(dx, dy, dz) || 1;
+      const ax = dx / len, ay = dy / len, az = dz / len;
 
-      function addTube(pts, radii, colB, colT, kind, seed, sides = 6) {
-        const base = vCount;
-        for (let i = 0; i < pts.length; i++) {
-          const p = pts[i];
-          const r = radii[i];
-          const t = i / Math.max(1, pts.length - 1);
-          const col = [
-            colB[0] * (1 - t) + colT[0] * t,
-            colB[1] * (1 - t) + colT[1] * t,
-            colB[2] * (1 - t) + colT[2] * t
-          ];
-          for (let s = 0; s < sides; s++) {
-            const ang = (s / sides) * Math.PI * 2;
-            const nx = Math.cos(ang), nz = Math.sin(ang);
-            pushV(p[0] + nx * r, p[1], p[2] + nz * r, nx, 0.25, nz, col[0], col[1], col[2], kind, seed);
-          }
-        }
-        for (let i = 0; i < pts.length - 1; i++) {
-          for (let s = 0; s < sides; s++) {
-            const s1 = (s + 1) % sides;
-            const a = base + i * sides + s;
-            const b = base + i * sides + s1;
-            const c = base + (i + 1) * sides + s;
-            const d = base + (i + 1) * sides + s1;
-            pushTri(a, c, d);
-            pushTri(a, d, b);
-          }
-        }
-      }
+      let upX = 0, upY = 1, upZ = 0;
+      if (Math.abs(ay) > 0.9) { upX = 1; upY = 0; upZ = 0; }
+      let rx = ay * upZ - az * upY, ry = az * upX - ax * upZ, rz = ax * upY - ay * upX;
+      let rl = Math.hypot(rx, ry, rz) || 1;
+      rx /= rl; ry /= rl; rz /= rl;
+      let ux = ry * az - rz * ay, uy = rz * ax - rx * az, uz = rx * ay - ry * ax;
 
-      // 1. High-Resolution Terrain Continuum Grid (96x96)
+      for (let s = 0; s < sides; s++) {
+        const ang = (s / sides) * Math.PI * 2;
+        const c = Math.cos(ang), sn = Math.sin(ang);
+        const nx = rx * c + ux * sn, ny = ry * c + uy * sn, nz = rz * c + uz * sn;
+        pushV(p0[0] + nx * r0, p0[1] + ny * r0, p0[2] + nz * r0, nx, ny, nz, colB[0], colB[1], colB[2], kind, layer);
+        pushV(p1[0] + nx * r1, p1[1] + ny * r1, p1[2] + nz * r1, nx, ny, nz, colT[0], colT[1], colT[2], kind, layer);
+      }
+      for (let s = 0; s < sides; s++) {
+        const s1 = (s + 1) % sides;
+        const a0 = base + s * 2, a1 = base + s * 2 + 1;
+        const b0 = base + s1 * 2, b1 = base + s1 * 2 + 1;
+        pushTri(a0, b0, b1);
+        pushTri(a0, b1, a1);
+      }
+    }
+
+    function addBox(cx, cy, cz, rx, ry, rz, col, kind, layer) {
+      const b = vCount;
+      const d = [
+        [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
+        [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]
+      ];
+      for (let i = 0; i < 8; i++) {
+        pushV(cx + d[i][0] * rx, cy + d[i][1] * ry, cz + d[i][2] * rz, d[i][0] * 0.57, d[i][1] * 0.57, d[i][2] * 0.57, col[0], col[1], col[2], kind, layer);
+      }
+      const faces = [
+        [0, 2, 1], [0, 3, 2], [4, 5, 6], [4, 6, 7],
+        [0, 1, 5], [0, 5, 4], [2, 3, 7], [2, 7, 6],
+        [0, 4, 7], [0, 7, 3], [1, 2, 6], [1, 6, 5]
+      ];
+      for (const f of faces) pushTri(b + f[0], b + f[1], b + f[2]);
+    }
+
+    // -------------------------------------------------------------------------
+    // 5A. BUILD EXPERIENCE 1: 26.5 KM WORLD HIGHWAY CORRIDOR
+    // -------------------------------------------------------------------------
+    function buildWorldGeometry(centerZ = 0) {
+      resetMesh();
+
+      // 1. Local Terrain Grid around Rover/Walker (128x128 spanning 420m x 420m)
       const gridN = 96;
-      const extent = 1.95;
-      const zMax = sec.cutaway ? 0.55 : extent;
-      const gridStart = vCount;
+      const extentX = 140.0;
+      const extentZ = 220.0;
+      const startV = vCount;
+
       for (let gz = 0; gz <= gridN; gz++) {
         for (let gx = 0; gx <= gridN; gx++) {
           const u = gx / gridN;
           const v = gz / gridN;
-          const x = (u * 2.0 - 1.0) * extent;
-          const z = -extent + v * (zMax + extent);
-          const y = sampleElevation(sec, x, z);
-          const eps = 0.022;
-          const yx = sampleElevation(sec, x + eps, z) - sampleElevation(sec, x - eps, z);
-          const yz = sampleElevation(sec, x, z + eps) - sampleElevation(sec, x, z - eps);
+          const x = (u * 2.0 - 1.0) * extentX;
+          const z = centerZ + (v * 2.0 - 1.0) * extentZ;
+          const y = worldElevation(x, z);
+
+          // Normal estimation via central differences
+          const eps = 0.8;
+          const yx = worldElevation(x + eps, z) - worldElevation(x - eps, z);
+          const yz = worldElevation(x, z + eps) - worldElevation(x, z - eps);
           const nl = Math.hypot(-yx, 2 * eps, -yz) || 1;
           const nx = -yx / nl, ny = (2 * eps) / nl, nz = -yz / nl;
-          const slope = 1.0 - ny;
-          const distW = y - sec.waterY;
-          const org = 0.90 + 0.10 * Math.sin(x * 7.3 + z * 5.1) * Math.cos(x * 4.1 - z * 8.7);
-          let r, g, b;
-          if (distW < -0.02) {
-            const p = 0.85 + 0.15 * hash21(x * 19, z * 19);
-            r = 0.44 * p; g = 0.42 * p; b = 0.34 * p;
-          } else if (distW < 0.055) {
-            const s = 0.90 + 0.10 * hash21(x * 23, z * 23);
-            r = 0.72 * s; g = 0.62 * s; b = 0.46 * s;
-          } else if (slope > 0.30) {
-            if (sec.id === 'sydney_sandstone') { r = 0.72 * org; g = 0.54 * org; b = 0.36 * org; }
-            else if (sec.id === 'yarrangobilly' || sec.id === 'jounama_karst') { r = 0.60 * org; g = 0.62 * org; b = 0.65 * org; }
-            else { r = 0.54 * org; g = 0.51 * org; b = 0.47 * org; }
-          } else {
-            const m = Math.exp(-Math.pow(distW / 0.28, 2));
-            r = (0.30 * (1 - m) + 0.21 * m) * org;
-            g = (0.40 * (1 - m) + 0.46 * m) * org;
-            b = (0.20 * (1 - m) + 0.18 * m) * org;
+
+          // Road alignment & coloring
+          const rd = roadCenter(z);
+          const distRoad = Math.abs(x - rd.x);
+          let col = [0.28, 0.38, 0.24]; // Bush eucalyptus olive
+          let kind = 0.0;
+
+          if (distRoad < 3.6) {
+            // Asphalt road deck
+            col = [0.18, 0.18, 0.20];
+            // Centerline yellow dash
+            if (distRoad < 0.22 && Math.sin(z * 0.8) > 0.0) {
+              col = [0.95, 0.82, 0.16];
+            }
+          } else if (distRoad < 4.8) {
+            // White shoulder edge lines
+            col = [0.85, 0.85, 0.82];
+          } else if (distRoad < 7.5) {
+            // Crushed gravel road shoulder
+            col = [0.55, 0.50, 0.44];
+          } else if (ny < 0.72) {
+            // Steep rock cutting / cliff
+            col = z > 1900 ? [0.72, 0.54, 0.38] : (z > 800 ? [0.60, 0.62, 0.65] : [0.50, 0.46, 0.42]);
           }
-          pushV(x, y, z, nx, ny, nz, r, g, b, 0.0, 0.0);
+
+          pushV(x, y, z, nx, ny, nz, col[0], col[1], col[2], kind, 0.0);
         }
       }
+
       for (let gz = 0; gz < gridN; gz++) {
         for (let gx = 0; gx < gridN; gx++) {
-          const i00 = gridStart + gz * (gridN + 1) + gx;
+          const i00 = startV + gz * (gridN + 1) + gx;
           const i10 = i00 + 1;
-          const i01 = gridStart + (gz + 1) * (gridN + 1) + gx;
+          const i01 = startV + (gz + 1) * (gridN + 1) + gx;
           const i11 = i01 + 1;
           pushTri(i00, i01, i11);
           pushTri(i00, i11, i10);
         }
       }
 
-      // 6-Layer CSIRO SLGA Soil Cutaway Wall (for Sector 02 Yarrangobilly)
-      if (sec.cutaway) {
-        const strataCols = [
-          [0.20, 0.16, 0.12],
-          [0.38, 0.27, 0.18],
-          [0.78, 0.70, 0.54],
-          [0.82, 0.34, 0.16],
-          [0.64, 0.56, 0.40],
-          [0.46, 0.50, 0.58]
-        ];
-        const baseY = -0.96;
-        for (let gx = 0; gx < gridN; gx++) {
-          const u0 = gx / gridN, u1 = (gx + 1) / gridN;
-          const x0 = (u0 * 2 - 1) * extent, x1 = (u1 * 2 - 1) * extent;
-          const top0 = sampleElevation(sec, x0, zMax), top1 = sampleElevation(sec, x1, zMax);
-          for (let l = 0; l < 6; l++) {
-            const f0 = l / 6, f1 = (l + 1) / 6;
-            const y0a = top0 * (1 - f0) + baseY * f0, y0b = top0 * (1 - f1) + baseY * f1;
-            const y1a = top1 * (1 - f0) + baseY * f0, y1b = top1 * (1 - f1) + baseY * f1;
-            const za = zMax + l * 0.012, zb = zMax + (l + 1) * 0.012;
-            const c = strataCols[l];
-            const v0 = pushV(x0, y0a, za, 0, 0.22, 0.97, c[0], c[1], c[2], 0.0, 1.0);
-            const v1 = pushV(x1, y1a, za, 0, 0.22, 0.97, c[0], c[1], c[2], 0.0, 1.0);
-            const v2 = pushV(x1, y1b, zb, 0, 0.22, 0.97, c[0], c[1], c[2], 0.0, 1.0);
-            const v3 = pushV(x0, y0b, zb, 0, 0.22, 0.97, c[0], c[1], c[2], 0.0, 1.0);
-            pushTri(v0, v3, v2);
-            pushTri(v0, v2, v1);
-          }
-        }
-      }
-
-      // 2. Riverbed Pebbles & Hillside Granite/Sandstone/Karst Boulders
-      for (let i = 0; i < 140; i++) {
-        const z = -1.75 + (i / 140) * 3.4;
-        if (z > zMax) continue;
-        const mx = 0.28 * Math.sin(z * 1.35 + sec.seed) + 0.11 * Math.cos(z * 2.7 - sec.seed * 0.6);
-        const x = mx + (hash21(i * 3.7, 9.1) - 0.5) * 0.68;
-        const y = sampleElevation(sec, x, z);
-        const r = 0.014 + 0.022 * hash21(i * 7.3, 2.1);
-        addBoxOrPrism(x, y + r * 0.2, z, r * 1.3, r * 0.6, r * 1.1, i * 1.7, [0.42, 0.40, 0.36], [0.68, 0.64, 0.56], 5.0, i, 6);
-      }
-      for (let i = 0; i < 48; i++) {
-        const side = i % 2 === 0 ? 1 : -1;
-        const z = -1.65 + (i / 48) * 3.2;
-        if (z > zMax - 0.1) continue;
-        const x = side * (0.55 + 1.15 * hash21(i * 5.3, 1.7));
-        const y = sampleElevation(sec, x, z);
-        const rx = 0.045 + 0.075 * hash21(i * 2.9, 8.4);
-        const ry = rx * (0.65 + 0.55 * hash21(i * 4.1, 3.3));
-        const colB = sec.id === 'sydney_sandstone' ? [0.54, 0.40, 0.26] : [0.42, 0.41, 0.39];
-        const colT = sec.id === 'sydney_sandstone' ? [0.78, 0.62, 0.44] : [0.66, 0.65, 0.62];
-        addBoxOrPrism(x, y + ry * 0.25, z, rx, ry, rx * 0.88, i * 0.9, colB, colT, 5.0, i + 100, 9);
-      }
-
-      // 3. Multi-Species Australian Canopy Trees (Ghost Gum, Snow Gum, Golden Wattle, Waratah) & Tree Ferns
-      const oScale = ONTOGENY_STAGES[ontogenyStageIdx].scale;
-      for (let i = 0; i < 60; i++) {
-        const side = i % 2 === 0 ? 1 : -1;
-        const z = -1.70 + (i / 60) * 3.35;
-        if (z > zMax - 0.12) continue;
-        const mx = 0.28 * Math.sin(z * 1.35 + sec.seed) + 0.11 * Math.cos(z * 2.7 - sec.seed * 0.6);
-        const x = Math.max(-1.82, Math.min(1.82, mx + side * (0.58 + 1.18 * hash21(i * 6.1, 4.2))));
-        const y = Math.max(sec.waterY + 0.06, sampleElevation(sec, x, z));
-        const h = (0.26 + 0.24 * hash21(i * 9.7, 1.3)) * oScale;
-
-        let barkB = [0.78, 0.74, 0.68], barkT = [0.94, 0.92, 0.88];
-        let leafD = [0.16, 0.38, 0.20], leafL = [0.36, 0.62, 0.30];
-        if (i % 5 === 1) {
-          barkB = [0.32, 0.25, 0.18]; barkT = [0.44, 0.36, 0.26];
-          leafD = [0.24, 0.46, 0.18]; leafL = [0.92, 0.78, 0.16]; // Golden Wattle
-        } else if (i % 5 === 3) {
-          barkB = [0.30, 0.22, 0.18]; barkT = [0.42, 0.32, 0.26];
-          leafD = [0.20, 0.40, 0.18]; leafL = [0.84, 0.24, 0.18]; // Waratah / Banksia
-        }
-
-        const bx = h * 0.16 * Math.sin(i * 1.7), bz = h * 0.14 * Math.cos(i * 1.7);
-        const r0 = Math.max(0.012, h * 0.065);
-        addTube(
-          [[x, y - 0.01, z], [x + bx * 0.4, y + h * 0.3, z + bz * 0.4], [x + bx, y + h * 0.72, z + bz]],
-          [r0 * 1.3, r0 * 0.85, r0 * 0.42],
-          barkB, barkT, 1.0, i, 7
-        );
-
-        // 4 spreading boughs + layered Cescatti canopy + falcate leaf blades
-        for (let b = 0; b < 4; b++) {
-          const ang = (b / 4) * Math.PI * 2 + i * 1.1;
-          const reach = h * 0.36;
-          const tx = x + bx + Math.cos(ang) * reach;
-          const ty = y + h * (0.86 + 0.06 * Math.cos(b));
-          const tz = z + bz + Math.sin(ang) * reach;
-          addTube([[x + bx * 0.8, y + h * 0.58, z + bz * 0.8], [tx, ty, tz]], [r0 * 0.42, r0 * 0.14], barkT, barkT, 1.0, i + b, 5);
-          addBoxOrPrism(tx, ty, tz, h * 0.22, h * 0.13, h * 0.21, ang, leafD, leafL, 2.0, i + b * 3.1, 9);
-        }
-        addBoxOrPrism(x + bx, y + h * 0.96, z + bz, h * 0.26, h * 0.15, h * 0.25, i, leafD, leafL, 2.0, i + 9.4, 10);
-      }
-
-      // 4. Articulated 3D Australian Fauna (Eastern Grey Kangaroos, Wombats, Wedge-Tailed Eagle, Cockatoo)
-      const kangaroos = [
-        [0.72, 0.16, -2.15],
-        [0.84, -0.18, -1.85],
-        [-0.62, 0.35, 0.85]
-      ];
-      for (let k = 0; k < kangaroos.length; k++) {
-        const [kx, kz, kyaw] = kangaroos[k];
-        if (kz > zMax - 0.1) continue;
-        const ky = Math.max(sec.waterY + 0.08, sampleElevation(sec, kx, kz));
-        const cy = Math.cos(kyaw), sy = Math.sin(kyaw);
-        const s = 0.22;
-        const tw = (lx, ly, lz) => [kx + (lx * cy - lz * sy) * s, ky + ly * s, kz + (lx * sy + lz * cy) * s];
-        addTube(
-          [tw(0, 0.04, -0.95), tw(0, 0.14, -0.48), tw(0, 0.40, -0.16), tw(0, 0.70, 0.12), tw(0, 0.98, 0.28), tw(0, 1.00, 0.46)],
-          [0.008, 0.018, 0.046, 0.034, 0.022, 0.012],
-          [0.42, 0.35, 0.28], [0.68, 0.58, 0.46], 4.0, k * 2.1, 8
-        );
+      // 2. Roadside White Guideposts with Red/White Retroreflectors every 24m
+      const stepZ = 24.0;
+      const startPostZ = Math.floor((centerZ - extentZ) / stepZ) * stepZ;
+      for (let z = startPostZ; z <= centerZ + extentZ; z += stepZ) {
+        const rd = roadCenter(z);
         for (const side of [-1, 1]) {
-          addTube([tw(side * 0.14, 0.38, -0.14), tw(side * 0.15, 0.16, -0.24), tw(side * 0.14, 0.02, 0.08)], [0.022, 0.013, 0.010], [0.40, 0.33, 0.26], [0.64, 0.54, 0.42], 4.0, k * 2.1, 6);
-          addTube([tw(side * 0.06, 1.02, 0.24), tw(side * 0.11, 1.24, 0.22)], [0.008, 0.004], [0.40, 0.33, 0.26], [0.68, 0.58, 0.46], 4.0, k * 2.1, 5);
+          const px = rd.x + side * 5.2;
+          const py = worldElevation(px, z);
+          addBox(px, py + 0.45, z, 0.06, 0.45, 0.06, [0.92, 0.92, 0.90], 0.0, 0.0);
+          // Reflector patch
+          const refCol = side > 0 ? [0.85, 0.22, 0.18] : [0.92, 0.92, 0.92];
+          addBox(px, py + 0.75, z + 0.04 * side, 0.04, 0.08, 0.02, refCol, 0.0, 0.0);
         }
       }
 
-      // Soaring Wedge-Tailed Eagle & Sulphur-Crested Cockatoo
-      const raptors = [
-        [-0.25, 0.58, -0.15, 0.55, 0.20, [0.24, 0.17, 0.12], [0.48, 0.35, 0.24]],
-        [0.32, 0.48, 0.25, -0.75, 0.14, [0.88, 0.88, 0.84], [0.98, 0.96, 0.62]]
+      // 3. Multi-Order Australian Canopy Trees along the Corridor
+      for (let i = 0; i < 48; i++) {
+        const tz = centerZ - extentZ + (i / 48) * extentZ * 2.0;
+        const rd = roadCenter(tz);
+        const side = i % 2 === 0 ? 1 : -1;
+        const tx = rd.x + side * (8.5 + (i * 7.3) % 45.0);
+        const ty = worldElevation(tx, tz);
+        const h = 9.0 + (i * 3.7) % 18.0;
+
+        // Bole trunk
+        addCylinder([tx, ty - 0.2, tz], [tx, ty + h * 0.65, tz], 0.45, 0.22, [0.75, 0.72, 0.68], [0.92, 0.90, 0.86], 1.0, 1.0, 6);
+        // Canopy foliage puff
+        addBox(tx, ty + h * 0.85, tz, h * 0.32, h * 0.22, h * 0.30, [0.22, 0.42, 0.22], 2.0, 1.0);
+      }
+
+      // 4. Articulated 3D Australian Fauna along Verges
+      // Kangaroo mob hopping near Humes Crossing / O'Hares
+      for (let k = 0; k < 3; k++) {
+        const kz = centerZ - 25.0 + k * 18.0;
+        const krd = roadCenter(kz);
+        const kx = krd.x + 8.5 + k * 4.2;
+        const ky = worldElevation(kx, kz);
+        addCylinder([kx, ky, kz], [kx, ky + 1.1, kz + 0.2], 0.25, 0.15, [0.44, 0.38, 0.30], [0.65, 0.58, 0.48], 5.0, 0.0, 6);
+        addCylinder([kx, ky + 1.1, kz + 0.2], [kx, ky + 1.6, kz + 0.4], 0.12, 0.08, [0.55, 0.48, 0.40], [0.68, 0.60, 0.50], 5.0, 0.0, 6);
+        // Tail
+        addCylinder([kx, ky + 0.3, kz], [kx, ky + 0.1, kz - 1.2], 0.12, 0.04, [0.44, 0.38, 0.30], [0.60, 0.52, 0.42], 5.0, 0.0, 5);
+      }
+
+      uploadBuffers();
+    }
+
+    // -------------------------------------------------------------------------
+    // 5B. BUILD EXPERIENCE 2: 5 BOTANICAL & BIOLOGICAL LAB SCALES
+    // -------------------------------------------------------------------------
+    function buildLabScale1() {
+      // Scale 1: Whole Organism & Subterranean Root System (10m–35m)
+      resetMesh();
+
+      // Trunk bole (Order 1)
+      addCylinder([0, 0, 0], [0, 4.2, 0], 0.65, 0.42, [0.78, 0.74, 0.68], [0.92, 0.90, 0.86], 1.0, 2.0, 10);
+      // Scaffold limbs (Order 2)
+      addCylinder([0, 4.2, 0], [-1.8, 7.5, 0.8], 0.42, 0.25, [0.90, 0.88, 0.84], [0.88, 0.85, 0.82], 1.0, 1.0, 8);
+      addCylinder([0, 4.2, 0], [1.9, 7.8, -0.6], 0.40, 0.24, [0.90, 0.88, 0.84], [0.88, 0.85, 0.82], 1.0, 1.0, 8);
+      // Secondary boughs (Order 3)
+      addCylinder([-1.8, 7.5, 0.8], [-3.2, 10.2, 1.5], 0.25, 0.14, [0.85, 0.82, 0.78], [0.85, 0.82, 0.78], 1.0, 1.0, 6);
+      addCylinder([1.9, 7.8, -0.6], [3.4, 10.5, -1.2], 0.24, 0.13, [0.85, 0.82, 0.78], [0.85, 0.82, 0.78], 1.0, 1.0, 6);
+      // Canopy falcate foliage
+      addBox(-3.2, 10.8, 1.5, 2.1, 1.3, 2.0, [0.22, 0.46, 0.24], 2.0, 0.0);
+      addBox(3.4, 11.2, -1.2, 2.2, 1.4, 2.1, [0.24, 0.48, 0.26], 2.0, 0.0);
+      addBox(0, 11.5, 0, 2.4, 1.5, 2.2, [0.25, 0.50, 0.28], 2.0, 0.0);
+
+      // Subterranean Root System (below Y = 0)
+      // Swollen Lignotuber
+      addBox(0, -0.45, 0, 1.15, 0.55, 1.10, [0.52, 0.34, 0.22], 1.0, 3.0);
+      // Primary Taproot
+      addCylinder([0, -0.8, 0], [0, -4.5, 0], 0.48, 0.08, [0.45, 0.30, 0.18], [0.38, 0.25, 0.15], 1.0, 4.0, 8);
+      // 4 Lateral Buttress Roots
+      addCylinder([0, -0.3, 0], [-2.8, -1.2, 1.8], 0.35, 0.06, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
+      addCylinder([0, -0.3, 0], [2.9, -1.3, -1.6], 0.34, 0.06, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
+      addCylinder([0, -0.3, 0], [1.8, -1.4, 2.7], 0.32, 0.05, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
+      addCylinder([0, -0.3, 0], [-2.1, -1.4, -2.5], 0.33, 0.05, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
+      // Mycorrhizal feeder root filaments
+      for (let m = 0; m < 16; m++) {
+        const ang = (m / 16) * Math.PI * 2;
+        const mx = Math.cos(ang) * 2.4, mz = Math.sin(ang) * 2.4;
+        addCylinder([mx, -1.4, mz], [mx * 1.5, -2.6, mz * 1.5], 0.06, 0.015, [0.92, 0.88, 0.70], [0.98, 0.95, 0.78], 1.0, 6.0, 4);
+      }
+
+      uploadBuffers();
+    }
+
+    function buildLabScale2() {
+      // Scale 2: Branch Phyllotaxis & 6-Layer Stem/Bark Wedge (50mm–2m)
+      resetMesh();
+
+      // 6 Concentric Concentric Tissue Cylinders (wedged cutaway)
+      const layers = [
+        { r0: 0.92, r1: 1.00, col: [0.92, 0.90, 0.85], kind: 1.0, id: 0 }, // L1 Rhytidome
+        { r0: 0.85, r1: 0.92, col: [0.22, 0.58, 0.26], kind: 1.0, id: 1 }, // L2 Phellogen
+        { r0: 0.72, r1: 0.85, col: [0.78, 0.20, 0.16], kind: 1.0, id: 2 }, // L3 Phloem & Kino
+        { r0: 0.69, r1: 0.72, col: [0.20, 0.92, 0.75], kind: 1.0, id: 3 }, // L4 Vascular Cambium
+        { r0: 0.38, r1: 0.69, col: [0.92, 0.80, 0.42], kind: 1.0, id: 4 }, // L5 Sapwood
+        { r0: 0.00, r1: 0.38, col: [0.55, 0.28, 0.12], kind: 1.0, id: 5 }  // L6 Heartwood & Pith
       ];
-      for (let r = 0; r < raptors.length; r++) {
-        const [rx, ry, rz, ryaw, rs, cd, cl] = raptors[r];
-        addBoxOrPrism(rx, ry, rz, rs * 1.15, rs * 0.08, rs * 0.32, ryaw, cd, cl, 4.0, r * 3.3, 6);
+
+      const h = 2.4;
+      const sides = 24;
+      for (const lyr of layers) {
+        // Render 270 degree wedge
+        const base = vCount;
+        for (let s = 0; s <= 18; s++) {
+          const ang = (s / sides) * Math.PI * 2;
+          const c = Math.cos(ang), sn = Math.sin(ang);
+          pushV(c * lyr.r1, -h * 0.5, sn * lyr.r1, c, 0, sn, lyr.col[0], lyr.col[1], lyr.col[2], lyr.kind, lyr.id);
+          pushV(c * lyr.r1, h * 0.5, sn * lyr.r1, c, 0, sn, lyr.col[0], lyr.col[1], lyr.col[2], lyr.kind, lyr.id);
+        }
+        for (let s = 0; s < 18; s++) {
+          const a0 = base + s * 2, a1 = base + s * 2 + 1;
+          const b0 = base + (s + 1) * 2, b1 = base + (s + 1) * 2 + 1;
+          pushTri(a0, b0, b1);
+          pushTri(a0, b1, a1);
+        }
       }
 
-      // Dynamic Stress-Cleavage Boulders (if spawned by user)
-      for (let b = 0; b < dynamicBoulders.length; b++) {
-        const db = dynamicBoulders[b];
-        addBoxOrPrism(db.x, db.y, db.z, db.r, db.r * 0.8, db.r * 0.9, db.yaw, [0.72, 0.42, 0.24], [0.94, 0.68, 0.38], 5.0, b + 50, 8);
+      // Heteroblastic leaves extending from branch
+      // Juvenile opposite leaves
+      addBox(-1.3, -0.6, 0.4, 0.45, 0.02, 0.35, [0.58, 0.75, 0.72], 2.0, 1.0);
+      addBox(1.3, -0.6, -0.4, 0.45, 0.02, 0.35, [0.58, 0.75, 0.72], 2.0, 1.0);
+      // Adult alternate falcate leaves
+      addBox(-1.6, 0.7, -0.8, 0.75, 0.02, 0.24, [0.22, 0.48, 0.25], 2.0, 0.0);
+      addBox(1.7, 0.9, 0.7, 0.75, 0.02, 0.24, [0.22, 0.48, 0.25], 2.0, 0.0);
+
+      uploadBuffers();
+    }
+
+    function buildLabScale3() {
+      // Scale 3: Floral Bud Anthesis & Gumnut Dissection (5mm–150mm)
+      resetMesh();
+
+      // Pedicel & Hypanthium cup
+      addCylinder([0, -1.8, 0], [0, -0.4, 0], 0.14, 0.28, [0.32, 0.55, 0.28], [0.38, 0.62, 0.32], 3.0, 0.0, 12);
+      addCylinder([0, -0.4, 0], [0, 0.6, 0], 0.28, 0.85, [0.38, 0.62, 0.32], [0.44, 0.68, 0.36], 3.0, 0.0, 16);
+
+      // Inferior Ovary Cutaway (4 Locules + fertile Ovules)
+      addBox(0, 0.0, 0, 0.52, 0.45, 0.52, [0.88, 0.32, 0.54], 3.0, 5.0);
+      for (let o = 0; o < 8; o++) {
+        const ang = (o / 8) * Math.PI * 2;
+        addBox(Math.cos(ang) * 0.28, 0.05, Math.sin(ang) * 0.28, 0.06, 0.06, 0.06, [0.98, 0.98, 0.95], 3.0, 5.0);
       }
 
+      // Operculum (Calyptriform Cap)
+      addCylinder([0, 0.6, 0], [0, 1.5, 0], 0.85, 0.05, [0.82, 0.65, 0.24], [0.90, 0.72, 0.28], 3.0, 1.0, 16);
+
+      // Staminal Ring & Anthers (Multi-Whorled Filaments)
+      for (let w = 0; w < 32; w++) {
+        const ang = (w / 32) * Math.PI * 2;
+        const fx = Math.cos(ang) * 0.78, fz = Math.sin(ang) * 0.78;
+        addCylinder([fx * 0.9, 0.55, fz * 0.9], [fx * 1.5, 1.1 + (w % 4) * 0.12, fz * 1.5], 0.02, 0.015, [0.95, 0.92, 0.75], [0.98, 0.96, 0.82], 3.0, 2.0, 4);
+        // Bilobed Anther
+        addBox(fx * 1.5, 1.15 + (w % 4) * 0.12, fz * 1.5, 0.05, 0.04, 0.04, [0.98, 0.82, 0.15], 3.0, 3.0);
+      }
+
+      // Central Gynoecium (Style & Capitate Stigma)
+      addCylinder([0, 0.5, 0], [0, 1.45, 0], 0.06, 0.05, [0.28, 0.82, 0.65], [0.32, 0.88, 0.70], 3.0, 4.0, 6);
+      addBox(0, 1.48, 0, 0.11, 0.08, 0.11, [0.95, 0.88, 0.25], 3.0, 4.0);
+
+      // Paired Mature Woody Gumnut Capsule
+      const gx = 2.4;
+      addCylinder([gx, -1.2, 0], [gx, 0.4, 0], 0.35, 0.75, [0.48, 0.32, 0.16], [0.55, 0.38, 0.20], 3.0, 6.0, 12);
+      // 4 Dehisced Valves
+      for (let v = 0; v < 4; v++) {
+        const ang = (v / 4) * Math.PI * 2 + 0.35;
+        addBox(gx + Math.cos(ang) * 0.42, 0.45, Math.sin(ang) * 0.42, 0.14, 0.18, 0.06, [0.38, 0.22, 0.10], 3.0, 6.0);
+      }
+
+      uploadBuffers();
+    }
+
+    function buildLabScale4() {
+      // Scale 4: Foliar Murray's Law Venation & Cellular Block (50µm–50mm)
+      resetMesh();
+
+      // 3D Cellular Histology Block (100 µm slice)
+      const layers = [
+        { y0: 1.15, y1: 1.25, col: [0.65, 0.82, 0.95], name: 'Cuticle', id: 1 },
+        { y0: 0.95, y1: 1.15, col: [0.45, 0.78, 0.55], name: 'Upper Epidermis', id: 2 },
+        { y0: 0.45, y1: 0.95, col: [0.18, 0.55, 0.22], name: 'Isobilateral Palisade', id: 3 },
+        { y0: -0.45, y1: 0.45, col: [0.22, 0.62, 0.28], name: 'Spongy Mesophyll', id: 3 },
+        { y0: -0.95, y1: -0.45, col: [0.18, 0.55, 0.22], name: 'Abaxial Palisade', id: 3 },
+        { y0: -1.15, y1: -0.95, col: [0.45, 0.78, 0.55], name: 'Lower Epidermis', id: 2 },
+        { y0: -1.25, y1: -1.15, col: [0.65, 0.82, 0.95], name: 'Abaxial Cuticle', id: 1 }
+      ];
+
+      for (const lyr of layers) {
+        addBox(0, (lyr.y0 + lyr.y1) * 0.5, 0, 2.2, (lyr.y1 - lyr.y0) * 0.5, 1.4, lyr.col, 4.0, lyr.id);
+      }
+
+      // Sunken Stomatal Complexes (Upper & Lower Guard Cells + Vapour Cavity)
+      for (const sy of [1.05, -1.05]) {
+        addBox(0.85, sy, 0.4, 0.22, 0.08, 0.12, [0.15, 0.85, 0.45], 4.0, 2.0); // Guard Cell A
+        addBox(0.85, sy, 0.7, 0.22, 0.08, 0.12, [0.15, 0.85, 0.45], 4.0, 2.0); // Guard Cell B
+        addBox(0.85, sy * 0.7, 0.55, 0.28, 0.18, 0.25, [0.08, 0.22, 0.32], 4.0, 2.0); // Substomatal Vapour Cavity
+      }
+
+      // Collateral Vascular Bundle (Adaxial Xylem + Abaxial Phloem + Sclerenchyma Girder)
+      addCylinder([0, 0.25, 0], [0, -0.25, 0], 0.45, 0.45, [0.92, 0.75, 0.25], [0.92, 0.75, 0.25], 4.0, 4.0, 8);
+      // Xylem vessels (spiral lignin rings)
+      addCylinder([-0.18, 0.15, 0], [-0.18, -0.15, 0], 0.14, 0.14, [0.98, 0.88, 0.35], [0.98, 0.88, 0.35], 4.0, 4.0, 6);
+      addCylinder([0.18, 0.15, 0], [0.18, -0.15, 0], 0.14, 0.14, [0.98, 0.88, 0.35], [0.98, 0.88, 0.35], 4.0, 4.0, 6);
+
+      // Schizogenous Essential Oil Gland (1,8-Cineole Droplet)
+      addBox(-1.1, 0.0, -0.3, 0.45, 0.45, 0.45, [0.95, 0.82, 0.18], 4.0, 5.0);
+
+      // Murray's Law Leaf Lamina & Intramarginal Vein (displayed beside block)
+      const lx = 3.2;
+      addBox(lx, 0, 0, 0.85, 0.02, 2.5, [0.22, 0.48, 0.25], 4.0, 0.0);
+      // Midrib
+      addCylinder([lx, 0.02, -2.5], [lx, 0.02, 2.5], 0.08, 0.03, [0.55, 0.85, 0.35], [0.55, 0.85, 0.35], 4.0, 0.0, 6);
+      // Intramarginal veins along both edges
+      addCylinder([lx - 0.75, 0.02, -2.4], [lx - 0.75, 0.02, 2.4], 0.025, 0.015, [0.45, 0.78, 0.30], [0.45, 0.78, 0.30], 4.0, 0.0, 4);
+      addCylinder([lx + 0.75, 0.02, -2.4], [lx + 0.75, 0.02, 2.4], 0.025, 0.015, [0.45, 0.78, 0.30], [0.45, 0.78, 0.30], 4.0, 0.0, 4);
+
+      uploadBuffers();
+    }
+
+    function buildLabScale5(taxon = 'kangaroo') {
+      // Scale 5: Comparative Vertebrate Anatomy (3-Layer Peel)
+      resetMesh();
+
+      // Layer 0: Articulated Osteology (Skeletal System)
+      // Skull with diprotodont incisors
+      addBox(0, 2.4, 0.65, 0.22, 0.20, 0.35, [0.92, 0.90, 0.85], 5.0, 0.0);
+      addBox(0, 2.3, 0.95, 0.08, 0.06, 0.12, [0.98, 0.98, 0.95], 5.0, 0.0); // Incisors
+      // Vertebral Column
+      addCylinder([0, 2.2, 0.4], [0, 1.2, -0.2], 0.12, 0.14, [0.88, 0.86, 0.82], [0.88, 0.86, 0.82], 5.0, 0.0, 8);
+      // Ribcage
+      addBox(0, 1.6, 0.1, 0.38, 0.35, 0.35, [0.85, 0.82, 0.78], 5.0, 0.0);
+      // Pelvis & Marsupial Epipubic Bones (UBERON:0003661)
+      addBox(0, 1.0, -0.3, 0.35, 0.25, 0.30, [0.90, 0.88, 0.84], 5.0, 1.0);
+      addCylinder([-0.12, 0.95, -0.25], [-0.15, 1.25, 0.15], 0.03, 0.02, [0.35, 0.85, 0.95], [0.35, 0.85, 0.95], 5.0, 1.0, 6);
+      addCylinder([0.12, 0.95, -0.25], [0.15, 1.25, 0.15], 0.03, 0.02, [0.35, 0.85, 0.95], [0.35, 0.85, 0.95], 5.0, 1.0, 6);
+      // Caudal tail vertebrae
+      addCylinder([0, 0.9, -0.4], [0, 0.1, -2.4], 0.12, 0.03, [0.88, 0.85, 0.80], [0.85, 0.82, 0.78], 5.0, 0.0, 6);
+      // Hindlimbs (Femur, Tibia/Fibula, 4th Metatarsal Pes)
+      for (const side of [-1, 1]) {
+        addCylinder([side * 0.35, 0.9, -0.3], [side * 0.45, 0.5, 0.1], 0.09, 0.07, [0.90, 0.88, 0.84], [0.88, 0.85, 0.82], 5.0, 0.0, 6);
+        addCylinder([side * 0.45, 0.5, 0.1], [side * 0.38, 0.1, -0.4], 0.06, 0.05, [0.88, 0.86, 0.82], [0.85, 0.82, 0.78], 5.0, 0.0, 6);
+        addBox(side * 0.38, 0.05, 0.1, 0.08, 0.04, 0.55, [0.92, 0.90, 0.86], 5.0, 2.0); // 4th metatarsal pes
+      }
+
+      // Layer 1: Major Myology & Elastic Achilles Tendon (65% energy recovery)
+      for (const side of [-1, 1]) {
+        // Gastrocnemius / Plantaris muscle bellies
+        addCylinder([side * 0.42, 0.8, -0.15], [side * 0.45, 0.4, -0.1], 0.18, 0.12, [0.82, 0.22, 0.20], [0.75, 0.18, 0.16], 5.0, 4.0, 8);
+        // Elastic Achilles Tendon
+        addCylinder([side * 0.42, 0.4, -0.1], [side * 0.38, 0.08, -0.38], 0.045, 0.035, [0.98, 0.95, 0.75], [0.98, 0.95, 0.75], 5.0, 3.0, 6);
+      }
+
+      // Layer 2: Outer Skinned Integument
+      addBox(0, 1.6, 0.1, 0.42, 0.55, 0.45, [0.55, 0.48, 0.40], 5.0, 5.0);
+
+      uploadBuffers();
+    }
+
+    function uploadBuffers() {
       gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.DYNAMIC_DRAW);
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint32Array(indices), gl.DYNAMIC_DRAW);
-      opaqueIndexCount = indices.length;
-
-      // 5. Transparent Refractive River Water Mesh
-      const wVerts = [];
-      const wIndices = [];
-      const wn = 44;
-      for (let wz = 0; wz <= wn; wz++) {
-        for (let wx = 0; wx <= wn; wx++) {
-          const u = wx / wn, v = wz / wn;
-          const z = -extent + v * (zMax + extent);
-          const mx = 0.28 * Math.sin(z * 1.35 + sec.seed) + 0.11 * Math.cos(z * 2.7 - sec.seed * 0.6);
-          const halfW = sec.id === 'noosa_headland' ? 1.15 : 0.48;
-          const x = sec.id === 'noosa_headland' ? (-extent + u * (mx + 0.35 + extent)) : (mx + (u * 2 - 1) * halfW);
-          wVerts.push(x, sec.waterY, z, 0, 1, 0, sec.waterCol[0], sec.waterCol[1], sec.waterCol[2], 0.74, 3.0, 0.0);
-        }
-      }
-      for (let wz = 0; wz < wn; wz++) {
-        for (let wx = 0; wx < wn; wx++) {
-          const i00 = wz * (wn + 1) + wx;
-          const i10 = i00 + 1;
-          const i01 = (wz + 1) * (wn + 1) + wx;
-          const i11 = i01 + 1;
-          wIndices.push(i00, i01, i11, i00, i11, i10);
-        }
-      }
-      gl.bindBuffer(gl.ARRAY_BUFFER, waterVbo);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(wVerts), gl.STATIC_DRAW);
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, waterIbo);
-      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint32Array(wIndices), gl.STATIC_DRAW);
-      waterIndexCount = wIndices.length;
+      indexCount = indices.length;
     }
 
-    gl.getExtension('OES_element_index_uint');
-    buildSectorGeometry(SECTORS[0]);
+    // -------------------------------------------------------------------------
+    // 6. 3D 4WD FIELD ROVER & 3D ECOLOGIST WALKER SIMULATION (EXPERIENCE 1)
+    // -------------------------------------------------------------------------
+    const rover = {
+      x: 0, y: 410.5, z: 0,
+      vx: 0, vz: 0, speed: 0,
+      yaw: 0, pitch: 0, roll: 0,
+      steer: 0,
+      odometer: 0,
+      wheelRot: 0,
+      handbrake: false
+    };
 
-    // Matrix helpers
+    const walker = {
+      active: false,
+      x: 3.5, y: 410.5, z: 0,
+      yaw: 0,
+      speed: 0
+    };
+
+    let camMode = 0; // 0: Chase, 1: Hood, 2: Free Orbit
+    let camYaw = 0.0, camPitch = 0.25, camDist = 9.5;
+    let camTarget = [0, 410.5, 0];
+    const keys = {};
+    const moveButtons = { fwd: false, back: false, left: false, right: false };
+
+    window.addEventListener('keydown', (e) => {
+      keys[e.code] = true;
+      if (e.code === 'KeyC') {
+        camMode = (camMode + 1) % 3;
+        const names = ['Chase Cam [C]', 'Hood First-Person Cam [C]', 'Free Aerial Orbit [C]'];
+        document.getElementById('btn-cycle-cam').textContent = '🎥 Camera: ' + names[camMode];
+      }
+      if (e.code === 'KeyE') {
+        toggleRoverWalk();
+      }
+      if (e.code === 'KeyF') {
+        toggleExperience();
+      }
+    });
+    window.addEventListener('keyup', (e) => { keys[e.code] = false; });
+
+    function toggleRoverWalk() {
+      if (currentExperience === 2) return;
+      walker.active = !walker.active;
+      const btn = document.getElementById('btn-rover-walk');
+      if (walker.active) {
+        walker.x = rover.x + Math.cos(rover.yaw) * 2.2;
+        walker.z = rover.z - Math.sin(rover.yaw) * 2.2;
+        walker.y = worldElevation(walker.x, walker.z);
+        walker.yaw = rover.yaw;
+        btn.textContent = '🚶 Mode: Dismounted Walk [E]';
+        btn.classList.add('action-amber');
+        document.getElementById('hud-mode-pill').innerHTML = 'World Continuum: <strong>On-Foot Walk</strong>';
+      } else {
+        btn.textContent = '🚗 Mode: 4WD Field Rover [E]';
+        btn.classList.remove('action-amber');
+        document.getElementById('hud-mode-pill').innerHTML = 'World Continuum: <strong>Rover Driving</strong>';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. EXPERIENCES SWITCHING & LAB DISSECTION CONTROLLERS
+    // -------------------------------------------------------------------------
+    let currentExperience = 1; // 1: World Continuum, 2: 5-Scale Lab
+    let currentScale = 1;
+    let selectedLayerId = -1;
+    let explodeAmount = 0.0;
+    let slicePlaneY = 1.0;
+    let anthesisAmount = 0.3;
+    let ontogenyIndex = 2; // Mature
+    const ONTOGENY_NAMES = ['Seedling (0.35×)', 'Sapling (0.68×)', 'Mature Adult (1.00×)', 'Ancient Veteran (1.32×)'];
+    const ONTOGENY_SCALES = [0.35, 0.68, 1.00, 1.32];
+
+    function setExperience(exp) {
+      currentExperience = exp;
+      const navWorld = document.getElementById('nav-world');
+      const navLab = document.getElementById('nav-lab');
+      const worldCtrls = document.getElementById('world-ctrls');
+      const labCtrls = document.getElementById('lab-ctrls');
+      const corridorRibbon = document.getElementById('corridor-ribbon');
+      const labSlidersRow = document.getElementById('lab-sliders-row');
+
+      if (exp === 1) {
+        navWorld.classList.add('active');
+        navLab.classList.remove('active');
+        worldCtrls.style.display = 'flex';
+        labCtrls.style.display = 'none';
+        corridorRibbon.style.display = 'flex';
+        labSlidersRow.style.display = 'none';
+        document.getElementById('hud-specimen-btn').style.display = 'none';
+        document.getElementById('hud-mode-pill').innerHTML = walker.active ? 'World Continuum: <strong>On-Foot Walk</strong>' : 'World Continuum: <strong>Rover Driving</strong>';
+        buildWorldGeometry(rover.z);
+        updateInspectorForWorld();
+      } else {
+        navLab.classList.add('active');
+        navWorld.classList.remove('active');
+        worldCtrls.style.display = 'none';
+        labCtrls.style.display = 'flex';
+        corridorRibbon.style.display = 'none';
+        labSlidersRow.style.display = 'flex';
+        document.getElementById('hud-specimen-btn').style.display = 'none';
+        document.getElementById('hud-mode-pill').innerHTML = 'Dissection Lab: <strong>Scale ' + currentScale + '</strong>';
+        loadLabScale(currentScale);
+      }
+    }
+
+    function toggleExperience() {
+      setExperience(currentExperience === 1 ? 2 : 1);
+    }
+
+    document.getElementById('nav-world').addEventListener('click', () => setExperience(1));
+    document.getElementById('nav-lab').addEventListener('click', () => setExperience(2));
+    document.getElementById('btn-open-lab-f').addEventListener('click', () => setExperience(2));
+    document.getElementById('btn-return-world').addEventListener('click', () => setExperience(1));
+    document.getElementById('btn-rover-walk').addEventListener('click', toggleRoverWalk);
+    document.getElementById('hud-specimen-btn').addEventListener('click', () => setExperience(2));
+
+    // Lab Scale Buttons
+    document.querySelectorAll('.lab-scale-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lab-scale-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const sc = parseInt(btn.getAttribute('data-scale'), 10);
+        loadLabScale(sc);
+      });
+    });
+
+    function loadLabScale(sc) {
+      currentScale = sc;
+      selectedLayerId = -1;
+      camTarget = [0, 0, 0];
+      camYaw = 0.35;
+      camPitch = 0.28;
+
+      const scData = SCALES[sc];
+      document.getElementById('insp-title').textContent = scData.title;
+      document.getElementById('insp-taxon').textContent = scData.taxon;
+      document.getElementById('hud-site-pill').textContent = scData.title + ' (' + scData.domain + ')';
+
+      // Visibility toggles for scale 3 vs 4 vs 5
+      document.getElementById('wrap-anthesis').style.display = (sc === 3 || sc === 4) ? 'flex' : 'none';
+      document.getElementById('wrap-fauna-sel').style.display = (sc === 5) ? 'flex' : 'none';
+      if (sc === 4) {
+        document.getElementById('lbl-anthesis-title').textContent = 'Stomata:';
+      } else if (sc === 3) {
+        document.getElementById('lbl-anthesis-title').textContent = 'Anthesis:';
+      }
+
+      // Populate Callout Pins
+      const container = document.getElementById('insp-pins-container');
+      container.innerHTML = '';
+      scData.pins.forEach((pin, idx) => {
+        const chip = document.createElement('div');
+        chip.className = 'pin-chip';
+        chip.innerHTML = `<span class="pin-swatch" style="background:${pin.color};"></span><span>${pin.label}</span>`;
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.pin-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          selectedLayerId = idx;
+          showPinKnowledge(pin);
+        });
+        container.appendChild(chip);
+      });
+
+      if (scData.pins.length > 0) {
+        showPinKnowledge(scData.pins[0]);
+      }
+
+      if (sc === 1) {
+        camDist = 18.0;
+        camTarget = [0, 4.5, 0];
+        buildLabScale1();
+      } else if (sc === 2) {
+        camDist = 4.2;
+        buildLabScale2();
+      } else if (sc === 3) {
+        camDist = 3.6;
+        buildLabScale3();
+      } else if (sc === 4) {
+        camDist = 4.5;
+        buildLabScale4();
+      } else if (sc === 5) {
+        camDist = 4.8;
+        camTarget = [0, 1.2, 0];
+        buildLabScale5();
+      }
+    }
+
+    function showPinKnowledge(pin) {
+      document.getElementById('insp-know-title').innerHTML = `🔬 ${pin.label} (${pin.iri})`;
+      document.getElementById('insp-know-desc').textContent = pin.desc;
+      document.getElementById('insp-iri').textContent = pin.iri;
+      document.getElementById('insp-eqn').innerHTML = pin.eqn;
+      document.getElementById('insp-indigenous').innerHTML = `<strong>Traditional Ethnobotanical Context:</strong> ${pin.indigenous}`;
+    }
+
+    function updateInspectorForWorld() {
+      // Find closest site
+      let closest = SITES[0];
+      let minDist = 999999;
+      for (const st of SITES) {
+        const d = Math.abs(rover.z - st.z);
+        if (d < minDist) { minDist = d; closest = st; }
+      }
+      document.getElementById('insp-title').textContent = closest.name;
+      document.getElementById('insp-taxon').textContent = closest.taxon;
+      document.getElementById('insp-know-title').innerHTML = `📍 Site km ${closest.km.toFixed(1)} — ${closest.name}`;
+      document.getElementById('insp-know-desc').textContent = closest.desc;
+      document.getElementById('insp-iri').textContent = `site:${closest.id}`;
+      document.getElementById('insp-eqn').innerHTML = `z_0 = (p / k_c)^(1/n) [Bekker Sinkage: kc=${closest.kc}]`;
+      document.getElementById('insp-soil').textContent = closest.soil;
+
+      // Populate Sites Pills
+      const container = document.getElementById('insp-pins-container');
+      container.innerHTML = '';
+      SITES.forEach((st, idx) => {
+        const chip = document.createElement('div');
+        chip.className = 'pin-chip' + (st === closest ? ' active' : '');
+        chip.innerHTML = `<span class="pin-swatch" style="background:#38bdf8;"></span><span>km ${st.km.toFixed(1)} · ${st.name.split('&')[0]}</span>`;
+        chip.addEventListener('click', () => fastTravelToSite(idx));
+        container.appendChild(chip);
+      });
+    }
+
+    function fastTravelToSite(idx) {
+      const st = SITES[idx];
+      rover.z = st.z;
+      rover.x = roadCenter(st.z).x;
+      rover.y = worldElevation(rover.x, rover.z) + 0.6;
+      rover.vx = 0; rover.vz = 0; rover.speed = 0;
+      if (walker.active) {
+        walker.x = rover.x + 2.0;
+        walker.z = rover.z;
+        walker.y = worldElevation(walker.x, walker.z);
+      }
+      document.getElementById('sel-fast-travel').value = idx;
+      buildWorldGeometry(rover.z);
+      updateInspectorForWorld();
+    }
+
+    document.getElementById('sel-fast-travel').addEventListener('change', (e) => {
+      fastTravelToSite(parseInt(e.target.value, 10));
+    });
+
+    // Gallery Card Clicks
+    document.querySelectorAll('[data-jump-site]').forEach(card => {
+      card.addEventListener('click', () => {
+        const s = parseInt(card.getAttribute('data-jump-site'), 10);
+        fastTravelToSite(s);
+        setExperience(1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Sliders
+    document.getElementById('sl-explode').addEventListener('input', (e) => {
+      explodeAmount = parseFloat(e.target.value) / 100.0;
+      document.getElementById('lbl-explode').textContent = e.target.value + '%';
+    });
+    document.getElementById('sl-slice').addEventListener('input', (e) => {
+      slicePlaneY = parseFloat(e.target.value) / 100.0;
+      document.getElementById('lbl-slice').textContent = e.target.value === '100' ? 'Full' : (e.target.value + '%');
+    });
+    document.getElementById('sl-anthesis').addEventListener('input', (e) => {
+      anthesisAmount = parseFloat(e.target.value) / 100.0;
+      document.getElementById('lbl-anthesis-val').textContent = e.target.value + '%';
+    });
+    document.getElementById('sel-fauna-taxa').addEventListener('change', (e) => {
+      buildLabScale5(e.target.value);
+    });
+    document.getElementById('btn-ontogeny-stepper').addEventListener('click', () => {
+      ontogenyIndex = (ontogenyIndex + 1) % ONTOGENY_NAMES.length;
+      document.getElementById('btn-ontogeny-stepper').textContent = ONTOGENY_NAMES[ontogenyIndex];
+      document.getElementById('insp-stage').textContent = ONTOGENY_NAMES[ontogenyIndex];
+      if (currentExperience === 2) {
+        loadLabScale(currentScale);
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 8. 26.5 KM HIGHWAY MINIMAP CORRIDOR CANVAS RENDERER
+    // -------------------------------------------------------------------------
+    const corCanvas = document.getElementById('corridor-canvas');
+    const corCtx = corCanvas ? corCanvas.getContext('2d') : null;
+
+    function renderCorridorMinimap() {
+      if (!corCtx) return;
+      const w = corCanvas.width;
+      const h = corCanvas.height;
+      corCtx.clearRect(0, 0, w, h);
+
+      // Background elevation gradient profile
+      corCtx.beginPath();
+      corCtx.moveTo(0, h);
+      for (let i = 0; i <= 100; i++) {
+        const z = (i / 100.0) * 2650.0;
+        const rd = roadCenter(z);
+        // Normalize elevation (30m to 1500m)
+        const ey = h - ((rd.elev - 30.0) / 1470.0) * (h - 8);
+        const ex = (i / 100.0) * w;
+        corCtx.lineTo(ex, ey);
+      }
+      corCtx.lineTo(w, h);
+      corCtx.closePath();
+      corCtx.fillStyle = 'rgba(56, 189, 248, 0.18)';
+      corCtx.fill();
+      corCtx.strokeStyle = 'rgba(45, 212, 191, 0.65)';
+      corCtx.lineWidth = 1.5;
+      corCtx.stroke();
+
+      // Site Dots & Labels
+      for (let s = 0; s < SITES.length; s++) {
+        const st = SITES[s];
+        const sx = (st.z / 2650.0) * w;
+        const sy = h - ((st.elev - 30.0) / 1470.0) * (h - 8);
+        corCtx.fillStyle = '#f59e0b';
+        corCtx.beginPath();
+        corCtx.arc(sx, sy, 3.5, 0, Math.PI * 2);
+        corCtx.fill();
+      }
+
+      // Rover / Walker live position blip
+      const px = Math.max(0, Math.min(w, (rover.z / 2650.0) * w));
+      const py = h - ((rover.y - 30.0) / 1470.0) * (h - 8);
+      corCtx.fillStyle = '#5eead4';
+      corCtx.shadowColor = '#5eead4';
+      corCtx.shadowBlur = 10;
+      corCtx.beginPath();
+      corCtx.arc(px, py, 5.0, 0, Math.PI * 2);
+      corCtx.fill();
+      corCtx.shadowBlur = 0;
+    }
+
+    document.getElementById('corridor-track-wrap').addEventListener('click', (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const frac = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      rover.z = frac * 2650.0;
+      rover.x = roadCenter(rover.z).x;
+      rover.y = worldElevation(rover.x, rover.z) + 0.6;
+      rover.vx = 0; rover.vz = 0; rover.speed = 0;
+      buildWorldGeometry(rover.z);
+      updateInspectorForWorld();
+    });
+
+    // -------------------------------------------------------------------------
+    // 9. 3D HOLOSONIC WEBAUDIO SYNTHESIZER
+    // -------------------------------------------------------------------------
+    let audioCtx = null;
+    let engineOsc = null;
+    let audioGain = null;
+
+    document.getElementById('btn-audio').addEventListener('click', () => {
+      const btn = document.getElementById('btn-audio');
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AC();
+
+        // 4WD Engine Pitch oscillator
+        engineOsc = audioCtx.createOscillator();
+        engineOsc.type = 'sawtooth';
+        engineOsc.frequency.value = 42;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 240;
+
+        audioGain = audioCtx.createGain();
+        audioGain.gain.value = 0.12;
+
+        engineOsc.connect(filter).connect(audioGain).connect(audioCtx.destination);
+        engineOsc.start();
+
+        btn.textContent = '🔊 Audio: Live';
+        btn.classList.add('active');
+      } else if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+        btn.textContent = '🔊 Audio: Live';
+        btn.classList.add('active');
+      } else {
+        audioCtx.suspend();
+        btn.textContent = '🔇 Audio: Off';
+        btn.classList.remove('active');
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 10. INPUT HANDLING & INTERACTION EVENTS
+    // -------------------------------------------------------------------------
+    let dragging = false, lastX = 0, lastY = 0;
+    canvas.addEventListener('pointerdown', (e) => {
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX, dy = e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      camYaw -= dx * 0.0065;
+      camPitch = Math.max(0.04, Math.min(1.42, camPitch + dy * 0.0065));
+    });
+    canvas.addEventListener('pointerup', () => { dragging = false; });
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      camDist = Math.max(1.2, Math.min(35.0, camDist + e.deltaY * 0.003));
+    }, { passive: false });
+
+    document.querySelectorAll('.dpad-btn').forEach((btn) => {
+      const dir = btn.getAttribute('data-move');
+      btn.addEventListener('pointerdown', () => { moveButtons[dir] = true; });
+      btn.addEventListener('pointerup', () => { moveButtons[dir] = false; });
+      btn.addEventListener('pointerleave', () => { moveButtons[dir] = false; });
+    });
+
+    // -------------------------------------------------------------------------
+    // 11. MATRIX HELPERS (ZERO HEAP)
+    // -------------------------------------------------------------------------
     function perspective(fov, aspect, near, far) {
       const f = 1.0 / Math.tan(fov / 2);
       const nf = 1 / (near - far);
@@ -1579,9 +2335,7 @@
       let zx = eye[0] - center[0], zy = eye[1] - center[1], zz = eye[2] - center[2];
       let zl = Math.hypot(zx, zy, zz) || 1;
       zx /= zl; zy /= zl; zz /= zl;
-      let xx = up[1] * zz - up[2] * zy;
-      let xy = up[2] * zx - up[0] * zz;
-      let xz = up[0] * zy - up[1] * zx;
+      let xx = up[1] * zz - up[2] * zy, xy = up[2] * zx - up[0] * zz, xz = up[0] * zy - up[1] * zx;
       let xl = Math.hypot(xx, xy, xz) || 1;
       xx /= xl; xy /= xl; xz /= xl;
       let yx = zy * xz - zz * xy, yy = zz * xx - zx * xz, yz = zx * xy - zy * xx;
@@ -1596,7 +2350,7 @@
       ];
     }
     function mulMat4(a, b) {
-      const out = new Array(16).fill(0);
+      const out = new Array(16);
       for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
           out[j * 4 + i] =
@@ -1609,172 +2363,15 @@
       return out;
     }
 
-    // Input handling (Mouse Orbit + Wheel + Touch + Keyboard WASD)
-    let dragging = false, lastX = 0, lastY = 0;
-    canvas.addEventListener('pointerdown', (e) => {
-      dragging = true; lastX = e.clientX; lastY = e.clientY;
-      canvas.setPointerCapture(e.pointerId);
-    });
-    canvas.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
-      lastX = e.clientX; lastY = e.clientY;
-      camYaw -= dx * 0.0065;
-      camPitch = Math.max(0.06, Math.min(1.38, camPitch + dy * 0.0065));
-    });
-    canvas.addEventListener('pointerup', () => { dragging = false; });
-    canvas.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      camDist = Math.max(0.45, Math.min(4.2, camDist + e.deltaY * 0.0018));
-    }, { passive: false });
-
-    window.addEventListener('keydown', (e) => { keys[e.code] = true; });
-    window.addEventListener('keyup', (e) => { keys[e.code] = false; });
-
-    document.querySelectorAll('.dpad-btn').forEach((btn) => {
-      const dir = btn.getAttribute('data-move');
-      btn.addEventListener('pointerdown', () => { moveButtons[dir] = true; });
-      btn.addEventListener('pointerup', () => { moveButtons[dir] = false; });
-      btn.addEventListener('pointerleave', () => { moveButtons[dir] = false; });
-    });
-
-    function selectSector(idx) {
-      currentSectorIdx = idx;
-      const sec = SECTORS[idx];
-      const radio = document.getElementById('scene-' + (idx + 1));
-      if (radio) radio.checked = true;
-      camYaw = sec.yaw;
-      camPitch = sec.pitch;
-      camDist = sec.dist;
-      camTarget = [...sec.target];
-      document.getElementById('hud-sector-label').textContent = sec.label;
-      buildSectorGeometry(sec);
-    }
-
-    document.querySelectorAll('.tab-bar label').forEach((lbl) => {
-      lbl.addEventListener('click', () => {
-        const idx = parseInt(lbl.getAttribute('data-sector') || '0', 10);
-        selectSector(idx);
-      });
-    });
-
-    document.querySelectorAll('[data-jump-sector]').forEach((card) => {
-      card.addEventListener('click', () => {
-        const idx = parseInt(card.getAttribute('data-jump-sector') || '0', 10);
-        selectSector(idx);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    // Live vs APNG Toggle
-    const btnLive = document.getElementById('btn-mode-live');
-    const btnApng = document.getElementById('btn-mode-apng');
-    const liveWrap = document.getElementById('live-canvas-wrap');
-    const apngWrap = document.getElementById('apng-slides-wrap');
-    btnLive.addEventListener('click', () => {
-      btnLive.classList.add('active');
-      btnApng.classList.remove('active');
-      liveWrap.style.display = 'flex';
-      apngWrap.style.display = 'none';
-    });
-    btnApng.addEventListener('click', () => {
-      btnApng.classList.add('active');
-      btnLive.classList.remove('active');
-      liveWrap.style.display = 'none';
-      apngWrap.style.display = 'flex';
-    });
-
-    // Walk vs Fly Camera Toggle
-    const btnCam = document.getElementById('btn-cam-mode');
-    btnCam.addEventListener('click', () => {
-      walkMode = !walkMode;
-      btnCam.textContent = walkMode ? '🚶 Mode: 3D Capsule Walk (64Hz)' : '🦅 Mode: Free-Flight (WASD)';
-      if (walkMode) camDist = 0.65;
-    });
-
-    // EONT1 Ontogeny Stage Stepper
-    const btnOnto = document.getElementById('btn-ontogeny');
-    btnOnto.addEventListener('click', () => {
-      ontogenyStageIdx = (ontogenyStageIdx + 1) % ONTOGENY_STAGES.length;
-      const st = ONTOGENY_STAGES[ontogenyStageIdx];
-      btnOnto.textContent = '🌱 Stage: ' + st.name;
-      document.getElementById('insp-ontogeny').textContent = st.name;
-      buildSectorGeometry(SECTORS[currentSectorIdx]);
-    });
-
-    // PROC1 Stress-Cleavage Fracture Spawner
-    const btnFrac = document.getElementById('btn-fracture');
-    btnFrac.addEventListener('click', () => {
-      const sec = SECTORS[currentSectorIdx];
-      const bx = camTarget[0] + (Math.random() - 0.5) * 0.6;
-      const bz = camTarget[2] + (Math.random() - 0.5) * 0.6;
-      dynamicBoulders.push({ x: bx, y: 0.75, z: bz, vx: (Math.random() - 0.5) * 0.35, vy: -0.4, vz: (Math.random() - 0.5) * 0.35, r: 0.085, yaw: Math.random() * 6, cleaved: false });
-      buildSectorGeometry(sec);
-    });
-
-    // 3D Holosonic Binaural WebAudio Synthesizer
-    let audioCtx = null, audioRunning = false;
-    const btnAudio = document.getElementById('btn-audio');
-    btnAudio.addEventListener('click', () => {
-      if (!audioCtx) {
-        const AC = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AC();
-        // River riffle pink-filtered noise + 23 Hz Cassowary sub-bass + harmonic bird pings
-        const bufSize = audioCtx.sampleRate * 2;
-        const noiseBuf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
-        const out = noiseBuf.getChannelData(0);
-        let b0 = 0, b1 = 0, b2 = 0;
-        for (let i = 0; i < bufSize; i++) {
-          const w = Math.random() * 2 - 1;
-          b0 = 0.997 * b0 + w * 0.029;
-          b1 = 0.985 * b1 + w * 0.032;
-          b2 = 0.950 * b2 + w * 0.048;
-          out[i] = (b0 + b1 + b2) * 0.14;
-        }
-        const src = audioCtx.createBufferSource();
-        src.buffer = noiseBuf;
-        src.loop = true;
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'bandpass';
-        filter.frequency.value = 520;
-        filter.Q.value = 0.7;
-        const gain = audioCtx.createGain();
-        gain.gain.value = 0.22;
-        src.connect(filter).connect(gain).connect(audioCtx.destination);
-        src.start();
-        audioRunning = true;
-        btnAudio.textContent = '🔊 3D Holosonic Audio: Live';
-        btnAudio.classList.add('active');
-        document.getElementById('insp-audio').textContent = '9 Emitters · HRTF + SDF Occlusion';
-      } else if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-        audioRunning = true;
-        btnAudio.textContent = '🔊 3D Holosonic Audio: Live';
-        btnAudio.classList.add('active');
-      } else if (audioRunning) {
-        audioCtx.suspend();
-        audioRunning = false;
-        btnAudio.textContent = '🔇 3D Holosonic Audio: Muted';
-        btnAudio.classList.remove('active');
-      }
-    });
-
-    // 60 FPS Render Loop + 64 Hz XPBD Step
+    // -------------------------------------------------------------------------
+    // 12. 60 FPS RENDER LOOP & CONTINUOUS KINEMATICS INTEGRATION
+    // -------------------------------------------------------------------------
     let lastTime = performance.now();
     let frameCount = 0, fpsTimer = lastTime;
+    let lastRebuildZ = -99999;
 
-    function bindAttribs(buffer) {
-      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-      const stride = 12 * 4;
-      gl.enableVertexAttribArray(aPos);
-      gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, stride, 0);
-      gl.enableVertexAttribArray(aNorm);
-      gl.vertexAttribPointer(aNorm, 3, gl.FLOAT, false, stride, 3 * 4);
-      gl.enableVertexAttribArray(aCol);
-      gl.vertexAttribPointer(aCol, 4, gl.FLOAT, false, stride, 6 * 4);
-      gl.enableVertexAttribArray(aMeta);
-      gl.vertexAttribPointer(aMeta, 2, gl.FLOAT, false, stride, 10 * 4);
-    }
+    buildWorldGeometry(0);
+    updateInspectorForWorld();
 
     function frame(now) {
       const dt = Math.min(0.05, (now - lastTime) * 0.001);
@@ -1787,55 +2384,127 @@
         fpsTimer = now;
       }
 
-      const sec = SECTORS[currentSectorIdx];
+      if (currentExperience === 1) {
+        // EXPERIENCE 1: 4WD ROVER DRIVING OR ON-FOOT WALKING
+        const fwdInput = (keys['KeyW'] || keys['ArrowUp'] || moveButtons.fwd ? 1 : 0)
+                       - (keys['KeyS'] || keys['ArrowDown'] || moveButtons.back ? 1 : 0);
+        const turnInput = (keys['KeyA'] || keys['ArrowLeft'] || moveButtons.left ? 1 : 0)
+                        - (keys['KeyD'] || keys['ArrowRight'] || moveButtons.right ? 1 : 0);
+        const handbrake = keys['Space'] ? true : false;
 
-      // Camera movement (WASD / Arrow keys / Touch D-Pad)
-      const fwd = (keys['KeyW'] || keys['ArrowUp'] || moveButtons.fwd ? 1 : 0)
-                - (keys['KeyS'] || keys['ArrowDown'] || moveButtons.back ? 1 : 0);
-      const strafe = (keys['KeyD'] || keys['ArrowRight'] || moveButtons.right ? 1 : 0)
-                   - (keys['KeyA'] || keys['ArrowLeft'] || moveButtons.left ? 1 : 0);
-      if (fwd !== 0 || strafe !== 0) {
-        const speed = 1.15 * dt;
-        const fx = -Math.sin(camYaw), fz = -Math.cos(camYaw);
-        const rx = Math.cos(camYaw), rz = -Math.sin(camYaw);
-        camTarget[0] = Math.max(-1.75, Math.min(1.75, camTarget[0] + (fx * fwd + rx * strafe) * speed));
-        camTarget[2] = Math.max(-1.75, Math.min(1.75, camTarget[2] + (fz * fwd + rz * strafe) * speed));
-      }
-      if (walkMode) {
-        const groundY = sampleElevation(sec, camTarget[0], camTarget[2]);
-        camTarget[1] = Math.max(sec.waterY + 0.08, groundY + 0.12);
-      }
-
-      // Step dynamic XPBD boulders & stress-cleavage fracture
-      let needsRebuild = false;
-      for (let i = 0; i < dynamicBoulders.length; i++) {
-        const b = dynamicBoulders[i];
-        const groundY = sampleElevation(sec, b.x, b.z);
-        if (b.y > groundY + b.r * 0.5) {
-          b.vy -= 2.4 * dt;
-          b.x += b.vx * dt;
-          b.y += b.vy * dt;
-          b.z += b.vz * dt;
-          needsRebuild = true;
-        } else if (!b.cleaved) {
-          b.y = groundY + b.r * 0.4;
-          b.cleaved = true;
-          fractureCount++;
-          if (b.r > 0.05 && dynamicBoulders.length < 24) {
-            b.r *= 0.68;
-            dynamicBoulders.push({
-              x: b.x + 0.07, y: b.y + 0.04, z: b.z - 0.05,
-              vx: 0.25, vy: 0.35, vz: -0.2, r: b.r, yaw: b.yaw + 1.2, cleaved: true
-            });
+        if (!walker.active) {
+          // 4WD Rover Kinematics
+          const accel = fwdInput * 18.0;
+          if (handbrake) {
+            rover.speed *= Math.max(0.0, 1.0 - 5.0 * dt);
+          } else {
+            rover.speed += accel * dt;
+            rover.speed *= Math.max(0.0, 1.0 - 0.45 * dt); // Rolling resistance
           }
-          needsRebuild = true;
+          rover.speed = Math.max(-12.0, Math.min(38.0, rover.speed)); // km/h scaled to ~110 km/h peak
+
+          // Ackermann steering angle
+          rover.steer += (turnInput * 0.45 - rover.steer) * 8.0 * dt;
+          if (Math.abs(rover.speed) > 0.1) {
+            rover.yaw += rover.steer * (rover.speed / 12.0) * dt;
+          }
+
+          rover.vx = -Math.sin(rover.yaw) * rover.speed;
+          rover.vz = Math.cos(rover.yaw) * rover.speed;
+          rover.x += rover.vx * dt;
+          rover.z += rover.vz * dt;
+          rover.z = Math.max(0.0, Math.min(2650.0, rover.z));
+
+          // Terrain elevation & suspension pitch/roll conformation
+          const groundY = worldElevation(rover.x, rover.z);
+          rover.y += (groundY + 0.65 - rover.y) * 12.0 * dt;
+
+          const aheadY = worldElevation(rover.x - Math.sin(rover.yaw) * 2.2, rover.z + Math.cos(rover.yaw) * 2.2);
+          const behindY = worldElevation(rover.x + Math.sin(rover.yaw) * 2.2, rover.z - Math.cos(rover.yaw) * 2.2);
+          rover.pitch = (aheadY - behindY) / 4.4;
+
+          rover.wheelRot += rover.speed * 2.5 * dt;
+          rover.odometer += Math.abs(rover.speed) * dt * 0.001;
+
+          // Sound engine pitch
+          if (engineOsc && audioCtx && audioCtx.state === 'running') {
+            engineOsc.frequency.value = 35 + Math.abs(rover.speed) * 4.5;
+          }
+
+          // Camera follow
+          if (camMode === 0) {
+            // Chase Cam
+            const cx = rover.x + Math.sin(rover.yaw) * 8.5;
+            const cz = rover.z - Math.cos(rover.yaw) * 8.5;
+            camTarget = [rover.x, rover.y + 0.8, rover.z];
+            camDist = 8.5;
+          } else if (camMode === 1) {
+            // Hood / Cab First-Person Cam
+            camTarget = [rover.x - Math.sin(rover.yaw) * 6.0, rover.y + 1.2, rover.z + Math.cos(rover.yaw) * 6.0];
+            camDist = 0.5;
+          } else {
+            // Free Orbit
+            camTarget = [rover.x, rover.y + 0.5, rover.z];
+          }
+
+          // Rebuild surrounding terrain grid when moving past threshold
+          if (Math.abs(rover.z - lastRebuildZ) > 35.0) {
+            lastRebuildZ = rover.z;
+            buildWorldGeometry(rover.z);
+          }
+        } else {
+          // On-Foot Walker Avatar
+          const sprint = keys['ShiftLeft'] || keys['ShiftRight'] ? 2.2 : 1.0;
+          const walkSpeed = 3.5 * sprint;
+          const fx = -Math.sin(camYaw), fz = -Math.cos(camYaw);
+          const rx = Math.cos(camYaw), rz = -Math.sin(camYaw);
+          walker.x += (fx * fwdInput + rx * (-turnInput)) * walkSpeed * dt;
+          walker.z += (fz * fwdInput + rz * (-turnInput)) * walkSpeed * dt;
+          walker.y = worldElevation(walker.x, walker.z) + 1.4;
+          camTarget = [walker.x, walker.y + 0.4, walker.z];
+          camDist = 4.2;
+
+          // Check proximity to rover for remounting
+          const dRover = Math.hypot(walker.x - rover.x, walker.z - rover.z);
+          if (dRover < 3.5) {
+            document.getElementById('hud-instructions').innerHTML = `⌨️ Press <kbd>E</kbd> to enter 4WD Field Rover · Drag mouse to look around`;
+          }
         }
-      }
-      if (needsRebuild) {
-        buildSectorGeometry(sec);
-        document.getElementById('insp-bodies').textContent = (12 + dynamicBoulders.length) + ' Active · ' + fractureCount + ' Fractured';
+
+        // Check proximity to corridor study sites / specimens
+        let closestSite = SITES[0];
+        let minDist = 999999;
+        const playerZ = walker.active ? walker.z : rover.z;
+        for (const st of SITES) {
+          const d = Math.abs(playerZ - st.z);
+          if (d < minDist) { minDist = d; closestSite = st; }
+        }
+
+        const kmMark = (playerZ / 100.0).toFixed(2);
+        const speedKmh = Math.round(Math.abs(rover.speed) * 3.6);
+        const bekkerSinkage = (closestSite.kc * (walker.active ? 1.5 : 4.2)).toFixed(1);
+
+        document.getElementById('hud-site-pill').textContent = `km ${kmMark} — ${closestSite.name}`;
+        document.getElementById('hud-telemetry-1').innerHTML = `Speed: <strong>${walker.active ? 'Walk' : (speedKmh + ' km/h')}</strong>`;
+        document.getElementById('hud-telemetry-2').innerHTML = `Odo: <strong>${rover.odometer.toFixed(1)} km</strong>`;
+        document.getElementById('hud-telemetry-3').innerHTML = `Sinkage: <strong>${bekkerSinkage} mm</strong>`;
+
+        document.getElementById('insp-coord').textContent = `[${rover.x.toFixed(1)}, ${rover.y.toFixed(1)}, ${rover.z.toFixed(1)}]`;
+        document.getElementById('insp-elev').textContent = `${rover.y.toFixed(1)} m AHD`;
+
+        // Specimen Prompt button
+        const promptBtn = document.getElementById('hud-specimen-btn');
+        if (minDist < 45.0) {
+          promptBtn.style.display = 'block';
+          promptBtn.innerHTML = `🔍 [F] Examine ${closestSite.taxon.split('(')[0]} in 5-Scale Botanical &amp; Biological Lab`;
+        } else {
+          promptBtn.style.display = 'none';
+        }
+
+        renderCorridorMinimap();
       }
 
+      // Camera view calculation
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = Math.max(1, Math.floor(canvas.clientWidth * dpr));
       const h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
@@ -1845,11 +2514,13 @@
       }
       gl.viewport(0, 0, w, h);
 
-      // Sky background clear matching sector mode
-      if (sec.mode === 3) gl.clearColor(0.02, 0.05, 0.11, 1.0);
-      else if (sec.mode === 4) gl.clearColor(0.06, 0.03, 0.16, 1.0);
-      else if (sec.mode === 2) gl.clearColor(0.92, 0.88, 0.78, 1.0);
-      else gl.clearColor(0.46, 0.66, 0.86, 1.0);
+      // Background Sky clear
+      const selMode = parseInt(document.getElementById('sel-shader-mode').value, 10);
+      if (selMode === 3) gl.clearColor(0.02, 0.05, 0.12, 1.0);
+      else if (selMode === 4) gl.clearColor(0.04, 0.02, 0.14, 1.0);
+      else if (selMode === 2) gl.clearColor(0.95, 0.92, 0.84, 1.0);
+      else gl.clearColor(0.42, 0.65, 0.88, 1.0);
+
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       gl.enable(gl.DEPTH_TEST);
 
@@ -1858,35 +2529,47 @@
         camTarget[1] + Math.sin(camPitch) * camDist,
         camTarget[2] + Math.cos(camYaw) * Math.cos(camPitch) * camDist
       ];
-      document.getElementById('insp-cam-pos').textContent =
-        '[' + eye[0].toFixed(2) + ', ' + eye[1].toFixed(2) + ', ' + eye[2].toFixed(2) + ']';
 
-      const proj = perspective(0.82, w / h, 0.05, 20.0);
+      const proj = perspective(0.78, w / h, 0.1, 4000.0);
       const view = lookAt(eye, camTarget, [0, 1, 0]);
       const vp = mulMat4(proj, view);
 
       gl.useProgram(prog);
       gl.uniformMatrix4fv(uViewProj, false, new Float32Array(vp));
       gl.uniform3fv(uCamPos, new Float32Array(eye));
-      gl.uniform3fv(uSunDir, new Float32Array(sec.sunDir));
-      gl.uniform3fv(uWaterCol, new Float32Array(sec.waterCol));
-      gl.uniform1f(uWaterY, sec.waterY);
+      gl.uniform3fv(uSunDir, new Float32Array([0.48, 0.76, 0.44]));
+      gl.uniform3fv(uWaterCol, new Float32Array([0.06, 0.38, 0.52]));
+      gl.uniform1f(uWaterY, 405.0);
       gl.uniform1f(uTime, now * 0.001);
-      gl.uniform1f(uOntogenyScale, ONTOGENY_STAGES[ontogenyStageIdx].scale);
-      gl.uniform1i(uMode, sec.mode);
+      gl.uniform1f(uOntogenyScale, ONTOGENY_SCALES[ontogenyIndex]);
+      gl.uniform1f(uExplodeSeparation, explodeAmount);
+      gl.uniform1f(uAnthesisMorph, anthesisAmount);
+      gl.uniform1i(uHighlightLayer, selectedLayerId);
 
-      // Draw opaque terrain, lithology, flora & fauna
-      gl.disable(gl.BLEND);
-      bindAttribs(vbo);
+      // Slicing Plane Equation: Ax + By + Cz + D >= 0
+      // Normal pointing up along Y or Z
+      const sliceD = (1.0 - slicePlaneY) * 12.0;
+      gl.uniform4fv(uClipPlane, new Float32Array([0.0, -1.0, 0.0, sliceD + 4.5]));
+
+      gl.uniform1i(uMode, selMode);
+      gl.uniform3fv(uRoverPos, new Float32Array([rover.x, rover.y, rover.z]));
+      const rDir = [-Math.sin(rover.yaw), 0, Math.cos(rover.yaw)];
+      gl.uniform3fv(uRoverDir, new Float32Array(rDir));
+
+      // Draw All Geometry
+      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+      const stride = 12 * 4;
+      gl.enableVertexAttribArray(aPos);
+      gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, stride, 0);
+      gl.enableVertexAttribArray(aNorm);
+      gl.vertexAttribPointer(aNorm, 3, gl.FLOAT, false, stride, 3 * 4);
+      gl.enableVertexAttribArray(aCol);
+      gl.vertexAttribPointer(aCol, 4, gl.FLOAT, false, stride, 6 * 4);
+      gl.enableVertexAttribArray(aMeta);
+      gl.vertexAttribPointer(aMeta, 2, gl.FLOAT, false, stride, 10 * 4);
+
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
-      gl.drawElements(gl.TRIANGLES, opaqueIndexCount, gl.UNSIGNED_INT, 0);
-
-      // Draw transparent refractive river water
-      gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-      bindAttribs(waterVbo);
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, waterIbo);
-      gl.drawElements(gl.TRIANGLES, waterIndexCount, gl.UNSIGNED_INT, 0);
+      gl.drawElements(gl.TRIANGLES, indexCount, gl.UNSIGNED_INT, 0);
 
       requestAnimationFrame(frame);
     }

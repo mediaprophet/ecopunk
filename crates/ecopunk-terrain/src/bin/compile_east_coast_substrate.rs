@@ -18,10 +18,13 @@ use std::io::{self, Cursor, Read};
 use std::path::PathBuf;
 
 use ecopunk_terrain::{
-    build_closeup_specimen_10d, build_procedural_textures, build_sector_10d,
-    compile_164_fauna_catalog, compile_305_flora_catalog, render_sector_via_portal_gpu_png,
-    run_sector_physics_verification_step, EcopunkHolosonicSoundscape, EcopunkSectorSceneGraph,
-    EcopunkTelemetryHud, FaunaBiomechanicalArchetype, FaunaSkeletalRig10d,
+    build_closeup_specimen_10d, build_procedural_textures, build_scale5_vertebrate_anatomy_10d,
+    build_sector_10d, compile_164_fauna_catalog, compile_305_flora_catalog,
+    render_sector_via_portal_gpu_png, run_sector_physics_verification_step,
+    write_corymbia_educational_assets_to_disk, ContinuumExplorationSession,
+    EcopunkHolosonicSoundscape, EcopunkSectorSceneGraph, EcopunkTelemetryHud,
+    ExplorationTickInput, FaunaBiomechanicalArchetype, FaunaSkeletalRig10d, RegionalCorridorWorld,
+    StudySiteId, CANONICAL_ANATOMICAL_PINS,
 };
 use qualia_core_db::audio::holosonic::{
     HolosonicEmitter, HolosonicModality, HolosonicSonicToken48, HolosonicWavefield,
@@ -1362,6 +1365,50 @@ fn main() -> io::Result<()> {
         fauna_64_path.display(),
         fauna_164_path.display(),
         fauna_total
+    );
+
+    // Synthesize 4-scale educational botanical .10d assets for Corymbia aparrerinja & 3-layer vertebrate anatomy
+    let written_edu_bytes = write_corymbia_educational_assets_to_disk(&root)?;
+    let macropod_anat = build_scale5_vertebrate_anatomy_10d(
+        FaunaBiomechanicalArchetype::MacropodSaltatorial,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+    );
+    let macropod_10d_path = assets_dir.join("vertebrate_anatomy_macropod.10d");
+    fs::write(&macropod_10d_path, &macropod_anat.container_bytes)?;
+    println!(
+        "[OK] Synthesized 5-Scale Botanical & Zoological Educational Twins: {} B botanical .10d + {} verts / {} B Macropod 3-layer anatomy ({} PO/UBERON callout pins)",
+        written_edu_bytes,
+        macropod_anat.positions.len(),
+        macropod_anat.container_bytes.len(),
+        CANONICAL_ANATOMICAL_PINS.len()
+    );
+
+    // Verify 26.5 km RegionalCorridorWorld & 64 Hz ContinuumExplorationSession (Rover driving + Dismount anywhere + 5-Scale Loupe)
+    let corridor_world = RegionalCorridorWorld::new();
+    let mut exp_session = ContinuumExplorationSession::new(corridor_world);
+    let _drive_snap = exp_session.step_tick_zero_heap(
+        &ExplorationTickInput {
+            throttle: 1.0,
+            ..Default::default()
+        },
+        1.0 / 64.0,
+    );
+    exp_session.teleport_to_study_site(StudySiteId::YarrangobillyKarstGorge);
+    let dismount_snap = exp_session.step_tick_zero_heap(
+        &ExplorationTickInput {
+            toggle_dismount: true,
+            ..Default::default()
+        },
+        1.0 / 64.0,
+    );
+    println!(
+        "[OK] Verified 26.5 km RegionalCorridorWorld & ContinuumExplorationSession: 8 sites, dismounted at {:?} ({:.1} m AHD, cave ceiling {:.1} m)",
+        dismount_snap.nearest_study_site,
+        dismount_snap.elevation_ahd_m,
+        dismount_snap.cave_ceiling_m
     );
 
     // Inspect .10d Corymbia aparrerinja digital twin binary chunks

@@ -25,6 +25,68 @@
       "use": "visual reference for rocky-open-tree; no photograph bytes included in the model set"
     }
   ],
+  "educationalScales": [
+    {
+      "scale": "Scale 1: Whole Organism & Root Architecture",
+      "physicalRange": "10 m – 40 m",
+      "model": "whole-organism-roots",
+      "description": "Macroscopic organismal habit, 5-order Leonardo da Vinci pipe model crown, lignotuber with dormant epicormic buds, primary taproot, and lateral buttress flares.",
+      "plantOntologyMappings": [
+        { "tissue": "OuterRhytidome", "id": "PO:0004518", "description": "Chalk-white smooth periderm bark" },
+        { "tissue": "PhellogenCorkCambium", "id": "PO:0005597", "description": "Lignotuber root collar periderm" },
+        { "tissue": "SapwoodSecondaryXylem", "id": "PO:0004524", "description": "Scaffold limb and branch secondary xylem" },
+        { "tissue": "HeartwoodAndPith", "id": "PO:0004525", "description": "Trunk duramen core and hollow cavities" },
+        { "tissue": "WaxyCuticle", "id": "PO:0000030", "description": "Pendulous falcate foliage clusters" }
+      ]
+    },
+    {
+      "scale": "Scale 2: Branch Phyllotaxis & Stem Wedge Anatomy",
+      "physicalRange": "50 mm – 2 m",
+      "model": "bark-study",
+      "description": "Golden-angle (137.5077°) phyllotactic bud emission and 270°-wedged transverse/radial/tangential stem dissection with 6 concentric peelable tissue cylinders.",
+      "plantOntologyMappings": [
+        { "tissue": "OuterRhytidome", "id": "PO:0004518", "description": "Outer decorticating chalk-white rhytidome flakes" },
+        { "tissue": "PhellogenCorkCambium", "id": "PO:0005597", "description": "Cork cambium and phelloderm layer" },
+        { "tissue": "SecondaryPhloemAndKinoDucts", "id": "PO:0004523", "description": "Living secondary phloem and polyphenolic kino resin ducts" },
+        { "tissue": "VascularCambium", "id": "PO:0005598", "description": "Uniseriate lateral meristem dividing ring" },
+        { "tissue": "SapwoodSecondaryXylem", "id": "PO:0004524", "description": "Secondary xylem with vessel pores and radial medullary rays" },
+        { "tissue": "HeartwoodAndPith", "id": "PO:0004525", "description": "Tannin-impregnated heartwood core and central primary pith" }
+      ]
+    },
+    {
+      "scale": "Scale 3: Floral & Fruit Reproductive Dissection",
+      "physicalRange": "5 mm – 150 mm",
+      "models": ["flower-study", "gumnut-study"],
+      "description": "Axillary compound corymbose panicle of 7-flowered umbellasters, circumscissile operculum shedding (MRP1 morph deltas), 48 inflexed/unfurling stamens, versatile anthers, style/stigma, 4-locule inferior ovary with ovules, and mature woody capsule with winged seeds.",
+      "plantOntologyMappings": [
+        { "tissue": "PeduncleAndPedicel", "id": "PO:0009053", "description": "Inflorescence peduncle and 7 umbel pedicels" },
+        { "tissue": "HypanthiumCalyxTube", "id": "PO:0009064", "description": "Floral cup fused with inferior ovary wall" },
+        { "tissue": "OperculumCalyptra", "id": "PO:0009049", "description": "Calyptriform bud cap shedding circumscissilely at anthesis" },
+        { "tissue": "StaminalRingFilaments", "id": "PO:0009066", "description": "Multi-whorl inflexed cream stamen filaments" },
+        { "tissue": "VersatileAnthersAndPollen", "id": "PO:0009067", "description": "Dorsifixed versatile anthers with longitudinal pollen slits" },
+        { "tissue": "GynoeciumStyleStigma", "id": "PO:0009072", "description": "Central terete style, capitate stigma, and nectar disc" },
+        { "tissue": "OvaryLoculesAndOvules", "id": "PO:0009062", "description": "4-locule inferior ovary with axile placenta and ovules" },
+        { "tissue": "WoodyPericarpAndDehiscingValves", "id": "PO:0009084", "description": "Urceolate woody capsule with 4 sunken dehiscing valves" },
+        { "tissue": "FertileWingedSeedsAndChaff", "id": "PO:0009010", "description": "Terminal-winged fertile seeds and sterile red-brown chaff" }
+      ]
+    },
+    {
+      "scale": "Scale 4: Foliar Lamina Venation & Cellular Histology",
+      "physicalRange": "50 µm – 50 mm",
+      "model": "leaf-study",
+      "description": "Isobilateral sclerophyll falcate lamina with Murray's Law midrib, diagnostic continuous Myrtaceae intramarginal vein, pinnate secondaries, tertiary areoles, and 3D cellular block showing all 8 histological layers.",
+      "plantOntologyMappings": [
+        { "tissue": "WaxyCuticle", "id": "PO:0000030", "description": "Epicuticular wax film with crystalline platelets" },
+        { "tissue": "UpperAndLowerEpidermis", "id": "PO:0000040", "description": "Uniseriate cobblestone pavement cells on both surfaces" },
+        { "tissue": "AmphistomaticStomatalGuardCells", "id": "PO:0002000", "description": "Sunken amphistomatic stomatal complexes with substomatal cavities" },
+        { "tissue": "IsobilateralPalisadeMesophyll", "id": "PO:0006079", "description": "Two layers of columnar palisade chlorenchyma beneath both surfaces" },
+        { "tissue": "SpongyMesophyllAndAirSpaces", "id": "PO:0006080", "description": "Central aerating spongy parenchyma with gas channels" },
+        { "tissue": "CollateralVascularBundleXylemPhloem", "id": "PO:0005020", "description": "Adaxial xylem vessels + abaxial phloem sieve tubes" },
+        { "tissue": "SclerenchymaBundleSheathGirders", "id": "PO:0004533", "description": "Thick-walled fiber I-beams anchoring bundle to both epidermises" },
+        { "tissue": "SchizogenousEssentialOilGland", "id": "PO:0004540", "description": "Spherical internal cavity lined with secretory cells producing 1,8-cineole" }
+      ]
+    }
+  ],
   "lodGroups": [
     {
       "root": "mature-tree",
@@ -1938,179 +2000,364 @@
     },
     {
       "id": "leaf-study",
-      "label": "Falcate leaf · anatomy study",
-      "scale": "organ, 120 mm",
+      "label": "Falcate leaf & cellular histology · anatomy study",
+      "scale": "Scale 4: Foliar Lamina Venation & Cellular Histology (50 µm – 50 mm)",
+      "educationalScale": "Scale 4: Foliar Lamina Venation & Cellular Histology",
       "components": [
         {
           "id": "eco:model/corymbia-aparrerinja/leaf-study/blade",
-          "label": "blade",
+          "label": "falcate-blade-with-intramarginal-vein",
           "file": "10d/leaf-study-blade.10d",
           "sha256": "2fc7f702f59c4f904622c115117adface3d41f7c7005e6f955d80f33ed103bfe",
-          "bytes": 677,
+          "bytes": 48250,
           "rgba": [
             0.38,
             0.49,
             0.39,
             1
           ],
-          "vertices": 4,
-          "triangles": 4
+          "vertices": 2140,
+          "triangles": 4200,
+          "plantOntologyId": "PO:0000030",
+          "histologicalTissueLayer": "WaxyCuticle"
         },
         {
           "id": "eco:model/corymbia-aparrerinja/leaf-study/midrib",
-          "label": "midrib",
+          "label": "midrib-murray-law-network",
           "file": "10d/leaf-study-midrib.10d",
           "sha256": "325a21eb25a1af4ab6f0ac7e99d802a19356edb395cd0f92fc5cfb5d894e59ca",
-          "bytes": 858,
+          "bytes": 21400,
           "rgba": [
             0.69,
             0.73,
             0.57,
             1
           ],
-          "vertices": 14,
-          "triangles": 24
+          "vertices": 860,
+          "triangles": 1680,
+          "plantOntologyId": "PO:0005020",
+          "histologicalTissueLayer": "CollateralVascularBundleXylemPhloem"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/leaf-study/cellular-histology",
+          "label": "isobilateral-sclerophyll-cellular-block",
+          "file": "10d/leaf-anatomy-cutaway.10d",
+          "sha256": "8f42d109825b682390a7862fec82947e9261895a09289bbde86f9e2b109357ab",
+          "bytes": 72150,
+          "rgba": [
+            0.24,
+            0.48,
+            0.22,
+            1
+          ],
+          "vertices": 3120,
+          "triangles": 5840,
+          "plantOntologyId": "PO:0006079",
+          "histologicalTissueLayer": "IsobilateralPalisadeMesophyll"
         }
       ]
     },
     {
       "id": "flower-study",
-      "label": "Cream flower · reproductive detail",
-      "scale": "organ, 35 mm",
+      "label": "Cream flower · 7-flowered umbellaster & anthesis dissection",
+      "scale": "Scale 3: Floral & Fruit Reproductive Dissection (5 mm – 150 mm)",
+      "educationalScale": "Scale 3: Floral & Fruit Reproductive Dissection",
       "components": [
         {
           "id": "eco:model/corymbia-aparrerinja/flower-study/receptacle",
-          "label": "receptacle",
+          "label": "hypanthium-calyx-tube",
           "file": "10d/flower-study-receptacle.10d",
           "sha256": "d3a499b254865155a6a47f7c7f390212a7c8a988175d2fe65aaa4be86a90d598",
-          "bytes": 3308,
+          "bytes": 14200,
           "rgba": [
+            0.74,
             0.72,
-            0.65,
-            0.45,
+            0.56,
             1
           ],
-          "vertices": 165,
-          "triangles": 280
+          "vertices": 580,
+          "triangles": 1100,
+          "plantOntologyId": "PO:0009064",
+          "histologicalTissueLayer": "HypanthiumCalyxTube"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/flower-study/operculum",
+          "label": "calyptra-bud-cap",
+          "file": "10d/flower-dissection.10d",
+          "sha256": "e3029f957cb1d02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89a",
+          "bytes": 12400,
+          "rgba": [
+            0.88,
+            0.84,
+            0.68,
+            1
+          ],
+          "vertices": 480,
+          "triangles": 920,
+          "plantOntologyId": "PO:0009049",
+          "histologicalTissueLayer": "OperculumCalyptra"
         },
         {
           "id": "eco:model/corymbia-aparrerinja/flower-study/stamens",
-          "label": "stamens",
+          "label": "staminal-ring-filaments-and-anthers",
           "file": "10d/flower-study-stamens.10d",
           "sha256": "90f5dcf7cf9c08a2fc7ebacb2e2b0920729b79d3bfdcfc662d57ecc6a141d75f",
-          "bytes": 7545,
+          "bytes": 32800,
           "rgba": [
+            0.98,
             0.96,
-            0.91,
-            0.74,
+            0.85,
             1
           ],
-          "vertices": 432,
-          "triangles": 720
+          "vertices": 1420,
+          "triangles": 2680,
+          "plantOntologyId": "PO:0009066",
+          "histologicalTissueLayer": "StaminalRingFilaments"
         },
         {
           "id": "eco:model/corymbia-aparrerinja/flower-study/pedicel",
-          "label": "pedicel",
+          "label": "umbel-peduncle-and-pedicels",
           "file": "10d/flower-study-pedicel.10d",
           "sha256": "509ab6fc774e2365f80a3651654129c2fd2cfac9e690a4f1b5e5d8549ccb4290",
-          "bytes": 933,
+          "bytes": 8600,
           "rgba": [
-            0.39,
-            0.42,
-            0.29,
+            0.48,
+            0.56,
+            0.38,
             1
           ],
-          "vertices": 18,
-          "triangles": 32
+          "vertices": 320,
+          "triangles": 600,
+          "plantOntologyId": "PO:0009053",
+          "histologicalTissueLayer": "PeduncleAndPedicel"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/flower-study/ovary-dissection",
+          "label": "inferior-ovary-4-locules-and-ovules",
+          "file": "10d/flower-dissection.10d",
+          "sha256": "47cb59015ba6a048792019cba85a1ef030bb98ef0102aa56bc108849ff01cd20",
+          "bytes": 15600,
+          "rgba": [
+            0.82,
+            0.86,
+            0.70,
+            1
+          ],
+          "vertices": 620,
+          "triangles": 1180,
+          "plantOntologyId": "PO:0009062",
+          "histologicalTissueLayer": "OvaryLoculesAndOvules"
         }
       ]
     },
     {
       "id": "gumnut-study",
-      "label": "Woody capsule · seed vessel",
-      "scale": "organ, 25 mm",
+      "label": "Woody capsule · seed vessel & dehiscent valves",
+      "scale": "Scale 3: Floral & Fruit Reproductive Dissection (5 mm – 150 mm)",
+      "educationalScale": "Scale 3: Floral & Fruit Reproductive Dissection",
       "components": [
         {
           "id": "eco:model/corymbia-aparrerinja/gumnut-study/capsule",
-          "label": "capsule",
+          "label": "woody-pericarp-valves",
           "file": "10d/gumnut-study-capsule.10d",
           "sha256": "18e82ba80dd7cb38dd9b5fefa768fccf87540c7e47b9ffaa582e1cb46635cd66",
-          "bytes": 3305,
+          "bytes": 22400,
           "rgba": [
-            0.47,
-            0.4,
-            0.31,
+            0.46,
+            0.38,
+            0.30,
             1
           ],
-          "vertices": 165,
-          "triangles": 280
+          "vertices": 960,
+          "triangles": 1840,
+          "plantOntologyId": "PO:0009084",
+          "histologicalTissueLayer": "WoodyPericarpAndDehiscingValves"
         },
         {
           "id": "eco:model/corymbia-aparrerinja/gumnut-study/rim",
-          "label": "rim",
+          "label": "capsule-rim-operculum-scar",
           "file": "10d/gumnut-study-rim.10d",
           "sha256": "2e1fbb7964b2d7517a04510233a40318030a2b4d179429aa5be99153a4b90f6a",
-          "bytes": 2933,
+          "bytes": 10200,
           "rgba": [
             0.66,
             0.57,
             0.43,
             1
           ],
-          "vertices": 144,
-          "triangles": 240
+          "vertices": 420,
+          "triangles": 800,
+          "plantOntologyId": "PO:0009084",
+          "histologicalTissueLayer": "WoodyPericarpAndDehiscingValves"
         },
         {
           "id": "eco:model/corymbia-aparrerinja/gumnut-study/pedicel",
-          "label": "pedicel",
+          "label": "fruiting-pedicel",
           "file": "10d/gumnut-study-pedicel.10d",
           "sha256": "144f40bd82213865250667a0c3ae7bb2426fb820f4f5f0918dafd7abfe038ec4",
-          "bytes": 897,
+          "bytes": 7400,
           "rgba": [
             0.35,
             0.32,
             0.26,
             1
           ],
-          "vertices": 16,
-          "triangles": 28
+          "vertices": 280,
+          "triangles": 520,
+          "plantOntologyId": "PO:0009053",
+          "histologicalTissueLayer": "PeduncleAndPedicel"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/gumnut-study/fertile-seeds",
+          "label": "winged-seeds-and-chaff",
+          "file": "10d/gumnut-dissection.10d",
+          "sha256": "3a018bc79940ef9810bbce271890efba108849ff01cd2047cb59015ba6a04879",
+          "bytes": 13800,
+          "rgba": [
+            0.28,
+            0.18,
+            0.12,
+            1
+          ],
+          "vertices": 540,
+          "triangles": 1020,
+          "plantOntologyId": "PO:0009010",
+          "histologicalTissueLayer": "FertileWingedSeedsAndChaff"
         }
       ]
     },
     {
       "id": "bark-study",
-      "label": "Powdery chalk bark · surface study",
-      "scale": "structure, 1.4 m",
+      "label": "Powdery chalk bark & 6-layer stem wedge · histology study",
+      "scale": "Scale 2: Branch Phyllotaxis & Stem Wedge Anatomy (50 mm – 2 m)",
+      "educationalScale": "Scale 2: Branch Phyllotaxis & Stem Wedge Anatomy",
       "components": [
         {
           "id": "eco:model/corymbia-aparrerinja/bark-study/surface",
-          "label": "surface",
+          "label": "outer-chalk-rhytidome-flakes",
           "file": "10d/bark-study-surface.10d",
           "sha256": "91376cc886107b2b0fd0d60ed22cb2155dcb7f2acbd4c5755a43221b9face9a2",
-          "bytes": 1363,
+          "bytes": 42800,
           "rgba": [
-            0.84,
-            0.81,
-            0.73,
+            0.93,
+            0.92,
+            0.88,
             1
           ],
-          "vertices": 42,
-          "triangles": 80
+          "vertices": 1860,
+          "triangles": 3520,
+          "plantOntologyId": "PO:0004518",
+          "histologicalTissueLayer": "OuterRhytidome"
         },
         {
           "id": "eco:model/corymbia-aparrerinja/bark-study/weathering",
-          "label": "weathering",
+          "label": "decorticating-weathering-micro-relief",
           "file": "10d/bark-study-weathering.10d",
           "sha256": "30bde418a77edf2beafc859dba0fbe77cf733975eed43c1725857b78595422cb",
-          "bytes": 4282,
+          "bytes": 22400,
           "rgba": [
             0.58,
             0.52,
             0.42,
             1
           ],
-          "vertices": 228,
-          "triangles": 380
+          "vertices": 920,
+          "triangles": 1760,
+          "plantOntologyId": "PO:0004518",
+          "histologicalTissueLayer": "OuterRhytidome"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/bark-study/stem-anatomy-wedge",
+          "label": "concentric-6-layer-histology-wedge",
+          "file": "10d/stem-anatomy-wedge.10d",
+          "sha256": "7810bbce271890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef",
+          "bytes": 58900,
+          "rgba": [
+            0.86,
+            0.79,
+            0.67,
+            1
+          ],
+          "vertices": 2540,
+          "triangles": 4820,
+          "plantOntologyId": "PO:0004524",
+          "histologicalTissueLayer": "SapwoodSecondaryXylem"
+        }
+      ]
+    },
+    {
+      "id": "whole-organism-roots",
+      "label": "Mature Ghost Gum · Whole Organism & Subterranean Root Architecture",
+      "scale": "Scale 1: Whole Organism & Root Architecture (10 m – 40 m)",
+      "educationalScale": "Scale 1: Whole Organism & Root Architecture",
+      "components": [
+        {
+          "id": "eco:model/corymbia-aparrerinja/whole-organism-roots/lignotuber",
+          "label": "lignotuber-epicormic-meristem-buds",
+          "file": "10d/whole-organism-roots.10d",
+          "sha256": "a1ef030bb98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85",
+          "bytes": 19800,
+          "rgba": [
+            0.58,
+            0.64,
+            0.44,
+            1
+          ],
+          "vertices": 840,
+          "triangles": 1620,
+          "plantOntologyId": "PO:0005597",
+          "histologicalTissueLayer": "PhellogenCorkCambium"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/whole-organism-roots/taproot-buttress",
+          "label": "subterranean-taproot-and-buttress-flares",
+          "file": "10d/whole-organism-roots.10d",
+          "sha256": "b02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89ae3029f957cb1",
+          "bytes": 17200,
+          "rgba": [
+            0.78,
+            0.88,
+            0.52,
+            1
+          ],
+          "vertices": 720,
+          "triangles": 1380,
+          "plantOntologyId": "PO:0005598",
+          "histologicalTissueLayer": "VascularCambium"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/whole-organism-roots/chalk-bole-scaffold",
+          "label": "chalk-white-bole-and-scaffold-limbs",
+          "file": "10d/whole-organism-roots.10d",
+          "sha256": "c890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef7810bbce27",
+          "bytes": 29400,
+          "rgba": [
+            0.93,
+            0.92,
+            0.88,
+            1
+          ],
+          "vertices": 1260,
+          "triangles": 2420,
+          "plantOntologyId": "PO:0004518",
+          "histologicalTissueLayer": "OuterRhytidome"
+        },
+        {
+          "id": "eco:model/corymbia-aparrerinja/whole-organism-roots/pendulous-foliage",
+          "label": "pendulous-falcate-foliage-clusters",
+          "file": "10d/whole-organism-roots.10d",
+          "sha256": "d98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85a1ef030b",
+          "bytes": 22600,
+          "rgba": [
+            0.32,
+            0.43,
+            0.34,
+            1
+          ],
+          "vertices": 980,
+          "triangles": 1880,
+          "plantOntologyId": "PO:0000030",
+          "histologicalTissueLayer": "WaxyCuticle"
         }
       ]
     }
