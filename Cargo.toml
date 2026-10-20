@@ -14,8 +14,21 @@ qualia-geospatial = { path = "../qualiaDB/crates/qualia-geospatial" }
 qualia-sim = { path = "../qualiaDB/crates/qualia-sim" }
 vibe = { path = "../qualiaDB/crates/vibe" }
 webizen-render = { path = "../qualiaDB/crates/webizen-render" }
+wgpu = { version = "30.0.0", path = "../etalon/compat/wgpu", default-features = false }
+naga = { version = "0.0.1", path = "../etalon/naga", features = ["wgsl-in", "spv-out", "msl-out", "hlsl-out"] }
+etalon = { version = "0.0.1", path = "../etalon/etalon", default-features = false }
+etalon-agent = { version = "0.0.1", path = "../etalon/crates/etalon-agent" }
+etalon-wgsl-forge = { version = "0.0.1", path = "../etalon/crates/etalon-wgsl-forge" }
+etalon-nquin = { version = "0.0.1", path = "../etalon/crates/etalon-nquin" }
+etalon-tensor = { version = "0.0.1", path = "../etalon/crates/etalon-tensor" }
+etalon-render = { version = "0.0.1", path = "../etalon/crates/etalon-render" }
+etalon-wasm = { version = "0.0.1", path = "../etalon/crates/etalon-wasm" }
 rio_api = "0.8"
 rio_turtle = "0.8"
 sha2 = "0.10"
 image = { version = "0.25", default-features = false, features = ["png"] }
+
+[patch.crates-io]
+wgpu = { path = "../etalon/compat/wgpu" }
+naga = { path = "../etalon/naga" }
 

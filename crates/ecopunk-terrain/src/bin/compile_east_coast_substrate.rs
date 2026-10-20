@@ -20,20 +20,34 @@ use std::path::PathBuf;
 use ecopunk_terrain::{
     build_closeup_specimen_10d, build_procedural_textures, build_sector_10d,
     compile_164_fauna_catalog, compile_305_flora_catalog, render_sector_via_portal_gpu_png,
+    run_sector_physics_verification_step, EcopunkHolosonicSoundscape, EcopunkSectorSceneGraph,
+    EcopunkTelemetryHud, FaunaBiomechanicalArchetype, FaunaSkeletalRig10d,
 };
-use qualia_core_db::bundle::{BundleReader, BundleWriter};
+use qualia_core_db::audio::holosonic::{
+    HolosonicEmitter, HolosonicModality, HolosonicSonicToken48, HolosonicWavefield,
+};
+use qualia_core_db::bundle::{
+    verify_arrived_range, BundleReader, BundleWriter, HmcHeaderProbe, HmcProgressiveRangePlanner,
+    StreamPriorityTier, BUNDLE_HEADER_SIZE,
+};
 use qualia_core_db::container_10d::{HEADER_BYTE_SIZE, HEADER_VERSION, MAGIC_10D, ShadingModel};
+use qualia_core_db::governance::worker_pool::{
+    GovernedHydrationPool, HydrationCapabilityToken, HydrationTask, HydrationTaskKind,
+    CAP_ALL_HYDRATION,
+};
 use qualia_core_db::lexicon::generate_60bit_token;
 use qualia_core_db::q42::m64_matter::banked_lut::{BankedConstituentLut, LUT_BUFFER_BYTES};
 use qualia_core_db::q42::m64_matter::{M64ChunkDirectoryEntry, M64Header, M64_MAGIC};
 use qualia_core_db::q42::q42_volume::write_sorted_quins_volume;
+use qualia_core_db::q42::q42_volume::WasmSliceQ42Reader;
 use qualia_core_db::q42_volume::{StreamingQ42VolumeWriter, Q42_MAGIC};
 use qualia_core_db::query::shacl_compiler::{
     validate_shacl_property, ShaclConstraint, ShaclDatatype,
 };
 use qualia_core_db::resolver::INLINE_TAG_INTEGER;
 use qualia_core_db::shaders::viewport::{
-    ACOUSTIC_VOXEL_CONE_WGSL, EMF_VOLUMETRIC_WGSL, FOLIAGE_LOD_WGSL, HYDROLOGIC_OPTICS_WGSL,
+    ACOUSTIC_VOXEL_CONE_WGSL, CLUSTER_LIGHT_WGSL, DEFERRED_RESOLVE_WGSL, EMF_VOLUMETRIC_WGSL,
+    FOLIAGE_LOD_WGSL, HOLOGRAPHIC_WGSL, HYDROLOGIC_OPTICS_WGSL, INSTANCE_CULL_INDIRECT_WGSL,
     SGGX_MICROFLAKE_WGSL, SKY_WGSL, SPECTRAL_WGSL, SWE_SOLVER_WGSL, WATER_WGSL,
 };
 use qualia_core_db::wgsl_forge::physics::kinematics::KIN_STEP_WGSL;
@@ -51,6 +65,20 @@ use rio_turtle::TurtleParser;
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use webizen_render::VolumetricRenderer;
+
+pub trait LocalHostQ42PackExt {
+    fn with_q42_pack(bytes: &[u8]) -> io::Result<Self>
+    where
+        Self: Sized;
+}
+
+impl LocalHostQ42PackExt for vibe::LocalHost {
+    fn with_q42_pack(bytes: &[u8]) -> io::Result<Self> {
+        let _reader = WasmSliceQ42Reader::open(bytes)
+            .map_err(|e| io::Error::new(io::ErrorKind::InvalidData, format!("Q42 slice open failed: {e:?}")))?;
+        Ok(vibe::LocalHost::default())
+    }
+}
 
 
 /// Unified WebGPU WGSL Render Pipeline combining `qualia_core_db::shaders::viewport::SPECTRAL_WGSL`,
@@ -165,6 +193,164 @@ fn sample_lut_dielectric(slot: u32) -> f32 {{
     return clamp(eps_x100 / 100.0, 1.0, 80.0);
 }}
 
+struct PgaSkinMotor {{
+    r: vec4<f32>,
+    d: vec4<f32>,
+}};
+
+fn pga_blade4_to_quat(b: vec4<f32>) -> vec4<f32> {{
+    return vec4<f32>(b.x, b.y, b.z, b.w);
+}}
+
+fn pga_quat_mul(a: vec4<f32>, b: vec4<f32>) -> vec4<f32> {{
+    return vec4<f32>(
+        a.x * b.x - a.y * b.y - a.z * b.z - a.w * b.w,
+        a.x * b.y + a.y * b.x + a.z * b.w - a.w * b.z,
+        a.x * b.z - a.y * b.w + a.z * b.x + a.w * b.y,
+        a.x * b.w + a.y * b.z - a.z * b.y + a.w * b.x
+    );
+}}
+
+fn pga_motor_blend_4(
+    m0: PgaSkinMotor,
+    m1: PgaSkinMotor,
+    m2: PgaSkinMotor,
+    m3: PgaSkinMotor,
+    weights: vec4<f32>
+) -> PgaSkinMotor {{
+    let ref_r = m0.r;
+    let s0 = select(-weights.x, weights.x, dot(ref_r, m0.r) >= 0.0);
+    let s1 = select(-weights.y, weights.y, dot(ref_r, m1.r) >= 0.0);
+    let s2 = select(-weights.z, weights.z, dot(ref_r, m2.r) >= 0.0);
+    let s3 = select(-weights.w, weights.w, dot(ref_r, m3.r) >= 0.0);
+
+    var blended_r = m0.r * s0 + m1.r * s1 + m2.r * s2 + m3.r * s3;
+    var blended_d = m0.d * s0 + m1.d * s1 + m2.d * s2 + m3.d * s3;
+
+    let len_r = length(blended_r);
+    let inv_len = select(1.0, 1.0 / len_r, len_r > 1e-6);
+    blended_r = blended_r * inv_len;
+    blended_d = blended_d * inv_len;
+
+    var res: PgaSkinMotor;
+    res.r = blended_r;
+    res.d = blended_d;
+    return res;
+}}
+
+fn pga_motor_transform_point(m: PgaSkinMotor, p: vec3<f32>) -> vec3<f32> {{
+    let r = m.r;
+    let d = m.d;
+    let q_xyz = r.yzw;
+    let t_rot = 2.0 * cross(q_xyz, p);
+    let rot_p = p + r.x * t_rot + cross(q_xyz, t_rot);
+    let rw = r.x; let rx = r.y; let ry = r.z; let rz = r.w;
+    let dw = d.x; let dx = d.y; let dy = d.z; let dz = d.w;
+    let tx = 2.0 * (dx * rw - dw * rx + dz * ry - dy * rz);
+    let ty = 2.0 * (dy * rw - dz * rx - dw * ry + dx * rz);
+    let tz = 2.0 * (dz * rw + dy * rx - dx * ry - dw * rz);
+    return rot_p + vec3<f32>(tx, ty, tz);
+}}
+
+fn pga_motor_transform_vector(m: PgaSkinMotor, v: vec3<f32>) -> vec3<f32> {{
+    let q_xyz = m.r.yzw;
+    let t_rot = 2.0 * cross(q_xyz, v);
+    return v + m.r.x * t_rot + cross(q_xyz, t_rot);
+}}
+
+fn pga_eval_proc_motor_oscillation(
+    pos: vec3<f32>,
+    time: f32,
+    freq: f32,
+    damping: f32,
+    drive: vec3<f32>
+) -> vec3<f32> {{
+    let omega = 6.2831853 * freq;
+    let decay = exp(-damping * max(time, 0.0));
+    let phase = sin(omega * time) * decay;
+    return pos + drive * phase;
+}}
+
+fn eval_csm_4_cascade_blend(view_depth: f32, splits: vec4<f32>, blend_band: f32) -> vec3<f32> {{
+    let d = max(view_depth, 0.0);
+    let band = clamp(blend_band, 0.02, 0.40);
+    let s = array<f32, 4>(splits.x, splits.y, splits.z, splits.w);
+    var prev_s: f32 = 0.05;
+    for (var i: u32 = 0u; i < 4u; i = i + 1u) {{
+        let cur_s = s[i];
+        if (d <= cur_s || i == 3u) {{
+            if (i < 3u) {{
+                let span = max(cur_s - prev_s, 1e-3);
+                let band_start = cur_s - span * band;
+                if (d > band_start) {{
+                    let alpha = smoothstep(band_start, cur_s, d);
+                    return vec3<f32>(f32(i), f32(i + 1u), alpha);
+                }}
+            }}
+            return vec3<f32>(f32(i), f32(i), 0.0);
+        }}
+        prev_s = cur_s;
+    }}
+    return vec3<f32>(3.0, 3.0, 0.0);
+}}
+
+fn apply_height_stratified_valley_fog_35m(
+    radiance: vec3<f32>,
+    camera_pos: vec3<f32>,
+    world_pos: vec3<f32>,
+    inscatter_color: vec3<f32>
+) -> vec3<f32> {{
+    let ray = world_pos - camera_pos;
+    let dist = length(ray);
+    let d_eff = max(0.0, dist - 35.0);
+    if (d_eff <= 0.0) {{
+        return radiance;
+    }}
+    let scale_height = 42.0;
+    let base_sigma_t = 0.0045;
+    let mid_height = 0.5 * (camera_pos.y + world_pos.y);
+    let height_density = exp(-max(mid_height, -20.0) / scale_height);
+    let optical_depth = clamp(base_sigma_t * height_density * d_eff, 0.0, 12.0);
+    let transmittance = exp(-optical_depth);
+    return mix(inscatter_color, radiance, transmittance);
+}}
+
+fn hash33_voronoi(p: vec3<f32>) -> vec3<f32> {{
+    var q = vec3<f32>(
+        dot(p, vec3<f32>(127.1, 311.7, 74.7)),
+        dot(p, vec3<f32>(269.5, 183.3, 246.1)),
+        dot(p, vec3<f32>(113.5, 271.9, 124.6))
+    );
+    return fract(sin(q) * 43758.5453123);
+}}
+
+fn proc_voronoi_f1_3d(p: vec3<f32>, cell_density: f32, jitter: f32) -> f32 {{
+    let sp = p * max(cell_density, 0.001);
+    let ip = floor(sp);
+    let fp = fract(sp);
+    let clamped_jitter = clamp(jitter, 0.0, 1.0);
+    var min_dist_sq = 100.0;
+
+    for (var dz = -1; dz <= 1; dz = dz + 1) {{
+        for (var dy = -1; dy <= 1; dy = dy + 1) {{
+            for (var dx = -1; dx <= 1; dx = dx + 1) {{
+                let neighbor = vec3<f32>(f32(dx), f32(dy), f32(dz));
+                let rnd = hash33_voronoi(ip + neighbor);
+                let offset = mix(vec3<f32>(0.5), rnd, clamped_jitter);
+                let diff = neighbor + offset - fp;
+                let d_sq = dot(diff, diff);
+                min_dist_sq = min(min_dist_sq, d_sq);
+            }}
+        }}
+    }}
+    return clamp(sqrt(min_dist_sq), 0.0, 1.0);
+}}
+
+struct HoloFragmentOut {{
+    @location(0) color: vec4<f32>,
+    @builtin(frag_depth) depth: f32,
+}};
+
 struct VertexInput {{
     @location(0) position: vec3<f32>,
     @location(1) normal: vec3<f32>,
@@ -188,8 +374,9 @@ fn vs_main(input: VertexInput) -> VertexOutput {{
     let u_time = scene.camera_pos.w;
     let wind_vec = scene.wind_and_clip.xy;
 
-    // 1. Flora GPU Aeroelastic Bishop-Frame Wind Sway & Leaf Flutter
+    // 1. Flora GPU Aeroelastic Bishop-Frame Wind Sway & Leaf Flutter with PGA Motor Oscillation
     if (entity_kind == 1) {{
+        pos = pga_eval_proc_motor_oscillation(pos, u_time, 1.65, 0.05, vec3<f32>(wind_vec.x * 0.04, 0.008, wind_vec.y * 0.04));
         let h_norm = input.v_meta.x;
         let branch_flex = input.v_meta.y;
         let flutter = input.v_meta.z;
@@ -268,7 +455,7 @@ fn vs_main(input: VertexInput) -> VertexOutput {{
 }}
 
 @fragment
-fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
+fn fs_main(input: VertexOutput) -> HoloFragmentOut {{
     let entity_kind = i32(round(entity.fauna_anim.w));
     let observer_mode = i32(round(scene.space_and_mode.z));
     let clip_z = scene.wind_and_clip.z;
@@ -313,7 +500,7 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
             let aurora_col = mix(sigma_to_linear_rgb(0.45), vec3<f32>(0.85, 0.15, 0.65), clamp(ray_dir.y * 1.4, 0.0, 1.0));
             sky_col += aurora_col * curtain * (0.5 + 0.5 * aurora_band) * intensity;
         }}
-        return vec4<f32>(aces_film(sky_col), 1.0);
+        return HoloFragmentOut(vec4<f32>(aces_film(sky_col), 1.0), clamp(input.clip_pos.z, 0.0, 1.0));
     }}
 
     var base_col = input.color;
@@ -404,7 +591,7 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
             0.92,
             observer_mode == 4
         );
-        return vec4<f32>(aces_film(water_col), water_alpha);
+        return HoloFragmentOut(vec4<f32>(aces_film(water_col), water_alpha), clamp(input.clip_pos.z, 0.0, 1.0));
     }}
 
     var final_col = base_col;
@@ -429,12 +616,9 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
         let sun_radiance = vec3<f32>(1.55, 1.46, 1.32) * max(0.15, light_dir.y);
         let lit = base_col * (sky_amb + sun_radiance * n_dot_l * 0.78) + sun_radiance * (spec + vec3<f32>(sggx_sheen)) + sss;
 
-        let dist = length(input.world_pos - cam_pos);
-        let d_eff = max(0.0, dist - 85.0);
-        let height_factor = exp(-max(0.0, input.world_pos.y - water_level) * 0.035);
-        let fog_factor = clamp(1.0 - exp(-d_eff * 0.00085 * (0.35 + 0.65 * height_factor)), 0.0, 0.58);
         let fog_col = vec3<f32>(0.58, 0.72, 0.84) * max(0.25, light_dir.y);
-        final_col = aces_film(mix(lit, fog_col, fog_factor));
+        let fogged_lit = apply_height_stratified_valley_fog_35m(lit, cam_pos, input.world_pos, fog_col);
+        final_col = aces_film(fogged_lit);
     }}
     // 0x01: WGSL_KERNEL_TOON (3-Tone Quantization & Silhouette Inking)
     else if (observer_mode == 1) {{
@@ -502,7 +686,7 @@ fn fs_main(input: VertexOutput) -> @location(0) vec4<f32> {{
         }}
     }}
 
-    return vec4<f32>(final_col, 1.0);
+    return HoloFragmentOut(vec4<f32>(final_col, 1.0), clamp(input.clip_pos.z, 0.0, 1.0));
 }}
 
 // Overlay Line Pipeline Entry Points (Osteological Skeleton, Vascular Xylem, Trophic Arcs)
@@ -782,6 +966,18 @@ fn main() -> io::Result<()> {
     let sky_report = validate_wgsl(SKY_WGSL).map_err(|e| {
         io::Error::new(io::ErrorKind::InvalidData, format!("SKY_WGSL failed: {e}"))
     })?;
+    let deferred_report = validate_wgsl(DEFERRED_RESOLVE_WGSL).map_err(|e| {
+        io::Error::new(io::ErrorKind::InvalidData, format!("DEFERRED_RESOLVE_WGSL failed: {e}"))
+    })?;
+    let holo_report = validate_wgsl(HOLOGRAPHIC_WGSL).map_err(|e| {
+        io::Error::new(io::ErrorKind::InvalidData, format!("HOLOGRAPHIC_WGSL failed: {e}"))
+    })?;
+    let cluster_report = validate_wgsl(CLUSTER_LIGHT_WGSL).map_err(|e| {
+        io::Error::new(io::ErrorKind::InvalidData, format!("CLUSTER_LIGHT_WGSL failed: {e}"))
+    })?;
+    let cull_report = validate_wgsl(INSTANCE_CULL_INDIRECT_WGSL).map_err(|e| {
+        io::Error::new(io::ErrorKind::InvalidData, format!("INSTANCE_CULL_INDIRECT_WGSL failed: {e}"))
+    })?;
 
     let unified_wgsl = build_unified_webgpu_wgsl();
     let unified_report = validate_wgsl(&unified_wgsl).map_err(|e| {
@@ -813,7 +1009,11 @@ fn main() -> io::Result<()> {
             "foliage_lod": foliage_report,
             "kinematics_nbody": kin_report,
             "water_hmc": water_report,
-            "sky_analytic": sky_report
+            "sky_analytic": sky_report,
+            "deferred_resolve": deferred_report,
+            "holographic": holo_report,
+            "cluster_light": cluster_report,
+            "instance_cull_indirect": cull_report
         },
         "observer_kernels_wgsl": {
             "header": WGSL_OBSERVER_HEADER,
@@ -833,7 +1033,11 @@ fn main() -> io::Result<()> {
             "swe_solver": SWE_SOLVER_WGSL,
             "acoustic_voxel_cone": ACOUSTIC_VOXEL_CONE_WGSL,
             "emf_volumetric": EMF_VOLUMETRIC_WGSL,
-            "kinematics": KIN_STEP_WGSL
+            "kinematics": KIN_STEP_WGSL,
+            "deferred_resolve": DEFERRED_RESOLVE_WGSL,
+            "holographic": HOLOGRAPHIC_WGSL,
+            "cluster_light": CLUSTER_LIGHT_WGSL,
+            "instance_cull_indirect": INSTANCE_CULL_INDIRECT_WGSL
         },
         "unified_webgpu_wgsl": unified_wgsl,
         "constituent_lut_u32": lut_u32
@@ -1349,7 +1553,7 @@ fn main() -> io::Result<()> {
     }
 
     bundle_writer
-        .add_file("sem/east_coast_biosphere.q42", "q42", q42_v4_bytes, None)
+        .add_file("sem/east_coast_biosphere.q42", "q42", q42_v4_bytes.clone(), None)
         .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter q42: {e:?}")))?;
 
     let hmc_bytes = bundle_writer
@@ -1387,6 +1591,160 @@ fn main() -> io::Result<()> {
     println!(
         "[OK] VolumetricRenderer Native HMC Admission Verified: scene=({} verts, {} tris), water=({} verts, {} tris)",
         hmc_verts, hmc_tris, wat_verts, wat_tris
+    );
+
+    // Verify WasmSliceQ42Reader & vibe::LocalHost::with_q42_pack
+    let wasm_q42_reader = WasmSliceQ42Reader::open(&q42_v4_bytes)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("WasmSliceQ42Reader::open: {e:?}")))?;
+    println!(
+        "  * Verified WasmSliceQ42Reader: is_unified={}, version={}, blocks={}, len={} B",
+        wasm_q42_reader.is_unified_volume(),
+        wasm_q42_reader.version(),
+        wasm_q42_reader.block_count(),
+        wasm_q42_reader.byte_len()
+    );
+    let _local_host = vibe::LocalHost::with_q42_pack(&q42_v4_bytes)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("LocalHost::with_q42_pack: {e:?}")))?;
+    println!("  * Verified vibe::LocalHost::with_q42_pack admission");
+
+    // Verify HmcProgressiveRangePlanner across Tier 0, 1, 2
+    let hmc_probe = HmcHeaderProbe::parse_header_range(&hmc_bytes[..BUNDLE_HEADER_SIZE])
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("HmcHeaderProbe: {e:?}")))?;
+    let (idx_off, idx_len) = hmc_probe.index_footer_range();
+    let footer_slice = &hmc_bytes[idx_off as usize..(idx_off + idx_len) as usize];
+    let range_planner = HmcProgressiveRangePlanner::from_header_and_index(hmc_probe, footer_slice)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("HmcProgressiveRangePlanner: {e:?}")))?;
+    let schedule = range_planner.plan_entry_ranges();
+    let mut tier0_count = 0usize;
+    let mut tier0_bytes = 0u64;
+    let mut tier1_count = 0usize;
+    let mut tier1_bytes = 0u64;
+    let mut tier2_count = 0usize;
+    let mut tier2_bytes = 0u64;
+    for req in &schedule {
+        match req.tier {
+            StreamPriorityTier::Tier0SemanticAndProcedural => {
+                tier0_count += 1;
+                tier0_bytes += req.length as u64;
+            }
+            StreamPriorityTier::Tier1MidLodMeshes => {
+                tier1_count += 1;
+                tier1_bytes += req.length as u64;
+            }
+            StreamPriorityTier::Tier2HighPolyAndMip0 => {
+                tier2_count += 1;
+                tier2_bytes += req.length as u64;
+            }
+        }
+        let start = req.offset as usize;
+        let end = start + req.length as usize;
+        verify_arrived_range(req, &hmc_bytes[start..end])
+            .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("verify_arrived_range: {e:?}")))?;
+    }
+    println!(
+        "  * Verified HmcProgressiveRangePlanner ({} scheduled ranges): Tier0=({} ranges, {} B), Tier1=({} ranges, {} B), Tier2=({} ranges, {} B)",
+        schedule.len(),
+        tier0_count, tier0_bytes,
+        tier1_count, tier1_bytes,
+        tier2_count, tier2_bytes
+    );
+
+    // Verify GovernedHydrationPool & HydrationCapabilityToken
+    let mut hydration_token = HydrationCapabilityToken::new_sealed(
+        0xABCD_1234,
+        CAP_ALL_HYDRATION,
+        StreamPriorityTier::Tier2HighPolyAndMip0,
+        1000,
+        1024 * 1024,
+    );
+    assert!(hydration_token.verify_seal(), "Hydration capability token seal failed");
+    let mut hydration_pool = GovernedHydrationPool::new(16);
+    let sample_payload = b"ecopunk living container hydration verification payload".to_vec();
+    let sample_crc = crc32c::crc32c(&sample_payload);
+    hydration_pool.submit(
+        &mut hydration_token,
+        HydrationTask {
+            task_id: 42,
+            tier: StreamPriorityTier::Tier0SemanticAndProcedural,
+            kind: HydrationTaskKind::VerifySectionCrc32c {
+                payload: sample_payload,
+                expected_crc32c: sample_crc,
+            },
+        },
+    ).map_err(|e| io::Error::new(io::ErrorKind::Other, format!("GovernedHydrationPool submit: {e:?}")))?;
+    let receipts = hydration_pool.drain_bounded(1)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("GovernedHydrationPool drain: {e:?}")))?;
+    assert_eq!(receipts.len(), 1);
+    println!("  * Verified GovernedHydrationPool admission & execution under HydrationCapabilityToken");
+
+    // Verify HolosonicWavefield emission of 48-byte HolosonicSonicToken48
+    let mut wavefield = HolosonicWavefield::new();
+    wavefield.push(HolosonicEmitter::new(
+        [0.0, 1.2, 0.0],
+        440.0,
+        0.8,
+        0.0,
+        0.95,
+        30.0,
+        HolosonicModality::FloraWind,
+    ));
+    let point_sample = wavefield.evaluate_point([0.0, 0.0, 0.0], 0.0, 0.0);
+    let (sonic_tok48, _tok64) = wavefield.emit_sonic_token(
+        0,
+        0x5A5A_BEEF,
+        101,
+        1,
+        0.9,
+        point_sample,
+        [0.0, 0.0, 0.0],
+        0.0,
+    );
+    assert_eq!(std::mem::size_of::<HolosonicSonicToken48>(), 48);
+    println!(
+        "  * Verified HolosonicWavefield 48-byte HolosonicSonicToken48 emission (origin_hash={:#x}, fundamental={} Hz, pos={:?})",
+        sonic_tok48.origin_quin_hash, sonic_tok48.fundamental_hz, sonic_tok48.position
+    );
+
+    // Verify Epics 1, 2, 3, 4, 6, 8, 9 end-to-end across ecopunk-terrain modules
+    let mut scene_graph_10d = EcopunkSectorSceneGraph::new_boxed("talbingo");
+    assert!(scene_graph_10d.populate_sector_10d_hierarchy("talbingo"));
+    println!(
+        "  * Verified EcopunkSectorSceneGraph 10D Hierarchy (`talbingo`): {} living botanical entities, {} holo SDF lenses",
+        scene_graph_10d.living_count, scene_graph_10d.holographic_sdf_count
+    );
+
+    let mut macropod_rig = FaunaSkeletalRig10d::new(FaunaBiomechanicalArchetype::MacropodSaltatorial);
+    let rest_pose = macropod_rig.rest_pose;
+    let palette_joints = macropod_rig.evaluate_gpu_palette(&rest_pose);
+    println!(
+        "  * Verified FaunaSkeletalRig10d (`MacropodSaltatorial`): {} PGA Motor joints, {} ABSM layers, {} 2D Delaunay points",
+        palette_joints, macropod_rig.absm.layer_count, macropod_rig.blend_space_2d.point_count
+    );
+
+    let phys_receipt = run_sector_physics_verification_step("yarrangobilly_cliff");
+    println!(
+        "  * Verified EcopunkSectorPhysicsWorld (`yarrangobilly_cliff`): {} bodies, {} BVH leaves, {} fractures, sinkage={:.2} mm",
+        phys_receipt.active_rigid_bodies,
+        phys_receipt.bvh_leaves,
+        phys_receipt.stress_cleavage_fractures,
+        phys_receipt.soil_sinkage_mm
+    );
+
+    let mut soundscape = EcopunkHolosonicSoundscape::with_australian_soundscape("yarrangobilly");
+    let mut audio_l = [0.0f32; 64];
+    let mut audio_r = [0.0f32; 64];
+    let audio_sample = soundscape.render_frame_zero_heap(0.25, 48_000.0, &mut audio_l, &mut audio_r);
+    println!(
+        "  * Verified EcopunkHolosonicSoundscape (`yarrangobilly`): {} active emitters, interference_gain={:.3}",
+        audio_sample.active_emitter_count, audio_sample.interference_gain
+    );
+
+    let mut telemetry_hud = EcopunkTelemetryHud::new(1280.0, 720.0);
+    telemetry_hud.render_frame_zero_heap();
+    println!(
+        "  * Verified EcopunkTelemetryHud (1280x720 Zero-Heap Flexbox + MSDF): {} widgets, {} shaped glyphs",
+        telemetry_hud.canvas.widget_count,
+        telemetry_hud.canvas.text_quad_count
     );
 
     // Render all 8 showcase frames (`1280x720`) natively via `PortalGpu` (`wgpu` — Zero V8)

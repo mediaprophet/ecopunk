@@ -1,6 +1,19 @@
 {
   "compiler": "ecopunk-terrain::fauna_catalog (Rust + Articulated Biomechanical Rig + VibeScript)",
   "dataset_id": "ecopunk-east-coast-fauna-164-v2",
+  "engine_skeletal_pipeline": {
+    "absm_machine": "Zero-Heap Multi-Layer State Machine (BaseLocomotion, UpperBodyVocalizeForage, HeadLookAt) (Epic 4)",
+    "blend_space": "2D Bowyer-Watson Delaunay Blend Space (Epic 4)",
+    "ik_solvers": [
+      "Two-Bone Motor IK (Hind/Fore Limb Ground Adaptation)",
+      "Constrained Motor FABRIK (Articulated Tail & Neck)"
+    ],
+    "joint_budget_max": 18,
+    "morph_pipeline": "8-Channel Pre-Skinning GPU Morph Target & EONT1 Ontogenetic Bridge",
+    "pga_motor_skinning": "Hardware GPU Dual-Quaternion PGA Motor Skinning (Epic 3)",
+    "proc1_oscillation": "Procedural Respiration Pitch & Caudal Undulation (PROC1)",
+    "total_species_catalogued": 164
+  },
   "species": [
     {
       "anatomy_3d": {
@@ -91,6 +104,19 @@
       "family": "Macropodidae",
       "gbif_id": "2440132",
       "genus": "Macropus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "macropus_giganteus",
       "indigenous_name": "Buru / Wambool",
@@ -205,6 +231,19 @@
       "family": "Macropodidae",
       "gbif_id": "9300807",
       "genus": "Notamacropus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "notamacropus_rufogriseus",
       "indigenous_name": "Bungari /Warroo",
@@ -318,6 +357,19 @@
       "family": "Macropodidae",
       "gbif_id": "2440182",
       "genus": "Wallabia",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "wallabia_bicolor",
       "indigenous_name": "Burrin / Black Pademelon",
@@ -432,6 +484,19 @@
       "family": "Macropodidae",
       "gbif_id": "2440111",
       "genus": "Petrogale",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "petrogale_penicillata",
       "indigenous_name": "Wirrit /Bamarook",
@@ -543,6 +608,19 @@
       "family": "Macropodidae",
       "gbif_id": "9517912",
       "genus": "Osphranter",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "osphranter_robustus",
       "indigenous_name": "Wolaru /Biggada",
@@ -655,6 +733,19 @@
       "family": "Potoroidae",
       "gbif_id": "2440072",
       "genus": "Potorous",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "potorous_tridactylus",
       "indigenous_name": "Waruk / Potoroo",
@@ -767,6 +858,19 @@
       "family": "Vombatidae",
       "gbif_id": "2440224",
       "genus": "Vombatus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "fossorial",
       "id": "vombatus_ursinus",
       "indigenous_name": "Guli / Mirrigang",
@@ -881,6 +985,19 @@
       "family": "Phascolarctidae",
       "gbif_id": "2440220",
       "genus": "Phascolarctos",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "phascolarctos_cinereus",
       "indigenous_name": "Gula / Koala",
@@ -992,6 +1109,19 @@
       "family": "Ornithorhynchidae",
       "gbif_id": "2433406",
       "genus": "Ornithorhynchus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "ornithorhynchus_anatinus",
       "indigenous_name": "Biladurang / Mallangong",
@@ -1106,6 +1236,19 @@
       "family": "Tachyglossidae",
       "gbif_id": "2433409",
       "genus": "Tachyglossus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "fossorial",
       "id": "tachyglossus_aculeatus",
       "indigenous_name": "wandayali / Bigibila",
@@ -1220,6 +1363,19 @@
       "family": "Pseudocheiridae",
       "gbif_id": "2439864",
       "genus": "Petauroides",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "petauroides_volans",
       "indigenous_name": "Warnda /Mungungo",
@@ -1333,6 +1489,19 @@
       "family": "Petauridae",
       "gbif_id": "2439886",
       "genus": "Petaurus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "petaurus_breviceps",
       "indigenous_name": "Peta /Ayawa",
@@ -1445,6 +1614,19 @@
       "family": "Burramyidae",
       "gbif_id": "2439829",
       "genus": "Burramys",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "burramys_parvus",
       "indigenous_name": "Burramys",
@@ -1555,6 +1737,19 @@
       "family": "Phalangeridae",
       "gbif_id": "2439775",
       "genus": "Trichosurus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "trichosurus_vulpecula",
       "indigenous_name": "Willi /Bung",
@@ -1668,6 +1863,19 @@
       "family": "Pseudocheiridae",
       "gbif_id": "2439848",
       "genus": "Pseudocheirus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "pseudocheirus_peregrinus",
       "indigenous_name": "Bung /Bukari",
@@ -1781,6 +1989,19 @@
       "family": "Dasyuridae",
       "gbif_id": "2435398",
       "genus": "Dasyurus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "dasyurus_maculatus",
       "indigenous_name": "Bindjulang /Guruma",
@@ -1893,6 +2114,19 @@
       "family": "Dasyuridae",
       "gbif_id": "2435356",
       "genus": "Antechinus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "antechinus_agilis",
       "indigenous_name": "Mardo /Antechinus",
@@ -2007,6 +2241,19 @@
       "family": "Canidae",
       "gbif_id": "5219173",
       "genus": "Canis",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "canis_dingo",
       "indigenous_name": "Warrigal / Mirrigang",
@@ -2121,6 +2368,19 @@
       "family": "Pteropodidae",
       "gbif_id": "2432693",
       "genus": "Pteropus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "pteropus_poliocephalus",
       "indigenous_name": "Yuluma /Giramay",
@@ -2232,6 +2492,19 @@
       "family": "Muridae",
       "gbif_id": "2438328",
       "genus": "Hydromys",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "hydromys_chrysogaster",
       "indigenous_name": "Rakali /Toorooroo",
@@ -2345,6 +2618,19 @@
       "family": "Menuridae",
       "gbif_id": "2488996",
       "genus": "Menura",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "menura_novaehollandiae",
       "indigenous_name": "Weringerong /Buln-buln",
@@ -2457,6 +2743,19 @@
       "family": "Alcedinidae",
       "gbif_id": "2475617",
       "genus": "Dacelo",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "dacelo_novaeguineae",
       "indigenous_name": "Gugubarra /Kookaburra",
@@ -2570,6 +2869,19 @@
       "family": "Accipitridae",
       "gbif_id": "2480442",
       "genus": "Aquila",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "aquila_audax",
       "indigenous_name": "Mullyan / Bunjil",
@@ -2684,6 +2996,19 @@
       "family": "Cacatuidae",
       "gbif_id": "2479901",
       "genus": "Callocephalon",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "callocephalon_fimbriatum",
       "indigenous_name": "Gang-gang",
@@ -2797,6 +3122,19 @@
       "family": "Cacatuidae",
       "gbif_id": "9394520",
       "genus": "Zanda",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "zanda_funerea",
       "indigenous_name": "Wylah / Ngarnak",
@@ -2911,6 +3249,19 @@
       "family": "Cacatuidae",
       "gbif_id": "2479886",
       "genus": "Cacatua",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "cacatua_galerita",
       "indigenous_name": "Garraway /Bilibili",
@@ -3023,6 +3374,19 @@
       "family": "Psittaculidae",
       "gbif_id": "2479333",
       "genus": "Platycercus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "platycercus_elegans",
       "indigenous_name": "Moyran / Bunduluk",
@@ -3136,6 +3500,19 @@
       "family": "Psittaculidae",
       "gbif_id": "2479504",
       "genus": "Alisterus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "alisterus_scapularis",
       "indigenous_name": "Wellat /Bibiring",
@@ -3248,6 +3625,19 @@
       "family": "Maluridae",
       "gbif_id": "2487526",
       "genus": "Malurus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "malurus_cyaneus",
       "indigenous_name": "Muruduwin /Mirram",
@@ -3361,6 +3751,19 @@
       "family": "Ptilonorhynchidae",
       "gbif_id": "2494836",
       "genus": "Ptilonorhynchus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "ptilonorhynchus_violaceus",
       "indigenous_name": "Bungil /Warrivoo",
@@ -3473,6 +3876,19 @@
       "family": "Meliphagidae",
       "gbif_id": "2487012",
       "genus": "Anthochaera",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "anthochaera_phrygia",
       "indigenous_name": "Jinang /Weriby",
@@ -3583,6 +3999,19 @@
       "family": "Artamidae",
       "gbif_id": "2489476",
       "genus": "Gymnorhina",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "gymnorhina_tibicen",
       "indigenous_name": "Garoogong /Quardle-oodk",
@@ -3697,6 +4126,19 @@
       "family": "Artamidae",
       "gbif_id": "2489491",
       "genus": "Strepera",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "strepera_graculina",
       "indigenous_name": "Kurrawang / Birri",
@@ -3811,6 +4253,19 @@
       "family": "Podargidae",
       "gbif_id": "2497118",
       "genus": "Podargus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "podargus_strigoides",
       "indigenous_name": "Boorin / Oomoomurla",
@@ -3924,6 +4379,19 @@
       "family": "Alcedinidae",
       "gbif_id": "5228397",
       "genus": "Ceyx",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "ceyx_azureus",
       "indigenous_name": "Tjirr-tjirr",
@@ -4036,6 +4504,19 @@
       "family": "Casuariidae",
       "gbif_id": "2495140",
       "genus": "Dromaius",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "dromaius_novaehollandiae",
       "indigenous_name": "Dinawan /Muray",
@@ -4148,6 +4629,19 @@
       "family": "Casuariidae",
       "gbif_id": "2495134",
       "genus": "Casuarius",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "casuarius_casuarius",
       "indigenous_name": "Gunduy / Djirri",
@@ -4257,6 +4751,19 @@
       "family": "Anatidae",
       "gbif_id": "2498344",
       "genus": "Cygnus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "cygnus_atratus",
       "indigenous_name": "Mulgo /Goonawarra",
@@ -4368,6 +4875,19 @@
       "family": "Falconidae",
       "gbif_id": "2481047",
       "genus": "Falco",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "falco_peregrinus",
       "indigenous_name": "Waratta / Wolkolan",
@@ -4479,6 +4999,19 @@
       "family": "Columbidae",
       "gbif_id": "2495562",
       "genus": "Ptilinopus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "ptilinopus_magnificus",
       "indigenous_name": "Wompoo /Bungil",
@@ -4589,6 +5122,19 @@
       "family": "Varanidae",
       "gbif_id": "2470762",
       "genus": "Varanus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "varanus_varius",
       "indigenous_name": "ugarapul / Gugaa",
@@ -4701,6 +5247,19 @@
       "family": "Scincidae",
       "gbif_id": "2462814",
       "genus": "Cyclodomorphus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "cyclodomorphus_praealtus",
       "indigenous_name": "Alpine Skink",
@@ -4811,6 +5370,19 @@
       "family": "Scincidae",
       "gbif_id": "2462934",
       "genus": "Tiliqua",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "tiliqua_nigrolutea",
       "indigenous_name": "Mugan /Blue-tongue",
@@ -4924,6 +5496,19 @@
       "family": "Agamidae",
       "gbif_id": "7355849",
       "genus": "Intellagama",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "intellagama_lesueurii",
       "indigenous_name": "Giwirr /Baiamul",
@@ -5036,6 +5621,19 @@
       "family": "Agamidae",
       "gbif_id": "2466012",
       "genus": "Amphibolurus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "amphibolurus_muricatus",
       "indigenous_name": "Burrung",
@@ -5148,6 +5746,19 @@
       "family": "Pythonidae",
       "gbif_id": "2465198",
       "genus": "Morelia",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "morelia_spilota",
       "indigenous_name": "Guridjadja / Burring",
@@ -5258,6 +5869,19 @@
       "family": "Elapidae",
       "gbif_id": "2469824",
       "genus": "Pseudechis",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "pseudechis_porphyriacus",
       "indigenous_name": "Mugan /Bundar",
@@ -5370,6 +5994,19 @@
       "family": "Elapidae",
       "gbif_id": "2469952",
       "genus": "Notechis",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "notechis_scutatus",
       "indigenous_name": "Ngarigo Tiger Snake",
@@ -5483,6 +6120,19 @@
       "family": "Scincidae",
       "gbif_id": "2463412",
       "genus": "Pseudemoia",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "pseudemoia_entrecasteauxii",
       "indigenous_name": "Alpine Grass Skink",
@@ -5595,6 +6245,19 @@
       "family": "Chelidae",
       "gbif_id": "2441982",
       "genus": "Emydura",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "emydura_macquarii",
       "indigenous_name": "Bungil / Pookila",
@@ -5705,6 +6368,19 @@
       "family": "Myobatrachidae",
       "gbif_id": "2424596",
       "genus": "Pseudophryne",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "pseudophryne_corroboree",
       "indigenous_name": "Corroboree Frog",
@@ -5814,6 +6490,19 @@
       "family": "Limnodynastidae",
       "gbif_id": "2429584",
       "genus": "Philoria",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "fossorial",
       "id": "philoria_frosti",
       "indigenous_name": "Baw Baw Frog",
@@ -5922,6 +6611,19 @@
       "family": "Pelodryadidae",
       "gbif_id": "2427688",
       "genus": "Litoria",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "litoria_aurea",
       "indigenous_name": "Bell Frog",
@@ -6032,6 +6734,19 @@
       "family": "Pelodryadidae",
       "gbif_id": "2427756",
       "genus": "Litoria",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "litoria_peronii",
       "indigenous_name": "Emerald-spotted Tree Frog",
@@ -6143,6 +6858,19 @@
       "family": "Pelodryadidae",
       "gbif_id": "2427712",
       "genus": "Litoria",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_aquatic",
       "id": "litoria_booroolongensis",
       "indigenous_name": "Rocky Stream Frog",
@@ -6253,6 +6981,19 @@
       "family": "Limnodynastidae",
       "gbif_id": "2429622",
       "genus": "Heleioporus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "fossorial",
       "id": "heleioporus_australiacus",
       "indigenous_name": "Eastern Owl Frog",
@@ -6361,6 +7102,19 @@
       "family": "Percichthyidae",
       "gbif_id": "2394612",
       "genus": "Maccullochella",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "maccullochella_peelii",
       "indigenous_name": "Gudier / Ponde",
@@ -6470,6 +7224,19 @@
       "family": "Percichthyidae",
       "gbif_id": "2394628",
       "genus": "Macquaria",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "macquaria_australasica",
       "indigenous_name": "Mudgee Perch",
@@ -6579,6 +7346,19 @@
       "family": "Galaxiidae",
       "gbif_id": "2402418",
       "genus": "Galaxias",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "galaxias_olidus",
       "indigenous_name": "Native Minnow",
@@ -6693,6 +7473,19 @@
       "family": "Parastacidae",
       "gbif_id": "4645812",
       "genus": "Euastacus",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "euastacus_armatus",
       "indigenous_name": "Murrumbidgee Lobster / Tangambalanga",
@@ -6802,6 +7595,19 @@
       "family": "Noctuidae",
       "gbif_id": "1786542",
       "genus": "Agrotis",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "agrotis_infusa",
       "indigenous_name": "Bugung",
@@ -6913,6 +7719,19 @@
       "family": "Tettigoniidae",
       "gbif_id": "1694512",
       "genus": "Acripeza",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "terrestrial",
       "id": "acripeza_reticulata",
       "indigenous_name": "Mountain Katydid",
@@ -7024,6 +7843,19 @@
       "family": "Lucanidae",
       "gbif_id": "1038412",
       "genus": "Lamprima",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "arboreal",
       "id": "lamprima_aurata",
       "indigenous_name": "Christmas Jewel Beetle",
@@ -7136,6 +7968,19 @@
       "family": "Apidae",
       "gbif_id": "1342188",
       "genus": "Tetragonula",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "aerial_canopy",
       "id": "tetragonula_carbonaria",
       "indigenous_name": "Karbi / Sugarbag",
@@ -7190,6 +8035,19 @@
         ]
       },
       "ecological_guild": "Large Terrestrial Browser",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "macropus_rufus",
       "index": 65,
@@ -7260,6 +8118,19 @@
         ]
       },
       "ecological_guild": "Large Terrestrial Browser",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "macropus_fuliginosus",
       "index": 66,
@@ -7333,6 +8204,19 @@
         ]
       },
       "ecological_guild": "Large Terrestrial Browser",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "notamacropus_rufogriseus",
       "index": 67,
@@ -7403,6 +8287,19 @@
         ]
       },
       "ecological_guild": "Understory Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "notamacropus_parma",
       "index": 68,
@@ -7472,6 +8369,19 @@
         ]
       },
       "ecological_guild": "Large Terrestrial Browser",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "notamacropus_parryi",
       "index": 69,
@@ -7542,6 +8452,19 @@
         ]
       },
       "ecological_guild": "Understory Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "thylogale_thetis",
       "index": 70,
@@ -7612,6 +8535,19 @@
         ]
       },
       "ecological_guild": "Understory Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "thylogale_billardierii",
       "index": 71,
@@ -7681,6 +8617,19 @@
         ]
       },
       "ecological_guild": "Cliff & Escarpment Browser",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "petrogale_herberti",
       "index": 72,
@@ -7751,6 +8700,19 @@
         ]
       },
       "ecological_guild": "Mycophagous Understory Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "potorous_longipes",
       "index": 73,
@@ -7821,6 +8783,19 @@
         ]
       },
       "ecological_guild": "Mycophagous Understory Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "bettongia_gaimardi",
       "index": 74,
@@ -7891,6 +8866,19 @@
         ]
       },
       "ecological_guild": "Mycophagous Understory Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "macropod_saltatorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "aepyprymnus_rufescens",
       "index": 75,
@@ -7960,6 +8948,19 @@
         ]
       },
       "ecological_guild": "Arboreal Herbivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "phascolarctid_arboreal",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "dendrolagus_lumholtzi",
       "index": 76,
@@ -8029,6 +9030,19 @@
         ]
       },
       "ecological_guild": "Fossorial Herbivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "vombatid_fossorial",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "lasiorhinus_krefftii",
       "index": 77,
@@ -8100,6 +9114,19 @@
         ]
       },
       "ecological_guild": "Arboreal Herbivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "petaurid_glider",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "trichosurus_caninus",
       "index": 78,
@@ -8171,6 +9198,19 @@
         ]
       },
       "ecological_guild": "Arboreal Glider",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "petaurid_glider",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "petaurus_norfolcensis",
       "index": 79,
@@ -8244,6 +9284,19 @@
         ]
       },
       "ecological_guild": "Arboreal Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "petaurid_glider",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "acrobates_pygmaeus",
       "index": 80,
@@ -8315,6 +9368,19 @@
         ]
       },
       "ecological_guild": "Arboreal Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "petaurid_glider",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "cercartetus_nanus",
       "index": 81,
@@ -8386,6 +9452,19 @@
         ]
       },
       "ecological_guild": "Carnivorous Marsupial Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "dasyurus_viverrinus",
       "index": 82,
@@ -8456,6 +9535,19 @@
         ]
       },
       "ecological_guild": "Apex Scavenger & Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "sarcophilus_harrisii",
       "index": 83,
@@ -8527,6 +9619,19 @@
         ]
       },
       "ecological_guild": "Arboreal Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "phascogale_tapoatafa",
       "index": 84,
@@ -8599,6 +9704,19 @@
         ]
       },
       "ecological_guild": "Understory Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "antechinus_agilis",
       "index": 85,
@@ -8670,6 +9788,19 @@
         ]
       },
       "ecological_guild": "Understory Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "antechinus_swainsonii",
       "index": 86,
@@ -8741,6 +9872,19 @@
         ]
       },
       "ecological_guild": "Understory Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "antechinus_flavipes",
       "index": 87,
@@ -8812,6 +9956,19 @@
         ]
       },
       "ecological_guild": "Understory Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "sminthopsis_murina",
       "index": 88,
@@ -8881,6 +10038,19 @@
         ]
       },
       "ecological_guild": "Fossorial Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "isoodon_obesulus",
       "index": 89,
@@ -8951,6 +10121,19 @@
         ]
       },
       "ecological_guild": "Fossorial Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "isoodon_macrourus",
       "index": 90,
@@ -9023,6 +10206,19 @@
         ]
       },
       "ecological_guild": "Fossorial Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "dasyurid_predator",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "perameles_nasuta",
       "index": 91,
@@ -9093,6 +10289,19 @@
         ]
       },
       "ecological_guild": "Canopy Pollinator & Frugivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "pteropodid_chiroptera",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "pteropus_alecto",
       "index": 92,
@@ -9164,6 +10373,19 @@
         ]
       },
       "ecological_guild": "Canopy Pollinator & Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "pteropodid_chiroptera",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "pteropus_scapulatus",
       "index": 93,
@@ -9237,6 +10459,19 @@
         ]
       },
       "ecological_guild": "Nocturnal Aerial Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "pteropodid_chiroptera",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "chalinolobus_gouldii",
       "index": 94,
@@ -9307,6 +10542,19 @@
         ]
       },
       "ecological_guild": "Marine Piscivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "marine_pinniped_cetacean",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "arctocephalus_pusillus",
       "index": 95,
@@ -9377,6 +10625,19 @@
         ]
       },
       "ecological_guild": "Marine Apex Piscivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "marine_pinniped_cetacean",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "tursiops_aduncus",
       "index": 96,
@@ -9446,6 +10707,19 @@
         ]
       },
       "ecological_guild": "Giant Rainforest Frugivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "ratite_bipedal",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "casuarius_casuarius",
       "index": 97,
@@ -9517,6 +10791,19 @@
         ]
       },
       "ecological_guild": "Apex Aerial & Piscivorous Raptor",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "raptor_soaring",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "haliaeetus_leucogaster",
       "index": 98,
@@ -9587,6 +10874,19 @@
         ]
       },
       "ecological_guild": "Marine & Estuarine Piscivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "raptor_soaring",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "pandion_cristatus",
       "index": 99,
@@ -9658,6 +10958,19 @@
         ]
       },
       "ecological_guild": "Canopy Ambush Raptor",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "raptor_soaring",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "accipiter_novaehollandiae",
       "index": 100,
@@ -9730,6 +11043,19 @@
         ]
       },
       "ecological_guild": "Aerial Hovering Raptor",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "raptor_soaring",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "falco_cenchroides",
       "index": 101,
@@ -9801,6 +11127,19 @@
         ]
       },
       "ecological_guild": "Nocturnal Apex Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "raptor_soaring",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "tyto_tenebricosa",
       "index": 102,
@@ -9874,6 +11213,19 @@
         ]
       },
       "ecological_guild": "Nocturnal Ambush Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "raptor_soaring",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "podargus_strigoides",
       "index": 103,
@@ -9943,6 +11295,19 @@
         ]
       },
       "ecological_guild": "Forest-Floor Mimic & Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "menura_alberti",
       "index": 104,
@@ -10014,6 +11379,19 @@
         ]
       },
       "ecological_guild": "Specialist Cone Granivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "calyptorhynchus_lathami",
       "index": 105,
@@ -10086,6 +11464,19 @@
         ]
       },
       "ecological_guild": "Flocking Granivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "eolophus_roseicapilla",
       "index": 106,
@@ -10157,6 +11548,19 @@
         ]
       },
       "ecological_guild": "Canopy Seed & Blossom Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "platycercus_eximius",
       "index": 107,
@@ -10229,6 +11633,19 @@
         ]
       },
       "ecological_guild": "Canopy Seed & Fruit Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "alisterus_scapularis",
       "index": 108,
@@ -10299,6 +11716,19 @@
         ]
       },
       "ecological_guild": "Brush-Tongued Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "trichoglossus_moluccanus",
       "index": 109,
@@ -10370,6 +11800,19 @@
         ]
       },
       "ecological_guild": "Brush-Tongued Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "glossopsitta_concinna",
       "index": 110,
@@ -10439,6 +11882,19 @@
         ]
       },
       "ecological_guild": "Perch-and-Pounce Carnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "dacelo_leachii",
       "index": 111,
@@ -10510,6 +11966,19 @@
         ]
       },
       "ecological_guild": "Riparian Perch Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "todiramphus_sanctus",
       "index": 112,
@@ -10580,6 +12049,19 @@
         ]
       },
       "ecological_guild": "Understory Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "malurus_lamberti",
       "index": 113,
@@ -10649,6 +12131,19 @@
         ]
       },
       "ecological_guild": "Understory Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "malurus_melanocephalus",
       "index": 114,
@@ -10721,6 +12216,19 @@
         ]
       },
       "ecological_guild": "Ground-Pouncing Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "petroica_boodang",
       "index": 115,
@@ -10792,6 +12300,19 @@
         ]
       },
       "ecological_guild": "Alpine Ground Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "petroica_phoenicea",
       "index": 116,
@@ -10864,6 +12385,19 @@
         ]
       },
       "ecological_guild": "Trunk-Perching Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "eopsaltria_australis",
       "index": 117,
@@ -10933,6 +12467,19 @@
         ]
       },
       "ecological_guild": "Bower-Building Frugivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "sericulus_chrysocephalus",
       "index": 118,
@@ -11007,6 +12554,19 @@
         ]
       },
       "ecological_guild": "Ground-Probing Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "gymnorhina_tibicen",
       "index": 119,
@@ -11079,6 +12639,19 @@
         ]
       },
       "ecological_guild": "Canopy Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "strepera_graculina",
       "index": 120,
@@ -11150,6 +12723,19 @@
         ]
       },
       "ecological_guild": "Litter-Scratching Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "psophodes_olivaceus",
       "index": 121,
@@ -11222,6 +12808,19 @@
         ]
       },
       "ecological_guild": "Canopy Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "anthochaera_carunculata",
       "index": 122,
@@ -11293,6 +12892,19 @@
         ]
       },
       "ecological_guild": "Canopy Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "philemon_corniculatus",
       "index": 123,
@@ -11363,6 +12975,19 @@
         ]
       },
       "ecological_guild": "Canopy Nectarivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "entomyzon_cyanotis",
       "index": 124,
@@ -11433,6 +13058,19 @@
         ]
       },
       "ecological_guild": "Colonial Lerp-Gleaning Honeyeater",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "manorina_melanophrys",
       "index": 125,
@@ -11505,6 +13143,19 @@
         ]
       },
       "ecological_guild": "Aquatic Herbivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "cygnus_atratus",
       "index": 126,
@@ -11576,6 +13227,19 @@
         ]
       },
       "ecological_guild": "Pouch-Fishing Waterbird",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "pelecanus_conspicillatus",
       "index": 127,
@@ -11650,6 +13314,19 @@
         ]
       },
       "ecological_guild": "Dabbling Waterfowl",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "anas_superciliosa",
       "index": 128,
@@ -11722,6 +13399,19 @@
         ]
       },
       "ecological_guild": "Wading Piscivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "egretta_novaehollandiae",
       "index": 129,
@@ -11793,6 +13483,19 @@
         ]
       },
       "ecological_guild": "Wading Probe-Forager",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "passerine_psittacine",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "threskiornis_molucca",
       "index": 130,
@@ -11863,6 +13566,19 @@
         ]
       },
       "ecological_guild": "Terrestrial Reptilian Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "varanus_gouldii",
       "index": 131,
@@ -11932,6 +13648,19 @@
         ]
       },
       "ecological_guild": "Arboreal & Terrestrial Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "chlamydosaurus_kingii",
       "index": 132,
@@ -12004,6 +13733,19 @@
         ]
       },
       "ecological_guild": "Basking Omnivorous Agamid",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "pogona_barbata",
       "index": 133,
@@ -12074,6 +13816,19 @@
         ]
       },
       "ecological_guild": "Armored Omnivorous Skink",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "tiliqua_rugosa",
       "index": 134,
@@ -12146,6 +13901,19 @@
         ]
       },
       "ecological_guild": "Colonial Saxicolous Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "egernia_cunninghami",
       "index": 135,
@@ -12215,6 +13983,19 @@
         ]
       },
       "ecological_guild": "Rainforest Floor Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "bellatorias_major",
       "index": 136,
@@ -12284,6 +14065,19 @@
         ]
       },
       "ecological_guild": "Estuarine Apex Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "squamate_sprawling",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "crocodylus_porosus",
       "index": 137,
@@ -12356,6 +14150,19 @@
         ]
       },
       "ecological_guild": "Terrestrial Elapid Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "serpentine_undulatory",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "pseudonaja_textilis",
       "index": 138,
@@ -12426,6 +14233,19 @@
         ]
       },
       "ecological_guild": "Arboreal & Saxicolous Constrictor",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "serpentine_undulatory",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "morelia_spilota",
       "index": 139,
@@ -12495,6 +14315,19 @@
         ]
       },
       "ecological_guild": "Arboreal Ambush Constrictor",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "serpentine_undulatory",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "morelia_viridis",
       "index": 140,
@@ -12565,6 +14398,19 @@
         ]
       },
       "ecological_guild": "Nocturnal Arboreal Colubrid",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "serpentine_undulatory",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "boiga_irregularis",
       "index": 141,
@@ -12636,6 +14482,19 @@
         ]
       },
       "ecological_guild": "Benthic & Basking Omnivorous Turtle",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "emydura_macquarii",
       "index": 142,
@@ -12705,6 +14564,19 @@
         ]
       },
       "ecological_guild": "Benthic Stream Carnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "wollumbinia_latisternum",
       "index": 143,
@@ -12775,6 +14647,19 @@
         ]
       },
       "ecological_guild": "Alpine Sphagnum Bog Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "pseudophryne_pengilleyi",
       "index": 144,
@@ -12846,6 +14731,19 @@
         ]
       },
       "ecological_guild": "Arboreal Insectivorous Amphibian",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "canopy",
       "id": "litoria_caerulea",
       "index": 145,
@@ -12915,6 +14813,19 @@
         ]
       },
       "ecological_guild": "Wetland Ambush Amphibian",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "litoria_aurea",
       "index": 146,
@@ -12985,6 +14896,19 @@
         ]
       },
       "ecological_guild": "Riparian Cobble-Bar Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "litoria_booroolongensis",
       "index": 147,
@@ -13054,6 +14978,19 @@
         ]
       },
       "ecological_guild": "Rainforest Stream-Bank Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "mixophyes_iteratus",
       "index": 148,
@@ -13128,6 +15065,19 @@
         ]
       },
       "ecological_guild": "Burrowing Wetland Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "limnodynastes_dumerilii",
       "index": 149,
@@ -13198,6 +15148,19 @@
         ]
       },
       "ecological_guild": "Stream-Pool Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "adelotus_brevis",
       "index": 150,
@@ -13272,6 +15235,19 @@
         ]
       },
       "ecological_guild": "Micro-Wetland Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "riparian_water",
       "id": "crinia_signifera",
       "index": 151,
@@ -13341,6 +15317,19 @@
         ]
       },
       "ecological_guild": "Subalpine Bryophyte Insectivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "ground",
       "id": "philoria_frosti",
       "index": 152,
@@ -13412,6 +15401,19 @@
         ]
       },
       "ecological_guild": "Benthic Snag & Boulder Piscivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "maccullochella_macquariensis",
       "index": 153,
@@ -13482,6 +15484,19 @@
         ]
       },
       "ecological_guild": "Midwater & Benthic Carnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "macquaria_ambigua",
       "index": 154,
@@ -13552,6 +15567,19 @@
         ]
       },
       "ecological_guild": "Riffle & Pool Omnivorous Fish",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "bidyanus_bidyanus",
       "index": 155,
@@ -13623,6 +15651,19 @@
         ]
       },
       "ecological_guild": "Nocturnal Benthic Carnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "gadopsis_marmoratus",
       "index": 156,
@@ -13694,6 +15735,19 @@
         ]
       },
       "ecological_guild": "Benthic Cobble-Interstice Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "gadopsis_bispinosus",
       "index": 157,
@@ -13765,6 +15819,19 @@
         ]
       },
       "ecological_guild": "Alpine Stream Drift Feeder",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "galaxias_olidus",
       "index": 158,
@@ -13834,6 +15901,19 @@
         ]
       },
       "ecological_guild": "Pelagic Backwater Micro-Predator",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "galaxias_rostratus",
       "index": 159,
@@ -13904,6 +15984,19 @@
         ]
       },
       "ecological_guild": "Coastal River & Gorge Piscivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "macquaria_novemaculeata",
       "index": 160,
@@ -13973,6 +16066,19 @@
         ]
       },
       "ecological_guild": "Midwater Macrophyte-Bed Omnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "melanotaenia_duboulayi",
       "index": 161,
@@ -14042,6 +16148,19 @@
         ]
       },
       "ecological_guild": "Acid-Water Surface Feeder",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "rhodonga_ornata",
       "index": 162,
@@ -14112,6 +16231,19 @@
         ]
       },
       "ecological_guild": "Macrophyte-Bed Micro-Carnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "monotreme_teleost_amphibian",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 16,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "nannoperca_australis",
       "index": 163,
@@ -14182,6 +16314,19 @@
         ]
       },
       "ecological_guild": "Benthic Nocturnal Apex Carnivore",
+      "gpu_pga_motor_rig": {
+        "absm_layer_count": 3,
+        "biomechanical_archetype": "serpentine_undulatory",
+        "blend_space_2d_points": 5,
+        "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+        "joint_count": 18,
+        "morph_targets": [
+          "respiration",
+          "vocal_gular",
+          "ontogenetic_growth",
+          "hydration_condition"
+        ]
+      },
       "habitat_stratum": "benthic_stream",
       "id": "anguilla_reinhardtii",
       "index": 164,

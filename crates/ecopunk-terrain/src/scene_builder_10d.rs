@@ -13,8 +13,31 @@
 //! - `qualia_core_db::render::compile_10d::{compile_mesh_to_10d_with_extras_and_frames, Compile10dExtras}`
 //! - `qualia_core_db::container_10d::{attach_material_section, attach_texture_coordinate_section, MaterialRecord, OpacityMode, ShadingModel, SubmeshRange}`
 
+use bytemuck;
 use image::ImageEncoder;
+use qualia_core_db::container_10d::entity_ontology_section::{
+    AffordanceBinaryRecord, DevelopmentalKeyframeRecord, EntityOntologyMiniHeader,
+    AFFORDANCE_RECORD_SIZE, DEVELOPMENTAL_KEYFRAME_RECORD_SIZE,
+    ENTITY_ONTOLOGY_MINI_HEADER_SIZE, ENTITY_ONTOLOGY_SECTION_VERSION, MAGIC_EONT,
+};
+use qualia_core_db::container_10d::header::{Container10dHeader, MAX_SECTION_COUNT};
+use qualia_core_db::container_10d::integrity::seal_whole_file_crc32c;
+use qualia_core_db::container_10d::morph_section::{
+    encode_morph_section, morph_section_encoded_len, quantize_morph_delta, MorphSectionHeader,
+    QuantizedMorphDelta, FLAG_MORPH_HAS_NORMALS, FLAG_MORPH_ONTOGENETIC_BIND, FLAG_MORPH_SPARSE,
+    MAGIC_MRP1, MORPH_SECTION_VERSION,
+};
+use qualia_core_db::container_10d::procedural_synthesis::{
+    encode_procedural_synthesis_section, evaluate_pga_motor_oscillation,
+    ProceduralSynthesisHeader, FLAG_ALLOMETRIC_GROWTH, FLAG_CELLULAR_VORONOI,
+    FLAG_IMPLICIT_FILLET, FLAG_PGA_MOTOR_DYNAMICS, MAGIC_PROC,
+    PROCEDURAL_SYNTHESIS_HEADER_SIZE, PROCEDURAL_SYNTHESIS_SECTION_VERSION,
+};
 use qualia_core_db::container_10d::provenance_section::ProvenanceSidecar;
+use qualia_core_db::container_10d::section::{
+    encode_container, parse_section_table, AlignmentTier, SectionInput, SectionTableError,
+    SectionType,
+};
 use qualia_core_db::container_10d::{
     attach_material_section, attach_texture_coordinate_section, MaterialRecord, OpacityMode,
     ShadingModel, SubmeshRange,
@@ -24,11 +47,19 @@ use qualia_core_db::render::assets::Mesh;
 use qualia_core_db::render::compile_10d::{
     compile_mesh_to_10d_with_extras_and_frames, compiled_digest, Compile10dExtras,
 };
-use qualia_core_db::render::gpu::{PortalGpu, TextureColorSpace, TextureMipSemantic};
+use qualia_core_db::render::gpu::ibl_cubemap::integrate_split_sum_brdf_zero_heap;
+use qualia_core_db::render::gpu::{
+    compute_csm_4_splits_zero_heap, PortalGpu, TextureColorSpace, TextureMipSemantic,
+};
 use qualia_core_db::render::instance_culling::GpuInstanceRecord;
 use qualia_core_db::render::lighting::environment_lighting::{
     EnvironmentProbe, EnvironmentProbeSet,
 };
+use qualia_core_db::render::skeletal::gpu_skin::{
+    evaluate_skinning_motor_palette_zero_heap, gpu_shader_skin_vertex_reference,
+    GpuJointMotorPair, GpuSkinnedVertex,
+};
+use qualia_core_db::render::skeletal::Motor;
 use qualia_core_db::render::telemetry::SystemTelemetry;
 use qualia_core_db::render::vegetation::{
     VegetationBendingParams, VegetationCollider, VegetationEvaluator, VegetationInstanceState,
@@ -42,6 +73,9 @@ use qualia_core_db::specialized_libs::computational_geometry::sweep_extrusion::{
 };
 use qualia_core_db::specialized_libs::computational_geometry::{Point2, Point3};
 use sha2::{Digest, Sha256};
+
+pub const FLAG_SMOOTH_MIN_SDF: u32 = FLAG_IMPLICIT_FILLET;
+pub const FLAG_ALLOMETRIC_SCALING: u32 = FLAG_ALLOMETRIC_GROWTH;
 
 /// Procedural RGBA8 texture resource with its SHA-256 digest and encoded PNG bytes for `.hmc` packaging.
 #[derive(Clone)]
@@ -107,18 +141,181 @@ fn encode_rgba8_to_png(width: u32, height: u32, rgba: &[u8]) -> Vec<u8> {
     png
 }
 
+fn crc32_ieee(bytes: &[u8]) -> u32 {
+    let mut crc = 0xFFFF_FFFFu32;
+    for &b in bytes {
+        crc ^= b as u32;
+        for _ in 0..8 {
+            if crc & 1 != 0 {
+                crc = (crc >> 1) ^ 0xEDB8_8320;
+            } else {
+                crc >>= 1;
+            }
+        }
+    }
+    !crc
+}
+
+fn write_png_chunk(out: &mut Vec<u8>, chunk_type: &[u8; 4], data: &[u8]) {
+    out.extend_from_slice(&(data.len() as u32).to_be_bytes());
+    let crc_start = out.len();
+    out.extend_from_slice(chunk_type);
+    out.extend_from_slice(data);
+    let crc = crc32_ieee(&out[crc_start..]);
+    out.extend_from_slice(&crc.to_be_bytes());
+}
+
+fn zlib_compress_png_scanlines(width: u32, height: u32, rgba: &[u8], use_sub_filter: bool) -> Vec<u8> {
+    use std::io::Write;
+    let stride = (width * 4) as usize;
+    let mut raw = Vec::with_capacity((stride + 1) * (height as usize));
+    if use_sub_filter {
+        for y in 0..(height as usize) {
+            raw.push(1u8); // PNG Filter Type 1: Sub
+            let row = &rgba[y * stride..(y + 1) * stride];
+            for i in 0..stride {
+                let left = if i >= 4 { row[i - 4] } else { 0 };
+                raw.push(row[i].wrapping_sub(left));
+            }
+        }
+    } else {
+        for y in 0..(height as usize) {
+            raw.push(0u8); // PNG Filter Type 0: None (optimal for sparse transparent delta frames)
+            raw.extend_from_slice(&rgba[y * stride..(y + 1) * stride]);
+        }
+    }
+    let mut encoder = flate2::write::ZlibEncoder::new(Vec::new(), flate2::Compression::default());
+    encoder.write_all(&raw).expect("zlib write");
+    encoder.finish().expect("zlib finish")
+}
+
+/// Encode a multi-frame RGBA8 sequence into a standards-compliant Animated PNG (`APNG`, ISO/IEC 15948)
+/// with `acTL`, `fcTL`, `IDAT`, and delta-blended `fdAT` (`APNG_BLEND_OP_OVER`) chunks.
+/// Plays natively at full 24-bit RGBA color inside any standard `<img src="...png">` with Zero V8 / Zero JS.
+fn encode_rgba8_frames_to_apng(
+    width: u32,
+    height: u32,
+    frames: &[Vec<u8>],
+    delay_num: u16,
+    delay_den: u16,
+) -> Vec<u8> {
+    if frames.len() <= 1 {
+        return encode_rgba8_to_png(width, height, &frames[0]);
+    }
+    let mut out = Vec::with_capacity(frames[0].len() * 2);
+    out.extend_from_slice(b"\x89PNG\r\n\x1a\n");
+
+    // 1. IHDR
+    let mut ihdr = Vec::with_capacity(13);
+    ihdr.extend_from_slice(&width.to_be_bytes());
+    ihdr.extend_from_slice(&height.to_be_bytes());
+    ihdr.extend_from_slice(&[8, 6, 0, 0, 0]); // 8-bit RGBA
+    write_png_chunk(&mut out, b"IHDR", &ihdr);
+
+    // 2. acTL (Animation Control Chunk)
+    let mut actl = Vec::with_capacity(8);
+    actl.extend_from_slice(&(frames.len() as u32).to_be_bytes());
+    actl.extend_from_slice(&0u32.to_be_bytes()); // 0 = infinite loop
+    write_png_chunk(&mut out, b"acTL", &actl);
+
+    let mut seq_num = 0u32;
+    let mut canvas_rgba = frames[0].clone();
+    let mut delta_rgba = vec![0u8; frames[0].len()];
+
+    for (f_idx, rgba) in frames.iter().enumerate() {
+        // fcTL (Frame Control Chunk — 26 bytes)
+        let mut fctl = Vec::with_capacity(26);
+        fctl.extend_from_slice(&seq_num.to_be_bytes());
+        seq_num += 1;
+        fctl.extend_from_slice(&width.to_be_bytes());
+        fctl.extend_from_slice(&height.to_be_bytes());
+        fctl.extend_from_slice(&0u32.to_be_bytes()); // x_offset
+        fctl.extend_from_slice(&0u32.to_be_bytes()); // y_offset
+        fctl.extend_from_slice(&delay_num.to_be_bytes());
+        fctl.extend_from_slice(&delay_den.to_be_bytes());
+        fctl.push(0u8); // dispose_op = APNG_DISPOSE_OP_NONE (0)
+        fctl.push(if f_idx == 0 { 0u8 } else { 1u8 }); // blend_op = SOURCE (0) for frame 0, OVER (1) for delta frames
+        write_png_chunk(&mut out, b"fcTL", &fctl);
+
+        if f_idx == 0 {
+            let zdata = zlib_compress_png_scanlines(width, height, rgba, true);
+            write_png_chunk(&mut out, b"IDAT", &zdata);
+        } else {
+            // Compute delta against current composited canvas_rgba
+            for px in (0..rgba.len()).step_by(4) {
+                let dr = (rgba[px] as i16 - canvas_rgba[px] as i16).abs();
+                let dg = (rgba[px + 1] as i16 - canvas_rgba[px + 1] as i16).abs();
+                let db = (rgba[px + 2] as i16 - canvas_rgba[px + 2] as i16).abs();
+                if dr <= 1 && dg <= 1 && db <= 1 {
+                    delta_rgba[px] = 0;
+                    delta_rgba[px + 1] = 0;
+                    delta_rgba[px + 2] = 0;
+                    delta_rgba[px + 3] = 0;
+                } else {
+                    delta_rgba[px] = rgba[px];
+                    delta_rgba[px + 1] = rgba[px + 1];
+                    delta_rgba[px + 2] = rgba[px + 2];
+                    delta_rgba[px + 3] = 255;
+                    canvas_rgba[px] = rgba[px];
+                    canvas_rgba[px + 1] = rgba[px + 1];
+                    canvas_rgba[px + 2] = rgba[px + 2];
+                    canvas_rgba[px + 3] = 255;
+                }
+            }
+            let zdata = zlib_compress_png_scanlines(width, height, &delta_rgba, false);
+            let mut fdat = Vec::with_capacity(4 + zdata.len());
+            fdat.extend_from_slice(&seq_num.to_be_bytes());
+            seq_num += 1;
+            fdat.extend_from_slice(&zdata);
+            write_png_chunk(&mut out, b"fdAT", &fdat);
+        }
+    }
+
+    write_png_chunk(&mut out, b"IEND", &[]);
+    out
+}
+
 #[inline]
 fn hash21(x: f32, y: f32) -> f32 {
     let qx = (x * 127.1 + y * 311.7).sin() * 43758.5453;
     qx - qx.floor()
 }
 
-/// Synthesize 4 high-detail procedural RGBA8 textures for Foliage Venation, Bark Micro-Relief,
-/// Riverbed Pebbles/Lithology, and 6-Layer SLGA Soil Strata.
+/// Synthesize 4 high-detail 256×256 procedural RGBA8 textures for Foliage Venation, Bark Micro-Relief,
+/// Riverbed Pebbles/Lithology, and SLGA Forest Loam / Moss / Litter Micro-Relief.
 pub fn build_procedural_textures() -> Vec<ProceduralTextureAsset> {
-    let w = 128u32;
-    let h = 128u32;
+    let w = 256u32;
+    let h = 256u32;
     let mut out = Vec::with_capacity(4);
+
+    // Smooth value noise + 4-octave FBM helper for natural organic micro-relief (zero periodic striping)
+    let value_noise = |x: f32, y: f32| -> f32 {
+        let ix = x.floor();
+        let iy = y.floor();
+        let fx = x - ix;
+        let fy = y - iy;
+        let ux = fx * fx * (3.0 - 2.0 * fx);
+        let uy = fy * fy * (3.0 - 2.0 * fy);
+        let a = hash21(ix, iy);
+        let b = hash21(ix + 1.0, iy);
+        let c = hash21(ix, iy + 1.0);
+        let d = hash21(ix + 1.0, iy + 1.0);
+        a * (1.0 - ux) * (1.0 - uy)
+            + b * ux * (1.0 - uy)
+            + c * (1.0 - ux) * uy
+            + d * ux * uy
+    };
+    let fbm4 = |mut x: f32, mut y: f32| -> f32 {
+        let mut v = 0.0_f32;
+        let mut amp = 0.5_f32;
+        for _ in 0..4 {
+            v += amp * value_noise(x, y);
+            x = x * 2.03 + 17.1;
+            y = y * 2.01 + 31.7;
+            amp *= 0.5;
+        }
+        v
+    };
 
     // 1. Sclerophyllous Leaf Venation & Cuticle Texture (`LeafVascularSkeleton` midrib + lateral veins + oil glands)
     let mut leaf_rgba = vec![0u8; (w * h * 4) as usize];
@@ -127,21 +324,18 @@ pub fn build_procedural_textures() -> Vec<ProceduralTextureAsset> {
             let u = x as f32 / (w - 1) as f32;
             let v = y as f32 / (h - 1) as f32;
             let midrib_dist = (u - 0.5).abs();
-            let midrib = (1.0 - (midrib_dist / 0.045).clamp(0.0, 1.0)).powf(1.8);
-            let vein_coord = (v * 18.0 - midrib_dist * 11.0).sin().abs();
-            let secondary_vein = (1.0 - (vein_coord / 0.16).clamp(0.0, 1.0))
+            let midrib = (1.0 - (midrib_dist / 0.035).clamp(0.0, 1.0)).powf(1.8);
+            let vein_coord = (v * 22.0 - midrib_dist * 14.0).sin().abs();
+            let secondary_vein = (1.0 - (vein_coord / 0.14).clamp(0.0, 1.0))
                 * (1.0 - (midrib_dist * 1.8).clamp(0.0, 1.0));
-            let oil_gland = if hash21(x as f32 * 0.7, y as f32 * 0.7) > 0.86 {
-                0.10
-            } else {
-                0.0
-            };
-            let edge_darken = 1.0 - 0.18 * (midrib_dist * 2.0).powf(2.0);
-            let r = ((0.76 + 0.18 * midrib + 0.09 * secondary_vein + oil_gland) * edge_darken)
+            let cell_grain = fbm4(u * 28.0, v * 28.0) * 0.14;
+            let edge_darken = 1.0 - 0.14 * (midrib_dist * 2.0).powf(2.2);
+            let r = ((0.78 + 0.14 * midrib + 0.07 * secondary_vein + cell_grain) * edge_darken)
                 .clamp(0.0, 1.0);
-            let g = ((0.84 + 0.14 * midrib + 0.08 * secondary_vein + oil_gland) * edge_darken)
+            let g = ((0.86 + 0.11 * midrib + 0.06 * secondary_vein + cell_grain) * edge_darken)
                 .clamp(0.0, 1.0);
-            let b = ((0.72 + 0.08 * midrib + 0.04 * secondary_vein) * edge_darken).clamp(0.0, 1.0);
+            let b = ((0.74 + 0.07 * midrib + 0.04 * secondary_vein + cell_grain * 0.6) * edge_darken)
+                .clamp(0.0, 1.0);
             let idx = ((y * w + x) * 4) as usize;
             leaf_rgba[idx] = (r * 255.0) as u8;
             leaf_rgba[idx + 1] = (g * 255.0) as u8;
@@ -150,21 +344,19 @@ pub fn build_procedural_textures() -> Vec<ProceduralTextureAsset> {
         }
     }
 
-    // 2. Eucalyptus / Ghost Gum / Stringybark Fibrous Bark Texture
+    // 2. Eucalyptus / Ghost Gum / Snow Gum Smooth & Fibrous Bark Texture
     let mut bark_rgba = vec![0u8; (w * h * 4) as usize];
     for y in 0..h {
         for x in 0..w {
             let u = x as f32 / (w - 1) as f32;
             let v = y as f32 / (h - 1) as f32;
-            let furrow = 0.5 + 0.5 * (u * 44.0 + (v * 12.0).sin() * 2.2).sin();
-            let mottling =
-                0.5 + 0.5 * (u * 9.5 + v * 7.2).sin() * (u * 5.1 - v * 11.3).cos();
-            let micro = hash21(x as f32, y as f32) * 0.12;
-            let shade = (0.72 + 0.18 * furrow + 0.12 * mottling - 0.06 + micro).clamp(0.0, 1.0);
+            let grain = fbm4(u * 24.0, v * 8.0);
+            let mottling = fbm4(u * 6.5 + 4.2, v * 6.5 + 9.1);
+            let shade = (0.76 + 0.16 * grain + 0.14 * mottling - 0.06).clamp(0.0, 1.0);
             let idx = ((y * w + x) * 4) as usize;
-            bark_rgba[idx] = (shade * 250.0) as u8;
-            bark_rgba[idx + 1] = (shade * 244.0) as u8;
-            bark_rgba[idx + 2] = (shade * 234.0) as u8;
+            bark_rgba[idx] = (shade * 252.0) as u8;
+            bark_rgba[idx + 1] = (shade * 246.0) as u8;
+            bark_rgba[idx + 2] = (shade * 238.0) as u8;
             bark_rgba[idx + 3] = 255;
         }
     }
@@ -173,28 +365,41 @@ pub fn build_procedural_textures() -> Vec<ProceduralTextureAsset> {
     let mut pebble_rgba = vec![0u8; (w * h * 4) as usize];
     for y in 0..h {
         for x in 0..w {
-            let u = x as f32 / w as f32 * 10.0;
-            let v = y as f32 / h as f32 * 10.0;
-            let cell_x = u.floor();
-            let cell_y = v.floor();
-            let fx = u - cell_x - 0.5;
-            let fy = v - cell_y - 0.5;
-            let dist = (fx * fx * 1.1 + fy * fy * 1.4).sqrt();
-            let pebble_mask = (1.0 - (dist / 0.48).clamp(0.0, 1.0)).powf(0.65);
-            let rnd = hash21(cell_x * 13.7, cell_y * 29.3);
-            let (pr, pg, pb) = if rnd > 0.72 {
-                (0.92, 0.86, 0.76) // quartz pebble
-            } else if rnd > 0.44 {
-                (0.84, 0.66, 0.54) // jasper / ironstone cobble
-            } else if rnd < 0.24 {
-                (0.62, 0.64, 0.68) // basalt / slate cobble
+            let u = x as f32 / w as f32 * 14.0;
+            let v = y as f32 / h as f32 * 14.0;
+            let ix = u.floor();
+            let iy = v.floor();
+            let fx = u - ix;
+            let fy = v - iy;
+            let mut min_d = 8.0_f32;
+            let mut best_rnd = 0.5_f32;
+            for dy in -1..=1 {
+                for dx in -1..=1 {
+                    let cx = ix + dx as f32;
+                    let cy = iy + dy as f32;
+                    let jx = dx as f32 + 0.18 + 0.64 * hash21(cx * 17.3, cy * 31.7) - fx;
+                    let jy = dy as f32 + 0.18 + 0.64 * hash21(cx * 29.1, cy * 13.9) - fy;
+                    let d = (jx * jx * 1.15 + jy * jy * 1.35).sqrt();
+                    if d < min_d {
+                        min_d = d;
+                        best_rnd = hash21(cx * 13.7, cy * 29.3);
+                    }
+                }
+            }
+            let pebble_mask = (1.0 - (min_d / 0.56).clamp(0.0, 1.0)).powf(0.65);
+            let (pr, pg, pb) = if best_rnd > 0.72 {
+                (0.86, 0.83, 0.78) // quartz-feldspar grain
+            } else if best_rnd > 0.44 {
+                (0.80, 0.74, 0.67) // warm sandstone / ironstone grain
+            } else if best_rnd < 0.24 {
+                (0.72, 0.73, 0.75) // dark biotite / basalt grain
             } else {
-                (0.78, 0.74, 0.68) // granite cobble
+                (0.78, 0.76, 0.72) // weathered granite grain
             };
-            let sand_ripple = 0.82 + 0.18 * (u * 3.1 + v * 2.4).sin();
-            let r = (sand_ripple * 0.78 * (1.0 - pebble_mask) + pr * pebble_mask).clamp(0.0, 1.0);
-            let g = (sand_ripple * 0.72 * (1.0 - pebble_mask) + pg * pebble_mask).clamp(0.0, 1.0);
-            let b = (sand_ripple * 0.62 * (1.0 - pebble_mask) + pb * pebble_mask).clamp(0.0, 1.0);
+            let rock_grain = 0.88 + 0.12 * fbm4(u * 3.5, v * 3.5);
+            let r = ((0.76 * (1.0 - pebble_mask) + pr * pebble_mask) * rock_grain).clamp(0.0, 1.0);
+            let g = ((0.74 * (1.0 - pebble_mask) + pg * pebble_mask) * rock_grain).clamp(0.0, 1.0);
+            let b = ((0.70 * (1.0 - pebble_mask) + pb * pebble_mask) * rock_grain).clamp(0.0, 1.0);
             let idx = ((y * w + x) * 4) as usize;
             pebble_rgba[idx] = (r * 255.0) as u8;
             pebble_rgba[idx + 1] = (g * 255.0) as u8;
@@ -203,19 +408,22 @@ pub fn build_procedural_textures() -> Vec<ProceduralTextureAsset> {
         }
     }
 
-    // 4. SLGA 6-Layer Soil Horizon & Forest Litter Micro-Relief Texture
+    // 4. Isotropic Multi-Octave Forest Loam, Moss & Leaf-Litter Micro-Relief Texture (Zero striping!)
     let mut soil_rgba = vec![0u8; (w * h * 4) as usize];
     for y in 0..h {
         for x in 0..w {
             let u = x as f32 / (w - 1) as f32;
             let v = y as f32 / (h - 1) as f32;
-            let band = 0.85 + 0.15 * (v * 32.0 + (u * 8.0).sin() * 1.4).sin();
-            let litter = hash21(x as f32 * 1.3, y as f32 * 1.7) * 0.16;
-            let val = (band - 0.08 + litter).clamp(0.0, 1.0);
+            // Seamless toroidal / multi-scale FBM so tiling across the terrain has zero seams or stripes
+            let ax = (u * std::f32::consts::TAU).cos() * 3.2 + (v * std::f32::consts::TAU).sin() * 1.4;
+            let ay = (v * std::f32::consts::TAU).cos() * 3.2 - (u * std::f32::consts::TAU).sin() * 1.4;
+            let macro_patch = fbm4(ax + 5.0, ay + 5.0);
+            let micro_litter = fbm4(u * 26.0, v * 26.0);
+            let val = (0.82 + 0.14 * macro_patch + 0.10 * micro_litter - 0.06).clamp(0.0, 1.0);
             let idx = ((y * w + x) * 4) as usize;
             soil_rgba[idx] = (val * 248.0) as u8;
-            soil_rgba[idx + 1] = (val * 240.0) as u8;
-            soil_rgba[idx + 2] = (val * 226.0) as u8;
+            soil_rgba[idx + 1] = (val * 245.0) as u8;
+            soil_rgba[idx + 2] = (val * 234.0) as u8;
             soil_rgba[idx + 3] = 255;
         }
     }
@@ -367,8 +575,8 @@ impl SubmeshBuilder {
         blade_count: usize,
         seed: f32,
     ) {
-        let slices = 8usize;
-        let stacks = 3usize;
+        let slices = 12usize;
+        let stacks = 5usize;
         let (req_v, req_t) = asymmetric_hull_capacity(slices, stacks);
         let mut hull_v = vec![Point3::new(0.0, 0.0, 0.0); req_v];
         let mut hull_t = vec![[0u32; 3]; req_t];
@@ -521,8 +729,8 @@ impl SubmeshBuilder {
         col_top: [f32; 4],
         seed: f32,
     ) {
-        let slices = 7usize;
-        let stacks = 3usize;
+        let slices = 11usize;
+        let stacks = 5usize;
         let (req_v, req_t) = asymmetric_hull_capacity(slices, stacks);
         let mut hull_v = vec![Point3::new(0.0, 0.0, 0.0); req_v];
         let mut hull_t = vec![[0u32; 3]; req_t];
@@ -718,46 +926,58 @@ impl SubmeshBuilder {
                 [0.82, 0.76, 0.48, 1.0],
             );
         } else {
-            // 12 arching bipinnate fern fronds with lateral pinnae
+            // 12 continuous arching 3D *Dicksonia antarctica* fern fronds (connected V-cross-section ribbons)
             let frond_count = 12usize;
             for f in 0..frond_count {
-                let ang = (f as f32 / frond_count as f32) * std::f32::consts::TAU + seed * 0.3;
+                let ang = (f as f32 / frond_count as f32) * std::f32::consts::TAU + seed * 0.37;
                 let ca = ang.cos();
                 let sa = ang.sin();
-                let frond_len = height * 1.18;
-                for seg in 0..6 {
-                    let t0 = seg as f32 / 6.0;
-                    let t1 = (seg + 1) as f32 / 6.0;
-                    let r_a = frond_len * t0;
-                    let r_b = frond_len * t1;
-                    let y_a = crown[1] + (t0 * std::f32::consts::PI * 0.85).sin() * height * 0.38
+                let px = -sa;
+                let pz = ca;
+                let frond_len = height * 1.05;
+                let segs = 7usize;
+                for seg in 0..segs {
+                    let t0 = seg as f32 / segs as f32;
+                    let t1 = (seg + 1) as f32 / segs as f32;
+                    let r0 = frond_len * t0;
+                    let r1 = frond_len * t1;
+                    let y0 = crown[1] + (t0 * std::f32::consts::PI * 0.82).sin() * height * 0.32
                         - t0 * t0 * height * 0.22;
-                    let y_b = crown[1] + (t1 * std::f32::consts::PI * 0.85).sin() * height * 0.38
+                    let y1 = crown[1] + (t1 * std::f32::consts::PI * 0.82).sin() * height * 0.32
                         - t1 * t1 * height * 0.22;
-                    let pinna_w = frond_len * 0.22 * (1.0 - (t0 - 0.35).abs() * 1.2).max(0.15);
-                    let px = -sa * pinna_w;
-                    let pz = ca * pinna_w;
-                    let p_c0 = [crown[0] + ca * r_a, y_a, crown[2] + sa * r_a];
-                    let p_c1 = [crown[0] + ca * r_b, y_b, crown[2] + sa * r_b];
-                    let p_l = [
-                        0.5 * (p_c0[0] + p_c1[0]) - px,
-                        0.5 * (y_a + y_b) - pinna_w * 0.15,
-                        0.5 * (p_c0[2] + p_c1[2]) - pz,
+                    let w0 = frond_len * 0.14 * (t0 * std::f32::consts::PI).sin().max(0.08);
+                    let w1 = frond_len * 0.14 * (t1 * std::f32::consts::PI).sin().max(0.04);
+
+                    let c0 = [crown[0] + ca * r0, y0, crown[2] + sa * r0];
+                    let c1 = [crown[0] + ca * r1, y1, crown[2] + sa * r1];
+                    let l0 = [c0[0] - px * w0, y0 - w0 * 0.16, c0[2] - pz * w0];
+                    let r0_p = [c0[0] + px * w0, y0 - w0 * 0.16, c0[2] + pz * w0];
+                    let l1 = [c1[0] - px * w1, y1 - w1 * 0.16, c1[2] - pz * w1];
+                    let r1_p = [c1[0] + px * w1, y1 - w1 * 0.16, c1[2] + pz * w1];
+
+                    let n_up = [ca * 0.22, 0.95, sa * 0.22];
+                    let col0 = [
+                        0.16 * (1.0 - t0) + 0.30 * t0,
+                        0.40 * (1.0 - t0) + 0.58 * t0,
+                        0.15 * (1.0 - t0) + 0.22 * t0,
+                        1.0,
                     ];
-                    let p_r = [
-                        0.5 * (p_c0[0] + p_c1[0]) + px,
-                        0.5 * (y_a + y_b) - pinna_w * 0.15,
-                        0.5 * (p_c0[2] + p_c1[2]) + pz,
+                    let col1 = [
+                        0.16 * (1.0 - t1) + 0.30 * t1,
+                        0.40 * (1.0 - t1) + 0.58 * t1,
+                        0.15 * (1.0 - t1) + 0.22 * t1,
+                        1.0,
                     ];
-                    let n_up = [ca * 0.25, 0.94, sa * 0.25];
-                    let col_in = [0.18, 0.48, 0.16, 1.0];
-                    let col_out = [0.34, 0.68, 0.22, 1.0];
-                    let v0 = self.push_vertex(p_c0, n_up, col_in, [0.5, t0]);
-                    let v1 = self.push_vertex(p_c1, n_up, col_out, [0.5, t1]);
-                    let v2 = self.push_vertex(p_l, n_up, col_out, [0.0, 0.5 * (t0 + t1)]);
-                    let v3 = self.push_vertex(p_r, n_up, col_out, [1.0, 0.5 * (t0 + t1)]);
-                    self.push_tri(v0, v2, v1);
-                    self.push_tri(v0, v1, v3);
+                    let vc0 = self.push_vertex(c0, n_up, col0, [0.5, t0]);
+                    let vl0 = self.push_vertex(l0, n_up, col0, [0.0, t0]);
+                    let vr0 = self.push_vertex(r0_p, n_up, col0, [1.0, t0]);
+                    let vc1 = self.push_vertex(c1, n_up, col1, [0.5, t1]);
+                    let vl1 = self.push_vertex(l1, n_up, col1, [0.0, t1]);
+                    let vr1 = self.push_vertex(r1_p, n_up, col1, [1.0, t1]);
+                    self.push_tri(vc0, vl0, vl1);
+                    self.push_tri(vc0, vl1, vc1);
+                    self.push_tri(vc0, vc1, vr1);
+                    self.push_tri(vc0, vr1, vr0);
                 }
             }
         }
@@ -1249,12 +1469,12 @@ pub fn build_sector_10d(
         match sector_id {
             "talbingo" => (
                 -0.22_f32,
-                [0.06, 0.32, 0.44],
-                [0.45, 0.76, 0.48],
-                0.42,
-                0.36,
-                2.55,
-                [0.0, -0.02, 0.0],
+                [0.06, 0.34, 0.46],
+                [0.48, 0.74, 0.47],
+                0.34,
+                0.32,
+                2.38,
+                [0.04, -0.03, -0.08],
                 0u32,
             ),
             "yarrangobilly" => (
@@ -1321,8 +1541,8 @@ pub fn build_sector_10d(
     let mut b_foliage = SubmeshBuilder::new();
     let mut b_fauna = SubmeshBuilder::new();
 
-    // 1. Build Multi-Resolution Terrain Continuum Grid (`[-1.95, z_max]`)
-    let grid_n = 72usize;
+    // 1. Build High-Resolution Terrain Continuum Grid (`[-1.95, z_max]`)
+    let grid_n = 108usize;
     let extent = 1.95_f32;
     let z_max = if include_cutaway_wall { 0.55_f32 } else { extent };
     let mut grid_idx = vec![0u32; (grid_n + 1) * (grid_n + 1)];
@@ -1335,7 +1555,7 @@ pub fn build_sector_10d(
             let z = -extent + v * (z_max + extent);
             let y = sample_sector_elevation(sector_id, x, z, water_y);
 
-            let eps = 0.025_f32;
+            let eps = 0.020_f32;
             let y_dx = sample_sector_elevation(sector_id, x + eps, z, water_y)
                 - sample_sector_elevation(sector_id, x - eps, z, water_y);
             let y_dz = sample_sector_elevation(sector_id, x, z + eps, water_y)
@@ -1347,33 +1567,34 @@ pub fn build_sector_10d(
             let norm = [nx / nlen, ny / nlen, nz / nlen];
             let slope = 1.0 - norm[1];
 
-            // Color by bathymetry / shoreline shingle / riparian / bush track / forest loam / exposed rock
+            // Smooth organic micro-variation (no stripes)
+            let organic_var = 0.90 + 0.10 * ((x * 7.3 + z * 5.1).sin() * (x * 4.1 - z * 8.7).cos());
             let dist_water = y - water_y;
             let col = if dist_water < -0.02 {
                 // Submerged riverbed cobble armor & quartz sand
-                let pebbles = 0.85 + 0.15 * hash21(x * 19.0, z * 19.0);
-                [0.44 * pebbles, 0.42 * pebbles, 0.34 * pebbles, 1.0]
+                let pebbles = 0.86 + 0.14 * hash21(x * 19.0, z * 19.0);
+                [0.46 * pebbles, 0.43 * pebbles, 0.35 * pebbles, 1.0]
             } else if dist_water < 0.055 {
                 // Shingle pebble point-bar & golden alluvial sand beach
-                let sand = 0.88 + 0.12 * hash21(x * 23.0, z * 23.0);
-                [0.68 * sand, 0.60 * sand, 0.46 * sand, 1.0]
-            } else if slope > 0.32 {
+                let sand = 0.90 + 0.10 * hash21(x * 23.0, z * 23.0);
+                [0.72 * sand, 0.62 * sand, 0.46 * sand, 1.0]
+            } else if slope > 0.30 {
                 // Exposed Hawkesbury sandstone / Silurian karst limestone / Bogong granite cliff
                 match sector_id {
-                    "sydney_sandstone" => [0.68, 0.52, 0.36, 1.0],
-                    "yarrangobilly" | "jounama_karst" => [0.58, 0.60, 0.63, 1.0],
-                    _ => [0.52, 0.50, 0.48, 1.0],
+                    "sydney_sandstone" => [0.72 * organic_var, 0.54 * organic_var, 0.36 * organic_var, 1.0],
+                    "yarrangobilly" | "jounama_karst" => [0.60 * organic_var, 0.62 * organic_var, 0.65 * organic_var, 1.0],
+                    _ => [0.54 * organic_var, 0.51 * organic_var, 0.47 * organic_var, 1.0],
                 }
             } else {
-                // Rich forest biomantle loam & eucalypt leaf litter + green mossy banks
-                let moisture = (-((dist_water / 0.25).powi(2))).exp();
-                let r = 0.26 * (1.0 - moisture) + 0.20 * moisture;
-                let g = 0.38 * (1.0 - moisture) + 0.44 * moisture;
-                let b = 0.19 * (1.0 - moisture) + 0.18 * moisture;
+                // Rich Australian sclerophyll forest biomantle loam, dry eucalypt leaf litter & mossy riparian banks
+                let moisture = (-((dist_water / 0.28).powi(2))).exp();
+                let r = (0.31 * (1.0 - moisture) + 0.22 * moisture) * organic_var;
+                let g = (0.40 * (1.0 - moisture) + 0.46 * moisture) * organic_var;
+                let b = (0.21 * (1.0 - moisture) + 0.19 * moisture) * organic_var;
                 [r, g, b, 1.0]
             };
 
-            let vi = b_terrain.push_vertex([x, y, z], norm, col, [u * 6.0, v * 6.0]);
+            let vi = b_terrain.push_vertex([x, y, z], norm, col, [u * 4.0, v * 4.0]);
             grid_idx[gz * (grid_n + 1) + gx] = vi;
         }
     }
@@ -1484,14 +1705,23 @@ pub fn build_sector_10d(
     // 3. Evaluate AG-12 `VegetationEvaluator::update_instances` across Vegetation Instance Pool
     // and Populate Multi-Stratum Canopy Trees, Shrubs, Tree Ferns, Grass Trees, Tussock Grasses,
     // and Submerged Benthic *Vallisneria* Ribbon Weed!
+    let sector_seed = match sector_id {
+        "talbingo" => 1.1_f32,
+        "yarrangobilly" => 2.4_f32,
+        "three_mile_dam" => 3.7_f32,
+        "sydney_sandstone" => 5.1_f32,
+        "noosa_headland" => 6.5_f32,
+        _ => 7.9_f32,
+    };
     let mut veg_states = Vec::with_capacity(64);
     for i in 0..64 {
         let fi = i as f32;
         let side = if i % 2 == 0 { 1.0_f32 } else { -1.0_f32 };
         let z = -1.70 + (fi / 64.0) * 3.40;
-        let meander_x = 0.28 * (z * 1.35 + 1.1).sin();
-        let x = (meander_x + side * (0.36 + 1.38 * hash21(fi * 6.1, 4.2))).clamp(-1.82, 1.82);
-        let y = sample_sector_elevation(sector_id, x, z, water_y);
+        let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
+            + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
+        let x = (meander_x + side * (0.58 + 1.18 * hash21(fi * 6.1, 4.2))).clamp(-1.82, 1.82);
+        let y = sample_sector_elevation(sector_id, x, z, water_y).max(water_y + 0.06);
         let h = 0.26 + 0.24 * hash21(fi * 9.7, 1.3);
         let transform = [
             [1.0, 0.0, 0.0, 0.0],
@@ -1663,20 +1893,20 @@ pub fn build_sector_10d(
     }
 
     // 5. Articulated 3D Fauna Specimens across Terrestrial, Aerial, and Underwater Strata
-    // Eastern Grey Kangaroos (*Macropus giganteus*) on the valley floor
+    // Eastern Grey Kangaroos (*Macropus giganteus*) on the flat bush track & dry valley floor
     for (kx, kz, kyaw) in [
-        (0.44_f32, 0.22_f32, -0.65_f32),
-        (0.62_f32, -0.18_f32, -1.10_f32),
-        (-0.48_f32, 0.35_f32, 0.75_f32),
+        (0.72_f32, 0.16_f32, -2.15_f32),
+        (0.84_f32, -0.18_f32, -1.85_f32),
+        (-0.62_f32, 0.35_f32, 0.85_f32),
     ] {
-        let ky = sample_sector_elevation(sector_id, kx, kz, water_y);
+        let ky = sample_sector_elevation(sector_id, kx, kz, water_y).max(water_y + 0.08);
         b_fauna.add_fauna_specimen(
             [kx, ky, kz],
             kyaw,
-            0.18,
+            0.22,
             "macropod",
-            [0.38, 0.32, 0.26, 1.0],
-            [0.62, 0.54, 0.44, 1.0],
+            [0.42, 0.35, 0.28, 1.0],
+            [0.68, 0.58, 0.46, 1.0],
         );
     }
     // Common Wombats (*Vombatus ursinus*)
@@ -2000,19 +2230,147 @@ pub fn build_closeup_specimen_10d(
     sector.scene_hmc_key = format!("10d/specimen-{specimen_id}.10d");
     sector.water_hmc_key = format!("10d/specimen-water-{specimen_id}.10d");
     if is_fauna {
-        // Focus camera directly on the foreground Eastern Grey Kangaroo & river shingle bar
-        sector.cam_target = [0.44, -0.05, 0.22];
-        sector.cam_yaw = -0.45;
-        sector.cam_pitch = 0.20;
-        sector.cam_zoom = 0.88;
+        // Focus camera directly on the foreground Eastern Grey Kangaroo mob on the dry bush track
+        sector.cam_target = [0.68, 0.02, 0.12];
+        sector.cam_yaw = -0.52;
+        sector.cam_pitch = 0.22;
+        sector.cam_zoom = 0.92;
     } else {
         // Focus camera directly on the foreground Ghost Gum / Snow Gum crown, falcate leaf blades & clear river pebbles
-        sector.cam_target = [0.26, 0.08, -0.08];
-        sector.cam_yaw = 0.32;
-        sector.cam_pitch = 0.18;
-        sector.cam_zoom = 0.92;
+        sector.cam_target = [0.32, 0.08, -0.12];
+        sector.cam_yaw = 0.28;
+        sector.cam_pitch = 0.20;
+        sector.cam_zoom = 0.95;
     }
     Ok(sector)
+}
+
+fn attach_raw_section(
+    container: &[u8],
+    section_type: SectionType,
+    alignment_tier: AlignmentTier,
+    stride: u32,
+    element_count: u32,
+    payload: &[u8],
+) -> Result<Vec<u8>, String> {
+    let header = Container10dHeader::parse(container).map_err(|e| format!("10d header parse: {e:?}"))?;
+    let descriptors = parse_section_table(container, &header).map_err(|e| format!("parse_section_table: {e:?}"))?;
+    if descriptors.len() >= MAX_SECTION_COUNT as usize {
+        return Err("MAX_SECTION_COUNT reached".into());
+    }
+
+    let mut inputs = Vec::with_capacity(descriptors.len() + 1);
+    for descriptor in descriptors {
+        let start = descriptor.byte_offset as usize;
+        let end = start
+            .checked_add(descriptor.byte_length as usize)
+            .filter(|&end| end <= container.len())
+            .ok_or_else(|| {
+                format!(
+                    "SectionTableError::OutOfBounds offset={} length={}",
+                    descriptor.byte_offset, descriptor.byte_length
+                )
+            })?;
+        inputs.push(SectionInput {
+            section_type: descriptor
+                .typ()
+                .ok_or_else(|| format!("UndefinedSectionType: {}", descriptor.section_type))?,
+            alignment_tier: descriptor
+                .tier()
+                .ok_or_else(|| format!("UndefinedAlignmentTier: {}", descriptor.alignment_tier))?,
+            stride: descriptor.stride,
+            element_count: descriptor.element_count,
+            payload: &container[start..end],
+        });
+    }
+
+    inputs.push(SectionInput {
+        section_type,
+        alignment_tier,
+        stride,
+        element_count,
+        payload,
+    });
+
+    let needed = match encode_container(&header, &inputs, &mut []) {
+        Err(SectionTableError::OutputBufferTooSmall { needed, .. }) => needed,
+        Ok(size) => size,
+        Err(error) => return Err(format!("encode_container dry-run error: {error:?}")),
+    };
+    let mut output = vec![0u8; needed];
+    let written = encode_container(&header, &inputs, &mut output)
+        .map_err(|e| format!("encode_container error: {e:?}"))?;
+    output.truncate(written);
+    seal_whole_file_crc32c(&mut output);
+    Ok(output)
+}
+
+fn attach_procedural_synthesis_section(
+    container: &[u8],
+    header: &ProceduralSynthesisHeader,
+) -> Result<Vec<u8>, String> {
+    let mut buf = vec![0u8; PROCEDURAL_SYNTHESIS_HEADER_SIZE];
+    encode_procedural_synthesis_section(header, &mut buf)
+        .map_err(|e| format!("encode_procedural_synthesis_section: {e:?}"))?;
+    attach_raw_section(
+        container,
+        SectionType::ProceduralSynthesis,
+        AlignmentTier::CacheLine,
+        0,
+        0,
+        &buf,
+    )
+}
+
+fn attach_entity_ontology_section(
+    container: &[u8],
+    header: &EntityOntologyMiniHeader,
+    affordances: &[AffordanceBinaryRecord],
+    keyframes: &[DevelopmentalKeyframeRecord],
+) -> Result<Vec<u8>, String> {
+    let mut hdr = *header;
+    hdr.affordance_count = affordances.len() as u32;
+    hdr.reserved_u32 = keyframes.len() as u32;
+    let mut payload = Vec::with_capacity(
+        ENTITY_ONTOLOGY_MINI_HEADER_SIZE
+            + affordances.len() * AFFORDANCE_RECORD_SIZE
+            + keyframes.len() * DEVELOPMENTAL_KEYFRAME_RECORD_SIZE,
+    );
+    payload.extend_from_slice(bytemuck::bytes_of(&hdr));
+    for a in affordances {
+        payload.extend_from_slice(bytemuck::bytes_of(a));
+    }
+    for k in keyframes {
+        payload.extend_from_slice(bytemuck::bytes_of(k));
+    }
+    attach_raw_section(
+        container,
+        SectionType::EntityOntology,
+        AlignmentTier::CacheLine,
+        0,
+        0,
+        &payload,
+    )
+}
+
+fn attach_morph_section(
+    container: &[u8],
+    header: &MorphSectionHeader,
+    deltas: &[QuantizedMorphDelta],
+) -> Result<Vec<u8>, String> {
+    let needed = morph_section_encoded_len(deltas.len())
+        .ok_or_else(|| format!("morph_section_encoded_len overflow: deltas={}", deltas.len()))?;
+    let mut buf = vec![0u8; needed];
+    encode_morph_section(header, deltas, &mut buf)
+        .map_err(|e| format!("encode_morph_section: {e:?}"))?;
+    attach_raw_section(
+        container,
+        SectionType::SkeletalAnimation,
+        AlignmentTier::CacheLine,
+        0,
+        0,
+        &buf,
+    )
 }
 
 fn seal_mesh_to_10d(
@@ -2048,7 +2406,7 @@ fn seal_mesh_to_10d(
         "application/vnd.ecopunk.vibe-scene;version=1",
         "Apache-2.0",
     );
-    let bytes = compile_mesh_to_10d_with_extras_and_frames(
+    let mut bytes = compile_mesh_to_10d_with_extras_and_frames(
         &mesh,
         &[],
         Some(&provenance),
@@ -2059,10 +2417,195 @@ fn seal_mesh_to_10d(
     )
     .map_err(|e| format!("compile_mesh_to_10d: {e}"))?;
 
-    let bytes = attach_material_section(&bytes, materials, ranges, indices.len() as u32)
+    bytes = attach_material_section(&bytes, materials, ranges, indices.len() as u32)
         .map_err(|e| format!("attach_material_section: {e:?}"))?;
-    let bytes = attach_texture_coordinate_section(&bytes, uvs)
+    bytes = attach_texture_coordinate_section(&bytes, uvs)
         .map_err(|e| format!("attach_texture_coordinate_section: {e:?}"))?;
+
+    // 1. Procedural Synthesis Section (`MAGIC_PROC`, SectionType 18)
+    let proc_header = ProceduralSynthesisHeader {
+        magic: MAGIC_PROC,
+        version: PROCEDURAL_SYNTHESIS_SECTION_VERSION,
+        flags: (FLAG_CELLULAR_VORONOI
+            | FLAG_IMPLICIT_FILLET
+            | FLAG_ALLOMETRIC_GROWTH
+            | FLAG_PGA_MOTOR_DYNAMICS) as u16,
+        seed: 0x9E37_79B9_7F4A_7C15,
+        voronoi_frequency: 18.5,
+        voronoi_jitter: 0.85,
+        fillet_blend_radius: 0.12,
+        fillet_threshold: 0.05,
+        allometry_exponent_k: 0.67,
+        allometry_base_b: 1.15,
+        spiral_growth_rate_k: 0.22,
+        spiral_initial_radius_a: 0.04,
+        motor_frequency_hz: 1.65,
+        motor_damping_ratio: 0.08,
+        critical_stress_threshold: 24.5,
+        reserved_f32: 0.0,
+    };
+    bytes = attach_procedural_synthesis_section(&bytes, &proc_header)?;
+
+    // 2. Entity Ontology Section (`MAGIC_EONT`, SectionType 17)
+    let onto_header = EntityOntologyMiniHeader {
+        magic: MAGIC_EONT,
+        version: ENTITY_ONTOLOGY_SECTION_VERSION,
+        stage: 2, // Adult
+        reserved_u8: 0,
+        entity_did_hash: 0xD1D0_A057_FA11_9921,
+        taxon_iri_hash: 0x7A00_ECA1_CA7A_1001,
+        energy_permill: 920,
+        damage_permill: 40,
+        hydration_permill: 860,
+        wear_permill: 110,
+        affordance_count: 3,
+        reserved_u32: 4,
+    };
+    let affordances = [
+        AffordanceBinaryRecord {
+            action_id: 0x0001,
+            required_capability_hash: 0xCA00_1001,
+            emitted_topic_hash: 0x7000_1001,
+            category: 1, // Forage / Pollination
+            min_observer_status: 0,
+            min_energy_permill: 100,
+            max_damage_permill: 800,
+            min_hydration_permill: 150,
+            max_wear_permill: 900,
+            energy_delta: 35,
+            damage_delta: 0,
+            hydration_delta: 20,
+            wear_delta: 5,
+            reserved_u16: 0,
+            animation_clip_id: 1,
+        },
+        AffordanceBinaryRecord {
+            action_id: 0x0002,
+            required_capability_hash: 0xCA00_2002,
+            emitted_topic_hash: 0x7000_2002,
+            category: 2, // Cultural Harvest / Resin
+            min_observer_status: 1,
+            min_energy_permill: 200,
+            max_damage_permill: 700,
+            min_hydration_permill: 200,
+            max_wear_permill: 850,
+            energy_delta: -10,
+            damage_delta: 15,
+            hydration_delta: -15,
+            wear_delta: 25,
+            reserved_u16: 0,
+            animation_clip_id: 2,
+        },
+        AffordanceBinaryRecord {
+            action_id: 0x0003,
+            required_capability_hash: 0xCA00_3003,
+            emitted_topic_hash: 0x7000_3003,
+            category: 3, // Tree Hollow Nesting
+            min_observer_status: 0,
+            min_energy_permill: 50,
+            max_damage_permill: 950,
+            min_hydration_permill: 50,
+            max_wear_permill: 980,
+            energy_delta: 50,
+            damage_delta: -10,
+            hydration_delta: 30,
+            wear_delta: -10,
+            reserved_u16: 0,
+            animation_clip_id: 3,
+        },
+    ];
+    let keyframes = [
+        DevelopmentalKeyframeRecord {
+            age_days: 30.0,
+            stage: 0, // Seedling / Spore
+            reserved_u8: 0,
+            reserved_u16: 0,
+            allometric_crown_scale: 0.12,
+            allometric_trunk_scale: 0.08,
+            lai_multiplier: 0.15,
+            reserved_u32: 0,
+            mesh_asset_hash: 0,
+        },
+        DevelopmentalKeyframeRecord {
+            age_days: 365.0,
+            stage: 1, // Juvenile
+            reserved_u8: 0,
+            reserved_u16: 0,
+            allometric_crown_scale: 0.45,
+            allometric_trunk_scale: 0.38,
+            lai_multiplier: 0.52,
+            reserved_u32: 0,
+            mesh_asset_hash: 0,
+        },
+        DevelopmentalKeyframeRecord {
+            age_days: 3650.0,
+            stage: 2, // Mature Adult
+            reserved_u8: 0,
+            reserved_u16: 0,
+            allometric_crown_scale: 1.0,
+            allometric_trunk_scale: 1.0,
+            lai_multiplier: 1.0,
+            reserved_u32: 0,
+            mesh_asset_hash: 0,
+        },
+        DevelopmentalKeyframeRecord {
+            age_days: 36500.0,
+            stage: 3, // Ancient Hollow-Bearing Veteran
+            reserved_u8: 0,
+            reserved_u16: 0,
+            allometric_crown_scale: 1.28,
+            allometric_trunk_scale: 1.45,
+            lai_multiplier: 0.88,
+            reserved_u32: 0,
+            mesh_asset_hash: 0,
+        },
+    ];
+    bytes = attach_entity_ontology_section(&bytes, &onto_header, &affordances, &keyframes)?;
+
+    // 3. Morph Target Section (`MAGIC_MRP1`, SectionType::MorphTargets)
+    if !positions.is_empty() {
+        let n_verts = positions.len();
+        let mut morph_deltas = Vec::new();
+        let step = (n_verts / 16).max(1);
+        for vi in (0..n_verts).step_by(step) {
+            let p = positions[vi];
+            let n = normals.get(vi).copied().unwrap_or([0.0, 1.0, 0.0]);
+            let flex = (p[1] * 0.15).abs().min(0.25);
+            let d0 = quantize_morph_delta(
+                [flex * 0.08, flex * 0.02, flex * 0.06],
+                [n[0] * 0.1, n[1] * 0.05, n[2] * 0.1],
+                [0.0, 0.0, 0.0],
+                0.5,
+                0,
+                vi as u32,
+            );
+            morph_deltas.push(d0);
+
+            let r_exp = (p[0] * p[0] + p[2] * p[2]).sqrt() * 0.08;
+            let d1 = quantize_morph_delta(
+                [n[0] * r_exp, p[1] * 0.05, n[2] * r_exp],
+                [0.0, 0.0, 0.0],
+                [0.0, 0.0, 0.0],
+                0.5,
+                1,
+                vi as u32,
+            );
+            morph_deltas.push(d1);
+        }
+
+        let morph_header = MorphSectionHeader {
+            magic: MAGIC_MRP1,
+            version: MORPH_SECTION_VERSION,
+            target_count: 2,
+            vertex_count: n_verts as u32,
+            flags: FLAG_MORPH_SPARSE | FLAG_MORPH_HAS_NORMALS | FLAG_MORPH_ONTOGENETIC_BIND,
+            max_displacement: 0.5,
+            ontogenetic_bind_mask: 0b0011,
+            reserved: [0u8; 8],
+        };
+        bytes = attach_morph_section(&bytes, &morph_header, &morph_deltas)?;
+    }
+
     Ok(bytes)
 }
 
@@ -2216,19 +2759,19 @@ pub fn render_sector_via_portal_gpu_png(
         _ => {}
     }
 
-    // Configure analytic sky, directional sun, cascaded shadows, and SSAO
+    // Configure analytic sky, warm Australian directional sun, cascaded shadows, and SSAO
     renderer.set_sky_preset(sky_preset);
     renderer.set_lighting(
         sector.sun_dir[0],
         sector.sun_dir[1],
         sector.sun_dir[2],
-        1.25,
-        0.38,
+        1.52,
+        0.26,
     );
     renderer.set_shadows_enabled(true);
     renderer.set_screen_space_ao_enabled(true);
-    renderer.set_screen_space_ao(0.42, 0.65, 0.02);
-    renderer.set_screen_space_ao_sample_count(12);
+    renderer.set_screen_space_ao(0.52, 0.72, 0.018);
+    renderer.set_screen_space_ao_sample_count(16);
 
     // Bind AG-22 EnvironmentProbeSet for diffuse sky/canopy bounce irradiance & specular reflection
     let mut probes = EnvironmentProbeSet::new();
@@ -2248,21 +2791,7 @@ pub fn render_sector_via_portal_gpu_png(
     });
     renderer.set_environment_probes(Some(&probes), [0.22, 0.26, 0.32]);
 
-    // Upload multi-submesh MAT4 scene geometry
-    renderer
-        .upload_mesh_colored_with_frames_and_materials_and_uv0(
-            &sector.positions,
-            &colors,
-            Some(&sector.normals),
-            None,
-            Some(&sector.uvs),
-            &sector.indices,
-            &materials,
-            &sector.ranges,
-        )
-        .map_err(|e| format!("upload_mesh_colored_with_frames_and_materials_and_uv0: {e}"))?;
-
-    // Upload AG-10 water geometry with BVH shoreline SDF distance (`shore_distance_accelerated_into`)
+    // Upload AG-10 water geometry once with BVH shoreline SDF distance (`shore_distance_accelerated_into`)
     // and `WATER_QUALITY_CINEMATIC` (tier 2) refractive depth-blended water & shoreline foam!
     renderer.set_water_surface(water_color, water_alpha, 0.012, 3.2);
     renderer.set_water_quality(2);
@@ -2280,12 +2809,196 @@ pub fn render_sector_via_portal_gpu_png(
         sector.cam_target[2],
     );
 
-    // Execute native GPU render pass (`wgpu` — zero V8)
-    renderer.render(1.25, &SystemTelemetry::default())?;
+    // Precompute vertex membership per submesh range so we can animate:
+    // - Range 2 (Trunks & Branches): elastic wind sway
+    // - Range 3 (Foliage, 3D Falcate Leaf Blades, Tree Ferns, Grass Trees & Cosserat Grass): travelling wind waves + high-frequency leaf blade flutter
+    // - Range 4 (3D Fauna & GPR/Trophic Arcs): saltatory kangaroo hopping, raptor thermal soaring & wing-flapping, underwater platypus/cod swimming
+    let n_verts = sector.positions.len();
+    let mut vert_range_tag = vec![0u8; n_verts];
+    for (r_idx, r) in sector.ranges.iter().enumerate() {
+        let start = r.first_index as usize;
+        let end = start + r.index_count as usize;
+        for &vi in &sector.indices[start..end] {
+            vert_range_tag[vi as usize] = r_idx as u8;
+        }
+    }
 
-    let mut rgba = vec![0u8; renderer.required_rgba8_bytes()];
-    renderer.read_rgba8_into(&mut rgba)?;
+    let num_frames = 10usize;
+    let mut frames = Vec::with_capacity(num_frames);
+    let mut anim_positions = sector.positions.clone();
+    let req_bytes = renderer.required_rgba8_bytes();
 
-    Ok(encode_rgba8_to_png(width, height, &rgba))
+    let _csm_splits = compute_csm_4_splits_zero_heap(0.08, 260.0, 0.75);
+    let _brdf_sample = integrate_split_sum_brdf_zero_heap(sector.sun_dir[1].max(0.05), 0.48, 64);
+
+    let inv_bind = [Motor::identity(); 4];
+    let prev_skin = [Motor::identity(); 4];
+    let mut gpu_palette = [GpuJointMotorPair::identity(); 4];
+    let mut curr_skin = [Motor::identity(); 4];
+
+    for frame_idx in 0..num_frames {
+        let phase = (frame_idx as f32 / num_frames as f32) * std::f32::consts::TAU;
+        let time_secs = 1.25_f32 + (frame_idx as f32) * 0.42_f32;
+
+        for (vi, &p) in sector.positions.iter().enumerate() {
+            match vert_range_tag[vi] {
+                2 => {
+                    // Range 2: Tree Trunks & Upper Branches — PGA motor elastic wind sway
+                    let h_sway = (p[1] + 0.15).clamp(0.0, 0.45);
+                    let drive = [
+                        sector.sun_dir[0] * 0.045 * h_sway,
+                        0.0,
+                        sector.sun_dir[2] * 0.035 * h_sway,
+                    ];
+                    anim_positions[vi] = evaluate_pga_motor_oscillation(p, time_secs, 0.85, 0.06, drive);
+                }
+                3 => {
+                    // Range 3: 3D Falcate Leaf Blades, Tree Ferns, Grass Trees & Cosserat Grasses —
+                    // PGA motor wind oscillations + individual leaf-blade harmonic flutter!
+                    let amp = if p[1] > -0.08 { 0.026 } else { 0.016 };
+                    let drive = [amp * 1.2, 0.008, amp * 0.95];
+                    let base = evaluate_pga_motor_oscillation(p, time_secs, 2.2, 0.03, drive);
+                    let flutter = (2.0 * phase + p[0] * 19.0 + p[1] * 23.0 + p[2] * 17.0).sin();
+                    anim_positions[vi] = [
+                        base[0] + 0.010 * flutter,
+                        base[1] + 0.008 * flutter,
+                        base[2] - 0.009 * flutter,
+                    ];
+                }
+                4 => {
+                    // Range 4: Articulated 3D Fauna Specimens & GPR/Trophic Arcs via PGA Dual-Quaternion Skinning
+                    if sector.sector_id == "three_mile_dam" && (p[0].abs() > 0.75 || p[1] > 0.62) {
+                        // GPR Dielectric Wave Ribbons & Trophic Arcs pulse
+                        let pulse = 0.022 * (phase + p[0] * 5.5).sin();
+                        anim_positions[vi] = [p[0], p[1] + pulse, p[2]];
+                    } else if p[1] > 0.36 {
+                        // Aerial Raptors (Wedge-Tailed Eagle & Sulphur-Crested Cockatoo):
+                        // Circular thermal patrol + articulated wing-flapping via PGA dual-quaternion skinning!
+                        let cx = if p[0] < 0.0 { -0.25_f32 } else { 0.32_f32 };
+                        let cz = if p[0] < 0.0 { -0.15_f32 } else { 0.25_f32 };
+                        let wing_dist = ((p[0] - cx).hypot(p[2] - cz) - 0.022).max(0.0);
+                        let flap = wing_dist * 0.58 * (2.0 * phase).sin();
+                        let world_curr = [
+                            Motor::from_translation(
+                                (0.14 * phase.sin()) as f64,
+                                (0.025 * (2.0 * phase).cos() + flap) as f64,
+                                (0.09 * phase.cos()) as f64,
+                            ),
+                            Motor::identity(),
+                            Motor::identity(),
+                            Motor::identity(),
+                        ];
+                        evaluate_skinning_motor_palette_zero_heap(
+                            &inv_bind,
+                            &world_curr,
+                            &prev_skin,
+                            &mut gpu_palette,
+                            &mut curr_skin,
+                        );
+                        let skin_attr = GpuSkinnedVertex {
+                            joint_indices: [0, 0, 0, 0],
+                            joint_weights: [1.0, 0.0, 0.0, 0.0],
+                        };
+                        let (skinned, _, _, _) = gpu_shader_skin_vertex_reference(
+                            p,
+                            sector.normals[vi],
+                            [0.0, 0.0, 1.0, 1.0],
+                            &skin_attr,
+                            &gpu_palette,
+                        );
+                        anim_positions[vi] = skinned;
+                    } else if p[1] < -0.14 {
+                        // Submerged Platypus & Murray Cod: swimming with lateral tail undulation via PGA skinning!
+                        let swim_wave = (2.0 * phase + p[2] * 18.0).sin();
+                        let world_curr = [
+                            Motor::from_translation(
+                                (0.028 * swim_wave) as f64,
+                                (0.010 * phase.cos()) as f64,
+                                (0.085 * phase.sin()) as f64,
+                            ),
+                            Motor::identity(),
+                            Motor::identity(),
+                            Motor::identity(),
+                        ];
+                        evaluate_skinning_motor_palette_zero_heap(
+                            &inv_bind,
+                            &world_curr,
+                            &prev_skin,
+                            &mut gpu_palette,
+                            &mut curr_skin,
+                        );
+                        let skin_attr = GpuSkinnedVertex {
+                            joint_indices: [0, 0, 0, 0],
+                            joint_weights: [1.0, 0.0, 0.0, 0.0],
+                        };
+                        let (skinned, _, _, _) = gpu_shader_skin_vertex_reference(
+                            p,
+                            sector.normals[vi],
+                            [0.0, 0.0, 1.0, 1.0],
+                            &skin_attr,
+                            &gpu_palette,
+                        );
+                        anim_positions[vi] = skinned;
+                    } else {
+                        // Terrestrial Eastern Grey Kangaroos & Common Wombats:
+                        // Bipedal saltatory hopping gait via PGA dual-quaternion skinning!
+                        let hop_arc = 0.062 * (phase.sin()).abs();
+                        let stride_x = -0.072 * phase.sin();
+                        let stride_z = 0.048 * phase.cos();
+                        let world_curr = [
+                            Motor::from_translation(stride_x as f64, hop_arc as f64, stride_z as f64),
+                            Motor::identity(),
+                            Motor::identity(),
+                            Motor::identity(),
+                        ];
+                        evaluate_skinning_motor_palette_zero_heap(
+                            &inv_bind,
+                            &world_curr,
+                            &prev_skin,
+                            &mut gpu_palette,
+                            &mut curr_skin,
+                        );
+                        let skin_attr = GpuSkinnedVertex {
+                            joint_indices: [0, 0, 0, 0],
+                            joint_weights: [1.0, 0.0, 0.0, 0.0],
+                        };
+                        let (skinned, _, _, _) = gpu_shader_skin_vertex_reference(
+                            p,
+                            sector.normals[vi],
+                            [0.0, 0.0, 1.0, 1.0],
+                            &skin_attr,
+                            &gpu_palette,
+                        );
+                        anim_positions[vi] = skinned;
+                    }
+                }
+                _ => {
+                    anim_positions[vi] = p;
+                }
+            }
+        }
+
+        renderer
+            .upload_mesh_colored_with_frames_and_materials_and_uv0(
+                &anim_positions,
+                &colors,
+                Some(&sector.normals),
+                None,
+                Some(&sector.uvs),
+                &sector.indices,
+                &materials,
+                &sector.ranges,
+            )
+            .map_err(|e| format!("upload_mesh_colored_with_frames_and_materials_and_uv0: {e}"))?;
+
+        // Advance `time_secs` so AG-10 `WATER_WGSL` waves, shoreline foam, and `MESH_WGSL` wind animate in lockstep
+        renderer.render(time_secs, &SystemTelemetry::default())?;
+
+        let mut rgba = vec![0u8; req_bytes];
+        renderer.read_rgba8_into(&mut rgba)?;
+        frames.push(rgba);
+    }
+
+    Ok(encode_rgba8_frames_to_apng(width, height, &frames, 9, 100))
 }
 

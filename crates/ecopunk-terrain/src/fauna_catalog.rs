@@ -143,7 +143,72 @@ pub const EXTRA_100_FAUNA: &[CompactFaunaTuple] = &[
     ("atrax_robustus", "Atrax robustus O. Pickard-Cambridge, 1877", "Sydney Funnel-Web Spider", "Sandstone-funnelweb (Eora / Darug / Darkinjung)", "Moist Sandstone Crevices & Rotting Logs", "Arachnida", "Araneae", "Atracidae", "Atrax", "Fossorial Silk-Tripwire Ambush Predator", "moth_insect", "benthic_crawl", "ground", 0.045, 0.005, 1.2, 4.0, [0.10, 0.10, 0.12], [0.24, 0.16, 0.14], [0.82, 0.18, 0.16], "Tripwire silk-vibration strike", [0.1, 0.8], "Beetles, cockroaches, and land snails", &["sydney_sandstone"]),
 ];
 
+fn resolve_biomechanical_archetype_str(archetype: &str, gait: &str, class_name: &str) -> &'static str {
+    match archetype {
+        "macropod" | "macropod_saltatorial" => "macropod_saltatorial",
+        "wombat" | "vombatid_fossorial" => "vombatid_fossorial",
+        "koala" | "phascolarctid_arboreal" => "phascolarctid_arboreal",
+        "glider_possum" | "petaurid_glider" => "petaurid_glider",
+        "quoll_dasyurid" | "dasyurid_predator" => "dasyurid_predator",
+        "flying_fox" | "pteropodid_chiroptera" => "pteropodid_chiroptera",
+        "pinniped_cetacean" | "marine_pinniped_cetacean" => "marine_pinniped_cetacean",
+        "ratite" | "ratite_bipedal" => "ratite_bipedal",
+        "raptor" | "raptor_soaring" => "raptor_soaring",
+        "lyrebird" | "cockatoo_parrot" | "kookaburra_kingfisher" | "songbird" | "passerine_psittacine" => {
+            "passerine_psittacine"
+        }
+        "waterbird" => {
+            if gait == "soaring_flight" {
+                "raptor_soaring"
+            } else {
+                "passerine_psittacine"
+            }
+        }
+        "goanna_skink" | "crocodilian" | "squamate_sprawling" => "squamate_sprawling",
+        "snake" | "serpentine_undulatory" => "serpentine_undulatory",
+        "turtle" | "frog" | "fish" | "crayfish" | "moth_insect" | "monotreme_teleost_amphibian" => {
+            "monotreme_teleost_amphibian"
+        }
+        _ => match class_name {
+            "Aves" => "passerine_psittacine",
+            "Reptilia" => "squamate_sprawling",
+            "Amphibia" | "Actinopterygii" | "Sarcopterygii" | "Malacostraca" | "Insecta"
+            | "Arachnida" => "monotreme_teleost_amphibian",
+            _ => {
+                if gait == "bipedal_saltatorial" {
+                    "macropod_saltatorial"
+                } else if gait == "quadrupedal_waddle" {
+                    "vombatid_fossorial"
+                } else if gait == "arboreal_climb" {
+                    "phascolarctid_arboreal"
+                } else if gait == "patagial_glide" {
+                    "petaurid_glider"
+                } else if gait == "flapping_flight" {
+                    "pteropodid_chiroptera"
+                } else if gait == "aquatic_swim" {
+                    "marine_pinniped_cetacean"
+                } else {
+                    "dasyurid_predator"
+                }
+            }
+        },
+    }
+}
+
+fn archetype_joint_count(archetype_str: &str) -> usize {
+    match archetype_str {
+        "serpentine_undulatory" | "squamate_sprawling" | "macropod_saltatorial"
+        | "dasyurid_predator" | "vombatid_fossorial" | "phascolarctid_arboreal"
+        | "petaurid_glider" => 18,
+        "monotreme_teleost_amphibian" | "marine_pinniped_cetacean" | "ratite_bipedal"
+        | "raptor_soaring" | "passerine_psittacine" | "pteropodid_chiroptera" => 16,
+        _ => 18,
+    }
+}
+
 fn build_fauna_record_from_tuple(idx: usize, t: &CompactFaunaTuple) -> Value {
+    let arch_str = resolve_biomechanical_archetype_str(t.10, t.11, t.5);
+    let joint_count = archetype_joint_count(arch_str);
     json!({
         "index": idx,
         "id": t.0,
@@ -183,23 +248,104 @@ fn build_fauna_record_from_tuple(idx: usize, t: &CompactFaunaTuple) -> Value {
             "vocal_signature": t.20,
             "vocal_freq_khz": t.21,
             "diet": t.22,
+        },
+        "gpu_pga_motor_rig": {
+            "biomechanical_archetype": arch_str,
+            "joint_count": joint_count,
+            "absm_layer_count": 3,
+            "blend_space_2d_points": 5,
+            "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+            "morph_targets": [
+                "respiration",
+                "vocal_gular",
+                "ontogenetic_growth",
+                "hydration_condition"
+            ]
         }
     })
 }
 
+/// Flexible input trait allowing `compile_164_fauna_catalog` to accept either `&Value`
+/// (e.g. `{"species": [...]}` or direct array `[...]`) or a slice of species records `&[Value]`.
+pub trait FaunaCatalogInput {
+    fn extract_species(&self) -> Vec<Value>;
+}
+
+impl FaunaCatalogInput for Value {
+    fn extract_species(&self) -> Vec<Value> {
+        if let Some(arr) = self.get("species").and_then(|v| v.as_array()) {
+            arr.clone()
+        } else if let Some(arr) = self.as_array() {
+            arr.clone()
+        } else {
+            Vec::new()
+        }
+    }
+}
+
+impl FaunaCatalogInput for [Value] {
+    fn extract_species(&self) -> Vec<Value> {
+        self.to_vec()
+    }
+}
+
+impl FaunaCatalogInput for Vec<Value> {
+    fn extract_species(&self) -> Vec<Value> {
+        self.clone()
+    }
+}
+
 /// Enriches the existing 64 East Coast fauna species and appends 100 new Australian
 /// fauna species (`EXTRA_100_FAUNA`), producing the authoritative 164-species Fauna Catalog.
-pub fn compile_164_fauna_catalog(existing_json: &Value) -> Value {
+///
+/// Accepts either `&Value` (JSON object containing `"species"` or an array) or `&[Value]` slice,
+/// ensuring all callers compile and function seamlessly.
+pub fn compile_164_fauna_catalog<T: FaunaCatalogInput + ?Sized>(existing_input: &T) -> Value {
     let mut species_out: Vec<Value> = Vec::with_capacity(164);
+    let existing_species = existing_input.extract_species();
 
-    if let Some(arr) = existing_json.get("species").and_then(|v| v.as_array()) {
-        for item in arr.iter().take(64) {
-            let mut enriched = item.clone();
-            if let Some(kin) = enriched.get_mut("kinematics").and_then(|v| v.as_object_mut()) {
-                kin.insert("skeleton_rig".to_string(), json!("articulated_multi_joint_v2"));
-            }
-            species_out.push(enriched);
+    for item in existing_species.iter().take(64) {
+        let mut enriched = item.clone();
+        if let Some(kin) = enriched.get_mut("kinematics").and_then(|v| v.as_object_mut()) {
+            kin.insert("skeleton_rig".to_string(), json!("articulated_multi_joint_v2"));
         }
+        let arch = enriched
+            .get("morphology")
+            .and_then(|m| m.get("archetype"))
+            .and_then(|v| v.as_str())
+            .unwrap_or("macropod");
+        let gait = enriched
+            .get("kinematics")
+            .and_then(|k| k.get("locomotion_gait"))
+            .and_then(|v| v.as_str())
+            .unwrap_or("bipedal_saltatorial");
+        let cls = enriched
+            .get("taxonomy")
+            .and_then(|t| t.get("class"))
+            .and_then(|v| v.as_str())
+            .unwrap_or("Mammalia");
+        let arch_str = resolve_biomechanical_archetype_str(arch, gait, cls);
+        let joint_count = archetype_joint_count(arch_str);
+
+        if let Some(obj) = enriched.as_object_mut() {
+            obj.insert(
+                "gpu_pga_motor_rig".to_string(),
+                json!({
+                    "biomechanical_archetype": arch_str,
+                    "joint_count": joint_count,
+                    "absm_layer_count": 3,
+                    "blend_space_2d_points": 5,
+                    "ik_solver": "two_bone_motor_plus_constrained_fabrik",
+                    "morph_targets": [
+                        "respiration",
+                        "vocal_gular",
+                        "ontogenetic_growth",
+                        "hydration_condition"
+                    ]
+                }),
+            );
+        }
+        species_out.push(enriched);
     }
 
     let mut next_idx = species_out.len() + 1;
@@ -215,7 +361,71 @@ pub fn compile_164_fauna_catalog(existing_json: &Value) -> Value {
         "dataset_id": "ecopunk-east-coast-fauna-164-v2",
         "title": "East Coast Australia 164-Species Anatomical, Kinematic & Benthic Fauna Catalog",
         "compiler": "ecopunk-terrain::fauna_catalog (Rust + Articulated Biomechanical Rig + VibeScript)",
+        "engine_skeletal_pipeline": {
+            "pga_motor_skinning": "Hardware GPU Dual-Quaternion PGA Motor Skinning (Epic 3)",
+            "proc1_oscillation": "Procedural Respiration Pitch & Caudal Undulation (PROC1)",
+            "absm_machine": "Zero-Heap Multi-Layer State Machine (BaseLocomotion, UpperBodyVocalizeForage, HeadLookAt) (Epic 4)",
+            "blend_space": "2D Bowyer-Watson Delaunay Blend Space (Epic 4)",
+            "ik_solvers": [
+                "Two-Bone Motor IK (Hind/Fore Limb Ground Adaptation)",
+                "Constrained Motor FABRIK (Articulated Tail & Neck)"
+            ],
+            "morph_pipeline": "8-Channel Pre-Skinning GPU Morph Target & EONT1 Ontogenetic Bridge",
+            "joint_budget_max": 18,
+            "total_species_catalogued": species_out.len()
+        },
         "total_species": species_out.len(),
         "species": species_out,
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_compile_164_fauna_catalog_with_json_and_slice() {
+        // Test with &Value containing {"species": [...]}
+        let input_val = json!({ "species": [] });
+        let catalog_val = compile_164_fauna_catalog(&input_val);
+        assert_eq!(catalog_val["total_species"], 114);
+        assert_eq!(catalog_val["species"].as_array().unwrap().len(), 114);
+
+        // Verify top-level engine_skeletal_pipeline summary
+        let pipeline = &catalog_val["engine_skeletal_pipeline"];
+        assert_eq!(
+            pipeline["pga_motor_skinning"],
+            "Hardware GPU Dual-Quaternion PGA Motor Skinning (Epic 3)"
+        );
+        assert_eq!(pipeline["joint_budget_max"], 18);
+
+        // Verify first species has gpu_pga_motor_rig metadata
+        let first_species = &catalog_val["species"][0];
+        let rig_meta = &first_species["gpu_pga_motor_rig"];
+        assert_eq!(rig_meta["biomechanical_archetype"], "macropod_saltatorial");
+        assert_eq!(rig_meta["joint_count"], 18);
+        assert_eq!(rig_meta["absm_layer_count"], 3);
+        assert_eq!(rig_meta["blend_space_2d_points"], 5);
+        assert_eq!(
+            rig_meta["ik_solver"],
+            "two_bone_motor_plus_constrained_fabrik"
+        );
+        assert_eq!(rig_meta["morph_targets"].as_array().unwrap().len(), 4);
+
+        // Test with &[Value] slice
+        let dummy_species = vec![json!({
+            "id": "vombatus_ursinus",
+            "morphology": { "archetype": "wombat" },
+            "kinematics": { "locomotion_gait": "quadrupedal_waddle" },
+            "taxonomy": { "class": "Mammalia" }
+        })];
+        let catalog_slice = compile_164_fauna_catalog(&dummy_species[..]);
+        assert_eq!(catalog_slice["total_species"], 115);
+        let enriched_first = &catalog_slice["species"][0];
+        assert_eq!(
+            enriched_first["gpu_pga_motor_rig"]["biomechanical_archetype"],
+            "vombatid_fossorial"
+        );
+    }
+}
+

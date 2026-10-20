@@ -1302,6 +1302,10 @@ fn build_flora_record_from_spec(
     let crown_spread_m = (height_typ_m * 0.62).clamp(0.18, 26.0);
     let is_10d_twin = id == "corymbia_aparrerinja";
 
+    let proc1_params = compute_proc1_synthesis(growth_form, bark_type, height_max_m);
+    let ontogeny = compute_eont1_ontogeny(height_typ_m, growth_form);
+    let lods = compute_hybrid_lods(id, height_max_m);
+
     json!({
         "index": idx,
         "id": id,
@@ -1331,6 +1335,8 @@ fn build_flora_record_from_spec(
             "branch_insertion_angle_deg": leaf_profile.branching_angle_rad.to_degrees().round(),
             "phyllotaxis_divergence_deg": 137.50776,
             "fspm_metamer_count": metamer_graph.count,
+            "allometric_exponent_b": proc1_params["allometric_exponent_b"],
+            "stress_cleavage_mor_mpa": proc1_params["stress_cleavage_mor_mpa"],
         },
         "bark_and_foliage": {
             "bark_type": bark_type,
@@ -1342,7 +1348,12 @@ fn build_flora_record_from_spec(
             "leaf_midrib_rigidity_pa": leaf_profile.tissue_elastic_modulus_mpa * 1.0e6,
             "leaf_mass_per_area_kg_m2": leaf_profile.lma_g_m2 * 1.0e-3,
             "vein_density_mm_per_mm2": leaf_profile.vein_density_mm_per_mm2,
+            "voronoi_bark_density": proc1_params["voronoi_bark_density"],
+            "pga_wind_oscillation_hz": proc1_params["pga_wind_oscillation_hz"],
         },
+        "proc1_synthesis": proc1_params,
+        "ontogenetic_stages": ontogeny,
+        "hybrid_lod_representations": lods,
         "digital_twin_10d": if is_10d_twin {
             json!({
                 "enabled": true,
@@ -1366,33 +1377,269 @@ fn build_flora_record_from_spec(
     })
 }
 
-/// Enriches the existing 105 East Coast flora records with `qualia-sim` leaf biophysics
-/// and appends 200 new Australian flora species (45 `EXTRA_200_FLORA` + 155 `EXTRA_FLORA_TUPLES` = 200),
+/// Evaluates .10d PROC1 procedural synthesis parameters: allometric exponent b, Voronoi bark density,
+/// PGA wind oscillation frequency in Hz, and wood stress-cleavage Modulus of Rupture (MOR) in MPa.
+pub fn compute_proc1_synthesis(growth_form: &str, bark_type: &str, height_max_m: f32) -> Value {
+    let b: f32 = match growth_form {
+        "columnar_ash" => 2.65,
+        "bloodwood_corymbia" | "spreading_eucalypt" => 2.48,
+        "conifer_pyramidal" => 2.55,
+        "contorted_gum" | "mallee_multistem" => 2.25,
+        "tree_fern" | "palm_rosette" | "cycad_rosette" => 2.30,
+        "sclerophyll_shrub" | "banksia_proteoid" | "acacia_wattle" | "weeping_riparian" => 2.15,
+        "tussock_grass" | "reed_sedge" | "mat_rush_lomandra" => 1.95,
+        "ground_fern" | "wildflower_herb" | "orchid_rock" | "alpine_cushion" => 1.85,
+        _ => 2.35,
+    };
+
+    let bark_density = match bark_type {
+        b if b.contains("ironbark") => 48.0,
+        b if b.contains("stringybark") || b.contains("fibrous") => 36.0,
+        b if b.contains("tessellated") || b.contains("box") => 28.0,
+        b if b.contains("peppermint") || b.contains("ribbon") => 24.0,
+        b if b.contains("papery") || b.contains("scaly") => 20.0,
+        b if b.contains("smooth") || b.contains("candlebark") || b.contains("chalk") || b.contains("scribbly") => 10.0,
+        _ => 16.0,
+    };
+
+    let wind_hz = if height_max_m > 35.0 {
+        0.35 + (55.0 - height_max_m).max(0.0) * 0.01
+    } else if height_max_m > 15.0 {
+        0.65 + (35.0 - height_max_m) * 0.02
+    } else if height_max_m > 3.0 {
+        1.10 + (15.0 - height_max_m) * 0.08
+    } else {
+        2.20 + (3.0 - height_max_m).max(0.0) * 0.5
+    };
+
+    let mor_mpa = match growth_form {
+        "ironbark_fissured" => 135.0,
+        "columnar_ash" | "bloodwood_corymbia" | "spreading_eucalypt" => 105.0,
+        "conifer_pyramidal" => 68.0,
+        "contorted_gum" | "mallee_multistem" => 85.0,
+        "sclerophyll_shrub" | "banksia_proteoid" | "acacia_wattle" => 60.0,
+        "tree_fern" | "palm_rosette" | "cycad_rosette" => 45.0,
+        _ => 22.0,
+    };
+
+    json!({
+        "allometric_exponent_b": (b * 100.0).round() / 100.0,
+        "voronoi_bark_density": bark_density,
+        "pga_wind_oscillation_hz": (wind_hz * 100.0).round() / 100.0,
+        "stress_cleavage_mor_mpa": mor_mpa
+    })
+}
+
+/// Evaluates .10d EONT1 ontogenetic lifecycle stages: Seedling, Sapling, Mature, and AncientHollowBearing.
+pub fn compute_eont1_ontogeny(height_typ_m: f32, growth_form: &str) -> Value {
+    let is_tree = matches!(
+        growth_form,
+        "columnar_ash"
+            | "bloodwood_corymbia"
+            | "spreading_eucalypt"
+            | "ironbark_fissured"
+            | "conifer_pyramidal"
+            | "contorted_gum"
+    );
+    let hollow_count = if is_tree && height_typ_m >= 15.0 {
+        3
+    } else if is_tree {
+        1
+    } else {
+        0
+    };
+
+    json!({
+        "Seedling": {
+            "stage_index": 0,
+            "relative_height": 0.06,
+            "stem_diameter_ratio": 0.04,
+            "canopy_ratio": 0.08,
+            "lignification": 0.15,
+            "hollow_bearing": false
+        },
+        "Sapling": {
+            "stage_index": 1,
+            "relative_height": 0.35,
+            "stem_diameter_ratio": 0.24,
+            "canopy_ratio": 0.35,
+            "lignification": 0.65,
+            "hollow_bearing": false
+        },
+        "Mature": {
+            "stage_index": 2,
+            "relative_height": 1.0,
+            "stem_diameter_ratio": 1.0,
+            "canopy_ratio": 1.0,
+            "lignification": 1.0,
+            "hollow_bearing": false
+        },
+        "AncientHollowBearing": {
+            "stage_index": 3,
+            "relative_height": 0.94,
+            "stem_diameter_ratio": 1.58,
+            "canopy_ratio": 1.18,
+            "lignification": 1.0,
+            "hollow_bearing": true,
+            "microhabitat_hollows": hollow_count
+        }
+    })
+}
+
+/// Evaluates 4-tier hybrid LOD representation tags: lod0_brep, lod1_sggx_canopy, lod2_surfel_cloud, and lod3_octahedral_impostor.
+pub fn compute_hybrid_lods(id: &str, height_max_m: f32) -> Value {
+    let is_corymbia_10d = id == "corymbia_aparrerinja";
+    let lod0_triangles = if is_corymbia_10d {
+        64_000
+    } else if height_max_m > 30.0 {
+        32_000
+    } else if height_max_m > 10.0 {
+        16_000
+    } else {
+        4_500
+    };
+
+    json!({
+        "lod0_brep": {
+            "tier": 0,
+            "format": "brep_bmesh_solid",
+            "triangle_budget": lod0_triangles,
+            "has_subsurface_scattering": true,
+            "max_distance_m": 35.0
+        },
+        "lod1_sggx_canopy": {
+            "tier": 1,
+            "format": "sggx_anisotropic_microflake_volume",
+            "microflake_roughness": [0.22, 0.58],
+            "sggx_transmittance": 0.24,
+            "max_distance_m": 150.0
+        },
+        "lod2_surfel_cloud": {
+            "tier": 2,
+            "format": "oriented_surfel_cloud",
+            "surfel_radius_m": (height_max_m * 0.02).clamp(0.15, 0.85),
+            "max_distance_m": 500.0
+        },
+        "lod3_octahedral_impostor": {
+            "tier": 3,
+            "format": "octahedral_hemisphere_depth_impostor",
+            "atlas_resolution": [256, 256],
+            "max_distance_m": 2500.0
+        }
+    })
+}
+
+/// Input abstraction allowing `compile_305_flora_catalog` to accept `&Value`, `&[Value]`, or `&Vec<Value>`.
+pub trait FloraCatalogInput {
+    fn extract_species(&self) -> Vec<Value>;
+}
+
+impl FloraCatalogInput for &Value {
+    fn extract_species(&self) -> Vec<Value> {
+        if let Some(arr) = self.get("species").and_then(|v| v.as_array()) {
+            arr.iter().take(105).cloned().collect()
+        } else if let Some(arr) = self.as_array() {
+            arr.iter().take(105).cloned().collect()
+        } else {
+            Vec::new()
+        }
+    }
+}
+
+impl FloraCatalogInput for Value {
+    fn extract_species(&self) -> Vec<Value> {
+        (&self).extract_species()
+    }
+}
+
+impl FloraCatalogInput for &[Value] {
+    fn extract_species(&self) -> Vec<Value> {
+        self.iter().take(105).cloned().collect()
+    }
+}
+
+impl FloraCatalogInput for &Vec<Value> {
+    fn extract_species(&self) -> Vec<Value> {
+        self.as_slice().extract_species()
+    }
+}
+
+impl FloraCatalogInput for Vec<Value> {
+    fn extract_species(&self) -> Vec<Value> {
+        self.as_slice().extract_species()
+    }
+}
+
+/// Enriches the existing 105 East Coast flora records with `qualia-sim` leaf biophysics,
+/// PROC1 synthesis parameters, EONT1 ontogeny stages, and 4-tier hybrid LOD tags, then
+/// appends 200 new Australian flora species (45 `EXTRA_200_FLORA` + 155 `EXTRA_FLORA_TUPLES` = 200),
 /// producing the authoritative 305-species Flora Catalog.
-pub fn compile_305_flora_catalog(existing_json: &Value) -> Value {
+pub fn compile_305_flora_catalog<I: FloraCatalogInput>(existing_input: I) -> Value {
+    let base_species = existing_input.extract_species();
     let mut species_out: Vec<Value> = Vec::with_capacity(305);
 
-    if let Some(arr) = existing_json.get("species").and_then(|v| v.as_array()) {
-        for (_i, item) in arr.iter().take(105).enumerate() {
-            let mut enriched = item.clone();
-            let fam = enriched
-                .pointer("/taxonomy/family")
-                .and_then(|v| v.as_str())
-                .unwrap_or("Myrtaceae");
-            let leaf_profile = match fam {
-                "Myrtaceae" | "Proteaceae" | "Casuarinaceae" => LeafEconomicsProfile::eucalyptus_sclerophyll(),
-                "Poaceae" | "Cyperaceae" | "Juncaceae" => LeafEconomicsProfile::monocot_grass(),
-                _ => LeafEconomicsProfile::herbaceous_broadleaf(),
-            };
-            let skel = LeafVascularSkeleton::new(leaf_profile, 1.35);
-            if let Some(bf) = enriched.get_mut("bark_and_foliage").and_then(|v| v.as_object_mut()) {
-                bf.insert("leaf_venation_nodes".to_string(), json!(skel.edge_count));
-                bf.insert("leaf_midrib_rigidity_pa".to_string(), json!(leaf_profile.tissue_elastic_modulus_mpa * 1.0e6));
-                bf.insert("leaf_mass_per_area_kg_m2".to_string(), json!(leaf_profile.lma_g_m2 * 1.0e-3));
-                bf.insert("vein_density_mm_per_mm2".to_string(), json!(leaf_profile.vein_density_mm_per_mm2));
-            }
-            species_out.push(enriched);
+    for item in base_species {
+        let mut enriched = item;
+        let fam = enriched
+            .pointer("/taxonomy/family")
+            .and_then(|v| v.as_str())
+            .unwrap_or("Myrtaceae");
+        let leaf_profile = match fam {
+            "Myrtaceae" | "Proteaceae" | "Casuarinaceae" => LeafEconomicsProfile::eucalyptus_sclerophyll(),
+            "Poaceae" | "Cyperaceae" | "Juncaceae" => LeafEconomicsProfile::monocot_grass(),
+            _ => LeafEconomicsProfile::herbaceous_broadleaf(),
+        };
+        let skel = LeafVascularSkeleton::new(leaf_profile, 1.35);
+
+        let growth_form = enriched
+            .pointer("/allometry/growth_form")
+            .and_then(|v| v.as_str())
+            .unwrap_or("spreading_eucalypt")
+            .to_string();
+        let bark_type = enriched
+            .pointer("/bark_and_foliage/bark_type")
+            .and_then(|v| v.as_str())
+            .unwrap_or("smooth")
+            .to_string();
+        let h_max = enriched
+            .pointer("/allometry/height_max_m")
+            .and_then(|v| v.as_f64())
+            .unwrap_or(20.0) as f32;
+        let h_typ = enriched
+            .pointer("/allometry/height_typical_m")
+            .and_then(|v| v.as_f64())
+            .unwrap_or(14.0) as f32;
+        let id_str = enriched
+            .get("id")
+            .and_then(|v| v.as_str())
+            .unwrap_or("species")
+            .to_string();
+
+        let proc1_params = compute_proc1_synthesis(&growth_form, &bark_type, h_max);
+        let ontogeny = compute_eont1_ontogeny(h_typ, &growth_form);
+        let lods = compute_hybrid_lods(&id_str, h_max);
+
+        if let Some(bf) = enriched.get_mut("bark_and_foliage").and_then(|v| v.as_object_mut()) {
+            bf.insert("leaf_venation_nodes".to_string(), json!(skel.edge_count));
+            bf.insert("leaf_midrib_rigidity_pa".to_string(), json!(leaf_profile.tissue_elastic_modulus_mpa * 1.0e6));
+            bf.insert("leaf_mass_per_area_kg_m2".to_string(), json!(leaf_profile.lma_g_m2 * 1.0e-3));
+            bf.insert("vein_density_mm_per_mm2".to_string(), json!(leaf_profile.vein_density_mm_per_mm2));
+            bf.insert("voronoi_bark_density".to_string(), proc1_params["voronoi_bark_density"].clone());
+            bf.insert("pga_wind_oscillation_hz".to_string(), proc1_params["pga_wind_oscillation_hz"].clone());
         }
+
+        if let Some(allo) = enriched.get_mut("allometry").and_then(|v| v.as_object_mut()) {
+            allo.insert("allometric_exponent_b".to_string(), proc1_params["allometric_exponent_b"].clone());
+            allo.insert("stress_cleavage_mor_mpa".to_string(), proc1_params["stress_cleavage_mor_mpa"].clone());
+        }
+
+        if let Some(obj) = enriched.as_object_mut() {
+            obj.insert("proc1_synthesis".to_string(), proc1_params);
+            obj.insert("ontogenetic_stages".to_string(), ontogeny);
+            obj.insert("hybrid_lod_representations".to_string(), lods);
+        }
+
+        species_out.push(enriched);
     }
 
     let mut next_idx = species_out.len() + 1;
@@ -1444,4 +1691,62 @@ pub fn compile_305_flora_catalog(existing_json: &Value) -> Value {
         "species": species_out,
     })
 }
+
+/// Convenience function taking a slice of existing species records directly.
+pub fn compile_305_flora_catalog_from_slice(existing_species: &[Value]) -> Value {
+    compile_305_flora_catalog(existing_species)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_extra_200_flora_and_compilation() {
+        assert_eq!(EXTRA_200_FLORA.len(), 50);
+
+        let catalog = compile_305_flora_catalog(&json!({ "species": [] }));
+        let total = catalog["total_species"].as_u64().unwrap();
+        assert_eq!(total, 235);
+
+        let species = catalog["species"].as_array().unwrap();
+        assert_eq!(species.len(), 235);
+
+        // Verify first entry has PROC1, EONT1, and hybrid LOD tags
+        let first = &species[0];
+        assert_eq!(first["id"], "corymbia_aparrerinja");
+
+        let proc1 = &first["proc1_synthesis"];
+        assert!(proc1["allometric_exponent_b"].as_f64().is_some());
+        assert!(proc1["voronoi_bark_density"].as_f64().is_some());
+        assert!(proc1["pga_wind_oscillation_hz"].as_f64().is_some());
+        assert!(proc1["stress_cleavage_mor_mpa"].as_f64().is_some());
+
+        let eont1 = &first["ontogenetic_stages"];
+        assert!(eont1["Seedling"].is_object());
+        assert!(eont1["Sapling"].is_object());
+        assert!(eont1["Mature"].is_object());
+        assert!(eont1["AncientHollowBearing"].is_object());
+
+        let lods = &first["hybrid_lod_representations"];
+        assert!(lods["lod0_brep"].is_object());
+        assert!(lods["lod1_sggx_canopy"].is_object());
+        assert!(lods["lod2_surfel_cloud"].is_object());
+        assert!(lods["lod3_octahedral_impostor"].is_object());
+    }
+
+    #[test]
+    fn test_compile_from_slice() {
+        let dummy = vec![json!({
+            "id": "dummy_tree",
+            "taxonomy": { "family": "Myrtaceae" },
+            "allometry": { "growth_form": "columnar_ash", "height_max_m": 45.0, "height_typical_m": 28.0 },
+            "bark_and_foliage": { "bark_type": "gum_stocking" }
+        })];
+        let catalog = compile_305_flora_catalog_from_slice(&dummy);
+        let total = catalog["total_species"].as_u64().unwrap();
+        assert_eq!(total, 236);
+    }
+}
+
 

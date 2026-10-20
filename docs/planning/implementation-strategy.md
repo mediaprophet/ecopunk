@@ -1,9 +1,6 @@
 # Implementation strategy — RD&D frame & priorities
 
-**Status:** draft v0.3 · the frame plus a proposed priority ordering
-(**proposed — awaiting your confirmation/adjustment**). v0.3 inserts the
-game-demo remediation prerequisite (Phase 0A, per
-[tech/game-demo-remediation.md](tech/game-demo-remediation.md)).
+**Status:** v1.0 · updated 2026-10-20 following the forensic audit against `C:\github\bevy-main` and `C:\github\Fyrox-master` ([`docs/reports/game-engine-audit-and-qualiadb-manual.md`](../reports/game-engine-audit-and-qualiadb-manual.md)) and the resulting 10-Epic Engine Uplift Plan ([`docs/plans/qualiadb-superior-game-engine-master-plan.md`](../plans/qualiadb-superior-game-engine-master-plan.md)). v1.0 inserts both the game-demo remediation prerequisite (Phase 0A, per [tech/game-demo-remediation.md](tech/game-demo-remediation.md)) and **Phase 0B: QualiaDB Superior Game-Engine Architecture Uplift (Epics 1–10)**.
 
 ## 1. The RD&D driver: `game-demo`
 
@@ -82,6 +79,21 @@ Stabilization acceptance before breadth work resumes:
 R0–R4 deliver their services incrementally; the runtime-worker
 OffscreenCanvas/shared-memory extensions and the optional R6 lane are **not**
 gates on the earlier fixes.
+
+### Phase 0B — QualiaDB Superior Game-Engine Architecture Uplift (Epics 1–10)
+Full technical specification: [`docs/plans/qualiadb-superior-game-engine-master-plan.md`](../plans/qualiadb-superior-game-engine-master-plan.md).
+Eliminates the core 3D engine bottlenecks identified when auditing `qualiaDB` against `Bevy` and `Fyrox`, while preserving `qualiaDB`'s Two-Tier Zero-Heap Contract (`AGENTS.md §0-A`), 48-byte `NQuin` governance, PGA `Motor` algebra, and `qualia-sim` continuum physics:
+
+1. **Epic 1 (Zero-Heap Hybrid Scene Graph & SOA ECS):** Replace `BTreeMap<String, SceneNode>` (`render/scene_graph/node.rs`) with a generational `NodePool` + prefab `InheritableField<T>` delta inheritance + fixed-arena SOA archetype tables with `Tick(u32)` change detection and topological PGA `Motor` propagation.
+2. **Epic 2 (Multi-Mesh Slab Allocator & GPU Indirect Culling/LOD):** Replace `PortalGpu`'s single `mesh: Option<MeshGpu>` slot (`render/gpu/mod.rs:484`) with `MeshSlabArenaGpu` (4,096 meshes × 4 LODs), GPU compute frustum + 2-phase HZB occlusion culling, `multi_draw_indexed_indirect`, and automatic `LOD0`→`LOD2`→`SGGX`/`Surfel` switching.
+3. **Epic 3 (GPU Vertex-Shader PGA Motor Skinning & Morphs):** Replace CPU `f64` `skin_vertices_into` + per-frame `queue.write_buffer` uploads (`animated_upload.rs`) with static `JOINTS_0`/`WEIGHTS_0` attributes, double-buffered `RigMotorPaletteBuffer`, and GPU vertex-shader PGA sandwich skinning + morph target deltas.
+4. **Epic 4 (Multi-Layer ABSM, 2D Delaunay Blend Spaces, Root Motion & Constrained IK):** Upgrade `SkeletalPlayer` and `qualia-sim/src/animation.rs` with 128-bit bone masks, 2D Delaunay `BlendSpace`, root motion extraction, and analytical 2-bone + constrained FABRIK Motor IK.
+5. **Epic 5 (Active GPU Spectral Deferred, Clustered Lighting, Cubemap IBL & Refractive Water):** Wire `CLUSTER_LIGHT_WGSL` (256 local lights + 4-cascade CSM + point/spot PCSS), `DEFERRED_RESOLVE_WGSL` (Jakob–Hanika + Wyman CIE 1931 XYZ spectral resolve), `HYDROLOGIC_OPTICS_WGSL`, `FOLIAGE_LOD_WGSL`, `SGGX_MICROFLAKE_WGSL`, GPU Cubemap IBL, GTAO, SSR, and enable WebGPU HDR/Bloom on `wasm32` (`bloom.rs:21-31`).
+6. **Epic 6 (Zero-Heap 3D Rigid-Body Physics & Continuum Coupling):** Build a 3D dynamic/static BVH (`cast_ray`, `cast_capsule`, `cast_sphere`), zero-heap GJK/EPA narrowphase, 64 Hz XPBD rigid-body & 6-DOF Motor joint solver, `Ragdoll`, 3D `CharacterController`/`RoverKinematics`, and 2-way force coupling with `geomechanics.rs`, `hydro.rs`, and `metamer_fspm.rs`.
+7. **Epic 7 (Full glTF 2.0 Hierarchy/Skin/Anim/Morph Compiler & Native KTX2/BC7/ASTC):** Upgrade `render/assets/glb.rs` to import full node hierarchies, `SKL1` skins, PGA motor clips, and `MRP1` morphs; upload hardware-compressed BCn/ASTC/ETC2 textures directly to `wgpu` and implement spec-compliant BC7 (all 8 modes) + BasisLZ/UASTC transcoding (`texture_transcode.rs`).
+8. **Epic 8 (3D Spatial Audio Graph & BVH Occlusion):** Synchronize `AudioEmitter`/`AudioListener` scene nodes with `qualia-audio` HRTF/Holosonic synthesis, Freeverb buses, and 3D BVH raycast + `ACOUSTIC_VOXEL_CONE_WGSL` acoustic occlusion.
+9. **Epic 9 (Zero-Heap Flexbox/Grid UI, GPU MSDF Text & Studio 3D Gizmos):** Add Flexbox/Grid layout and MSDF glyph atlas rendering to `ZeroHeapUiCanvas` (`webizen-render/src/ui.rs`), plus 3D PGA Motor gizmos and Command-Stack Undo/Redo in `webizen-studio`.
+10. **Epic 10 (WASM Byte-Backed `.q42`/`Q42LEX` Seam & Range-Streamed `.hmc` Workers):** Expose slice-backed `.q42` + `Q42LEX` to the `wasm32` Vibe host (retiring the `LocalHost` empty-list stub) and stream/verify `.hmc` entries on background Webizen workers.
 
 ### Phase 1 — First pipeline end-to-end (thin slice)
 **Goal:** one reviewed pack consumed by game-demo — proof of the whole loop.

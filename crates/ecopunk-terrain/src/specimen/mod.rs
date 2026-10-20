@@ -3,4 +3,7 @@
 
 pub mod loupe;
 
-pub use loupe::{GhostGumPhenology, GhostGumSpecimenLoupe};
+pub use loupe::{
+    BotanicalDevelopmentalStage, DevelopmentalStage, GhostGumOrganSubmesh, GhostGumPhenology,
+    GhostGumSpecimenLoupe,
+};

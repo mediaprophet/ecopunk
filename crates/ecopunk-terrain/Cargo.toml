@@ -16,10 +16,18 @@ qualia-geospatial = { workspace = true }
 qualia-sim = { workspace = true }
 vibe = { workspace = true }
 webizen-render = { workspace = true }
+etalon = { workspace = true, features = ["std", "metal", "gles", "vulkan", "dx12", "wgsl", "webgpu", "spirv"] }
+etalon-agent = { workspace = true }
+etalon-wgsl-forge = { workspace = true }
+etalon-nquin = { workspace = true }
+etalon-tensor = { workspace = true }
+etalon-render = { workspace = true }
+etalon-wasm = { workspace = true }
 rio_api = { workspace = true }
 rio_turtle = { workspace = true }
 sha2 = { workspace = true }
 image = { workspace = true }
+flate2 = "1.1"
 
 [dev-dependencies]
 
