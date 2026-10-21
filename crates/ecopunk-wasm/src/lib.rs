@@ -21,7 +21,7 @@ use ecopunk_terrain::exploration_controller::{
 };
 use ecopunk_terrain::fauna_animation_rig::FaunaBiomechanicalArchetype;
 use ecopunk_terrain::scene_builder_10d::{
-    build_procedural_textures, build_sector_10d, ProceduralTextureAsset,
+    build_procedural_textures, build_sector_10d, sample_sector_elevation, ProceduralTextureAsset,
 };
 use ecopunk_terrain::world_continuum::{RegionalCorridorWorld, StudySiteId};
 use ecopunk_terrain::zoological_anatomy::build_scale5_vertebrate_anatomy_10d;
@@ -199,6 +199,25 @@ pub fn init_webgl2(canvas: HtmlCanvasElement) -> Result<bool, JsValue> {
 }
 
 #[cfg(target_arch = "wasm32")]
+fn load_single_10d_colored(
+    inner: &mut qualia_core_db::QualiaPortal,
+    bytes: &[u8],
+    asset_id: &str,
+) -> Result<JsValue, JsValue> {
+    let arr = js_sys::Array::new();
+    let obj = js_sys::Object::new();
+    let u8_arr = js_sys::Uint8Array::from(bytes);
+    js_sys::Reflect::set(&obj, &JsValue::from_str("id"), &JsValue::from_str(asset_id))?;
+    js_sys::Reflect::set(&obj, &JsValue::from_str("bytes"), &u8_arr.into())?;
+    js_sys::Reflect::set(&obj, &JsValue::from_str("r"), &JsValue::from_f64(1.0))?;
+    js_sys::Reflect::set(&obj, &JsValue::from_str("g"), &JsValue::from_f64(1.0))?;
+    js_sys::Reflect::set(&obj, &JsValue::from_str("b"), &JsValue::from_f64(1.0))?;
+    js_sys::Reflect::set(&obj, &JsValue::from_str("a"), &JsValue::from_f64(1.0))?;
+    arr.push(&obj);
+    inner.load_assets_colored(&arr)
+}
+
+#[cfg(target_arch = "wasm32")]
 #[wasm_bindgen]
 pub struct EcopunkPortal {
     inner: qualia_core_db::QualiaPortal,
@@ -215,6 +234,15 @@ pub struct EcopunkPortal {
     anthesis_01: f32,
     peel_01: f32,
     archetype_idx: u8,
+    active_sector_key: &'static str,
+    active_water_y: f32,
+    orbit_gc: [f32; 3],
+    orbit_scale: f32,
+    rover_vertex_start: u32,
+    rover_local_positions: Vec<[f32; 3]>,
+    walker_vertex_start: u32,
+    walker_local_positions: Vec<[f32; 3]>,
+    anim_time_s: f32,
 }
 
 #[cfg(target_arch = "wasm32")]
@@ -226,9 +254,10 @@ impl EcopunkPortal {
         inner.set_preserve_authored_frame(false);
         inner.set_shadows_enabled(true);
         inner.set_screen_space_ao_enabled(true);
-        inner.set_screen_space_ao(0.48, 0.72, 0.018);
-        inner.set_sky_preset(0);
-        inner.set_lighting(0.45, 0.82, 0.38, 1.55, 0.34);
+        inner.set_screen_space_ao(0.38, 0.52, 0.020);
+        inner.set_sky_preset(1);
+        inner.set_lighting(0.48, 0.78, 0.44, 2.25, 0.78);
+        let _ = inner.set_exposure_compensation(0.35);
 
         let textures = build_procedural_textures();
         for (idx, tex) in textures.iter().enumerate() {
@@ -245,7 +274,7 @@ impl EcopunkPortal {
         let session = ContinuumExplorationSession::new(world);
         let vibe_host = EcopunkVibeHost::new();
 
-        let mut portal = EcopunkPortal {
+        let portal = EcopunkPortal {
             inner,
             session,
             vibe_host,
@@ -260,9 +289,48 @@ impl EcopunkPortal {
             anthesis_01: 0.65,
             peel_01: 0.35,
             archetype_idx: 0,
+            active_sector_key: "talbingo",
+            active_water_y: -0.22,
+            orbit_gc: [0.0, 0.0, 0.0],
+            orbit_scale: 0.435,
+            rover_vertex_start: 0,
+            rover_local_positions: Vec::new(),
+            walker_vertex_start: 0,
+            walker_local_positions: Vec::new(),
+            anim_time_s: 0.0,
         };
-        portal.load_continuum_site_scene(0)?;
         Ok(portal)
+    }
+
+    /// Return the canonical `PO:` / `UBERON:` callout pins for a given dissection scale (`1..=5`) without rebuilding the GPU mesh.
+    pub fn get_scale_pins_json(&self, scale: u8, pin_index: u8) -> String {
+        let s = scale.clamp(1, 5);
+        let scale_pins: Vec<serde_json::Value> = CANONICAL_ANATOMICAL_PINS
+            .iter()
+            .filter(|p| p.scale == s)
+            .map(|p| {
+                serde_json::json!({
+                    "pin_id": p.pin_id,
+                    "scale": p.scale,
+                    "ontology_curie": p.ontology_curie,
+                    "scientific_term": p.scientific_term,
+                    "biophysical_formula": p.biophysical_formula,
+                    "educational_summary": p.educational_summary,
+                    "indigenous_custodial_context": p.indigenous_custodial_context,
+                    "anchor_local_xyz": p.anchor_local_xyz,
+                })
+            })
+            .collect();
+        let selected_pin = if scale_pins.is_empty() {
+            serde_json::Value::Null
+        } else {
+            scale_pins[(pin_index as usize) % scale_pins.len()].clone()
+        };
+        serde_json::json!({
+            "scale_pins": scale_pins,
+            "selected_pin": selected_pin,
+        })
+        .to_string()
     }
 
     /// Return the active QualiaPortal render tier (2 = WebGPU, 1 = WebGL2, 0 = CPU fallback).
@@ -321,9 +389,37 @@ impl EcopunkPortal {
             .map_err(|e| JsValue::from_str(&format!("build_sector_10d({sector_key}): {e}")))?;
 
         self.inner.set_preserve_authored_frame(false);
-        let _receipt = self.inner.load_10d(&sector.scene_10d_bytes)?;
+        let _receipt =
+            load_single_10d_colored(&mut self.inner, &sector.scene_10d_bytes, sector.sector_id)?;
 
-        let flat_water: Vec<f32> = sector.water_positions.iter().flat_map(|p| *p).collect();
+        let min = sector.scene_bounds_min;
+        let max = sector.scene_bounds_max;
+        let gc = [
+            (min[0] + max[0]) * 0.5,
+            (min[1] + max[1]) * 0.5,
+            (min[2] + max[2]) * 0.5,
+        ];
+        let gspan = (max[0] - min[0])
+            .max(max[1] - min[1])
+            .max(max[2] - min[2])
+            .max(1e-6);
+        let orbit_scale = 1.7 / gspan;
+
+        self.active_sector_key = sector_key;
+        self.active_water_y = sector.water_y;
+        self.orbit_gc = gc;
+        self.orbit_scale = orbit_scale;
+        self.rover_vertex_start = sector.rover_vertex_range.start as u32;
+        self.rover_local_positions = sector.rover_local_positions.clone();
+        self.walker_vertex_start = sector.walker_vertex_range.start as u32;
+        self.walker_local_positions = sector.walker_local_positions.clone();
+
+        let mut flat_water = Vec::with_capacity(sector.water_positions.len() * 3);
+        for p in &sector.water_positions {
+            flat_water.push((p[0] - gc[0]) * orbit_scale);
+            flat_water.push((p[1] - gc[1]) * orbit_scale);
+            flat_water.push((p[2] - gc[2]) * orbit_scale);
+        }
         self.inner
             .set_water_geometry(&flat_water, &sector.water_indices)?;
         self.inner.set_water_surface(
@@ -340,16 +436,21 @@ impl EcopunkPortal {
             sector.sun_dir[0],
             sector.sun_dir[1],
             sector.sun_dir[2],
-            1.52,
-            0.30,
+            2.25,
+            0.78,
         );
+        let _ = self.inner.set_exposure_compensation(0.35);
+
+        let norm_tx = (sector.cam_target[0] - gc[0]) * orbit_scale;
+        let norm_ty = (sector.cam_target[1] - gc[1]) * orbit_scale;
+        let norm_tz = (sector.cam_target[2] - gc[2]) * orbit_scale;
         self.inner.set_camera_target(
             sector.cam_yaw,
             sector.cam_pitch,
             sector.cam_zoom,
-            sector.cam_target[0],
-            sector.cam_target[1],
-            sector.cam_target[2],
+            norm_tx,
+            norm_ty,
+            norm_tz,
         )?;
 
         self.active_experience = 0;
@@ -407,9 +508,13 @@ impl EcopunkPortal {
         .map_err(|e| JsValue::from_str(&e))?;
 
         self.inner.set_preserve_authored_frame(false);
-        let _ = self.inner.load_10d(&bytes_10d)?;
+        let _ = load_single_10d_colored(&mut self.inner, &bytes_10d, "ecopunk:dissection_organ")?;
         self.inner.set_water_geometry(&[], &[])?;
-        self.inner.set_camera_target(0.62, 0.28, 2.15, 0.0, 0.0, 0.0)?;
+        self.inner.set_sky_preset(1);
+        self.inner.set_lighting(0.42, 0.84, 0.45, 2.35, 0.84);
+        let _ = self.inner.set_exposure_compensation(0.40);
+        self.inner
+            .set_camera_target(0.62, 0.28, 1.85, 0.0, 0.0, 0.0)?;
 
         let vibe_eval_json = if let Some(prog) = &self.lab_prog {
             let mut env = Env::default();
@@ -535,6 +640,7 @@ impl EcopunkPortal {
         };
 
         let snap = self.session.step_tick_zero_heap(&tick_input, dt_s);
+        self.anim_time_s += dt_s;
 
         if self.active_experience == 0 {
             let nearest_idx = snap.nearest_study_site as u8;
@@ -550,17 +656,90 @@ impl EcopunkPortal {
                 self.session.total_odometer_km = saved_odo;
             }
 
-            let active_pos = if snap.mode == ExplorationMode::RoverDriving {
-                snap.rover_position
-            } else {
-                snap.walker_position
-            };
             let site_origin =
                 self.session.world.sites[self.active_site_loaded.min(7) as usize].world_pos_xz;
-            let local_dx = ((active_pos[0] - site_origin[0]) * 0.004).clamp(-0.65, 0.65);
-            let local_dz = ((active_pos[2] - site_origin[1]) * 0.004).clamp(-0.65, 0.65);
+            let sector_seed = match self.active_sector_key {
+                "talbingo" => 1.1_f32,
+                "yarrangobilly" => 2.4_f32,
+                "three_mile_dam" => 3.7_f32,
+                "sydney_sandstone" => 5.1_f32,
+                "noosa_headland" => 6.5_f32,
+                _ => 7.9_f32,
+            };
+
+            // Map Rover world displacement from site origin into local sector coordinates `[-1.55, 1.55]`
+            let r_dz_raw = (snap.rover_position[2] - site_origin[1]) * 0.012;
+            let rz = r_dz_raw.clamp(-1.55, 1.55);
+            let r_meander = 0.28 * (rz * 1.35 + sector_seed).sin()
+                + 0.11 * (rz * 2.7 - sector_seed * 0.6).cos();
+            let r_dx_raw = (snap.rover_position[0] - site_origin[0]) * 0.012;
+            let rx = (r_meander + 0.54 + r_dx_raw).clamp(-1.65, 1.65);
+            let ry = sample_sector_elevation(self.active_sector_key, rx, rz, self.active_water_y);
+            let ryaw = self.session.rover.state.heading;
+            let r_cy = ryaw.cos();
+            let r_sy = ryaw.sin();
+
+            if !self.rover_local_positions.is_empty() {
+                let mut posed_rover = Vec::with_capacity(self.rover_local_positions.len() * 3);
+                for lp in &self.rover_local_positions {
+                    let wx = rx + lp[0] * r_cy + lp[2] * r_sy;
+                    let wy = ry + lp[1];
+                    let wz = rz - lp[0] * r_sy + lp[2] * r_cy;
+                    posed_rover.push((wx - self.orbit_gc[0]) * self.orbit_scale);
+                    posed_rover.push((wy - self.orbit_gc[1]) * self.orbit_scale);
+                    posed_rover.push((wz - self.orbit_gc[2]) * self.orbit_scale);
+                }
+                self.inner
+                    .write_part_vertices(self.rover_vertex_start, &posed_rover);
+            }
+
+            // Map Ecologist Walker world displacement into local sector coordinates
+            let (wx, wz, wyaw) = if snap.mode == ExplorationMode::RoverDriving {
+                (rx - 0.11 * r_cy, rz + 0.11 * r_sy, ryaw)
+            } else {
+                let w_dz = ((snap.walker_position[2] - site_origin[1]) * 0.012).clamp(-1.60, 1.60);
+                let w_meander = 0.28 * (w_dz * 1.35 + sector_seed).sin()
+                    + 0.11 * (w_dz * 2.7 - sector_seed * 0.6).cos();
+                let w_dx = ((snap.walker_position[0] - site_origin[0]) * 0.012 - 0.11)
+                    .clamp(-1.65 - w_meander, 1.65 - w_meander);
+                (w_meander + 0.54 + w_dx, w_dz, cam_yaw)
+            };
+            let stride_bob = if snap.mode != ExplorationMode::RoverDriving
+                && (walk_fwd.abs() + walk_strafe.abs() > 0.05)
+            {
+                0.008 * (self.anim_time_s * 11.0).sin().abs()
+            } else {
+                0.0
+            };
+            let wy = sample_sector_elevation(self.active_sector_key, wx, wz, self.active_water_y)
+                + stride_bob;
+            let w_cy = wyaw.cos();
+            let w_sy = wyaw.sin();
+
+            if !self.walker_local_positions.is_empty() {
+                let mut posed_walker = Vec::with_capacity(self.walker_local_positions.len() * 3);
+                for lp in &self.walker_local_positions {
+                    let pwx = wx + lp[0] * w_cy + lp[2] * w_sy;
+                    let pwy = wy + lp[1];
+                    let pwz = wz - lp[0] * w_sy + lp[2] * w_cy;
+                    posed_walker.push((pwx - self.orbit_gc[0]) * self.orbit_scale);
+                    posed_walker.push((pwy - self.orbit_gc[1]) * self.orbit_scale);
+                    posed_walker.push((pwz - self.orbit_gc[2]) * self.orbit_scale);
+                }
+                self.inner
+                    .write_part_vertices(self.walker_vertex_start, &posed_walker);
+            }
+
+            let (focus_x, focus_y, focus_z) = if snap.mode == ExplorationMode::RoverDriving {
+                (rx, ry + 0.04, rz)
+            } else {
+                (wx, wy + 0.05, wz)
+            };
+            let norm_tx = (focus_x - self.orbit_gc[0]) * self.orbit_scale;
+            let norm_ty = (focus_y - self.orbit_gc[1]) * self.orbit_scale;
+            let norm_tz = (focus_z - self.orbit_gc[2]) * self.orbit_scale;
             self.inner
-                .set_camera_target(cam_yaw, cam_pitch, cam_zoom, local_dx, -0.04, local_dz)?;
+                .set_camera_target(cam_yaw, cam_pitch, cam_zoom, norm_tx, norm_ty, norm_tz)?;
         } else {
             self.inner
                 .set_camera_target(cam_yaw, cam_pitch, cam_zoom, 0.0, 0.0, 0.0)?;

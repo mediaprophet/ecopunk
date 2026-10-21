@@ -1664,7 +1664,7 @@ fn attach_morph_section(
         .map_err(|e| format!("encode_morph_section: {e:?}"))?;
     attach_raw_section(
         container,
-        SectionType::SkeletalAnimation,
+        SectionType::Reconstruction,
         AlignmentTier::CacheLine,
         0,
         0,
@@ -1868,7 +1868,7 @@ mod tests {
         assert!(section_types.contains(&Some(SectionType::SurfaceReading)));
         assert!(section_types.contains(&Some(SectionType::Materials)));
         assert!(section_types.contains(&Some(SectionType::TextureCoordinates)));
-        assert!(section_types.contains(&Some(SectionType::SkeletalAnimation))); // Morph targets
+        assert!(section_types.contains(&Some(SectionType::Reconstruction))); // Morph targets
         assert!(section_types.contains(&Some(SectionType::EntityOntology)));
         assert!(section_types.contains(&Some(SectionType::ProceduralSynthesis)));
     }

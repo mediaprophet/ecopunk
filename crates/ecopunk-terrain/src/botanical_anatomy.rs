@@ -918,7 +918,7 @@ fn attach_morph_section(
         .map_err(|e| format!("encode_morph_section: {e:?}"))?;
     attach_raw_section(
         container,
-        SectionType::SkeletalAnimation,
+        SectionType::Reconstruction,
         AlignmentTier::CacheLine,
         0,
         0,

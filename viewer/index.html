@@ -155,6 +155,14 @@
         <div class="site-btn-list" id="site-btn-list"></div>
 
         <div class="section-title">64 Hz Rover & Ecologist Controls</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:8px;">
+          <div></div>
+          <button class="exp-btn" data-hold-key="w" style="background:#153126;color:#7ff0b8;border:1px solid #35d084;border-radius:5px;padding:6px;font-size:11px;font-weight:700;cursor:pointer;">▲ Drive / Walk [W]</button>
+          <div></div>
+          <button class="exp-btn" data-hold-key="a" style="background:#11231c;color:#dcf5e7;border:1px solid #2b6349;border-radius:5px;padding:6px;font-size:11px;font-weight:600;cursor:pointer;">◀ Left [A]</button>
+          <button class="exp-btn" data-hold-key="s" style="background:#11231c;color:#dcf5e7;border:1px solid #2b6349;border-radius:5px;padding:6px;font-size:11px;font-weight:600;cursor:pointer;">▼ Reverse [S]</button>
+          <button class="exp-btn" data-hold-key="d" style="background:#11231c;color:#dcf5e7;border:1px solid #2b6349;border-radius:5px;padding:6px;font-size:11px;font-weight:600;cursor:pointer;">▶ Right [D]</button>
+        </div>
         <div class="summary-box">
           <b>W / S</b>: Throttle / Reverse (or Walk Forward/Back)<br/>
           <b>A / D</b>: Ackermann Steer (or Strafe Left/Right)<br/>
@@ -189,8 +197,8 @@
           <input type="range" id="slider-anthesis" min="0" max="1" step="0.02" value="0.65" />
         </div>
         <div class="slider-row">
-          <label><span>Vertebrate Layer Peel (Skin → Muscle → Bone)</span><span id="val-peel">0.35</span></label>
-          <input type="range" id="slider-peel" min="0" max="1" step="0.02" value="0.35" />
+          <label><span>Vertebrate Layer Peel (Skin → Muscle → Bone)</span><span id="val-peel">0.68</span></label>
+          <input type="range" id="slider-peel" min="0" max="1" step="0.02" value="0.68" />
         </div>
         <div class="slider-row">
           <label><span>Scale 5 Vertebrate Archetype</span></label>
@@ -300,25 +308,13 @@
       `${vibeReceipt.continuum_drive_qbc_bytes + vibeReceipt.biological_lab_qbc_bytes} B (.qbc)`;
     document.getElementById('vibe-eval-receipt').textContent =
       `VibeScript (${vibeReceipt.vibe_language}) Active // Catalog IDs: ${vibeReceipt.catalog_invoke_id_count} // .qbc Verified`;
-
-    // Admit the .q42 semantic volume slice into EcopunkVibeHost
-    try {
-      const q42Resp = await fetch(`${BASE}/data/sem/east_coast_biosphere.q42`);
-      if (q42Resp.ok) {
-        const q42Buf = new Uint8Array(await q42Resp.arrayBuffer());
-        const admittedBytes = portal.admit_q42_pack(q42Buf);
-        document.getElementById('wasm-status-line').textContent =
-          `QualiaPortal WASM Active // Admitted east_coast_biosphere.q42 (${(admittedBytes / 1024).toFixed(1)} KB)`;
-      }
-    } catch (_) {
-      document.getElementById('wasm-status-line').textContent =
-        `QualiaPortal WASM Active // 5-Scale .10d Living Containers Ready`;
-    }
+    document.getElementById('wasm-status-line').textContent =
+      `QualiaPortal WASM Active // 6-Material PBR .10d + .q42 + VibeScript (${vibeReceipt.continuum_drive_qbc_bytes + vibeReceipt.biological_lab_qbc_bytes} B .qbc)`;
 
     // State for camera & controls
-    let camYaw = 0.62;
-    let camPitch = 0.28;
-    let camZoom = 2.10;
+    let camYaw = 0.28;
+    let camPitch = 0.26;
+    let camZoom = 1.35;
     let dragging = false;
     let lastX = 0, lastY = 0;
 
@@ -372,6 +368,34 @@
       siteListEl.appendChild(btn);
     });
 
+    function renderPinCards(res) {
+      const pinListEl = document.getElementById('pin-btn-list');
+      pinListEl.innerHTML = '';
+      (res.scale_pins || []).forEach((pin, idx) => {
+        const b = document.createElement('button');
+        b.textContent = `[${pin.ontology_curie}] ${pin.scientific_term}`;
+        if (idx === (activePinIdx % Math.max(1, res.scale_pins.length))) b.classList.add('active');
+        b.addEventListener('click', () => {
+          activePinIdx = idx;
+          if (activeExp === 1) {
+            refreshLabDissection();
+          } else {
+            renderPinCards(JSON.parse(portal.get_scale_pins_json(activeScale, activePinIdx)));
+          }
+        });
+        pinListEl.appendChild(b);
+      });
+
+      if (res.selected_pin) {
+        document.getElementById('pin-curie').textContent = res.selected_pin.ontology_curie;
+        document.getElementById('pin-term').textContent = res.selected_pin.scientific_term;
+        document.getElementById('pin-formula').textContent = res.selected_pin.biophysical_formula;
+        document.getElementById('pin-summary').textContent = res.selected_pin.educational_summary;
+        document.getElementById('pin-custodial').textContent =
+          `Indigenous Custodial Context: ${res.selected_pin.indigenous_custodial_context}`;
+      }
+    }
+
     function refreshLabDissection() {
       const explode = parseFloat(document.getElementById('slider-explode').value);
       const cutaway = parseFloat(document.getElementById('slider-cutaway').value);
@@ -391,28 +415,7 @@
         document.getElementById('tel-mesh').textContent =
           `${res.mesh_10d.vertex_count.toLocaleString()} v / ${res.mesh_10d.triangle_count.toLocaleString()} t (.10d)`;
       }
-
-      const pinListEl = document.getElementById('pin-btn-list');
-      pinListEl.innerHTML = '';
-      (res.scale_pins || []).forEach((pin, idx) => {
-        const b = document.createElement('button');
-        b.textContent = `[${pin.ontology_curie}] ${pin.scientific_term}`;
-        if (idx === (activePinIdx % Math.max(1, res.scale_pins.length))) b.classList.add('active');
-        b.addEventListener('click', () => {
-          activePinIdx = idx;
-          refreshLabDissection();
-        });
-        pinListEl.appendChild(b);
-      });
-
-      if (res.selected_pin) {
-        document.getElementById('pin-curie').textContent = res.selected_pin.ontology_curie;
-        document.getElementById('pin-term').textContent = res.selected_pin.scientific_term;
-        document.getElementById('pin-formula').textContent = res.selected_pin.biophysical_formula;
-        document.getElementById('pin-summary').textContent = res.selected_pin.educational_summary;
-        document.getElementById('pin-custodial').textContent =
-          `Indigenous Custodial Context: ${res.selected_pin.indigenous_custodial_context}`;
-      }
+      renderPinCards(res);
       if (res.vibe_evaluation && res.vibe_evaluation.floral_anthesis) {
         const fa = res.vibe_evaluation.floral_anthesis;
         document.getElementById('vibe-eval-receipt').textContent =
@@ -427,10 +430,16 @@
       document.getElementById('continuum-controls').style.display = exp === 0 ? 'block' : 'none';
       document.getElementById('lab-controls').style.display = exp === 1 ? 'block' : 'none';
       if (exp === 0) {
+        camYaw = -0.38;
+        camPitch = 0.56;
+        camZoom = 0.46;
         const info = JSON.parse(portal.load_continuum_site_scene(0));
         document.getElementById('tel-mesh').textContent =
           `${info.vertex_count.toLocaleString()} v / ${info.triangle_count.toLocaleString()} t (.10d)`;
       } else {
+        camYaw = 0.62;
+        camPitch = 0.28;
+        camZoom = 2.55;
         refreshLabDissection();
       }
     }
@@ -438,6 +447,13 @@
     document.getElementById('btn-exp-continuum').addEventListener('click', () => switchExperience(0));
     document.getElementById('btn-exp-lab').addEventListener('click', () => switchExperience(1));
     document.getElementById('btn-dismount').addEventListener('click', () => portal.toggle_dismount());
+
+    document.querySelectorAll('[data-hold-key]').forEach((btn) => {
+      const k = btn.getAttribute('data-hold-key');
+      btn.addEventListener('pointerdown', (e) => { e.preventDefault(); keys.add(k); });
+      btn.addEventListener('pointerup', () => keys.delete(k));
+      btn.addEventListener('pointerleave', () => keys.delete(k));
+    });
 
     document.querySelectorAll('#scale-btn-list button').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -453,8 +469,8 @@
       document.getElementById(id).addEventListener('input', refreshLabDissection);
     });
 
-    // Populate initial callout pins via a quick Scale 1 query then return to Site 0
-    refreshLabDissection();
+    // Populate initial callout pins in 0.1ms and load Site 0 once
+    renderPinCards(JSON.parse(portal.get_scale_pins_json(1, 0)));
     switchExperience(0);
 
     let lastTime = performance.now();

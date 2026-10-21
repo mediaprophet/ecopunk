@@ -120,6 +120,13 @@ pub struct CompiledSector10d {
     pub cam_target: [f32; 3],
     pub sky_preset: u32,
     pub vegetation_instances_evaluated: usize,
+    pub water_y: f32,
+    pub scene_bounds_min: [f32; 3],
+    pub scene_bounds_max: [f32; 3],
+    pub rover_vertex_range: std::ops::Range<usize>,
+    pub rover_local_positions: Vec<[f32; 3]>,
+    pub walker_vertex_range: std::ops::Range<usize>,
+    pub walker_local_positions: Vec<[f32; 3]>,
 }
 
 fn sha256_pair(bytes: &[u8]) -> ([u8; 32], String) {
@@ -1398,6 +1405,200 @@ impl SubmeshBuilder {
             self.add_bishop_swept_tube(&body, &body_st, 7, coat_dark, coat_lit);
         }
     }
+
+    /// Add an axis-aligned 3D box in local coordinates `[min_xyz, max_xyz]` with outward normals and vertex colors.
+    fn add_local_box(&mut self, min: [f32; 3], max: [f32; 3], col_bottom: [f32; 4], col_top: [f32; 4]) {
+        let faces: [([f32; 3], [[f32; 3]; 4]); 6] = [
+            // +Y top
+            ([0.0, 1.0, 0.0], [[min[0], max[1], max[2]], [max[0], max[1], max[2]], [max[0], max[1], min[2]], [min[0], max[1], min[2]]]),
+            // -Y bottom
+            ([0.0, -1.0, 0.0], [[min[0], min[1], min[2]], [max[0], min[1], min[2]], [max[0], min[1], max[2]], [min[0], min[1], max[2]]]),
+            // +X right
+            ([1.0, 0.0, 0.0], [[max[0], min[1], max[2]], [max[0], min[1], min[2]], [max[0], max[1], min[2]], [max[0], max[1], max[2]]]),
+            // -X left
+            ([-1.0, 0.0, 0.0], [[min[0], min[1], min[2]], [min[0], min[1], max[2]], [min[0], max[1], max[2]], [min[0], max[1], min[2]]]),
+            // +Z front
+            ([0.0, 0.0, 1.0], [[min[0], min[1], max[2]], [max[0], min[1], max[2]], [max[0], max[1], max[2]], [min[0], max[1], max[2]]]),
+            // -Z rear
+            ([0.0, 0.0, -1.0], [[max[0], min[1], min[2]], [min[0], min[1], min[2]], [min[0], max[1], min[2]], [max[0], max[1], min[2]]]),
+        ];
+        for (norm, corners) in faces {
+            let v0 = self.push_vertex(corners[0], norm, if corners[0][1] >= (min[1] + max[1]) * 0.5 { col_top } else { col_bottom }, [0.0, 0.0]);
+            let v1 = self.push_vertex(corners[1], norm, if corners[1][1] >= (min[1] + max[1]) * 0.5 { col_top } else { col_bottom }, [1.0, 0.0]);
+            let v2 = self.push_vertex(corners[2], norm, if corners[2][1] >= (min[1] + max[1]) * 0.5 { col_top } else { col_bottom }, [1.0, 1.0]);
+            let v3 = self.push_vertex(corners[3], norm, if corners[3][1] >= (min[1] + max[1]) * 0.5 { col_top } else { col_bottom }, [0.0, 1.0]);
+            self.push_tri(v0, v1, v2);
+            self.push_tri(v0, v2, v3);
+        }
+    }
+
+    /// Build a high-detail 3D 4WD Field Research Rover in local vehicle space (centered at `[0, 0, 0]`, `+Z` forward, `scale` ~ `0.085`).
+    fn add_field_rover_4wd_local(&mut self, scale: f32) {
+        let s = scale;
+        // 1. Rugged dark-steel chassis frame & underbody skid plate
+        self.add_local_box(
+            [-0.44 * s, 0.16 * s, -0.92 * s],
+            [0.44 * s, 0.30 * s, 0.94 * s],
+            [0.16, 0.18, 0.20, 1.0],
+            [0.26, 0.28, 0.32, 1.0],
+        );
+        // 2. Outback Sand/Ivory 4WD Lower Body tub & bonnet
+        self.add_local_box(
+            [-0.48 * s, 0.28 * s, -0.90 * s],
+            [0.48 * s, 0.62 * s, 0.90 * s],
+            [0.78, 0.72, 0.56, 1.0],
+            [0.94, 0.88, 0.74, 1.0],
+        );
+        // 3. Hi-Vis Ecological Survey Orange Side Stripe
+        self.add_local_box(
+            [-0.50 * s, 0.42 * s, -0.86 * s],
+            [0.50 * s, 0.50 * s, 0.82 * s],
+            [0.92, 0.40, 0.08, 1.0],
+            [0.98, 0.54, 0.14, 1.0],
+        );
+        // 4. Glazed Cabin Greenhouse (windshield + side windows)
+        self.add_local_box(
+            [-0.43 * s, 0.60 * s, -0.58 * s],
+            [0.43 * s, 0.94 * s, 0.36 * s],
+            [0.12, 0.24, 0.36, 1.0],
+            [0.24, 0.44, 0.62, 1.0],
+        );
+        // 5. White Heat-Reflective Roof Cap
+        self.add_local_box(
+            [-0.45 * s, 0.92 * s, -0.60 * s],
+            [0.45 * s, 0.99 * s, 0.38 * s],
+            [0.90, 0.92, 0.94, 1.0],
+            [0.98, 0.98, 0.99, 1.0],
+        );
+        // 6. Roof Expedition Rack + Solar Telemetry Panel + Amber Beacon
+        self.add_local_box(
+            [-0.38 * s, 0.99 * s, -0.52 * s],
+            [0.38 * s, 1.06 * s, 0.28 * s],
+            [0.10, 0.18, 0.38, 1.0],
+            [0.18, 0.32, 0.64, 1.0],
+        );
+        self.add_local_box(
+            [-0.12 * s, 1.06 * s, 0.12 * s],
+            [0.12 * s, 1.18 * s, 0.26 * s],
+            [0.96, 0.58, 0.04, 1.0],
+            [1.00, 0.84, 0.18, 1.0],
+        );
+        // 7. Heavy Front Steel Bullbar & Snorkel
+        self.add_local_box(
+            [-0.48 * s, 0.24 * s, 0.90 * s],
+            [0.48 * s, 0.58 * s, 1.02 * s],
+            [0.28, 0.30, 0.34, 1.0],
+            [0.52, 0.56, 0.60, 1.0],
+        );
+        // Bright LED Headlights (+Z) & Red Taillights (-Z)
+        for side in [-1.0_f32, 1.0_f32] {
+            self.add_local_box(
+                [(side * 0.32 - 0.08) * s, 0.44 * s, 0.89 * s],
+                [(side * 0.32 + 0.08) * s, 0.56 * s, 0.96 * s],
+                [0.98, 0.94, 0.76, 1.0],
+                [1.0, 1.0, 0.92, 1.0],
+            );
+            self.add_local_box(
+                [(side * 0.36 - 0.07) * s, 0.40 * s, -0.94 * s],
+                [(side * 0.36 + 0.07) * s, 0.54 * s, -0.88 * s],
+                [0.86, 0.12, 0.10, 1.0],
+                [0.98, 0.24, 0.18, 1.0],
+            );
+        }
+        // 8. Four Mud-Terrain Wheels + Silver Alloy Rims
+        for &(wx, wz) in &[
+            (-0.48_f32, 0.58_f32),
+            (0.48_f32, 0.58_f32),
+            (-0.48_f32, -0.58_f32),
+            (0.48_f32, -0.58_f32),
+        ] {
+            let sign = if wx >= 0.0 { 1.0_f32 } else { -1.0_f32 };
+            let x_in = (wx - sign * 0.10) * s;
+            let x_out = (wx + sign * 0.10) * s;
+            let wy = 0.22 * s;
+            let wz_s = wz * s;
+            let r_tyre = (0.22 * s) as f64;
+            let axis = [
+                Point3::new(x_in as f64, wy as f64, wz_s as f64),
+                Point3::new(x_out as f64, wy as f64, wz_s as f64),
+            ];
+            let st = [
+                ExtrusionStation { scale_x: r_tyre, scale_y: r_tyre, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: r_tyre, scale_y: r_tyre, twist_rad: 0.0 },
+            ];
+            self.add_bishop_swept_tube(&axis, &st, 10, [0.12, 0.13, 0.14, 1.0], [0.22, 0.23, 0.25, 1.0]);
+            // Alloy wheel hub cap
+            self.add_local_box(
+                [(wx + sign * 0.06) * s, (0.22 - 0.10) * s, (wz - 0.10) * s],
+                [(wx + sign * 0.12) * s, (0.22 + 0.10) * s, (wz + 0.10) * s],
+                [0.72, 0.75, 0.80, 1.0],
+                [0.90, 0.92, 0.96, 1.0],
+            );
+        }
+    }
+
+    /// Build a 3D Field Ecologist Bushwalker Avatar in local space (centered at `[0, 0, 0]`, `+Z` forward, `scale` ~ `0.075`).
+    fn add_ecologist_walker_local(&mut self, scale: f32) {
+        let s = scale;
+        // Boots & Khaki Field Trousers (left & right legs)
+        for side in [-1.0_f32, 1.0_f32] {
+            self.add_local_box(
+                [(side * 0.13 - 0.07) * s, 0.0, -0.09 * s],
+                [(side * 0.13 + 0.07) * s, 0.14 * s, 0.12 * s],
+                [0.24, 0.18, 0.13, 1.0],
+                [0.36, 0.26, 0.18, 1.0],
+            );
+            self.add_local_box(
+                [(side * 0.13 - 0.07) * s, 0.14 * s, -0.07 * s],
+                [(side * 0.13 + 0.07) * s, 0.56 * s, 0.07 * s],
+                [0.48, 0.42, 0.30, 1.0],
+                [0.62, 0.55, 0.40, 1.0],
+            );
+        }
+        // Eucalypt-green & Hi-Vis Ochre Field Expedition Jacket Torso
+        self.add_local_box(
+            [-0.22 * s, 0.54 * s, -0.11 * s],
+            [0.22 * s, 1.02 * s, 0.11 * s],
+            [0.20, 0.42, 0.26, 1.0],
+            [0.94, 0.58, 0.14, 1.0],
+        );
+        // Botanical Specimen & Sensor Backpack
+        self.add_local_box(
+            [-0.18 * s, 0.60 * s, -0.24 * s],
+            [0.18 * s, 0.98 * s, -0.10 * s],
+            [0.32, 0.28, 0.20, 1.0],
+            [0.48, 0.42, 0.30, 1.0],
+        );
+        // Left & Right Arms
+        for side in [-1.0_f32, 1.0_f32] {
+            self.add_local_box(
+                [(side * 0.28 - 0.06) * s, 0.56 * s, -0.06 * s],
+                [(side * 0.28 + 0.06) * s, 0.98 * s, 0.10 * s],
+                [0.24, 0.46, 0.28, 1.0],
+                [0.92, 0.56, 0.14, 1.0],
+            );
+        }
+        // Head & Neck
+        self.add_local_box(
+            [-0.11 * s, 1.02 * s, -0.10 * s],
+            [0.11 * s, 1.24 * s, 0.11 * s],
+            [0.76, 0.58, 0.46, 1.0],
+            [0.88, 0.70, 0.56, 1.0],
+        );
+        // Broad-Brimmed Australian Akubra Bush Hat
+        self.add_local_box(
+            [-0.24 * s, 1.21 * s, -0.22 * s],
+            [0.24 * s, 1.26 * s, 0.24 * s],
+            [0.36, 0.26, 0.18, 1.0],
+            [0.48, 0.36, 0.24, 1.0],
+        );
+        self.add_local_box(
+            [-0.13 * s, 1.25 * s, -0.12 * s],
+            [0.13 * s, 1.35 * s, 0.13 * s],
+            [0.38, 0.28, 0.19, 1.0],
+            [0.52, 0.40, 0.28, 1.0],
+        );
+    }
 }
 
 #[inline]
@@ -1467,81 +1668,92 @@ pub fn build_sector_10d(
     let tex_pebble = textures[2].sha256_bytes;
     let tex_soil = textures[3].sha256_bytes;
 
+    let sector_seed = match sector_id {
+        "talbingo" => 1.1_f32,
+        "yarrangobilly" => 2.4_f32,
+        "three_mile_dam" => 3.7_f32,
+        "sydney_sandstone" => 5.1_f32,
+        "noosa_headland" => 6.5_f32,
+        _ => 7.9_f32,
+    };
+
     let (water_y, water_color, sun_dir, cam_yaw, cam_pitch, cam_zoom, cam_target, sky_preset) =
         match sector_id {
             "talbingo" => (
                 -0.22_f32,
-                [0.06, 0.34, 0.46],
-                [0.48, 0.74, 0.47],
-                0.34,
-                0.32,
-                2.38,
-                [0.04, -0.03, -0.08],
-                0u32,
+                [0.06, 0.36, 0.50],
+                [0.48, 0.78, 0.44],
+                0.28,
+                0.26,
+                1.35,
+                [0.42, -0.02, 0.0],
+                1u32,
             ),
             "yarrangobilly" => (
                 -0.24_f32,
-                [0.06, 0.46, 0.50],
-                [-0.22, 0.78, 0.58],
-                0.08,
+                [0.06, 0.48, 0.54],
+                [-0.22, 0.80, 0.56],
+                0.18,
                 0.24,
-                2.32,
-                [0.0, -0.22, 0.15],
-                0u32,
+                1.35,
+                [0.38, -0.04, 0.0],
+                1u32,
             ),
             "three_mile_dam" => (
                 -0.20_f32,
-                [0.05, 0.42, 0.58],
-                [0.48, 0.72, 0.50],
-                0.38,
-                0.30,
-                2.25,
-                [0.0, -0.02, 0.0],
+                [0.05, 0.44, 0.60],
+                [0.48, 0.76, 0.48],
+                0.32,
+                0.26,
+                1.35,
+                [0.40, -0.02, 0.0],
                 1u32,
             ),
             "sydney_sandstone" => (
                 -0.25_f32,
-                [0.09, 0.34, 0.39],
-                [0.40, 0.80, 0.45],
-                -0.32,
-                0.35,
-                2.50,
-                [0.0, 0.0, 0.0],
-                0u32,
+                [0.08, 0.38, 0.46],
+                [0.40, 0.82, 0.44],
+                -0.26,
+                0.28,
+                1.38,
+                [0.36, -0.02, 0.0],
+                1u32,
             ),
             "noosa_headland" => (
                 -0.18_f32,
-                [0.05, 0.46, 0.56],
+                [0.04, 0.52, 0.64],
                 [0.32, 0.84, 0.44],
+                0.24,
                 0.26,
-                0.30,
-                2.40,
-                [0.0, -0.02, 0.0],
-                0u32,
+                1.38,
+                [0.40, -0.02, 0.0],
+                1u32,
             ),
             _ => (
                 -0.23_f32,
-                [0.06, 0.34, 0.46],
-                [-0.44, 0.74, 0.51],
-                0.18,
-                0.40,
-                2.45,
-                [0.0, -0.02, 0.0],
+                [0.06, 0.38, 0.50],
+                [-0.44, 0.76, 0.50],
+                0.22,
+                0.28,
+                1.38,
+                [0.40, -0.02, 0.0],
                 2u32,
             ),
         };
 
-    // 5 Submesh Builders mapped to 5 distinct MAT4 MaterialRecords:
-    // 0: Terrain & 6-Layer SLGA Soil Strata (`tex_soil`)
-    // 1: 3D Lithology (Granite Tors, Sandstone Benches, Karst) & 3D Submerged Riverbed Pebbles/Cobbles (`tex_pebble`)
+    // 6 Submesh Builders mapped to 6 distinct MAT4 MaterialRecords:
+    // 0: Terrain & 6-Layer SLGA Soil Strata + Banked Road Corridor (`tex_soil`)
+    // 1: 3D Lithology (Granite Tors, Sandstone Benches, Karst, Road Guideposts) & 3D Submerged Riverbed Pebbles/Cobbles (`tex_pebble`)
     // 2: Tree Trunks, Buttresses, Roots & Fallen Hollow Logs (`tex_bark`)
     // 3: 3D Foliage Crowns, Falcate Leaf Blades, Tree Ferns, Grass Trees, Cosserat Tussock Grasses & Submerged Ribbon Weed (`tex_leaf`, `wind_animated: true`, `double_sided: true`)
     // 4: Articulated 3D Australian Fauna (`tex_bark`)
+    // 5: Dynamic 3D 4WD Field Rover & 3D Field Ecologist Bushwalker Actors (`tex_pebble`)
     let mut b_terrain = SubmeshBuilder::new();
     let mut b_lithology = SubmeshBuilder::new();
     let mut b_trunks = SubmeshBuilder::new();
     let mut b_foliage = SubmeshBuilder::new();
     let mut b_fauna = SubmeshBuilder::new();
+    let mut b_actors = SubmeshBuilder::new();
 
     // 1. Build High-Resolution Terrain Continuum Grid (`[-1.95, z_max]`)
     let grid_n = 108usize;
@@ -1572,7 +1784,23 @@ pub fn build_sector_10d(
             // Smooth organic micro-variation (no stripes)
             let organic_var = 0.90 + 0.10 * ((x * 7.3 + z * 5.1).sin() * (x * 4.1 - z * 8.7).cos());
             let dist_water = y - water_y;
-            let col = if dist_water < -0.02 {
+            let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
+                + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
+            let track_dist = (x - (meander_x + 0.54)).abs();
+
+            let col = if track_dist < 0.0055 && (z * 22.0).sin() > -0.15 {
+                // Dashed yellow highway centerline along the Hermite corridor
+                [0.95, 0.80, 0.18, 1.0]
+            } else if (track_dist - 0.064).abs() < 0.0055 {
+                // Crisp white highway edge line
+                [0.92, 0.92, 0.90, 1.0]
+            } else if track_dist < 0.068 {
+                // Compacted dark-charcoal bitumen & crushed basalt corridor pavement
+                [0.28 * organic_var, 0.29 * organic_var, 0.31 * organic_var, 1.0]
+            } else if track_dist < 0.092 {
+                // Graded red-ochre gravel road shoulder
+                [0.64 * organic_var, 0.42 * organic_var, 0.26 * organic_var, 1.0]
+            } else if dist_water < -0.02 {
                 // Submerged riverbed cobble armor & quartz sand
                 let pebbles = 0.86 + 0.14 * hash21(x * 19.0, z * 19.0);
                 [0.46 * pebbles, 0.43 * pebbles, 0.35 * pebbles, 1.0]
@@ -2015,7 +2243,88 @@ pub fn build_sector_10d(
         }
     }
 
-    // 6. Merge the 5 SubmeshBuilders into one unified scene mesh with 5 `MAT4` `MaterialRecord`s and `SubmeshRange`s
+    // 5b. Australian Roadside Reflector Guideposts along the Banked Hermite Corridor
+    for gp in 0..16 {
+        let z_gp = -1.70 + (gp as f32 / 15.0) * 3.40;
+        if z_gp > z_max - 0.08 {
+            continue;
+        }
+        let meander_gp = 0.28 * (z_gp * 1.35 + sector_seed).sin()
+            + 0.11 * (z_gp * 2.7 - sector_seed * 0.6).cos();
+        for side in [-1.0_f32, 1.0_f32] {
+            let x_gp = meander_gp + 0.54 + side * 0.082;
+            let y_gp = sample_sector_elevation(sector_id, x_gp, z_gp, water_y);
+            // White timber/PVC post
+            b_lithology.add_local_box(
+                [x_gp - 0.005, y_gp, z_gp - 0.005],
+                [x_gp + 0.005, y_gp + 0.042, z_gp + 0.005],
+                [0.88, 0.88, 0.86, 1.0],
+                [0.98, 0.98, 0.96, 1.0],
+            );
+            // Red/White reflector cap
+            let ref_col = if side < 0.0 {
+                [0.95, 0.16, 0.12, 1.0]
+            } else {
+                [0.98, 0.86, 0.20, 1.0]
+            };
+            b_lithology.add_local_box(
+                [x_gp - 0.006, y_gp + 0.034, z_gp - 0.006],
+                [x_gp + 0.006, y_gp + 0.044, z_gp + 0.006],
+                ref_col,
+                ref_col,
+            );
+        }
+    }
+
+    // 5c. Build Dynamic 3D 4WD Field Rover & 3D Field Ecologist Bushwalker Actors (`b_actors`)
+    let mut rover_template = SubmeshBuilder::new();
+    rover_template.add_field_rover_4wd_local(0.11);
+    let rover_local_positions = rover_template.positions.clone();
+
+    let mut walker_template = SubmeshBuilder::new();
+    walker_template.add_ecologist_walker_local(0.085);
+    let walker_local_positions = walker_template.positions.clone();
+
+    // Place the initial 4WD Rover and Ecologist Walker on the banked road corridor at z = 0.0 / z = 0.14
+    let z_r0 = 0.0_f32;
+    let x_r0 = 0.28 * (z_r0 * 1.35 + sector_seed).sin()
+        + 0.11 * (z_r0 * 2.7 - sector_seed * 0.6).cos()
+        + 0.54;
+    let y_r0 = sample_sector_elevation(sector_id, x_r0, z_r0, water_y);
+    let rover_local_start = b_actors.positions.len();
+    for i in 0..rover_template.positions.len() {
+        let lp = rover_template.positions[i];
+        b_actors.push_vertex(
+            [lp[0] + x_r0, lp[1] + y_r0, lp[2] + z_r0],
+            rover_template.normals[i],
+            rover_template.colors[i],
+            rover_template.uvs[i],
+        );
+    }
+    for &idx in &rover_template.indices {
+        b_actors.indices.push(rover_local_start as u32 + idx);
+    }
+    let rover_local_end = b_actors.positions.len();
+
+    let z_w0 = 0.14_f32;
+    let x_w0 = x_r0 - 0.11;
+    let y_w0 = sample_sector_elevation(sector_id, x_w0, z_w0, water_y);
+    let walker_local_start = b_actors.positions.len();
+    for i in 0..walker_template.positions.len() {
+        let lp = walker_template.positions[i];
+        b_actors.push_vertex(
+            [lp[0] + x_w0, lp[1] + y_w0, lp[2] + z_w0],
+            walker_template.normals[i],
+            walker_template.colors[i],
+            walker_template.uvs[i],
+        );
+    }
+    for &idx in &walker_template.indices {
+        b_actors.indices.push(walker_local_start as u32 + idx);
+    }
+    let walker_local_end = b_actors.positions.len();
+
+    // 6. Merge the 6 SubmeshBuilders into one unified scene mesh with 6 `MAT4` `MaterialRecord`s and `SubmeshRange`s
     let mut positions = Vec::new();
     let mut normals = Vec::new();
     let mut colors = Vec::new();
@@ -2023,6 +2332,7 @@ pub fn build_sector_10d(
     let mut indices = Vec::new();
     let mut materials = Vec::new();
     let mut ranges = Vec::new();
+    let mut actors_base_vertex = 0usize;
 
     let submeshes = [
         (
@@ -2070,6 +2380,15 @@ pub fn build_sector_10d(
             false,
             false,
         ),
+        (
+            "05-rover-and-walker-actors",
+            b_actors,
+            tex_pebble,
+            0.38_f32,
+            0.12_f32,
+            false,
+            false,
+        ),
     ];
 
     for (mat_slug, sub, tex_digest, roughness, metallic, double_sided, wind_animated) in submeshes
@@ -2079,6 +2398,9 @@ pub fn build_sector_10d(
         }
         let first_index = indices.len() as u32;
         let base_vertex = positions.len() as u32;
+        if mat_slug == "05-rover-and-walker-actors" {
+            actors_base_vertex = base_vertex as usize;
+        }
         let index_count = sub.indices.len() as u32;
 
         positions.extend_from_slice(&sub.positions);
@@ -2116,6 +2438,19 @@ pub fn build_sector_10d(
     }
     materials.sort_by_key(|m| m.id);
 
+    let mut scene_bounds_min = [f32::INFINITY; 3];
+    let mut scene_bounds_max = [f32::NEG_INFINITY; 3];
+    for p in &positions {
+        for k in 0..3 {
+            scene_bounds_min[k] = scene_bounds_min[k].min(p[k]);
+            scene_bounds_max[k] = scene_bounds_max[k].max(p[k]);
+        }
+    }
+    let rover_vertex_range =
+        (actors_base_vertex + rover_local_start)..(actors_base_vertex + rover_local_end);
+    let walker_vertex_range =
+        (actors_base_vertex + walker_local_start)..(actors_base_vertex + walker_local_end);
+
     let scene_10d_bytes = seal_mesh_to_10d(
         &positions,
         &normals,
@@ -2141,7 +2476,8 @@ pub fn build_sector_10d(
             let u = wx as f32 / wn as f32;
             let v = wz as f32 / wn as f32;
             let z = -extent + v * (z_max + extent);
-            let meander_x = 0.28 * (z * 1.35 + 1.1).sin() + 0.11 * (z * 2.7 - 0.66).cos();
+            let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
+                + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
             let half_w = if sector_id == "noosa_headland" {
                 1.15_f32
             } else {
@@ -2215,6 +2551,13 @@ pub fn build_sector_10d(
         cam_target,
         sky_preset,
         vegetation_instances_evaluated,
+        water_y,
+        scene_bounds_min,
+        scene_bounds_max,
+        rover_vertex_range,
+        rover_local_positions,
+        walker_vertex_range,
+        walker_local_positions,
     })
 }
 
@@ -2367,7 +2710,7 @@ fn attach_morph_section(
         .map_err(|e| format!("encode_morph_section: {e:?}"))?;
     attach_raw_section(
         container,
-        SectionType::SkeletalAnimation,
+        SectionType::Reconstruction,
         AlignmentTier::CacheLine,
         0,
         0,

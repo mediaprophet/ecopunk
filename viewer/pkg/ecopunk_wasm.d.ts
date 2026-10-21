@@ -9,6 +9,10 @@ export class EcopunkPortal {
      */
     admit_q42_pack(q42_bytes: Uint8Array): number;
     /**
+     * Return the canonical `PO:` / `UBERON:` callout pins for a given dissection scale (`1..=5`) without rebuilding the GPU mesh.
+     */
+    get_scale_pins_json(scale: number, pin_index: number): string;
+    /**
      * Synthesize and upload a sealed `.10d` sector manifold + water surface for one of the 8 corridor study sites (`0..=7`).
      */
     load_continuum_site_scene(site_index: number): string;
@@ -80,6 +84,11 @@ export class QualiaHud {
      * Return an action ID for a button under the pointer, in canvas pixels.
      */
     hit_test(x: number, y: number): string;
+    /**
+     * Solves flex layout for all HUD items using the Etalon 2D vector HUD layout engine.
+     * Updates position and dimensions for auto-sized items (`w == 0.0` or `h == 0.0`).
+     */
+    layout_items_flex(viewport_w: number, viewport_h: number): void;
     /**
      * Creates `QualiaHud` with the given state.
      */
@@ -249,6 +258,18 @@ export class QualiaPortal {
      * Standpoint epistemic-quality scalar ∈ [0, 1].
      */
     epistemic_q(): number;
+    /**
+     * Dedicated GPU worker recovery session generation.
+     */
+    etalon_session_generation(): number;
+    /**
+     * Operational transport mode for dedicated WebWorker IPC.
+     */
+    etalon_transport_mode(): string;
+    /**
+     * Dedicated GPU worker steward lifecycle state (0=Initializing, 1=Ready, 2=Running, 3=Suspended, 4=Terminated).
+     */
+    etalon_worker_state(): number;
     /**
      * Configured compensation in stops (EV), including while GPU rendering is unavailable.
      */
@@ -2538,6 +2559,7 @@ export interface InitOutput {
     readonly detect_functional_groups_wasm: (a: any) => [number, number, number];
     readonly device_storage_policy_wasm: () => [number, number, number];
     readonly ecopunkportal_admit_q42_pack: (a: number, b: number, c: number) => number;
+    readonly ecopunkportal_get_scale_pins_json: (a: number, b: number, c: number) => [number, number];
     readonly ecopunkportal_load_continuum_site_scene: (a: number, b: number) => [number, number, number, number];
     readonly ecopunkportal_load_dissection_scale: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => [number, number, number, number];
     readonly ecopunkportal_load_vibe_modules: (a: number, b: number, c: number, d: number, e: number) => [number, number, number, number];
@@ -2679,6 +2701,7 @@ export interface InitOutput {
     readonly qualiahud_focus_next: (a: number, b: number) => [number, number];
     readonly qualiahud_focused_action: (a: number) => [number, number];
     readonly qualiahud_hit_test: (a: number, b: number, c: number) => [number, number];
+    readonly qualiahud_layout_items_flex: (a: number, b: number, c: number) => void;
     readonly qualiahud_new: (a: any) => [number, number, number];
     readonly qualiahud_paint: (a: number) => void;
     readonly qualiahud_set_camera_near_plane: (a: number, b: number) => [number, number];
@@ -2716,6 +2739,9 @@ export interface InitOutput {
     readonly qualiaportal_drain_sonic_tokens: (a: number, b: number) => [number, number, number];
     readonly qualiaportal_encode_geometry: (a: number, b: number, c: number) => [number, number, number];
     readonly qualiaportal_epistemic_q: (a: number) => number;
+    readonly qualiaportal_etalon_session_generation: (a: number) => number;
+    readonly qualiaportal_etalon_transport_mode: (a: number) => [number, number];
+    readonly qualiaportal_etalon_worker_state: (a: number) => number;
     readonly qualiaportal_exposure_compensation: (a: number) => number;
     readonly qualiaportal_exposure_transform_available: (a: number) => number;
     readonly qualiaportal_graphics_recovery_canvas_only: (a: number) => number;
@@ -2932,8 +2958,8 @@ export interface InitOutput {
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___js_sys_64cfc1635a58bad3___Function_fn_wasm_bindgen_c71fb624674b8a10___JsValue_____wasm_bindgen_c71fb624674b8a10___sys__Undefined___js_sys_64cfc1635a58bad3___Function_fn_wasm_bindgen_c71fb624674b8a10___JsValue_____wasm_bindgen_c71fb624674b8a10___sys__Undefined_______true_: (a: number, b: number, c: any, d: any) => void;
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___JsValue__core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true_: (a: number, b: number, c: any) => [number, number];
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true_: (a: number, b: number, c: any) => [number, number];
-    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__438: (a: number, b: number, c: any) => [number, number];
-    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__439: (a: number, b: number, c: any) => [number, number];
+    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__443: (a: number, b: number, c: any) => [number, number];
+    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__444: (a: number, b: number, c: any) => [number, number];
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuDeviceLostInfo__GpuDeviceLostInfo______true_: (a: number, b: number, c: any) => void;
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke_______true_: (a: number, b: number) => void;
     readonly __wbindgen_malloc: (a: number, b: number) => number;
