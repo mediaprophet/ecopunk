@@ -130,8 +130,7 @@ implementation).
 
 ## 7. Open questions
 
-- Canonical namespace for ecopunk IRIs (`eco:` → `https://ns.ecopunk.*/...`? or under
-  `webcivics.net`?) — needs a 50-year-durable domain decision.
+- Canonical namespace for ecopunk IRIs: resolved to **`https://webizen.org/`** (and `https://ns.webizen.org/` for minted ontology prefixes `eco:`, `bio:`, `soc:`, `env:`, `stat:`), never `ecopunk.au`.
 - Governance/review process for promoting acquired data to curated corpus (mirror
   QualiaDB's `acquisition-inbox` → human review → promotion flow?).
 - Distribution channels beyond bundled/installer (WebTorrent mirrors? Solid pods?

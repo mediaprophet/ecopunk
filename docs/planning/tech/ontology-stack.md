@@ -137,14 +137,22 @@ Extends `classifier-packs.md` to the semantic layer:
 - **What we will NOT do**: silent graph mutation from a model's output; an
   embedding that leaks a restricted source; `exactMatch` minted by a machine.
 
-## 6. Namespace & PID strategy (open decision — needs your call)
+## 6. Namespace, PID & Self-Contained `.hmc` Packaging Strategy (`webizen.org/`)
 
-| Option | For | Notes |
-|---|---|---|
-| `linked.data.gov.au/def/` | AU civic legitimacy, government-minted PIDs, 50-yr durability | AGLDWG offers help minting; strong for `env:`/`geo:` + AU domain vocabs |
-| `w3id.org` | durable, community-standard, cheap | good default for `eco:`/`bio:`/`soc:` |
-| own domain (`ecopunk.*`/`qualia.*`) | full control | needs its own 50-yr commitment |
-| `ns.webizen.org` | the ecosystem's existing prefix family | consistent w/ `q42/vision/class/*` IRIs already in vision crate |
+Per [durability-and-distribution.md](durability-and-distribution.md) and [pack-delivery.md](pack-delivery.md), the system never depends on external government or third-party DNS endpoints (such as `linked.data.gov.au`) at runtime:
+
+1. **Canonical Ecosystem Namespace (`https://webizen.org/` / `https://ns.webizen.org/`):**
+   - All minted vocabularies (`eco:`, `bio:`, `soc:`, `env:`, `stat:`), VibeScript modules (`https://webizen.org/ecopunk/...`), and W3C VC manifests use **`https://webizen.org/`** (`https://ns.webizen.org/`) paired with resolution-independent **`did:qi` / `did:q42` content digests**.
+   - External source datasets and ontologies (e.g. NSL, AusTraits, Geofabric, OSM) are ingested, normalized, and compiled into `.q42` volumes; their upstream URLs are recorded strictly as historical `prov:wasDerivedFrom` provenance strings, never as live runtime dependencies.
+2. **Self-Contained `.hmc` Hyper-Media Containers:**
+   - Every deployable package or application unit is a page-aligned `.hmc` container (`qualia_core_db::bundle`) that bundles all required constituents in one content-addressed, cryptographically verified archive:
+     - `.q42` semantic graph volumes & embedded `Q42LEX` ontology slices (`kind = "q42"`),
+     - `.vibe` source modules and `.qbc` compiled VibeScript bytecode (`kind = "vibe"` / `"qbc"`),
+     - `.wasm` application & compute modules (`kind = "wasm"`), governed by `capability_manifests` (`AllocationClass`, resource limits, and hardware backend descriptors for local **`cuda` / `wgpu` / `simd` / `cpu`** execution),
+     - `.10d` Living Containers (`kind = "10d"`, authored via `qualiaDB`'s native `computational_geometry` CAD/NURBS/SDF/Space-Colonization engine in 1:1 SI metres),
+     - `.m64` Hilbert-indexed spatial & elevation substrates (`kind = "m64"`),
+     - `.p64` neural/embedding weight shards (`kind = "p64"`), and
+     - `.emf` spectral & Holosonic wavefield media (`kind = "emf"`).
 
 All four can coexist under one `eco`-family brand; the *rule* is: minted IRIs
 must be dereferenceable-or-stable, versioned, and never repurposed.

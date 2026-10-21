@@ -9,6 +9,14 @@ export class EcopunkPortal {
      */
     admit_q42_pack(q42_bytes: Uint8Array): number;
     /**
+     * Return the self-contained Webizen HMC bundle manifest as JSON.
+     */
+    get_hmc_bundle_manifest_json(): string;
+    /**
+     * Return the canonical QUDT metric scale conformance report as JSON.
+     */
+    get_qudt_metric_scale_conformance_json(): string;
+    /**
      * Return the canonical `PO:` / `UBERON:` callout pins for a given dissection scale (`1..=5`) without rebuilding the GPU mesh.
      */
     get_scale_pins_json(scale: number, pin_index: number): string;
@@ -43,6 +51,10 @@ export class EcopunkPortal {
      * Toggle between RoverDriving and OnFootExploration (`[E]`) at any coordinate in the 26.5 km continuum.
      */
     toggle_dismount(): string;
+    /**
+     * Perform fail-closed verification of QUDT species-trait vs vehicle dimensional scale invariants.
+     */
+    verify_qudt_scale_conformance(): boolean;
 }
 
 /**
@@ -2559,6 +2571,8 @@ export interface InitOutput {
     readonly detect_functional_groups_wasm: (a: any) => [number, number, number];
     readonly device_storage_policy_wasm: () => [number, number, number];
     readonly ecopunkportal_admit_q42_pack: (a: number, b: number, c: number) => number;
+    readonly ecopunkportal_get_hmc_bundle_manifest_json: (a: number) => [number, number];
+    readonly ecopunkportal_get_qudt_metric_scale_conformance_json: (a: number) => [number, number];
     readonly ecopunkportal_get_scale_pins_json: (a: number, b: number, c: number) => [number, number];
     readonly ecopunkportal_load_continuum_site_scene: (a: number, b: number) => [number, number, number, number];
     readonly ecopunkportal_load_dissection_scale: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => [number, number, number, number];
@@ -2568,6 +2582,7 @@ export interface InitOutput {
     readonly ecopunkportal_step_and_render: (a: number, b: any, c: number, d: number, e: number, f: number, g: number, h: number, i: number, j: number, k: number, l: number) => [number, number, number, number];
     readonly ecopunkportal_tier: (a: number) => number;
     readonly ecopunkportal_toggle_dismount: (a: number) => [number, number];
+    readonly ecopunkportal_verify_qudt_scale_conformance: (a: number) => [number, number, number];
     readonly enforce_rights_ontology: (a: bigint) => number;
     readonly entity_verify_10d_wasm: (a: number, b: number) => any;
     readonly entity_verify_bundle_wasm: (a: number, b: number) => any;
@@ -2958,8 +2973,8 @@ export interface InitOutput {
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___js_sys_64cfc1635a58bad3___Function_fn_wasm_bindgen_c71fb624674b8a10___JsValue_____wasm_bindgen_c71fb624674b8a10___sys__Undefined___js_sys_64cfc1635a58bad3___Function_fn_wasm_bindgen_c71fb624674b8a10___JsValue_____wasm_bindgen_c71fb624674b8a10___sys__Undefined_______true_: (a: number, b: number, c: any, d: any) => void;
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___JsValue__core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true_: (a: number, b: number, c: any) => [number, number];
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true_: (a: number, b: number, c: any) => [number, number];
-    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__443: (a: number, b: number, c: any) => [number, number];
-    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__444: (a: number, b: number, c: any) => [number, number];
+    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__446: (a: number, b: number, c: any) => [number, number];
+    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__447: (a: number, b: number, c: any) => [number, number];
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuDeviceLostInfo__GpuDeviceLostInfo______true_: (a: number, b: number, c: any) => void;
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke_______true_: (a: number, b: number) => void;
     readonly __wbindgen_malloc: (a: number, b: number) => number;

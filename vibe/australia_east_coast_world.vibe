@@ -1,0 +1,23 @@
+module <https://webizen.org/ecopunk/modules/australia_east_coast_world>;
+
+pure fn world_origin() -> Record {
+    return {
+        datum: "EPSG:7844 GDA2020",
+        vertDatum: "EPSG:5711 AHD",
+        originLat: -35.5854,
+        originLon: 148.3240,
+        originElevM: 385.0,
+        metricScale: 1.0
+    };
+}
+
+pure fn site_coordinates(idx: f64) -> Record {
+    if idx == 0.0 { return {name: "Talbingo Riparian Corridor", km: 0.0, lat: -35.5854, lon: 148.3240}; }
+    if idx == 1.0 { return {name: "Blowering Foreshore", km: 3.5, lat: -35.4012, lon: 148.2450}; }
+    if idx == 2.0 { return {name: "Jounama Creek Gorge", km: 8.2, lat: -35.6321, lon: 148.3512}; }
+    if idx == 3.0 { return {name: "Yarrangobilly Karst", km: 14.8, lat: -35.7248, lon: 148.4872}; }
+    if idx == 4.0 { return {name: "Yarrangobilly Thermal Pool", km: 15.6, lat: -35.7310, lon: 148.4950}; }
+    if idx == 5.0 { return {name: "Three Mile Dam Frost Hollow", km: 21.3, lat: -35.8820, lon: 148.4710}; }
+    if idx == 6.0 { return {name: "Sydney Hawkesbury Sandstone", km: 24.0, lat: -33.7125, lon: 151.2854}; }
+    return {name: "Noosa Headland Coastal Heath", km: 26.5, lat: -26.3820, lon: 153.1140};
+}

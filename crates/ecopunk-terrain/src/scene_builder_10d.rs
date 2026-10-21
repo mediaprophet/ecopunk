@@ -66,18 +66,42 @@ use qualia_core_db::render::telemetry::SystemTelemetry;
 use qualia_core_db::render::vegetation::{
     VegetationBendingParams, VegetationCollider, VegetationEvaluator, VegetationInstanceState,
 };
+use qualia_core_db::specialized_libs::computational_geometry::authoring::loft_convex_sections_into;
 use qualia_core_db::specialized_libs::computational_geometry::botanical_hulls::{
     asymmetric_hull_capacity, asymmetric_hull_into, AsymmetricHullParams,
 };
 use qualia_core_db::specialized_libs::computational_geometry::math_geometry::AffineFrame3;
+use qualia_core_db::specialized_libs::computational_geometry::parametric_cad::revolve_profile;
+use qualia_core_db::specialized_libs::computational_geometry::sdf_ops::{
+    sdf_capsule, sdf_rounded_box, sdf_sphere, sdf_smooth_union,
+};
+use qualia_core_db::specialized_libs::computational_geometry::space_colonization::{
+    space_colonization_3d, SpaceColonizationConfig, ROOT_PARENT,
+};
 use qualia_core_db::specialized_libs::computational_geometry::sweep_extrusion::{
     extrude_profile_along_path, ExtrusionStation,
 };
-use qualia_core_db::specialized_libs::computational_geometry::{Point2, Point3};
+use qualia_core_db::specialized_libs::computational_geometry::tree_skeleton_3d::pipe_model_radii;
+use qualia_core_db::specialized_libs::computational_geometry::wheel_panel::{
+    wheel_clearance_panel_into, WheelPanel,
+};
+use qualia_core_db::specialized_libs::computational_geometry::{marching_cubes, Point2, Point3};
 use sha2::{Digest, Sha256};
 
 pub const FLAG_SMOOTH_MIN_SDF: u32 = FLAG_IMPLICIT_FILLET;
 pub const FLAG_ALLOMETRIC_SCALING: u32 = FLAG_ALLOMETRIC_GROWTH;
+
+/// Canonical uniform SI metric world conversion factor for the 96 m × 96 m focal sector patch.
+/// In 1:1 SI metric space (`scale = 1.0`), 1.0 unit = 1.0 meter:
+/// - 4WD Field Utility Rover: 4.85 m long × 1.88 m wide × 1.92 m high
+/// - Eastern Grey Kangaroo (*Macropus giganteus*): 1.65 m standing height
+/// - Common Wombat (*Vombatus ursinus*): 0.98 m length × 0.36 m height
+/// - Platypus (*Ornithorhynchus anatinus*): 0.50 m length × 0.15 m height
+/// - Wedge-Tailed Eagle (*Aquila audax*): 2.10 m wingspan
+/// - Canopy trees (*Corymbia*, *Eucalyptus*): 12 m – 22 m height
+/// In `build_sector_10d`, multiplying canonical metric coordinates by `SECTOR_METRIC_SCALE`
+/// maps the 96 m focal patch into the `[-1.95, +1.95]` normalized sector container.
+pub const SECTOR_METRIC_SCALE: f32 = 0.045;
 
 /// Procedural RGBA8 texture resource with its SHA-256 digest and encoded PNG bytes for `.hmc` packaging.
 #[derive(Clone)]
@@ -584,24 +608,24 @@ impl SubmeshBuilder {
         blade_count: usize,
         seed: f32,
     ) {
-        let slices = 12usize;
-        let stacks = 5usize;
+        let slices = 8usize;
+        let stacks = 4usize;
         let (req_v, req_t) = asymmetric_hull_capacity(slices, stacks);
         let mut hull_v = vec![Point3::new(0.0, 0.0, 0.0); req_v];
         let mut hull_t = vec![[0u32; 3]; req_t];
-        // Compact shaded inner foliage core so individual 3D leaf blades form the lacy outer silhouette
-        let core_scale = 0.48_f64;
+        // Full shaded foliage crown core (`AsymmetricHull`) with lacy outer 3D falcate leaf blades
+        let core_scale = 0.82_f64;
         let params = AsymmetricHullParams {
             neg_x_radius: (rx as f64) * core_scale * 0.92,
             pos_x_radius: (rx as f64) * core_scale * 1.06,
             neg_y_radius: (rz as f64) * core_scale * 0.95,
             pos_y_radius: (rz as f64) * core_scale * 1.04,
-            neg_x_height: (ry as f64) * core_scale * 0.45,
-            pos_x_height: (ry as f64) * core_scale * 0.52,
-            neg_y_height: (ry as f64) * core_scale * 0.48,
-            pos_y_height: (ry as f64) * core_scale * 0.50,
-            bottom: Point3::new(0.0, 0.0, (-ry * 0.34) as f64),
-            top: Point3::new(0.0, 0.0, (ry * 0.48) as f64),
+            neg_x_height: 0.0,
+            pos_x_height: (ry as f64) * 0.08,
+            neg_y_height: (-ry as f64) * 0.05,
+            pos_y_height: (ry as f64) * 0.06,
+            bottom: Point3::new(0.0, 0.0, (-ry * 0.52) as f64),
+            top: Point3::new(0.0, 0.0, (ry * 0.64) as f64),
             bottom_shape: 1.8,
             top_shape: 2.1,
             slices,
@@ -644,7 +668,7 @@ impl SubmeshBuilder {
         // Multi-shell phyllotactic 3D falcate leaf blades (`LeafVascularSkeleton` midrib + lamina)
         // arranged at golden-angle (137.50776 deg) spirals across inner, mid, and outer crown shells!
         let golden_angle = 2.399_963_1_f32;
-        let total_blades = (blade_count * 2).max(28);
+        let total_blades = blade_count.max(12);
         for b in 0..total_blades {
             let frac = (b as f32 + 0.5) / (total_blades as f32);
             let phi = b as f32 * golden_angle + seed;
@@ -994,7 +1018,8 @@ impl SubmeshBuilder {
 
     /// Add an articulated 3D Australian canopy tree (*Corymbia aparrerinja*, *Eucalyptus pauciflora*,
     /// *Eucalyptus regnans*, *Eucalyptus camaldulensis*, *Acacia pycnantha*, *Banksia serrata*)
-    /// with Bishop-frame swept trunk, primary limbs, secondary fork twigs, Cescatti cores, and 3D falcate leaf blades!
+    /// using `space_colonization_3d`, `pipe_model_radii` (Leonardo da Vinci / Shinozaki pipe model),
+    /// Bishop-frame swept limbs, Cescatti 6-point `AsymmetricHull` canopy cores, and 3D falcate leaf blades!
     fn add_canopy_tree(
         &mut self,
         trunk_builder: &mut SubmeshBuilder,
@@ -1017,6 +1042,148 @@ impl SubmeshBuilder {
         } else {
             height * 0.06 * seed.cos()
         };
+
+        // 1. Generate 28 crown attractors in an asymmetric crown dome envelope
+        let attractor_count = 28usize;
+        let mut attractors = Vec::with_capacity(attractor_count);
+        let golden_angle = 2.399_963_1_f64;
+        let crown_center_y = (root[1] + height * 0.72) as f64;
+        let crown_rx = (height * 0.38) as f64;
+        let crown_ry = (height * 0.28) as f64;
+
+        for i in 0..attractor_count {
+            let fi = i as f64;
+            let theta = fi * golden_angle + seed as f64;
+            let t = (fi + 0.5) / (attractor_count as f64);
+            let y_norm = 1.0 - t;
+            let r_ring = (1.0 - y_norm * y_norm).max(0.06).sqrt();
+            let jitter = 0.85 + 0.30 * hash21(i as f32, seed) as f64;
+            let ax = (root[0] as f64) + (bend_x as f64) * 0.8 + theta.cos() * crown_rx * r_ring * jitter;
+            let ay = crown_center_y + (y_norm - 0.2) * crown_ry * jitter;
+            let az = (root[2] as f64) + (bend_z as f64) * 0.8 + theta.sin() * crown_rx * r_ring * jitter;
+            attractors.push(Point3::new(ax, ay, az));
+        }
+
+        // 2. Trunk seed nodes
+        let seed_nodes = [
+            Point3::new(root[0] as f64, (root[1] - 0.015) as f64, root[2] as f64),
+            Point3::new(
+                (root[0] + bend_x * 0.35) as f64,
+                (root[1] + height * 0.28) as f64,
+                (root[2] + bend_z * 0.35) as f64,
+            ),
+            Point3::new(
+                (root[0] + bend_x * 0.75) as f64,
+                (root[1] + height * 0.54) as f64,
+                (root[2] + bend_z * 0.75) as f64,
+            ),
+        ];
+        let seed_parents = [ROOT_PARENT, 0, 1];
+
+        let cfg = SpaceColonizationConfig {
+            node_length: (height * 0.16) as f64,
+            kill_radius: (height * 0.14) as f64,
+            perception_radius: (height * 0.55) as f64,
+            cone_angle_rad: std::f64::consts::PI * 0.95,
+            min_attractors_per_bud: 1,
+            max_iterations: 12,
+        };
+
+        let max_nodes = 48usize;
+        let mut out_nodes = vec![Point3::default(); max_nodes];
+        let mut out_parents = vec![0u32; max_nodes];
+
+        let colonized = space_colonization_3d(
+            &attractors,
+            &seed_nodes,
+            &seed_parents,
+            &cfg,
+            &mut out_nodes,
+            &mut out_parents,
+        );
+
+        if let Ok(receipt) = colonized {
+            let node_count = receipt.node_count;
+            if node_count > seed_nodes.len() {
+                let mut child_counts = vec![0u32; node_count];
+                for i in 0..node_count {
+                    let p = out_parents[i];
+                    if p != ROOT_PARENT && (p as usize) < node_count && (p as usize) != i {
+                        child_counts[p as usize] += 1;
+                    }
+                }
+                let mut scratch = vec![0u32; node_count];
+                let mut out_radii = vec![0.0f64; node_count];
+                let tip_r = (height * 0.014).max(0.004) as f64;
+                let _ = pipe_model_radii(
+                    &out_parents[..node_count],
+                    tip_r,
+                    2.15,
+                    &mut scratch,
+                    &mut out_radii,
+                );
+
+                // Extrude branch segments from parent to child
+                for i in 1..node_count {
+                    let p_idx = out_parents[i] as usize;
+                    if p_idx < node_count && p_idx != i {
+                        let p0 = out_nodes[p_idx];
+                        let p1 = out_nodes[i];
+                        let r0 = out_radii[p_idx].max(tip_r);
+                        let r1 = out_radii[i].max(tip_r);
+
+                        let axis = [p0, p1];
+                        let stations = [
+                            ExtrusionStation { scale_x: r0, scale_y: r0, twist_rad: 0.0 },
+                            ExtrusionStation { scale_x: r1, scale_y: r1, twist_rad: 0.3 },
+                        ];
+                        let sides = if p_idx == 0 { 8 } else if p_idx == 1 { 7 } else { 5 };
+                        trunk_builder.add_bishop_swept_tube(&axis, &stations, sides, bark_base, bark_top);
+                    }
+                }
+
+                // At terminal leaf tips attach Cescatti canopies with falcate leaf blades
+                for i in seed_nodes.len()..node_count {
+                    if child_counts[i] == 0 {
+                        let tip_p = out_nodes[i];
+                        let tip_pos = [tip_p.x as f32, tip_p.y as f32, tip_p.z as f32];
+                        let crx = height * (0.22 + 0.08 * hash21(i as f32, seed));
+                        let cry = height * (0.16 + 0.05 * hash21(seed, i as f32));
+                        self.add_cescatti_canopy_with_leaf_blades(
+                            tip_pos,
+                            crx,
+                            cry,
+                            crx * 0.94,
+                            leaf_dark,
+                            leaf_lit,
+                            12,
+                            seed + i as f32 * 1.7,
+                        );
+                    }
+                }
+
+                // Apical crown dome at top of highest node
+                let mut highest_node = out_nodes[0];
+                for n in out_nodes.iter().take(node_count) {
+                    if n.y > highest_node.y {
+                        highest_node = *n;
+                    }
+                }
+                self.add_cescatti_canopy_with_leaf_blades(
+                    [highest_node.x as f32, highest_node.y as f32, highest_node.z as f32],
+                    height * 0.26,
+                    height * 0.18,
+                    height * 0.25,
+                    leaf_dark,
+                    leaf_lit,
+                    24,
+                    seed + 12.3,
+                );
+                return;
+            }
+        }
+
+        // Deterministic botanical bough architecture fallback
         let trunk_axis = [
             Point3::new(root[0] as f64, (root[1] - 0.015) as f64, root[2] as f64),
             Point3::new(
@@ -1174,9 +1341,155 @@ impl SubmeshBuilder {
         );
     }
 
-    /// Add an articulated 3D Australian Fauna Specimen (*Macropus giganteus* Kangaroo,
-    /// *Vombatus ursinus* Wombat, *Ornithorhynchus anatinus* Platypus, *Aquila audax* Eagle,
-    /// *Menura novaehollandiae* Lyrebird, or *Maccullochella peelii* Murray Cod).
+    /// Evaluate an analytical composite SDF on a local 3D grid, extract closed 2-manifold
+    /// triangle mesh via `marching_cubes`, weld shared vertices, compute smooth analytical SDF
+    /// central-difference normals, and transform into world coordinates with yaw and scale.
+    fn append_smooth_sdf_body<F>(
+        &mut self,
+        bmin: [f32; 3],
+        bmax: [f32; 3],
+        res: (usize, usize, usize),
+        pos: [f32; 3],
+        yaw: f32,
+        scale: f32,
+        col_base: [f32; 4],
+        col_top: [f32; 4],
+        sdf: F,
+    ) where
+        F: Fn(Point3) -> f64,
+    {
+        let (nx, ny, nz) = res;
+        if nx < 3 || ny < 3 || nz < 3 {
+            return;
+        }
+        let dx = (bmax[0] - bmin[0]) as f64 / (nx - 1) as f64;
+        let dy = (bmax[1] - bmin[1]) as f64 / (ny - 1) as f64;
+        let dz = (bmax[2] - bmin[2]) as f64 / (nz - 1) as f64;
+
+        let total_cells = nx * ny * nz;
+        let mut grid = Vec::with_capacity(total_cells);
+        for zk in 0..nz {
+            let z = bmin[2] as f64 + zk as f64 * dz;
+            for yj in 0..ny {
+                let y = bmin[1] as f64 + yj as f64 * dy;
+                for xi in 0..nx {
+                    let x = bmin[0] as f64 + xi as f64 * dx;
+                    grid.push(sdf(Point3::new(x, y, z)));
+                }
+            }
+        }
+
+        let max_verts = (nx - 1) * (ny - 1) * (nz - 1) * 30;
+        let max_tris = (nx - 1) * (ny - 1) * (nz - 1) * 10;
+        let mut out_v = vec![Point3::default(); max_verts];
+        let mut out_t = vec![[0u32; 3]; max_tris];
+
+        if let Ok((vert_count, tri_count)) = marching_cubes(
+            &grid,
+            nx,
+            ny,
+            nz,
+            dx,
+            dy,
+            dz,
+            bmin[0] as f64,
+            bmin[1] as f64,
+            bmin[2] as f64,
+            0.0,
+            &mut out_v,
+            &mut out_t,
+        ) {
+            if vert_count == 0 || tri_count == 0 {
+                return;
+            }
+
+            // Weld shared vertices with spatial hashing (0.5 mm binning)
+            let mut unique_verts = Vec::with_capacity(vert_count / 3);
+            let mut welded_indices = Vec::with_capacity(vert_count);
+            let mut map = std::collections::HashMap::<(i32, i32, i32), u32>::new();
+            let quant = 2000.0_f64;
+            for v in out_v.iter().take(vert_count) {
+                let key = (
+                    (v.x * quant).round() as i32,
+                    (v.y * quant).round() as i32,
+                    (v.z * quant).round() as i32,
+                );
+                let idx = *map.entry(key).or_insert_with(|| {
+                    let new_idx = unique_verts.len() as u32;
+                    unique_verts.push(*v);
+                    new_idx
+                });
+                welded_indices.push(idx);
+            }
+
+            let eps = 0.003_f64;
+            let cy = yaw.cos();
+            let sy = yaw.sin();
+            let span_y = (bmax[1] - bmin[1]).max(0.01);
+            let base_idx = self.positions.len() as u32;
+
+            for uv in &unique_verts {
+                let gx = (sdf(Point3::new(uv.x + eps, uv.y, uv.z))
+                    - sdf(Point3::new(uv.x - eps, uv.y, uv.z)))
+                    / (2.0 * eps);
+                let gy = (sdf(Point3::new(uv.x, uv.y + eps, uv.z))
+                    - sdf(Point3::new(uv.x, uv.y - eps, uv.z)))
+                    / (2.0 * eps);
+                let gz = (sdf(Point3::new(uv.x, uv.y, uv.z + eps))
+                    - sdf(Point3::new(uv.x, uv.y, uv.z - eps)))
+                    / (2.0 * eps);
+                let glen = (gx * gx + gy * gy + gz * gz).sqrt().max(1e-6);
+                let lnx = (gx / glen) as f32;
+                let lny = (gy / glen) as f32;
+                let lnz = (gz / glen) as f32;
+
+                let rnx = lnx * cy - lnz * sy;
+                let rny = lny;
+                let rnz = lnx * sy + lnz * cy;
+
+                let lx = uv.x as f32;
+                let ly = uv.y as f32;
+                let lz = uv.z as f32;
+
+                let wx = pos[0] + (lx * cy - lz * sy) * scale;
+                let wy = pos[1] + ly * scale;
+                let wz = pos[2] + (lx * sy + lz * cy) * scale;
+
+                let t = ((ly - bmin[1]) / span_y).clamp(0.0, 1.0);
+                let col = [
+                    col_base[0] * (1.0 - t) + col_top[0] * t,
+                    col_base[1] * (1.0 - t) + col_top[1] * t,
+                    col_base[2] * (1.0 - t) + col_top[2] * t,
+                    1.0,
+                ];
+                let u = ((lx - bmin[0]) / (bmax[0] - bmin[0]).max(0.01)).clamp(0.0, 1.0);
+                let v_coord = ((lz - bmin[2]) / (bmax[2] - bmin[2]).max(0.01)).clamp(0.0, 1.0);
+
+                self.push_vertex([wx, wy, wz], [rnx, rny, rnz], col, [u, v_coord]);
+            }
+
+            for t in 0..tri_count {
+                let i0 = welded_indices[t * 3];
+                let i1 = welded_indices[t * 3 + 1];
+                let i2 = welded_indices[t * 3 + 2];
+                if i0 != i1 && i1 != i2 && i0 != i2 {
+                    self.push_tri(base_idx + i0, base_idx + i1, base_idx + i2);
+                }
+            }
+        }
+    }
+
+    /// Add an articulated 3D Australian Fauna Specimen with anatomically accurate 1:1 SI metric proportions:
+    /// - *Macropus giganteus* Eastern Grey Kangaroo (1.65 m standing height)
+    /// - *Vombatus ursinus* Common Wombat (0.98 m length × 0.36 m height)
+    /// - *Ornithorhynchus anatinus* Platypus (0.50 m length × 0.15 m height)
+    /// - *Aquila audax* Wedge-Tailed Eagle (2.10 m wingspan)
+    /// - *Maccullochella peelii* Murray Cod (1.10 m length)
+    /// - *Dromaius novaehollandiae* Emu (1.75 m height)
+    /// - *Varanus varius* Lace Monitor (1.80 m length)
+    /// - *Pseudophryne corroboree* Corroboree Frog (0.28 m length)
+    /// Synthesizes organic bodies via `sdf_ops` C¹ smooth-union + `marching_cubes` isosurface extraction,
+    /// vertex welding, and smooth analytical central-difference normals!
     fn add_fauna_specimen(
         &mut self,
         pos: [f32; 3],
@@ -1204,149 +1517,276 @@ impl SubmeshBuilder {
         };
 
         if archetype == "macropod" {
-            // Sculpted Kangaroo spine from heavy counterbalance tail tip -> muscular pelvis -> chest -> neck -> muzzle
-            let spine = [
-                to_world(0.0, 0.04, -0.95), // tail tip
-                to_world(0.0, 0.12, -0.52), // tail base
-                to_world(0.0, 0.38, -0.18), // muscular pelvis / haunch
-                to_world(0.0, 0.68, 0.12),  // torso / chest
-                to_world(0.0, 0.96, 0.26),  // neck / head
-                to_world(0.0, 0.98, 0.44),  // elongated muzzle
-            ];
-            let s = scale as f64;
-            let spine_st = [
-                ExtrusionStation {
-                    scale_x: 0.035 * s,
-                    scale_y: 0.035 * s,
-                    twist_rad: 0.0,
+            // 1. Organic Marsupial Torso, Muscular Haunches & Neck via SDF Smooth-Union + Marching Cubes
+            let bmin = [-0.32_f32, 0.20_f32, -0.42_f32];
+            let bmax = [0.32_f32, 1.50_f32, 0.45_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (20, 22, 16),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_haunch = sdf_sphere(p, Point3::new(0.0, 0.48, -0.10), 0.24);
+                    let d_abdomen = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.50, -0.06),
+                        Point3::new(0.0, 0.80, 0.06),
+                        0.18,
+                    );
+                    let d_chest = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.78, 0.06),
+                        Point3::new(0.0, 1.08, 0.16),
+                        0.14,
+                    );
+                    let d_neck = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 1.06, 0.16),
+                        Point3::new(0.0, 1.30, 0.25),
+                        0.095,
+                    );
+                    let d_head = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 1.28, 0.24),
+                        Point3::new(0.0, 1.32, 0.42),
+                        0.068,
+                    );
+                    let d_body = sdf_smooth_union(d_haunch, d_abdomen, 0.12);
+                    let d_torso = sdf_smooth_union(d_body, d_chest, 0.10);
+                    let d_upper = sdf_smooth_union(d_torso, d_neck, 0.09);
+                    sdf_smooth_union(d_upper, d_head, 0.08)
                 },
-                ExtrusionStation {
-                    scale_x: 0.085 * s,
-                    scale_y: 0.085 * s,
-                    twist_rad: 0.0,
-                },
-                ExtrusionStation {
-                    scale_x: 0.21 * s,
-                    scale_y: 0.23 * s,
-                    twist_rad: 0.0,
-                },
-                ExtrusionStation {
-                    scale_x: 0.15 * s,
-                    scale_y: 0.16 * s,
-                    twist_rad: 0.0,
-                },
-                ExtrusionStation {
-                    scale_x: 0.10 * s,
-                    scale_y: 0.11 * s,
-                    twist_rad: 0.0,
-                },
-                ExtrusionStation {
-                    scale_x: 0.055 * s,
-                    scale_y: 0.055 * s,
-                    twist_rad: 0.0,
-                },
-            ];
-            self.add_bishop_swept_tube(&spine, &spine_st, 8, coat_dark, coat_lit);
+            );
 
-            // Syndactylous hind legs, forepaws, and rotatable pinnae ears
+            // 2. Thick Tapered Pentapedal Tail resting on ground behind (-Z)
+            let s = scale as f64;
+            let tail_axis = [
+                to_world(0.0, 0.42, -0.22),
+                to_world(0.0, 0.20, -0.48),
+                to_world(0.0, 0.05, -0.76),
+                to_world(0.0, 0.02, -1.05),
+            ];
+            let tail_st = [
+                ExtrusionStation { scale_x: 0.11 * s, scale_y: 0.11 * s, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: 0.085 * s, scale_y: 0.085 * s, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: 0.052 * s, scale_y: 0.052 * s, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: 0.024 * s, scale_y: 0.024 * s, twist_rad: 0.0 },
+            ];
+            self.add_bishop_swept_tube(&tail_axis, &tail_st, 12, coat_dark, coat_lit);
+
+            // 3. Anatomical Z-Folded Saltatorial Hindlimbs & Horizontal 4th-Metatarsal Foot Pads flat on ground
             for side in [-1.0_f32, 1.0_f32] {
-                let leg = [
-                    to_world(side * 0.14, 0.38, -0.14),
-                    to_world(side * 0.15, 0.16, -0.24),
-                    to_world(side * 0.14, 0.02, 0.08),
+                let leg_axis = [
+                    to_world(side * 0.18, 0.48, -0.10), // femur head / haunch
+                    to_world(side * 0.20, 0.36, 0.10),  // knee
+                    to_world(side * 0.18, 0.12, -0.16), // raised calcaneum hock
+                    to_world(side * 0.16, 0.03, -0.10), // ankle
+                    to_world(side * 0.16, 0.02, 0.26),  // plantigrade 4th metatarsal toe pad flat on ground
                 ];
                 let leg_st = [
-                    ExtrusionStation {
-                        scale_x: 0.095 * s,
-                        scale_y: 0.11 * s,
-                        twist_rad: 0.0,
-                    },
-                    ExtrusionStation {
-                        scale_x: 0.055 * s,
-                        scale_y: 0.065 * s,
-                        twist_rad: 0.0,
-                    },
-                    ExtrusionStation {
-                        scale_x: 0.045 * s,
-                        scale_y: 0.035 * s,
-                        twist_rad: 0.0,
-                    },
+                    ExtrusionStation { scale_x: 0.10 * s, scale_y: 0.09 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.07 * s, scale_y: 0.065 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.048 * s, scale_y: 0.048 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.040 * s, scale_y: 0.035 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.025 * s, scale_y: 0.022 * s, twist_rad: 0.0 },
                 ];
-                self.add_bishop_swept_tube(&leg, &leg_st, 6, coat_dark, coat_lit);
+                self.add_bishop_swept_tube(&leg_axis, &leg_st, 12, coat_dark, coat_lit);
 
-                let arm = [
-                    to_world(side * 0.11, 0.64, 0.12),
-                    to_world(side * 0.10, 0.42, 0.24),
+                // Short tucked forelimbs held against chest
+                let arm_axis = [
+                    to_world(side * 0.11, 0.90, 0.14),
+                    to_world(side * 0.12, 0.72, 0.18),
+                    to_world(side * 0.08, 0.64, 0.28),
                 ];
                 let arm_st = [
-                    ExtrusionStation {
-                        scale_x: 0.042 * s,
-                        scale_y: 0.042 * s,
-                        twist_rad: 0.0,
-                    },
-                    ExtrusionStation {
-                        scale_x: 0.024 * s,
-                        scale_y: 0.024 * s,
-                        twist_rad: 0.0,
-                    },
+                    ExtrusionStation { scale_x: 0.032 * s, scale_y: 0.032 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.024 * s, scale_y: 0.024 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.016 * s, scale_y: 0.016 * s, twist_rad: 0.0 },
                 ];
-                self.add_bishop_swept_tube(&arm, &arm_st, 5, coat_dark, coat_lit);
+                self.add_bishop_swept_tube(&arm_axis, &arm_st, 10, coat_dark, coat_lit);
 
-                let ear = [
-                    to_world(side * 0.06, 1.02, 0.24),
-                    to_world(side * 0.11, 1.24, 0.22),
+                // Long erect rotated pinnae ears reaching standing height 1.65 m
+                let ear_axis = [
+                    to_world(side * 0.06, 1.36, 0.25),
+                    to_world(side * 0.10, 1.65, 0.22),
                 ];
                 let ear_st = [
-                    ExtrusionStation {
-                        scale_x: 0.035 * s,
-                        scale_y: 0.025 * s,
-                        twist_rad: 0.0,
-                    },
-                    ExtrusionStation {
-                        scale_x: 0.015 * s,
-                        scale_y: 0.012 * s,
-                        twist_rad: 0.0,
-                    },
+                    ExtrusionStation { scale_x: 0.032 * s, scale_y: 0.022 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.010 * s, scale_y: 0.008 * s, twist_rad: 0.0 },
                 ];
-                self.add_bishop_swept_tube(&ear, &ear_st, 5, coat_dark, coat_lit);
+                self.add_bishop_swept_tube(&ear_axis, &ear_st, 8, coat_dark, coat_lit);
+            }
+        } else if archetype == "wombat" {
+            // Low barrel-shaped fossorial body (0.36 m height, 0.98 m length)
+            let bmin = [-0.26_f32, 0.04_f32, -0.52_f32];
+            let bmax = [0.26_f32, 0.38_f32, 0.52_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (20, 16, 20),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_torso = sdf_rounded_box(
+                        p,
+                        Point3::new(0.0, 0.21, -0.06),
+                        Point3::new(0.20, 0.14, 0.32),
+                        0.08,
+                    );
+                    let d_head = sdf_rounded_box(
+                        p,
+                        Point3::new(0.0, 0.20, 0.34),
+                        Point3::new(0.14, 0.11, 0.13),
+                        0.06,
+                    );
+                    sdf_smooth_union(d_torso, d_head, 0.08)
+                },
+            );
+
+            // 4 short stout digging legs resting on ground at y = 0.02
+            let s = scale as f64;
+            for side in [-1.0_f32, 1.0_f32] {
+                // Front digging legs
+                let f_leg = [
+                    to_world(side * 0.17, 0.18, 0.24),
+                    to_world(side * 0.18, 0.02, 0.25),
+                ];
+                let f_st = [
+                    ExtrusionStation { scale_x: 0.060 * s, scale_y: 0.060 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.050 * s, scale_y: 0.045 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&f_leg, &f_st, 10, coat_dark, coat_lit);
+
+                // Rear digging legs
+                let r_leg = [
+                    to_world(side * 0.17, 0.18, -0.22),
+                    to_world(side * 0.18, 0.02, -0.23),
+                ];
+                let r_st = [
+                    ExtrusionStation { scale_x: 0.065 * s, scale_y: 0.065 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.052 * s, scale_y: 0.048 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&r_leg, &r_st, 10, coat_dark, coat_lit);
+
+                // Small rounded ears
+                let ear = [
+                    to_world(side * 0.11, 0.30, 0.30),
+                    to_world(side * 0.14, 0.36, 0.28),
+                ];
+                let ear_st = [
+                    ExtrusionStation { scale_x: 0.025 * s, scale_y: 0.025 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.012 * s, scale_y: 0.012 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&ear, &ear_st, 8, coat_dark, coat_lit);
+            }
+        } else if archetype == "platypus" || archetype == "aquatic" {
+            // Streamlined semi-aquatic body (0.50 m length, 0.15 m height)
+            let bmin = [-0.12_f32, 0.01_f32, -0.27_f32];
+            let bmax = [0.12_f32, 0.16_f32, 0.27_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (18, 14, 20),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_torso = sdf_rounded_box(
+                        p,
+                        Point3::new(0.0, 0.08, 0.0),
+                        Point3::new(0.075, 0.045, 0.14),
+                        0.03,
+                    );
+                    let d_bill = sdf_rounded_box(
+                        p,
+                        Point3::new(0.0, 0.07, 0.19),
+                        Point3::new(0.045, 0.012, 0.05),
+                        0.008,
+                    );
+                    let d_tail = sdf_rounded_box(
+                        p,
+                        Point3::new(0.0, 0.07, -0.18),
+                        Point3::new(0.065, 0.016, 0.07),
+                        0.01,
+                    );
+                    let d_tb = sdf_smooth_union(d_torso, d_bill, 0.03);
+                    sdf_smooth_union(d_tb, d_tail, 0.035)
+                },
+            );
+
+            // 4 webbed paddling feet
+            let s = scale as f64;
+            for side in [-1.0_f32, 1.0_f32] {
+                let f_paddle = [
+                    to_world(side * 0.08, 0.05, 0.08),
+                    to_world(side * 0.14, 0.02, 0.11),
+                ];
+                let f_st = [
+                    ExtrusionStation { scale_x: 0.022 * s, scale_y: 0.012 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.032 * s, scale_y: 0.008 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&f_paddle, &f_st, 8, coat_dark, coat_lit);
+
+                let r_paddle = [
+                    to_world(side * 0.08, 0.05, -0.08),
+                    to_world(side * 0.13, 0.02, -0.10),
+                ];
+                let r_st = [
+                    ExtrusionStation { scale_x: 0.020 * s, scale_y: 0.010 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.028 * s, scale_y: 0.007 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&r_paddle, &r_st, 8, coat_dark, coat_lit);
             }
         } else if archetype == "raptor" {
-            // Wedge-tailed eagle / Sulphur-crested cockatoo with thin cambered airfoil wings,
-            // fanned primary wingtip feathers, and diamond/wedge tail fan!
-            let s = scale as f64;
-            let body = [
-                to_world(0.0, 0.0, -0.38),
-                to_world(0.0, 0.02, 0.0),
-                to_world(0.0, 0.01, 0.34),
-            ];
-            let body_st = [
-                ExtrusionStation {
-                    scale_x: 0.07 * s,
-                    scale_y: 0.05 * s,
-                    twist_rad: 0.0,
+            // Wedge-Tailed Eagle (*Aquila audax*) - 2.10 m wingspan, hooked beak, diamond wedge tail
+            let bmin = [-0.14_f32, -0.06_f32, -0.32_f32];
+            let bmax = [0.14_f32, 0.14_f32, 0.32_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (16, 14, 18),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_body = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.02, -0.18),
+                        Point3::new(0.0, 0.04, 0.14),
+                        0.075,
+                    );
+                    let d_head = sdf_sphere(p, Point3::new(0.0, 0.06, 0.18), 0.045);
+                    let d_beak = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.05, 0.20),
+                        Point3::new(0.0, 0.02, 0.25),
+                        0.018,
+                    );
+                    let d_bh = sdf_smooth_union(d_body, d_head, 0.04);
+                    sdf_smooth_union(d_bh, d_beak, 0.025)
                 },
-                ExtrusionStation {
-                    scale_x: 0.11 * s,
-                    scale_y: 0.09 * s,
-                    twist_rad: 0.0,
-                },
-                ExtrusionStation {
-                    scale_x: 0.045 * s,
-                    scale_y: 0.045 * s,
-                    twist_rad: 0.0,
-                },
-            ];
-            self.add_bishop_swept_tube(&body, &body_st, 6, coat_dark, coat_lit);
+            );
 
-            // Cambered airfoil wings + fanned primary flight feathers on both sides
+            // Cambered 2.10 m wingspan airfoils & primary flight feathers
             let n_up = [0.0, 1.0, 0.0];
             for side in [-1.0_f32, 1.0_f32] {
                 let p_shoulder = to_world_f32(side * 0.08, 0.03, 0.08);
-                let p_wrist = to_world_f32(side * 0.56, 0.09, 0.14);
+                let p_wrist = to_world_f32(side * 0.55, 0.09, 0.14);
                 let p_elbow_te = to_world_f32(side * 0.44, 0.05, -0.14);
                 let p_root_te = to_world_f32(side * 0.08, 0.01, -0.18);
-                let p_tip = to_world_f32(side * 1.12, 0.16, 0.02);
-                let p_tip_te = to_world_f32(side * 0.92, 0.11, -0.16);
+                let p_tip = to_world_f32(side * 1.05, 0.16, 0.02);
+                let p_tip_te = to_world_f32(side * 0.85, 0.11, -0.16);
 
                 let v0 = self.push_vertex(p_shoulder, n_up, coat_lit, [0.0, 0.0]);
                 let v1 = self.push_vertex(p_wrist, n_up, coat_lit, [0.5, 0.0]);
@@ -1366,43 +1806,218 @@ impl SubmeshBuilder {
                     self.push_tri(v1, v2, v5);
                 }
             }
-            // Wedge-shaped tail fan (`Aquila audax`)
-            let t_root = to_world_f32(0.0, 0.01, -0.26);
-            let t_l = to_world_f32(-0.22, -0.02, -0.58);
-            let t_c = to_world_f32(0.0, -0.03, -0.72);
-            let t_r = to_world_f32(0.22, -0.02, -0.58);
+
+            // Authentic wedge-shaped diamond tail fan (*Aquila audax*)
+            let t_root = to_world_f32(0.0, 0.01, -0.22);
+            let t_l = to_world_f32(-0.22, -0.02, -0.52);
+            let t_c = to_world_f32(0.0, -0.03, -0.65);
+            let t_r = to_world_f32(0.22, -0.02, -0.52);
             let vt0 = self.push_vertex(t_root, n_up, coat_dark, [0.5, 0.0]);
             let vt1 = self.push_vertex(t_l, n_up, coat_dark, [0.0, 0.8]);
             let vt2 = self.push_vertex(t_c, n_up, coat_lit, [0.5, 1.0]);
             let vt3 = self.push_vertex(t_r, n_up, coat_dark, [1.0, 0.8]);
             self.push_tri(vt0, vt1, vt2);
             self.push_tri(vt0, vt2, vt3);
-        } else {
-            // Wombat / Platypus / Murray Cod / Corroboree Frog streamlined body + limbs/fins
-            let body = [
-                to_world(0.0, 0.14, -0.48),
-                to_world(0.0, 0.22, 0.0),
-                to_world(0.0, 0.18, 0.45),
-            ];
+        } else if archetype == "cod" {
+            // Murray Cod (*Maccullochella peelii*) - 1.10 m length
+            let bmin = [-0.18_f32, 0.0_f32, -0.55_f32];
+            let bmax = [0.18_f32, 0.28_f32, 0.55_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (16, 16, 20),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_body = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.12, -0.38),
+                        Point3::new(0.0, 0.14, 0.28),
+                        0.13,
+                    );
+                    let d_head = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.14, 0.22),
+                        Point3::new(0.0, 0.13, 0.48),
+                        0.10,
+                    );
+                    sdf_smooth_union(d_body, d_head, 0.08)
+                },
+            );
+            // Caudal tail fin
+            let n_up = [0.0, 1.0, 0.0];
+            let t0 = to_world_f32(0.0, 0.12, -0.38);
+            let t_top = to_world_f32(0.0, 0.24, -0.55);
+            let t_bot = to_world_f32(0.0, 0.02, -0.55);
+            let vt0 = self.push_vertex(t0, n_up, coat_dark, [0.0, 0.5]);
+            let vt1 = self.push_vertex(t_top, n_up, coat_lit, [1.0, 1.0]);
+            let vt2 = self.push_vertex(t_bot, n_up, coat_dark, [1.0, 0.0]);
+            self.push_tri(vt0, vt1, vt2);
+            self.push_tri(vt0, vt2, vt1);
+        } else if archetype == "emu" {
+            // Emu (*Dromaius novaehollandiae*) - 1.75 m height cursorial bird
+            let bmin = [-0.28_f32, 0.80_f32, -0.38_f32];
+            let bmax = [0.28_f32, 1.75_f32, 0.42_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (18, 22, 18),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_body = sdf_sphere(p, Point3::new(0.0, 0.98, -0.06), 0.28);
+                    let d_neck = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 1.08, 0.10),
+                        Point3::new(0.0, 1.58, 0.22),
+                        0.065,
+                    );
+                    let d_head = sdf_sphere(p, Point3::new(0.0, 1.62, 0.24), 0.06);
+                    let d_beak = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 1.62, 0.26),
+                        Point3::new(0.0, 1.60, 0.38),
+                        0.018,
+                    );
+                    let d_bn = sdf_smooth_union(d_body, d_neck, 0.10);
+                    let d_bnh = sdf_smooth_union(d_bn, d_head, 0.05);
+                    sdf_smooth_union(d_bnh, d_beak, 0.02)
+                },
+            );
+            // Long cursorial stilt legs down to ground y = 0.0
             let s = scale as f64;
-            let body_st = [
-                ExtrusionStation {
-                    scale_x: 0.14 * s,
-                    scale_y: 0.10 * s,
-                    twist_rad: 0.0,
+            for side in [-1.0_f32, 1.0_f32] {
+                let leg_axis = [
+                    to_world(side * 0.12, 0.96, -0.04),
+                    to_world(side * 0.13, 0.52, 0.02),
+                    to_world(side * 0.12, 0.02, 0.06),
+                ];
+                let leg_st = [
+                    ExtrusionStation { scale_x: 0.045 * s, scale_y: 0.045 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.025 * s, scale_y: 0.025 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.018 * s, scale_y: 0.018 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&leg_axis, &leg_st, 8, coat_dark, coat_lit);
+            }
+        } else if archetype == "monitor" {
+            // Lace Monitor (*Varanus varius*) - 1.80 m length sprawling lizard
+            let bmin = [-0.22_f32, 0.02_f32, -0.45_f32];
+            let bmax = [0.22_f32, 0.24_f32, 0.65_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (18, 14, 22),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_body = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.10, -0.28),
+                        Point3::new(0.0, 0.11, 0.30),
+                        0.09,
+                    );
+                    let d_head = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.11, 0.28),
+                        Point3::new(0.0, 0.09, 0.58),
+                        0.055,
+                    );
+                    sdf_smooth_union(d_body, d_head, 0.06)
                 },
-                ExtrusionStation {
-                    scale_x: 0.24 * s,
-                    scale_y: 0.20 * s,
-                    twist_rad: 0.0,
-                },
-                ExtrusionStation {
-                    scale_x: 0.15 * s,
-                    scale_y: 0.11 * s,
-                    twist_rad: 0.0,
-                },
+            );
+            // Long whip-like tail
+            let s = scale as f64;
+            let tail_axis = [
+                to_world(0.0, 0.09, -0.28),
+                to_world(0.08, 0.06, -0.65),
+                to_world(-0.12, 0.04, -1.05),
+                to_world(0.05, 0.02, -1.22),
             ];
-            self.add_bishop_swept_tube(&body, &body_st, 7, coat_dark, coat_lit);
+            let tail_st = [
+                ExtrusionStation { scale_x: 0.065 * s, scale_y: 0.065 * s, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: 0.042 * s, scale_y: 0.042 * s, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: 0.024 * s, scale_y: 0.024 * s, twist_rad: 0.0 },
+                ExtrusionStation { scale_x: 0.010 * s, scale_y: 0.010 * s, twist_rad: 0.0 },
+            ];
+            self.add_bishop_swept_tube(&tail_axis, &tail_st, 8, coat_dark, coat_lit);
+            // 4 sprawling lateral legs
+            for side in [-1.0_f32, 1.0_f32] {
+                let f_leg = [
+                    to_world(side * 0.08, 0.10, 0.24),
+                    to_world(side * 0.18, 0.08, 0.28),
+                    to_world(side * 0.22, 0.02, 0.32),
+                ];
+                let f_st = [
+                    ExtrusionStation { scale_x: 0.035 * s, scale_y: 0.035 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.025 * s, scale_y: 0.025 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.016 * s, scale_y: 0.016 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&f_leg, &f_st, 8, coat_dark, coat_lit);
+
+                let r_leg = [
+                    to_world(side * 0.08, 0.10, -0.22),
+                    to_world(side * 0.20, 0.08, -0.24),
+                    to_world(side * 0.24, 0.02, -0.20),
+                ];
+                let r_st = [
+                    ExtrusionStation { scale_x: 0.038 * s, scale_y: 0.038 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.026 * s, scale_y: 0.026 * s, twist_rad: 0.0 },
+                    ExtrusionStation { scale_x: 0.016 * s, scale_y: 0.016 * s, twist_rad: 0.0 },
+                ];
+                self.add_bishop_swept_tube(&r_leg, &r_st, 8, coat_dark, coat_lit);
+            }
+        } else if archetype == "frog" {
+            // Southern Corroboree Frog (*Pseudophryne corroboree*) - 0.28 m length
+            let bmin = [-0.10_f32, 0.01_f32, -0.16_f32];
+            let bmax = [0.10_f32, 0.12_f32, 0.16_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (14, 14, 16),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_body = sdf_sphere(p, Point3::new(0.0, 0.05, -0.02), 0.075);
+                    let d_head = sdf_sphere(p, Point3::new(0.0, 0.055, 0.07), 0.052);
+                    sdf_smooth_union(d_body, d_head, 0.04)
+                },
+            );
+        } else {
+            // Streamlined generic body via smooth SDF
+            let bmin = [-0.18_f32, 0.02_f32, -0.40_f32];
+            let bmax = [0.18_f32, 0.32_f32, 0.40_f32];
+            self.append_smooth_sdf_body(
+                bmin,
+                bmax,
+                (16, 16, 18),
+                pos,
+                yaw,
+                scale,
+                coat_dark,
+                coat_lit,
+                |p| {
+                    let d_body = sdf_capsule(
+                        p,
+                        Point3::new(0.0, 0.14, -0.24),
+                        Point3::new(0.0, 0.18, 0.24),
+                        0.14,
+                    );
+                    let d_head = sdf_sphere(p, Point3::new(0.0, 0.20, 0.32), 0.11);
+                    sdf_smooth_union(d_body, d_head, 0.06)
+                },
+            );
         }
     }
 
@@ -1432,169 +2047,463 @@ impl SubmeshBuilder {
         }
     }
 
-    /// Build a high-detail 3D 4WD Field Research Rover in local vehicle space (centered at `[0, 0, 0]`, `+Z` forward, `scale` ~ `0.085`).
+    /// Build a true-scale (`4.85 m × 1.88 m × 1.92 m` at `scale = 1.0`) CAD/lofted 3D 4WD Field Research Rover
+    /// using native computational geometry kernels:
+    /// - `wheel_panel::wheel_clearance_panel_into` (`WheelPanel`) for side panels with circular wheel-clearance cutouts
+    /// - `authoring::loft_convex_sections_into` for sculpted bonnet, dual-cab greenhouse & field research canopy
+    /// - `parametric_cad::revolve_profile` (24 radial segments) for toric off-road tyres & alloy wheel rims
+    /// - `sweep_extrusion::extrude_profile_along_path` for Australian tubular steel bullbar, snorkel, and roof rack
     fn add_field_rover_4wd_local(&mut self, scale: f32) {
         let s = scale;
-        // 1. Rugged dark-steel chassis frame & underbody skid plate
+
+        // 1. Rugged dark-steel chassis ladder frame & underbody bash/skid plate
+        // Ground clearance = 0.24 * s, chassis rails extend from x = -2.425 * s to x = +2.25 * s
         self.add_local_box(
-            [-0.44 * s, 0.16 * s, -0.92 * s],
-            [0.44 * s, 0.30 * s, 0.94 * s],
-            [0.16, 0.18, 0.20, 1.0],
-            [0.26, 0.28, 0.32, 1.0],
+            [-2.425 * s, 0.24 * s, -0.58 * s],
+            [2.25 * s, 0.38 * s, 0.58 * s],
+            [0.15, 0.16, 0.18, 1.0],
+            [0.24, 0.26, 0.28, 1.0],
         );
-        // 2. Outback Sand/Ivory 4WD Lower Body tub & bonnet
+
+        // 2. Body Side Panels with Circular Wheel-Clearance Arches via `wheel_clearance_panel_into`
+        // Wheelbase = 2.85 m (axles at x = -1.425 * s and x = +1.425 * s), clearance radius = 0.48 * s
+        let wheel_axles = [-1.425 * s, 1.425 * s];
+        for &side_z in &[-0.86_f32, 0.86_f32] {
+            let recipe = WheelPanel {
+                center_x: side_z * s,
+                thickness: 0.06 * s,
+                z: [-2.38 * s, 2.38 * s],
+                bottom: 0.36 * s,
+                top: [1.15 * s, 1.15 * s],
+                wheel_y: 0.41 * s,
+                clearance_radius: 0.48 * s,
+                axles: &wheel_axles,
+                segments: 16,
+            };
+            let sections = recipe.segments as usize + 1;
+            let mut panel_v = vec![[0.0f32; 3]; sections * 10];
+            let mut panel_t = vec![[0u32; 3]; sections * 8];
+            if let Ok(receipt) = wheel_clearance_panel_into(recipe, &mut panel_v, &mut panel_t) {
+                let base_idx = self.positions.len() as u32;
+                let col_bot = [0.76, 0.72, 0.58, 1.0];
+                let col_top = [0.92, 0.88, 0.76, 1.0];
+                for p in &panel_v[..receipt.vertex_count] {
+                    // In recipe: station is along Z, thickness along X, height along Y.
+                    // Map to vehicle frame: vehicle X = station (pz), vehicle Y = py, vehicle Z = px
+                    let vx = p[2];
+                    let vy = p[1];
+                    let vz = p[0];
+                    let t = ((vy - 0.36 * s) / (0.79 * s).max(1e-4)).clamp(0.0, 1.0);
+                    let col = [
+                        col_bot[0] * (1.0 - t) + col_top[0] * t,
+                        col_bot[1] * (1.0 - t) + col_top[1] * t,
+                        col_bot[2] * (1.0 - t) + col_top[2] * t,
+                        1.0,
+                    ];
+                    let sign_z = if side_z > 0.0 { 1.0 } else { -1.0 };
+                    let norm = [0.0, 0.15, sign_z * 0.98];
+                    let u = ((vx + 2.38 * s) / (4.76 * s).max(1e-4)).clamp(0.0, 1.0);
+                    self.push_vertex([vx, vy, vz], norm, col, [u, t]);
+                }
+                for tri in &panel_t[..receipt.triangle_count] {
+                    if side_z > 0.0 {
+                        self.push_tri(base_idx + tri[0], base_idx + tri[2], base_idx + tri[1]);
+                    } else {
+                        self.push_tri(base_idx + tri[0], base_idx + tri[1], base_idx + tri[2]);
+                    }
+                }
+            }
+        }
+
+        // 3. Lofted Tapered Front Bonnet via `authoring::loft_convex_sections_into`
+        // x: +0.65 .. +2.30 * s, y: 0.82 .. 1.18 * s
+        // Sections are authored in XY plane ordered along Z, then mapped (x, y, z) -> (z, y, x)
+        {
+            let bonnet_stations = [
+                (0.65 * s, 0.85 * s, 0.82 * s, 1.18 * s),
+                (1.20 * s, 0.84 * s, 0.82 * s, 1.16 * s),
+                (1.75 * s, 0.81 * s, 0.82 * s, 1.14 * s),
+                (2.30 * s, 0.77 * s, 0.82 * s, 1.12 * s),
+            ];
+            let mut sections = Vec::with_capacity(bonnet_stations.len());
+            for &(x_station, half_w, y_bot, y_top) in &bonnet_stations {
+                sections.push(vec![
+                    [-half_w, y_bot, x_station],
+                    [half_w, y_bot, x_station],
+                    [half_w, y_top, x_station],
+                    [-half_w, y_top, x_station],
+                ]);
+            }
+            let req_v = (sections.len() - 1) * 5 * 2 + 5 * 2;
+            let req_t = sections.len() * 4 * 2;
+            let mut out_v = vec![[0.0f32; 3]; req_v * 2 + 32];
+            let mut out_t = vec![[0u32; 3]; req_t * 2 + 32];
+            if let Ok(receipt) = loft_convex_sections_into(&sections, &mut out_v, &mut out_t) {
+                let base_idx = self.positions.len() as u32;
+                for p in &out_v[..receipt.vertex_count] {
+                    let vx = p[2];
+                    let vy = p[1];
+                    let vz = p[0];
+                    let t = ((vy - 0.82 * s) / (0.36 * s).max(1e-4)).clamp(0.0, 1.0);
+                    let col = [
+                        0.80 * (1.0 - t * 0.3) + 0.94 * (t * 0.3),
+                        0.74 * (1.0 - t * 0.3) + 0.88 * (t * 0.3),
+                        0.60 * (1.0 - t * 0.3) + 0.74 * (t * 0.3),
+                        1.0,
+                    ];
+                    let nx = if vx > 2.25 * s { 0.95 } else { 0.15 };
+                    let ny = if vy > 1.10 * s { 0.95 } else { 0.10 };
+                    let nz = if vz.abs() > 0.70 * s { vz.signum() * 0.95 } else { 0.0 };
+                    let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-4);
+                    self.push_vertex([vx, vy, vz], [nx / nlen, ny / nlen, nz / nlen], col, [0.5, t]);
+                }
+                for tri in &out_t[..receipt.triangle_count] {
+                    self.push_tri(base_idx + tri[0], base_idx + tri[2], base_idx + tri[1]);
+                }
+            }
+        }
+
+        // Front radiator grille insert & LED headlights
         self.add_local_box(
-            [-0.48 * s, 0.28 * s, -0.90 * s],
-            [0.48 * s, 0.62 * s, 0.90 * s],
-            [0.78, 0.72, 0.56, 1.0],
-            [0.94, 0.88, 0.74, 1.0],
+            [2.28 * s, 0.84 * s, -0.68 * s],
+            [2.33 * s, 1.10 * s, 0.68 * s],
+            [0.12, 0.14, 0.16, 1.0],
+            [0.18, 0.20, 0.22, 1.0],
         );
-        // 3. Hi-Vis Ecological Survey Orange Side Stripe
-        self.add_local_box(
-            [-0.50 * s, 0.42 * s, -0.86 * s],
-            [0.50 * s, 0.50 * s, 0.82 * s],
-            [0.92, 0.40, 0.08, 1.0],
-            [0.98, 0.54, 0.14, 1.0],
-        );
-        // 4. Glazed Cabin Greenhouse (windshield + side windows)
-        self.add_local_box(
-            [-0.43 * s, 0.60 * s, -0.58 * s],
-            [0.43 * s, 0.94 * s, 0.36 * s],
-            [0.12, 0.24, 0.36, 1.0],
-            [0.24, 0.44, 0.62, 1.0],
-        );
-        // 5. White Heat-Reflective Roof Cap
-        self.add_local_box(
-            [-0.45 * s, 0.92 * s, -0.60 * s],
-            [0.45 * s, 0.99 * s, 0.38 * s],
-            [0.90, 0.92, 0.94, 1.0],
-            [0.98, 0.98, 0.99, 1.0],
-        );
-        // 6. Roof Expedition Rack + Solar Telemetry Panel + Amber Beacon
-        self.add_local_box(
-            [-0.38 * s, 0.99 * s, -0.52 * s],
-            [0.38 * s, 1.06 * s, 0.28 * s],
-            [0.10, 0.18, 0.38, 1.0],
-            [0.18, 0.32, 0.64, 1.0],
-        );
-        self.add_local_box(
-            [-0.12 * s, 1.06 * s, 0.12 * s],
-            [0.12 * s, 1.18 * s, 0.26 * s],
-            [0.96, 0.58, 0.04, 1.0],
-            [1.00, 0.84, 0.18, 1.0],
-        );
-        // 7. Heavy Front Steel Bullbar & Snorkel
-        self.add_local_box(
-            [-0.48 * s, 0.24 * s, 0.90 * s],
-            [0.48 * s, 0.58 * s, 1.02 * s],
-            [0.28, 0.30, 0.34, 1.0],
-            [0.52, 0.56, 0.60, 1.0],
-        );
-        // Bright LED Headlights (+Z) & Red Taillights (-Z)
         for side in [-1.0_f32, 1.0_f32] {
+            // High-intensity LED headlamp bezels
             self.add_local_box(
-                [(side * 0.32 - 0.08) * s, 0.44 * s, 0.89 * s],
-                [(side * 0.32 + 0.08) * s, 0.56 * s, 0.96 * s],
-                [0.98, 0.94, 0.76, 1.0],
-                [1.0, 1.0, 0.92, 1.0],
+                [2.31 * s, 0.90 * s, (side * 0.58 - 0.12) * s],
+                [2.34 * s, 1.06 * s, (side * 0.58 + 0.12) * s],
+                [0.96, 0.96, 0.88, 1.0],
+                [1.00, 1.00, 0.95, 1.0],
             );
+            // Amber turn signal indicators
             self.add_local_box(
-                [(side * 0.36 - 0.07) * s, 0.40 * s, -0.94 * s],
-                [(side * 0.36 + 0.07) * s, 0.54 * s, -0.88 * s],
-                [0.86, 0.12, 0.10, 1.0],
-                [0.98, 0.24, 0.18, 1.0],
+                [2.30 * s, 0.92 * s, (side * 0.74 - 0.04) * s],
+                [2.33 * s, 1.04 * s, (side * 0.74 + 0.04) * s],
+                [0.98, 0.60, 0.05, 1.0],
+                [1.00, 0.72, 0.10, 1.0],
             );
         }
-        // 8. Four Mud-Terrain Wheels + Silver Alloy Rims
-        for &(wx, wz) in &[
-            (-0.48_f32, 0.58_f32),
-            (0.48_f32, 0.58_f32),
-            (-0.48_f32, -0.58_f32),
-            (0.48_f32, -0.58_f32),
-        ] {
-            let sign = if wx >= 0.0 { 1.0_f32 } else { -1.0_f32 };
-            let x_in = (wx - sign * 0.10) * s;
-            let x_out = (wx + sign * 0.10) * s;
-            let wy = 0.22 * s;
-            let wz_s = wz * s;
-            let r_tyre = (0.22 * s) as f64;
-            let axis = [
-                Point3::new(x_in as f64, wy as f64, wz_s as f64),
-                Point3::new(x_out as f64, wy as f64, wz_s as f64),
+
+        // 4. Lofted Sloped-Windshield Dual-Cab Greenhouse via `authoring::loft_convex_sections_into`
+        // x: -0.95 .. +0.75 * s, y: 1.15 .. 1.86 * s
+        {
+            let cab_stations = [
+                (-0.95 * s, 0.82 * s, 1.15 * s, 1.86 * s),
+                (-0.35 * s, 0.81 * s, 1.15 * s, 1.86 * s),
+                (0.20 * s, 0.80 * s, 1.15 * s, 1.84 * s),
+                (0.65 * s, 0.82 * s, 1.15 * s, 1.38 * s),
+                (0.75 * s, 0.84 * s, 1.15 * s, 1.20 * s),
             ];
-            let st = [
-                ExtrusionStation { scale_x: r_tyre, scale_y: r_tyre, twist_rad: 0.0 },
-                ExtrusionStation { scale_x: r_tyre, scale_y: r_tyre, twist_rad: 0.0 },
+            let mut sections = Vec::with_capacity(cab_stations.len());
+            for &(x_station, half_w, y_bot, y_top) in &cab_stations {
+                sections.push(vec![
+                    [-half_w, y_bot, x_station],
+                    [half_w, y_bot, x_station],
+                    [half_w, y_top, x_station],
+                    [-half_w, y_top, x_station],
+                ]);
+            }
+            let req_v = (sections.len() - 1) * 5 * 2 + 5 * 2;
+            let req_t = sections.len() * 4 * 2;
+            let mut out_v = vec![[0.0f32; 3]; req_v * 2 + 32];
+            let mut out_t = vec![[0u32; 3]; req_t * 2 + 32];
+            if let Ok(receipt) = loft_convex_sections_into(&sections, &mut out_v, &mut out_t) {
+                let base_idx = self.positions.len() as u32;
+                for p in &out_v[..receipt.vertex_count] {
+                    let vx = p[2];
+                    let vy = p[1];
+                    let vz = p[0];
+                    let is_roof = vy > 1.82 * s;
+                    let col = if is_roof {
+                        [0.94, 0.95, 0.96, 1.0]
+                    } else {
+                        [0.18, 0.32, 0.46, 1.0]
+                    };
+                    let nx = if vx > 0.60 * s { 0.65 } else if vx < -0.90 * s { -0.85 } else { 0.0 };
+                    let ny = if is_roof { 0.95 } else { 0.25 };
+                    let nz = if vz.abs() > 0.75 * s { vz.signum() * 0.90 } else { 0.0 };
+                    let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-4);
+                    self.push_vertex([vx, vy, vz], [nx / nlen, ny / nlen, nz / nlen], col, [0.5, 0.5]);
+                }
+                for tri in &out_t[..receipt.triangle_count] {
+                    self.push_tri(base_idx + tri[0], base_idx + tri[2], base_idx + tri[1]);
+                }
+            }
+        }
+
+        // 5. Lofted Rear Field Research Canopy & Utility Tray via `authoring::loft_convex_sections_into`
+        // x: -2.35 .. -0.95 * s, y: 1.12 .. 1.84 * s
+        {
+            let canopy_stations = [
+                (-2.35 * s, 0.84 * s, 1.12 * s, 1.84 * s),
+                (-1.65 * s, 0.85 * s, 1.12 * s, 1.84 * s),
+                (-0.96 * s, 0.84 * s, 1.12 * s, 1.84 * s),
             ];
-            self.add_bishop_swept_tube(&axis, &st, 10, [0.12, 0.13, 0.14, 1.0], [0.22, 0.23, 0.25, 1.0]);
-            // Alloy wheel hub cap
+            let mut sections = Vec::with_capacity(canopy_stations.len());
+            for &(x_station, half_w, y_bot, y_top) in &canopy_stations {
+                sections.push(vec![
+                    [-half_w, y_bot, x_station],
+                    [half_w, y_bot, x_station],
+                    [half_w, y_top, x_station],
+                    [-half_w, y_top, x_station],
+                ]);
+            }
+            let req_v = (sections.len() - 1) * 5 * 2 + 5 * 2;
+            let req_t = sections.len() * 4 * 2;
+            let mut out_v = vec![[0.0f32; 3]; req_v * 2 + 32];
+            let mut out_t = vec![[0u32; 3]; req_t * 2 + 32];
+            if let Ok(receipt) = loft_convex_sections_into(&sections, &mut out_v, &mut out_t) {
+                let base_idx = self.positions.len() as u32;
+                for p in &out_v[..receipt.vertex_count] {
+                    let vx = p[2];
+                    let vy = p[1];
+                    let vz = p[0];
+                    let is_roof = vy > 1.80 * s;
+                    let col = if is_roof {
+                        [0.92, 0.93, 0.95, 1.0]
+                    } else {
+                        [0.78, 0.74, 0.60, 1.0]
+                    };
+                    let nx = if vx < -2.30 * s { -0.95 } else { 0.0 };
+                    let ny = if is_roof { 0.95 } else { 0.10 };
+                    let nz = if vz.abs() > 0.80 * s { vz.signum() * 0.95 } else { 0.0 };
+                    let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-4);
+                    self.push_vertex([vx, vy, vz], [nx / nlen, ny / nlen, nz / nlen], col, [0.5, 0.5]);
+                }
+                for tri in &out_t[..receipt.triangle_count] {
+                    self.push_tri(base_idx + tri[0], base_idx + tri[2], base_idx + tri[1]);
+                }
+            }
+        }
+
+        // Hi-Vis Ecological Survey Orange Stripe along utility canopy sides
+        for side in [-1.0_f32, 1.0_f32] {
             self.add_local_box(
-                [(wx + sign * 0.06) * s, (0.22 - 0.10) * s, (wz - 0.10) * s],
-                [(wx + sign * 0.12) * s, (0.22 + 0.10) * s, (wz + 0.10) * s],
-                [0.72, 0.75, 0.80, 1.0],
-                [0.90, 0.92, 0.96, 1.0],
+                [-2.32 * s, 1.32 * s, (side * 0.855 - 0.015) * s],
+                [-0.98 * s, 1.48 * s, (side * 0.855 + 0.015) * s],
+                [0.94, 0.45, 0.10, 1.0],
+                [0.98, 0.58, 0.16, 1.0],
             );
+            // Red rear taillights on tailgate
+            self.add_local_box(
+                [-2.37 * s, 0.92 * s, (side * 0.72 - 0.08) * s],
+                [-2.34 * s, 1.10 * s, (side * 0.72 + 0.08) * s],
+                [0.85, 0.12, 0.10, 1.0],
+                [0.98, 0.22, 0.18, 1.0],
+            );
+        }
+
+        // 6. Australian Heavy Steel Tubular Bullbar via `add_bishop_swept_tube`
+        // Polyline spanning front of vehicle: x = +2.32 .. +2.425 * s
+        {
+            let bar_axis = [
+                Point3::new(2.32 * s as f64, 0.44 * s as f64, -0.84 * s as f64),
+                Point3::new(2.41 * s as f64, 0.45 * s as f64, -0.62 * s as f64),
+                Point3::new(2.425 * s as f64, 0.45 * s as f64, 0.0),
+                Point3::new(2.41 * s as f64, 0.45 * s as f64, 0.62 * s as f64),
+                Point3::new(2.32 * s as f64, 0.44 * s as f64, 0.84 * s as f64),
+            ];
+            let r_tube = (0.038 * s) as f64;
+            let bar_st = vec![ExtrusionStation { scale_x: r_tube, scale_y: r_tube, twist_rad: 0.0 }; bar_axis.len()];
+            self.add_bishop_swept_tube(&bar_axis, &bar_st, 8, [0.26, 0.28, 0.30, 1.0], [0.45, 0.48, 0.52, 1.0]);
+
+            // Bullbar upper loop protecting radiator
+            let loop_axis = [
+                Point3::new(2.38 * s as f64, 0.48 * s as f64, -0.58 * s as f64),
+                Point3::new(2.40 * s as f64, 0.88 * s as f64, -0.52 * s as f64),
+                Point3::new(2.42 * s as f64, 0.98 * s as f64, 0.0),
+                Point3::new(2.40 * s as f64, 0.88 * s as f64, 0.52 * s as f64),
+                Point3::new(2.38 * s as f64, 0.48 * s as f64, 0.58 * s as f64),
+            ];
+            let loop_st = vec![ExtrusionStation { scale_x: r_tube * 0.85, scale_y: r_tube * 0.85, twist_rad: 0.0 }; loop_axis.len()];
+            self.add_bishop_swept_tube(&loop_axis, &loop_st, 8, [0.26, 0.28, 0.30, 1.0], [0.45, 0.48, 0.52, 1.0]);
+        }
+
+        // 7. Raised Air-Intake Snorkel on Right A-Pillar
+        {
+            let snorkel_axis = [
+                Point3::new(1.15 * s as f64, 0.92 * s as f64, 0.88 * s as f64),
+                Point3::new(0.72 * s as f64, 1.20 * s as f64, 0.86 * s as f64),
+                Point3::new(0.22 * s as f64, 1.76 * s as f64, 0.82 * s as f64),
+                Point3::new(0.18 * s as f64, 1.86 * s as f64, 0.80 * s as f64),
+            ];
+            let r_snork = (0.035 * s) as f64;
+            let snork_st = vec![ExtrusionStation { scale_x: r_snork, scale_y: r_snork, twist_rad: 0.0 }; snorkel_axis.len()];
+            self.add_bishop_swept_tube(&snorkel_axis, &snork_st, 6, [0.12, 0.14, 0.16, 1.0], [0.18, 0.20, 0.22, 1.0]);
+            // Ram-air intake scoop head
+            self.add_local_box(
+                [0.10 * s, 1.82 * s, 0.74 * s],
+                [0.26 * s, 1.91 * s, 0.86 * s],
+                [0.10, 0.12, 0.14, 1.0],
+                [0.20, 0.22, 0.24, 1.0],
+            );
+        }
+
+        // 8. Expedition Roof Rack & Monocrystalline Solar Telemetry Array
+        // Over cabin & canopy: x: -2.15 .. +0.45 * s, y: 1.88 .. 1.92 * s
+        self.add_local_box(
+            [-2.15 * s, 1.88 * s, -0.76 * s],
+            [0.45 * s, 1.91 * s, 0.76 * s],
+            [0.20, 0.22, 0.24, 1.0],
+            [0.32, 0.35, 0.38, 1.0],
+        );
+        // Solar telemetry panel
+        self.add_local_box(
+            [-1.85 * s, 1.91 * s, -0.65 * s],
+            [-0.45 * s, 1.92 * s, 0.65 * s],
+            [0.10, 0.14, 0.28, 1.0],
+            [0.16, 0.22, 0.44, 1.0],
+        );
+        // Amber telemetry strobe beacon reaching 1.96 m
+        self.add_local_box(
+            [-0.15 * s, 1.91 * s, -0.10 * s],
+            [0.05 * s, 1.96 * s, 0.10 * s],
+            [0.95, 0.60, 0.05, 1.0],
+            [1.00, 0.85, 0.20, 1.0],
+        );
+
+        // 9. Revolved Off-Road Mud-Terrain Tyres & 6-Spoke Metallic Hubs via `parametric_cad::revolve_profile`
+        // 4 wheels at x = [-1.425, 1.425] * s, z = [-0.88, 0.88] * s, y = 0.41 * s
+        // Tyre radius = 0.41 * s (820 mm diameter), width = 0.26 * s (half_w = 0.13 * s)
+        {
+            let r_outer = 0.41 * s as f64;
+            let r_inner = 0.22 * s as f64;
+            let r_shoulder = 0.38 * s as f64;
+            let hw = 0.13 * s as f64;
+
+            let tyre_profile = [
+                Point3::new(r_inner, -hw * 0.65, 0.0),
+                Point3::new(r_inner + 0.06 * s as f64, -hw, 0.0),
+                Point3::new(r_shoulder, -hw * 0.95, 0.0),
+                Point3::new(r_outer, 0.0, 0.0),
+                Point3::new(r_shoulder, hw * 0.95, 0.0),
+                Point3::new(r_inner + 0.06 * s as f64, hw, 0.0),
+                Point3::new(r_inner, hw * 0.65, 0.0),
+            ];
+
+            let segments = 24usize;
+            let req_v = tyre_profile.len() * segments;
+            let req_t = (tyre_profile.len() - 1) * segments * 2;
+            let mut out_v = vec![Point3::default(); req_v];
+            let mut out_t = vec![[0u32; 3]; req_t];
+
+            if let Ok((vc, tc)) = revolve_profile(&tyre_profile, segments, &mut out_v, &mut out_t) {
+                for &wx in &[-1.425_f32 * s, 1.425_f32 * s] {
+                    for &wz in &[-0.88_f32 * s, 0.88_f32 * s] {
+                        let base_idx = self.positions.len() as u32;
+                        let wy = 0.41_f32 * s;
+                        let sign_z = if wz >= 0.0 { 1.0_f32 } else { -1.0_f32 };
+
+                        for p in out_v.iter().take(vc) {
+                            let rx = p.x as f32;
+                            let ry = p.z as f32;
+                            let rz = (p.y as f32) * sign_z;
+                            let vx = wx + rx;
+                            let vy = wy + ry;
+                            let vz = wz + rz;
+                            let r_len = (rx * rx + ry * ry).sqrt().max(1e-4);
+                            let norm = [rx / r_len, ry / r_len, rz / hw as f32 * 0.2];
+                            let nlen = (norm[0] * norm[0] + norm[1] * norm[1] + norm[2] * norm[2]).sqrt().max(1e-4);
+                            let col = [0.12, 0.13, 0.14, 1.0];
+                            self.push_vertex([vx, vy, vz], [norm[0] / nlen, norm[1] / nlen, norm[2] / nlen], col, [0.5, 0.5]);
+                        }
+                        for tri in out_t.iter().take(tc) {
+                            if sign_z > 0.0 {
+                                self.push_tri(base_idx + tri[0], base_idx + tri[1], base_idx + tri[2]);
+                            } else {
+                                self.push_tri(base_idx + tri[0], base_idx + tri[2], base_idx + tri[1]);
+                            }
+                        }
+
+                        // Recessed 6-spoke silver metallic alloy hub cap
+                        let hub_face_z = wz + sign_z * (hw as f32 * 0.75);
+                        self.add_local_box(
+                            [wx - 0.14 * s, wy - 0.14 * s, hub_face_z - 0.015 * s],
+                            [wx + 0.14 * s, wy + 0.14 * s, hub_face_z + 0.015 * s],
+                            [0.72, 0.75, 0.80, 1.0],
+                            [0.90, 0.92, 0.96, 1.0],
+                        );
+                        for sp in 0..6 {
+                            let ang = sp as f32 * (std::f32::consts::TAU / 6.0);
+                            let ca = ang.cos();
+                            let sa = ang.sin();
+                            let r_mid = 0.16 * s;
+                            let sx = wx + ca * r_mid;
+                            let sy = wy + sa * r_mid;
+                            self.add_local_box(
+                                [sx - 0.03 * s, sy - 0.03 * s, hub_face_z - 0.012 * s],
+                                [sx + 0.03 * s, sy + 0.03 * s, hub_face_z + 0.012 * s],
+                                [0.78, 0.80, 0.85, 1.0],
+                                [0.92, 0.94, 0.98, 1.0],
+                            );
+                        }
+                    }
+                }
+            }
         }
     }
 
-    /// Build a 3D Field Ecologist Bushwalker Avatar in local space (centered at `[0, 0, 0]`, `+Z` forward, `scale` ~ `0.075`).
+    /// Build a 3D Field Ecologist Bushwalker Avatar in 1:1 SI metric dimensions (1.80 m standing height at `scale = 1.0`).
     fn add_ecologist_walker_local(&mut self, scale: f32) {
         let s = scale;
         // Boots & Khaki Field Trousers (left & right legs)
         for side in [-1.0_f32, 1.0_f32] {
             self.add_local_box(
-                [(side * 0.13 - 0.07) * s, 0.0, -0.09 * s],
-                [(side * 0.13 + 0.07) * s, 0.14 * s, 0.12 * s],
+                [(side * 0.16 - 0.08) * s, 0.0, -0.11 * s],
+                [(side * 0.16 + 0.08) * s, 0.18 * s, 0.15 * s],
                 [0.24, 0.18, 0.13, 1.0],
                 [0.36, 0.26, 0.18, 1.0],
             );
             self.add_local_box(
-                [(side * 0.13 - 0.07) * s, 0.14 * s, -0.07 * s],
-                [(side * 0.13 + 0.07) * s, 0.56 * s, 0.07 * s],
+                [(side * 0.16 - 0.08) * s, 0.18 * s, -0.09 * s],
+                [(side * 0.16 + 0.08) * s, 0.76 * s, 0.09 * s],
                 [0.48, 0.42, 0.30, 1.0],
                 [0.62, 0.55, 0.40, 1.0],
             );
         }
         // Eucalypt-green & Hi-Vis Ochre Field Expedition Jacket Torso
         self.add_local_box(
-            [-0.22 * s, 0.54 * s, -0.11 * s],
-            [0.22 * s, 1.02 * s, 0.11 * s],
+            [-0.26 * s, 0.74 * s, -0.14 * s],
+            [0.26 * s, 1.36 * s, 0.14 * s],
             [0.20, 0.42, 0.26, 1.0],
             [0.94, 0.58, 0.14, 1.0],
         );
         // Botanical Specimen & Sensor Backpack
         self.add_local_box(
-            [-0.18 * s, 0.60 * s, -0.24 * s],
-            [0.18 * s, 0.98 * s, -0.10 * s],
+            [-0.22 * s, 0.80 * s, -0.30 * s],
+            [0.22 * s, 1.30 * s, -0.12 * s],
             [0.32, 0.28, 0.20, 1.0],
             [0.48, 0.42, 0.30, 1.0],
         );
         // Left & Right Arms
         for side in [-1.0_f32, 1.0_f32] {
             self.add_local_box(
-                [(side * 0.28 - 0.06) * s, 0.56 * s, -0.06 * s],
-                [(side * 0.28 + 0.06) * s, 0.98 * s, 0.10 * s],
+                [(side * 0.34 - 0.07) * s, 0.75 * s, -0.08 * s],
+                [(side * 0.34 + 0.07) * s, 1.30 * s, 0.12 * s],
                 [0.24, 0.46, 0.28, 1.0],
                 [0.92, 0.56, 0.14, 1.0],
             );
         }
         // Head & Neck
         self.add_local_box(
-            [-0.11 * s, 1.02 * s, -0.10 * s],
-            [0.11 * s, 1.24 * s, 0.11 * s],
+            [-0.13 * s, 1.36 * s, -0.12 * s],
+            [0.13 * s, 1.66 * s, 0.12 * s],
             [0.76, 0.58, 0.46, 1.0],
             [0.88, 0.70, 0.56, 1.0],
         );
         // Broad-Brimmed Australian Akubra Bush Hat
         self.add_local_box(
-            [-0.24 * s, 1.21 * s, -0.22 * s],
-            [0.24 * s, 1.26 * s, 0.24 * s],
+            [-0.30 * s, 1.63 * s, -0.28 * s],
+            [0.30 * s, 1.69 * s, 0.28 * s],
             [0.36, 0.26, 0.18, 1.0],
             [0.48, 0.36, 0.24, 1.0],
         );
         self.add_local_box(
-            [-0.13 * s, 1.25 * s, -0.12 * s],
-            [0.13 * s, 1.35 * s, 0.13 * s],
+            [-0.16 * s, 1.68 * s, -0.15 * s],
+            [0.16 * s, 1.80 * s, 0.15 * s],
             [0.38, 0.28, 0.19, 1.0],
             [0.52, 0.40, 0.28, 1.0],
         );
@@ -1683,20 +2592,20 @@ pub fn build_sector_10d(
                 -0.22_f32,
                 [0.06, 0.36, 0.50],
                 [0.48, 0.78, 0.44],
-                0.28,
-                0.26,
-                1.35,
-                [0.42, -0.02, 0.0],
+                0.35,
+                0.22,
+                1.18,
+                [0.54, 0.06, 0.05],
                 1u32,
             ),
             "yarrangobilly" => (
                 -0.24_f32,
                 [0.06, 0.48, 0.54],
                 [-0.22, 0.80, 0.56],
-                0.18,
-                0.24,
-                1.35,
-                [0.38, -0.04, 0.0],
+                0.25,
+                0.22,
+                1.20,
+                [0.52, 0.04, 0.05],
                 1u32,
             ),
             "three_mile_dam" => (
@@ -1704,39 +2613,39 @@ pub fn build_sector_10d(
                 [0.05, 0.44, 0.60],
                 [0.48, 0.76, 0.48],
                 0.32,
-                0.26,
-                1.35,
-                [0.40, -0.02, 0.0],
+                0.22,
+                1.18,
+                [0.54, 0.06, 0.05],
                 1u32,
             ),
             "sydney_sandstone" => (
                 -0.25_f32,
                 [0.08, 0.38, 0.46],
                 [0.40, 0.82, 0.44],
-                -0.26,
-                0.28,
-                1.38,
-                [0.36, -0.02, 0.0],
+                -0.30,
+                0.24,
+                1.20,
+                [0.50, 0.06, 0.05],
                 1u32,
             ),
             "noosa_headland" => (
                 -0.18_f32,
                 [0.04, 0.52, 0.64],
                 [0.32, 0.84, 0.44],
-                0.24,
-                0.26,
-                1.38,
-                [0.40, -0.02, 0.0],
+                0.28,
+                0.22,
+                1.20,
+                [0.52, 0.05, 0.05],
                 1u32,
             ),
             _ => (
                 -0.23_f32,
                 [0.06, 0.38, 0.50],
                 [-0.44, 0.76, 0.50],
-                0.22,
-                0.28,
-                1.38,
-                [0.40, -0.02, 0.0],
+                0.30,
+                0.24,
+                1.20,
+                [0.54, 0.06, 0.05],
                 2u32,
             ),
         };
@@ -1914,6 +2823,12 @@ pub fn build_sector_10d(
         let side = if i % 2 == 0 { 1.0_f32 } else { -1.0_f32 };
         let z = -1.65 + (fi / 55.0) * 3.30;
         let x = side * (0.48 + 1.25 * hash21(fi * 5.3, 1.7));
+        let meander_b = 0.28 * (z * 1.35 + 1.1).sin() + 0.11 * (z * 2.7 - 0.66).cos();
+        let road_x_b = meander_b + 0.54;
+        // Keep boulders off the road corridor and out of the foreground kangaroo clearing
+        if (x - road_x_b).abs() < 0.28 || (x > 0.90 && x < 1.38 && z > -0.35 && z < 0.45) {
+            continue;
+        }
         let y = sample_sector_elevation(sector_id, x, z, water_y);
         let rx = 0.045 + 0.085 * hash21(fi * 2.9, 8.4);
         let ry = rx * (0.65 + 0.65 * hash21(fi * 4.1, 3.3));
@@ -1950,7 +2865,19 @@ pub fn build_sector_10d(
         let z = -1.70 + (fi / 64.0) * 3.40;
         let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
             + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
-        let x = (meander_x + side * (0.58 + 1.18 * hash21(fi * 6.1, 4.2))).clamp(-1.82, 1.82);
+        let x = if side > 0.0 {
+            // Upslope of the banked road corridor (road is at meander_x + 0.54)
+            // Leave a natural grassy clearing around z in [-0.28, 0.35], x in [1.02, 1.32] for the kangaroo mob
+            let raw_x = (meander_x + 0.82 + 0.88 * hash21(fi * 6.1, 4.2)).clamp(-1.82, 1.82);
+            if z > -0.32 && z < 0.38 && raw_x < 1.32 {
+                (raw_x + 0.34).min(1.82)
+            } else {
+                raw_x
+            }
+        } else {
+            // Opposite river bank (-X side)
+            (meander_x - 0.52 - 1.15 * hash21(fi * 6.1, 4.2)).clamp(-1.82, 1.82)
+        };
         let y = sample_sector_elevation(sector_id, x, z, water_y).max(water_y + 0.06);
         let h = 0.26 + 0.24 * hash21(fi * 9.7, 1.3);
         let transform = [
@@ -2087,6 +3014,11 @@ pub fn build_sector_10d(
         let fi = i as f32;
         let x = -1.78 + 3.56 * hash21(fi * 4.3, 7.1);
         let z = -1.78 + 3.56 * hash21(fi * 8.9, 2.7);
+        let meander_g = 0.28 * (z * 1.35 + sector_seed).sin()
+            + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
+        if (x - (meander_g + 0.54)).abs() < 0.16 {
+            continue;
+        }
         let y = sample_sector_elevation(sector_id, x, z, water_y);
         if y < water_y - 0.03 {
             // Submerged benthic *Vallisneria australis* ribbon weed waving on the riverbed
@@ -2123,29 +3055,36 @@ pub fn build_sector_10d(
     }
 
     // 5. Articulated 3D Fauna Specimens across Terrestrial, Aerial, and Underwater Strata
-    // Eastern Grey Kangaroos (*Macropus giganteus*) on the flat bush track & dry valley floor
-    for (kx, kz, kyaw) in [
-        (0.72_f32, 0.16_f32, -2.15_f32),
-        (0.84_f32, -0.18_f32, -1.85_f32),
-        (-0.62_f32, 0.35_f32, 0.85_f32),
+    // Eastern Grey Kangaroos (*Macropus giganteus*) in the off-road grassy woodland clearing beside the road
+    for (kx_off, kz, kyaw, is_road_side) in [
+        (0.24_f32, 0.16_f32, -2.35_f32, true),
+        (0.32_f32, -0.12_f32, -1.95_f32, true),
+        (-0.68_f32, 0.35_f32, 0.85_f32, false),
     ] {
+        let meander_k = 0.28 * (kz * 1.35 + sector_seed).sin()
+            + 0.11 * (kz * 2.7 - sector_seed * 0.6).cos();
+        let kx = if is_road_side {
+            meander_k + 0.54 + kx_off
+        } else {
+            kx_off
+        };
         let ky = sample_sector_elevation(sector_id, kx, kz, water_y).max(water_y + 0.08);
         b_fauna.add_fauna_specimen(
             [kx, ky, kz],
             kyaw,
-            0.22,
+            SECTOR_METRIC_SCALE,
             "macropod",
             [0.42, 0.35, 0.28, 1.0],
             [0.68, 0.58, 0.46, 1.0],
         );
     }
-    // Common Wombats (*Vombatus ursinus*)
+    // Common Wombats (*Vombatus ursinus*) foraging near tussock grass
     for (wx, wz, wyaw) in [(-0.55_f32, -0.32_f32, 0.45_f32), (0.38_f32, 0.65_f32, -0.85_f32)] {
         let wy = sample_sector_elevation(sector_id, wx, wz, water_y);
         b_fauna.add_fauna_specimen(
             [wx, wy, wz],
             wyaw,
-            0.14,
+            SECTOR_METRIC_SCALE,
             "wombat",
             [0.28, 0.22, 0.18, 1.0],
             [0.46, 0.38, 0.30, 1.0],
@@ -2161,13 +3100,14 @@ pub fn build_sector_10d(
         } else {
             ([0.26, 0.18, 0.12, 1.0], [0.44, 0.32, 0.22, 1.0])
         };
-        b_fauna.add_fauna_specimen([ux, swim_y, uz], uyaw, 0.12, "aquatic", cd, cl);
+        let arch = if is_cod { "cod" } else { "platypus" };
+        b_fauna.add_fauna_specimen([ux, swim_y, uz], uyaw, SECTOR_METRIC_SCALE, arch, cd, cl);
     }
     // Soaring Wedge-Tailed Eagle (*Aquila audax*) & Sulphur-Crested Cockatoo overhead
     b_fauna.add_fauna_specimen(
         [-0.25, 0.58, -0.15],
         0.55,
-        0.18,
+        SECTOR_METRIC_SCALE,
         "raptor",
         [0.22, 0.16, 0.12, 1.0],
         [0.44, 0.32, 0.22, 1.0],
@@ -2175,7 +3115,7 @@ pub fn build_sector_10d(
     b_fauna.add_fauna_specimen(
         [0.32, 0.48, 0.25],
         -0.75,
-        0.12,
+        SECTOR_METRIC_SCALE,
         "raptor",
         [0.88, 0.88, 0.84, 1.0],
         [0.98, 0.96, 0.62, 1.0],
@@ -2278,14 +3218,19 @@ pub fn build_sector_10d(
 
     // 5c. Build Dynamic 3D 4WD Field Rover & 3D Field Ecologist Bushwalker Actors (`b_actors`)
     let mut rover_template = SubmeshBuilder::new();
-    rover_template.add_field_rover_4wd_local(0.11);
-    let rover_local_positions = rover_template.positions.clone();
+    rover_template.add_field_rover_4wd_local(SECTOR_METRIC_SCALE);
+    // Orient for driving physics in WASM ([lp[2], lp[1], lp[0]]) so +Z is forward:
+    let rover_local_positions: Vec<[f32; 3]> = rover_template
+        .positions
+        .iter()
+        .map(|p| [p[2], p[1], p[0]])
+        .collect();
 
     let mut walker_template = SubmeshBuilder::new();
-    walker_template.add_ecologist_walker_local(0.085);
+    walker_template.add_ecologist_walker_local(SECTOR_METRIC_SCALE);
     let walker_local_positions = walker_template.positions.clone();
 
-    // Place the initial 4WD Rover and Ecologist Walker on the banked road corridor at z = 0.0 / z = 0.14
+    // Place the initial 4WD Rover and Ecologist Walker on the banked road corridor at z = 0.0 / z = 0.18
     let z_r0 = 0.0_f32;
     let x_r0 = 0.28 * (z_r0 * 1.35 + sector_seed).sin()
         + 0.11 * (z_r0 * 2.7 - sector_seed * 0.6).cos()
@@ -2294,9 +3239,11 @@ pub fn build_sector_10d(
     let rover_local_start = b_actors.positions.len();
     for i in 0..rover_template.positions.len() {
         let lp = rover_template.positions[i];
+        // lp[0] is vehicle length, lp[2] is lateral. Road runs along Z.
+        // Place rover facing along road (+Z):
         b_actors.push_vertex(
-            [lp[0] + x_r0, lp[1] + y_r0, lp[2] + z_r0],
-            rover_template.normals[i],
+            [lp[2] + x_r0, lp[1] + y_r0, lp[0] + z_r0],
+            [rover_template.normals[i][2], rover_template.normals[i][1], rover_template.normals[i][0]],
             rover_template.colors[i],
             rover_template.uvs[i],
         );
@@ -2306,8 +3253,8 @@ pub fn build_sector_10d(
     }
     let rover_local_end = b_actors.positions.len();
 
-    let z_w0 = 0.14_f32;
-    let x_w0 = x_r0 - 0.11;
+    let z_w0 = 0.18_f32;
+    let x_w0 = x_r0 - 0.09;
     let y_w0 = sample_sector_elevation(sector_id, x_w0, z_w0, water_y);
     let walker_local_start = b_actors.positions.len();
     for i in 0..walker_template.positions.len() {
@@ -2575,17 +3522,17 @@ pub fn build_closeup_specimen_10d(
     sector.scene_hmc_key = format!("10d/specimen-{specimen_id}.10d");
     sector.water_hmc_key = format!("10d/specimen-water-{specimen_id}.10d");
     if is_fauna {
-        // Focus camera directly on the foreground Eastern Grey Kangaroo mob on the dry bush track
-        sector.cam_target = [0.68, 0.02, 0.12];
+        // Focus camera directly on the foreground Eastern Grey Kangaroo mob in the grassy woodland clearing beside the 4WD
+        sector.cam_target = [1.02, 0.12, 0.06];
         sector.cam_yaw = -0.52;
-        sector.cam_pitch = 0.22;
-        sector.cam_zoom = 0.92;
+        sector.cam_pitch = 0.20;
+        sector.cam_zoom = 0.52;
     } else {
         // Focus camera directly on the foreground Ghost Gum / Snow Gum crown, falcate leaf blades & clear river pebbles
-        sector.cam_target = [0.32, 0.08, -0.12];
-        sector.cam_yaw = 0.28;
-        sector.cam_pitch = 0.20;
-        sector.cam_zoom = 0.95;
+        sector.cam_target = [0.45, 0.42, 0.15];
+        sector.cam_yaw = 0.25;
+        sector.cam_pitch = 0.18;
+        sector.cam_zoom = 0.65;
     }
     Ok(sector)
 }
@@ -3288,9 +4235,9 @@ pub fn render_sector_via_portal_gpu_png(
                     } else {
                         // Terrestrial Eastern Grey Kangaroos & Common Wombats:
                         // Bipedal saltatory hopping gait via PGA dual-quaternion skinning!
-                        let hop_arc = 0.062 * (phase.sin()).abs();
-                        let stride_x = -0.072 * phase.sin();
-                        let stride_z = 0.048 * phase.cos();
+                        let hop_arc = 0.024 * (phase.sin()).abs();
+                        let stride_x = -0.018 * phase.sin();
+                        let stride_z = 0.018 * phase.sin();
                         let world_curr = [
                             Motor::from_translation(stride_x as f64, hop_arc as f64, stride_z as f64),
                             Motor::identity(),
@@ -3347,4 +4294,219 @@ pub fn render_sector_via_portal_gpu_png(
 
     Ok(encode_rgba8_frames_to_apng(width, height, &frames, 9, 100))
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn compute_aabb(positions: &[[f32; 3]]) -> ([f32; 3], [f32; 3]) {
+        assert!(!positions.is_empty(), "Mesh must contain vertices");
+        let mut min = positions[0];
+        let mut max = positions[0];
+        for p in positions {
+            for i in 0..3 {
+                if p[i] < min[i] {
+                    min[i] = p[i];
+                }
+                if p[i] > max[i] {
+                    max[i] = p[i];
+                }
+            }
+        }
+        (min, max)
+    }
+
+    #[test]
+    fn test_field_rover_and_fauna_metric_proportions() {
+        // 1. Build 1:1 SI Metric Rover (scale = 1.0)
+        let mut rover_builder = SubmeshBuilder::new();
+        rover_builder.add_field_rover_4wd_local(1.0);
+        let (r_min, r_max) = compute_aabb(&rover_builder.positions);
+        let r_length = r_max[0] - r_min[0];
+        let r_height = r_max[1] - r_min[1];
+        let r_width = r_max[2] - r_min[2];
+
+        // Rover canonical bounds check
+        // Canonical length: 4.85 m (allow +/- 0.35 m for bullbar and tow hitch)
+        assert!(
+            r_length >= 4.5 && r_length <= 5.2,
+            "Rover length {r_length} m should be ~4.85 m"
+        );
+        // Canonical width: 1.88 m body / 2.02 m tyre track (allow 1.7 to 2.2 m)
+        assert!(
+            r_width >= 1.7 && r_width <= 2.2,
+            "Rover width {r_width} m should be ~1.88 m body / 2.02 m track"
+        );
+        // Canonical height: 1.92 m roof / 1.96 m beacon
+        assert!(
+            r_height >= 1.7 && r_height <= 2.2,
+            "Rover height {r_height} m should be ~1.92-1.96 m"
+        );
+
+        // 2. Build 1:1 SI Metric Eastern Grey Kangaroo (scale = 1.0)
+        let mut kanga_builder = SubmeshBuilder::new();
+        let coat_dark = [0.22, 0.20, 0.17, 1.0];
+        let coat_lit = [0.46, 0.42, 0.36, 1.0];
+        kanga_builder.add_fauna_specimen([0.0, 0.0, 0.0], 0.0, 1.0, "macropod", coat_dark, coat_lit);
+        let (k_min, k_max) = compute_aabb(&kanga_builder.positions);
+        let k_height = k_max[1] - k_min[1];
+
+        // Kangaroo standing height ~1.65 m (pinnae ears)
+        assert!(
+            k_height >= 1.45 && k_height <= 1.85,
+            "Kangaroo standing height {k_height} m should be ~1.65 m"
+        );
+
+        // Crucial proportional assertion: Rover is > 2.5x longer than Kangaroo's standing height!
+        // (Guaranteed: 4.85 m / 1.65 m = 2.94x; Kangaroo is never twice the size of a 4WD!)
+        assert!(
+            r_length > 2.5 * k_height,
+            "Rover length ({r_length} m) must be > 2.5x Kangaroo height ({k_height} m)"
+        );
+
+        // 3. Build 1:1 SI Metric Common Wombat (scale = 1.0)
+        let mut wombat_builder = SubmeshBuilder::new();
+        wombat_builder.add_fauna_specimen([0.0, 0.0, 0.0], 0.0, 1.0, "wombat", coat_dark, coat_lit);
+        let (w_min, w_max) = compute_aabb(&wombat_builder.positions);
+        let w_height = w_max[1] - w_min[1];
+        let w_length = (w_max[2] - w_min[2]).max(w_max[0] - w_min[0]);
+
+        assert!(
+            w_height >= 0.28 && w_height <= 0.46,
+            "Wombat height {w_height} m should be ~0.36 m"
+        );
+        assert!(
+            w_length >= 0.80 && w_length <= 1.20,
+            "Wombat length {w_length} m should be ~0.98 m"
+        );
+
+        // Kangaroo vs Wombat height ratio: 1.65 / 0.36 = 4.58x
+        assert!(
+            k_height > 3.0 * w_height,
+            "Kangaroo height ({k_height} m) must be > 3.0x Wombat height ({w_height} m)"
+        );
+
+        // 4. Build 1:1 SI Metric Platypus (scale = 1.0)
+        let mut platypus_builder = SubmeshBuilder::new();
+        platypus_builder.add_fauna_specimen([0.0, 0.0, 0.0], 0.0, 1.0, "platypus", coat_dark, coat_lit);
+        let (p_min, p_max) = compute_aabb(&platypus_builder.positions);
+        let p_length = (p_max[2] - p_min[2]).max(p_max[0] - p_min[0]);
+        let p_height = p_max[1] - p_min[1];
+
+        assert!(
+            p_length >= 0.40 && p_length <= 0.65,
+            "Platypus length {p_length} m should be ~0.50 m"
+        );
+        assert!(
+            p_height >= 0.10 && p_height <= 0.25,
+            "Platypus height {p_height} m should be ~0.15 m"
+        );
+
+        // 5. Build 1:1 SI Metric Ecologist Bushwalker (scale = 1.0)
+        let mut walker_builder = SubmeshBuilder::new();
+        walker_builder.add_ecologist_walker_local(1.0);
+        let (wk_min, wk_max) = compute_aabb(&walker_builder.positions);
+        let wk_height = wk_max[1] - wk_min[1];
+        assert!(
+            wk_height >= 1.70 && wk_height <= 1.90,
+            "Ecologist bushwalker height {wk_height} m should be ~1.80 m"
+        );
+        assert!(
+            wk_height > k_height,
+            "Adult bushwalker ({wk_height} m) stands taller than resting kangaroo ({k_height} m)"
+        );
+
+        // 6. Build 1:1 SI Metric Wedge-Tailed Eagle (scale = 1.0)
+        let mut eagle_builder = SubmeshBuilder::new();
+        eagle_builder.add_fauna_specimen([0.0, 0.0, 0.0], 0.0, 1.0, "raptor", coat_dark, coat_lit);
+        let (e_min, e_max) = compute_aabb(&eagle_builder.positions);
+        let e_wingspan = (e_max[0] - e_min[0]).max(e_max[2] - e_min[2]);
+        assert!(
+            e_wingspan >= 1.90 && e_wingspan <= 2.30,
+            "Eagle wingspan {e_wingspan} m should be ~2.10 m"
+        );
+    }
+
+    #[test]
+    fn test_canopy_tree_pipe_model_and_sector_scaling() {
+        let mut foliage_builder = SubmeshBuilder::new();
+        let mut trunk_builder = SubmeshBuilder::new();
+        foliage_builder.add_canopy_tree(
+            &mut trunk_builder,
+            [0.0, 0.0, 0.0],
+            12.0,
+            [0.52, 0.48, 0.44, 1.0],
+            [0.88, 0.86, 0.82, 1.0],
+            [0.18, 0.34, 0.20, 1.0],
+            [0.32, 0.52, 0.30, 1.0],
+            false,
+            42.0,
+        );
+        assert!(!trunk_builder.positions.is_empty(), "Canopy tree trunk must generate mesh vertices");
+        assert!(!foliage_builder.positions.is_empty(), "Canopy tree foliage must generate mesh vertices");
+
+        let (t_min, _) = compute_aabb(&trunk_builder.positions);
+        let (_, f_max) = compute_aabb(&foliage_builder.positions);
+        let t_height = f_max[1] - t_min[1];
+        assert!(
+            t_height >= 10.0 && t_height <= 16.0,
+            "Tree height {t_height} m should be ~12.0 m"
+        );
+
+        // Verify sector metric scale factor
+        assert_eq!(SECTOR_METRIC_SCALE, 0.045);
+        let sector_extent = 96.0 * SECTOR_METRIC_SCALE;
+        assert!(
+            sector_extent < 4.5,
+            "Sector extent {sector_extent} must comfortably fit in GPU viewport"
+        );
+    }
+
+    #[test]
+    fn test_sector_compilation_and_rover_vehicle_driving_forward_axis() {
+        let textures = build_procedural_textures();
+        assert_eq!(textures.len(), 4, "Expected 4 procedural terrain textures");
+
+        let sector = build_sector_10d("talbingo", "Talbingo Test", &textures, false)
+            .expect("Sector build should succeed");
+
+        assert!(!sector.positions.is_empty(), "Sector positions must not be empty");
+        assert!(!sector.indices.is_empty(), "Sector indices must not be empty");
+        assert!(!sector.rover_local_positions.is_empty(), "Rover local positions must be extracted");
+        assert!(!sector.walker_local_positions.is_empty(), "Walker local positions must be extracted");
+
+        // Verify that rover_local_positions has vehicle length along Z for WASM driving physics
+        let (rl_min, rl_max) = compute_aabb(&sector.rover_local_positions);
+        let z_len = rl_max[2] - rl_min[2];
+        let x_len = rl_max[0] - rl_min[0];
+        let y_len = rl_max[1] - rl_min[1];
+
+        // In rover_local_positions, Z must be the longest axis (length > width and length > height)
+        assert!(
+            z_len > x_len && z_len > y_len,
+            "Rover local positions must have vehicle length along local Z for WASM vehicle steering/drive"
+        );
+
+        // Rover scaled length in sector coordinates: 4.85 * 0.045 = ~0.218
+        assert!(
+            z_len >= 0.19 && z_len <= 0.25,
+            "Scaled rover length {z_len} must correspond to 4.85 m * SECTOR_METRIC_SCALE"
+        );
+    }
+
+    #[test]
+    fn test_closeup_specimens_generation() {
+        let textures = build_procedural_textures();
+        let kanga_specimen = build_closeup_specimen_10d("specimen-kangaroo", "Eastern Grey Kangaroo", &textures, true)
+            .expect("Closeup specimen kangaroo build should succeed");
+        assert!(!kanga_specimen.positions.is_empty());
+        assert_eq!(kanga_specimen.cam_target, [1.02, 0.12, 0.06]);
+
+        let flora_specimen = build_closeup_specimen_10d("specimen-flora", "Corymbia Ghost Gum", &textures, false)
+            .expect("Closeup specimen flora build should succeed");
+        assert!(!flora_specimen.positions.is_empty());
+        assert_eq!(flora_specimen.cam_target, [0.45, 0.42, 0.15]);
+    }
+}
+
 

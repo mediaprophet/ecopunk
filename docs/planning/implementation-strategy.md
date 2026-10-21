@@ -51,10 +51,8 @@ Ordered so each phase proves the next thing game-demo needs:
 
 ### Phase 0 — Foundations in writing (now, near-done)
 Planning docs complete enough to work against; gap register consolidated
-(`engine-requirements.md`); namespace/PID decision **G16** — the one pending
-user decision blocking vocabulary work. G16 blocks *new minting* of
-vocabularies — it does not block repairs, diagnosis, or native work such as
-the remediation below.
+(`engine-requirements.md`); namespace/PID decision **G16** resolved to
+`https://webizen.org/` (`https://ns.webizen.org/`).
 
 ### Phase 0A — Game-demo stabilization & qualification (prerequisite)
 The driver/test-case must be *reproducibly measurable and correct* before

@@ -24,7 +24,7 @@ if (-not (Test-Path $dummyHero)) {
     --output $outputHmc `
     --subject-id "urn:qualia:taxon:corymbia_aparrerinja" `
     --entity-type "DarwinianTaxon" `
-    --issuer "did:web:ecopunk.civics.au:authoring" `
+    --issuer "did:web:webizen.org:ecopunk:authoring" `
     --procedural-seed "hmc://seeds/bark/corymbia_aparrerinja_bone_white_v1" `
     --acoustic-low 180 `
     --acoustic-mid 950 `

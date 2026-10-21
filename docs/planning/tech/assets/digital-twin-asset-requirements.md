@@ -72,6 +72,30 @@ behaviour/affordances; lifecycle/damage; mutable state; observations; dependency
 closure; validation/UAT evidence. These are conceptual groups, not a claim
 that new wire fields or ontology IRIs have been ratified.
 
+### 2.1 Canonical SI Metric Frame & Species-Trait Dimensional Envelopes (`DTA-ID-05`, `DTA-SEM-05`, `DTA-PHY-02`)
+
+To prevent scale inversions (such as a marsupial rendered larger than a 4WD vehicle or a tree compressed into a dimensionless viewport cube) and to ensure every asset is physics-conformant across open-world Earth and alternative narrative environments:
+
+1. **1:1 SI Metric Authoring & Runtime Invariant (`1.0 unit = 1.0 m`):**
+   - All whole-organism, vehicle, building, and terrain assets MUST be authored and sealed into `.10d` in **1:1 SI metres** (`+X` East/Right, `+Y` Up, `-Z` North/Forward, pivot at basal ground contact `y = 0.0 m`).
+   - Micro-scale dissection and histological study assets (Scale 2–4 organs/tissues) MUST declare their exact metric unit multiplier in `DTA-ID-05` (`qudt:Millimeter` or `qudt:Micrometer`) so the engine transforms them into the metric world frame without ambiguity.
+   - Multi-asset world and sector scenes MUST execute with `QualiaPortal::set_preserve_authored_frame(true)` (`G70`); automatic orbit-box normalization (`[-0.85, +0.85]`) is restricted strictly to isolated single-component UAT inspection when explicitly disclosed (`DTA-UAT-05`).
+2. **Unified Species Trait Binding (`AusTraits` / `AFD` / `AVONET` $\to$ `.q42` $\to$ `.10d` Bounds & Physics Mass):**
+   - Living assets (`bio:DarwinianTaxon`) MUST derive their authored bounding box (`AABB`), allometric growth stages (`DTA-LIFE-01..03`), tissue density, and `qualia-sim` rigid/articulated body mass (`DTA-PHY-02`) from QUDT-typed `.q42` trait statements (e.g. `entities/taxa/<slug>/traits.json` compiled into `.q42` NQuins).
+   - Manufactured vehicles and equipment (`made:Artefact`) MUST derive their wheelbase, track width, overall dimensions, and curb mass from cited engineering specifications.
+   - **Canonical Reference Envelopes (Fail-Closed Admission Gate `G69`):**
+
+| Entity / Taxon | Ontological Class | Canonical Height ($H$, Y-axis) | Canonical Length / Spread ($L$) | Canonical Mass & Tissue/Material Density |
+|---|---|---|---|---|
+| ***Corymbia aparrerinja*** (Ghost Gum, mature) | `bio:DarwinianTaxon` (`APC:3180424`) | $12.0\text{ m} \le H \le 20.0\text{ m}$ | Crown spread $8.0\text{ m} \le W \le 16.0\text{ m}$; $\text{DBH } 0.40\text{–}1.10\text{ m}$ | Wood density $\rho = 880\text{ kg/m}^3$ (`AusTraits`) |
+| ***Eucalyptus pauciflora*** (Snow Gum, subalpine mature) | `bio:DarwinianTaxon` | $6.0\text{ m} \le H \le 15.0\text{ m}$ | Crown spread $6.0\text{ m} \le W \le 14.0\text{ m}$; $\text{DBH } 0.30\text{–}0.85\text{ m}$ | Wood density $\rho = 790\text{ kg/m}^3$ (`AusTraits`) |
+| ***Macropus giganteus*** (Eastern Grey Kangaroo, adult) | `bio:DarwinianTaxon` (`AFD`) | Standing height $1.50\text{ m} \le H \le 1.85\text{ m}$ | Head-body $1.10\text{–}1.40\text{ m}$ + tail $0.85\text{–}1.05\text{ m}$ ($L_{\text{total}} \approx 2.20\text{ m}$) | Adult mass $35.0\text{–}66.0\text{ kg}$; Achilles tendon $k_t \approx 180\text{ kN/m}$ |
+| ***Vombatus ursinus*** (Common Wombat, adult) | `bio:DarwinianTaxon` (`AFD`) | Shoulder height $0.32\text{ m} \le H \le 0.40\text{ m}$ | Body length $0.85\text{ m} \le L \le 1.15\text{ m}$ | Adult mass $22.0\text{–}35.0\text{ kg}$ |
+| ***Phascolarctos cinereus*** (Koala, adult) | `bio:DarwinianTaxon` (`AFD`) | Seated height $0.60\text{ m} \le H \le 0.85\text{ m}$ | Body length $0.60\text{ m} \le L \le 0.85\text{ m}$ | Adult mass $6.5\text{–}14.0\text{ kg}$ |
+| ***Ornithorhynchus anatinus*** (Platypus, adult) | `bio:DarwinianTaxon` (`AFD`) | Dorsal height $0.12\text{ m} \le H \le 0.16\text{ m}$ | Total length $0.43\text{ m} \le L \le 0.55\text{ m}$ | Adult mass $0.9\text{–}2.4\text{ kg}$ |
+| ***Aquila audax*** (Wedge-Tailed Eagle, adult) | `bio:DarwinianTaxon` (`AFD`/`AVONET`) | Perched height $0.85\text{ m} \le H \le 1.05\text{ m}$ | Wingspan $1.85\text{ m} \le W \le 2.32\text{ m}$ | Adult mass $3.0\text{–}5.3\text{ kg}$ |
+| **NPWS 4WD Field Utility / Survey Rover** | `made:Artefact` (`DOM-AX-1`) | Overall height $1.85\text{ m} \le H \le 2.05\text{ m}$ | Overall length $4.70\text{ m} \le L \le 5.10\text{ m}$; width $1.82\text{–}1.95\text{ m}$; wheelbase $2.85\text{ m}$ | Curb mass $2,100\text{–}2,450\text{ kg}$; wheel radius $0.41\text{ m}$ |
+
 ## 3. Semantic metadata, ontology and scientific claims
 
 | ID | Requirement | Acceptance/evidence |

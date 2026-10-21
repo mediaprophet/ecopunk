@@ -1,0 +1,13 @@
+module <https://webizen.org/ecopunk/modules/three_mile_dam_subalpine>;
+
+pure fn subalpine_profile() -> Record {
+    return {
+        sectorId: "three_mile_dam",
+        elevationM: 1410.0,
+        frostHollowInversionCelsius: -8.5,
+        sphagnumPeatDepthM: 1.25,
+        dominantEucalypt: "Eucalyptus pauciflora subsp. niphophila",
+        snowCoverMonths: 4.2,
+        bogWaterPh: 4.8
+    };
+}

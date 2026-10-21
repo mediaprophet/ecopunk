@@ -1,14 +1,14 @@
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://webcivics.org/contexts/v1"
+    "https://webizen.org/contexts/v1"
   ],
   "id": "urn:uuid:corymbia-aparrerinja-specimen-v1",
   "type": [
     "VerifiableCredential",
     "TaxonSpecimen"
   ],
-  "issuer": "did:web:ecopunk.civics.au:authoring",
+  "issuer": "did:web:webizen.org:ecopunk:authoring",
   "issuanceDate": "2026-10-13T10:00:00Z",
   "credentialSubject": {
     "id": "urn:qualia:taxon:corymbia_aparrerinja",
@@ -71,7 +71,7 @@
   "proof": {
     "type": "Ed25519Signature2020",
     "created": "2026-10-13T10:00:00Z",
-    "verificationMethod": "did:web:ecopunk.civics.au:authoring#key-2026",
+    "verificationMethod": "did:web:webizen.org:ecopunk:authoring#key-2026",
     "proofPurpose": "assertionMethod",
     "proofValue": "z49aX9CORYMBIA_APARRERINJA_VALID_PROOF_2026_ED25519"
   }

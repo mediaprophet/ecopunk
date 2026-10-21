@@ -155,12 +155,35 @@ adapter's first job is to not confuse them:
 | **WFS / OGC API Features** | the features — geometry + attribute table | vector quins + WKT literals | Task 3.3's path; geometry validity receipts at ingest |
 | **SOSA/SSN, SensorThings API** | observations bound to feature-of-interest + sensor | event quins | TERN already ships this shape |
 | **GeoSPARQL endpoint** | the graph itself | direct `.q42` ingest | QualiaDB executes GeoSPARQL natively — zero impedance |
-| **STAC / CSW / DCAT** | catalogues of assets + metadata | `source_catalogue` descriptors | Discovery only; `Unverified` until licence+schema review |
+| **STAC / CSW / DCAT** | catalogues of assets + metadata | `source_catalogue` descriptors + STAC JSON-LD asset pointers | Discovery + exact COG/COPC byte-range asset resolution (§4.1); `Unverified` until licence+schema review |
+| **Cloud-Optimised GeoTIFF (COG)** | tiled, IFD-indexed georeferenced coverage supporting HTTP `Range: bytes=...` window reads | `.m64` (`surface_elevation_mm`, 6-layer strata) + `.10d` `FIEL` (`CHM = DSM - DEM`) | Primary binary elevation, canopy-height, and SLGA soil delivery format (§4.1) |
 | **NetCDF / Zarr / OPeNDAP / THREDDS** | n-dimensional arrays (x,y,z,t × bands) | `.10d` FIEL | Climate/ocean grids; registered engine gap |
 | **LAZ / COPC** | point clouds w/ classes, returns, intensity | `.m64` Mode 0x00 | `E64PointRecord` already shaped for ASPRS classes |
 | **GeoPackage / FlatGeobuf / GeoJSON** | vector exchange files | vector quins | Treat as WFS output that arrived by post |
 | **PMTiles / MBTiles** | display tile pyramids | texture array / external refs | Same honesty rule as WMS |
 | **3D Tiles / CityGML / glTF** | scene products | export *targets*, not ingest sources | Our derivative direction: constituents → scenes |
+
+### 4.1 The Two-Layer Open-World Terrain & Bush Pipeline (Semantic Control Plane $\to$ Binary COG/COPC Payload Plane)
+
+Building an open-world, 1:1 metric 3D environment of the NSW bush (and planetary Earth / multi-narrative worlds generally) splits the spatial pipeline into two strictly separated planes so the `.q42` graph never chokes on millions of raster vertices:
+
+1. **Step 1 — Query the Semantic Topology (GeoSPARQL over `.q42` / `osm2rdf` / Geofabric / Gazetteer):**
+   - Execute a GeoSPARQL query over the admitted `.q42` volume (populated from the University of Freiburg `osm2rdf` Australia extract `aus.osm.ttl.bz2`, NSW Geofabric `linked.data.gov.au/dataset/geofabric`, and Composite Gazetteer `linked.data.gov.au/def/placenames`) to retrieve:
+     - Bush campsites (`osmtag:tourism=camp_site`, `osmkey:operator` = NPWS / Forestry Corporation),
+     - Intersecting 4WD fire trails and roads (`osmtag:highway=track`, `osmkey:surface`, `osmkey:tracktype`),
+     - Perennial and ephemeral watercourses, billabongs, and catchments (`ahgf:HydrographicFeature`),
+     - Reserve boundaries (`wd:Q46169` / CAPAD) within the active view radius as `geo:wktLiteral` geometries.
+2. **Step 2 — Resolve the AusPIX DGGS Cell & Biophysical Context (`apo:Cell` $\times$ TERN / SLGA / NVIS):**
+   - Map the target bounding box to deterministic **AusPIX DGGS** cell URIs (`http://linked.data.gov.au/def/auspix`, e.g. Level 10 $\approx 200\text{ m}$ or Level 9 $\approx 600\text{ m}$ cells with `apo:hasNeighbourUp/Down/Left/Right`).
+   - Join the AusPIX cell URI against **TERN / ABIS**, **NVIS**, and **SLGA** linked data in `.q42` to resolve the cell's geological unit (`env:GeologicUnit`), 6-layer soil profile (`BankedConstituentLut`), and dominant canopy/understorey species assemblage (e.g. *Corymbia*, *Eucalyptus pauciflora*, *E. delegatensis*, *Poa sieberiana*) rather than guessing a generic biome.
+3. **Step 3 — Resolve Binary Payload URLs via STAC JSON-LD & W3C DCAT:**
+   - Query the STAC JSON-LD / DCAT catalog graph (`explorer.dea.ga.gov.au/stac`, NSW Spatial Services, or Microsoft Planetary Computer STAC) for `stac:Item`s intersecting the AusPIX cell's `geo:wktLiteral` polygon (`geof:sfIntersects`), filtering by `eo:cloud_cover`, `proj:epsg`, and ground sample distance (`gsd`).
+   - Extract the `dcat:downloadURL` for:
+     - **Bare-Earth DEM COG:** NSW Spatial Services 1 m–5 m LiDAR DEM COG where available, falling back seamlessly to **30 m FABDEM** (Forest And Buildings removed DEM) or **CSIRO/GA 1-Second SRTM DEM-H** in remote backcountry so tree canopies never create false terrain hills.
+     - **Canopy Height Model (CHM) COG:** Fused NASA GEDI + ICESat-2 / Meta-WRI 1 m Canopy Height COG ($\text{CHM} = \text{DSM} - \text{DEM}$) or ELVIS classified COPC LiDAR (`ASPRS Class 2` Ground vs `Classes 3, 4, 5` Low/Medium/High Vegetation).
+4. **Step 4 — HTTP Byte-Range (`Range: bytes=...`) Window Fetch & `.m64` / `.10d` Compilation:**
+   - Read the COG Image File Directory (IFD) header and fetch only the exact compressed tile byte range (`512 × 512` float32 window) covering the AusPIX cell via HTTP `Range: bytes=...`.
+   - Compile bare-earth elevations (`surface_elevation_mm` relative to AHD `EPSG:5711`) and 6-layer SLGA soil horizons into Hilbert-indexed `.m64` `M64StrataColumnRecord` chunks, apply `HermiteCorridorSegment` cut-and-fill banking for the `osm2rdf` fire trails and Geofabric creeks, and drive procedural `.10d` `PROC1`/`EONT1` tree allometry from the real $\text{CHM} = \text{DSM} - \text{DEM}$ canopy height field.
 
 ## 5. The bridge: graph ↔ tensor binding
 
@@ -193,6 +216,23 @@ Worked flows:
 - **Tensor → graph:** user clicks a strata column → `chunk_uuid` + `lut_index`
   → manifest quin → `env:GeologicUnit` entity → its provenance, age,
   custodianship, related literature. The voxel *explains itself*.
+
+### 5.1 Unified SI Metric Frame & Species-Trait-to-Physics Conformance Contract (`1.0 unit = 1.0 m`)
+
+To support both rigorous Earth digital-twin modelling and multi-narrative / multi-universe open worlds without scale inversions or physics breakage, the spatial substrate enforces a **single, non-negotiable metric frame across terrain, flora, fauna, and manufactured artefacts**:
+
+1. **Canonical World Unit (`1.0 unit = 1.0 SI metre`):**
+   - Every local tangent ENU chunk (`.m64`), every `.10d` mesh (`MSH0`/`MSH1`), every `.10d` procedural recipe (`PROC1`), every `HermiteCorridorSegment` road/creek width, and every `qualia-sim` physics collider (`SdfCollider`, `ColliderShape3D`, `RoverState`, `CharacterState3D`) operates in **1:1 SI metres** (`+X` East, `+Y` Up relative to AHD `EPSG:5711`, `-Z` North).
+   - World and sector scenes MUST run with `QualiaPortal::set_preserve_authored_frame(true)` (`DTA-ID-05`) so viewport orbit-cube normalization (`[-0.85, +0.85]`) never shrinks a multi-kilometre landscape or rescales entities relative to one another.
+2. **Unified Species Trait Governance (`AusTraits` / `AFD` / `AVONET` $\to$ `.q42` QUDT $\to$ `.10d` & `qualia-sim`):**
+   - No procedural generator or scene assembler may invent arbitrary scale factors for living organisms or vehicles.
+   - Each taxon's `.q42` semantic slice carries QUDT-typed dimensional and physical trait statements (`DTA-SEM-05`, `DTA-PHY-02`, e.g. `eco:canonicalHeightM`, `eco:canonicalLengthM`, `eco:stemDiameterMaxM`, `eco:woodDensityKgPerM3`, `eco:adultBodyMassKg`).
+   - At compile and admission time (`G69`), the `.10d` container's authored bounding box (`AABB`) and `qualia-sim` mass/inertia properties are validated directly against the entity's `.q42` QUDT trait envelope:
+     - *Corymbia aparrerinja* / *Eucalyptus pauciflora* mature trees: $8.0\text{ m} \le H \le 20.0\text{ m}$, $\text{DBH} \in [0.35\text{ m}, 1.10\text{ m}]$, $\rho_{\text{wood}} \approx 880\text{ kg/m}^3$.
+     - *Macropus giganteus* (Eastern Grey Kangaroo): standing height $1.50\text{ m} \le H \le 1.85\text{ m}$, head-body + tail length $2.10\text{ m} \le L \le 2.45\text{ m}$, adult mass $35\text{ kg} \le M \le 66\text{ kg}$.
+     - *Vombatus ursinus* (Common Wombat): shoulder height $0.32\text{ m} \le H \le 0.40\text{ m}$, body length $0.85\text{ m} \le L \le 1.15\text{ m}$, adult mass $22\text{ kg} \le M \le 35\text{ kg}$.
+     - `made:Artefact` 4WD Field Utility / Survey Rover: length $L = 4.85\text{ m}$, width $W = 1.88\text{ m}$, height $H = 1.92\text{ m}$, wheelbase $2.85\text{ m}$, curb mass $M = 2,240\text{ kg}$.
+   - Any asset or scene placement that violates these relative dimensional invariants (for example, an organism whose bounding height exceeds a 4WD vehicle when its taxon trait envelope specifies $H \le 1.85\text{ m}$) **fails closed at compile/admission time**.
 
 ## 6. Indexing strategy — four indexes, four jobs
 

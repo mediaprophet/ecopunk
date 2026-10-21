@@ -1,0 +1,14 @@
+module <https://webizen.org/ecopunk/modules/corymbia_aparrerinja_specimen>;
+
+pure fn specimen_dimensions() -> Record {
+    return {
+        taxon: "Corymbia aparrerinja K.D.Hill & L.A.S.Johnson",
+        commonName: "Ghost Gum (Ilwempe)",
+        canonicalHeightM: 16.0,
+        stemDbhM: 0.72,
+        crownSpreadM: 11.5,
+        woodDensityKgM3: 880.0,
+        leafFalcateLengthMm: 145.0,
+        leafWidthMm: 18.0
+    };
+}
