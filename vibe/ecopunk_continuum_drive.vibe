@@ -1,0 +1,117 @@
+module <https://qualia.ylonen.au/ecopunk/continuum_drive>;
+import "vibe:0.1/math" as m;
+
+requires [
+    capability("capability.invoke"),
+    capability("WorldContinuum.sample_elevation_normal"),
+    capability("WorldContinuum.step_rover_64hz"),
+    capability("WorldContinuum.step_character_3d"),
+    capability("WorldContinuum.stream_hilbert_chunks"),
+    capability("WorldContinuum.locate_study_site"),
+    capability("SceneGraph10D.cull_indirect_4tier")
+];
+
+// Compute camera orbit pose around the active rover or ecologist walker.
+pure fn camera_pose_from_rig(
+    wx_m: f64,
+    wy_m: f64,
+    wz_m: f64,
+    yaw_rad: f64,
+    pitch_rad: f64,
+    cam_dist_m: f64
+) -> Record {
+    let cp = m.cos(pitch_rad);
+    let sp = m.sin(pitch_rad);
+    let sy = m.sin(yaw_rad);
+    let cy = m.cos(yaw_rad);
+    let eye_x = wx_m - sy * cp * cam_dist_m;
+    let eye_y = wy_m + 1.85 + sp * cam_dist_m;
+    let eye_z = wz_m - cy * cp * cam_dist_m;
+    return {
+        eye_x: eye_x,
+        eye_y: eye_y,
+        eye_z: eye_z,
+        target_x: wx_m,
+        target_y: wy_m + 1.4,
+        target_z: wz_m
+    };
+}
+
+// Step the 26.5 km East Coast World Continuum rover, terrain conformation, and Hilbert streaming.
+effect fn step_continuum_rover_tick(
+    wx_m: f64,
+    wz_m: f64,
+    heading_rad: f64,
+    speed_mps: f64,
+    throttle: f64,
+    steer: f64,
+    dt_s: f64
+) budget(steps: 10000) -> Record {
+    let step_rec = capability.invoke("WorldContinuum.step_rover_64hz", {
+        wx_m: wx_m,
+        wz_m: wz_m,
+        heading_rad: heading_rad,
+        speed_mps: speed_mps,
+        throttle: m.clamp(throttle, -1.0, 1.0),
+        steer: m.clamp(steer, -1.0, 1.0),
+        dt_s: m.clamp(dt_s, 0.001, 0.05)
+    });
+    let next_wx = step_rec.wx_m;
+    let next_wz = step_rec.wz_m;
+    let terrain = capability.invoke("WorldContinuum.sample_elevation_normal", {
+        wx_m: next_wx,
+        wz_m: next_wz
+    });
+    let site = capability.invoke("WorldContinuum.locate_study_site", {
+        wx_m: next_wx,
+        wz_m: next_wz
+    });
+    let chunks = capability.invoke("WorldContinuum.stream_hilbert_chunks", {
+        wx_m: next_wx,
+        wz_m: next_wz
+    });
+    let cull = capability.invoke("SceneGraph10D.cull_indirect_4tier", {
+        instance_count: 512.0
+    });
+    return {
+        rover: step_rec,
+        terrain: terrain,
+        nearest_site: site,
+        hilbert_chunks: chunks,
+        indirect_cull: cull
+    };
+}
+
+// Step the on-foot 3D capsule ecologist walker at any coordinate in the 26.5 km continuum.
+effect fn step_continuum_walker_tick(
+    wx_m: f64,
+    wz_m: f64,
+    yaw_rad: f64,
+    move_fwd: f64,
+    move_strafe: f64,
+    sprint: bool,
+    dt_s: f64
+) budget(steps: 10000) -> Record {
+    let walk_rec = capability.invoke("WorldContinuum.step_character_3d", {
+        wx_m: wx_m,
+        wz_m: wz_m,
+        yaw_rad: yaw_rad,
+        move_fwd: m.clamp(move_fwd, -1.0, 1.0),
+        move_strafe: m.clamp(move_strafe, -1.0, 1.0),
+        sprint: sprint,
+        dt_s: m.clamp(dt_s, 0.001, 0.05)
+    });
+    let terrain = capability.invoke("WorldContinuum.sample_elevation_normal", {
+        wx_m: walk_rec.wx_m,
+        wz_m: walk_rec.wz_m
+    });
+    let site = capability.invoke("WorldContinuum.locate_study_site", {
+        wx_m: walk_rec.wx_m,
+        wz_m: walk_rec.wz_m
+    });
+    return {
+        walker: walk_rec,
+        terrain: terrain,
+        nearest_site: site
+    };
+}

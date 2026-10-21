@@ -34,6 +34,7 @@ jobs:
           cp -r viewer _site/viewer
           cp -r assets _site/assets
           cp -r data _site/data
+          cp -r vibe _site/vibe
           touch _site/.nojekyll
 
       - name: Upload Pages artifact

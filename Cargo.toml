@@ -2,6 +2,7 @@
 resolver = "2"
 members = [
     "crates/ecopunk-terrain",
+    "crates/ecopunk-wasm",
 ]
 
 [workspace.dependencies]
@@ -9,26 +10,44 @@ bytemuck = { version = "1.16", features = ["derive"] }
 crc32c = "0.6"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-qualia-core-db = { path = "../qualiaDB/crates/qualia-core-db", default-features = false, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-dx12", "wgsl-forge", "privacy-he"] }
+qualia-core-db = { path = "../qualiaDB/crates/qualia-core-db", default-features = false }
 qualia-geospatial = { path = "../qualiaDB/crates/qualia-geospatial" }
 qualia-sim = { path = "../qualiaDB/crates/qualia-sim" }
 vibe = { path = "../qualiaDB/crates/vibe" }
+vibe-wasm = { path = "../qualiaDB/crates/vibe-wasm" }
 webizen-render = { path = "../qualiaDB/crates/webizen-render" }
-wgpu = { version = "30.0.0", path = "../etalon/compat/wgpu", default-features = false }
-naga = { version = "0.0.1", path = "../etalon/naga", features = ["wgsl-in", "spv-out", "msl-out", "hlsl-out"] }
-etalon = { version = "0.0.1", path = "../etalon/etalon", default-features = false }
-etalon-agent = { version = "0.0.1", path = "../etalon/crates/etalon-agent" }
-etalon-wgsl-forge = { version = "0.0.1", path = "../etalon/crates/etalon-wgsl-forge" }
-etalon-nquin = { version = "0.0.1", path = "../etalon/crates/etalon-nquin" }
-etalon-tensor = { version = "0.0.1", path = "../etalon/crates/etalon-tensor" }
-etalon-render = { version = "0.0.1", path = "../etalon/crates/etalon-render" }
-etalon-wasm = { version = "0.0.1", path = "../etalon/crates/etalon-wasm" }
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.6"
+js-sys = "0.3"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["console", "Window", "Document", "Element", "HtmlCanvasElement", "Performance"] }
+wgpu = { version = "30.0.0", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main", default-features = false }
+naga = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main", features = ["wgsl-in", "spv-out", "msl-out", "hlsl-out"] }
+etalon = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main", default-features = false }
+etalon-agent = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+etalon-wgsl-forge = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+etalon-nquin = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+etalon-tensor = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+etalon-render = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+etalon-wasm = { version = "0.0.1", git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
 rio_api = "0.8"
 rio_turtle = "0.8"
 sha2 = "0.10"
 image = { version = "0.25", default-features = false, features = ["png"] }
 
 [patch.crates-io]
-wgpu = { path = "../etalon/compat/wgpu" }
-naga = { path = "../etalon/naga" }
+wgpu = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+naga = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.release]
+debug = 0
+lto = false
+codegen-units = 16
+opt-level = "s"
+incremental = false
+
 

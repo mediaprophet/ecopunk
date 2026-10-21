@@ -1,0 +1,99 @@
+module <https://qualia.ylonen.au/ecopunk/biological_lab>;
+import "vibe:0.1/math" as m;
+
+requires [
+    capability("capability.invoke"),
+    capability("BotanicalAnatomy.synthesize_organ_10d"),
+    capability("BotanicalAnatomy.dissect_tissue_layer"),
+    capability("BotanicalAnatomy.evaluate_anthesis"),
+    capability("BotanicalAnatomy.evaluate_stomatal_conductance"),
+    capability("BotanicalAnatomy.evaluate_pipe_model_sapwood"),
+    capability("ZoologicalAnatomy.synthesize_vertebrate_10d"),
+    capability("ZoologicalAnatomy.peel_layer"),
+    capability("ZoologicalAnatomy.evaluate_tendon_strain"),
+    capability("BiologicalOntology.query_callout_pin"),
+    capability("BiologicalOntology.resolve_curie"),
+    capability("SceneGraph10D.step_ontogeny"),
+    capability("SceneGraph10D.dispatch_affordance")
+];
+
+// Evaluate a 5-scale botanical or zoological dissection state via QualiaDB VibeScript capabilities.
+effect fn evaluate_dissection_lab_state(
+    scale: i64,
+    explode_01: f64,
+    cutaway_01: f64,
+    anthesis_01: f64,
+    peel_01: f64,
+    pin_index: i64,
+    month: i64
+) budget(steps: 10000) -> Record {
+    let exp_c = m.clamp(explode_01, 0.0, 1.0);
+    let cut_c = m.clamp(cutaway_01, 0.0, 1.0);
+    let ant_c = m.clamp(anthesis_01, 0.0, 1.0);
+    let peel_c = m.clamp(peel_01, 0.0, 1.0);
+
+    let organ = capability.invoke("BotanicalAnatomy.synthesize_organ_10d", {
+        species_id: "corymbia_aparrerinja",
+        scale: scale,
+        explode_01: exp_c,
+        cutaway_01: cut_c,
+        anthesis_01: ant_c
+    });
+    let tissue = capability.invoke("BotanicalAnatomy.dissect_tissue_layer", {
+        scale: scale,
+        explode_01: exp_c,
+        cutaway_01: cut_c,
+        layer_index: pin_index
+    });
+    let anthesis = capability.invoke("BotanicalAnatomy.evaluate_anthesis", {
+        anthesis_01: ant_c
+    });
+    let stomata = capability.invoke("BotanicalAnatomy.evaluate_stomatal_conductance", {
+        g_s_mol_m2_s: 0.28,
+        vpd_kpa: 1.65,
+        pressure_kpa: 101.325,
+        vessel_radius_um: 30.0
+    });
+    let pipe = capability.invoke("BotanicalAnatomy.evaluate_pipe_model_sapwood", {
+        r1_m: 0.22,
+        r2_m: 0.16,
+        eta: 2.49
+    });
+    let vertebrate = capability.invoke("ZoologicalAnatomy.synthesize_vertebrate_10d", {
+        archetype: "MacropodSaltatorial",
+        osteology_vis_01: 1.0,
+        myology_vis_01: 1.0 - peel_c * 0.5,
+        integument_vis_01: 1.0 - peel_c
+    });
+    let peel = capability.invoke("ZoologicalAnatomy.peel_layer", {
+        peel_01: peel_c,
+        explode_01: exp_c
+    });
+    let tendon = capability.invoke("ZoologicalAnatomy.evaluate_tendon_strain", {
+        stiffness_n_m: 185000.0,
+        delta_l_m: 0.044,
+        recovery_ratio: 0.65
+    });
+    let pin = capability.invoke("BiologicalOntology.query_callout_pin", {
+        scale: scale,
+        pin_index: pin_index
+    });
+    let ontogeny = capability.invoke("SceneGraph10D.step_ontogeny", {
+        month: month,
+        growth_01: 0.78
+    });
+
+    return {
+        scale: scale,
+        botanical_organ: organ,
+        tissue_dissection: tissue,
+        floral_anthesis: anthesis,
+        stomatal_biophysics: stomata,
+        pipe_model_allometry: pipe,
+        vertebrate_anatomy: vertebrate,
+        vertebrate_peel: peel,
+        achilles_tendon_energetics: tendon,
+        active_ontology_pin: pin,
+        ontogeny_state: ontogeny
+    };
+}

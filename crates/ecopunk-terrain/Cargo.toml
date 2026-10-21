@@ -11,12 +11,10 @@ bytemuck = { workspace = true }
 crc32c = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
-qualia-core-db = { workspace = true }
 qualia-geospatial = { workspace = true }
 qualia-sim = { workspace = true }
 vibe = { workspace = true }
 webizen-render = { workspace = true }
-etalon = { workspace = true, features = ["std", "metal", "gles", "vulkan", "dx12", "wgsl", "webgpu", "spirv"] }
 etalon-agent = { workspace = true }
 etalon-wgsl-forge = { workspace = true }
 etalon-nquin = { workspace = true }
@@ -28,6 +26,14 @@ rio_turtle = { workspace = true }
 sha2 = { workspace = true }
 image = { workspace = true }
 flate2 = "1.1"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+qualia-core-db = { workspace = true, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-dx12", "wgsl-forge", "privacy-he"] }
+etalon = { workspace = true, features = ["std", "metal", "gles", "vulkan", "dx12", "wgsl", "webgpu", "spirv"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+qualia-core-db = { workspace = true, features = ["wasm-full"] }
+etalon = { workspace = true, features = ["std", "gles", "wgsl", "webgpu"] }
 
 [dev-dependencies]
 

@@ -33,13 +33,17 @@ pub use etalon_wgsl_forge;
 pub use botanical_anatomy::{
     build_scale1_whole_organism_10d, build_scale2_stem_bark_wedge_10d,
     build_scale3_floral_and_gumnut_dissection_10d, build_scale4_leaf_venation_and_histology_10d,
-    write_corymbia_educational_assets_to_disk, BotanicalEducationScale, CompiledBotanicalOrgan10d,
-    HistologicalTissueLayer, TissueSubmeshSlice,
+    BotanicalEducationScale, CompiledBotanicalOrgan10d, HistologicalTissueLayer,
+    TissueSubmeshSlice,
 };
+#[cfg(not(target_arch = "wasm32"))]
+pub use botanical_anatomy::write_corymbia_educational_assets_to_disk;
 pub use botanical_ontology_q42::{
-    emit_anatomical_ontology_nquins_to_writer, query_closest_anatomical_pin_zero_heap,
-    AnatomicalCalloutPin, AnatomicalOntologyStandard, CANONICAL_ANATOMICAL_PINS,
+    query_closest_anatomical_pin_zero_heap, AnatomicalCalloutPin, AnatomicalOntologyStandard,
+    CANONICAL_ANATOMICAL_PINS,
 };
+#[cfg(not(target_arch = "wasm32"))]
+pub use botanical_ontology_q42::emit_anatomical_ontology_nquins_to_writer;
 pub use display::{CompanionDeviceRole, CompanionSyncMessage, FrameLockPacket, FrustumWedge};
 pub use e64::{E64Header, E64HoloRecord, E64PointRecord};
 pub use exploration_controller::{
@@ -63,9 +67,11 @@ pub use physics_continuum::{
     FractureMaterialProps, RoverState, SdfCollider, SectorPhysicsReceipt, XpbdWorld3D,
 };
 pub use scene_builder_10d::{
-    build_closeup_specimen_10d, build_procedural_textures, build_sector_10d,
-    render_sector_via_portal_gpu_png, CompiledSector10d, ProceduralTextureAsset,
+    build_closeup_specimen_10d, build_procedural_textures, build_sector_10d, CompiledSector10d,
+    ProceduralTextureAsset,
 };
+#[cfg(not(target_arch = "wasm32"))]
+pub use scene_builder_10d::render_sector_via_portal_gpu_png;
 pub use scene_graph_10d::EcopunkSectorSceneGraph;
 pub use specimen::{
     BotanicalDevelopmentalStage, DevelopmentalStage, GhostGumOrganSubmesh, GhostGumPhenology,

@@ -2776,6 +2776,7 @@ pub fn build_scale4_leaf_venation_and_histology_10d(
 /// - `gumnut-dissection.10d`
 /// - `leaf-anatomy-cutaway.10d`
 /// - `whole-organism-roots.10d`
+#[cfg(not(target_arch = "wasm32"))]
 pub fn write_corymbia_educational_assets_to_disk(
     repo_root: &Path,
 ) -> std::io::Result<usize> {

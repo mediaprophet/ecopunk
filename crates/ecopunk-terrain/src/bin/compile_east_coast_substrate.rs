@@ -1603,6 +1603,42 @@ fn main() -> io::Result<()> {
         .add_file("sem/east_coast_biosphere.q42", "q42", q42_v4_bytes.clone(), None)
         .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter q42: {e:?}")))?;
 
+    // Compile & embed the two canonical vibe-0.1 modules and their .qbc bytecode chunks
+    let vibe_dir = root.join("vibe");
+    let drive_vibe_src = fs::read_to_string(vibe_dir.join("ecopunk_continuum_drive.vibe"))?;
+    let lab_vibe_src = fs::read_to_string(vibe_dir.join("ecopunk_biological_lab.vibe"))?;
+    let drive_prog = vibe::load_program(&drive_vibe_src)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("drive .vibe load: {e:?}")))?;
+    let drive_chunk = vibe::bytecode::compile(&drive_prog)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("drive .qbc compile: {e:?}")))?;
+    let drive_qbc = vibe::bytecode::encode_chunk(&drive_chunk);
+    fs::write(vibe_dir.join("ecopunk_continuum_drive.qbc"), &drive_qbc)?;
+
+    let lab_prog = vibe::load_program(&lab_vibe_src)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("lab .vibe load: {e:?}")))?;
+    let lab_chunk = vibe::bytecode::compile(&lab_prog)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("lab .qbc compile: {e:?}")))?;
+    let lab_qbc = vibe::bytecode::encode_chunk(&lab_chunk);
+    fs::write(vibe_dir.join("ecopunk_biological_lab.qbc"), &lab_qbc)?;
+
+    bundle_writer
+        .add_file("vibe/ecopunk_continuum_drive.vibe", "vibe", drive_vibe_src.into_bytes(), None)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter drive.vibe: {e:?}")))?;
+    bundle_writer
+        .add_file("vibe/ecopunk_continuum_drive.qbc", "qbc", drive_qbc.clone(), None)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter drive.qbc: {e:?}")))?;
+    bundle_writer
+        .add_file("vibe/ecopunk_biological_lab.vibe", "vibe", lab_vibe_src.into_bytes(), None)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter lab.vibe: {e:?}")))?;
+    bundle_writer
+        .add_file("vibe/ecopunk_biological_lab.qbc", "qbc", lab_qbc.clone(), None)
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter lab.qbc: {e:?}")))?;
+    println!(
+        "[OK] Compiled & Embedded VibeScript (.vibe -> .qbc): continuum_drive={} B, biological_lab={} B",
+        drive_qbc.len(),
+        lab_qbc.len()
+    );
+
     let hmc_bytes = bundle_writer
         .build()
         .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("BundleWriter build: {e}")))?;

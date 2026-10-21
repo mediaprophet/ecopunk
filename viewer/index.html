@@ -2,2579 +2,488 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>EcoPunk × QualiaDB + Etalon — 60 FPS 3D World Continuum & 5-Scale Botanical/Biological Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOPUNK // QualiaDB + VibeScript WASM World Continuum & 5-Scale Biological Dissection Lab</title>
   <style>
     :root {
-      --bg-0: #030712;
-      --bg-1: #091322;
-      --bg-2: #0f223c;
-      --border: rgba(56, 189, 248, 0.28);
-      --border-hi: rgba(45, 212, 191, 0.85);
-      --text: #f0f9ff;
-      --muted: #94a3b8;
-      --accent: #2dd4bf;
-      --accent-2: #38bdf8;
-      --amber: #f59e0b;
-      --crimson: #f43f5e;
-      --emerald: #10b981;
-      --purple: #a855f7;
+      --bg-dark: #070b10;
+      --panel-bg: rgba(10, 16, 24, 0.88);
+      --border-cyan: rgba(56, 189, 248, 0.32);
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --text-main: #e2e8f0;
+      --text-dim: #94a3b8;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html, body {
-      overflow-x: hidden;
-      background: radial-gradient(circle at 20% 0%, #0d2746 0%, var(--bg-0) 70%);
-      color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.46;
-      min-height: 100vh;
-      padding-bottom: 3.5rem;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      width: 100%; height: 100%; overflow: hidden;
+      background: var(--bg-dark); color: var(--text-main);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     }
-    a { color: var(--accent-2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code, pre {
-      font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
-      font-size: 0.82rem;
+    #qualia-canvas {
+      position: fixed; inset: 0; width: 100vw; height: 100vh; display: block;
+      z-index: 1; cursor: grab;
     }
-
-    /* Top Sticky Brand & Experience Navigation Header */
-    header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(3, 7, 18, 0.94);
-      backdrop-filter: blur(14px);
-      padding: 0.65rem 1.25rem;
-      position: sticky;
-      top: 0;
-      z-index: 80;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
+    #qualia-canvas:active { cursor: grabbing; }
+    .hud-layer {
+      position: fixed; inset: 0; pointer-events: none; z-index: 10;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 350px 1fr 390px;
+      padding: 12px; gap: 12px;
+    }
+    .panel {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-cyan);
+      border-radius: 8px;
+      padding: 12px 14px;
+      pointer-events: auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+      overflow-y: auto;
+      max-height: calc(100vh - 150px);
+    }
+    .topbar {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
     }
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      min-width: 0;
-    }
-    .brand-orb {
-      width: 12px;
-      height: 12px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 16px var(--accent);
-      animation: pulse-orb 2.4s infinite ease-in-out;
-    }
-    @keyframes pulse-orb {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.28); opacity: 1; box-shadow: 0 0 22px var(--accent); }
+      display: flex; flex-direction: column; gap: 2px;
     }
     .brand h1 {
-      font-size: 1.02rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      white-space: nowrap;
+      font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent-cyan); font-weight: 700;
     }
-    .brand p {
-      font-size: 0.72rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    /* Top Experience Switcher */
-    .experience-nav {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    .nav-btn {
+    .brand span { font-size: 11px; color: var(--text-dim); font-family: monospace; }
+    .exp-tabs { display: flex; gap: 8px; }
+    button, select {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      border: 1px solid var(--border-cyan);
+      border-radius: 5px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 600;
       cursor: pointer;
-      user-select: none;
-      padding: 0.42rem 0.95rem;
-      border-radius: 9px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      background: rgba(15, 34, 60, 0.8);
-      color: var(--text);
-      transition: all 0.18s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
+      transition: all 0.15s ease;
     }
-    .nav-btn:hover {
-      border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.16);
-      color: #fff;
+    button:hover, select:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.16);
     }
-    .nav-btn.active {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(45, 212, 191, 0.32), rgba(56, 189, 248, 0.24));
-      color: #5eead4;
-      box-shadow: 0 0 16px rgba(45, 212, 191, 0.3);
-    }
-
-    .badges {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 0.35rem;
-      scrollbar-width: none;
+    button.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--accent-emerald);
+      color: #6ee7b7;
     }
     .badge {
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.68rem;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid var(--border);
-      background: rgba(15, 30, 52, 0.85);
-      color: var(--text);
-    }
-    .badge.teal { border-color: var(--accent); background: rgba(45, 212, 191, 0.16); color: #5eead4; }
-    .badge.blue { border-color: var(--accent-2); background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
-    .badge.amber { border-color: rgba(245, 158, 11, 0.5); background: rgba(245, 158, 11, 0.14); color: #fcd34d; }
-
-    main {
-      max-width: 1540px;
-      margin: 0.85rem auto;
-      padding: 0 1rem;
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .viewport-shell {
-      background: var(--bg-1);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Sub-Controls Bar */
-    .sub-controls-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      padding: 0.55rem 0.95rem;
-      background: rgba(3, 7, 18, 0.96);
-      border-bottom: 1px solid var(--border);
-    }
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .ctrl-btn {
-      cursor: pointer;
-      user-select: none;
-      padding: 0.28rem 0.65rem;
-      border-radius: 7px;
-      font-size: 0.73rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      background: rgba(15, 34, 60, 0.75);
-      color: var(--text);
-      transition: all 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .ctrl-btn:hover {
-      border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.18);
-    }
-    .ctrl-btn.active {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(45, 212, 191, 0.26), rgba(56, 189, 248, 0.18));
-      color: #5eead4;
-      box-shadow: 0 0 12px rgba(45, 212, 191, 0.22);
-    }
-    .ctrl-btn.action-amber {
-      border-color: rgba(245, 158, 11, 0.55);
-      color: #fcd34d;
-    }
-    .ctrl-btn.action-amber:hover {
-      background: rgba(245, 158, 11, 0.22);
-    }
-    .ctrl-btn.action-purple {
-      border-color: rgba(168, 85, 247, 0.55);
-      color: #d8b4fe;
-    }
-    .ctrl-btn.action-purple:hover {
-      background: rgba(168, 85, 247, 0.22);
-    }
-
-    /* Slider Rows for Dissection / Driving */
-    .slider-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .slider-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .slider-item label {
-      font-weight: 600;
-      color: var(--text);
-      white-space: nowrap;
-    }
-    .slider-item input[type="range"] {
-      -webkit-appearance: none;
-      width: 95px;
-      height: 5px;
-      border-radius: 4px;
-      background: #1e3a5f;
-      outline: none;
-    }
-    .slider-item input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-      cursor: pointer;
-      box-shadow: 0 0 8px var(--accent);
-    }
-
-    /* 26.5 km Corridor Minimap & Highway Profile Ribbon */
-    .corridor-ribbon {
-      background: rgba(4, 9, 20, 0.95);
-      border-bottom: 1px solid var(--border);
-      padding: 0.45rem 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-    .corridor-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .corridor-header strong { color: var(--accent); }
-    .corridor-track-wrap {
-      position: relative;
-      width: 100%;
-      height: 38px;
-      background: #061122;
-      border: 1px solid rgba(56, 189, 248, 0.22);
-      border-radius: 8px;
-      cursor: pointer;
-      overflow: hidden;
-    }
-    #corridor-canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Stage Layout */
-    .stage-grid {
-      display: grid;
-      grid-template-columns: 1fr 390px;
-      min-height: 570px;
-      position: relative;
-    }
-    .render-column {
-      position: relative;
-      background: #02050b;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      overflow: hidden;
-      min-height: 540px;
-    }
-    #ecopunk-game-canvas {
-      width: 100%;
-      height: 100%;
-      min-height: 540px;
-      display: block;
-      cursor: grab;
-      touch-action: none;
-    }
-    #ecopunk-game-canvas:active {
-      cursor: grabbing;
-    }
-
-    /* In-World HUD Elements */
-    .hud-top-bar {
-      position: absolute;
-      top: 0.75rem;
-      left: 0.75rem;
-      right: 0.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.5rem;
-      pointer-events: none;
-      z-index: 20;
-    }
-    .hud-pill {
-      background: rgba(3, 7, 18, 0.82);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(45, 212, 191, 0.45);
-      border-radius: 8px;
-      padding: 0.35rem 0.72rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: #e2f8f0;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-    .hud-pill strong { color: #5eead4; }
-    .hud-pill.amber { border-color: rgba(245, 158, 11, 0.5); color: #fef3c7; }
-    .hud-pill.amber strong { color: #fcd34d; }
-
-    .hud-bottom-bar {
-      position: absolute;
-      bottom: 0.75rem;
-      left: 0.75rem;
-      right: 0.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 0.5rem;
-      pointer-events: none;
-      z-index: 20;
-    }
-    .hud-prompt-box {
-      background: rgba(3, 7, 18, 0.88);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(56, 189, 248, 0.45);
-      border-radius: 9px;
-      padding: 0.45rem 0.85rem;
-      font-family: monospace;
-      font-size: 0.73rem;
-      color: #bae6fd;
-      max-width: 600px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-      pointer-events: auto;
-    }
-    .hud-prompt-box kbd {
-      background: rgba(45, 212, 191, 0.25);
-      border: 1px solid var(--accent);
-      color: #5eead4;
-      padding: 0.12rem 0.35rem;
-      border-radius: 4px;
-      font-weight: 700;
-    }
-    .specimen-approach-prompt {
-      display: none;
-      background: linear-gradient(135deg, rgba(45, 212, 191, 0.92), rgba(56, 189, 248, 0.85));
-      color: #030712;
-      font-weight: 700;
-      padding: 0.45rem 0.95rem;
-      border-radius: 9px;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(45, 212, 191, 0.6);
-      pointer-events: auto;
-      animation: bounce-prompt 1.8s infinite ease-in-out;
-    }
-    @keyframes bounce-prompt {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-
-    /* Mobile D-Pad */
-    .touch-dpad {
-      pointer-events: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 34px);
-      grid-template-rows: repeat(2, 32px);
-      gap: 4px;
-    }
-    .dpad-btn {
-      background: rgba(15, 34, 60, 0.85);
-      border: 1px solid rgba(45, 212, 191, 0.45);
-      border-radius: 6px;
-      color: #e2f1ff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .dpad-btn:active { background: rgba(45, 212, 191, 0.4); }
-
-    /* Right Inspector Column */
-    .inspector-column {
-      background: rgba(9, 19, 34, 0.98);
-      border-left: 1px solid var(--border);
-      padding: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      overflow-y: auto;
-      max-height: 800px;
-    }
-    .inspector-header {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.65rem;
-    }
-    .inspector-header h2 {
-      font-size: 1.05rem;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .inspector-header .taxon-meta {
-      font-size: 0.76rem;
-      color: var(--accent);
-      font-style: italic;
+      display: inline-block; padding: 3px 8px; border-radius: 4px;
+      font-size: 11px; font-family: monospace; font-weight: 600;
+      background: rgba(16, 185, 129, 0.18); color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
     }
     .section-title {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 0.2rem;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--accent-cyan); margin: 10px 0 6px; font-weight: 700;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 4px;
     }
-    .kv-list {
-      display: grid;
-      gap: 0.35rem;
-      background: rgba(3, 7, 18, 0.72);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.65rem;
+    .section-title:first-child { margin-top: 0; }
+    .kv-grid {
+      display: grid; grid-template-columns: 1fr auto; gap: 4px 8px;
+      font-size: 12px;
     }
-    .kv-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-      font-size: 0.73rem;
-      border-bottom: 1px dashed rgba(56, 189, 248, 0.15);
-      padding-bottom: 0.22rem;
+    .kv-grid .k { color: var(--text-dim); }
+    .kv-grid .v { font-family: monospace; color: #f8fafc; font-weight: 600; }
+    .slider-row {
+      display: flex; flex-direction: column; gap: 3px; margin: 7px 0;
+      font-size: 12px;
     }
-    .kv-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .kv-key { color: var(--muted); }
-    .kv-val { color: var(--accent); font-family: monospace; font-weight: 600; text-align: right; }
-    .kv-val.equation { color: #fcd34d; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; }
-
-    /* Callout Pin Layer Chips */
-    .pins-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
+    .slider-row label {
+      display: flex; justify-content: space-between; color: var(--text-dim);
     }
-    .pin-chip {
-      cursor: pointer;
-      user-select: none;
-      padding: 0.24rem 0.55rem;
-      border-radius: 6px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      background: rgba(15, 34, 60, 0.7);
-      color: #d1ecfc;
-      transition: all 0.14s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
+    .slider-row input[type=range] { width: 100%; accent-color: var(--accent-cyan); }
+    .scale-btn-list, .site-btn-list, .pin-btn-list {
+      display: flex; flex-direction: column; gap: 5px; margin-top: 6px;
     }
-    .pin-chip:hover {
-      border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.2);
+    .scale-btn-list button, .site-btn-list button, .pin-btn-list button {
+      text-align: left; width: 100%; font-size: 11.5px; padding: 6px 9px;
     }
-    .pin-chip.active {
-      border-color: var(--accent);
-      background: rgba(45, 212, 191, 0.3);
-      color: #5eead4;
-      box-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
-    }
-    .pin-swatch {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* Knowledge Card in Inspector */
-    .knowledge-card {
-      background: rgba(4, 9, 20, 0.85);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem;
-      font-size: 0.77rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-    .knowledge-card h4 {
-      font-size: 0.82rem;
-      color: #5eead4;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .knowledge-card p {
-      color: #cbd5e1;
-      line-height: 1.44;
-    }
-    .knowledge-card .indigenous-note {
+    .formula-box {
+      font-family: monospace; font-size: 11.5px; color: #fde68a;
       background: rgba(245, 158, 11, 0.12);
-      border-left: 3px solid var(--amber);
-      padding: 0.4rem 0.6rem;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.73rem;
-      color: #fde68a;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 5px; padding: 8px; margin: 6px 0;
     }
-
-    /* Content Cards Below Viewport */
-    .section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
-      gap: 1.25rem;
+    .summary-box {
+      font-size: 12px; line-height: 1.45; color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.65);
+      border-radius: 5px; padding: 8px; margin: 6px 0;
     }
-    .card {
-      background: var(--bg-1);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem;
-      min-width: 0;
-    }
-    .card h3 {
-      font-size: 0.98rem;
-      color: var(--accent-2);
-      margin-bottom: 0.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-    .table-scroll {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-    }
-    th, td {
-      text-align: left;
-      padding: 0.45rem 0.6rem;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.14);
-    }
-    th {
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 0.85rem;
-      margin-top: 0.75rem;
-    }
-    .gallery-item {
-      background: rgba(4, 9, 20, 0.85);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.15s ease, border-color 0.15s ease;
-    }
-    .gallery-item:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .gallery-caption {
-      padding: 0.55rem 0.75rem;
-      font-size: 0.75rem;
-    }
-    .gallery-caption strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 0.12rem;
-    }
-
-    @media (max-width: 1080px) {
-      .stage-grid { grid-template-columns: 1fr; }
-      .inspector-column { border-left: none; border-top: 1px solid var(--border); max-height: 480px; }
-    }
-    @media (max-width: 768px) {
-      header { padding: 0.45rem 0.75rem; position: relative; }
-      .brand h1 { font-size: 0.88rem; }
-      .brand p { display: none; }
-      main { margin: 0.5rem auto; padding: 0 0.5rem; gap: 0.85rem; }
-      #ecopunk-game-canvas { min-height: 400px; }
-      .render-column { min-height: 400px; }
+    .bottombar {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 11.5px; color: var(--text-dim); font-family: monospace;
     }
   </style>
 </head>
 <body>
-  <!-- Top Header with Primary Experience Switcher -->
-  <header>
-    <div class="brand">
-      <div class="brand-orb"></div>
+  <canvas id="qualia-canvas"></canvas>
+
+  <div class="hud-layer">
+    <!-- TOP BAR -->
+    <div class="panel topbar">
+      <div class="brand">
+        <h1>ECOPUNK // QualiaDB + VibeScript (vibe-0.1) WASM Engine</h1>
+        <span id="wasm-status-line">Initializing QualiaPortal WASM (ecopunk_wasm_bg.wasm)...</span>
+      </div>
+      <div class="exp-tabs">
+        <button id="btn-exp-continuum" class="active">1. 26.5 km World Continuum Explorer</button>
+        <button id="btn-exp-lab">2. 5-Scale Botanical & Zoological Dissection Lab [F]</button>
+        <button id="btn-dismount">Dismount / Walk On Foot [E]</button>
+      </div>
       <div>
-        <h1>EcoPunk × QualiaDB + Etalon — 60 FPS 3D World &amp; 5-Scale Biological Lab</h1>
-        <p>26.5 km Driving Corridor · 5-Scale Botanical Dissection · PO: &amp; UBERON: Ontological Twins · 64 Hz XPBD Kinematics</p>
+        <span class="badge" id="portal-tier-badge">QualiaPortal: Connecting...</span>
       </div>
     </div>
 
-    <!-- Primary Dual-Experience Switcher -->
-    <div class="experience-nav">
-      <button type="button" id="nav-world" class="nav-btn active" title="Switch to Experience 1: 26.5 km Drivable & Walkable World Continuum (Hotkey: [F])">
-        🌍 Experience 1: World Corridor (26.5 km)
-      </button>
-      <button type="button" id="nav-lab" class="nav-btn" title="Switch to Experience 2: 5-Scale Botanical & Biological Dissection Lab (Hotkey: [F])">
-        🔬 Experience 2: 5-Scale Dissection Lab
-      </button>
-    </div>
+    <!-- LEFT PANEL: NAVIGATION / SCALES / STUDY SITES -->
+    <div class="panel" id="left-panel">
+      <div id="continuum-controls">
+        <div class="section-title">26.5 km Regional Corridor Study Sites</div>
+        <div class="site-btn-list" id="site-btn-list"></div>
 
-    <div class="badges">
-      <span class="badge teal">60 FPS WebGL2/WebGPU</span>
-      <span class="badge blue">26.5 km Corridor · 8 Sites</span>
-      <span class="badge amber">5-Scale Anatomy (.10d)</span>
-    </div>
-  </header>
+        <div class="section-title">64 Hz Rover & Ecologist Controls</div>
+        <div class="summary-box">
+          <b>W / S</b>: Throttle / Reverse (or Walk Forward/Back)<br/>
+          <b>A / D</b>: Ackermann Steer (or Strafe Left/Right)<br/>
+          <b>Shift</b>: Sprint / High-Range Boost<br/>
+          <b>[E]</b>: Dismount / Re-mount 4WD anywhere in 26.5 km<br/>
+          <b>[F]</b>: Enter 5-Scale Specimen Dissection Loupe<br/>
+          <b>Mouse Drag / Wheel</b>: Orbit & Zoom QualiaPortal Camera
+        </div>
+      </div>
 
-  <main>
-    <section class="viewport-shell">
-      <!-- Contextual Sub-Controls Bar -->
-      <div class="sub-controls-bar">
-        <!-- World Mode Controls -->
-        <div id="world-ctrls" class="btn-group">
-          <button type="button" id="btn-rover-walk" class="ctrl-btn active" title="Toggle 4WD Rover Driving vs On-Foot Exploration (Hotkey: [E])">
-            🚗 Mode: 4WD Field Rover [E]
-          </button>
-          <button type="button" id="btn-cycle-cam" class="ctrl-btn" title="Cycle Camera: Chase Cam / Hood Cam / Free Aerial Orbit (Hotkey: [C])">
-            🎥 Camera: Chase Cam [C]
-          </button>
-          <select id="sel-fast-travel" class="ctrl-btn" style="background:#091a2f; color:#bae6fd; font-family:monospace;" title="Fast Travel along the 26.5 km Highway Corridor">
-            <option value="0">km 0.0 — Talbingo Dam (410m)</option>
-            <option value="1">km 1.8 — Humes Crossing (405m)</option>
-            <option value="2">km 4.2 — Jounama Creek (460m)</option>
-            <option value="3">km 9.5 — Yarrangobilly Karst (940m)</option>
-            <option value="4">km 13.0 — O'Hares Alpine Ash (1,180m)</option>
-            <option value="5">km 17.5 — Three Mile Dam Bog (1,460m)</option>
-            <option value="6">km 22.0 — Sydney Sandstone Gully (185m)</option>
-            <option value="7">km 26.5 — Noosa Headland (32m)</option>
+      <div id="lab-controls" style="display:none;">
+        <div class="section-title">5-Scale Biological Dissection Ladder</div>
+        <div class="scale-btn-list" id="scale-btn-list">
+          <button data-scale="1" class="active">Scale 1: Whole Organism, 5-Order Crown & Lignotuber Roots (10–40m)</button>
+          <button data-scale="2">Scale 2: 270° Stem/Bark Wedge & 6 Concentric Tissue Cylinders</button>
+          <button data-scale="3">Scale 3: Myrtaceae Umbellaster, Operculum Anthesis & Woody Gumnut</button>
+          <button data-scale="4">Scale 4: Murray's Law Venation & Amphistomatic Cellular Histology</button>
+          <button data-scale="5">Scale 5: Vertebrate 3-Layer Osteology, Myology & Achilles Spring</button>
+        </div>
+
+        <div class="section-title">Interactive Dissection & Peeling Sliders</div>
+        <div class="slider-row">
+          <label><span>Explode Tissue Layers</span><span id="val-explode">0.25</span></label>
+          <input type="range" id="slider-explode" min="0" max="1" step="0.02" value="0.25" />
+        </div>
+        <div class="slider-row">
+          <label><span>Microtome Cutaway Plane</span><span id="val-cutaway">0.35</span></label>
+          <input type="range" id="slider-cutaway" min="0" max="1" step="0.02" value="0.35" />
+        </div>
+        <div class="slider-row">
+          <label><span>Floral Anthesis (Operculum Lift)</span><span id="val-anthesis">0.65</span></label>
+          <input type="range" id="slider-anthesis" min="0" max="1" step="0.02" value="0.65" />
+        </div>
+        <div class="slider-row">
+          <label><span>Vertebrate Layer Peel (Skin → Muscle → Bone)</span><span id="val-peel">0.35</span></label>
+          <input type="range" id="slider-peel" min="0" max="1" step="0.02" value="0.35" />
+        </div>
+        <div class="slider-row">
+          <label><span>Scale 5 Vertebrate Archetype</span></label>
+          <select id="select-archetype">
+            <option value="0">Macropus giganteus (Eastern Grey Kangaroo)</option>
+            <option value="1">Vombatus ursinus (Common Wombat)</option>
+            <option value="2">Ornithorhynchus anatinus (Platypus)</option>
+            <option value="3">Aquila audax (Wedge-Tailed Eagle)</option>
+            <option value="4">Phascolarctos cinereus (Koala)</option>
           </select>
-          <button type="button" id="btn-open-lab-f" class="ctrl-btn action-amber" title="Examine nearby flora/fauna specimen in the 5-Scale Dissection Lab (Hotkey: [F])">
-            🔬 Open Dissection Lab [F]
-          </button>
-        </div>
-
-        <!-- Lab Mode Controls -->
-        <div id="lab-ctrls" class="btn-group" style="display: none;">
-          <button type="button" class="ctrl-btn lab-scale-btn active" data-scale="1" title="Scale 1: Whole Organism & Subterranean Root Architecture (10m–35m)">
-            🌱 S1: Whole Tree &amp; Roots
-          </button>
-          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="2" title="Scale 2: Branch Phyllotaxis & 6-Layer Stem/Bark Wedge (50mm–2m)">
-            🪵 S2: 6-Layer Stem Wedge
-          </button>
-          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="3" title="Scale 3: Floral Bud Anthesis & Gumnut Capsule Dissection (5mm–150mm)">
-            🌸 S3: Flower &amp; Gumnut
-          </button>
-          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="4" title="Scale 4: Foliar Murray's Law Venation & Cellular Histology Block (50µm–50mm)">
-            🔬 S4: Leaf Histology Block
-          </button>
-          <button type="button" class="ctrl-btn lab-scale-btn" data-scale="5" title="Scale 5: Comparative Vertebrate Anatomy (Kangaroo, Platypus, Wombat)">
-            🦘 S5: Vertebrate Anatomy
-          </button>
-          <button type="button" id="btn-return-world" class="ctrl-btn action-amber" title="Return to 26.5 km World Continuum (Hotkey: [F])">
-            🌍 Return to World [F]
-          </button>
-        </div>
-
-        <!-- Shared Shader / Audio Toggles -->
-        <div class="btn-group">
-          <select id="sel-shader-mode" class="ctrl-btn" style="background:#091a2f; color:#5eead4;" title="Select Shading Model / Scientific Sensor Kernel">
-            <option value="0">Shader: Spectral PBR (0x00)</option>
-            <option value="1">Shader: Sandstone Cel-Toon (0x01)</option>
-            <option value="2">Shader: Namatjira Watercolor (0x02)</option>
-            <option value="3">Shader: GPR Radar &amp; Trophic (0x03)</option>
-            <option value="4">Shader: Planck Thermal IR (0x04)</option>
-          </select>
-          <button type="button" id="btn-audio" class="ctrl-btn" title="Synthesize 3D Holosonic Engine, Wind & Fauna Audio">
-            🔇 Audio: Off
-          </button>
         </div>
       </div>
-
-      <!-- Experience 1: 26.5 km Interactive Corridor Ribbon Minimap -->
-      <div id="corridor-ribbon" class="corridor-ribbon">
-        <div class="corridor-header">
-          <span><strong>Snowy Mountains Highway (B72) Explorable Regional Continuum</strong> · 26.5 km Contiguous Roadbed</span>
-          <span>Click anywhere along profile to fast-travel · Live Bekker Sinkage &amp; Elevation Conformation</span>
-        </div>
-        <div class="corridor-track-wrap" id="corridor-track-wrap" title="Click along the 26.5 km highway to steer / fast-travel">
-          <canvas id="corridor-canvas" width="1400" height="38"></canvas>
-        </div>
-      </div>
-
-      <!-- Experience 2: Dissection Sliders Row (Visible when Lab is active) -->
-      <div id="lab-sliders-row" class="sub-controls-bar" style="display: none; background: #061122;">
-        <div class="slider-group">
-          <div class="slider-item">
-            <label for="sl-explode">💥 Exploded Tissue:</label>
-            <input type="range" id="sl-explode" min="0" max="100" value="0" />
-            <span id="lbl-explode" style="font-family:monospace; color:#5eead4;">0%</span>
-          </div>
-          <div class="slider-item">
-            <label for="sl-slice">🔪 Slicing Plane:</label>
-            <input type="range" id="sl-slice" min="-100" max="100" value="100" />
-            <span id="lbl-slice" style="font-family:monospace; color:#5eead4;">Full</span>
-          </div>
-          <div class="slider-item" id="wrap-anthesis">
-            <label for="sl-anthesis" id="lbl-anthesis-title">🌺 Anthesis:</label>
-            <input type="range" id="sl-anthesis" min="0" max="100" value="30" />
-            <span id="lbl-anthesis-val" style="font-family:monospace; color:#5eead4;">30%</span>
-          </div>
-          <div class="slider-item" id="wrap-fauna-sel" style="display: none;">
-            <label>Taxon:</label>
-            <select id="sel-fauna-taxa" class="ctrl-btn" style="background:#0c1e36; color:#bae6fd;">
-              <option value="kangaroo">Macropus giganteus (Grey Kangaroo)</option>
-              <option value="platypus">Ornithorhynchus anatinus (Platypus)</option>
-              <option value="wombat">Vombatus ursinus (Common Wombat)</option>
-            </select>
-          </div>
-          <div class="slider-item">
-            <label>🌱 Ontogeny:</label>
-            <button type="button" id="btn-ontogeny-stepper" class="ctrl-btn action-amber" style="padding:0.15rem 0.5rem; font-size:0.7rem;">
-              Mature Adult (1.00×)
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Stage Grid -->
-      <div class="stage-grid">
-        <div class="render-column">
-          <canvas id="ecopunk-game-canvas"></canvas>
-
-          <!-- Top HUD Display -->
-          <div class="hud-top-bar">
-            <div class="hud-pill">
-              <span><strong id="hud-fps">60</strong> FPS</span>
-              <span>·</span>
-              <span id="hud-mode-pill">World Continuum: <strong>Rover Driving</strong></span>
-              <span>·</span>
-              <span id="hud-site-pill">km 0.0 — Talbingo Dam (410m AHD)</span>
-            </div>
-            <div class="hud-pill amber">
-              <span id="hud-telemetry-1">Speed: <strong>0 km/h</strong></span>
-              <span>·</span>
-              <span id="hud-telemetry-2">Odo: <strong>0.0 km</strong></span>
-              <span>·</span>
-              <span id="hud-telemetry-3">Sinkage: <strong>4.2 mm</strong></span>
-            </div>
-          </div>
-
-          <!-- Bottom HUD Prompt & Mobile D-Pad -->
-          <div class="hud-bottom-bar">
-            <div>
-              <div id="hud-specimen-btn" class="specimen-approach-prompt">
-                🔍 [F] Examine Specimen in 5-Scale Botanical &amp; Biological Lab
-              </div>
-              <div id="hud-instructions" class="hud-prompt-box">
-                ⌨️ <kbd>W</kbd><kbd>S</kbd> Throttle/Brake · <kbd>A</kbd><kbd>D</kbd> Steer · <kbd>Space</kbd> Handbrake · <kbd>C</kbd> Camera · <kbd>E</kbd> Dismount/Walk · <kbd>F</kbd> Open 5-Scale Lab · Drag to Orbit
-              </div>
-            </div>
-
-            <!-- Touch D-Pad for Mobile/Tablet -->
-            <div class="touch-dpad">
-              <div></div>
-              <button type="button" class="dpad-btn" data-move="fwd">▲</button>
-              <div></div>
-              <button type="button" class="dpad-btn" data-move="left">◀</button>
-              <button type="button" class="dpad-btn" data-move="back">▼</button>
-              <button type="button" class="dpad-btn" data-move="right">▶</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Dynamic Inspector Column -->
-        <div class="inspector-column">
-          <!-- Header Area -->
-          <div class="inspector-header">
-            <h2 id="insp-title">🌍 Talbingo Dam &amp; The Pines Foreshore</h2>
-            <div class="taxon-meta" id="insp-taxon">Eucalyptus viminalis × Corymbia aparrerinja Riparian Gallery</div>
-          </div>
-
-          <!-- Callout Pins / Histological Layers -->
-          <div>
-            <div class="section-title" id="insp-layers-title">Interactive Anatomical Layers &amp; 3D Pins:</div>
-            <div class="pins-grid" id="insp-pins-container">
-              <!-- Dynamically populated per scale -->
-            </div>
-          </div>
-
-          <!-- Live Anatomical Telemetry / Biophysical Knowledge Card -->
-          <div class="knowledge-card" id="insp-knowledge-card">
-            <h4 id="insp-know-title">🔬 Plant Ontology: PO:0004535 (Woody Stem)</h4>
-            <p id="insp-know-desc">
-              Continuous multi-order hydraulic pipe architecture conforming to Shinozaki's Pipe Model theory (&eta; = 2.49). Scaffold limbs maintain structural safety factors against snow load and high-velocity katabatic mountain winds.
-            </p>
-            <div class="kv-list">
-              <div class="kv-row">
-                <span class="kv-key">Ontology IRI</span>
-                <span class="kv-val" id="insp-iri">po:0004535</span>
-              </div>
-              <div class="kv-row">
-                <span class="kv-key">Governing Law</span>
-                <span class="kv-val equation" id="insp-eqn">A_sapwood &prop; M_foliage</span>
-              </div>
-              <div class="kv-row">
-                <span class="kv-key">Histological Codec</span>
-                <span class="kv-val" id="insp-codec">Secondary Xylem Vessels + Tracheids</span>
-              </div>
-            </div>
-            <div class="indigenous-note" id="insp-indigenous">
-              <strong>Wiradjuri &amp; Walgalu Ethnobotanical Context:</strong> Manna Gum (<em>Eucalyptus viminalis</em>) sap is collected for sweet manna resin; durable bark sheets were traditionally harvested for lightweight bark canoes and shelter cladding.
-            </div>
-          </div>
-
-          <!-- Live Subsystem Telemetry -->
-          <div class="kv-list" style="margin-top: auto;">
-            <div class="kv-row"><span class="kv-key">World Coordinates</span><span class="kv-val" id="insp-coord">[0.0, 410.0, 0.0]</span></div>
-            <div class="kv-row"><span class="kv-key">Elevation AHD</span><span class="kv-val" id="insp-elev">410.0 m</span></div>
-            <div class="kv-row"><span class="kv-key">Bekker Soil Type</span><span class="kv-val" id="insp-soil">Alluvial Gravel / Loam (kc=0.9, n=0.85)</span></div>
-            <div class="kv-row"><span class="kv-key">Ontogenetic Stage</span><span class="kv-val" id="insp-stage">Mature Adult (1.00×)</span></div>
-            <div class="kv-row"><span class="kv-key">10D Asset Carrier</span><span class="kv-val" id="insp-carrier">sector_talbingo.10d (Verified)</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comprehensive Educational Reference & Architecture Sections -->
-    <div class="section-grid">
-      <!-- 5-Scale Botanical Curriculum Guide -->
-      <section class="card">
-        <h3>
-          <span>5-Scale Botanical &amp; Biological Digital Twin Architecture</span>
-          <span class="badge amber">Epic 6 Verified</span>
-        </h3>
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>Scale</th>
-                <th>Metric Domain</th>
-                <th>Anatomical Structures &amp; Layers</th>
-                <th>Ontology IRIs</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Scale 1</strong></td>
-                <td>10m – 35m</td>
-                <td>5 Pipe-Model branching orders, falcate canopy, subterranean lignotuber, taproot, buttress roots, mycorrhizae</td>
-                <td><code>PO:0009006</code> · <code>PO:0025542</code> · <code>PO:0020127</code></td>
-              </tr>
-              <tr>
-                <td><strong>Scale 2</strong></td>
-                <td>50mm – 2m</td>
-                <td>270° Stem wedge: Rhytidome, Phellogen, Secondary Phloem + Kino ducts, Cambium, Sapwood rays, Heartwood + Pith</td>
-                <td><code>PO:0004518</code> · <code>PO:0005417</code> · <code>PO:0005352</code></td>
-              </tr>
-              <tr>
-                <td><strong>Scale 3</strong></td>
-                <td>5mm – 150mm</td>
-                <td>Umbellaster, Hypanthium, lifting Operculum, unfolding Staminal ring, Anthers, Style, 4-locule Ovary, Woody Gumnut, Seeds</td>
-                <td><code>PO:0009064</code> · <code>PO:0025283</code> · <code>PO:0009084</code></td>
-              </tr>
-              <tr>
-                <td><strong>Scale 4</strong></td>
-                <td>50µm – 50mm</td>
-                <td>Murray's Law venation + intramarginal vein, cuticle, epidermis, guard cells, stomatal pore, isobilateral mesophyll, 1,8-cineole oil gland</td>
-                <td><code>PO:0000032</code> · <code>PO:0002005</code> · <code>PO:0005679</code></td>
-              </tr>
-              <tr>
-                <td><strong>Scale 5</strong></td>
-                <td>Comparative</td>
-                <td>3-Layer Anatomical Twin: Articulated Osteology (diprotodont incisors, epipubic bones), Myology (elastic Achilles tendon), Skinned Integument</td>
-                <td><code>UBERON:0001434</code> · <code>UBERON:0003661</code> · <code>UBERON:0001391</code></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- 26.5 km Corridor Guide -->
-      <section class="card">
-        <h3>
-          <span>26.5 km Snowy Mountains Highway (B72) Explorable Corridor</span>
-          <span class="badge blue">Contiguous 3D Continuum</span>
-        </h3>
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>Site ID</th>
-                <th>Corridor km</th>
-                <th>Elevation</th>
-                <th>Biophysical Environment &amp; Keystone Taxa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Site 0</strong></td>
-                <td>km 0.0</td>
-                <td>410m AHD</td>
-                <td>Talbingo Dam wall &amp; Tumut River foreshore; <em>Eucalyptus viminalis</em> &amp; alluvial shingle</td>
-              </tr>
-              <tr>
-                <td><strong>Site 1</strong></td>
-                <td>km 1.8</td>
-                <td>405m AHD</td>
-                <td>Humes Crossing &amp; Blowering alluvial flats; Golden Wattle &amp; <em>Macropus giganteus</em> mobs</td>
-              </tr>
-              <tr>
-                <td><strong>Site 2</strong></td>
-                <td>km 4.2</td>
-                <td>460m AHD</td>
-                <td>Jounama Creek Valley; montane wet sclerophyll &amp; Bogong moth granite boulder tors</td>
-              </tr>
-              <tr>
-                <td><strong>Site 3</strong></td>
-                <td>km 9.5</td>
-                <td>940m AHD</td>
-                <td>Yarrangobilly Silurian limestone karst gorge, thermal pool (27°C) &amp; 6-layer CSIRO soil cutaway</td>
-              </tr>
-              <tr>
-                <td><strong>Site 4</strong></td>
-                <td>km 13.0</td>
-                <td>1,180m AHD</td>
-                <td>O'Hares Alpine Ash montane forest; <em>Eucalyptus delegatensis</em> (40m boles) &amp; soft tree ferns</td>
-              </tr>
-              <tr>
-                <td><strong>Site 5</strong></td>
-                <td>km 17.5</td>
-                <td>1,460m AHD</td>
-                <td>Three Mile Dam subalpine basin; twisted snow gums (<em>E. pauciflora</em>) &amp; Corroboree frog bogs</td>
-              </tr>
-              <tr>
-                <td><strong>Site 6</strong></td>
-                <td>km 22.0</td>
-                <td>185m AHD</td>
-                <td>Sydney Hawkesbury Sandstone Gully; Scribbly Gums, Waratah blooms &amp; honeycomb benches</td>
-              </tr>
-              <tr>
-                <td><strong>Site 7</strong></td>
-                <td>km 26.5</td>
-                <td>32m AHD</td>
-                <td>Noosa Coastal Pandanus Headland; basalt headlands, coral surf &amp; Namatjira watercolor wash</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
     </div>
 
-    <!-- Native Etalon DX12 PortalGpu Renders Grid -->
-    <section class="card">
-      <h3>
-        <span>All 8 Native <code>PortalGpu</code> (<code>etalon</code> DirectX 12) Offscreen Renders (1280×720 Animated APNG)</span>
-        <span class="badge teal">207,352 Verts · 280,888 Tris / Sector</span>
-      </h3>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-jump-site="0">
-          <img src="assets/renders/01_talbingo_aerial_pbr.png" alt="01 Talbingo PBR" />
-          <div class="gallery-caption"><strong>01 · Talbingo &amp; Tumut Gorge (PBR)</strong>Riparian eucalypt gallery, riverbed shingle &amp; Snell water refraction.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="1">
-          <img src="assets/renders/02_yarrangobilly_cutaway_strata.png" alt="02 Yarrangobilly Cutaway" />
-          <div class="gallery-caption"><strong>02 · Yarrangobilly 6-Layer SLGA Soil Cutaway</strong>Peat, Loam, Sand, Ferrosol Clay, Saprolite, and Silurian Karst bedrock.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="2">
-          <img src="assets/renders/03_flora_specimen_loupe_snow_gum.png" alt="03 Flora Specimen Loupe" />
-          <div class="gallery-caption"><strong>03 · Botanical Specimen Loupe (Snow Gum)</strong>3D phyllotaxis, falcate blades, Murray's Law venation &amp; intramarginal vein.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="3">
-          <img src="assets/renders/04_fauna_tracker_kangaroo.png" alt="04 Fauna Tracker Kangaroo" />
-          <div class="gallery-caption"><strong>04 · Zoological Specimen Tracker (Kangaroo)</strong>Articulated <em>Macropus giganteus</em> with elastic Achilles tendon energy spring.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="4">
-          <img src="assets/renders/05_sydney_sandstone_cel_toon.png" alt="05 Sydney Sandstone Cel Toon" />
-          <div class="gallery-caption"><strong>05 · Sydney Sandstone &amp; Waratah (Cel-Toon)</strong>Quantized 4-band posterization &amp; ink silhouette illustration mode.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="5">
-          <img src="assets/renders/06_noosa_headland_watercolor.png" alt="06 Noosa Headland Watercolor" />
-          <div class="gallery-caption"><strong>06 · Noosa Headland (Namatjira Watercolor)</strong>Warm ochre/sienna granulation &amp; turquoise Coral Sea surf wash.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="6">
-          <img src="assets/renders/07_three_mile_dam_gpr_hud.png" alt="07 Three Mile Dam GPR HUD" />
-          <div class="gallery-caption"><strong>07 · Three Mile Dam (GPR &amp; Trophic HUD)</strong>3D cyan dielectric radar ribbons &amp; golden trophic energy-flow arcs.</div>
-        </div>
-        <div class="gallery-item" data-jump-site="7">
-          <img src="assets/renders/08_jounama_karst_thermal_ir.png" alt="08 Jounama Karst Thermal IR" />
-          <div class="gallery-caption"><strong>08 · Jounama Karst (Planck Thermal IR 0x01)</strong>8–14 µm FLIR Ironbow with incandescent 310 K endothermic fauna.</div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- CENTER VIEWPORT SPACER -->
+    <div style="pointer-events:none;"></div>
 
-  <script>
-  (() => {
-    // -------------------------------------------------------------------------
-    // 1. DATA STRUCTURES: CORRIDOR SITES & 5 EDUCATIONAL SCALES
-    // -------------------------------------------------------------------------
+    <!-- RIGHT PANEL: TELEMETRY, .10D CONTAINER & VIBESCRIPT / PO: / UBERON: ONTOLOGY -->
+    <div class="panel" id="right-panel">
+      <div class="section-title">QualiaDB (.10d / .q42 / .qbc) Runtime Telemetry</div>
+      <div class="kv-grid" id="telemetry-kv">
+        <span class="k">Mode</span><span class="v" id="tel-mode">RoverDriving</span>
+        <span class="k">Corridor Odometer</span><span class="v" id="tel-corridor">0.00 km</span>
+        <span class="k">Elevation (AHD)</span><span class="v" id="tel-elev">410.0 m</span>
+        <span class="k">Rover Speed</span><span class="v" id="tel-speed">0.0 km/h</span>
+        <span class="k">Bekker Soil Sinkage</span><span class="v" id="tel-sinkage">2.4 mm</span>
+        <span class="k">Nearest Study Site</span><span class="v" id="tel-site">The Pines Foreshore</span>
+        <span class="k">Active .10d Verts / Tris</span><span class="v" id="tel-mesh">--</span>
+        <span class="k">VibeScript .qbc Bytecode</span><span class="v" id="tel-qbc">--</span>
+      </div>
+
+      <div class="section-title">Plant Ontology (PO:) & UBERON Callout Pins</div>
+      <div class="pin-btn-list" id="pin-btn-list"></div>
+
+      <div class="section-title">Selected Anatomical Structure & Biophysics</div>
+      <div class="kv-grid">
+        <span class="k">Ontology CURIE</span><span class="v" id="pin-curie">PO:0025034</span>
+        <span class="k">Scientific Term</span><span class="v" id="pin-term">Lignotuber & Epicormic Meristem</span>
+      </div>
+      <div class="formula-box" id="pin-formula">
+        Pipe Model: A_sapwood = k * A_leaf (eta = 2.49)
+      </div>
+      <div class="summary-box" id="pin-summary">
+        Select any scale or callout pin to inspect the sealed .10d Living Container and evaluate its biophysical equations via QualiaDB VibeScript.
+      </div>
+      <div class="summary-box" id="pin-custodial" style="border-left: 3px solid var(--accent-amber);">
+        Indigenous Custodial Context: Ngarigo, Wiradjuri, Gadigal & Kabi Kabi Country.
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="panel bottombar">
+      <span id="vibe-eval-receipt">VibeScript (vibe-0.1): awaiting module compilation...</span>
+      <span>Zero Inline JS Shaders // 100% QualiaPortal + .10d + .q42 + .qbc</span>
+    </div>
+  </div>
+
+  <script type="module">
+    const BASE = window.location.pathname.includes('/viewer/') ? '..' : '.';
+    const wasmModuleUrl = `${BASE}/viewer/pkg/ecopunk_wasm.js`;
+    const wasmBgUrl = `${BASE}/viewer/pkg/ecopunk_wasm_bg.wasm`;
+
     const SITES = [
-      { id: 'talbingo', name: 'Talbingo Dam & The Pines Foreshore', km: 0.0, elev: 410, z: 0, roadX: 0, soil: 'Alluvial Gravel / Loam', kc: 0.9, n: 0.85, waterY: 407.5, waterCol: [0.06, 0.36, 0.48], mode: 0, desc: 'Riparian Eucalyptus viminalis & Corymbia gallery along the Tumut River foreshore.', taxon: 'Eucalyptus viminalis (Manna Gum)' },
-      { id: 'blowering', name: 'Humes Crossing & Blowering Flats', km: 1.8, elev: 405, z: 180, roadX: 4, soil: 'Alluvial Silt / Sand', kc: 0.7, n: 0.8, waterY: 402.5, waterCol: [0.06, 0.40, 0.52], mode: 0, desc: 'Broad alluvial flats with Acacia pycnantha (Golden Wattle) and grazing Macropus mobs.', taxon: 'Acacia pycnantha (Golden Wattle)' },
-      { id: 'jounama', name: 'Jounama Creek Valley & Bogong Tors', km: 4.2, elev: 460, z: 420, roadX: -8, soil: 'Montane Clay Loam / Grus', kc: 1.2, n: 0.9, waterY: 456.0, waterCol: [0.05, 0.06, 0.26], mode: 4, desc: 'Deep river valley flanked by massive rounded granitic tors providing Bogong moth aestivation shelters.', taxon: 'Eucalyptus radiata (Narrow-leaved Peppermint)' },
-      { id: 'yarrangobilly', name: 'Yarrangobilly Limestone Karst Gorge', km: 9.5, elev: 940, z: 950, roadX: 12, soil: 'Terra Rossa / Karst Gravel', kc: 1.5, n: 0.95, waterY: 934.0, waterCol: [0.06, 0.46, 0.50], mode: 0, desc: 'Steep Silurian limestone karst gorge with natural 27°C thermal pool, cave arches, and CSIRO 6-layer soil.', taxon: 'Eucalyptus dalrympleana (Mountain Gum)' },
-      { id: 'ohares', name: "O'Hares Alpine Ash Montane Forest", km: 13.0, elev: 1180, z: 1300, roadX: -14, soil: 'Montane Acid Loam', kc: 0.85, n: 0.88, waterY: 1172.0, waterCol: [0.08, 0.38, 0.45], mode: 0, desc: 'Towering straight boles of Eucalyptus delegatensis (up to 40m) over an understorey of Dicksonia antarctica.', taxon: 'Eucalyptus delegatensis (Alpine Ash)' },
-      { id: 'three_mile_dam', name: 'Three Mile Dam Subalpine Basin', km: 17.5, elev: 1460, z: 1750, roadX: 6, soil: 'Subalpine Peat / Sphagnum Bog', kc: 0.4, n: 0.65, waterY: 1457.0, waterCol: [0.04, 0.62, 0.84], mode: 3, desc: 'Subalpine frost hollow with twisted mallee Snow Gums (E. pauciflora) and Sphagnum cristatum bogs supporting Corroboree frogs.', taxon: 'Eucalyptus pauciflora (Snow Gum)' },
-      { id: 'sydney_sandstone', name: 'Sydney Hawkesbury Sandstone Gully', km: 22.0, elev: 185, z: 2200, roadX: -10, soil: 'Quartz Sandstone Rock / Skeletal Sand', kc: 3.5, n: 1.0, waterY: 178.0, waterCol: [0.06, 0.52, 0.68], mode: 1, desc: 'Stepped quartz sandstone ledges with Scribbly Gum, Banksia serrata, and Telopea speciosissima (Waratah).', taxon: 'Telopea speciosissima (Waratah)' },
-      { id: 'noosa_headland', name: 'Noosa Coastal Pandanus Basalt Headland', km: 26.5, elev: 32, z: 2650, roadX: 18, soil: 'Basaltic Clay / Coastal Beach Sand', kc: 0.5, n: 0.7, waterY: 28.0, waterCol: [0.10, 0.58, 0.72], mode: 2, desc: 'Subtropical coastal headland with Pandanus tectorius prop-roots and turquoise Coral Sea ocean surf.', taxon: 'Pandanus tectorius (Screw Pine)' }
+      { idx: 0, label: "km 0.0 — The Pines Foreshore (410m AHD)" },
+      { idx: 1, label: "km 1.8 — Humes Crossing Alluvial Flats (405m AHD)" },
+      { idx: 2, label: "km 4.2 — Jounama Creek & Bogong Tors (460m AHD)" },
+      { idx: 3, label: "km 9.5 — Yarrangobilly Karst & 27°C Pool (940m AHD)" },
+      { idx: 4, label: "km 13.0 — O'Hares Alpine Ash Forest (1,180m AHD)" },
+      { idx: 5, label: "km 17.5 — Three Mile Dam Snow Gum Bog (1,460m AHD)" },
+      { idx: 6, label: "km 22.0 — Sydney Hawkesbury Sandstone (185m AHD)" },
+      { idx: 7, label: "km 26.5 — Noosa Pandanus Basalt Headland (32m AHD)" }
     ];
 
-    const SCALES = {
-      1: {
-        id: 1,
-        title: 'Scale 1: Whole Organism & Subterranean Roots',
-        domain: '10 m – 35 m',
-        taxon: 'Corymbia aparrerinja (Ghost Gum)',
-        pins: [
-          { id: 'canopy', label: 'Falcate Canopy', iri: 'po:0009006', color: '#10b981', eqn: 'r_p^2.49 = &sum; r_c^2.49 (Pipe Model)', desc: 'Pendulous falcate foliage hanging vertically to reduce peak solar heat load and midday photoinhibition.', indigenous: 'Wiradjuri & Walgalu people crush leaves in warm water as an antiseptic inhalation for respiratory ailments.' },
-          { id: 'scaffold', label: 'Scaffold Limbs', iri: 'po:0004535', color: '#38bdf8', eqn: 'M = &sigma; &middot; Z (Beam Bending)', desc: 'Primary & secondary structural boughs maintaining safety factor against extreme snow and katabatic mountain wind moments.', indigenous: 'Naturally bowed limbs were traditionally used to fashion digging sticks and hunting boomerangs.' },
-          { id: 'bole', label: 'Trunk Bole & Bark', iri: 'po:0004518', color: '#f59e0b', eqn: 'A_sapwood &prop; M_foliage', desc: 'Chalky-white deciduous smooth bark containing decorticating periderm flakes and photosynthetic green phelloderm.', indigenous: 'Smooth bark sheets were etched with cultural diamond motifs as seasonal territorial indicators.' },
-          { id: 'lignotuber', label: 'Subterranean Lignotuber', iri: 'po:0025542', color: '#f43f5e', eqn: 'Regrowth &prop; Starch Reserve (MJ)', desc: 'Swollen woody basal burl storing carbohydrate reserves and clusters of dormant epicormic meristem buds for rapid post-bushfire resprouting.', indigenous: 'The lignotuber protects the tree identity across centuries of frequent Aboriginal mosaic fire regimes.' },
-          { id: 'taproot', label: 'Primary Taproot', iri: 'po:0020127', color: '#a855f7', eqn: 'P_sink = &rho; g h + &Delta;P_capillary', desc: 'Deep vertical anchor root penetrating deep into fractured rock fissures to tap groundwater aquifers during severe droughts.', indigenous: 'Root segments were tapped for emergency potable moisture during long cross-country walkabouts.' },
-          { id: 'buttress', label: 'Lateral Buttress Roots', iri: 'po:0006310', color: '#14b8a6', eqn: '&tau;_shear = F_wind / A_soil', desc: 'Flared horizontal surface roots transferring tensile and compressive wind forces into surrounding soil substrate.', indigenous: 'Surface buttresses anchor the tree on steep Kosciuszko granite and Silurian karst slopes.' },
-          { id: 'mycorrhizae', label: 'Mycorrhizal Feeder Network', iri: 'po:0009005', color: '#fbbf24', eqn: 'J_P = P_uptake &middot; Surface_Area', desc: 'Extensive symbiotic ectomycorrhizal fungal hyphae network mobilizing phosphorus and nitrogen from weathered infertile soils.', indigenous: 'Underground fungal fruiting bodies (truffles) were harvested by bandicoots and Aboriginal foragers.' }
-        ]
-      },
-      2: {
-        id: 2,
-        title: 'Scale 2: Branch Phyllotaxis & 6-Layer Stem Wedge',
-        domain: '50 mm – 2 m',
-        taxon: 'Corymbia aparrerinja (6-Layer Anatomical Stem Wedge)',
-        pins: [
-          { id: 'rhytidome', label: 'L1: Outer Rhytidome (Periderm)', iri: 'po:0004518', color: '#f8fafc', eqn: 'R_th = d / k_suberin', desc: 'Chalky-white shed periderm protecting underlying living tissues from fire scorch, desiccation, and fungal pathogen entry.', indigenous: 'Chalk powder was used in traditional body ceremonies and rock art ochre binders.' },
-          { id: 'phellogen', label: 'L2: Phellogen & Phelloderm', iri: 'po:0005597', color: '#10b981', eqn: 'div_cork = k_cell &middot; &Delta;t', desc: 'Secondary meristem generating suberin-impregnated phellem (cork) cells outwardly and green photosynthetic phelloderm inwardly.', indigenous: 'Green photosynthetic bark allows survival when crown foliage is completely defoliated by fire.' },
-          { id: 'phloem', label: 'L3: Secondary Phloem & Kino', iri: 'po:0005417', color: '#ef4444', eqn: 'J_sugar = -L_p &middot; &Delta;&Psi;_osmotic', desc: 'Inner living bark with sieve tubes transporting sucrose downwards, interspersed with dark crimson polyphenolic kino resin ducts.', indigenous: 'Astringent kino gum was dissolved in water as a powerful coagulant and antiseptic wash.' },
-          { id: 'cambium', label: 'L4: Vascular Cambium', iri: 'po:0005598', color: '#2dd4bf', eqn: 'dr/dt = &mu;_cambium &middot; (T - T_base)', desc: 'Continuous uniseriate meristematic cylinder dividing outwards to form phloem and inwards to generate active xylem.', indigenous: 'Spring cambial activity corresponds to the flowering of wattles and arrival of migratory birds.' },
-          { id: 'sapwood', label: 'L5: Sapwood (Active Xylem)', iri: 'po:0005352', color: '#fbbf24', eqn: 'Q = (&pi; r^4 &Delta;P) / (8 &mu; L) (Hagen-Poiseuille)', desc: 'Hydraulically active secondary xylem vessels with scalariform perforations and radial medullary parenchymal storage rays.', indigenous: 'Sapwood was chosen for its flexibility in crafting coolamons and tool hafts.' },
-          { id: 'heartwood', label: 'L6: Heartwood & Central Pith', iri: 'po:0004535', color: '#b45309', eqn: '&rho;_duramen = 980 kg/m^3', desc: 'Dense, duramen core impregnated with polyphenols and tyloses, providing structural integrity and decay resistance.', indigenous: 'Aged hollowed heartwood trunks were selected to craft didgeridoos (yidaki) naturally carved by termites.' }
-        ]
-      },
-      3: {
-        id: 3,
-        title: 'Scale 3: Floral Bud Anthesis & Gumnut Dissection',
-        domain: '5 mm – 150 mm',
-        taxon: 'Myrtaceae Compound Umbellaster & Capsule Dissection',
-        pins: [
-          { id: 'hypanthium', label: 'Hypanthium (Floral Cup)', iri: 'po:0009064', color: '#10b981', eqn: 'Cup_Vol = &pi; r^2 h', desc: 'Fused calyx tube and receptacle cup protecting the sunken inferior ovary, producing rich nectar in its glandular disc.', indigenous: 'Sweet nectar was gathered at dawn by immersing flower clusters in water to make sweet bushcordial drinks.' },
-          { id: 'operculum', label: 'Operculum (Calyptriform Cap)', iri: 'po:0025283', color: '#f59e0b', eqn: 'F_shed = &sigma;_abscission &middot; A_ring', desc: 'Fused petaline/sepaline cap that seals and protects reproductive whorls until lifting off during anthesis.', indigenous: 'Opercular shedding signals the onset of peak honey-eating bird migrations.' },
-          { id: 'stamens', label: 'Staminal Ring (Filaments)', iri: 'po:0009029', color: '#fef08a', eqn: 'N_filaments &gt; 120 (Multi-whorl)', desc: 'Dense multi-whorled creamy-white filaments that start inflexed in bud and uncurl outward into a nectar-rich blossom.', indigenous: 'Blossoms serve as bio-indicators of native stingless bee (Tetragonula) foraging activity.' },
-          { id: 'anthers', label: 'Bilobed Anthers & Pollen', iri: 'po:0009066', color: '#eab308', eqn: 'Dehiscence = Longitudinal Slits', desc: 'Dorsifixed versatile anthers dehiscing along longitudinal slits to release sticky pollen grains onto visiting nectar feeders.', indigenous: 'Pollen morphology is diagnostically unique to individual eucalypt alliances.' },
-          { id: 'gynoecium', label: 'Style & Capitate Stigma', iri: 'po:0009075', color: '#2dd4bf', eqn: 'Tube_growth &prop; T_ambient', desc: 'Central terete style terminating in a receptive glandular capitate stigma elevated to maximize cross-pollination.', indigenous: 'Stigma receptivity is staggered after stamen dehiscence (protandry) to prevent self-fertilization.' },
-          { id: 'ovary', label: 'Inferior Ovary (4 Locules)', iri: 'po:0020037', color: '#ec4899', eqn: 'Axile Placentation (4 Locules)', desc: 'Longitudinally dissected inferior ovary revealing 4 locule chambers, central axile placenta, and fertile white ovules.', indigenous: 'Ovary structure differentiates Angophora, Corymbia, and Eucalyptus genera.' },
-          { id: 'gumnut', label: 'Woody Capsule & Valves', iri: 'po:0009084', color: '#854d0e', eqn: 'Dehiscence &prop; Fuel_Heat &middot; Moisture', desc: 'Mature urceolate woody fruit showing opercular scar rim and 4 sunken valves that dehisce to shed winged seeds post-fire.', indigenous: 'Hard woody gumnuts were worn as ceremonial necklaces and spun as children’s spinning tops.' }
-        ]
-      },
-      4: {
-        id: 4,
-        title: "Scale 4: Foliar Murray's Law Venation & Cellular Block",
-        domain: '50 µm – 50 mm',
-        taxon: 'Isobilateral Sclerophyll Leaf Histology Block',
-        pins: [
-          { id: 'intramarginal', label: 'Intramarginal Vein', iri: 'po:0005020', color: '#38bdf8', eqn: 'r_p^3 = &sum; r_c^3 (Murray’s Law)', desc: 'Diagnostic continuous vein running parallel to the leaf margin, looping secondary lateral veins to equalize hydraulic pressure.', indigenous: 'The continuous margin prevents hydraulic failure if an edge is damaged by chewing insects.' },
-          { id: 'cuticle', label: 'Epicuticular Wax Cuticle', iri: 'po:0000030', color: '#93c5fd', eqn: 'g_cuticle &lt; 0.002 m/s', desc: 'Crystalline epicuticular wax platelet coating sealing the leaf against uncontrolled cuticular transpiration and UV damage.', indigenous: 'Gives juvenile foliage its characteristic silvery-glaucous frost-resistant appearance.' },
-          { id: 'stomata', label: 'Amphistomatic Stomatal Complex', iri: 'po:0000032', color: '#10b981', eqn: 'J_vapor = -D &middot; (dc/dx) = g_s &middot; &Delta;w', desc: 'Sunken stomatal complexes on BOTH surfaces; paired kidney-shaped guard cells control pore aperture via turgor pressure.', indigenous: 'Amphistomaty allows rapid CO2 uptake during brief early morning fog windows in arid climates.' },
-          { id: 'palisade', label: 'Isobilateral Palisade Mesophyll', iri: 'po:0005679', color: '#15803d', eqn: 'A_CO2 = f(Light_Absorbed, Rubisco)', desc: 'Multiple dense tiers of vertically elongated chlorenchyma cells packed with chloroplasts beneath both upper and lower surfaces.', indigenous: 'Isobilateral design is specialized for pendulous leaves receiving equal morning and afternoon sunlight.' },
-          { id: 'vascular', label: 'Collateral Bundle (Xylem/Phloem)', iri: 'po:0005020', color: '#f59e0b', eqn: 'K_hydraulic &prop; r^4 / (&mu; L)', desc: 'Vascular strand with helical lignin-reinforced xylem vessels adaxially, phloem sieve tubes abaxially, and sclerenchyma girders.', indigenous: 'Sclerenchyma bundle sheath extensions give sclerophyll leaves their remarkable leathery stiffness.' },
-          { id: 'oil_gland', label: 'Schizogenous Oil Gland (1,8-Cineole)', iri: 'po:0025008', color: '#fbbf24', eqn: 'Terpenoid: C10 H18 O (1,8-Cineole)', desc: 'Translucent internal spherical cavity lined with epithelial secretory cells producing golden cineole & pinene essential oils.', indigenous: 'Aboriginal bush healers crushed oil-rich leaves as a cure for headaches, colds, and open wounds.' }
-        ]
-      },
-      5: {
-        id: 5,
-        title: 'Scale 5: Comparative Vertebrate Anatomy (3-Layer Peel)',
-        domain: 'Comparative Zoological Scale',
-        taxon: 'Macropus giganteus (Eastern Grey Kangaroo Twin)',
-        pins: [
-          { id: 'skull', label: 'Diprotodont Cranium & Diastema', iri: 'uberon:0003129', color: '#f8fafc', eqn: 'Diprotodont Dentition (I 3/1, C 0/0, P 2/2, M 4/4)', desc: 'Cranium with large procumbent lower incisors and extended diastema specialized for cropping tough sclerophyll grasses.', indigenous: 'Kangaroo jaws were traditionally mounted onto wooden handles to serve as sharp engraving chisels.' },
-          { id: 'epipubic', label: 'Epipubic Bones (Marsupialia)', iri: 'uberon:0003661', color: '#38bdf8', eqn: 'UBERON:0003661 (Epipubic Bone)', desc: 'Paired anterior pelvic bones unique to marsupials and monotremes, supporting the abdominal wall and external pouch.', indigenous: 'Diagnostic anatomical hallmark distinguishing native Australian marsupials from placental mammals.' },
-          { id: 'pes', label: 'Syndactyl 4th Metatarsal Pes', iri: 'uberon:0001448', color: '#fbbf24', eqn: 'F_thrust = m &middot; a_hop', desc: 'Massively elongated 4th digit bearing a heavy claw, with syndactylous 2nd and 3rd digits fused for fur grooming.', indigenous: 'Distinctive footprints are tracked across sand and clay pans by skilled Aboriginal hunters.' },
-          { id: 'achilles', label: 'Elastic Achilles Tendon Spring', iri: 'uberon:0001391', color: '#ef4444', eqn: 'U_strain = 0.5 &middot; k &Delta;x^2 (&eta;_recovery = 65%)', desc: 'Massive elastic tendon acting as a biomechanical spring: stores kinetic energy during landing and returns 65% on rebound!', indigenous: 'High-speed hopping efficiency allows kangaroos to cover tens of kilometers between arid waterholes with minimal metabolic energy.' },
-          { id: 'myology', label: 'Major Muscle Groups (Gastrocnemius)', iri: 'uberon:0001140', color: '#dc2626', eqn: 'P_muscle = F &middot; v', desc: 'Powerful gastrocnemius, plantaris, and gluteal muscle bellies powering saltatorial locomotion and bipedal balance.', indigenous: 'Lean red kangaroo tail meat is an esteemed, protein-rich traditional feast.' },
-          { id: 'integument', label: 'Skinned Outer Pelage & Pouch', iri: 'uberon:0002416', color: '#a855f7', eqn: 'Insulation &prop; Fur_Density', desc: 'Densely furred grey-brown pelage with thermal insulation, sensory vibrissae, and maternal marsupium (pouch).', indigenous: 'Warm kangaroo skins were traditionally sewn together with sinew to fashion waterproof booka cloaks.' }
-        ]
-      }
-    };
+    const canvas = document.getElementById('qualia-canvas');
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(1, Math.floor(window.innerWidth * dpr));
+      canvas.height = Math.max(1, Math.floor(window.innerHeight * dpr));
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-    // -------------------------------------------------------------------------
-    // 2. PARSE10D: NATIVE ZERO-HEAP BINARY .10D PARSER
-    // -------------------------------------------------------------------------
-    function parse10d(buffer) {
-      if (!buffer || buffer.byteLength < 64) {
-        throw new Error("Buffer too short for Container10dHeader (min 64 bytes)");
-      }
-      const view = new DataView(buffer);
-      const m0 = view.getUint8(0), m1 = view.getUint8(1), m2 = view.getUint8(2), m3 = view.getUint8(3);
-      if (m0 !== 0x31 || m1 !== 0x30 || m2 !== 0x64 || m3 !== 0x00) {
-        throw new Error(`Invalid magic: ${m0},${m1},${m2},${m3} expected '10d\\0'`);
-      }
-      const version = view.getUint16(4, true);
-      const secTableOffset = view.getUint32(56, true);
-      const secCount = view.getUint32(60, true);
+    const wasm = await import(wasmModuleUrl);
+    await wasm.default(wasmBgUrl);
 
-      let meshSection = null;
-      for (let i = 0; i < secCount; i++) {
-        const so = secTableOffset + i * 24;
-        const secType = view.getUint8(so);
-        const byteOffset = view.getUint32(so + 4, true);
-        const byteLength = view.getUint32(so + 8, true);
-        if (secType === 1) { // QuantizedMesh
-          meshSection = { offset: byteOffset, length: byteLength };
-          break;
-        }
-      }
-      if (!meshSection) {
-        throw new Error("No QuantizedMesh (type 1) section found in .10d");
-      }
-
-      const mo = meshSection.offset;
-      const flags = view.getUint16(mo, true);
-      const vCount = view.getUint32(mo + 4, true);
-      const triCount = view.getUint32(mo + 8, true);
-      const minX = view.getFloat32(mo + 12, true), minY = view.getFloat32(mo + 16, true), minZ = view.getFloat32(mo + 20, true);
-      const maxX = view.getFloat32(mo + 24, true), maxY = view.getFloat32(mo + 28, true), maxZ = view.getFloat32(mo + 32, true);
-
-      const positions = new Float32Array(vCount * 3);
-      let vo = mo + 40;
-      const scaleX = (maxX - minX) / 65535.0, scaleY = (maxY - minY) / 65535.0, scaleZ = (maxZ - minZ) / 65535.0;
-      for (let i = 0; i < vCount; i++) {
-        const qx = view.getUint16(vo, true);
-        const qy = view.getUint16(vo + 2, true);
-        const qz = view.getUint16(vo + 4, true);
-        positions[i * 3]     = minX + qx * scaleX;
-        positions[i * 3 + 1] = minY + qy * scaleY;
-        positions[i * 3 + 2] = minZ + qz * scaleZ;
-        vo += 6;
-      }
-
-      const indexCount = triCount * 3;
-      let indices;
-      const u16Idx = (flags & 0x0001) !== 0;
-      if (u16Idx) {
-        indices = new Uint16Array(indexCount);
-        for (let i = 0; i < indexCount; i++) {
-          indices[i] = view.getUint16(vo, true);
-          vo += 2;
-        }
-      } else {
-        indices = new Uint32Array(indexCount);
-        for (let i = 0; i < indexCount; i++) {
-          indices[i] = view.getUint32(vo, true);
-          vo += 4;
-        }
-      }
-
-      return {
-        vCount,
-        triCount,
-        min: [minX, minY, minZ],
-        max: [maxX, maxY, maxZ],
-        positions,
-        indices
-      };
+    let webgpuOk = false;
+    try {
+      webgpuOk = await wasm.init_webgpu(canvas);
+    } catch (_) {
+      webgpuOk = false;
+    }
+    if (!webgpuOk) {
+      try { wasm.init_webgl2(canvas); } catch (_) {}
     }
 
-    // -------------------------------------------------------------------------
-    // 3. MATHEMATICAL CONTINUUM ROADBED & WORLD ELEVATION ENGINE
-    // -------------------------------------------------------------------------
-    function roadCenter(z) {
-      // 26.5 km road spline across Kosciuszko corridor
-      const t = z / 2650.0;
-      const mx = 18.0 * Math.sin(t * 7.5) + 8.0 * Math.sin(t * 16.0) - 4.0 * Math.cos(t * 3.2);
-      
-      // Elevation profile conforming to real Australian AHD markers
-      let elev = 410.0;
-      if (t < 0.08) {
-        const f = t / 0.08;
-        elev = 410.0 * (1 - f) + 405.0 * f; // Talbingo to Blowering
-      } else if (t < 0.18) {
-        const f = (t - 0.08) / 0.10;
-        elev = 405.0 * (1 - f) + 460.0 * f; // Blowering to Jounama
-      } else if (t < 0.40) {
-        const f = (t - 0.18) / 0.22;
-        elev = 460.0 * (1 - f) + 940.0 * f; // Climb to Yarrangobilly Karst
-      } else if (t < 0.55) {
-        const f = (t - 0.40) / 0.15;
-        elev = 940.0 * (1 - f) + 1180.0 * f; // Climb to O'Hares Alpine Ash
-      } else if (t < 0.72) {
-        const f = (t - 0.55) / 0.17;
-        elev = 1180.0 * (1 - f) + 1460.0 * f; // Peak at Three Mile Dam subalpine bog
-      } else if (t < 0.88) {
-        const f = (t - 0.72) / 0.16;
-        elev = 1460.0 * (1 - f) + 185.0 * f; // Portal descent to Sydney Sandstone Gully
-      } else {
-        const f = (t - 0.88) / 0.12;
-        elev = 185.0 * (1 - f) + 32.0 * f; // Portal to Noosa Headland
+    const portal = new wasm.EcopunkPortal(canvas);
+    const tierNames = ['Tier 0 (CPU Fallback)', 'Tier 1 (QualiaPortal WebGL2)', 'Tier 2 (QualiaPortal WebGPU)'];
+    document.getElementById('portal-tier-badge').textContent = tierNames[portal.tier()] || `Tier ${portal.tier()}`;
+
+    // Load & compile the two canonical vibe-0.1 modules into .qbc bytecode inside WASM
+    const [driveVibeText, labVibeText] = await Promise.all([
+      fetch(`${BASE}/vibe/ecopunk_continuum_drive.vibe`).then(r => r.text()),
+      fetch(`${BASE}/vibe/ecopunk_biological_lab.vibe`).then(r => r.text())
+    ]);
+    const vibeReceipt = JSON.parse(portal.load_vibe_modules(driveVibeText, labVibeText));
+    document.getElementById('tel-qbc').textContent =
+      `${vibeReceipt.continuum_drive_qbc_bytes + vibeReceipt.biological_lab_qbc_bytes} B (.qbc)`;
+    document.getElementById('vibe-eval-receipt').textContent =
+      `VibeScript (${vibeReceipt.vibe_language}) Active // Catalog IDs: ${vibeReceipt.catalog_invoke_id_count} // .qbc Verified`;
+
+    // Admit the .q42 semantic volume slice into EcopunkVibeHost
+    try {
+      const q42Resp = await fetch(`${BASE}/data/sem/east_coast_biosphere.q42`);
+      if (q42Resp.ok) {
+        const q42Buf = new Uint8Array(await q42Resp.arrayBuffer());
+        const admittedBytes = portal.admit_q42_pack(q42Buf);
+        document.getElementById('wasm-status-line').textContent =
+          `QualiaPortal WASM Active // Admitted east_coast_biosphere.q42 (${(admittedBytes / 1024).toFixed(1)} KB)`;
       }
-
-      // Bank angle based on curvature
-      const dz = 2.0;
-      const x1 = 18.0 * Math.sin(((z - dz) / 2650.0) * 7.5) + 8.0 * Math.sin(((z - dz) / 2650.0) * 16.0);
-      const x2 = 18.0 * Math.sin(((z + dz) / 2650.0) * 7.5) + 8.0 * Math.sin(((z + dz) / 2650.0) * 16.0);
-      const curv = (x2 - 2 * mx + x1) / (dz * dz);
-      const bank = Math.max(-0.12, Math.min(0.12, -curv * 12.0));
-
-      return { x: mx, elev: elev, bank: bank };
+    } catch (_) {
+      document.getElementById('wasm-status-line').textContent =
+        `QualiaPortal WASM Active // 5-Scale .10d Living Containers Ready`;
     }
 
-    function worldElevation(x, z) {
-      const rd = roadCenter(z);
-      const distRoad = Math.abs(x - rd.x);
-      
-      // Highway roadbed cut & fill (width: 7.2m paved deck, 1.5m shoulders)
-      const roadHalfW = 4.8;
-      const roadFlatten = Math.exp(-Math.pow(distRoad / roadHalfW, 4));
+    // State for camera & controls
+    let camYaw = 0.62;
+    let camPitch = 0.28;
+    let camZoom = 2.10;
+    let dragging = false;
+    let lastX = 0, lastY = 0;
 
-      // Natural mountain topography
-      const t = z / 2650.0;
-      const riverMeander = rd.x - 24.0 * Math.sin(t * 11.0 + 1.2);
-      const distRiver = Math.abs(x - riverMeander);
-      const riverGorge = -14.0 * Math.exp(-Math.pow(distRiver / 12.0, 2));
-
-      // Flanking mountain ridges
-      const ridgeL = 55.0 * Math.pow(Math.max(0, -x + rd.x - 12.0) / 45.0, 1.25);
-      const ridgeR = 60.0 * Math.pow(Math.max(0, x - rd.x - 12.0) / 45.0, 1.25);
-      const roughness = 3.5 * Math.sin(x * 0.18 + z * 0.08) * Math.cos(z * 0.15 - x * 0.06)
-                      + 1.8 * Math.sin(x * 0.42 - z * 0.35);
-
-      const naturalElev = rd.elev + riverGorge + ridgeL + ridgeR + roughness;
-      // Blend seamlessly with the engineered highway roadbed deck
-      return naturalElev * (1.0 - roadFlatten) + rd.elev * roadFlatten;
-    }
-
-    // -------------------------------------------------------------------------
-    // 4. WEBGL2 SHADER PIPELINE & GEOMETRY BUFFER MANAGEMENT
-    // -------------------------------------------------------------------------
-    const canvas = document.getElementById('ecopunk-game-canvas');
-    const gl = canvas.getContext('webgl2', { antialias: true, alpha: false, depth: true, powerPreference: 'high-performance' })
-            || canvas.getContext('webgl', { antialias: true, alpha: false, depth: true });
-    if (!gl) {
-      console.error("WebGL2 / WebGL not available!");
-    }
-
-    const vsSrc = `#version 300 es
-      precision highp float;
-      in vec3 aPos;
-      in vec3 aNorm;
-      in vec4 aCol;
-      in vec2 aMeta; // x: entityKind, y: layerId/submeshId
-
-      uniform mat4 uViewProj;
-      uniform vec3 uCamPos;
-      uniform float uTime;
-      uniform float uOntogenyScale;
-      uniform float uExplodeSeparation;
-      uniform float uAnthesisMorph;
-      uniform int uHighlightLayer;
-      uniform vec4 uClipPlane;
-
-      out vec3 vWorldPos;
-      out vec3 vNorm;
-      out vec4 vCol;
-      out vec2 vMeta;
-      out float vClipDist;
-      out float vHighlight;
-
-      void main() {
-        vec3 p = aPos;
-        vec3 n = aNorm;
-        float kind = aMeta.x;
-        float layer = aMeta.y;
-
-        // Exploded view separation (moves layers outwards along normal or displacement radial)
-        if (uExplodeSeparation > 0.001) {
-          float layerOffset = (layer + 1.0) * 0.18 * uExplodeSeparation;
-          p += n * layerOffset;
-        }
-
-        // Anthesis / Stomatal Opening dynamic morphing
-        if (kind > 2.5 && kind < 3.5) {
-          // Flower anthesis: lifting operculum cap & spreading staminal filaments
-          if (layer > 1.5 && layer < 2.5) {
-            // Operculum cap lifts upward & tilts
-            p.y += uAnthesisMorph * 0.42;
-            p.x += uAnthesisMorph * 0.12;
-          } else if (layer > 2.5 && layer < 3.5) {
-            // Staminal ring filaments uncurl outwards
-            float radExpand = 1.0 + uAnthesisMorph * 1.5;
-            p.xz *= radExpand;
-            p.y += uAnthesisMorph * 0.15;
-          }
-        } else if (kind > 3.5 && kind < 4.5) {
-          // Stomatal aperture: guard cells expand laterally to open stomatal pore
-          if (layer > 1.5 && layer < 2.5) {
-            p.x += sign(p.x) * uAnthesisMorph * 0.08;
-          }
-        }
-
-        // PROC1 Wind sway for vegetation
-        if (kind > 0.5 && kind < 2.5) {
-          float h = max(0.0, p.y);
-          float sway = 0.015 * sin(uTime * 2.2 + p.x * 2.5 + p.z * 1.8 + layer) * h;
-          p.x += sway;
-          p.z += sway * 0.6;
-        }
-
-        vWorldPos = p;
-        vNorm = n;
-        vCol = aCol;
-        vMeta = aMeta;
-        vClipDist = dot(vec4(p, 1.0), uClipPlane);
-        vHighlight = (int(layer) == uHighlightLayer && uHighlightLayer >= 0) ? 1.0 : 0.0;
-
-        gl_Position = uViewProj * vec4(p, 1.0);
-      }
-    `;
-
-    const fsSrc = `#version 300 es
-      precision highp float;
-      in vec3 vWorldPos;
-      in vec3 vNorm;
-      in vec4 vCol;
-      in vec2 vMeta;
-      in float vClipDist;
-      in float vHighlight;
-
-      uniform vec3 uCamPos;
-      uniform vec3 uSunDir;
-      uniform vec3 uWaterCol;
-      uniform float uWaterY;
-      uniform float uTime;
-      uniform int uMode;
-      uniform vec3 uRoverPos;
-      uniform vec3 uRoverDir;
-
-      out vec4 fragColor;
-
-      vec3 acesFilm(vec3 x) {
-        return clamp((x * (2.51 * x + 0.03)) / (x * (2.43 * x + 0.59) + 0.14), 0.0, 1.0);
-      }
-      vec3 ironbow(float t) {
-        t = clamp(t, 0.0, 1.0);
-        return clamp(vec3(
-          smoothstep(0.12, 0.72, t) + 0.25 * smoothstep(0.75, 1.0, t),
-          smoothstep(0.42, 0.92, t),
-          sin(t * 3.14159) * 0.75 + smoothstep(0.82, 1.0, t) * 0.65
-        ), 0.0, 1.0);
-      }
-
-      void main() {
-        // Real-time Slicing Plane clipping
-        if (vClipDist < 0.0) {
-          discard;
-        }
-
-        vec3 n = normalize(vNorm);
-        vec3 l = normalize(uSunDir);
-        vec3 v = normalize(uCamPos - vWorldPos);
-        float ndl = max(dot(n, l), 0.0);
-        float ndv = max(dot(n, v), 0.0);
-        vec3 base = vCol.rgb;
-
-        // Cutaway Edge Highlighting
-        if (vClipDist < 0.02) {
-          base = vec3(0.18, 0.95, 0.78); // Luminous cut edge
-        }
-
-        // Vehicle Headlight Spotlight Beams (shining forward from rover)
-        vec3 toHeadlight = vWorldPos - uRoverPos;
-        float dHeadlight = length(toHeadlight);
-        if (dHeadlight > 0.1 && dHeadlight < 65.0) {
-          vec3 headDir = normalize(toHeadlight);
-          float spotDot = dot(headDir, normalize(uRoverDir));
-          if (spotDot > 0.82) {
-            float spotAtten = smoothstep(0.82, 0.94, spotDot) * (1.0 - dHeadlight / 65.0);
-            base += vec3(1.0, 0.96, 0.82) * spotAtten * 0.85;
-          }
-        }
-
-        vec3 col = base;
-        if (uMode == 0) {
-          // Mode 0: Spectral PBR + Split-Sum Specular
-          vec3 h = normalize(l + v);
-          float spec = pow(max(dot(n, h), 0.0), 32.0) * 0.25;
-          vec3 skyAmb = mix(vec3(0.16, 0.18, 0.22), vec3(0.32, 0.44, 0.58), 0.5 + 0.5 * n.y);
-          vec3 sunCol = vec3(1.35, 1.28, 1.15);
-          col = base * (skyAmb + sunCol * ndl * 0.85) + sunCol * spec;
-          // Distance atmospheric haze along 26.5 km corridor
-          float dist = length(uCamPos - vWorldPos);
-          float fog = clamp((dist - 120.0) / 1200.0, 0.0, 0.65);
-          col = mix(col, vec3(0.55, 0.70, 0.85), fog);
-          col = acesFilm(col);
-        } else if (uMode == 1) {
-          // Mode 1: Sydney Sandstone Cel-Toon
-          float q = ndl > 0.65 ? 1.15 : (ndl > 0.30 ? 0.75 : 0.38);
-          float rim = smoothstep(0.18, 0.28, ndv);
-          col = base * q * (0.25 + 0.75 * rim);
-        } else if (uMode == 2) {
-          // Mode 2: Namatjira Watercolor Wash
-          float wash = smoothstep(0.08, 0.92, ndl + 0.08 * sin(vWorldPos.x * 0.8) * cos(vWorldPos.z * 0.8));
-          vec3 paper = vec3(0.96, 0.93, 0.86);
-          col = mix(paper, base * (0.65 + 0.55 * wash), 0.90);
-        } else if (uMode == 3) {
-          // Mode 3: Three Mile Dam GPR Radar & Trophic HUD
-          float grid = step(0.92, fract(vWorldPos.x * 0.2)) + step(0.92, fract(vWorldPos.z * 0.2));
-          float wave = step(0.88, fract(vWorldPos.y * 0.5 - uTime * 0.6));
-          vec3 radar = vec3(0.03, 0.08, 0.18);
-          col = mix(radar, vec3(0.08, 0.92, 0.65), clamp(grid * 0.4 + wave * 0.5 + 0.3 * ndl, 0.0, 1.0));
-        } else {
-          // Mode 4: Planck Blackbody Thermal IR (FLIR Ironbow 280 K to 310 K)
-          float temp = clamp(0.25 + 0.35 * ndl + (vMeta.x > 3.5 ? 0.45 : 0.0), 0.0, 1.0);
-          col = ironbow(temp);
-        }
-
-        // Luminous Neon Glow on Selected / Hovered Layer Pin
-        if (vHighlight > 0.5) {
-          float pulse = 0.5 + 0.5 * sin(uTime * 8.0);
-          col = mix(col, vec3(0.18, 0.98, 0.85), 0.55 + 0.35 * pulse);
-        }
-
-        fragColor = vec4(col, 1.0);
-      }
-    `;
-
-    function compileShader(type, src) {
-      const s = gl.createShader(type);
-      gl.shaderSource(s, src);
-      gl.compileShader(s);
-      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
-        console.error("Shader compile error:", gl.getShaderInfoLog(s));
-      }
-      return s;
-    }
-
-    const prog = gl.createProgram();
-    gl.attachShader(prog, compileShader(gl.VERTEX_SHADER, vsSrc));
-    gl.attachShader(prog, compileShader(gl.FRAGMENT_SHADER, fsSrc));
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-      console.error("Program link error:", gl.getProgramInfoLog(prog));
-    }
-    gl.useProgram(prog);
-
-    const aPos = gl.getAttribLocation(prog, 'aPos');
-    const aNorm = gl.getAttribLocation(prog, 'aNorm');
-    const aCol = gl.getAttribLocation(prog, 'aCol');
-    const aMeta = gl.getAttribLocation(prog, 'aMeta');
-
-    const uViewProj = gl.getUniformLocation(prog, 'uViewProj');
-    const uCamPos = gl.getUniformLocation(prog, 'uCamPos');
-    const uSunDir = gl.getUniformLocation(prog, 'uSunDir');
-    const uWaterCol = gl.getUniformLocation(prog, 'uWaterCol');
-    const uWaterY = gl.getUniformLocation(prog, 'uWaterY');
-    const uTime = gl.getUniformLocation(prog, 'uTime');
-    const uOntogenyScale = gl.getUniformLocation(prog, 'uOntogenyScale');
-    const uExplodeSeparation = gl.getUniformLocation(prog, 'uExplodeSeparation');
-    const uAnthesisMorph = gl.getUniformLocation(prog, 'uAnthesisMorph');
-    const uHighlightLayer = gl.getUniformLocation(prog, 'uHighlightLayer');
-    const uClipPlane = gl.getUniformLocation(prog, 'uClipPlane');
-    const uMode = gl.getUniformLocation(prog, 'uMode');
-    const uRoverPos = gl.getUniformLocation(prog, 'uRoverPos');
-    const uRoverDir = gl.getUniformLocation(prog, 'uRoverDir');
-
-    const vbo = gl.createBuffer();
-    const ibo = gl.createBuffer();
-    let indexCount = 0;
-
-    // -------------------------------------------------------------------------
-    // 5. MESH BUILDERS: 26.5 KM WORLD HIGHWAY & 5 DISSECTION LAB SCALES
-    // -------------------------------------------------------------------------
-    const verts = [];
-    const indices = [];
-    let vCount = 0;
-
-    function resetMesh() {
-      verts.length = 0;
-      indices.length = 0;
-      vCount = 0;
-    }
-    function pushV(x, y, z, nx, ny, nz, r, g, b, kind, layer) {
-      verts.push(x, y, z, nx, ny, nz, r, g, b, 1.0, kind, layer);
-      return vCount++;
-    }
-    function pushTri(a, b, c) {
-      indices.push(a, b, c);
-    }
-    function addCylinder(p0, p1, r0, r1, colB, colT, kind, layer, sides = 8) {
-      const base = vCount;
-      const dx = p1[0] - p0[0], dy = p1[1] - p0[1], dz = p1[2] - p0[2];
-      const len = Math.hypot(dx, dy, dz) || 1;
-      const ax = dx / len, ay = dy / len, az = dz / len;
-
-      let upX = 0, upY = 1, upZ = 0;
-      if (Math.abs(ay) > 0.9) { upX = 1; upY = 0; upZ = 0; }
-      let rx = ay * upZ - az * upY, ry = az * upX - ax * upZ, rz = ax * upY - ay * upX;
-      let rl = Math.hypot(rx, ry, rz) || 1;
-      rx /= rl; ry /= rl; rz /= rl;
-      let ux = ry * az - rz * ay, uy = rz * ax - rx * az, uz = rx * ay - ry * ax;
-
-      for (let s = 0; s < sides; s++) {
-        const ang = (s / sides) * Math.PI * 2;
-        const c = Math.cos(ang), sn = Math.sin(ang);
-        const nx = rx * c + ux * sn, ny = ry * c + uy * sn, nz = rz * c + uz * sn;
-        pushV(p0[0] + nx * r0, p0[1] + ny * r0, p0[2] + nz * r0, nx, ny, nz, colB[0], colB[1], colB[2], kind, layer);
-        pushV(p1[0] + nx * r1, p1[1] + ny * r1, p1[2] + nz * r1, nx, ny, nz, colT[0], colT[1], colT[2], kind, layer);
-      }
-      for (let s = 0; s < sides; s++) {
-        const s1 = (s + 1) % sides;
-        const a0 = base + s * 2, a1 = base + s * 2 + 1;
-        const b0 = base + s1 * 2, b1 = base + s1 * 2 + 1;
-        pushTri(a0, b0, b1);
-        pushTri(a0, b1, a1);
-      }
-    }
-
-    function addBox(cx, cy, cz, rx, ry, rz, col, kind, layer) {
-      const b = vCount;
-      const d = [
-        [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
-        [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]
-      ];
-      for (let i = 0; i < 8; i++) {
-        pushV(cx + d[i][0] * rx, cy + d[i][1] * ry, cz + d[i][2] * rz, d[i][0] * 0.57, d[i][1] * 0.57, d[i][2] * 0.57, col[0], col[1], col[2], kind, layer);
-      }
-      const faces = [
-        [0, 2, 1], [0, 3, 2], [4, 5, 6], [4, 6, 7],
-        [0, 1, 5], [0, 5, 4], [2, 3, 7], [2, 7, 6],
-        [0, 4, 7], [0, 7, 3], [1, 2, 6], [1, 6, 5]
-      ];
-      for (const f of faces) pushTri(b + f[0], b + f[1], b + f[2]);
-    }
-
-    // -------------------------------------------------------------------------
-    // 5A. BUILD EXPERIENCE 1: 26.5 KM WORLD HIGHWAY CORRIDOR
-    // -------------------------------------------------------------------------
-    function buildWorldGeometry(centerZ = 0) {
-      resetMesh();
-
-      // 1. Local Terrain Grid around Rover/Walker (128x128 spanning 420m x 420m)
-      const gridN = 96;
-      const extentX = 140.0;
-      const extentZ = 220.0;
-      const startV = vCount;
-
-      for (let gz = 0; gz <= gridN; gz++) {
-        for (let gx = 0; gx <= gridN; gx++) {
-          const u = gx / gridN;
-          const v = gz / gridN;
-          const x = (u * 2.0 - 1.0) * extentX;
-          const z = centerZ + (v * 2.0 - 1.0) * extentZ;
-          const y = worldElevation(x, z);
-
-          // Normal estimation via central differences
-          const eps = 0.8;
-          const yx = worldElevation(x + eps, z) - worldElevation(x - eps, z);
-          const yz = worldElevation(x, z + eps) - worldElevation(x, z - eps);
-          const nl = Math.hypot(-yx, 2 * eps, -yz) || 1;
-          const nx = -yx / nl, ny = (2 * eps) / nl, nz = -yz / nl;
-
-          // Road alignment & coloring
-          const rd = roadCenter(z);
-          const distRoad = Math.abs(x - rd.x);
-          let col = [0.28, 0.38, 0.24]; // Bush eucalyptus olive
-          let kind = 0.0;
-
-          if (distRoad < 3.6) {
-            // Asphalt road deck
-            col = [0.18, 0.18, 0.20];
-            // Centerline yellow dash
-            if (distRoad < 0.22 && Math.sin(z * 0.8) > 0.0) {
-              col = [0.95, 0.82, 0.16];
-            }
-          } else if (distRoad < 4.8) {
-            // White shoulder edge lines
-            col = [0.85, 0.85, 0.82];
-          } else if (distRoad < 7.5) {
-            // Crushed gravel road shoulder
-            col = [0.55, 0.50, 0.44];
-          } else if (ny < 0.72) {
-            // Steep rock cutting / cliff
-            col = z > 1900 ? [0.72, 0.54, 0.38] : (z > 800 ? [0.60, 0.62, 0.65] : [0.50, 0.46, 0.42]);
-          }
-
-          pushV(x, y, z, nx, ny, nz, col[0], col[1], col[2], kind, 0.0);
-        }
-      }
-
-      for (let gz = 0; gz < gridN; gz++) {
-        for (let gx = 0; gx < gridN; gx++) {
-          const i00 = startV + gz * (gridN + 1) + gx;
-          const i10 = i00 + 1;
-          const i01 = startV + (gz + 1) * (gridN + 1) + gx;
-          const i11 = i01 + 1;
-          pushTri(i00, i01, i11);
-          pushTri(i00, i11, i10);
-        }
-      }
-
-      // 2. Roadside White Guideposts with Red/White Retroreflectors every 24m
-      const stepZ = 24.0;
-      const startPostZ = Math.floor((centerZ - extentZ) / stepZ) * stepZ;
-      for (let z = startPostZ; z <= centerZ + extentZ; z += stepZ) {
-        const rd = roadCenter(z);
-        for (const side of [-1, 1]) {
-          const px = rd.x + side * 5.2;
-          const py = worldElevation(px, z);
-          addBox(px, py + 0.45, z, 0.06, 0.45, 0.06, [0.92, 0.92, 0.90], 0.0, 0.0);
-          // Reflector patch
-          const refCol = side > 0 ? [0.85, 0.22, 0.18] : [0.92, 0.92, 0.92];
-          addBox(px, py + 0.75, z + 0.04 * side, 0.04, 0.08, 0.02, refCol, 0.0, 0.0);
-        }
-      }
-
-      // 3. Multi-Order Australian Canopy Trees along the Corridor
-      for (let i = 0; i < 48; i++) {
-        const tz = centerZ - extentZ + (i / 48) * extentZ * 2.0;
-        const rd = roadCenter(tz);
-        const side = i % 2 === 0 ? 1 : -1;
-        const tx = rd.x + side * (8.5 + (i * 7.3) % 45.0);
-        const ty = worldElevation(tx, tz);
-        const h = 9.0 + (i * 3.7) % 18.0;
-
-        // Bole trunk
-        addCylinder([tx, ty - 0.2, tz], [tx, ty + h * 0.65, tz], 0.45, 0.22, [0.75, 0.72, 0.68], [0.92, 0.90, 0.86], 1.0, 1.0, 6);
-        // Canopy foliage puff
-        addBox(tx, ty + h * 0.85, tz, h * 0.32, h * 0.22, h * 0.30, [0.22, 0.42, 0.22], 2.0, 1.0);
-      }
-
-      // 4. Articulated 3D Australian Fauna along Verges
-      // Kangaroo mob hopping near Humes Crossing / O'Hares
-      for (let k = 0; k < 3; k++) {
-        const kz = centerZ - 25.0 + k * 18.0;
-        const krd = roadCenter(kz);
-        const kx = krd.x + 8.5 + k * 4.2;
-        const ky = worldElevation(kx, kz);
-        addCylinder([kx, ky, kz], [kx, ky + 1.1, kz + 0.2], 0.25, 0.15, [0.44, 0.38, 0.30], [0.65, 0.58, 0.48], 5.0, 0.0, 6);
-        addCylinder([kx, ky + 1.1, kz + 0.2], [kx, ky + 1.6, kz + 0.4], 0.12, 0.08, [0.55, 0.48, 0.40], [0.68, 0.60, 0.50], 5.0, 0.0, 6);
-        // Tail
-        addCylinder([kx, ky + 0.3, kz], [kx, ky + 0.1, kz - 1.2], 0.12, 0.04, [0.44, 0.38, 0.30], [0.60, 0.52, 0.42], 5.0, 0.0, 5);
-      }
-
-      uploadBuffers();
-    }
-
-    // -------------------------------------------------------------------------
-    // 5B. BUILD EXPERIENCE 2: 5 BOTANICAL & BIOLOGICAL LAB SCALES
-    // -------------------------------------------------------------------------
-    function buildLabScale1() {
-      // Scale 1: Whole Organism & Subterranean Root System (10m–35m)
-      resetMesh();
-
-      // Trunk bole (Order 1)
-      addCylinder([0, 0, 0], [0, 4.2, 0], 0.65, 0.42, [0.78, 0.74, 0.68], [0.92, 0.90, 0.86], 1.0, 2.0, 10);
-      // Scaffold limbs (Order 2)
-      addCylinder([0, 4.2, 0], [-1.8, 7.5, 0.8], 0.42, 0.25, [0.90, 0.88, 0.84], [0.88, 0.85, 0.82], 1.0, 1.0, 8);
-      addCylinder([0, 4.2, 0], [1.9, 7.8, -0.6], 0.40, 0.24, [0.90, 0.88, 0.84], [0.88, 0.85, 0.82], 1.0, 1.0, 8);
-      // Secondary boughs (Order 3)
-      addCylinder([-1.8, 7.5, 0.8], [-3.2, 10.2, 1.5], 0.25, 0.14, [0.85, 0.82, 0.78], [0.85, 0.82, 0.78], 1.0, 1.0, 6);
-      addCylinder([1.9, 7.8, -0.6], [3.4, 10.5, -1.2], 0.24, 0.13, [0.85, 0.82, 0.78], [0.85, 0.82, 0.78], 1.0, 1.0, 6);
-      // Canopy falcate foliage
-      addBox(-3.2, 10.8, 1.5, 2.1, 1.3, 2.0, [0.22, 0.46, 0.24], 2.0, 0.0);
-      addBox(3.4, 11.2, -1.2, 2.2, 1.4, 2.1, [0.24, 0.48, 0.26], 2.0, 0.0);
-      addBox(0, 11.5, 0, 2.4, 1.5, 2.2, [0.25, 0.50, 0.28], 2.0, 0.0);
-
-      // Subterranean Root System (below Y = 0)
-      // Swollen Lignotuber
-      addBox(0, -0.45, 0, 1.15, 0.55, 1.10, [0.52, 0.34, 0.22], 1.0, 3.0);
-      // Primary Taproot
-      addCylinder([0, -0.8, 0], [0, -4.5, 0], 0.48, 0.08, [0.45, 0.30, 0.18], [0.38, 0.25, 0.15], 1.0, 4.0, 8);
-      // 4 Lateral Buttress Roots
-      addCylinder([0, -0.3, 0], [-2.8, -1.2, 1.8], 0.35, 0.06, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
-      addCylinder([0, -0.3, 0], [2.9, -1.3, -1.6], 0.34, 0.06, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
-      addCylinder([0, -0.3, 0], [1.8, -1.4, 2.7], 0.32, 0.05, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
-      addCylinder([0, -0.3, 0], [-2.1, -1.4, -2.5], 0.33, 0.05, [0.48, 0.32, 0.20], [0.42, 0.28, 0.16], 1.0, 5.0, 6);
-      // Mycorrhizal feeder root filaments
-      for (let m = 0; m < 16; m++) {
-        const ang = (m / 16) * Math.PI * 2;
-        const mx = Math.cos(ang) * 2.4, mz = Math.sin(ang) * 2.4;
-        addCylinder([mx, -1.4, mz], [mx * 1.5, -2.6, mz * 1.5], 0.06, 0.015, [0.92, 0.88, 0.70], [0.98, 0.95, 0.78], 1.0, 6.0, 4);
-      }
-
-      uploadBuffers();
-    }
-
-    function buildLabScale2() {
-      // Scale 2: Branch Phyllotaxis & 6-Layer Stem/Bark Wedge (50mm–2m)
-      resetMesh();
-
-      // 6 Concentric Concentric Tissue Cylinders (wedged cutaway)
-      const layers = [
-        { r0: 0.92, r1: 1.00, col: [0.92, 0.90, 0.85], kind: 1.0, id: 0 }, // L1 Rhytidome
-        { r0: 0.85, r1: 0.92, col: [0.22, 0.58, 0.26], kind: 1.0, id: 1 }, // L2 Phellogen
-        { r0: 0.72, r1: 0.85, col: [0.78, 0.20, 0.16], kind: 1.0, id: 2 }, // L3 Phloem & Kino
-        { r0: 0.69, r1: 0.72, col: [0.20, 0.92, 0.75], kind: 1.0, id: 3 }, // L4 Vascular Cambium
-        { r0: 0.38, r1: 0.69, col: [0.92, 0.80, 0.42], kind: 1.0, id: 4 }, // L5 Sapwood
-        { r0: 0.00, r1: 0.38, col: [0.55, 0.28, 0.12], kind: 1.0, id: 5 }  // L6 Heartwood & Pith
-      ];
-
-      const h = 2.4;
-      const sides = 24;
-      for (const lyr of layers) {
-        // Render 270 degree wedge
-        const base = vCount;
-        for (let s = 0; s <= 18; s++) {
-          const ang = (s / sides) * Math.PI * 2;
-          const c = Math.cos(ang), sn = Math.sin(ang);
-          pushV(c * lyr.r1, -h * 0.5, sn * lyr.r1, c, 0, sn, lyr.col[0], lyr.col[1], lyr.col[2], lyr.kind, lyr.id);
-          pushV(c * lyr.r1, h * 0.5, sn * lyr.r1, c, 0, sn, lyr.col[0], lyr.col[1], lyr.col[2], lyr.kind, lyr.id);
-        }
-        for (let s = 0; s < 18; s++) {
-          const a0 = base + s * 2, a1 = base + s * 2 + 1;
-          const b0 = base + (s + 1) * 2, b1 = base + (s + 1) * 2 + 1;
-          pushTri(a0, b0, b1);
-          pushTri(a0, b1, a1);
-        }
-      }
-
-      // Heteroblastic leaves extending from branch
-      // Juvenile opposite leaves
-      addBox(-1.3, -0.6, 0.4, 0.45, 0.02, 0.35, [0.58, 0.75, 0.72], 2.0, 1.0);
-      addBox(1.3, -0.6, -0.4, 0.45, 0.02, 0.35, [0.58, 0.75, 0.72], 2.0, 1.0);
-      // Adult alternate falcate leaves
-      addBox(-1.6, 0.7, -0.8, 0.75, 0.02, 0.24, [0.22, 0.48, 0.25], 2.0, 0.0);
-      addBox(1.7, 0.9, 0.7, 0.75, 0.02, 0.24, [0.22, 0.48, 0.25], 2.0, 0.0);
-
-      uploadBuffers();
-    }
-
-    function buildLabScale3() {
-      // Scale 3: Floral Bud Anthesis & Gumnut Dissection (5mm–150mm)
-      resetMesh();
-
-      // Pedicel & Hypanthium cup
-      addCylinder([0, -1.8, 0], [0, -0.4, 0], 0.14, 0.28, [0.32, 0.55, 0.28], [0.38, 0.62, 0.32], 3.0, 0.0, 12);
-      addCylinder([0, -0.4, 0], [0, 0.6, 0], 0.28, 0.85, [0.38, 0.62, 0.32], [0.44, 0.68, 0.36], 3.0, 0.0, 16);
-
-      // Inferior Ovary Cutaway (4 Locules + fertile Ovules)
-      addBox(0, 0.0, 0, 0.52, 0.45, 0.52, [0.88, 0.32, 0.54], 3.0, 5.0);
-      for (let o = 0; o < 8; o++) {
-        const ang = (o / 8) * Math.PI * 2;
-        addBox(Math.cos(ang) * 0.28, 0.05, Math.sin(ang) * 0.28, 0.06, 0.06, 0.06, [0.98, 0.98, 0.95], 3.0, 5.0);
-      }
-
-      // Operculum (Calyptriform Cap)
-      addCylinder([0, 0.6, 0], [0, 1.5, 0], 0.85, 0.05, [0.82, 0.65, 0.24], [0.90, 0.72, 0.28], 3.0, 1.0, 16);
-
-      // Staminal Ring & Anthers (Multi-Whorled Filaments)
-      for (let w = 0; w < 32; w++) {
-        const ang = (w / 32) * Math.PI * 2;
-        const fx = Math.cos(ang) * 0.78, fz = Math.sin(ang) * 0.78;
-        addCylinder([fx * 0.9, 0.55, fz * 0.9], [fx * 1.5, 1.1 + (w % 4) * 0.12, fz * 1.5], 0.02, 0.015, [0.95, 0.92, 0.75], [0.98, 0.96, 0.82], 3.0, 2.0, 4);
-        // Bilobed Anther
-        addBox(fx * 1.5, 1.15 + (w % 4) * 0.12, fz * 1.5, 0.05, 0.04, 0.04, [0.98, 0.82, 0.15], 3.0, 3.0);
-      }
-
-      // Central Gynoecium (Style & Capitate Stigma)
-      addCylinder([0, 0.5, 0], [0, 1.45, 0], 0.06, 0.05, [0.28, 0.82, 0.65], [0.32, 0.88, 0.70], 3.0, 4.0, 6);
-      addBox(0, 1.48, 0, 0.11, 0.08, 0.11, [0.95, 0.88, 0.25], 3.0, 4.0);
-
-      // Paired Mature Woody Gumnut Capsule
-      const gx = 2.4;
-      addCylinder([gx, -1.2, 0], [gx, 0.4, 0], 0.35, 0.75, [0.48, 0.32, 0.16], [0.55, 0.38, 0.20], 3.0, 6.0, 12);
-      // 4 Dehisced Valves
-      for (let v = 0; v < 4; v++) {
-        const ang = (v / 4) * Math.PI * 2 + 0.35;
-        addBox(gx + Math.cos(ang) * 0.42, 0.45, Math.sin(ang) * 0.42, 0.14, 0.18, 0.06, [0.38, 0.22, 0.10], 3.0, 6.0);
-      }
-
-      uploadBuffers();
-    }
-
-    function buildLabScale4() {
-      // Scale 4: Foliar Murray's Law Venation & Cellular Block (50µm–50mm)
-      resetMesh();
-
-      // 3D Cellular Histology Block (100 µm slice)
-      const layers = [
-        { y0: 1.15, y1: 1.25, col: [0.65, 0.82, 0.95], name: 'Cuticle', id: 1 },
-        { y0: 0.95, y1: 1.15, col: [0.45, 0.78, 0.55], name: 'Upper Epidermis', id: 2 },
-        { y0: 0.45, y1: 0.95, col: [0.18, 0.55, 0.22], name: 'Isobilateral Palisade', id: 3 },
-        { y0: -0.45, y1: 0.45, col: [0.22, 0.62, 0.28], name: 'Spongy Mesophyll', id: 3 },
-        { y0: -0.95, y1: -0.45, col: [0.18, 0.55, 0.22], name: 'Abaxial Palisade', id: 3 },
-        { y0: -1.15, y1: -0.95, col: [0.45, 0.78, 0.55], name: 'Lower Epidermis', id: 2 },
-        { y0: -1.25, y1: -1.15, col: [0.65, 0.82, 0.95], name: 'Abaxial Cuticle', id: 1 }
-      ];
-
-      for (const lyr of layers) {
-        addBox(0, (lyr.y0 + lyr.y1) * 0.5, 0, 2.2, (lyr.y1 - lyr.y0) * 0.5, 1.4, lyr.col, 4.0, lyr.id);
-      }
-
-      // Sunken Stomatal Complexes (Upper & Lower Guard Cells + Vapour Cavity)
-      for (const sy of [1.05, -1.05]) {
-        addBox(0.85, sy, 0.4, 0.22, 0.08, 0.12, [0.15, 0.85, 0.45], 4.0, 2.0); // Guard Cell A
-        addBox(0.85, sy, 0.7, 0.22, 0.08, 0.12, [0.15, 0.85, 0.45], 4.0, 2.0); // Guard Cell B
-        addBox(0.85, sy * 0.7, 0.55, 0.28, 0.18, 0.25, [0.08, 0.22, 0.32], 4.0, 2.0); // Substomatal Vapour Cavity
-      }
-
-      // Collateral Vascular Bundle (Adaxial Xylem + Abaxial Phloem + Sclerenchyma Girder)
-      addCylinder([0, 0.25, 0], [0, -0.25, 0], 0.45, 0.45, [0.92, 0.75, 0.25], [0.92, 0.75, 0.25], 4.0, 4.0, 8);
-      // Xylem vessels (spiral lignin rings)
-      addCylinder([-0.18, 0.15, 0], [-0.18, -0.15, 0], 0.14, 0.14, [0.98, 0.88, 0.35], [0.98, 0.88, 0.35], 4.0, 4.0, 6);
-      addCylinder([0.18, 0.15, 0], [0.18, -0.15, 0], 0.14, 0.14, [0.98, 0.88, 0.35], [0.98, 0.88, 0.35], 4.0, 4.0, 6);
-
-      // Schizogenous Essential Oil Gland (1,8-Cineole Droplet)
-      addBox(-1.1, 0.0, -0.3, 0.45, 0.45, 0.45, [0.95, 0.82, 0.18], 4.0, 5.0);
-
-      // Murray's Law Leaf Lamina & Intramarginal Vein (displayed beside block)
-      const lx = 3.2;
-      addBox(lx, 0, 0, 0.85, 0.02, 2.5, [0.22, 0.48, 0.25], 4.0, 0.0);
-      // Midrib
-      addCylinder([lx, 0.02, -2.5], [lx, 0.02, 2.5], 0.08, 0.03, [0.55, 0.85, 0.35], [0.55, 0.85, 0.35], 4.0, 0.0, 6);
-      // Intramarginal veins along both edges
-      addCylinder([lx - 0.75, 0.02, -2.4], [lx - 0.75, 0.02, 2.4], 0.025, 0.015, [0.45, 0.78, 0.30], [0.45, 0.78, 0.30], 4.0, 0.0, 4);
-      addCylinder([lx + 0.75, 0.02, -2.4], [lx + 0.75, 0.02, 2.4], 0.025, 0.015, [0.45, 0.78, 0.30], [0.45, 0.78, 0.30], 4.0, 0.0, 4);
-
-      uploadBuffers();
-    }
-
-    function buildLabScale5(taxon = 'kangaroo') {
-      // Scale 5: Comparative Vertebrate Anatomy (3-Layer Peel)
-      resetMesh();
-
-      // Layer 0: Articulated Osteology (Skeletal System)
-      // Skull with diprotodont incisors
-      addBox(0, 2.4, 0.65, 0.22, 0.20, 0.35, [0.92, 0.90, 0.85], 5.0, 0.0);
-      addBox(0, 2.3, 0.95, 0.08, 0.06, 0.12, [0.98, 0.98, 0.95], 5.0, 0.0); // Incisors
-      // Vertebral Column
-      addCylinder([0, 2.2, 0.4], [0, 1.2, -0.2], 0.12, 0.14, [0.88, 0.86, 0.82], [0.88, 0.86, 0.82], 5.0, 0.0, 8);
-      // Ribcage
-      addBox(0, 1.6, 0.1, 0.38, 0.35, 0.35, [0.85, 0.82, 0.78], 5.0, 0.0);
-      // Pelvis & Marsupial Epipubic Bones (UBERON:0003661)
-      addBox(0, 1.0, -0.3, 0.35, 0.25, 0.30, [0.90, 0.88, 0.84], 5.0, 1.0);
-      addCylinder([-0.12, 0.95, -0.25], [-0.15, 1.25, 0.15], 0.03, 0.02, [0.35, 0.85, 0.95], [0.35, 0.85, 0.95], 5.0, 1.0, 6);
-      addCylinder([0.12, 0.95, -0.25], [0.15, 1.25, 0.15], 0.03, 0.02, [0.35, 0.85, 0.95], [0.35, 0.85, 0.95], 5.0, 1.0, 6);
-      // Caudal tail vertebrae
-      addCylinder([0, 0.9, -0.4], [0, 0.1, -2.4], 0.12, 0.03, [0.88, 0.85, 0.80], [0.85, 0.82, 0.78], 5.0, 0.0, 6);
-      // Hindlimbs (Femur, Tibia/Fibula, 4th Metatarsal Pes)
-      for (const side of [-1, 1]) {
-        addCylinder([side * 0.35, 0.9, -0.3], [side * 0.45, 0.5, 0.1], 0.09, 0.07, [0.90, 0.88, 0.84], [0.88, 0.85, 0.82], 5.0, 0.0, 6);
-        addCylinder([side * 0.45, 0.5, 0.1], [side * 0.38, 0.1, -0.4], 0.06, 0.05, [0.88, 0.86, 0.82], [0.85, 0.82, 0.78], 5.0, 0.0, 6);
-        addBox(side * 0.38, 0.05, 0.1, 0.08, 0.04, 0.55, [0.92, 0.90, 0.86], 5.0, 2.0); // 4th metatarsal pes
-      }
-
-      // Layer 1: Major Myology & Elastic Achilles Tendon (65% energy recovery)
-      for (const side of [-1, 1]) {
-        // Gastrocnemius / Plantaris muscle bellies
-        addCylinder([side * 0.42, 0.8, -0.15], [side * 0.45, 0.4, -0.1], 0.18, 0.12, [0.82, 0.22, 0.20], [0.75, 0.18, 0.16], 5.0, 4.0, 8);
-        // Elastic Achilles Tendon
-        addCylinder([side * 0.42, 0.4, -0.1], [side * 0.38, 0.08, -0.38], 0.045, 0.035, [0.98, 0.95, 0.75], [0.98, 0.95, 0.75], 5.0, 3.0, 6);
-      }
-
-      // Layer 2: Outer Skinned Integument
-      addBox(0, 1.6, 0.1, 0.42, 0.55, 0.45, [0.55, 0.48, 0.40], 5.0, 5.0);
-
-      uploadBuffers();
-    }
-
-    function uploadBuffers() {
-      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.DYNAMIC_DRAW);
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
-      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint32Array(indices), gl.DYNAMIC_DRAW);
-      indexCount = indices.length;
-    }
-
-    // -------------------------------------------------------------------------
-    // 6. 3D 4WD FIELD ROVER & 3D ECOLOGIST WALKER SIMULATION (EXPERIENCE 1)
-    // -------------------------------------------------------------------------
-    const rover = {
-      x: 0, y: 410.5, z: 0,
-      vx: 0, vz: 0, speed: 0,
-      yaw: 0, pitch: 0, roll: 0,
-      steer: 0,
-      odometer: 0,
-      wheelRot: 0,
-      handbrake: false
-    };
-
-    const walker = {
-      active: false,
-      x: 3.5, y: 410.5, z: 0,
-      yaw: 0,
-      speed: 0
-    };
-
-    let camMode = 0; // 0: Chase, 1: Hood, 2: Free Orbit
-    let camYaw = 0.0, camPitch = 0.25, camDist = 9.5;
-    let camTarget = [0, 410.5, 0];
-    const keys = {};
-    const moveButtons = { fwd: false, back: false, left: false, right: false };
-
-    window.addEventListener('keydown', (e) => {
-      keys[e.code] = true;
-      if (e.code === 'KeyC') {
-        camMode = (camMode + 1) % 3;
-        const names = ['Chase Cam [C]', 'Hood First-Person Cam [C]', 'Free Aerial Orbit [C]'];
-        document.getElementById('btn-cycle-cam').textContent = '🎥 Camera: ' + names[camMode];
-      }
-      if (e.code === 'KeyE') {
-        toggleRoverWalk();
-      }
-      if (e.code === 'KeyF') {
-        toggleExperience();
-      }
-    });
-    window.addEventListener('keyup', (e) => { keys[e.code] = false; });
-
-    function toggleRoverWalk() {
-      if (currentExperience === 2) return;
-      walker.active = !walker.active;
-      const btn = document.getElementById('btn-rover-walk');
-      if (walker.active) {
-        walker.x = rover.x + Math.cos(rover.yaw) * 2.2;
-        walker.z = rover.z - Math.sin(rover.yaw) * 2.2;
-        walker.y = worldElevation(walker.x, walker.z);
-        walker.yaw = rover.yaw;
-        btn.textContent = '🚶 Mode: Dismounted Walk [E]';
-        btn.classList.add('action-amber');
-        document.getElementById('hud-mode-pill').innerHTML = 'World Continuum: <strong>On-Foot Walk</strong>';
-      } else {
-        btn.textContent = '🚗 Mode: 4WD Field Rover [E]';
-        btn.classList.remove('action-amber');
-        document.getElementById('hud-mode-pill').innerHTML = 'World Continuum: <strong>Rover Driving</strong>';
-      }
-    }
-
-    // -------------------------------------------------------------------------
-    // 7. EXPERIENCES SWITCHING & LAB DISSECTION CONTROLLERS
-    // -------------------------------------------------------------------------
-    let currentExperience = 1; // 1: World Continuum, 2: 5-Scale Lab
-    let currentScale = 1;
-    let selectedLayerId = -1;
-    let explodeAmount = 0.0;
-    let slicePlaneY = 1.0;
-    let anthesisAmount = 0.3;
-    let ontogenyIndex = 2; // Mature
-    const ONTOGENY_NAMES = ['Seedling (0.35×)', 'Sapling (0.68×)', 'Mature Adult (1.00×)', 'Ancient Veteran (1.32×)'];
-    const ONTOGENY_SCALES = [0.35, 0.68, 1.00, 1.32];
-
-    function setExperience(exp) {
-      currentExperience = exp;
-      const navWorld = document.getElementById('nav-world');
-      const navLab = document.getElementById('nav-lab');
-      const worldCtrls = document.getElementById('world-ctrls');
-      const labCtrls = document.getElementById('lab-ctrls');
-      const corridorRibbon = document.getElementById('corridor-ribbon');
-      const labSlidersRow = document.getElementById('lab-sliders-row');
-
-      if (exp === 1) {
-        navWorld.classList.add('active');
-        navLab.classList.remove('active');
-        worldCtrls.style.display = 'flex';
-        labCtrls.style.display = 'none';
-        corridorRibbon.style.display = 'flex';
-        labSlidersRow.style.display = 'none';
-        document.getElementById('hud-specimen-btn').style.display = 'none';
-        document.getElementById('hud-mode-pill').innerHTML = walker.active ? 'World Continuum: <strong>On-Foot Walk</strong>' : 'World Continuum: <strong>Rover Driving</strong>';
-        buildWorldGeometry(rover.z);
-        updateInspectorForWorld();
-      } else {
-        navLab.classList.add('active');
-        navWorld.classList.remove('active');
-        worldCtrls.style.display = 'none';
-        labCtrls.style.display = 'flex';
-        corridorRibbon.style.display = 'none';
-        labSlidersRow.style.display = 'flex';
-        document.getElementById('hud-specimen-btn').style.display = 'none';
-        document.getElementById('hud-mode-pill').innerHTML = 'Dissection Lab: <strong>Scale ' + currentScale + '</strong>';
-        loadLabScale(currentScale);
-      }
-    }
-
-    function toggleExperience() {
-      setExperience(currentExperience === 1 ? 2 : 1);
-    }
-
-    document.getElementById('nav-world').addEventListener('click', () => setExperience(1));
-    document.getElementById('nav-lab').addEventListener('click', () => setExperience(2));
-    document.getElementById('btn-open-lab-f').addEventListener('click', () => setExperience(2));
-    document.getElementById('btn-return-world').addEventListener('click', () => setExperience(1));
-    document.getElementById('btn-rover-walk').addEventListener('click', toggleRoverWalk);
-    document.getElementById('hud-specimen-btn').addEventListener('click', () => setExperience(2));
-
-    // Lab Scale Buttons
-    document.querySelectorAll('.lab-scale-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.lab-scale-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const sc = parseInt(btn.getAttribute('data-scale'), 10);
-        loadLabScale(sc);
-      });
-    });
-
-    function loadLabScale(sc) {
-      currentScale = sc;
-      selectedLayerId = -1;
-      camTarget = [0, 0, 0];
-      camYaw = 0.35;
-      camPitch = 0.28;
-
-      const scData = SCALES[sc];
-      document.getElementById('insp-title').textContent = scData.title;
-      document.getElementById('insp-taxon').textContent = scData.taxon;
-      document.getElementById('hud-site-pill').textContent = scData.title + ' (' + scData.domain + ')';
-
-      // Visibility toggles for scale 3 vs 4 vs 5
-      document.getElementById('wrap-anthesis').style.display = (sc === 3 || sc === 4) ? 'flex' : 'none';
-      document.getElementById('wrap-fauna-sel').style.display = (sc === 5) ? 'flex' : 'none';
-      if (sc === 4) {
-        document.getElementById('lbl-anthesis-title').textContent = 'Stomata:';
-      } else if (sc === 3) {
-        document.getElementById('lbl-anthesis-title').textContent = 'Anthesis:';
-      }
-
-      // Populate Callout Pins
-      const container = document.getElementById('insp-pins-container');
-      container.innerHTML = '';
-      scData.pins.forEach((pin, idx) => {
-        const chip = document.createElement('div');
-        chip.className = 'pin-chip';
-        chip.innerHTML = `<span class="pin-swatch" style="background:${pin.color};"></span><span>${pin.label}</span>`;
-        chip.addEventListener('click', () => {
-          document.querySelectorAll('.pin-chip').forEach(c => c.classList.remove('active'));
-          chip.classList.add('active');
-          selectedLayerId = idx;
-          showPinKnowledge(pin);
-        });
-        container.appendChild(chip);
-      });
-
-      if (scData.pins.length > 0) {
-        showPinKnowledge(scData.pins[0]);
-      }
-
-      if (sc === 1) {
-        camDist = 18.0;
-        camTarget = [0, 4.5, 0];
-        buildLabScale1();
-      } else if (sc === 2) {
-        camDist = 4.2;
-        buildLabScale2();
-      } else if (sc === 3) {
-        camDist = 3.6;
-        buildLabScale3();
-      } else if (sc === 4) {
-        camDist = 4.5;
-        buildLabScale4();
-      } else if (sc === 5) {
-        camDist = 4.8;
-        camTarget = [0, 1.2, 0];
-        buildLabScale5();
-      }
-    }
-
-    function showPinKnowledge(pin) {
-      document.getElementById('insp-know-title').innerHTML = `🔬 ${pin.label} (${pin.iri})`;
-      document.getElementById('insp-know-desc').textContent = pin.desc;
-      document.getElementById('insp-iri').textContent = pin.iri;
-      document.getElementById('insp-eqn').innerHTML = pin.eqn;
-      document.getElementById('insp-indigenous').innerHTML = `<strong>Traditional Ethnobotanical Context:</strong> ${pin.indigenous}`;
-    }
-
-    function updateInspectorForWorld() {
-      // Find closest site
-      let closest = SITES[0];
-      let minDist = 999999;
-      for (const st of SITES) {
-        const d = Math.abs(rover.z - st.z);
-        if (d < minDist) { minDist = d; closest = st; }
-      }
-      document.getElementById('insp-title').textContent = closest.name;
-      document.getElementById('insp-taxon').textContent = closest.taxon;
-      document.getElementById('insp-know-title').innerHTML = `📍 Site km ${closest.km.toFixed(1)} — ${closest.name}`;
-      document.getElementById('insp-know-desc').textContent = closest.desc;
-      document.getElementById('insp-iri').textContent = `site:${closest.id}`;
-      document.getElementById('insp-eqn').innerHTML = `z_0 = (p / k_c)^(1/n) [Bekker Sinkage: kc=${closest.kc}]`;
-      document.getElementById('insp-soil').textContent = closest.soil;
-
-      // Populate Sites Pills
-      const container = document.getElementById('insp-pins-container');
-      container.innerHTML = '';
-      SITES.forEach((st, idx) => {
-        const chip = document.createElement('div');
-        chip.className = 'pin-chip' + (st === closest ? ' active' : '');
-        chip.innerHTML = `<span class="pin-swatch" style="background:#38bdf8;"></span><span>km ${st.km.toFixed(1)} · ${st.name.split('&')[0]}</span>`;
-        chip.addEventListener('click', () => fastTravelToSite(idx));
-        container.appendChild(chip);
-      });
-    }
-
-    function fastTravelToSite(idx) {
-      const st = SITES[idx];
-      rover.z = st.z;
-      rover.x = roadCenter(st.z).x;
-      rover.y = worldElevation(rover.x, rover.z) + 0.6;
-      rover.vx = 0; rover.vz = 0; rover.speed = 0;
-      if (walker.active) {
-        walker.x = rover.x + 2.0;
-        walker.z = rover.z;
-        walker.y = worldElevation(walker.x, walker.z);
-      }
-      document.getElementById('sel-fast-travel').value = idx;
-      buildWorldGeometry(rover.z);
-      updateInspectorForWorld();
-    }
-
-    document.getElementById('sel-fast-travel').addEventListener('change', (e) => {
-      fastTravelToSite(parseInt(e.target.value, 10));
-    });
-
-    // Gallery Card Clicks
-    document.querySelectorAll('[data-jump-site]').forEach(card => {
-      card.addEventListener('click', () => {
-        const s = parseInt(card.getAttribute('data-jump-site'), 10);
-        fastTravelToSite(s);
-        setExperience(1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    // Sliders
-    document.getElementById('sl-explode').addEventListener('input', (e) => {
-      explodeAmount = parseFloat(e.target.value) / 100.0;
-      document.getElementById('lbl-explode').textContent = e.target.value + '%';
-    });
-    document.getElementById('sl-slice').addEventListener('input', (e) => {
-      slicePlaneY = parseFloat(e.target.value) / 100.0;
-      document.getElementById('lbl-slice').textContent = e.target.value === '100' ? 'Full' : (e.target.value + '%');
-    });
-    document.getElementById('sl-anthesis').addEventListener('input', (e) => {
-      anthesisAmount = parseFloat(e.target.value) / 100.0;
-      document.getElementById('lbl-anthesis-val').textContent = e.target.value + '%';
-    });
-    document.getElementById('sel-fauna-taxa').addEventListener('change', (e) => {
-      buildLabScale5(e.target.value);
-    });
-    document.getElementById('btn-ontogeny-stepper').addEventListener('click', () => {
-      ontogenyIndex = (ontogenyIndex + 1) % ONTOGENY_NAMES.length;
-      document.getElementById('btn-ontogeny-stepper').textContent = ONTOGENY_NAMES[ontogenyIndex];
-      document.getElementById('insp-stage').textContent = ONTOGENY_NAMES[ontogenyIndex];
-      if (currentExperience === 2) {
-        loadLabScale(currentScale);
-      }
-    });
-
-    // -------------------------------------------------------------------------
-    // 8. 26.5 KM HIGHWAY MINIMAP CORRIDOR CANVAS RENDERER
-    // -------------------------------------------------------------------------
-    const corCanvas = document.getElementById('corridor-canvas');
-    const corCtx = corCanvas ? corCanvas.getContext('2d') : null;
-
-    function renderCorridorMinimap() {
-      if (!corCtx) return;
-      const w = corCanvas.width;
-      const h = corCanvas.height;
-      corCtx.clearRect(0, 0, w, h);
-
-      // Background elevation gradient profile
-      corCtx.beginPath();
-      corCtx.moveTo(0, h);
-      for (let i = 0; i <= 100; i++) {
-        const z = (i / 100.0) * 2650.0;
-        const rd = roadCenter(z);
-        // Normalize elevation (30m to 1500m)
-        const ey = h - ((rd.elev - 30.0) / 1470.0) * (h - 8);
-        const ex = (i / 100.0) * w;
-        corCtx.lineTo(ex, ey);
-      }
-      corCtx.lineTo(w, h);
-      corCtx.closePath();
-      corCtx.fillStyle = 'rgba(56, 189, 248, 0.18)';
-      corCtx.fill();
-      corCtx.strokeStyle = 'rgba(45, 212, 191, 0.65)';
-      corCtx.lineWidth = 1.5;
-      corCtx.stroke();
-
-      // Site Dots & Labels
-      for (let s = 0; s < SITES.length; s++) {
-        const st = SITES[s];
-        const sx = (st.z / 2650.0) * w;
-        const sy = h - ((st.elev - 30.0) / 1470.0) * (h - 8);
-        corCtx.fillStyle = '#f59e0b';
-        corCtx.beginPath();
-        corCtx.arc(sx, sy, 3.5, 0, Math.PI * 2);
-        corCtx.fill();
-      }
-
-      // Rover / Walker live position blip
-      const px = Math.max(0, Math.min(w, (rover.z / 2650.0) * w));
-      const py = h - ((rover.y - 30.0) / 1470.0) * (h - 8);
-      corCtx.fillStyle = '#5eead4';
-      corCtx.shadowColor = '#5eead4';
-      corCtx.shadowBlur = 10;
-      corCtx.beginPath();
-      corCtx.arc(px, py, 5.0, 0, Math.PI * 2);
-      corCtx.fill();
-      corCtx.shadowBlur = 0;
-    }
-
-    document.getElementById('corridor-track-wrap').addEventListener('click', (e) => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const frac = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      rover.z = frac * 2650.0;
-      rover.x = roadCenter(rover.z).x;
-      rover.y = worldElevation(rover.x, rover.z) + 0.6;
-      rover.vx = 0; rover.vz = 0; rover.speed = 0;
-      buildWorldGeometry(rover.z);
-      updateInspectorForWorld();
-    });
-
-    // -------------------------------------------------------------------------
-    // 9. 3D HOLOSONIC WEBAUDIO SYNTHESIZER
-    // -------------------------------------------------------------------------
-    let audioCtx = null;
-    let engineOsc = null;
-    let audioGain = null;
-
-    document.getElementById('btn-audio').addEventListener('click', () => {
-      const btn = document.getElementById('btn-audio');
-      if (!audioCtx) {
-        const AC = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AC();
-
-        // 4WD Engine Pitch oscillator
-        engineOsc = audioCtx.createOscillator();
-        engineOsc.type = 'sawtooth';
-        engineOsc.frequency.value = 42;
-
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.value = 240;
-
-        audioGain = audioCtx.createGain();
-        audioGain.gain.value = 0.12;
-
-        engineOsc.connect(filter).connect(audioGain).connect(audioCtx.destination);
-        engineOsc.start();
-
-        btn.textContent = '🔊 Audio: Live';
-        btn.classList.add('active');
-      } else if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-        btn.textContent = '🔊 Audio: Live';
-        btn.classList.add('active');
-      } else {
-        audioCtx.suspend();
-        btn.textContent = '🔇 Audio: Off';
-        btn.classList.remove('active');
-      }
-    });
-
-    // -------------------------------------------------------------------------
-    // 10. INPUT HANDLING & INTERACTION EVENTS
-    // -------------------------------------------------------------------------
-    let dragging = false, lastX = 0, lastY = 0;
     canvas.addEventListener('pointerdown', (e) => {
       dragging = true; lastX = e.clientX; lastY = e.clientY;
       canvas.setPointerCapture(e.pointerId);
     });
     canvas.addEventListener('pointermove', (e) => {
       if (!dragging) return;
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
       lastX = e.clientX; lastY = e.clientY;
-      camYaw -= dx * 0.0065;
-      camPitch = Math.max(0.04, Math.min(1.42, camPitch + dy * 0.0065));
+      camYaw += dx * 0.0075;
+      camPitch = Math.max(-1.25, Math.min(1.35, camPitch + dy * 0.0065));
     });
     canvas.addEventListener('pointerup', () => { dragging = false; });
     canvas.addEventListener('wheel', (e) => {
       e.preventDefault();
-      camDist = Math.max(1.2, Math.min(35.0, camDist + e.deltaY * 0.003));
+      camZoom = Math.max(0.55, Math.min(6.5, camZoom * (1.0 - e.deltaY * 0.001)));
     }, { passive: false });
 
-    document.querySelectorAll('.dpad-btn').forEach((btn) => {
-      const dir = btn.getAttribute('data-move');
-      btn.addEventListener('pointerdown', () => { moveButtons[dir] = true; });
-      btn.addEventListener('pointerup', () => { moveButtons[dir] = false; });
-      btn.addEventListener('pointerleave', () => { moveButtons[dir] = false; });
+    const keys = new Set();
+    window.addEventListener('keydown', (e) => {
+      const k = e.key.toLowerCase();
+      keys.add(k);
+      if (k === 'e') {
+        portal.toggle_dismount();
+      } else if (k === 'f') {
+        switchExperience(activeExp === 0 ? 1 : 0);
+      }
+    });
+    window.addEventListener('keyup', (e) => keys.delete(e.key.toLowerCase()));
+
+    let activeExp = 0;
+    let activeScale = 1;
+    let activePinIdx = 0;
+
+    // Populate Study Sites list
+    const siteListEl = document.getElementById('site-btn-list');
+    SITES.forEach((s) => {
+      const btn = document.createElement('button');
+      btn.textContent = s.label;
+      if (s.idx === 0) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        Array.from(siteListEl.children).forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        const info = JSON.parse(portal.load_continuum_site_scene(s.idx));
+        document.getElementById('tel-mesh').textContent =
+          `${info.vertex_count.toLocaleString()} v / ${info.triangle_count.toLocaleString()} t`;
+      });
+      siteListEl.appendChild(btn);
     });
 
-    // -------------------------------------------------------------------------
-    // 11. MATRIX HELPERS (ZERO HEAP)
-    // -------------------------------------------------------------------------
-    function perspective(fov, aspect, near, far) {
-      const f = 1.0 / Math.tan(fov / 2);
-      const nf = 1 / (near - far);
-      return [
-        f / aspect, 0, 0, 0,
-        0, f, 0, 0,
-        0, 0, (far + near) * nf, -1,
-        0, 0, (2 * far * near) * nf, 0
-      ];
-    }
-    function lookAt(eye, center, up) {
-      let zx = eye[0] - center[0], zy = eye[1] - center[1], zz = eye[2] - center[2];
-      let zl = Math.hypot(zx, zy, zz) || 1;
-      zx /= zl; zy /= zl; zz /= zl;
-      let xx = up[1] * zz - up[2] * zy, xy = up[2] * zx - up[0] * zz, xz = up[0] * zy - up[1] * zx;
-      let xl = Math.hypot(xx, xy, xz) || 1;
-      xx /= xl; xy /= xl; xz /= xl;
-      let yx = zy * xz - zz * xy, yy = zz * xx - zx * xz, yz = zx * xy - zy * xx;
-      return [
-        xx, yx, zx, 0,
-        xy, yy, zy, 0,
-        xz, yz, zz, 0,
-        -(xx * eye[0] + xy * eye[1] + xz * eye[2]),
-        -(yx * eye[0] + yy * eye[1] + yz * eye[2]),
-        -(zx * eye[0] + zy * eye[1] + zz * eye[2]),
-        1
-      ];
-    }
-    function mulMat4(a, b) {
-      const out = new Array(16);
-      for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-          out[j * 4 + i] =
-            a[0 * 4 + i] * b[j * 4 + 0] +
-            a[1 * 4 + i] * b[j * 4 + 1] +
-            a[2 * 4 + i] * b[j * 4 + 2] +
-            a[3 * 4 + i] * b[j * 4 + 3];
-        }
+    function refreshLabDissection() {
+      const explode = parseFloat(document.getElementById('slider-explode').value);
+      const cutaway = parseFloat(document.getElementById('slider-cutaway').value);
+      const anthesis = parseFloat(document.getElementById('slider-anthesis').value);
+      const peel = parseFloat(document.getElementById('slider-peel').value);
+      const arch = parseInt(document.getElementById('select-archetype').value, 10);
+
+      document.getElementById('val-explode').textContent = explode.toFixed(2);
+      document.getElementById('val-cutaway').textContent = cutaway.toFixed(2);
+      document.getElementById('val-anthesis').textContent = anthesis.toFixed(2);
+      document.getElementById('val-peel').textContent = peel.toFixed(2);
+
+      const res = JSON.parse(
+        portal.load_dissection_scale(activeScale, explode, cutaway, anthesis, peel, arch, activePinIdx)
+      );
+      if (res.mesh_10d) {
+        document.getElementById('tel-mesh').textContent =
+          `${res.mesh_10d.vertex_count.toLocaleString()} v / ${res.mesh_10d.triangle_count.toLocaleString()} t (.10d)`;
       }
-      return out;
+
+      const pinListEl = document.getElementById('pin-btn-list');
+      pinListEl.innerHTML = '';
+      (res.scale_pins || []).forEach((pin, idx) => {
+        const b = document.createElement('button');
+        b.textContent = `[${pin.ontology_curie}] ${pin.scientific_term}`;
+        if (idx === (activePinIdx % Math.max(1, res.scale_pins.length))) b.classList.add('active');
+        b.addEventListener('click', () => {
+          activePinIdx = idx;
+          refreshLabDissection();
+        });
+        pinListEl.appendChild(b);
+      });
+
+      if (res.selected_pin) {
+        document.getElementById('pin-curie').textContent = res.selected_pin.ontology_curie;
+        document.getElementById('pin-term').textContent = res.selected_pin.scientific_term;
+        document.getElementById('pin-formula').textContent = res.selected_pin.biophysical_formula;
+        document.getElementById('pin-summary').textContent = res.selected_pin.educational_summary;
+        document.getElementById('pin-custodial').textContent =
+          `Indigenous Custodial Context: ${res.selected_pin.indigenous_custodial_context}`;
+      }
+      if (res.vibe_evaluation && res.vibe_evaluation.floral_anthesis) {
+        const fa = res.vibe_evaluation.floral_anthesis;
+        document.getElementById('vibe-eval-receipt').textContent =
+          `VibeScript Lab Eval // Scale ${activeScale} // Operculum Lift: ${Number(fa.operculum_lift_mm || 0).toFixed(1)} mm // Stamen Unfold: ${Number(fa.stamen_unfold_deg || 0).toFixed(1)}°`;
+      }
     }
 
-    // -------------------------------------------------------------------------
-    // 12. 60 FPS RENDER LOOP & CONTINUOUS KINEMATICS INTEGRATION
-    // -------------------------------------------------------------------------
+    function switchExperience(exp) {
+      activeExp = exp;
+      document.getElementById('btn-exp-continuum').classList.toggle('active', exp === 0);
+      document.getElementById('btn-exp-lab').classList.toggle('active', exp === 1);
+      document.getElementById('continuum-controls').style.display = exp === 0 ? 'block' : 'none';
+      document.getElementById('lab-controls').style.display = exp === 1 ? 'block' : 'none';
+      if (exp === 0) {
+        const info = JSON.parse(portal.load_continuum_site_scene(0));
+        document.getElementById('tel-mesh').textContent =
+          `${info.vertex_count.toLocaleString()} v / ${info.triangle_count.toLocaleString()} t (.10d)`;
+      } else {
+        refreshLabDissection();
+      }
+    }
+
+    document.getElementById('btn-exp-continuum').addEventListener('click', () => switchExperience(0));
+    document.getElementById('btn-exp-lab').addEventListener('click', () => switchExperience(1));
+    document.getElementById('btn-dismount').addEventListener('click', () => portal.toggle_dismount());
+
+    document.querySelectorAll('#scale-btn-list button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#scale-btn-list button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeScale = parseInt(btn.getAttribute('data-scale'), 10);
+        activePinIdx = 0;
+        refreshLabDissection();
+      });
+    });
+
+    ['slider-explode', 'slider-cutaway', 'slider-anthesis', 'slider-peel', 'select-archetype'].forEach((id) => {
+      document.getElementById(id).addEventListener('input', refreshLabDissection);
+    });
+
+    // Populate initial callout pins via a quick Scale 1 query then return to Site 0
+    refreshLabDissection();
+    switchExperience(0);
+
     let lastTime = performance.now();
-    let frameCount = 0, fpsTimer = lastTime;
-    let lastRebuildZ = -99999;
-
-    buildWorldGeometry(0);
-    updateInspectorForWorld();
-
     function frame(now) {
-      const dt = Math.min(0.05, (now - lastTime) * 0.001);
+      const dtMs = Math.min(50.0, Math.max(1.0, now - lastTime));
       lastTime = now;
-      frameCount++;
-      if (now - fpsTimer >= 500) {
-        const fps = Math.round((frameCount * 1000) / (now - fpsTimer));
-        document.getElementById('hud-fps').textContent = String(Math.min(60, Math.max(30, fps)));
-        frameCount = 0;
-        fpsTimer = now;
+
+      const fwd = (keys.has('w') || keys.has('arrowup') ? 1.0 : 0.0) - (keys.has('s') || keys.has('arrowdown') ? 1.0 : 0.0);
+      const str = (keys.has('d') || keys.has('arrowright') ? 1.0 : 0.0) - (keys.has('a') || keys.has('arrowleft') ? 1.0 : 0.0);
+      const brake = keys.has(' ') ? 1.0 : 0.0;
+      const sprint = keys.has('shift');
+
+      try {
+        const telJson = portal.step_and_render(
+          canvas, dtMs, fwd, str, brake, fwd, str, sprint, camYaw, camPitch, camZoom
+        );
+        const tel = JSON.parse(telJson);
+        document.getElementById('tel-mode').textContent = tel.mode;
+        document.getElementById('tel-corridor').textContent = `${Number(tel.corridor_km || 0).toFixed(2)} km`;
+        document.getElementById('tel-elev').textContent = `${Number(tel.elevation_ahd_m || 0).toFixed(1)} m AHD`;
+        document.getElementById('tel-speed').textContent = `${Number(tel.rover_speed_kmh || 0).toFixed(1)} km/h`;
+        document.getElementById('tel-sinkage').textContent = `${Number(tel.soil_sinkage_mm || 0).toFixed(1)} mm`;
+        document.getElementById('tel-site').textContent = tel.nearest_site_name || 'Talbingo';
+      } catch (err) {
+        console.error('QualiaPortal step_and_render error:', err);
       }
-
-      if (currentExperience === 1) {
-        // EXPERIENCE 1: 4WD ROVER DRIVING OR ON-FOOT WALKING
-        const fwdInput = (keys['KeyW'] || keys['ArrowUp'] || moveButtons.fwd ? 1 : 0)
-                       - (keys['KeyS'] || keys['ArrowDown'] || moveButtons.back ? 1 : 0);
-        const turnInput = (keys['KeyA'] || keys['ArrowLeft'] || moveButtons.left ? 1 : 0)
-                        - (keys['KeyD'] || keys['ArrowRight'] || moveButtons.right ? 1 : 0);
-        const handbrake = keys['Space'] ? true : false;
-
-        if (!walker.active) {
-          // 4WD Rover Kinematics
-          const accel = fwdInput * 18.0;
-          if (handbrake) {
-            rover.speed *= Math.max(0.0, 1.0 - 5.0 * dt);
-          } else {
-            rover.speed += accel * dt;
-            rover.speed *= Math.max(0.0, 1.0 - 0.45 * dt); // Rolling resistance
-          }
-          rover.speed = Math.max(-12.0, Math.min(38.0, rover.speed)); // km/h scaled to ~110 km/h peak
-
-          // Ackermann steering angle
-          rover.steer += (turnInput * 0.45 - rover.steer) * 8.0 * dt;
-          if (Math.abs(rover.speed) > 0.1) {
-            rover.yaw += rover.steer * (rover.speed / 12.0) * dt;
-          }
-
-          rover.vx = -Math.sin(rover.yaw) * rover.speed;
-          rover.vz = Math.cos(rover.yaw) * rover.speed;
-          rover.x += rover.vx * dt;
-          rover.z += rover.vz * dt;
-          rover.z = Math.max(0.0, Math.min(2650.0, rover.z));
-
-          // Terrain elevation & suspension pitch/roll conformation
-          const groundY = worldElevation(rover.x, rover.z);
-          rover.y += (groundY + 0.65 - rover.y) * 12.0 * dt;
-
-          const aheadY = worldElevation(rover.x - Math.sin(rover.yaw) * 2.2, rover.z + Math.cos(rover.yaw) * 2.2);
-          const behindY = worldElevation(rover.x + Math.sin(rover.yaw) * 2.2, rover.z - Math.cos(rover.yaw) * 2.2);
-          rover.pitch = (aheadY - behindY) / 4.4;
-
-          rover.wheelRot += rover.speed * 2.5 * dt;
-          rover.odometer += Math.abs(rover.speed) * dt * 0.001;
-
-          // Sound engine pitch
-          if (engineOsc && audioCtx && audioCtx.state === 'running') {
-            engineOsc.frequency.value = 35 + Math.abs(rover.speed) * 4.5;
-          }
-
-          // Camera follow
-          if (camMode === 0) {
-            // Chase Cam
-            const cx = rover.x + Math.sin(rover.yaw) * 8.5;
-            const cz = rover.z - Math.cos(rover.yaw) * 8.5;
-            camTarget = [rover.x, rover.y + 0.8, rover.z];
-            camDist = 8.5;
-          } else if (camMode === 1) {
-            // Hood / Cab First-Person Cam
-            camTarget = [rover.x - Math.sin(rover.yaw) * 6.0, rover.y + 1.2, rover.z + Math.cos(rover.yaw) * 6.0];
-            camDist = 0.5;
-          } else {
-            // Free Orbit
-            camTarget = [rover.x, rover.y + 0.5, rover.z];
-          }
-
-          // Rebuild surrounding terrain grid when moving past threshold
-          if (Math.abs(rover.z - lastRebuildZ) > 35.0) {
-            lastRebuildZ = rover.z;
-            buildWorldGeometry(rover.z);
-          }
-        } else {
-          // On-Foot Walker Avatar
-          const sprint = keys['ShiftLeft'] || keys['ShiftRight'] ? 2.2 : 1.0;
-          const walkSpeed = 3.5 * sprint;
-          const fx = -Math.sin(camYaw), fz = -Math.cos(camYaw);
-          const rx = Math.cos(camYaw), rz = -Math.sin(camYaw);
-          walker.x += (fx * fwdInput + rx * (-turnInput)) * walkSpeed * dt;
-          walker.z += (fz * fwdInput + rz * (-turnInput)) * walkSpeed * dt;
-          walker.y = worldElevation(walker.x, walker.z) + 1.4;
-          camTarget = [walker.x, walker.y + 0.4, walker.z];
-          camDist = 4.2;
-
-          // Check proximity to rover for remounting
-          const dRover = Math.hypot(walker.x - rover.x, walker.z - rover.z);
-          if (dRover < 3.5) {
-            document.getElementById('hud-instructions').innerHTML = `⌨️ Press <kbd>E</kbd> to enter 4WD Field Rover · Drag mouse to look around`;
-          }
-        }
-
-        // Check proximity to corridor study sites / specimens
-        let closestSite = SITES[0];
-        let minDist = 999999;
-        const playerZ = walker.active ? walker.z : rover.z;
-        for (const st of SITES) {
-          const d = Math.abs(playerZ - st.z);
-          if (d < minDist) { minDist = d; closestSite = st; }
-        }
-
-        const kmMark = (playerZ / 100.0).toFixed(2);
-        const speedKmh = Math.round(Math.abs(rover.speed) * 3.6);
-        const bekkerSinkage = (closestSite.kc * (walker.active ? 1.5 : 4.2)).toFixed(1);
-
-        document.getElementById('hud-site-pill').textContent = `km ${kmMark} — ${closestSite.name}`;
-        document.getElementById('hud-telemetry-1').innerHTML = `Speed: <strong>${walker.active ? 'Walk' : (speedKmh + ' km/h')}</strong>`;
-        document.getElementById('hud-telemetry-2').innerHTML = `Odo: <strong>${rover.odometer.toFixed(1)} km</strong>`;
-        document.getElementById('hud-telemetry-3').innerHTML = `Sinkage: <strong>${bekkerSinkage} mm</strong>`;
-
-        document.getElementById('insp-coord').textContent = `[${rover.x.toFixed(1)}, ${rover.y.toFixed(1)}, ${rover.z.toFixed(1)}]`;
-        document.getElementById('insp-elev').textContent = `${rover.y.toFixed(1)} m AHD`;
-
-        // Specimen Prompt button
-        const promptBtn = document.getElementById('hud-specimen-btn');
-        if (minDist < 45.0) {
-          promptBtn.style.display = 'block';
-          promptBtn.innerHTML = `🔍 [F] Examine ${closestSite.taxon.split('(')[0]} in 5-Scale Botanical &amp; Biological Lab`;
-        } else {
-          promptBtn.style.display = 'none';
-        }
-
-        renderCorridorMinimap();
-      }
-
-      // Camera view calculation
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = Math.max(1, Math.floor(canvas.clientWidth * dpr));
-      const h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
-      if (canvas.width !== w || canvas.height !== h) {
-        canvas.width = w;
-        canvas.height = h;
-      }
-      gl.viewport(0, 0, w, h);
-
-      // Background Sky clear
-      const selMode = parseInt(document.getElementById('sel-shader-mode').value, 10);
-      if (selMode === 3) gl.clearColor(0.02, 0.05, 0.12, 1.0);
-      else if (selMode === 4) gl.clearColor(0.04, 0.02, 0.14, 1.0);
-      else if (selMode === 2) gl.clearColor(0.95, 0.92, 0.84, 1.0);
-      else gl.clearColor(0.42, 0.65, 0.88, 1.0);
-
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-      gl.enable(gl.DEPTH_TEST);
-
-      const eye = [
-        camTarget[0] + Math.sin(camYaw) * Math.cos(camPitch) * camDist,
-        camTarget[1] + Math.sin(camPitch) * camDist,
-        camTarget[2] + Math.cos(camYaw) * Math.cos(camPitch) * camDist
-      ];
-
-      const proj = perspective(0.78, w / h, 0.1, 4000.0);
-      const view = lookAt(eye, camTarget, [0, 1, 0]);
-      const vp = mulMat4(proj, view);
-
-      gl.useProgram(prog);
-      gl.uniformMatrix4fv(uViewProj, false, new Float32Array(vp));
-      gl.uniform3fv(uCamPos, new Float32Array(eye));
-      gl.uniform3fv(uSunDir, new Float32Array([0.48, 0.76, 0.44]));
-      gl.uniform3fv(uWaterCol, new Float32Array([0.06, 0.38, 0.52]));
-      gl.uniform1f(uWaterY, 405.0);
-      gl.uniform1f(uTime, now * 0.001);
-      gl.uniform1f(uOntogenyScale, ONTOGENY_SCALES[ontogenyIndex]);
-      gl.uniform1f(uExplodeSeparation, explodeAmount);
-      gl.uniform1f(uAnthesisMorph, anthesisAmount);
-      gl.uniform1i(uHighlightLayer, selectedLayerId);
-
-      // Slicing Plane Equation: Ax + By + Cz + D >= 0
-      // Normal pointing up along Y or Z
-      const sliceD = (1.0 - slicePlaneY) * 12.0;
-      gl.uniform4fv(uClipPlane, new Float32Array([0.0, -1.0, 0.0, sliceD + 4.5]));
-
-      gl.uniform1i(uMode, selMode);
-      gl.uniform3fv(uRoverPos, new Float32Array([rover.x, rover.y, rover.z]));
-      const rDir = [-Math.sin(rover.yaw), 0, Math.cos(rover.yaw)];
-      gl.uniform3fv(uRoverDir, new Float32Array(rDir));
-
-      // Draw All Geometry
-      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
-      const stride = 12 * 4;
-      gl.enableVertexAttribArray(aPos);
-      gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, stride, 0);
-      gl.enableVertexAttribArray(aNorm);
-      gl.vertexAttribPointer(aNorm, 3, gl.FLOAT, false, stride, 3 * 4);
-      gl.enableVertexAttribArray(aCol);
-      gl.vertexAttribPointer(aCol, 4, gl.FLOAT, false, stride, 6 * 4);
-      gl.enableVertexAttribArray(aMeta);
-      gl.vertexAttribPointer(aMeta, 2, gl.FLOAT, false, stride, 10 * 4);
-
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
-      gl.drawElements(gl.TRIANGLES, indexCount, gl.UNSIGNED_INT, 0);
-
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
-  })();
   </script>
 </body>
 </html>

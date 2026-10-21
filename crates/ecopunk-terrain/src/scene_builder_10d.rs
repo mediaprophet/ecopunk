@@ -47,7 +47,9 @@ use qualia_core_db::render::assets::Mesh;
 use qualia_core_db::render::compile_10d::{
     compile_mesh_to_10d_with_extras_and_frames, compiled_digest, Compile10dExtras,
 };
+#[cfg(not(target_arch = "wasm32"))]
 use qualia_core_db::render::gpu::ibl_cubemap::integrate_split_sum_brdf_zero_heap;
+#[cfg(not(target_arch = "wasm32"))]
 use qualia_core_db::render::gpu::{
     compute_csm_4_splits_zero_heap, PortalGpu, TextureColorSpace, TextureMipSemantic,
 };
@@ -2612,6 +2614,7 @@ fn seal_mesh_to_10d(
 /// Render a compiled `.10d` sector natively on the physical GPU via `PortalGpu` (`wgpu` — Zero V8)
 /// with resident mipmapped PBR textures, AG-22 `EnvironmentProbeSet` IBL, cascaded sun shadows,
 /// half-resolution SSAO, analytic sky (`SKY_WGSL`), and AG-10 `WATER_QUALITY_CINEMATIC` shoreline water!
+#[cfg(not(target_arch = "wasm32"))]
 pub fn render_sector_via_portal_gpu_png(
     sector: &CompiledSector10d,
     textures: &[ProceduralTextureAsset],
