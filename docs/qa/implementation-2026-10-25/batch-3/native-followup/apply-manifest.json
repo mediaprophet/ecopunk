@@ -1,0 +1,29 @@
+{
+  "scope": "Reviewed material-only admission and persistent REPL compatibility",
+  "mutations": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "candidate": "candidate/src/graphical/controller.rs",
+      "original_sha256": "148c4280d1e064880903c8460e54d9ec57d934283d1a9d68eacb75226a9a44df",
+      "candidate_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "candidate": "candidate/src/graphical/mod.rs",
+      "original_sha256": "4e68781d7ace0305f249d151997af1c55a7296e7ffbc96d1fa5b28378ba67286",
+      "candidate_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_edit.rs",
+      "candidate": "candidate/src/graphical/material_edit.rs",
+      "original_sha256": null,
+      "candidate_sha256": "50152f946c253c4d6727d41bd5c7e331dbbcfd7551dec71e77f4a25b8e59255e"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_admission_tests.rs",
+      "candidate": "candidate/src/graphical/material_admission_tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2"
+    }
+  ]
+}

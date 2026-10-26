@@ -1,0 +1,13 @@
+[package]
+name = "vibe-run05-runtime-check"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+vibe = { path = "C:/github/qualiaDB/crates/vibe" }
+
+[lib]
+path = "lib.rs"

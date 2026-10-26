@@ -1,0 +1,60 @@
+{
+  "time_utc": "2026-10-26T01:16:53.029578+00:00",
+  "scope": "Documentation/source-pin/handoff consistency only; no engine build/test/runtime/GUI/asset production.",
+  "checked_local_links": 215,
+  "receipt_self_links_checked_after_write": 1,
+  "missing_links": [],
+  "research_jobs_ready": 6,
+  "inactive_implementation_parents": 8,
+  "inactive_implementation_subjobs": 10,
+  "unique_research_output_files": 12,
+  "job_graph_acyclic": true,
+  "current_cargo_permissions": 0,
+  "future_cargo_owner": "BS-90 only when implementation is resumed/activated",
+  "development_case_nonblocking_for_authored_tree_route": true,
+  "preserved_original_eco_ids_and_open_acceptance": 120,
+  "queue_role_and_backlog_pins_current": true,
+  "focused_source_file_pins_current": 12,
+  "additional_root_source_checks": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs",
+      "sha256": "48c56d42d4c3913c1b20896bf372904b64318cc73a5da17d139b2e31dd6892d4",
+      "inspection_scope": "version/header text matches; not a whole-file audit"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/mod.rs",
+      "sha256": "2161c8a12de77d46279f8f0056d499f2d253639f5a0dea7df405575f33bf229d",
+      "inspection_scope": "1-70 excerpt and public export references; not a whole-file audit"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-geospatial/src/raster_m64/writer.rs",
+      "sha256": "440d8e6db0cd3cf674a5113acff61b842c1cc295fdb31e793e64e7bdba93b3f0",
+      "inspection_scope": "1-60 excerpt; not a whole-file audit"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs",
+      "sha256": "c21fffa0283234e42f7c8785bddda19b875c809b728d52c9da6d6912d55fad76",
+      "inspection_scope": "legacy writer declaration/version matches; not a whole-file audit"
+    }
+  ],
+  "catalogue_baseline_unchanged_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+  "independent_document_review": "No cycles/conflicting outputs; current-pass authority, evidence enum and parent roll-up clarified after review. No human/domain/product acceptance inferred.",
+  "saved_file_hashes": {
+    "C:\\github\\ecopunk\\AGENTS.md": "c670455597cb36d287d7909fe4acf16f37cd8d00cbb14134fb41d7e946c0dfc8",
+    "C:\\github\\ecopunk\\docs\\planning\\README.md": "e45f2ff9f5818691ac9bf7f262447c18240548778d2fdf3c47c257b02479e23d",
+    "C:\\github\\ecopunk\\docs\\planning\\implementation-plan.md": "200d7ad9950e45dce1280cb2c42204c13765119bcd69684b4a1744a628d85ee5",
+    "C:\\github\\ecopunk\\docs\\planning\\implementation-dispatch.md": "1d10e7de9c9c68f71339bf82e66aab771322ebcd27d54a1660f927e97cd62d88",
+    "C:\\github\\ecopunk\\docs\\planning\\biosphere-implementation-dispatch.md": "148a71da11a2a0395b855faf90c8326fe3920dce4ff0228f15de52cb35c1ec28",
+    "C:\\github\\ecopunk\\docs\\planning\\delivery-revision-and-agent-handoff.md": "3d5c07f5d1be297d37246db82816faa8701541ebd83d314548cdd5e1be1bdbde",
+    "C:\\github\\ecopunk\\docs\\planning\\biosphere-work-packets.json": "450c1e6bfadc48c0f06ae1d092d5f90085ed6f093524f3868cc2146dbe099882",
+    "C:\\github\\ecopunk\\docs\\planning\\agent-handoff.template.json": "1b5e1a1d8fbc60ee703d72842f99f9868209d9305799a608484092ff748b18ca",
+    "C:\\github\\ecopunk\\docs\\planning\\implementation-agent-roles.json": "70d0023330d084a2c6b1afa5becb612ff736b704d2e87136da9d52af429160a3",
+    "C:\\github\\ecopunk\\docs\\planning\\implementation-queue.json": "957501a29af9d4c6f9670cb4399483be162310a73425dd326c2e621451281536",
+    "C:\\github\\ecopunk\\docs\\planning\\tech\\format-sdk-foundation.md": "91f4570c0011a93cbb044aff4ee29b49000766cd2810513fe779b5af31464d36",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\delegation-review.md": "fd7785306bffd9079221a3a69cdcd45878c5aae0f0183357226a49196de19afc",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\native-route-study.md": "94204e419a12640be6ead18f7cae943c58dfaccab1ae8b7a0f139fb8434d453b",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\README.md": "00d2b992e29c2f4bff6f6c0263969b5c2bc700c345bfdf92072e0c0cf70746f4",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\requirements-realignment.md": "5de9aba403ff8e1ede9a4200bb03a7d37bab0fa14cc9b91af2a9a25a5a20616d",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\native-route-study.coverage.json": "39c5c9bbf3553cde96f852179e26e94202df84b073ddb7624270ebf821c33983"
+  }
+}

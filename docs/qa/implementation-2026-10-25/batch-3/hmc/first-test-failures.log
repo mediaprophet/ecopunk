@@ -1,0 +1,73 @@
+
+running 27 tests
+test poet_host::invoke::studio_domains::tests::test_doc_create_receipt_has_q42 ... ok
+test poet_host::invoke::studio_domains::tests::test_studio_lifecycle_dispatch ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::checkpoint_child ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::exact_source_schema_lineage_and_real_10d_roundtrip ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination ... FAILED
+test poet_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo ... FAILED
+test poet_host::invoke::studio_store::checkpoint::tests::stale_capture_and_activation_conflict_preserve_accepted_work ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::tamper_truncation_schema_sequence_and_budget_fail_without_promotion ... ok
+test poet_host::invoke::studio_store::journal_tests::clock_and_history_limits_refuse_without_wrapping_or_losing_source ... ok
+test poet_host::invoke::studio_store::journal_tests::concurrent_same_revision_accepts_one_edit_without_running_stale_callback ... ok
+test poet_host::invoke::studio_store::journal_tests::existing_studio_handlers_accept_checked_and_legacy_calls ... ok
+test poet_host::invoke::studio_store::journal_tests::explicit_host_limits_admit_large_sources_and_refuse_lossy_reduction ... ok
+test poet_host::invoke::studio_store::journal_tests::legacy_replacement_and_import_cannot_reuse_old_snapshots ... ok
+test poet_host::invoke::studio_store::journal_tests::prospective_audit_bytes_are_admitted_before_every_activation ... ok
+test poet_host::invoke::studio_store::journal_tests::rejected_source_or_policy_edits_leave_all_state_unchanged ... ok
+test poet_host::invoke::studio_store::journal_tests::retained_byte_and_audit_budgets_refuse_atomically ... ok
+test poet_host::invoke::studio_store::journal_tests::source_undo_redo_regenerates_identical_loft_and_material ... ok
+test poet_host::invoke::studio_store::journal_tests::stale_edits_and_undo_redo_are_atomic ... ok
+test poet_host::invoke::studio_store::stamped_tests::concurrent_stamped_edit_activates_one_callback_and_returns_current_stamp ... ok
+test poet_host::invoke::studio_store::stamped_tests::fallible_candidate_error_preserves_source_revision_and_both_stacks ... ok
+test poet_host::invoke::studio_store::stamped_tests::foreign_stamp_and_create_conflict_leave_existing_source_unchanged ... ok
+test poet_host::invoke::studio_store::stamped_tests::identical_upsert_invalidates_old_stamp_and_cannot_restore_erased_journal ... ok
+test poet_host::invoke::studio_store::stamped_tests::initial_admission_rejects_invalid_revision_and_retained_budgets ... ok
+test poet_host::invoke::studio_store::tests::test_artifact_lifecycle ... ok
+test poet_host::invoke::studio_store::tests::test_export_native_formats ... ok
+test poet_host::invoke::studio_store::tests::test_import_cml_and_csv ... FAILED
+test poet_host::invoke::studio_store::tests::test_undo_redo ... ok
+
+failures:
+
+---- poet_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination stdout ----
+
+thread 'poet_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination' (27420) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\hmc\candidate\studio_checkpoint\tests.rs:98:67:
+called `Result::unwrap()` on an `Err` value: "failed to persist temporary file: Access is denied. (os error 5)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- poet_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo stdout ----
+
+thread 'poet_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo' (15124) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\hmc\candidate\studio_checkpoint\tests.rs:119:9:
+child write: 
+running 1 test
+test poet_host::invoke::studio_store::checkpoint::tests::checkpoint_child ... FAILED
+
+failures:
+
+failures:
+    poet_host::invoke::studio_store::checkpoint::tests::checkpoint_child
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.05s
+
+ 
+thread 'poet_host::invoke::studio_store::checkpoint::tests::checkpoint_child' (19032) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\hmc\candidate\studio_checkpoint\tests.rs:129:70:
+called `Result::unwrap()` on an `Err` value: "failed to persist temporary file: Access is denied. (os error 5)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+---- poet_host::invoke::studio_store::tests::test_import_cml_and_csv stdout ----
+
+thread 'poet_host::invoke::studio_store::tests::test_import_cml_and_csv' (29392) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\hmc\candidate\studio_store.rs:452:9:
+assertion `left == right` failed
+  left: None
+ right: Some("#000")
+
+
+failures:
+    poet_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination
+    poet_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo
+    poet_host::invoke::studio_store::tests::test_import_cml_and_csv
+
+test result: FAILED. 24 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.94s
+

@@ -1,0 +1,77 @@
+{
+  "schema": "ecopunk.round3-foundation-subcases.v1",
+  "scope": "Selected SDK cases, not full FND gates or product readiness",
+  "native_suite": {
+    "passed": 56,
+    "failed": 0,
+    "ignored": 0,
+    "result": "native-result.json"
+  },
+  "subcases": [
+    {
+      "id": "R3-M64-01",
+      "status": "selected_native_cases_passed",
+      "requirement": "Exact metadata and scalar/nodata/source-extent recovery, including HMC reopen",
+      "evidence": "native-conformance.log"
+    },
+    {
+      "id": "R3-M64-02",
+      "status": "selected_native_cases_passed",
+      "requirement": "Legacy defaults/magic versions retained and malformed profile refused",
+      "evidence": "native-conformance.log"
+    },
+    {
+      "id": "R3-M64-03",
+      "status": "selected_native_cases_passed",
+      "requirement": "Caller limits, cancellation and output transactionality",
+      "evidence": "native-conformance.log"
+    },
+    {
+      "id": "R3-FRAMES-01",
+      "status": "selected_native_cases_passed",
+      "requirement": "Unaligned NRM1/FRM1 caller-buffered streams and old API parity",
+      "evidence": "native-conformance.log"
+    },
+    {
+      "id": "R3-FRAMES-02",
+      "status": "selected_native_cases_passed",
+      "requirement": "Both capacities, encoded/decoded limits and late invalid tangents before writes",
+      "evidence": "native-conformance.log"
+    },
+    {
+      "id": "R3-OPAQUE-01",
+      "status": "selected_native_cases_passed",
+      "requirement": "Exact unknown bytes/flags/metadata/tail retention and CRC validation",
+      "evidence": "native-conformance.log"
+    },
+    {
+      "id": "R3-OPAQUE-02",
+      "status": "selected_native_cases_passed",
+      "requirement": "Changed replacements refuse unresolved dependencies and unsafe layouts",
+      "evidence": "native-conformance.log"
+    }
+  ],
+  "installed_targets": {
+    "qualiaDB": 29,
+    "Poet": 15,
+    "all_current_after_hashes_match": true,
+    "latest_test_repair_receipt": "poet-inspection/repair-2/applied-source.json"
+  },
+  "pending": [],
+  "all_foundation_gates": "open",
+  "asset_production": "on_hold",
+  "human_acceptance": false,
+  "native_poet_inspection_tests": {
+    "passed": 6,
+    "failed": 0,
+    "ignored": 0
+  },
+  "existing_native_lifecycle_tests": {
+    "passed": 1,
+    "failed": 0,
+    "ignored": 0
+  },
+  "unique_tests_in_this_pass": 63,
+  "wasm_sdk_portal_compile": "passed; runtime untested",
+  "native_binary_build": "passed; GUI unverified"
+}

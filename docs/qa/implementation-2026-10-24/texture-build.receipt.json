@@ -1,0 +1,116 @@
+{
+  "schema": "ecopunk.run-02.texture-admission-checks.v1",
+  "updated_at_utc": "2026-10-24 09:52:57 UTC",
+  "scope": "Bounded texture admission adapter/control flow; not engine or model/package qualification",
+  "build": {
+    "command": "cargo test -p ecopunk-wasm --lib --offline --locked texture_admission:: --no-run",
+    "cwd": "C:/github/ecopunk",
+    "session_id": 88073,
+    "status": "passed",
+    "exit_code": 0,
+    "log": "texture-build.log",
+    "log_complete": false,
+    "log_note": "Compiler output before worker resumed capture is sampled in the tool transcript, not fully retained here.",
+    "last_poll_status": "completed",
+    "elapsed_reported": "37m 13s",
+    "executable": "target/debug/deps/ecopunk_wasm-ff95ec33936448cd.exe",
+    "warnings": {
+      "qualia_core_db": 2,
+      "ecopunk_wasm_lib_test": 6
+    }
+  },
+  "checks": [
+    {
+      "command": "rustc --edition=2021 --test crates/ecopunk-wasm/src/texture_admission.rs -o target/texture-admission-tests.exe",
+      "status": "passed",
+      "scope": "Dependency-free native compilation of admission control flow; WASM adapter excluded by cfg."
+    },
+    {
+      "command": ".\\target\\texture-admission-tests.exe --nocapture",
+      "status": "passed",
+      "passed": 4,
+      "failed": 0,
+      "scope": "Callback-driven control-flow/role regressions; not engine execution."
+    },
+    {
+      "command": "rustfmt --edition 2021 --check crates/ecopunk-wasm/src/texture_admission.rs crates/ecopunk-wasm/src/texture_admission_fixture_tests.rs",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check -- crates/ecopunk-wasm/src/lib.rs",
+      "status": "passed"
+    },
+    {
+      "command": "cargo test -p ecopunk-wasm --lib --offline --locked texture_admission -- --nocapture",
+      "status": "passed",
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0,
+      "filtered_out": 4,
+      "elapsed_test_reported": "1.29s",
+      "scope": "Native unit tests: control flow plus actual generated PNG/digest/opaque resource fixture; not WASM adapter execution or GPU residency."
+    }
+  ],
+  "unexecuted": [
+    "WASM/browser texture upload and failure-path execution",
+    "Engine codec/residency negative tests and GPU execution",
+    "Native/WASM visual comparison and human acceptance"
+  ],
+  "cargo_lock_modified_by_worker": false,
+  "source_api": {
+    "owner": "qualia-core-db",
+    "api": "QualiaPortal::load_texture_encoded",
+    "role": 0,
+    "native_semantics": [
+      "TextureColorSpace::Srgb",
+      "TextureMipSemantic::Color"
+    ],
+    "result_false": "No GPU backend after adopt_pending_gpu",
+    "upstream_revision_certified": false
+  },
+  "package_completion": false,
+  "cargo_lock": {
+    "modified_by_worker": false,
+    "git_diff_exit_code": 0,
+    "git_status_short": "",
+    "sha256": "AC0C72951E746C497B8A04A17547BA52E2235B986EA6FA40F5C7ABACC3191809"
+  },
+  "wasm_check": {
+    "command": "cargo check -p ecopunk-wasm --lib --target wasm32-unknown-unknown --offline --locked",
+    "installed_target_confirmed": true,
+    "status": "passed",
+    "exit_code": 0,
+    "session_id": 68607,
+    "scope": "WASM compile/type check only; no GPU/browser execution.",
+    "elapsed_reported": "11m 19s",
+    "log_complete": true,
+    "warnings": {
+      "qualia_core_db": 22,
+      "ecopunk_terrain": 15,
+      "ecopunk_wasm": 1
+    }
+  },
+  "source_files_sha256": [
+    {
+      "path": "crates/ecopunk-wasm/src/lib.rs",
+      "sha256": "D97D745696E9609737B25414D4546A4F46B86105E09BC3902750634569EE5D7F"
+    },
+    {
+      "path": "crates/ecopunk-wasm/src/texture_admission.rs",
+      "sha256": "34DD880DB552AED31E8E55A3BC5BF4F7D4E468FAAC9688794F80A022058F2325"
+    },
+    {
+      "path": "crates/ecopunk-wasm/src/texture_admission_fixture_tests.rs",
+      "sha256": "61D7E429F8C79E5D1948A80D9517CD4874E7A6715A7A0992A5DCDBB0088A12A0"
+    }
+  ],
+  "qualification": {
+    "native_crate_compilation": "passed",
+    "native_regressions": "5 passed, 0 failed",
+    "wasm_target_check": "passed",
+    "engine_codec_and_gpu_residency": "unexecuted",
+    "visual_review": "unexecuted",
+    "model_or_package_completion": false
+  }
+}
+

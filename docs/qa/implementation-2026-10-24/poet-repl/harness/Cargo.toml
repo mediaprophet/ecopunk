@@ -1,0 +1,16 @@
+[package]
+name = "poet-repl-run03-check"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[features]
+baseline = []
+
+[dependencies]
+vibe = { path = "../../../../../../qualiaDB/crates/vibe" }
+
+[lib]
+path = "lib.rs"

@@ -1,0 +1,83 @@
+{
+  "schema": "ecopunk-poet-native-viewport-inventory/1",
+  "date": "2026-10-26",
+  "scope": "Read-only source/API survey, initial 15 files plus four follow-up picking implementation/wrapper files. No build, test, GUI, or source change by this worker. Source hashes/anchors describe inspection time before the final UI error-handler correction. Paths intentionally exclude docs/qa.",
+  "findings": {
+    "native_pointer_input": {
+      "status": "Aether native input seam exists; no pointer-specific Poet viewport handler found in the inspected UI.",
+      "evidence": [
+        "Aether packages/native/src/hooks.rs exposes use_window_event(FnMut(&WindowEvent, &ActiveEventLoop)); the registered hook is scoped to the native window and removable.",
+        "Aether packages/native/src/event_handlers.rs stores and dispatches native winit WindowEvent values by WindowId.",
+        "Poet graphical/ui.rs already uses native Dioxus onclick controls but its preview is a plain img with no pointer/mouse handler.",
+        "Dioxus native renderer is selected through Aether's native renderer wrapper. These inspected seams do not require JavaScript; no pointer-specific helper/API is established here."
+      ],
+      "conclusion": "The first Poet dispatch can consume existing native window events or attach Dioxus pointer handlers to the preview. Aether pointer plumbing is not a demonstrated blocker. Coordinate conversion, gesture ownership, focus/capture and interaction behavior still need implementation and human tryout."
+    },
+    "preview_lifecycle": {
+      "status": "Current output is a generated image, not a retained interactive viewport renderer.",
+      "evidence": [
+        "PreviewCamera holds yaw, pitch, distance and target; PreviewFrame stores revision context and RGBA bytes.",
+        "Both the simple mesh preview and assembly preview construct PortalGpu::new_offscreen inside each preview call, upload the scene, render, read RGBA bytes and return a frame.",
+        "native_image_uri converts the frame to a data URI and ui.rs displays it as img."
+      ],
+      "conclusion": "Camera changes can be expressed through existing PreviewCamera. Each changed frame currently recreates the offscreen renderer and full geometry upload, so responsive manipulation is a specific Poet/owner architecture question; no persistent-per-session viewport renderer was found in these inspected files."
+    },
+    "part_vs_graph_selection": {
+      "status": "GPU mesh picking exists and returns a visible mesh-instance semantic ID. It is not source assembly-part or graph-node selection.",
+      "evidence": [
+        "Assembly admission checks unique local id values, nonzero distinct semantic_id values and optional parent keys; it creates AssemblyPart values with key, parent and semantic_id.",
+        "CompiledAssembly is rendered as a combined mesh with material ranges. The assembly upload passes geometry/material/range data; no source-part selection result is consumed by this function.",
+        "PortalGpu portal_gpu/picking.rs exposes queue_pick(x,y), poll_pick_readback() and poll_semantic_pick_readback(); mesh results decode a compact visible-instance slot through the pick pass snapshot to u64 semantic ID (lines 7–8, 27–75, 95–108). The pass draws the same mesh over visible instances and material draw ranges (145–167), not an assembly-part/source range mapping.",
+        "webizen-render volumetric.rs publicly wraps queue_pick and poll_pick_readback (lines 314–324); this wrapper documents its u32 result as node_index, but the method does not expose the separate u64 mesh semantic result. PortalGpu module declares picking as pub(super) (portal_gpu/mod.rs line 6), so assess public reachability through the relevant renderer wrapper rather than treating internal method visibility as a general consumer API.",
+        "The mesh picker uses visible-instance semantics. Nothing inspected binds that semantic value to Poet's local part key, source revision, or a graph node. This is an existing capability whose consumer wiring and source mapping are unqualified, not an absent general GPU pick API."
+      ],
+      "conclusion": "Do not equate a GPU instance semantic ID, a Poet part's numeric semantic_id, a local part key, and a graph node. Existing pick capability can return a visible mesh-instance semantic ID, but no inspected path maps it to the exact Poet part/range or binds it to a rendered frame/source revision. Qualify and consume the existing renderer route first; only request upstream additions if that source mapping/API contract cannot be met there."
+    }
+  },
+  "evidence_files": [
+    {"path":"C:/github/poet/native/src/graphical/ui.rs","sha256":"58db834787d3b509bbbd88c99f4d8c9d4c428486ee814beff467bf1ad28017c6","lines":[276,318,320]},
+    {"path":"C:/github/poet/native/src/graphical/controller.rs","sha256":"2fe0cfa3ef90a7d095979cbf6509b5eb638863f7f78d6d1a6eeb8d4f9bf7431b","lines":[26,69,171,232,270,287,317,332,425,447]},
+    {"path":"C:/github/poet/native/src/graphical/preview.rs","sha256":"1ca1b62e39375e808acdda34cf2e972d633a6285c22398faf5f7834bf9fc668b","lines":[40,48,219,231,240,242,295,320]},
+    {"path":"C:/github/poet/native/src/graphical/editor_contract.rs","sha256":"1e505f5b0a2c5dd0b8e87f68cf78db14884ff17d5e7419d653e5f702ddacc3ff","lines":[42,51,65,68,75,83,98,147]},
+    {"path":"C:/github/poet/native/src/graphical/geometry_host.rs","sha256":"f0e2fc16166fd281b7ce9652be217abec973f1f40840fc26c8922aa42a114858","lines":[93,135,139,167,170]},
+    {"path":"C:/github/poet/native/src/graphical/assembly/mod.rs","sha256":"1a84d6d5152e6666b4fc9ac010311fcfa6b94617fbb15d87fcff58ede4b150fc","lines":[1,3,12,17]},
+    {"path":"C:/github/poet/native/src/graphical/assembly/render.rs","sha256":"d2649d7d3b282b2d7b3a31c349db43b8bdce54860214d181828dd74d46648ed8","lines":[1,9,32,91,118,134]},
+    {"path":"C:/github/poet/native/src/graphical/assembly/admission.rs","sha256":"93cbba4613fcd308878a5bba44dfa3762fe062a90bb17e9c0ed73ac6afe013ff","lines":[197,204,228,333,371,423,425]},
+    {"path":"C:/github/poet/native/src/graphical/assembly/compile.rs","sha256":"904ffc4f793ac5a546b4a55192c6d9e526b0b031a0ea6cc1e7a9baa2c8753b27","lines":[1,11,18]},
+    {"path":"C:/github/poet/native/src/graphical/assembly/part_input.rs","sha256":"02afc94433baa6085b019799e5f41cfcfcd7c1a2e7e5defee58056fa6a54e874","lines":[9,23]},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/picking.rs","sha256":"c2dffb87bbeb0722febc5b57b21168c65fcdf6017ed1291f0503b1a99fb739c3","lines":[1,24,32]},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/mod.rs","sha256":"7418ef2c562bfc1365aa845516283e1394eb7e9b36e3a06df235723207101627","lines":[12,430,449,463,572,600,644,660,670]},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/portal_gpu/picking.rs","sha256":"e739dce1bba9b756be22c5b80af265c6cc86e680421d1cfa87346cd0f77299b5","lines":[7,27,70,85,90,95,102,145,167]},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/portal_gpu/render_frame.rs","sha256":"7668541a903fd0df865ddd5c7b286d5b7fb35355b1c0adad95bd0f30bc7cb35d","lines":[199,203,272,276,283]},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/portal_gpu/mod.rs","sha256":"4572499719fefa7b791c95323f45cc3c05b56dc75a4755bc21407d6782965f6c","lines":[6]},
+    {"path":"C:/github/qualiaDB/crates/webizen-render/src/volumetric.rs","sha256":"3fc919917ba6afa40aeb85ccdbeb2b9fd9314ea88ff998d9493dd90ca937d594","lines":[314,316,320,322,323]},
+    {"path":"C:/github/rust-app-framework/packages/native/src/hooks.rs","sha256":"abd1327d7fbb269c686d19523e69f28c26cc798b4d8ac1b82f535c4072ca9a7f","lines":[12,21,38]},
+    {"path":"C:/github/rust-app-framework/packages/native/src/event_handlers.rs","sha256":"df88bf48a0b58981c6c80f6c04c57b44ed35ae7824928f382940891458d4bdd3","lines":[3,26,31,46]},
+    {"path":"C:/github/rust-app-framework/packages/native/src/dioxus_renderer.rs","sha256":"5e2a3b357a206a2e88f44558ffa837f31b936e42ddd973b962835b34842bba7f","lines":[5,31,50,80,166]}
+  ],
+  "minimal_next_dispatch": [
+    {
+      "slice": "Poet native viewport input and camera control",
+      "owner": "Ecopunk/Poet route (source ownership must be authorized separately)",
+      "scope": "Use the existing native input seam and PreviewCamera yaw/pitch/distance/target. Add view-only orbit/pan/zoom and pointer-to-preview coordinate mapping in Poet; bind gestures and camera to the current source/session/revision. Keep selection state separate from source edits.",
+      "dependency": "First decide whether image regeneration is acceptable for the tryout; preview currently creates an offscreen PortalGpu and uploads geometry per frame. If not, request a persistent renderer/session surface API from its actual upstream owner."
+    },
+    {
+      "slice": "Qualify native mesh-part pick contract",
+      "owner": "Poet consumer/wiring first; QualiaDB/Etalon render owner only if source-to-part mapping or required public result access cannot be implemented through the existing renderer contract",
+      "scope": "Exercise existing async pick request/readback in the active native renderer route. Establish how visible instance semantic IDs map to Poet assembly part/range and source revision, whether current wrapper access is sufficient, and stale-frame behavior. Do not name it graph-node pick unless the source IDs/contract actually represent graph nodes.",
+      "dependency": "Core has PortalGpu pick methods and webizen-render wraps request plus u32 polling; mesh semantic polling exists on PortalGpu but is not surfaced by the inspected wrapper. Qualify consumer reachability and existing semantic mapping before considering an upstream request."
+    },
+    {
+      "slice": "Poet selection mapping and reviewer workflow",
+      "owner": "Ecopunk/Poet route, after pick contract qualification",
+      "scope": "Bind result to exact SourceRef/frame; map to existing local part key and qualified identifier facts without conflating them; highlight/select the assembly component and expose current revision to reviewer. Preserve existing HMC/source graph and use explicit reviewed source actions for edits.",
+      "acceptance": "Actual native contributor/reviewer tryout with orbit, target selection, stale-result/conflict recovery, fresh reopen and human assessment. This inventory does not establish that outcome."
+    }
+  ],
+  "limitations": [
+    "Read-only inspection only; no full Core/Etalon API closure search, Aether event integration run, build, test, or GUI interaction.",
+    "Picker result semantics were inspected in PortalGpu and its webizen-render wrapper, but the full consumer/API closure and Poet assembly source mapping remain unqualified.",
+    "No renderer performance/latency measurements or claim that a regenerated image is sufficient for a usable production viewport."
+  ]
+}

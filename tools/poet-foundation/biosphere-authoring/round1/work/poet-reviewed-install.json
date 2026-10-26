@@ -1,0 +1,264 @@
+{
+  "scope": "W3R1 reviewed Poet concurrent actor-selection safeguards, botanical native/source/MCP authoring, checked rig/player adapters (viewport wiring remains open)",
+  "files": [
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/mod.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\mod.rs",
+      "before": "0603b4665a2e499339f313c24408e53c3a380d7b4cfb73c285e32435e93c0736",
+      "after": "85cc244a058c5fdd0127c9a1f12a0e297e7a4bdc043c3153d441ab138808f579"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/mod.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+      "before": "4a3c6ec81db38ca0e239c3cee2c80f127671b72713305110bb273e74c0376318",
+      "after": "6fc422c23e170a79786291714d7eb71d6b29ce9c9641640e65a21950d54af1a5"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/source.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "before": "534896e93841e3b49e2c3cac07029aa1de84802621f79f2b8c30374a60a06314",
+      "after": "bd09085edbd48a6febe6a7ee1dd04d2353c08318e50c74f58746270ea0182def"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/controller.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\authoring\\controller.rs",
+      "before": "8102e2cc5c931481f0ae2533c4c54bfca08aee44312677cb8bde815a69505f52",
+      "after": "2753496fc6233a7c04d02989e8e099a4f7fb15d6436c4434d89e4d7c4bfe16cf"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/botanical_session.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\authoring\\botanical_session.rs",
+      "before": null,
+      "after": "862eff2d81a9e2ad7ce6e7ca423dc611736459170952649ab5f292876a7472f5"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/geometry_host.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\geometry_host.rs",
+      "before": "552722c9ca9e4cf57fa8812b8f81687be067e1712dbf6d9fd6f3badfda4e29b6",
+      "after": "8aa88e928b3eb52d580bd5d967b6321910dc9cd4dff0702d0dfea6f626d5b6dc"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/controller.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\controller.rs",
+      "before": "99fbbd923b9410266ca7b3fc4dac3e8fb1f55e2d4d571739ac416ddc39f7f8d3",
+      "after": "f7ff8a6d216f50c787153ee16ec7799a5899a67a501fd263111b70c345b78e17"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/execution.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\execution.rs",
+      "before": "c2b20404110c5ce775414ea9a062105bd1be9f5e2baa735d1b461e4f462fcfda",
+      "after": "83aa85fa508a5fa8377d4987d5a2aefd54abf125ab3b851b98b713e8d121163d"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_dispatch.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "before": "492532e99ece2df15c9cbd280d07034c9be8ce02bdd753a8a17c15a9237a3781",
+      "after": "6bad6bf0a588e4bc7cfe8b8c3445c7e589dc8f8e12d8beac984a4fce29bad213"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/poet_workspace/native_commands.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "before": "10b5cf9fb3e2ed50a62e348c9d7b59113c50d08e662b1f0ee55f0363a3e0fa20",
+      "after": "fb9c389c5a0c276d3465593e0cf76ce62ad3de5551f59d62b1650a39483fd760"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/controls.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "before": "34d7be3cc660adbd7f3161404a1a7000f8b06f102d2479a893adcffc8248618e",
+      "after": "dfa5d5b85c394647b92b069be28a063e820d1ab41dcf048e2bab6feee0dcf1ae"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/mcp/mod.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "before": "64829da58ae82e7cd49e3ea512daeb64f9f8064feac2d9047c271bee629687f6",
+      "after": "eb62b1f8229c37595ede5f87a532703d4795d7d736d119e33cc111f605f753c4"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/mcp/botanical.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\mcp\\botanical.rs",
+      "before": null,
+      "after": "454ca2e811df7c1b9d2a5d45c8e956dcdab540fce80d9c59fb1047e0e0b75246"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project_workflow_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\native_project_workflow_tests.rs",
+      "before": "57945591d6ac253fa8b0ca5b27377c79a850287173556254d9d36fc7cc12ec21",
+      "after": "d59d667d48853dd2baf6e72c5d8b2a9d54aa40f0c656f2b0164e3de7b33642b3"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project_texture_effect_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\native_project_texture_effect_tests.rs",
+      "before": "74c4d1eb75cd9732f99877908bf947cf19a851925a65ec9cac3b6fc27cec18ba",
+      "after": "54947c0155983905bfb78601af195cade309508b0427670c90b91a118418eb07"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project_motion_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\native_project_motion_tests.rs",
+      "before": "83df5258570a9e4fa2957f4f921ea215f2837f0bbdc6f1a034897dbe8c00b879",
+      "after": "e6838aafc3ac12bef063d8290821e1727f949fa8c1054222d8f259b23d44f104"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_entry/create.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+      "before": "8360769c273cbc27843ea267182a20a33039a4752a193de4a10498454bda4915",
+      "after": "c0d2a13ab010d9231f3791b55efb13c3f704180c0f20ecbb0c3a5ef36328bac5"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "before": "a59c19ccb06d91d649c8ebf7a790503018b3d75e9516235fac5b4c530c588a73",
+      "after": "404a19e5f4c5b0cea442afdba2a5d9cabb69afa06d903ddbfe38d8b1d935be62"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/cooperative_workflow/service.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\ROOT\\poet\\native\\src\\graphical\\cooperative_workflow\\service.rs",
+      "before": "ce72aa9e58f4bb82bfdeb6d00d603fdcacd77aba59b200bcafed5e095587931a",
+      "after": "ddd704c98b97f6dbbe7e920541fd417db47155fce9df44331ea91bca9a239e39"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/botanical/controls.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\controls.rs",
+      "before": null,
+      "after": "66067c75637108e83cd5723fa3f5ee4b47160a6d67d757fb05befe45e9fb47dd"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/botanical/mod.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\mod.rs",
+      "before": null,
+      "after": "f516890a16d9e283c38e8436968d6f0af165c746f7881e712e00f8ed68e06a82"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/botanical/recipe.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\recipe.rs",
+      "before": null,
+      "after": "1f042c3df63e33a00a1b0bd2b7820b2b88b706ffe800d757bc16050c6a8303ee"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/botanical/source_edit.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\source_edit.rs",
+      "before": null,
+      "after": "76a205d67fc623d18321b0af27f2ff76126dd8e22084de933dfeddea85bd4935"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/botanical/tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\tests.rs",
+      "before": null,
+      "after": "5209bc64265875ab8693762081fd10a1c42a9e160ad5d3dec5ee7ddb2db632d4"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/botanical_graph_host.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\botanical_graph_host.rs",
+      "before": null,
+      "after": "d605cce6e854da23aadd6ac85fcc5fd12bbbc1e1f4208c6da96fdccb79dd4827"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project_biosphere_round1_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\native_project_biosphere_round1_tests.rs",
+      "before": null,
+      "after": "96f1b327775c40a66f08738d4becf12fd44493414354916b45636b99e051dc1e"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/rig_binding/mod.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-RIG\\poet\\native\\src\\graphical\\rig_binding\\mod.rs",
+      "before": null,
+      "after": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/rig_binding/controls.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-RIG\\poet\\native\\src\\graphical\\rig_binding\\controls.rs",
+      "before": null,
+      "after": "b77ba33cb1b2b1f86dd1211b719316beca75c7d17de1c2b7a576f00a1dc96f7c"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/rig_binding/native_controls.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-RIG\\poet\\native\\src\\graphical\\rig_binding\\native_controls.rs",
+      "before": null,
+      "after": "694b704ccc3843ac5c8515c470598d109f7cd6bda18862487caff6aaaf9e1cf3"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/rig_binding/tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-RIG\\poet\\native\\src\\graphical\\rig_binding\\tests.rs",
+      "before": null,
+      "after": "1ffbcaee3949d74846479a7183719e10351e340570828c2bf4daa552a7507fcc"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/animated_rig_preview.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-RIG\\poet\\native\\src\\graphical\\animated_rig_preview.rs",
+      "before": null,
+      "after": "62036a8855f192d89853997e629920be430d3c694a524edf577f9c51a7db92a7"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/cooperation/selected_owner.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\cooperation\\selected_owner.rs",
+      "before": null,
+      "after": "e7314a9500c9eacb92a96b3c2042a41c1c2060959b17b5838382ab6a70775abd"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\native_project.rs",
+      "before": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "after": "00bd63dc4f40b36a656b9ba0f80f3f035020aec1ffc618bb83c373c0b0efefa7"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_selected_session_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\native_selected_session_tests.rs",
+      "before": null,
+      "after": "a4c770b8477173560f54fb972bf7758eb1634269a724aab5a8be71c4e8929dbc"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/package_workflow/mod.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\package_workflow\\mod.rs",
+      "before": "cd150c98e0a267b2d8da3a8829416061d9b218f42736d0e1bddab9a1c7fd91dd",
+      "after": "d434a58838f36c157cd861d38a65871272ee72e37aa126ef89bc71e2cc3464cb"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/package_workflow/service.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\package_workflow\\service.rs",
+      "before": "375e37b53c6dfaad299496073004bbe1d793535211eb0a195c4692ffcc172ca3",
+      "after": "439c65a93c92baabd81ca1400b83ac0057b728ef9ea9e7631e9e198966f2aac8"
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/session_host.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\session_host.rs",
+      "before": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78",
+      "after": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb"
+    }
+  ]
+}

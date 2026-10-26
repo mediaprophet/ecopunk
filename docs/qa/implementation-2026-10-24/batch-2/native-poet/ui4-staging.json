@@ -1,0 +1,47 @@
+{
+  "status": "UI4 staged; coherent native integration build pending",
+  "source": [
+    {
+      "sha256": "2cabc295cda3947ce78b7ea7fc58814d53d602ffab5f23e390b2a043f41e0886",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/jobs.rs",
+      "lines": 318
+    },
+    {
+      "sha256": "6135ddc755dafe9a920982ff6aa3d461d51b768547c860ec2f211bb336782302",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/jobs_tests.rs",
+      "lines": 373
+    },
+    {
+      "sha256": "b2bb9d0e2f070f99bdbffec642661c9aa58aba229a6fb9565e1ed1a05adfc81c",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/ui.rs",
+      "lines": 229
+    },
+    {
+      "sha256": "577ad23770a7ee49da94025bc7b203b093db367b6a66db811c31309f56777765",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/mod.rs",
+      "lines": 23
+    }
+  ],
+  "active_commands": [],
+  "actual_runtime_receipt_unchanged_sha256": "3fd219e6ef8bdce7244448055f08ea057e8284091ffcbbc22107d7bdd95f1927",
+  "historical_ui3_source": [
+    {
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/ui3-originals/jobs.rs",
+      "sha256": "88e2da6dc41cf14b612d0dd459fff5490cd693f4f2ff79214af3ea76eeb007a9"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/ui3-originals/ui.rs",
+      "sha256": "862cce9ad7a82f907019f21889ac267b5295689703815c6a9f6ab766ab959369"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/ui3-originals/mod.rs",
+      "sha256": "e4d534fb2fdfca516997b51b0a85c42bced266dbe7b93985d080b78c217185b7"
+    }
+  ],
+  "tests": {
+    "executed_by_ui_task": 0,
+    "staged": 11,
+    "positive_fixture_threads": 1
+  },
+  "historical_ui3_receipt_sha256": "e54017ec9c5ca40a21a2fbb751111ff2a895ecae3d8f6a8a2619a204dedb492b"
+}

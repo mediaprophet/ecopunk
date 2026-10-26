@@ -1,0 +1,59 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 12.66s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 6 tests
+test graphical::surfaces::detail::tests::imported_base_only_recipe_still_charges_pixel_work_before_render ... ok
+test graphical::surfaces::detail::tests::input_digest_extent_transfer_alpha_and_resource_budgets_refuse ... ok
+test graphical::surfaces::detail::tests::opaque_import_layer_edit_visibility_and_replay_change_real_encoded_pixels ... ok
+test graphical::surfaces::detail::tests::paint_layer_and_stroke_order_are_editable_source_not_cached_pixels ... ok
+test graphical::surfaces::detail::tests::procedural_canonical_detail_generates_colour_normal_orm_and_distinct_relief ... ok
+test graphical::surfaces::detail::tests::source_recipe_round_trips_pinned_vibe_and_strict_unknown_fields_refuse ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 191 filtered out; finished in 0.02s
+

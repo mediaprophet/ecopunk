@@ -1,0 +1,217 @@
+{
+  "status": "passed",
+  "kind": "read_only_final_reconciliation",
+  "distinct_installed_targets": 58,
+  "all_latest_installed_hashes_match": true,
+  "recorded_overrides": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\atlas_detail_tests.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\repairs\\tuple-repair\\applied-source.json",
+      "before": "1e9fb274b38726234d91dabd01eb1e94ffc57da84635b8385bab45ba1e657d90",
+      "after": "3750098a37042399f4c41f4103697211a5cbdea487f5e6fce42f37edbe57b5f0"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_uv_detail_tests.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\repairs\\tuple-repair\\applied-source.json",
+      "before": "680a83d47f5432ae557de693412b26198818336f9c79476cbea2bac038a60eb8",
+      "after": "8a0bb9fd1dd23e48000bad9b1dc1efcea98e05aef840481ab571a00f254974d0"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\repairs\\uv-edit-preflight\\applied-source.json",
+      "before": "a54b62e940006a0860e587b07e3b56a3674c174eb669c2aca6cdff23384074d9",
+      "after": "512f1a7d7b567dc1819f26d0f9053b31bd8f35ab778b85d847568adf2df90f0a"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\repairs\\uv-edit-preflight\\applied-source.json",
+      "before": "7a69bef211294f8291e0baaa2c647dc219f7ad5badfda4b4d7805d6c07aba57c",
+      "after": "ad279a53bf168b81da4f07f15cbf7d3aecdfae1f51d54e64f74d16b425ec0b3f"
+    }
+  ],
+  "commands": {
+    "check": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\check-result.json",
+      "receipt_sha256": "6864ab7b97d425493a8a39fb07fea58c4ed49d204431438f9ea5ffec42abe670",
+      "passing_case_executions": 0,
+      "exit_code": 0
+    },
+    "authoring": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\authoring-result.json",
+      "receipt_sha256": "0434b8790c6f305a775f0d0452f7a9dbde941cbadcd31bb8fba170cc302158ac",
+      "passing_case_executions": 30,
+      "exit_code": 0
+    },
+    "surfaces": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\surfaces-result.json",
+      "receipt_sha256": "ba5a7b279d5ea46800e1994bcdad57312dd4559c64ada130fb10bf074f24e371",
+      "passing_case_executions": 6,
+      "exit_code": 0
+    },
+    "wire": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\wire-result.json",
+      "receipt_sha256": "6adc4b17d07c946a7a0a87e359771aa88f0c0d5c70aa90e323531800804dea91",
+      "passing_case_executions": 1,
+      "exit_code": 0
+    },
+    "detail": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\detail-result.json",
+      "receipt_sha256": "b0c67eca2d4a158ef188200607aa1fe981dfb276e61b52fc9b566af1a281db7f",
+      "passing_case_executions": 6,
+      "exit_code": 0
+    },
+    "atlas": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\atlas-result.json",
+      "receipt_sha256": "fe46101af6222f2b6d32e8476052a3dbad2efd93b84939d3d1ca91d958e66454",
+      "passing_case_executions": 3,
+      "exit_code": 0
+    },
+    "integration": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\integration-result.json",
+      "receipt_sha256": "51958455b04df9046eb9205d1bebe36c42aa620c2de98b2c9c1bb1a3f5faa807",
+      "passing_case_executions": 4,
+      "exit_code": 0
+    },
+    "uvkernel": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uvkernel-result.json",
+      "receipt_sha256": "340e2d7a7dda2ac7e90f18d6d16fb43675e912953942890b7bb84ed4a6fdf27a",
+      "passing_case_executions": 10,
+      "exit_code": 0
+    },
+    "image": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\image-result.json",
+      "receipt_sha256": "37618b0a89cd9933466923882b4f90698abe2daf760f76ed320ca14723cbb27a",
+      "passing_case_executions": 4,
+      "exit_code": 0
+    },
+    "workflow": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\workflow-result.json",
+      "receipt_sha256": "5b6e1cb9b944600e4bc6f189eca23f276c827975cd3ec9c1c8e387ca8243a0e3",
+      "passing_case_executions": 1,
+      "exit_code": 0
+    },
+    "legacyworkflow": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\legacyworkflow-result.json",
+      "receipt_sha256": "619160b20d62387a0e24f0a917a0285c3e0c4f56d0b19388bbbe0875f4094b98",
+      "passing_case_executions": 1,
+      "exit_code": 0
+    },
+    "jobs": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\jobs-result.json",
+      "receipt_sha256": "a451935f40574a879a05c5bcff1a137dae19f8384b95fd1e9aeafbe986dcd36f",
+      "passing_case_executions": 15,
+      "exit_code": 0
+    },
+    "intents": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\intents-result.json",
+      "receipt_sha256": "87022510fd1e7ef20ee71fa0a773b714828ce57cc8eeb94c7e57d1426e4caacf",
+      "passing_case_executions": 5,
+      "exit_code": 0
+    },
+    "inspection": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\inspection-result.json",
+      "receipt_sha256": "3d22e75424d0383ba82af0f65427fa28322c313c1a4d173dde4f3cf5790a3204",
+      "passing_case_executions": 10,
+      "exit_code": 0
+    },
+    "hmctextures": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\hmctextures-result.json",
+      "receipt_sha256": "3c84e3aab08f1cb5931ca44b73b3c570fff92b63b97fe831163ea203a962193c",
+      "passing_case_executions": 6,
+      "exit_code": 0
+    },
+    "gpu": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu-result.json",
+      "receipt_sha256": "3280de676fb92051d67189fd341613008afe1500f07f7704fb0544dd9f5805b7",
+      "passing_case_executions": 1,
+      "exit_code": 0
+    },
+    "build": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\build-result.json",
+      "receipt_sha256": "a175e7edef3d6fdd138a7bfb35fcb45dc742283b1f2bcbe0e44b64afd989456f",
+      "passing_case_executions": 0,
+      "exit_code": 0
+    },
+    "wasm": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\wasm-result.json",
+      "receipt_sha256": "ac3dac73414cb8ace712b7633bcb2416a33eb28cf7b434fa110e0948961b493c",
+      "passing_case_executions": 0,
+      "exit_code": 0
+    }
+  },
+  "successful_command_count": 18,
+  "selected_native_case_executions": 103,
+  "unique_selected_native_tests": 98,
+  "duplicate_executions": 5,
+  "previous_rounds_not_added": true,
+  "final_local_source_pin_files": 3245,
+  "latest_local_source_hashes_match": true,
+  "failed_runs_retained": [
+    {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\authoring-before-uv-edit-preflight-result.json",
+      "sha256": "f26df389caf69eb61d8009043789d69b82279ab8a2f74a8c9a10b0ded5af28c8",
+      "exit_code": 101
+    },
+    {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\check-before-tuple-repair-result.json",
+      "sha256": "a2dbe305ec7b6183dca832967f0075733a065eecf13d8d4357297007527ef562",
+      "exit_code": 101
+    }
+  ],
+  "gpu_calibration": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu-calibration\\atlas-painted.png",
+      "bytes": 2515,
+      "sha256": "0bc07cde15f8d38ff6f7dab7a3700e745f27cf9b464c221de7e26153cd34d959"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu-calibration\\atlas-procedural.png",
+      "bytes": 3763,
+      "sha256": "3e9669c45dbee9a968f32d21f70a58945448353563be9bd770818c335b67ae00"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu-calibration\\atlas-source-base.png",
+      "bytes": 1069,
+      "sha256": "21179c4759bfe0f0c63f2aa745f15bbacc3ecda104d34e6b5e09b1b9b8609984"
+    }
+  ],
+  "native_pixel_changes": {
+    "paint": "2304",
+    "procedural": "2304"
+  },
+  "native_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 330126260,
+    "sha256": "f52aee7e3ab531208ca0f71bcacc85f3d5dcf81bb3266ec638478605b155ef6a",
+    "launched": false
+  },
+  "sdk_wasm": "actual Core/geospatial/Portal compilation; runtime untested",
+  "preserved_regression_artifacts": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    }
+  ],
+  "reference_master_unchanged": true,
+  "foundation_gates": "FND-01\u201306 open",
+  "IP03": "C1\u2013C8 open",
+  "asset_production": "on_hold",
+  "gui_verification": "not_run",
+  "human_acceptance": false,
+  "model_claims": "193 catalogue plus eight subject-specific claims remain unassessed; film/game/cartoon packages incomplete",
+  "builds_or_tests_executed_by_this_verifier": false
+}

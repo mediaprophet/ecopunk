@@ -1,0 +1,66 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::jobs::tests::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "jobs",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:42:46.728529+00:00",
+  "finished_utc": "2026-10-25T22:42:59.789396+00:00",
+  "elapsed_seconds": 13.063,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\jobs.log",
+  "log_sha256": "1d5f03bb4eefa9deac558f210dc95cc60ed06474c8d13d05102532a8438cf3a4",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\jobs-source-before.json",
+  "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb",
+  "recorded_local_source_files": 3279,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      15,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::jobs::tests::actual_source_successor_and_retired_rebuild_epoch_publish_into_the_requesting_view",
+    "graphical::jobs::tests::closing_joins_started_rebuild_and_cancels_queued_command",
+    "graphical::jobs::tests::completed_image_cannot_follow_a_new_source_or_session_snapshot",
+    "graphical::jobs::tests::failed_host_attempt_delivers_reconciliation_snapshot_without_retry",
+    "graphical::jobs::tests::held_state_transition_rejects_prior_success_with_unchanged_epoch_revision_and_source",
+    "graphical::jobs::tests::one_worker_one_queue_and_cancelled_queued_work_never_starts",
+    "graphical::jobs::tests::preview_with_another_execution_epoch_is_withheld_before_encoding",
+    "graphical::jobs::tests::publication_rechecks_actual_store_after_worker_completion",
+    "graphical::jobs::tests::rebuilt_epoch_rejects_old_queued_reply_and_frame_even_when_revision_repeats",
+    "graphical::jobs::tests::resource_inspection_late_source_and_session_completions_are_withheld",
+    "graphical::jobs::tests::stale_session_or_replaced_incarnation_cannot_dispatch_or_install",
+    "graphical::jobs::tests::surface_tests::current_surface_inspection_publishes_once_and_old_completion_cannot_follow_rebuild",
+    "graphical::jobs::tests::surface_tests::surface_inspection_late_source_session_and_epoch_payloads_are_withheld",
+    "graphical::jobs::tests::unsupported_profile_has_no_rebuild_dispatch",
+    "graphical::jobs::tests::worker_panic_closes_reply_and_is_reported_when_owner_joins"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

@@ -1,0 +1,15 @@
+[package]
+name = "ecopunk-cooperative-authoring-check"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+qualia-cooperative-core = { path = "C:/github/qualiaDB/crates/qualia-cooperative-core" }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+
+[lib]
+path = "lib.rs"

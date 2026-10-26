@@ -1,0 +1,373 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: variable does not need to be mutable
+   --> native\src\graphical\authoring\controls.rs:160:9
+    |
+160 |     let mut material_id = use_signal(|| 0u64);
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\native_project_motion_tests.rs:327:9
+    |
+327 |     let mut ui = project.connect(author.clone()).unwrap();
+    |         ----^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:76:5
+   |
+76 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:77:5
+   |
+77 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     ----^^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\viewport_controls.rs:201:9
+    |
+201 |     let mut viewport_state = use_signal(|| None::<ViewportState>);
+    |         ----^^^^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 6 warnings (run `cargo fix --lib -p poet-cli --tests` to apply 5 suggestions)
+    Finished `test` profile [unoptimized] target(s) in 1m 40s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 277 tests
+test graphical::assembly::tests::actual_native_hierarchy_retains_part_ranges_materials_normals_and_uv ... ok
+test graphical::assembly::tests::malformed_ambiguous_or_unbounded_projection_is_refused ... ok
+test graphical::assembly::tests::native_container_roundtrip_preserves_semantic_ranges_normal_and_uv_streams ... ok
+test graphical::authoring::atlas_detail_tests::atlas_source_edits_restore_original_geometry_and_refuse_conflicting_projection_atomically ... ok
+test graphical::authoring::atlas_detail_tests::generated_texture_without_uv_refuses_actual_mesh_provider_before_promotion ... ok
+test graphical::authoring::atlas_detail_tests::opaque_context_cursor_retires_equal_source_part_drafts_on_new_epoch_or_session ... ok
+test graphical::authoring::atlas_detail_tests::scalar_returning_mutations_cannot_bypass_selected_geometry_or_atlas_inspection_admission ... ok
+test graphical::authoring::atlas_detail_tests::shared_material_detail_edit_and_removal_keep_all_original_source_fields ... ok
+test graphical::authoring::cad_tests::cad_revolution_actual_grant_work_scratch_and_point_budgets_are_enforced ... ok
+test graphical::authoring::cad_tests::cad_revolution_host_rejects_nonmonotonic_degenerate_units_caps_and_unknown_fields ... ok
+test graphical::authoring::cad_tests::cad_revolution_native_counts_outward_winding_open_ends_and_one_dispatch ... ok
+test graphical::authoring::cad_tests::cad_revolution_source_to_hmc_preserves_source_and_stale_undo_guards ... ok
+test graphical::authoring::detail_controls::tests::explicit_dab_fields_preserve_order_and_reject_invalid_coordinates ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_add_update_toggle_order_remove_preserve_legacy ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_bound_and_unknown_edits_are_atomic ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_changed_source_selection_or_context_requires_reload ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_invalid_or_changed_origin_fields_refuse_old_recipe ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_invalid_stroke_or_procedural_form_refuses_old_recipe ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_invalid_text_retains_form_and_refuses_apply ... ok
+test graphical::authoring::detail_controls::tests::texture_effect_controls_kind_switch_reveals_retained_invalid_sepia ... ok
+test graphical::authoring::material_motion_controls::tests::invalid_field_updates_preserve_keys_and_uncommitted_text ... ok
+test graphical::authoring::material_motion_controls::tests::key_moves_are_ordered_and_collision_refusal_retains_local_source ... ok
+test graphical::authoring::material_motion_tests::material_motion_refuses_non_linear_or_orphaned_targets_before_source_generation ... ok
+test graphical::authoring::material_motion_tests::material_motion_rejects_bad_drafts_and_missing_targets_without_source_changes ... ok
+test graphical::authoring::material_motion_tests::material_motion_remove_keeps_sampled_factors_and_recipe_state_is_replayable ... ok
+test graphical::authoring::material_motion_tests::material_motion_source_edits_keys_and_samples_while_preserving_other_fields ... ok
+test graphical::authoring::material_motion_tests::material_motion_strict_source_schema_never_silently_repairs_unknown_state ... ok
+test graphical::authoring::material_motion_tests::material_motion_total_generated_source_is_bounded_without_touching_accepted_work ... ok
+test graphical::authoring::material_motion_tests::material_motion_track_limit_preserves_distinct_targets_and_rejects_extra ... ok
+test graphical::authoring::material_motion_tests::material_motion_typed_requests_reject_unknown_fields_modes_and_fractional_time ... ok
+test graphical::authoring::material_motion_tests::material_motion_uses_real_vibe_easing_with_explicit_outgoing_modes ... ok
+test graphical::authoring::parameter_safety_restart_tests::parameter_safety_and_recipe_history_survive_fresh_process_hmc_reopen ... ok
+test graphical::authoring::parameter_safety_restart_tests::parameter_safety_restart_child ... ok
+test graphical::authoring::parameter_safety_tests::all_downstream_fields_refuse_without_changing_session_parameters_or_history ... ok
+test graphical::authoring::parameter_safety_tests::canonical_detail_material_and_structure_edits_remain_exact_after_refused_regeneration ... ok
+test graphical::authoring::parameter_safety_tests::comparison_refuses_deep_or_unsupported_data_and_distinguishes_numeric_bits ... ok
+test graphical::authoring::parameter_safety_tests::explicit_baseline_allows_repeated_parameters_and_preserves_unknown_parameter_values ... ok
+test graphical::authoring::parameter_safety_tests::legacy_and_immutable_baselines_refuse_before_execution_with_migration_guidance ... ok
+test graphical::authoring::parameter_safety_tests::native_material_overrides_survive_and_membership_changes_refuse ... ok
+test graphical::authoring::parameter_safety_tests::source_owned_uv_detail_and_richer_geometry_cannot_be_rebased_to_bypass_safety ... ok
+test graphical::authoring::profile_tests::metric_profile_add_stale_undo_and_source_to_native_hmc ... ok
+test graphical::authoring::profile_tests::metric_profile_controls_validate_fields_units_bounds_and_simple_sections ... ok
+test graphical::authoring::profile_tests::metric_profile_grants_work_and_point_budgets_refuse_without_source_promotion ... ok
+test graphical::authoring::profile_tests::metric_profile_replacement_refuses_loss_of_topology_bound_geometry_fields ... ok
+test graphical::authoring::profile_tests::metric_profiles_execute_once_with_caps_length_and_preserved_records ... ok
+test graphical::authoring::source_layer_tests::exact_overrides_preserve_full_records_and_precision_while_geometry_changes ... ok
+test graphical::authoring::source_layer_tests::generated_source_budget_is_charged_before_large_override_construction ... ok
+test graphical::authoring::source_layer_tests::guard_failure_budget_and_ambiguous_recipe_preserve_every_accepted_binding ... ok
+test graphical::authoring::source_layer_tests::known_layer_render_metadata_requires_exact_schema_and_shape_and_keeps_other_fields_strict ... ok
+test graphical::authoring::source_layer_tests::native_explicit_legacy_adoption_preserves_existing_overrides ... ok
+test graphical::authoring::source_layer_tests::native_host_accepts_parameter_after_material_trs_and_restores_undo_rebuild ... ok
+test graphical::authoring::source_layer_tests::raw_opaque_preservation_fixture_and_native_render_fixture_have_explicit_scopes ... ok
+test graphical::authoring::source_layer_tests::topology_bound_coordinates_refuse_geometry_changes_without_remapping ... ok
+test graphical::authoring::source_layers::restart_tests::parameter_layers_survive_fresh_process_hmc_reopen_and_further_edits ... ok
+test graphical::authoring::source_layers::restart_tests::source_layer_restart_child ... ok
+test graphical::authoring::source_layers::snapshot::tests::exact_byte_boundary_and_caller_selected_allowance_are_enforced_before_copy ... ok
+test graphical::authoring::source_layers::snapshot::tests::explicit_byte_budget_does_not_waive_depth_or_text_profiles ... ok
+test graphical::authoring::source_layers::snapshot::tests::legacy_wrapper_preserves_64_mib_profile_and_exact_value_types ... ok
+test graphical::authoring::structure_tests::assembly_mutations_refuse_cycles_missing_parents_and_nonleaf_removal_without_execution ... ok
+test graphical::authoring::structure_tests::authoring_inventory_and_recipes_refuse_duplicates_injection_and_nonfinite_arguments ... ok
+test graphical::authoring::structure_tests::bounded_geometry_recipes_add_and_replace_through_actual_grants_and_one_dispatch ... ok
+test graphical::authoring::structure_tests::field_preserving_edits_keep_distinct_extension_schemas_and_refuse_unsafe_names ... ok
+test graphical::authoring::structure_tests::geometry_edits_refuse_denied_effect_and_exhausted_work_without_advancing_source ... ok
+test graphical::authoring::structure_tests::parameter_rebuild_retains_unsigned_precision_and_unknown_untouched_values ... ok
+test graphical::authoring::structure_tests::reparent_detach_and_remove_leaf_preserve_local_trs_and_unrelated_values ... ok
+test graphical::authoring::structure_tests::shared_material_delta_matches_unsigned_and_mixed_identifiers_without_losing_extensions ... ok
+test graphical::authoring::structure_tests::shared_material_edit_groups_256_parts_without_source_or_expression_depth_growth ... ok
+test graphical::authoring::structure_tests::structural_source_revisions_keep_stale_guard_undo_and_rebuild_lineage ... ok
+test graphical::authoring::structure_tests::unique_material_preserves_complete_material_and_only_selected_assignment ... ok
+test graphical::authoring::surface_controls::tests::full_controls_preserve_material_fields_and_refuse_bad_map_semantics ... ok
+test graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph ... ok
+test graphical::authoring::tests::every_generated_edit_is_a_canonical_program_with_a_record_result ... ok
+test graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety ... ok
+test graphical::biological_reference_tests::native_branching_diagnostics_render_each_source_cell ... ignored, explicit native GPU branching diagnostics; not model or human acceptance
+test graphical::checkpoints::authorised_reopen::tests::foreign_host_scope_is_rejected_before_authority_lookup ... ok
+test graphical::checkpoints::authorised_reopen::tests::unbound_owner_cannot_activate_prepared_checkpoint ... ok
+test graphical::checkpoints::georaster_edit::source::tests::georaster_source_declarations_remain_unverified_bounded_and_distinct ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_cancellation_budgets_and_coordinates_fail_closed ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_canonical_samples_metadata_and_padding_roundtrip ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_legacy_corrupt_and_richer_payloads_refuse_loss ... ok
+test graphical::checkpoints::inspection::tests::canonical_v3_and_legacy_inspection_are_distinct ... ok
+test graphical::checkpoints::inspection::tests::corruption_unknown_payload_and_budgets_never_fallback ... ok
+test graphical::checkpoints::inspection::tests::native_service_preserves_immutable_pin_and_path_refusals ... ok
+test graphical::checkpoints::inspection::tests::selected_hmc_digests_and_unknown_metadata_remain_exact ... ok
+test graphical::checkpoints::resource_preservation_tests::guarded_inventory_add_replace_remove_and_failed_edits_preserve_work ... ok
+test graphical::checkpoints::resource_preservation_tests::immutable_host_release_derives_complete_working_copy_with_exact_origin_lineage ... ok
+test graphical::checkpoints::resource_preservation_tests::source_material_save_retains_geometry_q42_lexicon_masters_rigs_unknown_bytes_and_metadata ... ok
+test graphical::checkpoints::resource_preservation_tests::stale_source_and_budget_fail_before_any_resource_or_file_change ... ok
+test graphical::checkpoints::restart_tests::native_restart_child ... ok
+test graphical::checkpoints::restart_tests::source_material_checkpoint_survives_fresh_native_process ... ok
+test graphical::checkpoints::tests::filename_and_document_association_are_checked_before_activation ... ok
+test graphical::checkpoints::tests::save_prepare_exact_source_and_existing_conflict_are_explicit ... ok
+test graphical::checkpoints::tests::stale_prepared_disk_and_changed_binding_cannot_promote ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_legacy_mat3_inspects_without_silent_upgrade_and_external_hint_holds_edit ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_no_sidecar_material_mesh_and_empty_declarations_refuse_without_hmc_mutation ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_rejects_malformed_science_overlapping_bindings_and_unknown_metadata ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_unknown_extensions_and_mismatched_scientific_kinds_refuse ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_corrupt_limits_cancel_and_nonfinite_refuse_without_mutating_input ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_hmc_save_reopen_retains_unknown_resource_and_changes_selected_material ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_material_delta_preserves_frames_science_geometry_and_every_unrelated_byte ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_stale_source_package_resource_and_opaque_metadata_leave_hmc_unchanged ... ok
+test graphical::controller::material_admission_tests::invalid_material_output_cannot_promote_session_or_source_and_rebuild_recovers ... ok
+test graphical::controller::material_admission_tests::pure_helper_cells_remain_accepted_and_material_only_route_rejects_geometry_changes ... ok
+test graphical::controller::tests::gapped_or_noncanonical_accepted_cell_keys_cannot_open_or_rebuild ... ok
+test graphical::controller::tests::identical_replacement_between_replay_and_promotion_is_rejected ... ok
+test graphical::controller::tests::recovery_aggregate_dispatch_and_instruction_limits_do_not_promote ... ok
+test graphical::controller::tests::replay_failure_preserves_prior_session_epoch_and_source ... ok
+test graphical::controller::tests::runtime_error_rebuild_keeps_source_and_retires_numeric_revision_epoch ... ok
+test graphical::controller::tests::undo_then_explicit_rebuild_restores_editability_without_preview_replay ... ok
+test graphical::cooperation::tests::foreign_scope_stamp_source_digest_and_current_generation_fail_closed ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_create_explicit_source_guarded_add_and_refusals_preserve_hmc ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authority_stale_digests_source_and_cancel_leave_hmc_exact ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authorized_save_and_fresh_process_reopen ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_jobs_dispatch_real_authorized_create_edit_and_withhold_revoked_results ... ok
+test graphical::cooperation::tests::georaster_edit_tests::metadata_tests::georaster_edit_refuses_selected_opaque_provided_unknown_and_observation_metadata ... ok
+test graphical::cooperation::tests::mcp_tests::protocol_observer_cannot_write_or_supply_principal_and_no_fake_checkpoint_tool ... ok
+test graphical::cooperation::tests::mcp_tests::protocol_real_source_material_undo_redo_and_rebuild_use_same_native_policy ... ok
+test graphical::cooperation::tests::observer_reads_actual_source_but_every_edit_route_denies ... ok
+test graphical::cooperation::tests::owner_without_publication_guard_keeps_native_operations_but_cannot_publish_completion ... ok
+test graphical::cooperation::tests::provider_never_calls_or_calls_twice_never_repeats_underlying_operation ... ok
+test graphical::cooperation::tests::publication_stamp_rejects_revocation_new_generation_and_busy_owner_without_blocking ... ok
+test graphical::cooperation::tests::real_canonical_write_requires_native_owner_document_update_before_next_action ... ok
+test graphical::cooperation::tests::selected_resource_inspection_requires_current_read_authority_and_source ... ok
+test graphical::cooperation::tests::self_review_and_unbounded_source_digest_are_refused ... ok
+test graphical::cooperation::tests::unbound_native_owner_denies_reads_checks_and_writes_without_source_mutation ... ok
+test graphical::cooperative_workbench::projection::tests::only_unanswered_requests_for_the_exact_revision_are_pending ... ok
+test graphical::cooperative_workflow::source::tests::comparison_retains_replaced_lines_and_empty_edges ... ok
+test graphical::draft_buffer::tests::pending_completion_preserves_typing_and_detects_edit_then_undo ... ok
+test graphical::draft_buffer::tests::pending_success_adopts_text_only_for_unchanged_private_draft ... ok
+test graphical::draft_buffer::tests::returning_reviewer_explicitly_adopts_current_source_without_changing_shared_state ... ok
+test graphical::draft_buffer::tests::standalone_completion_and_buffer_context_fail_closed ... ok
+test graphical::entry::tests::configured_factory_exposes_save_with_empty_unevaluated_source ... ok
+test graphical::entry::tests::diagnostic_reopen_hold_also_blocks_an_empty_session_until_explicit_rebuild ... ok
+test graphical::entry::tests::old_diagnostic_new_source_remains_new_only_and_requires_no_root ... ok
+test graphical::entry::tests::reopen_of_an_existing_store_id_never_replaces_that_record ... ok
+test graphical::entry::tests::traversal_missing_configuration_and_claimed_authority_are_denied ... ok
+test graphical::geometry_host::tests::actual_operation_grants_guard_dynamic_targets_at_runtime ... ok
+test graphical::geometry_host::tests::granted_source_dispatches_real_native_geometry_kernel ... ok
+test graphical::geometry_host::tests::profile_grants_and_host_dispatch_budgets_are_current_at_execution ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_capacity_tessellation_and_scratch_fail_before_dispatch ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_dynamic_target_requires_actual_runtime_grant ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_malformed_dimensions_and_unbalanced_scopes_do_not_promote ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_nonfinite_numbers_and_wrong_root_are_refused ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_source_session_reaches_actual_core_branch_leaf_and_preview ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_stack_and_polygon_limits_are_checked_before_core_allocation ... ok
+test graphical::geometry_host::turtle_host_tests::turtle_work_and_dispatches_are_cumulative_until_submission_reset ... ok
+test graphical::jobs::tests::actual_source_successor_and_retired_rebuild_epoch_publish_into_the_requesting_view ... ok
+test graphical::jobs::tests::closing_joins_started_rebuild_and_cancels_queued_command ... ok
+test graphical::jobs::tests::completed_image_cannot_follow_a_new_source_or_session_snapshot ... ok
+test graphical::jobs::tests::failed_host_attempt_delivers_reconciliation_snapshot_without_retry ... ok
+test graphical::jobs::tests::held_state_transition_rejects_prior_success_with_unchanged_epoch_revision_and_source ... ok
+test graphical::jobs::tests::one_worker_one_queue_and_cancelled_queued_work_never_starts ... ok
+test graphical::jobs::tests::preview_with_another_execution_epoch_is_withheld_before_encoding ... ok
+test graphical::jobs::tests::publication_rechecks_actual_store_after_worker_completion ... ok
+test graphical::jobs::tests::rebuilt_epoch_rejects_old_queued_reply_and_frame_even_when_revision_repeats ... ok
+test graphical::jobs::tests::resource_inspection_late_source_and_session_completions_are_withheld ... ok
+test graphical::jobs::tests::stale_session_or_replaced_incarnation_cannot_dispatch_or_install ... ok
+test graphical::jobs::tests::surface_tests::current_surface_inspection_publishes_once_and_old_completion_cannot_follow_rebuild ... ok
+test graphical::jobs::tests::surface_tests::surface_inspection_late_source_session_and_epoch_payloads_are_withheld ... ok
+test graphical::jobs::tests::unsupported_profile_has_no_rebuild_dispatch ... ok
+test graphical::jobs::tests::worker_panic_closes_reply_and_is_reported_when_owner_joins ... ok
+test graphical::material_controls::tests::malformed_control_input_and_infinite_factors_cannot_generate_source ... ok
+test graphical::material_edit::tests::canonical_literal_material_edit_is_admitted ... ok
+test graphical::material_edit::tests::current_revision_material_and_geometry_binding_cannot_be_retargeted ... ok
+test graphical::material_edit::tests::host_calls_computation_control_flow_and_extra_items_are_rejected ... ok
+test graphical::material_edit::tests::source_depth_and_size_fail_before_recursive_parser ... ok
+test graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels ... ignored, explicit native GPU readback qualification; run separately with --ignored --exact
+test graphical::materials::tests::bare_mesh_remains_compatible_and_authored_material_never_uses_fallback ... ok
+test graphical::materials::tests::canonical_material_declaration_and_live_edit_preserve_actual_geometry ... ok
+test graphical::materials::tests::generated_draft_refuses_invalid_factor_before_source_generation ... ok
+test graphical::materials::tests::material_mapping_refuses_wrong_colour_semantics_ranges_and_textures ... ok
+test graphical::materials::tests::material_source_replays_under_unchanged_geometry_grants ... ok
+test graphical::mcp::tests::overwrite_digest_is_exact_and_bounded ... ok
+test graphical::mcp::tests::unbound_transport_does_not_admit_a_principal_or_checkpoint_path ... ok
+test graphical::native_authoring_profile::tests::explicit_host_profiles_preserve_defaults_and_bound_equipment_work ... ok
+test graphical::native_entry::create::native_revolution_kernel_requires_explicit_host_opt_in ... ok
+test graphical::native_entry::files::tests::locator_paths_are_bounded_and_cannot_select_authority ... ok
+test graphical::native_entry::files::tests::public_config_and_empty_runtime_never_open_os_keys_or_hmc ... ok
+test graphical::native_entry::tests::native_entry_arguments_locate_configuration_without_granting_authority ... ok
+test graphical::native_project::tests::motion_workflow_tests::signed_material_motion_rejects_stale_observer_revoked_and_malformed_edits ... ok
+test graphical::native_project::tests::motion_workflow_tests::signed_material_motion_ui_mcp_history_and_hmc_reopen ... ok
+test graphical::native_project::tests::package_workflow_tests::package_workflow_real_producer_separate_reviewer_reopen_and_same_source_successor ... ok
+test graphical::native_project::tests::signed_native_project_shares_actual_edits_hmc_resources_and_revokes_ui_mcp ... ok
+test graphical::native_project::tests::spatial_workflow_tests::spatial_authoring_native_intents_compile_typed_inspect_and_separate_package_review_reopen ... ok
+test graphical::native_project::tests::surface_workflow_tests::surface_profile_native_intents_texture_closure_review_and_rebind_reopen ... ok
+test graphical::native_project::tests::texture_effect_workflow_tests::signed_texture_effect_native_mcp_pixels_history_hmc_and_fresh_process ... ok
+test graphical::native_project::tests::texture_effect_workflow_tests::signed_texture_effect_refusals_preserve_source_history_and_context_rules ... ok
+test graphical::native_project::tests::uv_detail_workflow_tests::uv_atlas_paint_native_intents_resource_closure_review_and_reopen ... ok
+test graphical::native_project::tests::workflow_tests::cooperative_operator_service_binds_edit_save_request_review_revoke_and_reopen ... ok
+test graphical::native_project::tests::workflow_tests::session_wrapper_worker_publishes_exact_successor_and_withholds_after_reviewer_handoff ... ok
+test graphical::package::library::tests::selected_library_is_bounded_and_paths_are_not_authority ... ok
+test graphical::package::tests::all_intents_preflight_before_library_access_and_aggregate_budget_failure_is_atomic ... ok
+test graphical::package::tests::atomic_native_plan_replaces_then_removes_real_10d_and_q42_together_preserving_master ... ok
+test graphical::package::tests::ui_mcp_typed_command_draft_is_strict_bounded_and_has_no_paths ... ok
+test graphical::poet_workspace::core::construct::tests::stub_honesty_is_not_live ... ok
+test graphical::poet_workspace::core::device::tests::device_profile_construction ... ok
+test graphical::poet_workspace::core::device::tests::device_type_labels ... ok
+test graphical::poet_workspace::core::device::tests::display_area ... ok
+test graphical::poet_workspace::core::intent_bus::tests::action_type_display ... ok
+test graphical::poet_workspace::core::intent_bus::tests::cbor_ld_serialisation_roundtrip ... ok
+test graphical::poet_workspace::core::intent_bus::tests::context_ref_default ... ok
+test graphical::poet_workspace::core::intent_bus::tests::payload_construction ... ok
+test graphical::poet_workspace::core::intent_bus::tests::payload_with_provenance ... ok
+test graphical::poet_workspace::core::intent_bus::tests::target_identifier_constructors ... ok
+test graphical::poet_workspace::core::manifest::tests::manifest_serialisation ... ok
+test graphical::poet_workspace::core::ontology::tests::module_lookup ... ok
+test graphical::poet_workspace::core::ontology::tests::registry_resolve ... ok
+test graphical::poet_workspace::core::registry::tests::container_authoring_state_roundtrips ... ok
+test graphical::poet_workspace::core::registry::tests::legacy_container_manifest_defaults_new_state_fields ... ok
+test graphical::poet_workspace::core::registry::tests::new_container_defaults_to_held_not_missing ... ok
+test graphical::poet_workspace::core::registry::tests::registry_construction ... ok
+test graphical::poet_workspace::core::sociality::tests::projects_are_social_health_is_not ... ok
+test graphical::poet_workspace::core::subject::tests::subject_is_not_a_construct_id ... ok
+test graphical::poet_workspace::core::tool::tests::simple_tool_construction ... ok
+test graphical::poet_workspace::core::tool::tests::tool_builds_payload ... ok
+test graphical::poet_workspace::core::workspace::tests::device_assignment ... ok
+test graphical::poet_workspace::core::workspace::tests::device_pair_unpair ... ok
+test graphical::poet_workspace::core::workspace::tests::manifold_switch ... ok
+test graphical::poet_workspace::core::workspace::tests::workspace_construction ... ok
+test graphical::poet_workspace::model::construct_seeds::tests::bundled_constructs_have_manifolds_stubs_do_not ... ok
+test graphical::poet_workspace::model::construct_seeds::tests::no_stub_is_labelled_live ... ok
+test graphical::poet_workspace::model::studio_seed::tests::studio_manifold_is_three_sessions_not_a_daw ... ok
+test graphical::poet_workspace::tests::foreign_target_context_client_provenance_unknown_and_oversize_are_rejected ... ok
+test graphical::poet_workspace::tests::native_projection_reuses_original_studio_containers_and_holds_unqualified_services ... ok
+test graphical::poet_workspace::tests::read_only_refresh_recovers_same_actor_source_successor_without_rebinding_actor ... ok
+test graphical::poet_workspace::tests::revocation_refuses_dispatch_and_cancel_never_claims_cancelled ... ok
+test graphical::poet_workspace::tests::same_native_actor_provenance_is_real_and_backend_failure_stays_rejected ... ok
+test graphical::preview::tests::actual_extrusion_session_result_uses_nested_mesh_rows ... ok
+test graphical::preview::tests::malformed_result_rows_and_provider_frame_extent_fail_closed ... ok
+test graphical::reference_authoring_tests::r9_reference_authoring_child ... ignored, child of explicit reference qualification; requires native GPU
+test graphical::reference_authoring_tests::r9_reference_master_source_layers_viewport_and_fresh_hmc ... ignored, explicit native GPU/reference engineering qualification; never production acceptance
+test graphical::shared_host::tests::busy_shared_lock_denies_without_dispatch_or_retry ... ok
+test graphical::shared_host::tests::clones_observe_the_same_actual_geometry_material_session_and_rebuild ... ok
+test graphical::shared_host::tests::poison_is_explicit_and_cannot_silently_recover_the_session ... ok
+test graphical::surfaces::detail::effect_tests::texture_effect_budgets_charge_disabled_work_and_temporary_before_base_allocation ... ok
+test graphical::surfaces::detail::effect_tests::texture_effect_legacy_expression_and_version_admission ... ok
+test graphical::surfaces::detail::effect_tests::texture_effect_order_disable_remove_and_source_immutability ... ok
+test graphical::surfaces::detail::effect_tests::texture_effect_real_filters_match_independent_expected_rgba_vectors ... ok
+test graphical::surfaces::detail::effect_tests::texture_effect_runs_after_paint_composite_and_retains_layers ... ok
+test graphical::surfaces::detail::effect_tests::texture_effect_strict_fields_kinds_required_fields_and_parameters ... ok
+test graphical::surfaces::detail::tests::imported_base_only_recipe_still_charges_pixel_work_before_render ... ok
+test graphical::surfaces::detail::tests::input_digest_extent_transfer_alpha_and_resource_budgets_refuse ... ok
+test graphical::surfaces::detail::tests::opaque_import_layer_edit_visibility_and_replay_change_real_encoded_pixels ... ok
+test graphical::surfaces::detail::tests::paint_layer_and_stroke_order_are_editable_source_not_cached_pixels ... ok
+test graphical::surfaces::detail::tests::procedural_canonical_detail_generates_colour_normal_orm_and_distinct_relief ... ok
+test graphical::surfaces::detail::tests::source_recipe_round_trips_pinned_vibe_and_strict_unknown_fields_refuse ... ok
+test graphical::surfaces::detail_pixels::authored_atlas_paint_and_procedural_detail_change_actual_native_pixels ... ignored, explicit serial native atlas/detail GPU readback
+test graphical::surfaces::integration_tests::merge_preserves_exact_unknown_metadata_and_rejects_rehashed_corruption_or_flags ... ok
+test graphical::surfaces::integration_tests::original_authored_map_remains_a_dependency_after_procedural_override_and_can_be_restored ... ok
+test graphical::surfaces::integration_tests::selected_decode_obeys_remaining_combined_inspection_budget_before_output_allocation ... ok
+test graphical::surfaces::integration_tests::source_header_metadata_refuses_snapshot_only_compilation_instead_of_disappearing ... ok
+test graphical::surfaces::pixels::canonical_maps_and_uv_transform_change_actual_native_pixels ... ignored, explicit serial native GPU surface readback; run separately with --ignored --exact
+test graphical::surfaces::tests::all_visual_mat4_fields_and_six_role_records_round_trip_pinned_vibe ... ok
+test graphical::surfaces::tests::normal_slot_rotation_reflection_and_legacy_textured_envelopes_refuse ... ok
+test graphical::surfaces::tests::resource_and_binding_budgets_refuse_without_silent_refinement ... ok
+test graphical::surfaces::tests::shared_linear_orm_dependency_is_retained_once_with_both_map_slots ... ok
+test graphical::surfaces::tests::uv_projection_uses_canonical_metres_and_transform_is_atomic ... ok
+test graphical::surfaces::tests::verified_dependency_closure_reopens_and_refuses_missing_corrupt_and_role_mismatch ... ok
+test graphical::surfaces::uv_atlas::tests::atlas_recipe_is_strict_and_unsupported_versions_refuse_without_input_mutation ... ok
+test graphical::surfaces::uv_atlas::tests::exact_recipe_survives_actual_persistent_vibe_source_evaluation ... ok
+test graphical::surfaces::uv_atlas::tests::seam_derived_mesh_preserves_original_geometry_and_exact_normal_provenance ... ok
+test graphical::surfaces::wire::tests::strict_native_intent_roundtrip_refuses_unknown_nested_and_role_mismatch ... ok
+test graphical::viewport::tests::r9_native_gpu_retains_device_scene_and_picks_visible_part ... ignored, requires explicit native GPU qualification
+test graphical::viewport::tests::viewport_alpha_wind_cancel_and_late_source_changes_fail_closed ... ok
+test graphical::viewport::tests::viewport_empty_and_byte_budgets_reject_before_device_creation ... ok
+test graphical::viewport::tests::viewport_framing_accounts_for_portrait_aspect_and_off_origin_parts ... ok
+test graphical::viewport::tests::viewport_gestures_use_canonical_clamps_and_projection_axes ... ok
+test graphical::viewport::tests::viewport_pick_maps_nearest_actual_triangle_to_exact_source_part ... ok
+test graphical::viewport::tests::viewport_pick_uses_same_non_square_projection_and_pixel_centers ... ok
+test graphical::viewport_input::tests::contain_letterbox_is_not_pickable ... ok
+test graphical::viewport_input::tests::drag_delta_uses_same_contain_scale_and_rejects_excess ... ok
+test graphical::viewport_input::tests::maps_square_coordinates_to_attachment ... ok
+test graphical::viewport_input::tests::rejects_nonfinite_zero_and_outside_inputs ... ok
+test graphical::viewport_provider::tests::r9_native_gpu_provider_automatic_preview_and_raw_parts_gestures_share_device_upload ... ignored, requires explicit native GPU qualification
+test graphical::viewport_provider::tests::r9_native_gpu_view_lighting_changes_pixels_without_upload_or_device_recreation ... ignored, requires explicit native GPU qualification
+test graphical::viewport_provider::tests::viewport_provider_cancel_and_stale_source_do_not_create_device ... ok
+test graphical::viewport_provider::tests::viewport_view_lighting_presets_reuse_canonical_bounds_without_gpu ... ok
+
+test result: ok. 268 passed; 0 failed; 9 ignored; 0 measured; 0 filtered out; finished in 88.05s
+

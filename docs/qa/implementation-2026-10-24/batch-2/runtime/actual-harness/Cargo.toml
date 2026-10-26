@@ -1,0 +1,17 @@
+[package]
+name = "ecopunk-actual-vibe-session-check"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+vibe = { path = "C:/github/qualiaDB/crates/vibe" }
+
+[lib]
+path = "lib.rs"
+
+[[test]]
+name = "actual_boundary"
+path = "../harness/boundary_tests.rs"

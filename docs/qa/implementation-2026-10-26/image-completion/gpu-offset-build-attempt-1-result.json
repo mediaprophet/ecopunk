@@ -1,0 +1,4 @@
+{
+  "exit_code": 0,
+  "command": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --lib image_completed_workflow_offsets_without_masks_change_native_gpu -- --ignored --nocapture --test-threads=1 (serial)"
+}

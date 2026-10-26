@@ -107,7 +107,7 @@ starvation of lower lanes is bounded, not permanent.
 reference · input digests or scoped handles · lane and dependencies ·
 budget/deadline/cancellation token · allowed result destination.
 
-**Result receipt:** job/result identity · source/request generations ·
+**Result receipt:** job/result identifiers · source/request generations ·
 version · status · verification + resource receipt (what it actually
 consumed). The policy revision is **rechecked on receipt/commit**; results
 are idempotent — committed at most once — and late/stale results never write

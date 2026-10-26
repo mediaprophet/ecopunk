@@ -1,0 +1,633 @@
+{
+  "schema": "ecopunk.bounded-function-audit.v1",
+  "date": "2026-10-26",
+  "scope": "Selected Core solvers/specialized_libs/wgsl_forge bodies with narrow consumer tracing",
+  "execution": {
+    "builds": false,
+    "tests": false,
+    "cargo": false,
+    "git": false,
+    "gpu": false,
+    "sibling_edits": false
+  },
+  "all_roots_comprehensive": false,
+  "inspection_unit": "listed observed source line ranges, clipped to file length; not whole file coverage unless ranges span file",
+  "files": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/lib.rs",
+      "observed_line_ranges": [
+        [
+          266,
+          290
+        ],
+        [
+          544,
+          556
+        ],
+        [
+          1969,
+          1980
+        ]
+      ],
+      "symbols_reviewed": [
+        "module feature gates"
+      ],
+      "inspected_body": false,
+      "limitations": "Export declarations only.",
+      "file_line_count": 1981,
+      "current_sha256": "acd78ff148293a1996569488a93bd46642b5600e059467832fba4b483fabd50b"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          156
+        ]
+      ],
+      "symbols_reviewed": [
+        "public solver families",
+        "SolverConfig",
+        "SolverState"
+      ],
+      "inspected_body": true,
+      "limitations": "Full root declarations and small state methods; child bodies not implied.",
+      "file_line_count": 164,
+      "current_sha256": "7888f5554d9fc76f15edbb2600a037856600ae002004c92172a0ec2365c2c752"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          86
+        ]
+      ],
+      "symbols_reviewed": [
+        "public library modules",
+        "target/feature gates"
+      ],
+      "inspected_body": false,
+      "limitations": "Root exports only; children selectively read below.",
+      "file_line_count": 86,
+      "current_sha256": "77b85765b6964a2db029775c20a7accd02fd9593d60fa06806bad8fc17db44fe"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          278
+        ]
+      ],
+      "symbols_reviewed": [
+        "public Forge modules and exports",
+        "Etalon conversion methods",
+        "generate_and_certify_via_etalon"
+      ],
+      "inspected_body": true,
+      "limitations": "No Etalon implementation read; rest of file not inspected.",
+      "file_line_count": 441,
+      "current_sha256": "19833f5d98d366d72a936b49306aa1c1dc0d0b7fdb669beed6b7e8d653f96003"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/transforms/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "symbols_reviewed": [
+        "Fourier exports"
+      ],
+      "inspected_body": false,
+      "limitations": "Exports only.",
+      "file_line_count": 21,
+      "current_sha256": "2569023ebca6954179f9f569ddd72542aa09a62b26295ac1bf59e9bb31fd6b31"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/transforms/fourier.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "symbols_reviewed": [
+        "dft",
+        "dft_cpu",
+        "dft_accelerated",
+        "idft"
+      ],
+      "inspected_body": true,
+      "limitations": "Core function bodies; tests seen incidentally but not executed.",
+      "file_line_count": 257,
+      "current_sha256": "9564aaddb3a312370f68cfb30dac26a52bad93a23d6fbc703908a4ae1349435a"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/calculus/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "symbols_reviewed": [
+        "calculus submodules",
+        "RK4/BVP type declarations"
+      ],
+      "inspected_body": false,
+      "limitations": "No RK4/BVP method bodies reviewed.",
+      "file_line_count": 837,
+      "current_sha256": "7c6e360e72ca228444763b73ddcba25928437d5b28e9053634b54ddc61d00cc1"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/calculus/ode_adaptive.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          292
+        ]
+      ],
+      "symbols_reviewed": [
+        "integrate_dopri5",
+        "valid_config",
+        "eval",
+        "stage",
+        "dopri5_workspace_len"
+      ],
+      "inspected_body": true,
+      "limitations": "All named kernel/helper bodies read; tests not executed.",
+      "file_line_count": 337,
+      "current_sha256": "e689958286d466236169213443da095e34ff440a4f38bb426552af8ba450879a"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          77
+        ]
+      ],
+      "symbols_reviewed": [
+        "solver imports",
+        "physics exports",
+        "population exports"
+      ],
+      "inspected_body": false,
+      "limitations": "Export graph only.",
+      "file_line_count": 77,
+      "current_sha256": "97901c35fb7a8d7d2dbc16b3d002bbc61c7f216d05bf7f389e4eb4aaf46ae957"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/mechanics.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "symbols_reviewed": [
+        "estimate_period_from_crossings",
+        "run_projectile_motion (partial)"
+      ],
+      "inspected_body": false,
+      "limitations": "Projectile body incomplete; excluded from report reuse anchors.",
+      "file_line_count": 225,
+      "current_sha256": "52c18c038f03602449ce352fbd621dd955e58d0320a3500ffddbf473772ff086"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/population.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          176
+        ]
+      ],
+      "symbols_reviewed": [
+        "run_logistic_growth",
+        "step_flocking_simulation",
+        "BoidAgent",
+        "FlockingParameters"
+      ],
+      "inspected_body": true,
+      "limitations": "Entire implementation observed; no domain calibration/execution.",
+      "file_line_count": 176,
+      "current_sha256": "73156d1c51b00f7a106b318c56214507673dab818a5a1ece487e24252251df2a"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/ode.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "symbols_reviewed": [
+        "integrate_ode_samples"
+      ],
+      "inspected_body": true,
+      "limitations": "Entire wrapper observed; allocates snapshots.",
+      "file_line_count": 60,
+      "current_sha256": "44e652c455323e463b4f72defe1dd391b8e8fc7453d3220f921e109d00ed9189"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          135
+        ],
+        [
+          260,
+          282
+        ]
+      ],
+      "symbols_reviewed": [
+        "module inventory prefix",
+        "botanical hull exports",
+        "canopy radiation exports"
+      ],
+      "inspected_body": false,
+      "limitations": "Partial inventory/export read; no blanket geometry audit.",
+      "file_line_count": 646,
+      "current_sha256": "659f705a02ef44b7e53a8e724741d061353ed6c08b6cab1f155a8122ef3e5fa4"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/botanical_hulls.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          275
+        ]
+      ],
+      "symbols_reviewed": [
+        "asymmetric_hull_capacity",
+        "asymmetric_hull_into",
+        "fit_asymmetric_hull"
+      ],
+      "inspected_body": true,
+      "limitations": "Named bodies complete; extruded hull/paraboloid bodies not read.",
+      "file_line_count": 511,
+      "current_sha256": "8a37cf06bb370e4b45775749060a43241e6b9bb25f1a6995690bbb673452d7e9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/canopy_radiation.rs",
+      "observed_line_ranges": [
+        [
+          221,
+          320
+        ],
+        [
+          371,
+          515
+        ]
+      ],
+      "symbols_reviewed": [
+        "rasterize_orthographic_id_buffer",
+        "integrate_canopy_radiation"
+      ],
+      "inspected_body": true,
+      "limitations": "Named bodies complete; helper/source-generation bodies not read.",
+      "file_line_count": 564,
+      "current_sha256": "ea3cee6c97d5427f96665fddcc7af1f10505a725b7f07d7de82ad1e7faa7de81"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/emit/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          94
+        ]
+      ],
+      "symbols_reviewed": [
+        "TargetBackend",
+        "GeneratedShader",
+        "emit_shader"
+      ],
+      "inspected_body": true,
+      "limitations": "Dispatch wrapper only; target emitter implementations not read.",
+      "file_line_count": 94,
+      "current_sha256": "c4c68c8778ea840ae3a3ca0f61aa88cc27cd7799ee48f85830a9cab5b781d39c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/oracle/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "symbols_reviewed": [
+        "oracle exports"
+      ],
+      "inspected_body": false,
+      "limitations": "Export declarations only.",
+      "file_line_count": 22,
+      "current_sha256": "ad2f3c2412e65bc59f8dec581b65b5612b1482e3882d232f915f69031b855cc7"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/oracle/evaluate.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          185
+        ],
+        [
+          406,
+          477
+        ]
+      ],
+      "symbols_reviewed": [
+        "evaluate_builtin",
+        "evaluate_affine",
+        "certify_builtin",
+        "candidate_evaluation"
+      ],
+      "inspected_body": true,
+      "limitations": "Named driver/wrapper bodies read; kernel-specific evaluators not comprehensively read.",
+      "file_line_count": 674,
+      "current_sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/execute/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "symbols_reviewed": [
+        "QualiaCompute and wgpu exports"
+      ],
+      "inspected_body": false,
+      "limitations": "Export declarations only.",
+      "file_line_count": 13,
+      "current_sha256": "8909718afb11dd69588242915148623f64d5142ca90a1470efd4c2f872179e6d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/execute/compute.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "symbols_reviewed": [
+        "QualiaCompute::dispatch signature"
+      ],
+      "inspected_body": false,
+      "limitations": "Trait contract only, concrete body reviewed in wgpu.rs.",
+      "file_line_count": 23,
+      "current_sha256": "b2228ca66ab3927fbc0d53c1cc01125996f10b0d8f20a3a3eb2491bb09a4ce88"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/execute/wgpu.rs",
+      "observed_line_ranges": [
+        [
+          774,
+          804
+        ],
+        [
+          900,
+          946
+        ],
+        [
+          1089,
+          1134
+        ],
+        [
+          1232,
+          1316
+        ]
+      ],
+      "symbols_reviewed": [
+        "compile_pipeline",
+        "submit_graph",
+        "WgpuPipeline::compile",
+        "compile_spirv",
+        "compile_msl",
+        "QualiaCompute::dispatch"
+      ],
+      "inspected_body": true,
+      "limitations": "Selected concrete bodies only; device creation/readback/slab internals not comprehensively read.",
+      "file_line_count": 1341,
+      "current_sha256": "da345e9a7e236f2f482f2939f8ade3e5c3e940b631c4e766b1a0ecfea95efade"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/runtime.rs",
+      "observed_line_ranges": [
+        [
+          97,
+          220
+        ],
+        [
+          710,
+          785
+        ]
+      ],
+      "symbols_reviewed": [
+        "compile_kernel_pipeline",
+        "tuned_schedule",
+        "lookup_tuned_schedule",
+        "default_schedule",
+        "ForgeRuntime::fft"
+      ],
+      "inspected_body": true,
+      "limitations": "Selected methods; other kernels/context construction not read.",
+      "file_line_count": 1089,
+      "current_sha256": "6572abd093f3df49b15ee78c98a6d5ce4431188394a631eaa8b3cef2693b201f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/dispatch.rs",
+      "observed_line_ranges": [
+        [
+          1110,
+          1174
+        ]
+      ],
+      "symbols_reviewed": [
+        "fft_f32",
+        "fft_f32_gpu"
+      ],
+      "inspected_body": true,
+      "limitations": "Selected dispatch bodies; CPU dft helper and caps body not read.",
+      "file_line_count": 1722,
+      "current_sha256": "1e15ef1d33623756d6692c39df229a2a85de2bdc7b1130525f0f8cffea6951f6"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          75
+        ],
+        [
+          215,
+          223
+        ],
+        [
+          502,
+          519
+        ],
+        [
+          683,
+          691
+        ]
+      ],
+      "symbols_reviewed": [
+        "dispatch selected match arms",
+        "invoke module roots"
+      ],
+      "inspected_body": false,
+      "limitations": "Registration arm inspection, not whole dispatcher audit.",
+      "file_line_count": 1394,
+      "current_sha256": "9862763cf1103c77c6ecc66eb489d7d0269e6d46edff549e38c0cbe76627f210"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/mod.rs",
+      "observed_line_ranges": [
+        [
+          89,
+          116
+        ],
+        [
+          223,
+          257
+        ]
+      ],
+      "symbols_reviewed": [
+        "native/scientific wave27 reexports",
+        "stub-list fragment"
+      ],
+      "inspected_body": false,
+      "limitations": "Exports/cfg only; no wrapper algorithm.",
+      "file_line_count": 270,
+      "current_sha256": "9742f649ff723cfd553b613951227c7dfd817550fd2e916c524ba01060f9c05b"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave27_host.rs",
+      "observed_line_ranges": [
+        [
+          106,
+          164
+        ],
+        [
+          452,
+          544
+        ]
+      ],
+      "symbols_reviewed": [
+        "asymmetric_hull_host",
+        "canopy_integrate_host"
+      ],
+      "inspected_body": true,
+      "limitations": "Named wrappers complete; other geometry wrappers not audited.",
+      "file_line_count": 544,
+      "current_sha256": "202dadbda187b36e99ffffb7c37b34f1704c343c39560a096f2e149c085d0fc6"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/mod.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "symbols_reviewed": [
+        "physics native/scientific export gates"
+      ],
+      "inspected_body": false,
+      "limitations": "Exports only.",
+      "file_line_count": 42,
+      "current_sha256": "d83baec63e8613354a25bcdc83ca2c39a09cf2940d1438a8aa1f0d487bd1a225"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/physics.rs",
+      "observed_line_ranges": [
+        [
+          350,
+          404
+        ]
+      ],
+      "symbols_reviewed": [
+        "logistic_growth"
+      ],
+      "inspected_body": true,
+      "limitations": "Named wrapper complete; unrelated surrounding field_sample partial and excluded.",
+      "file_line_count": 1137,
+      "current_sha256": "8d441142eb3a58bcbda21c83895632ce592a5651c58e71e96190275374446275"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/math/mod.rs",
+      "observed_line_ranges": [
+        [
+          148,
+          159
+        ]
+      ],
+      "symbols_reviewed": [
+        "transforms reexport target gates"
+      ],
+      "inspected_body": false,
+      "limitations": "Exports only.",
+      "file_line_count": 941,
+      "current_sha256": "fafa437588a4eafe61b2f709e7c7a004e6a5571ddefa61cc4b4b2041c47cffd4"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/math/transforms.rs",
+      "observed_line_ranges": [
+        [
+          1,
+          112
+        ]
+      ],
+      "symbols_reviewed": [
+        "pack_spectrum",
+        "dft",
+        "dft_complex"
+      ],
+      "inspected_body": true,
+      "limitations": "Named bodies complete; tests not executed.",
+      "file_line_count": 150,
+      "current_sha256": "0fea618941e54bac2124d3d8c288d82022236f6dcbf9d79d39d9558d9e081d74"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-cli/src/shader.rs",
+      "observed_line_ranges": [
+        [
+          415,
+          469
+        ]
+      ],
+      "symbols_reviewed": [
+        "run / Certify branch dry-run and actual invocation"
+      ],
+      "inspected_body": false,
+      "limitations": "Selected branch body read; full run method not audited.",
+      "file_line_count": 823,
+      "current_sha256": "c92c8896dc160452088109b158925c2cba90451ce28eec95cac8f756ccd09420"
+    }
+  ],
+  "reused_prior_review": [
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/compute-reuse.md",
+      "fresh_read": true,
+      "source_bodies_freshly_read": false,
+      "scope": "Prior geometry workspace/meshing/remeshing/PBD and sim growth/leaf/contact/rig evidence reused; source files not counted as fresh body coverage."
+    }
+  ],
+  "search_only_not_body_audited": [
+    "other discovered solvers/specialized_libs/wgsl_forge children",
+    "physics tests and MCP references",
+    "Poet browser physics chain action references"
+  ],
+  "limitations": [
+    "Working source only; no clean revision or compile qualification.",
+    "No exhaustive audit of all nine roots.",
+    "No claim that uninspected functionality is absent.",
+    "Forge emitted source, Core GPU oracle certification, target execution and biological calibration are distinct."
+  ],
+  "inspected_file_count": 31
+}

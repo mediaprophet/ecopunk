@@ -1,0 +1,160 @@
+{
+  "schema": "ecopunk-round1-decoded-bounds-probe/1",
+  "source_file": "C:\\github\\ecopunk\\assets\\reference\\community-grounds-growing-station\\outputs\\round1-film-006\\growing-station.10d",
+  "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+  "vertices": 239952,
+  "triangles": 79984,
+  "index_count": 239952,
+  "parts": 199,
+  "stored_min": [
+    -1.2999999523162842,
+    0.014999999664723873,
+    -0.8690000176429749
+  ],
+  "stored_max": [
+    1.2999999523162842,
+    1.7200000286102295,
+    0.8109999895095825
+  ],
+  "f32_extents": [
+    2.5999999046325684,
+    1.7050000429153442,
+    1.6800000667572021
+  ],
+  "decoded_min": [
+    -1.2999999523162842,
+    0.014999999664723873,
+    -0.8690000176429749
+  ],
+  "decoded_max": [
+    1.2999999523162842,
+    1.7200000286102295,
+    0.8110000491142273
+  ],
+  "outside_positions_by_axis": [
+    0,
+    0,
+    16
+  ],
+  "outside_examples": [
+    {
+      "vertex": 3571,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3572,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3574,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3576,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3579,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3581,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3918,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 3921,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 9799,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 9800,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 9802,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    },
+    {
+      "vertex": 9804,
+      "axis": 2,
+      "q": 65535,
+      "decoded": 0.8110000491142273,
+      "min": -0.8690000176429749,
+      "max": 0.8109999895095825,
+      "excess": 5.960464477539063e-08
+    }
+  ],
+  "nonfinite_coordinates": 0,
+  "bad_index_triangles": 0,
+  "uv_count": 239952,
+  "invalid_uv_coordinates": 0,
+  "normal_count": 239952,
+  "invalid_normals": 0,
+  "normal_length_squared_range": [
+    0.9999997755475919,
+    1.0000002223462268
+  ],
+  "scope": "Read-only Python mirror of inspected codec with explicit float32 rounding per arithmetic step; native decode succeeded earlier, this is not a native re-execution or integrity certificate."
+}

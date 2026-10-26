@@ -1,0 +1,74 @@
+{
+  "date_utc": "2026-10-26T00:04:15.050340+00:00",
+  "scope": "Read-only source review and specification changes; no new build, test, render, dataset ingestion, model or education qualification.",
+  "document_hashes": {
+    "C:\\github\\ecopunk\\docs\\planning\\tech\\biosphere-earth-and-anatomy-capabilities.md": "239b940a9e30e495f6d862d12021ef06492108b57ccd70ccaae2dcafdd9af85a",
+    "C:\\github\\ecopunk\\docs\\planning\\architecture.md": "f78893079f2582861fb37b7417348a22de2fa2d3b851c96a85392d539601559a",
+    "C:\\github\\ecopunk\\docs\\planning\\implementation-plan.md": "e8dc936ede8dc1833de4790fc6bf53729ae02c1c298f1af72b6bbea5bb88c0a3",
+    "C:\\github\\ecopunk\\docs\\planning\\tech\\ecopunk-production-backlog.md": "4ed52db3ff9bf231a3e0ba467791d739a8cf696d15755b6009ff3474b44c2c64",
+    "C:\\github\\ecopunk\\docs\\planning\\tech\\assets\\model-production-template\\README.md": "f4b4598983e6b7b10321a0e08b6d07602bf97390bbd34794d4bfd9f77879278d",
+    "C:\\github\\ecopunk\\docs\\planning\\tech\\assets\\digital-twin-asset-requirements.md": "a9bc96ef80bd5a0741c43562f33d3ecf10e5fb497660af29d293c8e830f7c54b"
+  },
+  "source_anchors": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/medical/dicom.rs",
+      "sha256": "32a49872cb9dd4bd3bd5af6570db4ee665ffc40cd6d96cba7036e48a047bb6fc"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/medical/dicom_ingest.rs",
+      "sha256": "6e53439772a777298b97a64b74b73e096dd189fe030bb9f2c003a786d976b802"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/anatomy_pack.rs",
+      "sha256": "e90330a2a013ea1c8e2a4d0d8ca369a9a545a464c72036edc74372a3a0af7366"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/clinical/imaging.rs",
+      "sha256": "e0dcb069a81eb71f422382630edf78833ba5699807208d93a53811f17a4fbc69"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/field_section.rs",
+      "sha256": "a3a71e2e4e0ee383823c0773fb082cf75761216c61f79ecae72f1e30c695c9d3"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/manifold_identity_v2.rs",
+      "sha256": "9c8147b541ee6d8cd99589458ab8e6116e1e8f96e558c7ed27b1227d34e76647"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/voxel_section.rs",
+      "sha256": "747e4d1aee67c4d307bdf9b4671be2d2cd1a884ec2c967eb7e64d4c7bfd6ccfe"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/medical/isotropic_resample_nn.rs",
+      "sha256": "0e724bfc8bd0a772acafc6b1cc5da951cba346c31ffc13fb82fdd2ab1fcced53"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/morphology/watershed_markers.rs",
+      "sha256": "dc4abe1b4b9433385b3800dc76266e9f581f5257a784c8fa5be3cee94fc36b79"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-geospatial/src/raster_m64/writer.rs",
+      "sha256": "440d8e6db0cd3cf674a5113acff61b842c1cc295fdb31e793e64e7bdba93b3f0"
+    },
+    {
+      "path": "C:/github/etalon/crates/etalon-render/src/volumetric.rs",
+      "sha256": "7b22d08dac6aeac711c3fc163823c9053769dead5a063d58a5e451434788afcc"
+    }
+  ],
+  "new_relative_links_checked": 15,
+  "capability_packets": 12,
+  "educational_cases": 8,
+  "catalogue_sha256_preserved": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+  "prior_execution_reused": [
+    "Round3 M64/geospatial format and native resource evidence",
+    "biological-reference eleven native botanical software tests only"
+  ],
+  "implemented_all_forms_of_life": false,
+  "biomedical_education_qualified": false,
+  "agents": {
+    "biosphere_source_scope": "gpt-6-luna medium",
+    "earth_source_scope": "gpt-6-luna medium",
+    "anatomy_source_scope": "gpt-6.1-sol high"
+  },
+  "review": "Root reconciled initial earth findings with canonical geospatial sources and prior executed Round3 evidence; kernel/export/Poet consumer and scientific acceptance kept distinct."
+}

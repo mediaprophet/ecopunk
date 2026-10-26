@@ -1,6 +1,6 @@
 # ecopunk — Domain Model
 
-**Status:** draft v0.1 · **Date:** 2026-10-12
+**Status:** draft v0.3 · **Date:** 2026-10-24
 **Scope:** the structure of what ecopunk models — domain layers, the scale ladder, entity
 and relation classes, spatio-temporal rules, and the living/made partition.
 Vocabulary bindings live in `tech/ontology-stack.md` (planned); sociosphere axioms in
@@ -18,23 +18,34 @@ ecopunk is the umbrella (biocultural scope). Domains are sibling namespaces brid
 | `bio:` | **Biosphere** | taxa, organisms, occurrences, traits, cells, genes, compounds, habitats, ecosystems, biomes, ecoregions, food webs |
 | `soc:` | **Sociosphere** | agents, communities, languages, Country, custodianship, standing axes, knowledge systems — see [sociosphere.md](sociosphere.md) |
 | `env:` | **Earth-system context** | climate layers, soils, hydrology, landforms, elevation, bathymetry, fire regimes — the substrate both other domains stand on |
+| `made:` (proposed vocabulary) | **Made world / world of man** | artefact designs, manufactured instances, components, assemblies, buildings, vehicles, infrastructure, functional connections, operation and lifecycle — [made-world.md](made-world.md) |
 | `stat:` | **Statistics** | governed observations about populations/areas/cohorts — datasets, dataflows, methodologies, classifications, claims — [tech/statistics.md](tech/statistics.md) |
-| `eco:` | **Bridge / package core** | scale ladder, pack manifests, cross-domain relations, shared identity and depiction relations, rights-profile attachment |
+| `eco:` | **Bridge / package core** | scale ladder, pack manifests, cross-domain relations, shared identifiers and depiction relations, rights-profile attachment |
 | external | **QualiaDB core** | `values:` rights/duties, `q42:` internals, PROV-O, GeoSPARQL, Darwin Core, TERN/SOSA profiles — aligned, not redefined |
 
 ## 2. DOM-AX — domain axioms
 
-### DOM-AX-1 The living world vs the made world
+### DOM-AX-1 The natural world and the made world
 
 The primal partition. Two halves of the knowable inventory:
 
-- **Living world** — entities of life and its contexts: organisms, taxa, cells, genes,
-  compounds-in-nature, habitats, ecosystems, Country, weather. *Self-emergent* — not
-  authored by humans. (Provisional naming — alternatives considered: *the given* /
-  *natural world* / *wild*; "world of god" is the intent, a less sectarian term wanted —
-  **open for decision**, §7-1.)
+- **Natural world / world of god** — organisms, taxa, cells, genes,
+  compounds-in-nature, habitats, ecosystems and natural environmental entities
+  such as rocks, waters and weather. “Living world” names its biological subset;
+  the natural domain also includes nonliving entities. Human management does not
+  itself convert a living organism into a manufactured artefact. Country retains
+  its sociosphere/place-as-relation meaning, rather than being reduced to a
+  natural object or a made object.
 - **Made world** — artefacts: manufactured objects, commodities, settlements,
   infrastructure, data products, models, packs. *Brought-forth by human making.*
+
+The user's “world of god” / “world of man” labels state the intended distinction.
+The domain model imposes no religious belief. Technical vocabulary keeps origin,
+entity kind, human intervention and representation roles explicit. A model and
+its package are made artefacts; the natural subject they depict remains natural.
+The [made-world specification](made-world.md) defines designs, instances, parts,
+assemblies, ports, functional systems and lifecycle rather than treating this
+half of the domain as a generic mesh category.
 
 **The rule:** a living entity is never intrinsically a "thing", "resource", or
 "commodity". `Commodity`/`Product`/`TradeGood` status is **act-derived**: it exists only
@@ -45,7 +56,7 @@ values-layer checks. Alignment: qualiaDB's values corpus already encodes *"a per
 not a thing"*; DOM-AX-1 generalises — **a life is not a thing**.
 
 **Provenance decides class, not substance.** The partition applies to entity
-*instances/lineages* by origin, not to chemical or morphological identity:
+*instances/lineages* by origin, not to chemical or morphological identifiers:
 
 - The *same* compound can exist in both worlds: urea in mammalian metabolism is
   living-world; urea synthesised industrially from natural gas is a made-world batch of a
@@ -117,11 +128,52 @@ Use-knowledge inherits TK-label conditions and may be sacred/restricted — deon
 conditions apply. Public-domain ethnographic sources (e.g. Maiden 1889) seed the commons
 lane; community-held knowledge stays under community authority.
 
+### DOM-AX-6 Embodiment is distinct from depiction
+
+A complete species embodiment packages the available species graph and its
+associated resources in a versioned HMC snapshot; see
+[species-embodiment-spec.md](tech/assets/species-embodiment-spec.md). Consumers
+draw upon that HMC to obtain knowledge, models, media and operational definitions.
+Multiple visual styles/scales may depict the same referent without creating
+competing species identifiers or changing its facts.
+
+Made-world embodiments follow [made-world.md](made-world.md): type/design,
+manufactured instance, as-built configuration, observations and mutable state
+remain distinct. Scene composition places instances of natural and made entities
+in a shared context; it does not merge their domain identifiers or replace the
+individual HMC embodiments.
+
+### DOM-AX-7 Multiple identifiers can refer to one subject
+
+The framework uses **identifiers**. A single topic, subject, entity, agent or
+actor may have several identifiers. The referent is distinct from its identifiers,
+labels, records and depictions. An internal graph/record key is a scoped reference,
+not a claim that the subject has exactly one universal or permanent identifier.
+
+Record identifier associations with their scheme/value, issuer or assigning
+authority where known, scope, provenance, validity and current/asserted/disputed/
+retired status. Keep unknowns explicit; do not invent extra identifiers to meet a
+count. A subject with one known identifier is still supported by the multi-value
+model. Identifier strings can be ambiguous or reused outside their stated scope.
+
+Mappings must distinguish claimed same-referent links, alternate/historical
+identifiers, corrections/replacements and references to different subjects,
+parts, versions or derived resources. Preserve evidence and disagreements instead
+of automatically treating matching labels or identifiers as global equivalence.
+An identifier, a content digest and a signed credential have distinct roles;
+none alone establishes authorship, authority, consent, payment or personhood.
+
+Native query/inspection, HMC descriptors, source handoffs and claim dossiers must
+retain applicable identifier sets and mappings across representation, package,
+host and context changes. Digests identify byte snapshots; they do not replace
+all identifiers associated with a topic or subject. Exact legacy source symbols
+remain traceable until an explicitly versioned migration changes them.
+
 ## 3. Core entity classes (draft register)
 
 | Class | Domain | Notes |
 |---|---|---|
-| `Taxon` / `TaxonName` | bio | name ≠ concept; NSL LSIDs canonical in AU |
+| `Taxon` / `TaxonName` | bio | name ≠ concept; retain supplied NSL LSIDs alongside other source-qualified identifiers and mappings |
 | `Organism` / `Occurrence` | bio | Darwin Core aligned |
 | `Trait` / `TraitObservation` | bio | PATO/AusTraits-aligned |
 | `CellType`, `Molecule`, `Gene`, `Protein` | bio (micro) | CL/ChEBI/GO/UniProt-aligned |
@@ -134,6 +186,9 @@ lane; community-held knowledge stays under community authority.
 | `Use` / `UseRelation` | bio↔soc | DOM-AX-5 |
 | `Act` (harvest/trade/processing) | soc→made | DOM-AX-1 commodification link |
 | `Dataset`, `MediaAsset`, `Model3DAsset` | eco | depiction: `eco:depicts` entity ⇄ asset |
+| `Embodiment`, `Representation`, `PackageRelease` | eco | integrated knowledge/resources ≠ depiction ≠ immutable distribution snapshot |
+| `ArtefactDesign`, `ManufacturedInstance`, `Assembly`, `Component` | made | design specification ≠ as-built object/configuration; stable whole/part identifiers |
+| `MaterialBatch`, `Port`, `FunctionalSubsystem`, `Installation`, `WorkEvent` | made | composition, typed connections, operation, maintenance and material lineage |
 | `Attestation`, `Review` | eco | governance acts as data |
 | `StatisticalObservation`, `StatisticalDataSet`, `Methodology`, `Classification` | stat | governed population statistics — Data Cube/SDMX-shaped; see [tech/statistics.md](tech/statistics.md) |
 | `Claim` | stat×eco | asserted influence/correlation/causal/policy claims w/ evidence class — never observation-layer (STAT-AX-7) |
@@ -182,9 +237,9 @@ dataset × instrument × axiom-context bindings; see tech/interpretation-framewo
 
 ## 7. Open questions
 
-1. **Naming for the living half.** Candidates: `living world`, `the given` (datum/factum
-   pair with "the made"), `natural world`, `wild`. Needs the user's pick — less
-   theological than "god", no over-complication.
+1. Exact namespace/vocabulary bindings for the made-world classes and shared
+   embodiment/representation contracts; conceptual class names are not yet
+   ratified wire fields. The user's natural/made distinction is already required.
 2. Temporal reification pattern — dated geometry entities vs named-graph-per-version.
    Test against IBRA v5→v7 transitions.
 3. Which "use" vocabularies already exist (ethnobotany/economic-botany ontologies,

@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "kind": "read_only_final_reconciliation",
+  "distinct_installed_targets": 44,
+  "historical_test_repairs": 2,
+  "all_latest_installed_hashes_match": true,
+  "native_sdk_tests": 56,
+  "native_poet_inspection_tests": 6,
+  "existing_native_lifecycle_tests": 1,
+  "unique_tests_in_this_pass": 63,
+  "all_six_inspector_case_names_verified": true,
+  "qualifying_commands_exit_zero_and_source_unchanged": true,
+  "wasm_frontend_compile": "passed; does not compile revised SDK",
+  "wasm_sdk_portal_compile": "passed; runtime interoperability untested",
+  "preserved_regression_artifacts": 3,
+  "reference_source_unchanged": true,
+  "native_poet_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 321381664,
+    "sha256": "8b1eb230ce98876bf0704ec70a6739c7a0e1d8378e25db1ddbbc604d3915deef"
+  },
+  "asset_production": "on_hold",
+  "foundation_readiness": "not_qualified",
+  "gui_verification": "not_run",
+  "human_acceptance": false,
+  "builds_or_tests_executed_by_this_verifier": false
+}

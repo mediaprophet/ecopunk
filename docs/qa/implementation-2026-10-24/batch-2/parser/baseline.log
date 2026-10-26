@@ -1,0 +1,34 @@
+     Locking 8 packages to latest compatible versions
+   Compiling ecopunk-canonical-parser-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\parser\harness)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.58s
+     Running ..\tests\cell_full_input.rs (docs/qa/implementation-2026-10-24/poet-repl/harness/target\debug\deps\cell_full_input-2700b797f23a326f.exe)
+
+running 5 tests
+test preserves_lexer_errors_after_semicolon ... FAILED
+test accepts_cell_expression_with_optional_single_semicolon ... ok
+test nested_record_and_if_expression_still_parse ... ok
+test accepts_trailing_whitespace_and_comments ... ok
+test rejects_tokens_after_optional_semicolon ... FAILED
+
+failures:
+
+---- preserves_lexer_errors_after_semicolon stdout ----
+
+thread 'preserves_lexer_errors_after_semicolon' (9104) panicked at ..\tests\cell_full_input.rs:27:65:
+called `Result::unwrap_err()` on an `Ok` value: Expr { span: Span { start: 3, end: 3 }, kind: Literal(Int(1)) }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- rejects_tokens_after_optional_semicolon stdout ----
+
+thread 'rejects_tokens_after_optional_semicolon' (10416) panicked at ..\tests\cell_full_input.rs:19:5:
+assertion failed: parse_cell("= 1; nope").is_err()
+
+
+failures:
+    preserves_lexer_errors_after_semicolon
+    rejects_tokens_after_optional_semicolon
+
+test result: FAILED. 3 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+error: test failed, to rerun pass `--test cell_full_input`
+Exit code: 101

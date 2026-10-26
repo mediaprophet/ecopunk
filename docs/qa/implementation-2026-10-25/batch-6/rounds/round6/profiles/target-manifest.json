@@ -1,0 +1,77 @@
+{
+  "scope": "Round 6 bounded metric profile/CAD authoring, staged only; tests not run",
+  "targets": [
+    {
+      "target": "C:/github/poet/native/src/graphical/geometry_host.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/geometry_host.rs",
+      "before_sha256": "3df957c9fd7355aea065f865d3a51e656dc6ebcf5f8a7d244fe235cd09accc56",
+      "after_sha256": "f0e2fc16166fd281b7ce9652be217abec973f1f40840fc26c8922aa42a114858"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/revolve_host.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/revolve_host.rs",
+      "before_sha256": null,
+      "after_sha256": "746937d617ab60eb81a9e557233717bf8a8fe213b4823a5d1c19bf47cea584e9"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/spatial_host.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/spatial_host.rs",
+      "before_sha256": "e2a5375c6b448a82662e1fe3062497e21c88eaf6ed14c69b8f1671d9ecb02794",
+      "after_sha256": "b862fb92fa2097236963aabc10e205ae93fdaf45974afa7ea66e94060f4bb38c"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/cad_controls.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/cad_controls.rs",
+      "before_sha256": null,
+      "after_sha256": "33c72e1ac308bba93c0aee145ea44ebcee190a8d938aabd369c53b16e1debda0"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/cad_recipe.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/cad_recipe.rs",
+      "before_sha256": null,
+      "after_sha256": "f038be0ffdbe6c6a4679f4735bddd19d31633f24b7e603f6f37fa42f6153e2a7"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/cad_tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/cad_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "aa3b2785d9020d23728944fda1dce8c9251134fbf23d2dcaa380e20a03c4ba93"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/geometry_source.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/geometry_source.rs",
+      "before_sha256": "430f6090f6758d5a1b1ce61be7cd723eed3f07e9513fdf0e64eebdf5aa8d8e58",
+      "after_sha256": "2c34ab70fee5e274e0e3961c88c4a479ca93e23a83b7c144cb8d9e5050657f66"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/profile_controls.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/profile_controls.rs",
+      "before_sha256": null,
+      "after_sha256": "c2097b76dc69f4166f6fef7e2ec2329bad8bc8664b84039c7fbcd34de824accb"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/profile_recipe.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/profile_recipe.rs",
+      "before_sha256": null,
+      "after_sha256": "1985b727285aee70d211c693671f70466b751f36c04829581fcc00d8298d2108"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/profile_tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/profile_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "a77edad7a6ddf6113e57352e4ec306745732f9bd642e44a8cfc6a47ef917c241"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/catalog/ids.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/qualiaDB/crates/vibe/src/catalog/ids.rs",
+      "before_sha256": "e0648a2ba53e682165d576bf2aa464466e69c1ce13b5760c64a2439392b9a7c1",
+      "after_sha256": "ae63440f8325be8a7c8da51d97b69b12f6270a46a567ef6a44f5c8127601e1f9"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/tests/poet_geometry_catalog.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/qualiaDB/crates/vibe/tests/poet_geometry_catalog.rs",
+      "before_sha256": "fabdb45f3a4d33ffefe6d9ca1d40c10d8f1ed7af9a4d9c1e5979c16318faa31b",
+      "after_sha256": "0b7ab69bae2140fe5bdbe50cc1f7481abc3df0f7a430c13aade1069499621e76"
+    }
+  ]
+}

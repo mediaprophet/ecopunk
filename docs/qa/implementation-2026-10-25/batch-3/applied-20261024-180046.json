@@ -1,0 +1,20 @@
+{
+  "applied_utc": "2026-10-24T18:00:46.7071010Z",
+  "manifests": [
+    "hmc/poet-preservation-followup-manifest.json"
+  ],
+  "mutations": [
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-preservation-candidate\\checkpoints\\mod.rs",
+      "sha256": "6C62FC8B435835301B41C80CE65330FC4756370824D9E384999597A017CD842D",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "original_sha256": "8946DB5F5530464EE2F0BDE7475C2D5BFF264FBA6664E7EF44E66FBDA2A6BB1A"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-preservation-candidate\\checkpoints\\resource_preservation_tests.rs",
+      "sha256": "5CAA776EBE2247B75D0F61D767F9A2B16E25BFE85324BBDBEBF5D88E05510D7C",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resource_preservation_tests.rs",
+      "original_sha256": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib) generated 1 warning
+warning: function `eval_line` is never used
+  --> native\src\repl.rs:11:8
+   |
+11 | pub fn eval_line(line: &str, host: &mut impl Host, env: &mut Env) -> Result<Value, Diagnostic> {
+   |        ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+
+warning: `poet-cli` (bin "poet") generated 2 warnings
+    Finished `test` profile [unoptimized] target(s) in 14m 25s
+     Running ..\..\qualiaDB\crates\qualia-core-db\tests\uv_atlas_native.rs (target\debug\deps\foundation_uv_atlas-f839428c75c41995.exe)
+
+running 10 tests
+test bad_topology_seams_budget_density_and_cancel_preserve_all_outputs ... ok
+test cancellation_at_last_probe_keeps_complete_caller_buffers_unchanged ... ok
+test closed_tetrahedron_requires_explicit_cuts_and_keeps_face_order ... ok
+test curved_disk_has_positive_coverage_density_and_repeatable_uvs ... ok
+test disconnected_islands_pack_as_distinct_charts_and_validate_output_capacity ... ok
+test explicit_diagonal_seam_duplicates_corners_and_gutters_do_not_overlap ... ok
+test f32_delivery_collapse_refuses_instead_of_promoting_invalid_uvs ... ok
+test malformed_indices_nonfinite_degenerate_and_nonmanifold_edges_refuse_atomically ... ok
+test non_power_of_two_atlas_delivery_stays_inside_reserved_gutter_with_subpixel_tolerance ... ok
+test nonseparating_cylinder_cut_splits_vertices_within_one_chart ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+

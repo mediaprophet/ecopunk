@@ -1,0 +1,80 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 9.78s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 27 tests
+test graphical::checkpoints::authorised_reopen::tests::foreign_host_scope_is_rejected_before_authority_lookup ... ok
+test graphical::checkpoints::authorised_reopen::tests::unbound_owner_cannot_activate_prepared_checkpoint ... ok
+test graphical::checkpoints::georaster_edit::source::tests::georaster_source_declarations_remain_unverified_bounded_and_distinct ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_cancellation_budgets_and_coordinates_fail_closed ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_canonical_samples_metadata_and_padding_roundtrip ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_legacy_corrupt_and_richer_payloads_refuse_loss ... ok
+test graphical::checkpoints::inspection::tests::canonical_v3_and_legacy_inspection_are_distinct ... ok
+test graphical::checkpoints::inspection::tests::corruption_unknown_payload_and_budgets_never_fallback ... ok
+test graphical::checkpoints::inspection::tests::native_service_preserves_immutable_pin_and_path_refusals ... ok
+test graphical::checkpoints::inspection::tests::selected_hmc_digests_and_unknown_metadata_remain_exact ... ok
+test graphical::checkpoints::resource_preservation_tests::guarded_inventory_add_replace_remove_and_failed_edits_preserve_work ... ok
+test graphical::checkpoints::resource_preservation_tests::immutable_host_release_derives_complete_working_copy_with_exact_origin_lineage ... ok
+test graphical::checkpoints::resource_preservation_tests::source_material_save_retains_geometry_q42_lexicon_masters_rigs_unknown_bytes_and_metadata ... ok
+test graphical::checkpoints::resource_preservation_tests::stale_source_and_budget_fail_before_any_resource_or_file_change ... ok
+test graphical::checkpoints::restart_tests::native_restart_child ... ok
+test graphical::checkpoints::restart_tests::source_material_checkpoint_survives_fresh_native_process ... ok
+test graphical::checkpoints::tests::filename_and_document_association_are_checked_before_activation ... ok
+test graphical::checkpoints::tests::save_prepare_exact_source_and_existing_conflict_are_explicit ... ok
+test graphical::checkpoints::tests::stale_prepared_disk_and_changed_binding_cannot_promote ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_legacy_mat3_inspects_without_silent_upgrade_and_external_hint_holds_edit ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_no_sidecar_material_mesh_and_empty_declarations_refuse_without_hmc_mutation ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_rejects_malformed_science_overlapping_bindings_and_unknown_metadata ... ok
+test graphical::checkpoints::typed_10d::tests::admission::typed_10d_unknown_extensions_and_mismatched_scientific_kinds_refuse ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_corrupt_limits_cancel_and_nonfinite_refuse_without_mutating_input ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_hmc_save_reopen_retains_unknown_resource_and_changes_selected_material ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_material_delta_preserves_frames_science_geometry_and_every_unrelated_byte ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_stale_source_package_resource_and_opaque_metadata_leave_hmc_unchanged ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 182 filtered out; finished in 2.75s
+

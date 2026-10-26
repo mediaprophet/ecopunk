@@ -1,13 +1,87 @@
 # Implementation strategy — RD&D frame & priorities
 
+**Superseded delivery order, 2026-10-24:** use
+[implementation-plan.md](implementation-plan.md), the consolidated operative
+plan for cooperative native tools, exceptional Ecopunk masters and actual
+game-demo use. The proposals below remain historical/research inputs and do
+not require completing every engine epic before the first output. The new
+IP-03 operational gate also prevents treating an isolated render/API/CLI as
+usable cooperative authoring. No implementation is claimed by this amendment.
+
 **Status:** v1.0 · updated 2026-10-20 following the forensic audit against `C:\github\bevy-main` and `C:\github\Fyrox-master` ([`docs/reports/game-engine-audit-and-qualiadb-manual.md`](../reports/game-engine-audit-and-qualiadb-manual.md)) and the resulting 10-Epic Engine Uplift Plan ([`docs/plans/qualiadb-superior-game-engine-master-plan.md`](../plans/qualiadb-superior-game-engine-master-plan.md)). v1.0 inserts both the game-demo remediation prerequisite (Phase 0A, per [tech/game-demo-remediation.md](tech/game-demo-remediation.md)) and **Phase 0B: QualiaDB Superior Game-Engine Architecture Uplift (Epics 1–10)**.
+
+## 0. Governing priority correction — 2026-10-24
+
+**Production purpose:** [high-grade-production-and-civics-experience.md](tech/high-grade-production-and-civics-experience.md)
+sets the direction: Ecopunk creates accepted high-grade masters, then derives
+reviewed reduced versions for game-demo's civics exploration related to
+dev.civics.au. Its current budgets/fixtures do not define master quality. The
+tooling must advance recognisable places, credible species and understandable
+systems, and Webizen's spatial/knowledge/authoring experience. This supersedes
+any game-first wording below that would make low-grade consumer output adequate.
+
+**Current work index:** [the 120-packet production backlog](tech/ecopunk-production-backlog.md)
+coordinates stack evidence, authoring, content and delivered quality. **Etalon**
+is the developed local wgpu fork; [its handoff](tech/etalon-capability-handoff.md)
+records extension/consumer source and historical resolved work to reconcile.
+Older uplift plans remain research/requirements inputs, not proof every listed
+capability is still missing or a reason to delay the reviewed reference scene
+until every engine objective is complete. Reuse qualified existing capability,
+repair the actual source-to-frame chain, and allocate demonstrated gaps upstream.
+
+Timothy has directed that specification completion precedes further graphics
+implementation. The [architecture](architecture.md), [species HMC contract](tech/assets/species-embodiment-spec.md),
+[shared package contract](tech/assets/asset-package-spec.md) and
+[made-world structure](made-world.md) define the next work. The foundation is
+not complete while these contracts remain open; “near-done” in the older phase
+sequence below is superseded on these points.
+
+Ecopunk develops the QualiaDB/custom dependency stack through real requirements.
+The intended native authoring, packaging, query, simulation and presentation workflow
+requires no JavaScript/Node/V8. Complete species graph/resources belong in HMC;
+visual styles are representations of that embodiment. Human-made vehicles,
+structures and systems require design/instance/assembly/operation contracts.
+Missing generic capability is recorded for upstream allocation, not filled by
+an Ecopunk-owned substitute. Existing engine work still needs evidence and
+authorization; this sequencing does not declare it unnecessary or complete.
+
+The older phases remain a scope inventory. First settle these specifications
+and native interfaces, then qualify representative natural and made embodiments,
+then proceed with visual production through those contracts. Existing JS-owned
+editor/state logic is remediation debt; supported WASM versions must share
+application semantics and use authorized native services where required.
+Native qualification and WASM qualification remain distinct required evidence.
+
+**Repository/interface clarification:** [poet-craft-consolidation.md](tech/poet-craft-consolidation.md)
+records Timothy's intended single authoring interface: **Poet**. Extract Craft
+libraries/domain engines into `C:/github/craft`; port their useful controls and
+editing surfaces into Poet while retaining/recovering its existing functions.
+The older ST assumption that eleven independent app repositories/UIs are the
+product destination is superseded by this clarification. Their source and
+evidence remain migration inputs; moving folders is not UI integration.
+
+**Framework/environment clarification:** [webizen-environment-framework.md](tech/webizen-environment-framework.md)
+records Aether, the controlled Dioxus fork at `C:/github/rust-app-framework`, Webizen
+Desktop as the native launcher/host, and harmonised native/WASM applications.
+Reconcile useful existing desktop/OS-shell services and shared contracts into
+that architecture; their current UX/backend is not an approved destination.
+ENV-01–07 and G81–G83 specify dependency alignment, native rendering, launcher
+lifecycle, native-assisted WASM and controlled-update qualification.
+
+The separate Servo-derived **Chora engine** at `C:/github/chora` retains its own
+source/workspace/license boundary. [Chora integration](tech/chora-engine-boundary.md)
+adds CHORA-01–05 / G84 for generic interfaces, host-owned adapters and qualified
+dependency/distribution closure. It is excluded from Craft consolidation.
 
 ## 1. The RD&D driver: `game-demo`
 
-The first implementation focus is **`C:\github\game-demo`** (Maslows
-Challenge) — deliberately dual-purpose:
+The production flow starts with **high-grade Ecopunk masters** and their native
+authoring/tool chain. **`C:\github\game-demo`** (Maslows Challenge) consumes
+reviewed derivatives and provides downstream requirements and evaluation —
+deliberately dual-purpose:
 
-- a **useful product** in its own right (Australia-first browser/WASM game);
+- a **useful product** in its own right (Australia-first native-stack game
+  with supported harmonised WASM delivery; current JS-owned logic needs remediation);
 - the **development test-case** — its requirements force QualiaDB
   functionality to be *actually implemented and functioning*, not merely
   specified. Its written requirements (ecology contract, procedural pipeline,

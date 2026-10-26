@@ -1,0 +1,66 @@
+{
+  "job": "W3R1-RIG",
+  "date": "2026-10-26",
+  "status": "staged-unintegrated",
+  "tests": "NOT RUN",
+  "human_acceptance": "unassessed",
+  "asset_production": "HOLD",
+  "files": [
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/poet/native/src/graphical/rig_binding/mod.rs",
+      "preimage_sha256": null,
+      "after_sha256": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/poet/native/src/graphical/rig_binding/controls.rs",
+      "preimage_sha256": null,
+      "after_sha256": "b77ba33cb1b2b1f86dd1211b719316beca75c7d17de1c2b7a576f00a1dc96f7c"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/poet/native/src/graphical/rig_binding/native_controls.rs",
+      "preimage_sha256": null,
+      "after_sha256": "694b704ccc3843ac5c8515c470598d109f7cd6bda18862487caff6aaaf9e1cf3"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/poet/native/src/graphical/rig_binding/tests.rs",
+      "preimage_sha256": null,
+      "after_sha256": "1ffbcaee3949d74846479a7183719e10351e340570828c2bf4daa552a7507fcc"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/poet/native/src/graphical/animated_rig_preview.rs",
+      "preimage_sha256": null,
+      "after_sha256": "62036a8855f192d89853997e629920be430d3c694a524edf577f9c51a7db92a7"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/findings.md",
+      "preimage_sha256": null,
+      "after_sha256": "3729f9fae54cb8db35ecdfed2e6af6bd2b15012c312b3298d41d1758c4a938d8"
+    }
+  ],
+  "canonical_targets_existed": false,
+  "shared_wiring_owner": "root coordinator",
+  "root_integration": [
+    "Register graphical::rig_binding and graphical::animated_rig_preview in Poet native graphical/mod.rs",
+    "Bind descriptor to selected immutable HMC resource under existing expected-source and role admission",
+    "Verify exact compiled rest span, normals, UV0, local indices and identity vertex lineage before admit_bound_rig",
+    "Retain AnimatedRigPreview actor and call advance then write_frame on Core PortalGpu with compiler-proven span",
+    "Mount RigControls through authenticated AuthoringEdit and MCP routes; preserve source and rollback on refusal",
+    "Run serial Cargo checks and native/renderer/reopen/reviewer cases only after registration"
+  ],
+  "remaining_ids": [
+    "BS-20B",
+    "BS-20C",
+    "BS-20D",
+    "BS-20E",
+    "IP-03-C1-C8",
+    "film/game/cartoon wallaby package"
+  ],
+  "source_pins": {
+    "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/skeletal_section/mod.rs": "ffb869b632b3bf324f08fdc86e0e60c245b7606237b4a06e59e93b2e3549f46f",
+    "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/skeletal_container.rs": "eba193a209d9ba832a4bbf4095a2343a7d8df02da42253b0dd22f72677d56f15",
+    "C:/github/qualiaDB/crates/qualia-core-db/src/render/skeletal/player.rs": "289e3656722da0852229342ca2426cdb9c613d1a001f62f05b28f6a817cff78b",
+    "C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/animated_upload.rs": "83e705c4f1732224e33578d866120e952cba4cc3b0886fd89c92102c5596ea69",
+    "C:/github/poet/native/src/graphical/mod.rs": "0603b4665a2e499339f313c24408e53c3a380d7b4cfb73c285e32435e93c0736"
+  },
+  "review_successor": "Stale frame refusal; checked resource-plus-section preflight before Core parse; checked cold working budget before mesh/skin allocation; nonzero authored fade refusal"
+}

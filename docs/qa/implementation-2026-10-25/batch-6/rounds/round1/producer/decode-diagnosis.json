@@ -1,0 +1,26 @@
+{
+  "schema": "ecopunk-round1-decode-diagnosis/1",
+  "actual_source": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+  "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+  "failed_invariant": "Poet assembly/admission.rs:347-352 requires every decoded coordinate within Mesh.min/max; 16 Z coordinates exceed header.max[2].",
+  "numbers": {
+    "stored_min_z": -0.8690000176429749,
+    "stored_max_z": 0.8109999895095825,
+    "f32_extent_z": 1.6800000667572021,
+    "endpoint_q": 65535,
+    "decoded_z": 0.8110000491142273,
+    "excess": 5.960464477539063E-08,
+    "affected_vertices": 16
+  },
+  "owning_layer": "QualiaDB container_10d/mesh_section.rs dequantize and decode_mesh_section",
+  "cause": "f32 subtraction rounds max-min upward; q65535 normalized factor is exactly1; f32 min+extent becomes one ULP above stored max.",
+  "remedy": "Interpolate from actual finite min/max in f64 with exact q0/q65535 endpoint returns; preserve serialized format/encoder, stored header bounds and exact consumer containment validation.",
+  "test_cases": [
+    "Measured006 frame exact endpoints and every sampled decoded point within bounds",
+    "Asymmetric positive/negative/cross-zero frames",
+    "Large finite opposite-sign bounds without f32 extent overflow",
+    "Zero-span axes",
+    "Existing byte determinism and roundtrip quantization-tolerance tests"
+  ],
+  "verification": "Read-only Python mirror measured actual binary using inspected codec layout and explicit f32 rounding per operation. Native failure remains retained; no Rust edit or Cargo executed by agent."
+}

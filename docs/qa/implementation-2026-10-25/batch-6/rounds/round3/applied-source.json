@@ -1,0 +1,234 @@
+[
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\container_10d\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\integration\\container_10d_mod.rs",
+    "before_sha256": "d97c2aa0c76a489880a3bbcbf12742cb0e82f6f07bda46aa127933dbec41b1f9",
+    "after_sha256": "4190b7a81765de57230a49b82cad825fb136ec7f602786774591442fd4d129d2",
+    "job": "R3-FRAMES + supervisor preservation exports",
+    "verified_after_sha256": "4190b7a81765de57230a49b82cad825fb136ec7f602786774591442fd4d129d2"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\container_10d\\normal_section.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\container_10d\\normal_section.rs",
+    "before_sha256": "996ca418ba5693e6651bcdef1a9d914be353615f9ebbef964faae9392847db3d",
+    "after_sha256": "f81c4c1d6532e99e8334502a2d3660f2d69b3b107c7c997c963915174f098838",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "f81c4c1d6532e99e8334502a2d3660f2d69b3b107c7c997c963915174f098838"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\container_10d\\normal_section\\frame_decode.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\container_10d\\normal_section\\frame_decode.rs",
+    "before_sha256": null,
+    "after_sha256": "8dc5af48634bde0aff5cf04ba496995c6b7b2665ec5a623df0e3950b6830713c",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "8dc5af48634bde0aff5cf04ba496995c6b7b2665ec5a623df0e3950b6830713c"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\frames.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\frames.rs",
+    "before_sha256": null,
+    "after_sha256": "57da3e33ec400f7fcc80986295ca51da89f1a740f552b718c0b295a0c64afdb8",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "57da3e33ec400f7fcc80986295ca51da89f1a740f552b718c0b295a0c64afdb8"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\mod.rs",
+    "before_sha256": "02b0f3d4b7368ef53ed9d3e6e535bf78d694f3762f2075db46000d304a2abfea",
+    "after_sha256": "8dd52b4b81514fa781d6632adf2e6b1ed8c8cbf6a36689540ec14b58cb5393d8",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "8dd52b4b81514fa781d6632adf2e6b1ed8c8cbf6a36689540ec14b58cb5393d8"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\readers.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\readers.rs",
+    "before_sha256": "ac29d080bfd4cc52d643afc6faa97ee4adc86f5acaee3a6468b10afc91a329fe",
+    "after_sha256": "c3389ab1bac8daf5830d647b8451ccfab200327847da179a4ac52b280feaa639",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "c3389ab1bac8daf5830d647b8451ccfab200327847da179a4ac52b280feaa639"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\compile_10d.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\render\\compile_10d.rs",
+    "before_sha256": "d61eb4c387f8f60f94278e9397216a72dbd051af9b99c00285568e50c498a121",
+    "after_sha256": "92428549a8a60f517094f50c7dcdc0ce0fb3380594ac715cb4da1b4f215b7106",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "92428549a8a60f517094f50c7dcdc0ce0fb3380594ac715cb4da1b4f215b7106"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\portal\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\render\\portal\\mod.rs",
+    "before_sha256": "29e10e77c158f0bcdb47e813f9cbeb3761f6eac3d51835bcac0ce1465351210b",
+    "after_sha256": "0f5a9d5552d5284f66821aaf12a94ee7a69e8b9144979da20a815796e3fad6f6",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "0f5a9d5552d5284f66821aaf12a94ee7a69e8b9144979da20a815796e3fad6f6"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\portal\\scene_mesh.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\src\\render\\portal\\scene_mesh.rs",
+    "before_sha256": "79edaa05f2ebba650885d89709c868be2329578db1bddf65b55e4bf45da84316",
+    "after_sha256": "3ac2407910cb9d18555fddfd76fbcd158ed640e6547aada758b3c78bb4fda58f",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "3ac2407910cb9d18555fddfd76fbcd158ed640e6547aada758b3c78bb4fda58f"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\tests\\frame_decode_sdk.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\crates\\qualia-core-db\\tests\\frame_decode_sdk.rs",
+    "before_sha256": null,
+    "after_sha256": "252d2d194203d3459adfcfb634c087add276d6b4e0fc107af67ce987ccd4d46b",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "252d2d194203d3459adfcfb634c087add276d6b4e0fc107af67ce987ccd4d46b"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\docs\\manuals\\standards\\10d-typed-field-payloads.md",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\frames\\after\\docs\\manuals\\standards\\10d-typed-field-payloads.md",
+    "before_sha256": "e14758e9e3ebcdf2fbdaaa638408adca55d481fba339506c4c1f83782d67df34",
+    "after_sha256": "9c63eb5919fe5e1713c9f5fe352847d804fd33e31c7818dcec8604bc5c057196",
+    "job": "R3-FRAMES",
+    "verified_after_sha256": "9c63eb5919fe5e1713c9f5fe352847d804fd33e31c7818dcec8604bc5c057196"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\checked_reader\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\checked_reader\\mod.rs",
+    "before_sha256": "6e3ffe3603577c200db3c8fbd3e336b175baa5efa257374247f1535c3bde85dc",
+    "after_sha256": "2161c8a12de77d46279f8f0056d499f2d253639f5a0dea7df405575f33bf229d",
+    "job": "R3-GEO",
+    "verified_after_sha256": "2161c8a12de77d46279f8f0056d499f2d253639f5a0dea7df405575f33bf229d"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\checked_reader\\validation.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\checked_reader\\validation.rs",
+    "before_sha256": "8477d7eb60c0c3ab77189c6e245058122afdfdf72d90735838d8bed262f02cbd",
+    "after_sha256": "d04ee2a5375906527a8569f9227b07cb9b729a67854423d5a3cb51b5d7854232",
+    "job": "R3-GEO",
+    "verified_after_sha256": "d04ee2a5375906527a8569f9227b07cb9b729a67854423d5a3cb51b5d7854232"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\georaster\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\georaster\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "b13f3dd37c462abf49f8cb4817cd460386934d1982fe5458ad854b40a9edec73",
+    "job": "R3-GEO",
+    "verified_after_sha256": "b13f3dd37c462abf49f8cb4817cd460386934d1982fe5458ad854b40a9edec73"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\georaster\\validation.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\georaster\\validation.rs",
+    "before_sha256": null,
+    "after_sha256": "db135800310d2482726b6c844f161b42cd519bc4bc7745fd414baa99e8ca0ab9",
+    "job": "R3-GEO",
+    "verified_after_sha256": "db135800310d2482726b6c844f161b42cd519bc4bc7745fd414baa99e8ca0ab9"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\georaster\\wire.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\georaster\\wire.rs",
+    "before_sha256": null,
+    "after_sha256": "438e768a2cf39b34e4430a6a34edd168bfe43d5583a1495d96087990d5165da2",
+    "job": "R3-GEO",
+    "verified_after_sha256": "438e768a2cf39b34e4430a6a34edd168bfe43d5583a1495d96087990d5165da2"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\layout.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\layout.rs",
+    "before_sha256": "618ae53add6face4c450a50a0c8a55c4f2d45cbf8cabf8960e051e67037b0cf9",
+    "after_sha256": "48c56d42d4c3913c1b20896bf372904b64318cc73a5da17d139b2e31dd6892d4",
+    "job": "R3-GEO",
+    "verified_after_sha256": "48c56d42d4c3913c1b20896bf372904b64318cc73a5da17d139b2e31dd6892d4"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\m64_matter\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-core-db\\src\\q42\\m64_matter\\mod.rs",
+    "before_sha256": "c8ed4d49dd997a5bc6953a7ed92f77a8b2024190dbaf73a975afe14e79343e08",
+    "after_sha256": "c4ef73e71fe16fda8d108d754ab40531219ad5055c0d9abd498d2f2aabfcd767",
+    "job": "R3-GEO",
+    "verified_after_sha256": "c4ef73e71fe16fda8d108d754ab40531219ad5055c0d9abd498d2f2aabfcd767"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-geospatial\\src\\lib.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-geospatial\\src\\lib.rs",
+    "before_sha256": "ca39fd09f1c5b4f15289fa85f2919ea62d85694b176c03b8de4ab473c7bb6eaa",
+    "after_sha256": "fbd513c24a8197661fb435c25b94901fc76e019faf5e840e53618a8d59094bee",
+    "job": "R3-GEO",
+    "verified_after_sha256": "fbd513c24a8197661fb435c25b94901fc76e019faf5e840e53618a8d59094bee"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-geospatial\\src\\raster_m64\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-geospatial\\src\\raster_m64\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "3b02c374a636842b29f2c3d5739821d16507c795d22839a8b8c89e7a2c0e7bca",
+    "job": "R3-GEO",
+    "verified_after_sha256": "3b02c374a636842b29f2c3d5739821d16507c795d22839a8b8c89e7a2c0e7bca"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-geospatial\\src\\raster_m64\\writer.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-geospatial\\src\\raster_m64\\writer.rs",
+    "before_sha256": null,
+    "after_sha256": "440d8e6db0cd3cf674a5113acff61b842c1cc295fdb31e793e64e7bdba93b3f0",
+    "job": "R3-GEO",
+    "verified_after_sha256": "440d8e6db0cd3cf674a5113acff61b842c1cc295fdb31e793e64e7bdba93b3f0"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\crates\\qualia-geospatial\\tests\\m64_georaster_v3.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\crates\\qualia-geospatial\\tests\\m64_georaster_v3.rs",
+    "before_sha256": null,
+    "after_sha256": "97c76e4d5da0d23683a223d99206c7e11b7a434291cfea802e10640ade343973",
+    "job": "R3-GEO",
+    "verified_after_sha256": "97c76e4d5da0d23683a223d99206c7e11b7a434291cfea802e10640ade343973"
+  },
+  {
+    "target": "C:\\github\\QualiaDB\\docs\\manuals\\standards\\m64-georaster-v3.md",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\geospatial\\after\\docs\\manuals\\standards\\m64-georaster-v3.md",
+    "before_sha256": null,
+    "after_sha256": "08848956c33e742a11f75ef3eb604cb352497c257d266f3fe4b426cd89be609a",
+    "job": "R3-GEO",
+    "verified_after_sha256": "08848956c33e742a11f75ef3eb604cb352497c257d266f3fe4b426cd89be609a"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\section.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\preservation\\after\\crates\\qualia-core-db\\src\\container_10d\\section.rs",
+    "before_sha256": "2416394e69ac1646f3ec77a4904983806bb190dce82e15e650dcd1bb222e067e",
+    "after_sha256": "bf8b9a3e501348844b1f9e5caa6d51cffec8bb41ee0d3fa3e69fe0af6c857ac6",
+    "job": "R3-PRESERVE",
+    "verified_after_sha256": "bf8b9a3e501348844b1f9e5caa6d51cffec8bb41ee0d3fa3e69fe0af6c857ac6"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\section\\opaque_preservation.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\preservation\\after\\crates\\qualia-core-db\\src\\container_10d\\section\\opaque_preservation.rs",
+    "before_sha256": null,
+    "after_sha256": "8f6f1c344ad5d0b6945c23c4be9d37d0364bb601ba75d32d77fb9f2d648bd7e3",
+    "job": "R3-PRESERVE",
+    "verified_after_sha256": "8f6f1c344ad5d0b6945c23c4be9d37d0364bb601ba75d32d77fb9f2d648bd7e3"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\ten_d_opaque_preservation.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\preservation\\after\\crates\\qualia-core-db\\tests\\ten_d_opaque_preservation.rs",
+    "before_sha256": null,
+    "after_sha256": "17b3828cf53f3ddd57d2ca575c3924ca86eecedbd8bbd7d1689a0f8a50c3047f",
+    "job": "R3-PRESERVE",
+    "verified_after_sha256": "17b3828cf53f3ddd57d2ca575c3924ca86eecedbd8bbd7d1689a0f8a50c3047f"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\opaque_preservation_support\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\preservation\\after\\crates\\qualia-core-db\\tests\\opaque_preservation_support\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "7698806a4a6544fa0bc121700e3902540e5ac85285cc275d387748f9c0c3b106",
+    "job": "R3-PRESERVE",
+    "verified_after_sha256": "7698806a4a6544fa0bc121700e3902540e5ac85285cc275d387748f9c0c3b106"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\docs\\manuals\\standards\\m64-matter-container.md",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\integration\\standards\\m64-matter-container.md",
+    "before_sha256": "dff22e9a76a9357a08bf8c422fee8bdf8ba6e7867ec91c3860a9d1b6a29bb742",
+    "after_sha256": "ff575b488a3d472a5f9b52545f811ab93572fcc939565f20f2b8cb803a61238c",
+    "job": "supervisor spec integration",
+    "verified_after_sha256": "ff575b488a3d472a5f9b52545f811ab93572fcc939565f20f2b8cb803a61238c"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\docs\\manuals\\standards\\10d-opaque-preservation.md",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\integration\\standards\\10d-opaque-preservation.md",
+    "before_sha256": null,
+    "after_sha256": "551e78d71744f02e66b306c4e63504b4be42e12e92847631bcd01da36ce99202",
+    "job": "R3-PRESERVE canonical documentation",
+    "verified_after_sha256": "551e78d71744f02e66b306c4e63504b4be42e12e92847631bcd01da36ce99202"
+  }
+]

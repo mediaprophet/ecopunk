@@ -1,0 +1,60 @@
+{
+  "lane": "domain",
+  "contract": "tools/poet-foundation/texture-effects/CONTRACT.md",
+  "status": "staged-unrun",
+  "canonical_root": "C:/github/poet",
+  "files": [
+    {
+      "path": "native/src/graphical/surfaces/detail/recipe.rs",
+      "canonical": "C:/github/poet/native/src/graphical/surfaces/detail/recipe.rs",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/domain/native/src/graphical/surfaces/detail/recipe.rs",
+      "preimage_sha256": "5B9429061EACC6F8E404D54C59EAA4B093020D6B89E0D304D25E65A358F77371",
+      "staged_sha256": "DA250D3EE60670BB71BD03A687EF20E0A5CF76264A0B640FB7C344EE8BE7BAA7",
+      "new_file": false
+    },
+    {
+      "path": "native/src/graphical/surfaces/detail/render.rs",
+      "canonical": "C:/github/poet/native/src/graphical/surfaces/detail/render.rs",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/domain/native/src/graphical/surfaces/detail/render.rs",
+      "preimage_sha256": "48491AAAAB748CA8EECB1D5598EE36E371C9DAA6CCA4DD4719DEFCC1A84F3FA6",
+      "staged_sha256": "9D6CC4DAD619D5C80F8CF061D772E65DF1F40275FB1042D43007C4CD450B9390",
+      "new_file": false
+    },
+    {
+      "path": "native/src/graphical/surfaces/detail/mod.rs",
+      "canonical": "C:/github/poet/native/src/graphical/surfaces/detail/mod.rs",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/domain/native/src/graphical/surfaces/detail/mod.rs",
+      "preimage_sha256": "B8F7628BB571844F051D39FDA7B931D4EB22B7335094897334534783EFFF9187",
+      "staged_sha256": "0744BFF3C7CA5DD2A194CF6B96ED59716117050FA6C95A120CE5B8285396B4D2",
+      "new_file": false
+    },
+    {
+      "path": "native/src/graphical/surfaces/detail/effect_tests.rs",
+      "canonical": "C:/github/poet/native/src/graphical/surfaces/detail/effect_tests.rs",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/domain/native/src/graphical/surfaces/detail/effect_tests.rs",
+      "preimage_sha256": null,
+      "staged_sha256": "9DC37099905A581A35A48175F457F84F7435EBDDD79BEA9B4330B8D2A6F8EAC9",
+      "new_file": true
+    }
+  ],
+  "public_api": [
+    "PaintRecipe.effects: Vec<TextureEffectStep> (serde default, skip empty)",
+    "TextureEffectStep { enabled: bool, effect: TextureEffect }",
+    "TextureEffect::{Grayscale,Invert,Sepia { intensity: f32 }}",
+    "validate_effects(effects: &[TextureEffectStep]) -> Result<(), String>"
+  ],
+  "checks_executed": [
+    "Read-only canonical/staged diffs; no Cargo, formatter, build, tests, GUI, assets or providers"
+  ],
+  "tests_authored": 6,
+  "test_selector": "texture_effect",
+  "integration_actions": [
+    "Root checks preimages and applies files",
+    "Root updates legacy PaintRecipe struct literals with effects: vec![]",
+    "Root serial Cargo verification"
+  ],
+  "unresolved": [
+    "No code execution evidence yet; source tests require root serial verification",
+    "Domain output retains original base digest; existing resolution/HMC owner retains original encoded input; integration worker/root verify dependency closure"
+  ]
+}

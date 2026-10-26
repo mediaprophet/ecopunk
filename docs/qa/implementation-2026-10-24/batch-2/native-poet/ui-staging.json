@@ -1,0 +1,59 @@
+{
+  "source": [
+    {
+      "lines": 493,
+      "sha256": "88e2da6dc41cf14b612d0dd459fff5490cd693f4f2ff79214af3ea76eeb007a9",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/jobs.rs"
+    },
+    {
+      "lines": 203,
+      "sha256": "862cce9ad7a82f907019f21889ac267b5295689703815c6a9f6ab766ab959369",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/ui.rs"
+    },
+    {
+      "lines": 22,
+      "sha256": "e4d534fb2fdfca516997b51b0a85c42bced266dbe7b93985d080b78c217185b7",
+      "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/graphical/mod.rs"
+    }
+  ],
+  "tests": {
+    "staged": 6,
+    "executed_by_ui_task": 0
+  },
+  "runtime_receipt_unchanged_sha256": "3fd219e6ef8bdce7244448055f08ea057e8284091ffcbbc22107d7bdd95f1927",
+  "prepare_probe": {
+    "rlib_sha256": "3f59e6ff6a2fb5e8781255883161994a3f6786d4921cc2c1fe56ee55e6a4a1d3",
+    "kind": "actual SourceSession prepare only; no host dispatch",
+    "actual_vibe_rlib": "docs/qa/implementation-2026-10-24/poet-repl/harness/target/debug/deps/libvibe-d1198dda03aa0c76.rlib",
+    "corrected_exit": 0,
+    "inputs": [
+      {
+        "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-prepare.rs",
+        "sha256": "5e5ab1e182cdafb338f3ec1214d3dde7e2b282aef2bbe2d83b9fa5accec08b7d"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-source.vibe",
+        "sha256": "8c3099f422a211266bd881d7e38d8078aabb92ec99a346c8bc876dfec893d0ab"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-prepare-compile.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-prepare.log",
+        "sha256": "f2aa3db5008b6c10306cbbb399f209788331939164e911188cd52baebcf1db54"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-prepare-compile-second.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-prepare-second.log",
+        "sha256": "10ccce755ff448a29695b6577141ff459d71362f744d010d9e2955a72e838c9c"
+      }
+    ],
+    "first_exit": 101
+  },
+  "status": "staged; coherent integration compile/window evidence pending",
+  "active_commands": []
+}

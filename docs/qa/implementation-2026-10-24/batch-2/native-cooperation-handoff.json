@@ -1,0 +1,32 @@
+{
+  "format": "ecopunk-native-cooperation-source-inventory",
+  "version": "2026-10-25.1",
+  "observed_date": "2026-10-25",
+  "scope": "Read-only inventory for next native Poet cooperative integration after current diagnostic",
+  "source_count": 15,
+  "sources": [
+    {"path":"C:/github/qualiaDB/crates/qualia-cooperative-core/src/projects.rs","sha256":"518181fa5f780df20fc7eccf026367842c40fb1d783cba7e75ca583dc437780b","notes":"Project, ProjectMembership, ProjectRole, Contribution, envelope builders, merge/obligation functions. Legacy record identifiers are urn:wellfair:project, urn:wellfair:project_membership and urn:wellfair:contribution."},
+    {"path":"C:/github/qualiaDB/crates/qualia-cooperative-core/src/provenance.rs","sha256":"0c9715efca928dbd4a3472047275d696b8b280c0ab4a4d77f2cc16ddd6b8c330","notes":"AgentRef and JudgementProvenance; no project source-review workflow found."},
+    {"path":"C:/github/qualiaDB/crates/qualia-cooperative-core/src/agency_delegation.rs","sha256":"51bb3e5a15faa4336e8e007aeaa99eb43880927b98a16a5f37f3cd06bbc33d93","notes":"AgencyDelegation and fail-closed delegation_permits evaluator with unit denial cases."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/mod.rs","sha256":"a358d3943d828b4779cfcbcf44cc4f0fd3348568e6b9174ce45ab73f198d011e","notes":"PoetSnapshot state fields; inspected snapshot has no caller/member principal identifiers."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs","sha256":"9862763cf1103c77c6ecc66eb489d7d0269e6d46edff549e38c0cbe76627f210","notes":"Invoke dispatch receives PoetSnapshot, operation id, args and span; cooperative arms dispatch permits and board only."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/ids.rs","sha256":"bf3d2dafcaf3df233c88673ea25c4671be61fe9fe124ccece9704adf2bae2e2f","notes":"Only CooperativeDelegation.permits and CooperativeWork.board_project IDs in cooperative family."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/cooperative/mod.rs","sha256":"5a2746e79cb9086c48fa6e60c24d1953a7af34b3e40823a74d35e4c3f6ac67be","notes":"Two host bind exports: permits and board_project."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/cooperative/permits.rs","sha256":"552b2b8082bec1c20f55a58dde9f975f9b0f975fed446962f5e1236c9e2c16d0","notes":"Caller-supplied delegation/request/context decode and generic ABAC invocation; unit deny tests present."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/cooperative/work.rs","sha256":"8d0439ff41f8f34b7b0c508f8169291dd5ca36dcd413c596eaaadba5e76e8ea1","notes":"Pure work board projection over caller-supplied items/events."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs","sha256":"028c9894707e2acbf80165a8d1db778d20744a97f9fe7401ee4594a2e3a7ff4b","notes":"Process-local artifact store; upsert compatibility path lacks revision/authority checks; checked mutation is still not authorization."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_stamped.rs","sha256":"e378306cd936bc3ea6b100a54d73dde0ecf3e556731ebc7b87bca1ea2d102f41","notes":"Opaque process-local incarnation/revision stamp APIs detect stale/replaced store entries; they are neither durable identifiers nor authorization grants."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains.rs","sha256":"f629a7c4885e814a723b33bc8711ef417bdd00cc64fecb4332570c1b765f2caf","notes":"studio_edit accepts optional expected_revision; create/edit/undo wrappers do not admit project membership or actor authority."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal.rs","sha256":"4e9a08e599ec30a418204876d7fb63dbe871c4381d263c6be34aa6799abadc98","notes":"In-memory bounded undo/redo/source journal."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/shed_registry.rs","sha256":"785fc338cffcadce4466672a461f11f343d5c7a0cafe001fe8a6e3eba8a516e9","notes":"coop_contribution_log is a defaulted receipt path saved through Studio upsert."},
+    {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/net/qdnf/harness/review_packet.rs","sha256":"be9791a633ae6f547c6af54e6302e7e7454a5c4e34ac11be1b6c591ca861d386","notes":"Prepared unsigned crypto review checklist, not project/source review."}
+  ],
+  "seam_ids": ["COOP-01", "COOP-02", "COOP-03", "COOP-04"],
+  "permission_tests": {
+    "present": ["Agency delegation tests cover consent, revocation, validity, domain, trigger, selfhood, provenance and jurisdiction denial.", "Poet cooperative permits tests cover wrong-domain denial and missing-delegation error."],
+    "execution_evidence_reviewed": "No batch-2 receipt reviewed establishes execution of these permission-denial tests. Studio journal pass receipts are not authority or membership tests.",
+    "tests_run_by_this_inventory": false
+  },
+  "remaining": ["Authenticated native principal to project membership admission", "Reviewer admission under actual project authority; no reviewer role inferred", "Source/document/revision linkage through StudioArtifact and contribution records", "Actual authorized contributor/reviewer workflow and IP-03 C1-C8"],
+  "status": "Inventory only; no cooperation or product acceptance claimed"
+}

@@ -1,0 +1,722 @@
+{
+  "captured_at_utc": "2026-10-26T13:12:54.461655+00:00",
+  "scope": "Current Vibe Rust source immediately after307-case native pass; earlier baseline drift remains documented; not a complete all-repository source freeze",
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\accel.rs",
+      "sha256": "13540da7fb1b18d80b7f5757edeebcd36579a25ab0e39c253bed2d40dc00cdd2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\curves.rs",
+      "sha256": "33b29ca80c9e47a2ebb5c8e7086e20480279c885ebf1e6c684351ce27491f213"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\acoustic.rs",
+      "sha256": "bb48ab7f700b45bba357de05bbcad38a34f47d8e5bdef593c2b58ca61cf841f4"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\dynamics.rs",
+      "sha256": "81a69a4e971d092a453a175592b77d83ef8a23e56fe67c96da5514706544f0ed"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\generative.rs",
+      "sha256": "01db705c8ae06055afb4e103ce1a043ef72612ee6f20b827ffec72cae5295763"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\haptics.rs",
+      "sha256": "c72ac50d6d19406f0bab7fa576c675fbca085088c848840aca7b8f3fa316666f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\hud.rs",
+      "sha256": "60f2fe89511674baa9b0a1711b69164f3e7ce4a0ea2842e8e5764ba8d49cbbf0"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\mesh.rs",
+      "sha256": "b78684174d36c0332904f1ddd511ac27302564470f642358aca1176fca11ffbb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\mod.rs",
+      "sha256": "da30cb5be2a39721799a3be72a8d81a9812fa7e6cb0cfd4dea5b27c21cf68d8d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\optics.rs",
+      "sha256": "7f4bdc3b232df7833f30c867d0586b46aeea9ae10265e267dcafac75458e5eaa"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\spatial.rs",
+      "sha256": "47b5d3b114de946b951789f3e9fa598e37629b8ee78f8d11c6bef9c163ed4b68"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\thermo.rs",
+      "sha256": "e59b6c2cfa2559f788256618b6555fa20ab2ef1e8deea230c2b0153511a03490"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\families\\timeline.rs",
+      "sha256": "41c6814af0feb2a9205a97225778bb85770bd85c9e01bcb92e773288925ebd50"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\mod.rs",
+      "sha256": "af250b5e822664dde2f04bf3403c8136a91e385569f194c0a8c8a5a4dd798bbc"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\pga.rs",
+      "sha256": "4b2c4c681800c823d89bab0f3edbb8b33e21f7aebd896470f7de0b0c075759d6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\presets.rs",
+      "sha256": "b86796dd96289615aafe4b22a51d100acd8cbe95b904d76fda9fbc35cbb43e9f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\spring.rs",
+      "sha256": "5ecf6cdc9dd57cee3f5471f47d0e7d9d94828935fd79e28e9298f734d76946a2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\squad.rs",
+      "sha256": "408c99ced427f40fa4c66cac676cbbff2cd87d2ca92dc643462fc6a391ce6861"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\ast.rs",
+      "sha256": "94e8933fea27b5463450f0114e5cf52aec381bd9a8c753c1e3bb0537fea4c5f6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\ast_merge.rs",
+      "sha256": "d643a3678f60c2f2fbadd5d1f987490b084b38534711af3053ce19cb837513b6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\ast_query.rs",
+      "sha256": "ed714a882420421f5cc2347aee1dc533d27ee2fbd42ec72cc4f07a58246195f1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bin\\vibe.rs",
+      "sha256": "c892d6cefe0256a2742e292b3c28a76d56447ad83242e141b9089caaf992d760"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\dispatch.rs",
+      "sha256": "65bb5e4356be16d367a8cca91b76b8f008166a6c5bfdc3a3cc196faaa53e9e2b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\host.rs",
+      "sha256": "3522f0e151de2f123fd7a64626daa18dc7884ba81bcc8af6450eec4c71e0a0d8"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\local.rs",
+      "sha256": "95d111d6f7b4bc31e65db2c083861cee0108e4958daa7d60bda713dafdd7ab6f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\math.rs",
+      "sha256": "4e2ebc255b03b1898cc848c5e31d2556bf2d237e1ee58d98eb3ce334c5f4b07d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\mod.rs",
+      "sha256": "3a8c2267c1c9e5a42002ad0540eaf7fe84e4244b8daea1a1300e63dbe250a08b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\quin.rs",
+      "sha256": "5ef9c5152a26177f7faff80f3a448017b3afe45d3a0c0a4e378c9e5cac21c6b8"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\rdf.rs",
+      "sha256": "bcb81562cef304644187d4db5a5f50b6b6305b0c1e9c87a5f03c37faaa3863f7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bind\\tests.rs",
+      "sha256": "9fe46d16d9c5279add821969fcd1a11217d21390cda2109fbbf1f4e66c728803"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\budget.rs",
+      "sha256": "4ef550326f7cd96036964eadd85876b2d4f0353365c52016029589ba5ea91ed7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\codec.rs",
+      "sha256": "04a69776aafecea3faf0a0f6619e255f52599e15dad02c902044356fd32b9770"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\compiler.rs",
+      "sha256": "bac0e62afcd80a292c1ca643fa7f29a46618f68d237f5af351b8fdd431e6d3a7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\mod.rs",
+      "sha256": "416c21e4ef09acad3efcc9f21c6857f8e3265115d4b9099c2bf1f9929d402ff2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\op.rs",
+      "sha256": "797b11c6f246fb4bc4ecae6ab33f7170111cc75ce0100f5fc6a9e435b26c120d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\vm.rs",
+      "sha256": "49614ac9b9fb022b50fa2e12407bc422c81dca1c874bef306a2e2edc655a2794"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\capability_schema.rs",
+      "sha256": "4a80977499ef9e67462b71dd98c78d80195757c16dbab92be5f2611615fc0d4e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\cosmic.rs",
+      "sha256": "1c02d75bb4e82c47e04f5f79c729e8c8275843b898f5074490e2f3f4ed06c3b2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\cosmic_ext.rs",
+      "sha256": "52dc37ea7d2dcd2ebb16a5b6cb7a362dc2c75af3dc1d099c3a5ec5c2260809c7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\ids.rs",
+      "sha256": "ae63440f8325be8a7c8da51d97b69b12f6270a46a567ef6a44f5c8127601e1f9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\local.rs",
+      "sha256": "33780617ace00425dda1387b6bf09bfcb0b619a82d981745ed7e6cc6d5a71e39"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\logic.rs",
+      "sha256": "acd38d4454036f80efb3df0e01fb94a5f974fe107c2d13f025c7c8eafbc51f5f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\mod.rs",
+      "sha256": "3aa5e2a43dbc88ecd554fd1b0c6eae4fe728968bcc21127ce23320ffedf02fb5"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\specialized.rs",
+      "sha256": "7948c7bf46f1e08d35b135061b458aa32f96c7d1b7ecc13d1c2599fa0ee8f188"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\stdlib.rs",
+      "sha256": "a9414e3c68c72273c3efd28d49b2594891d9318bc07c14723ee4744d04bdf4af"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\suggest.rs",
+      "sha256": "4ee312a275c4b0791e16e35384a7baa92d1a6850541229352728ba02de0a8e70"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\cbor_ld\\json_uplift.rs",
+      "sha256": "364c29df742042c75f1f9c42ed451e874e7eeb1264d8caa15a5cffcc8ed882a0"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\cbor_ld\\mod.rs",
+      "sha256": "b8c8a481d52d28a8e8f08f74886d5f9fbf906b6421ccc641fc40fb7cef75456a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\cbor_ld\\terms.rs",
+      "sha256": "c9aef6e1b925b99656fcf6131e69404e9b8f2ad4cd21299c3743024793feff78"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\cbor_ld\\value_codec.rs",
+      "sha256": "b4f376522bfdf292871f359342bbadef4f9669f00c4ee851da5059a1e5f644c3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\codec.rs",
+      "sha256": "033011219ef6c8fd572402141658ca3e50230906b8d93fb851375b08e93e453b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\decode.rs",
+      "sha256": "4e243d0c8c3e8d19c44ffcc0b8c374a64f8833187c712ccb75bcd31a6d219a41"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\encode.rs",
+      "sha256": "ae974f6c1165594c57c5ae670fd8d99b0fcd2a9d92dca83d7731b688983128d5"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cbor_ast\\mod.rs",
+      "sha256": "6dd0b6b672fc0aa55f4a072df6adc98a6e00b597fa48d5f001bd9b84fd4b1967"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\bindings.rs",
+      "sha256": "88f1ca333407458266c3b0968f23aa8cfe11b2c3950481d2e713c81b03198d3d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\context.rs",
+      "sha256": "469f6e557bbfff6df5e28e6f9e6b35bce88a4a405a1a585672a9c20347c14fdb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\expressions.rs",
+      "sha256": "83e61c6659594fba13ab64b35246254531129666769ee41d252a9cc2996d17a2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\helpers.rs",
+      "sha256": "69e999c8c54905fec2fe07cd90b0b24bb2d7748655102935313797304b00c8f5"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\mod.rs",
+      "sha256": "b5f4e1a3312f3e8769f848ef0322fdd2d943466c199a849e412155824aa21b1b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\statements.rs",
+      "sha256": "10277f8ea7517100151d2952aecb0bfd9af2f7c77c8285992c60d5330ab5a237"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\tests.rs",
+      "sha256": "1f8adcbd5bd2d1d9f7cfe59b03518e638a87bcab495b456d08fb13d83ea3f464"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check.rs",
+      "sha256": "7f53eeab2ba47a061f79842b74a9cee89ac6ea01e65178b5842d9c8125c328b9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\conditioning\\mod.rs",
+      "sha256": "56d7b3e438d8ac938ece906171a0804225e787c11e84e842875850e557c99387"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\conditioning\\profile.rs",
+      "sha256": "01156a1ce3fab54b4a1eef483a72c33d53acef2fb91c40835d9bfe1593974abe"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\conditioning\\project.rs",
+      "sha256": "9031d8240117ebe5a18a7f2fe961768d05a859554aec1e469f9be88cfbf6bca7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\conditioning\\tests.rs",
+      "sha256": "3718633327949b082ec1e3f84da15fa83f8b37187a9a84d2d3c78860b0231031"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\ar.rs",
+      "sha256": "028fad1c1e019696dec2694c0b4bdf689f3409ee4a04f1aa3221c650ecf05d15"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\atmosphere.rs",
+      "sha256": "8c10724c0220d910161d4fac8a52263511625586f48914f8fe744b15d2892b26"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\cb_usri.rs",
+      "sha256": "61015131180276083ff9454bc2f44cfd471737b8d9d3cf9c7c112303163ff7bf"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\celestial.rs",
+      "sha256": "3a78c43faea9f14a0d1a37588f4fd3f4306c342e302b977c517600503463bb04"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\colocated.rs",
+      "sha256": "2f6e285f22fe4222c300f3e9342a17f7f9861de694368fb90c2af88286bf0c8c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\flrw.rs",
+      "sha256": "0dfb53f64fa461c85663b6231005642e6591e4e2cfbed30e8bba107b7250d10d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\grounding.rs",
+      "sha256": "1ca28a14178b0b58d4be112276416aeaf863ab9691c0563d8fe7c1f156f75487"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\microverse.rs",
+      "sha256": "77b69050b51a1e3a91b70c8f4fdd07695519c6655737d0757ae00256cdbb71b7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\mod.rs",
+      "sha256": "9e9275492682c76b811d2f4bebf39e8eea8a0f5a884a22a0477abbfe3d9adc2d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\nested.rs",
+      "sha256": "a3d6b50a61dfc5d9b623d661a46ce89ffcff9305185732b8c29af2c1821856ed"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\observer.rs",
+      "sha256": "e97d6fc532293cc2ae62528c0ae15eb424197fcf1a8b789dc7b3f1cf86cb677f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\opcode.rs",
+      "sha256": "1adf58fc40126830d7639d1abb4d2cf7a273ee9caa0424b4d174b696b9503662"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\parallel.rs",
+      "sha256": "5f210054eba765321589d02bffbdfa7beb0331c17b9d6f2b72feb6edfcc94d9c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\stardate.rs",
+      "sha256": "fc3f391db9d01fb776f555157641ed9a7f57beeb1205d98caa0e140c8135d888"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\theory.rs",
+      "sha256": "dfd5e67f024a5a61b0ed4d906cb2b31ce6e09721b247d4abaa8a06fc8ca63320"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\transforms.rs",
+      "sha256": "3009dac370456e8b5c7046ae15dc963f42d395263ade3a415b3e4fa2cad71002"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\usri.rs",
+      "sha256": "3e887ca8569afbd7e7342f880b99971b371796c41f5f809fcad950f4657d2b96"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\verification.rs",
+      "sha256": "a7d60df780a15640a0e1efd5df7daa5813df57a04213259a2a9ad6ebd6fc7fe3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\cosmic\\warp.rs",
+      "sha256": "547351df586dc275237c8468e406ed567c4300991df90f820c793c3d1d5287f5"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\crypto.rs",
+      "sha256": "adbc4df75de1247ec1f23810d350456bf7dd65a7eddeca2bd4576288ae0f1203"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\dag.rs",
+      "sha256": "e4c3a4b6f66e6a48016baa8b628baae1084b78f6b6583fa3546579a99f18eb47"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\decompiler.rs",
+      "sha256": "24d29f1f9856c554fc1315e08baf4194d1734e1020757a46621f9dc026903bf7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\degrade.rs",
+      "sha256": "e129545b69204964d88bbbdb27e3892fc39f6adaf53267df4c116b06b0322afd"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\deontic_interrupt.rs",
+      "sha256": "6b4d424248a0a6568f460622a862ef9ca8fc6d84f23d287b077f9f9111b56ab9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\diagnose.rs",
+      "sha256": "e317f4e4c3f9580c7e8cdbb1126aadf630ddfd5c0e214e2c45d28f228665e55c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\effects.rs",
+      "sha256": "f975f4cdafd669716100e9ebbb1ebe87e69336f6c04dc13166c37e276c42a4dc"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\error.rs",
+      "sha256": "d2ed45a7f13e206ba92d57ec6e6c2f5f52e882cebd4dd5242d1bfda5448f7c45"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\budget.rs",
+      "sha256": "2f0d7b8953f375b9afcb28ef26e5425910b8e02a863c82ded4e7d030790dbe9a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\call.rs",
+      "sha256": "a861be4044deb48326c44c8fea4d2e021330a521db6a32c27c17f73d2c6be411"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\expr.rs",
+      "sha256": "9c7bcc1174779d2d2d521a1f461ca0d2d5ac3057447b24be016a8524b10d0936"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\mod.rs",
+      "sha256": "cd13985285f1418a137eba8503be2dfdcdb1a6271b684ac41fb6a3c4bc7e1a50"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\program.rs",
+      "sha256": "30e5212dda2ee8811b453a4f95c456e4cdc95a26146b57a6294285465dee79d1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\stack.rs",
+      "sha256": "540ee41c74182d8b0dc7bb5818209f8caa0b311cf1c84990168aee2d4d1e234a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\stmt.rs",
+      "sha256": "8ea6a46feed149379a31d243dcd9ea2fd3a4ae59e01ef2165233c77709446242"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\frame_morphism.rs",
+      "sha256": "fb66d947ad2a863c4e7c25230fe530cf5ca3da57e83680d10d7a24b34ac42c8d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\grammar\\mod.rs",
+      "sha256": "3e415349b9530355851ef6016b6c092725291d4a53c9275cca9273c108446593"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\hid.rs",
+      "sha256": "563c649f518e47f9a42f342525d0446aed085ca521eac9f57f7b0b1fb224e65f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\law_package.rs",
+      "sha256": "c112dee0b0f4ede6cdab220ac8af166f3f79cdd8541d83fd3bd015d62db3ba4d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\lex.rs",
+      "sha256": "e917f95d19dd1b7bb84bbb4e059aa9f7ca19dbcb3ed2e69f21584e800bf5244d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\lexicon_pin.rs",
+      "sha256": "0e1eef602d41d93f3174fe65e0d9080def934ecfd9b26192c2e597b93ca437b3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\lib.rs",
+      "sha256": "990a4d5f2ed66f8aa310aa4ca334419702862136b0f3e5c17e304ecccd30fff7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\locale.rs",
+      "sha256": "9f0b42d69923c6400b49b4a4da8a29711c3eaa71f95fd9468cf89d472c00b577"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\export.rs",
+      "sha256": "d10f94aadb243d0e5f8d7ddd9b3aeae0a54d80932c7ffb1d108520e72901fe9b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\fields.rs",
+      "sha256": "aed357d0dc883d96b692f64fd775dd055c5ce9fd5fbcd725e1d60964baba0809"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\mod.rs",
+      "sha256": "1293f251634ea47d31a1f39c1a9a4de82264e5810244f5562cef0835bb888c80"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\namespace.rs",
+      "sha256": "94522dd9dbe5b2a44e8ac7ba7aa34d03ea7204d2594da8847ee11e9c4f3d3b63"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\node_kinds.rs",
+      "sha256": "ad09dc10d55225e1caae72aa9fce60fd4bbb39e6f24883833b8c5f5398aee9af"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\project.rs",
+      "sha256": "7093b1c856b2e1f02921993f7493453a026deaeb87392bb1e53933db0acad1c3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\metamodel\\validate.rs",
+      "sha256": "2e98b45c762f03c179c70b2b2dd9993c9668eeb9e74541c1f03a0516c99b14d6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\module_system.rs",
+      "sha256": "3e351d4bf8bbd0f49fed364cb92295b201e5d70d328e84c700291fb8646bdc73"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\observer.rs",
+      "sha256": "0f4fef627034f212a32292e4e8e5a1363ec7e313c2d534439647f7d444eee447"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\cond.rs",
+      "sha256": "82a3d01b3237ee2e402fb70eb6999c7c29409c9dda96027b7d7d33187cd9107a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\expr.rs",
+      "sha256": "7d8044619dcc5ac9f4a83935b20747e1bd1f2a99e2a0f600df5ac97b5c7b5476"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\items.rs",
+      "sha256": "c271e23c9cd7e9934484e7a4fd1e5b110a4fdd0bede9a6e686c32e34b0af1001"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\mod.rs",
+      "sha256": "3a38527eaa49f0c1ed40eda19f8523dcf5c64b2f58bfec2c5671798a218b1f40"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\preamble.rs",
+      "sha256": "929624c76e31d10510eafc4190aa932ef91b6ad0e222873c95c07927e6dfeac3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\stmt.rs",
+      "sha256": "1aabb553ad3d6e7674dcb662b0e22330469c1c179f58ced38f93a1a57b4bfbd2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\physics\\fields.rs",
+      "sha256": "84fb0c7f8d2437421c0fb52c1da81f2b859faa7bed4d592417adcebe065e1b50"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\physics\\laws.rs",
+      "sha256": "ec9369d03ccf9e5b2d4f86fe2b29420af73ded7cfd44eed4b1da467d1e3b89fd"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\physics\\materials.rs",
+      "sha256": "715307f582e4cccd885396db9ee30dbd12ffa274520083f15bedb7420450521b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\physics\\mod.rs",
+      "sha256": "e021bb30b5512f3a8bd7285170438e140a91a5fd7e85c1cf4489c6aa1f44e91b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\physics\\morphism.rs",
+      "sha256": "077f693fef31b09baa83a84c498243b411abbae06e78ca15baea32e1cd9556c4"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\physics\\trajectory.rs",
+      "sha256": "6f921d2596e2ac3871210eb3aa2d1977797791bb355a0bb3b6fcf60d26db8863"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\presentation.rs",
+      "sha256": "53af34e95ec1ec55b66fe198341c10a677fe957d5c9dc0607b069b234aad81ba"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\pretty.rs",
+      "sha256": "6ac3eb7b3cae236d42da6a5dca13d8eab560444d08f359748eaf24ab024fdf41"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\projectional.rs",
+      "sha256": "2b5cfd98af2131580a52908fc51f978184d4477701ee27b582bca48b4fbf932c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\quantity.rs",
+      "sha256": "16c8e1d7248e41afbfc818ca985569d9eccd8b32e5153d89092f877bd4ee0a64"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\reactive_cell.rs",
+      "sha256": "8652baa13668f1eda568300e6ca7409da5c05fc285d29803c47587a07b138b51"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\reflection.rs",
+      "sha256": "661348151deb4a71c3f427864faee420a3c9e304ed8daf09523e4f50e10dd3d9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\replay_clock.rs",
+      "sha256": "70ee8791585b167a62055040d13c7d71dc13ccf60588c5bb45c4adb4c4382964"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+      "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\prepare.rs",
+      "sha256": "363592b189d15efdc9dc941f747ccd8aa0531a35f6bbeeed2faf36b32188e6e3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\source_limits.rs",
+      "sha256": "4b4fe0c5dfb653856b24f7c95595481987106a149b913495ad5da6a785fd818e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\tests.rs",
+      "sha256": "9b5e42cdbd0f425adef5ab13bfe37a66228b80d15b4f5074f691a4726d7b1bb0"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\validation_tests.rs",
+      "sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\values.rs",
+      "sha256": "796bcbaf70dd6f6eabfc828ffd9b34658c841a490d6564caab7edc9f38082a5f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\sheaf.rs",
+      "sha256": "0f7e9149d0c9ef55fb5f760d40cf45157c5bbefd6b924c58e01a659a5776bee9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\span.rs",
+      "sha256": "ddea5f0e9c65e108407fff5b52a9cca5bf2bf572c45edb534c769d8365f430af"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\tick_policy.rs",
+      "sha256": "b2040572450e7a4009f1549748dc22d10c8134c8706fffa3908503d73c63f6c6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\translate.rs",
+      "sha256": "8eef70cb8ca7c22ead8934d096fe55b404637dbbfa974411a42727952464d356"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\trivia.rs",
+      "sha256": "563f5de63e19412011605fd58b4778062ce59c11e91ead697a6ea9f4f2a17456"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\types.rs",
+      "sha256": "5fa65160abac8166767c590f3a5c026275c3b45c7e3c66fcedf9122779331c2e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\unicode_ident.rs",
+      "sha256": "193a386adeca4aefd11e775193cbe4de7138ab052f95ecce903f13d34b2098a2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\value.rs",
+      "sha256": "e820d8cbea4eeb8dbe9ba1059bf5d296b4208b9f33cc9a3b4fc9b2ba5bbbb8bb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\vocab\\mod.rs",
+      "sha256": "5473f77e4600210a8736ae7a295b47f976de7c046eebf4a84f7236bd132535a5"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\vocab\\parse.rs",
+      "sha256": "dd190024862df676d9b0f80c8b0e6a32a3fbee41282740e952bfb18ed6ab5618"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\vocab\\shake.rs",
+      "sha256": "54d41561b0623f919b30d56708a642c6b40b9d99030206580c1d332309db8529"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\form_state\\history_crdt.rs",
+      "sha256": "de888c830f69c4a33c4d32b9f34afcf5b9b23a1245704708bf29a12aaeb047be"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\form_state\\lifecycle.rs",
+      "sha256": "5802c18ec5233c8528cde722b1a4906dba6bc12d072a5569391cb72bc030c5c2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\form_state\\mod.rs",
+      "sha256": "58bc2658d9d8a21fc6e8b1fe65d14218c9f9c606d3274aa7f535714bd3ff84fd"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\form_state\\serialize_privacy.rs",
+      "sha256": "ca395a62d9f8341536720c2f08fd48bb04ad5982651c9190464d3b7ad126631a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\input_format\\mask_and_step.rs",
+      "sha256": "1460b0946edadeef0d0ba4a4190e9a968a0533cca07d609ed1fe3864c7929153"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\input_format\\mod.rs",
+      "sha256": "4d3acf166bdcc810d509b7d4b7a4f36d5c27a1600f221686f0a3ae4af456a0ac"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\input_format\\typed_parsers.rs",
+      "sha256": "15a2528ab5933489e129a4f4bcd87566dbf64cdf1bbf231344e987ed64948c17"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\layout_virtual.rs",
+      "sha256": "e1b1ff449b85bcd983a9ac76c7e4d28258965d07d2be41f2b50b8d084515f946"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\tests.rs",
+      "sha256": "18f41325e0b71aec23e6b84bd8418f188c0a81aa92151591294f1860ad5df0bf"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\ui_controls\\composite.rs",
+      "sha256": "1fb7f7f42e49508d9fd562adeaa0483d8a41cafe6be9e2fbb8a5164beb601098"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\ui_controls\\mod.rs",
+      "sha256": "505e5aa1266f99990366e1e0ecc3941fa0446bd73248a82a03219bca222ff8c8"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\ui_controls\\standard.rs",
+      "sha256": "680f8706241fc9bb7aae38c183414537f585dd493d437369683338604b100974"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\validation.rs",
+      "sha256": "0bb5454c09c39cef3abcb3731f7ef19b87809881a5f9fb18257f3c3e49f03a7c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime\\web.rs",
+      "sha256": "d6b5e3da558e2fdf48f36294ee5e253dd9635854bffb817867276888a307e5ce"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\web_runtime.rs",
+      "sha256": "d8eec968adf5b0f72ede21c747abfb2ead9efa5399bed92a2fe55ed32752df6e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\assignment_admission.rs",
+      "sha256": "adc481868d697c531254fa2341087a7de72805e7d1fdc2984893883ed6add942"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\cell_full_input.rs",
+      "sha256": "97f361cf2b2ded317c36870777190afadcb3f6151af1058905ccba1e30bf24c6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\conformance.rs",
+      "sha256": "e344d1d716194484b8b051bf6c37239c3ec9d989d6222a917544a2758b8501b6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\graphics_backend_policy.rs",
+      "sha256": "51c608f593d1b3799077e733cdcf15e958d0001b419bc8f78143536a3543e147"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\pages_samples.rs",
+      "sha256": "0dd8e318a74153ac9cab05b85d2f496e81fd1a2e1c6b81caa6c216c26c056d26"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\poet_geometry_catalog.rs",
+      "sha256": "0b7ab69bae2140fe5bdbe50cc1f7481abc3df0f7a430c13aade1069499621e76"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\sprint_b_fixtures.rs",
+      "sha256": "75c6424ed55d055c037818e3074c379375f63fb86ea88d851b826bf0244194a2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\vibe_bind_lambda.rs",
+      "sha256": "89c7751a71e83c0a3a91556b987019a3c5902b9b2669699678c44f6137a769aa"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\vibe_catalog_surface.rs",
+      "sha256": "97165882cfdd433d2c4e62a998a25cedf7e48a3909ee2bb0bd7d0f4dc05e6928"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\vibe_features.rs",
+      "sha256": "3edd952a3a0f9a5d210bde2f9ac67bb7b065fd302fcea2e8435f1ea2ea22aeb0"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\vibe_reactive_destructure.rs",
+      "sha256": "0230081744e0e12ad5d3c8503a84439aa1d8c51cd303eb00320e712b9a2d54be"
+    }
+  ]
+}

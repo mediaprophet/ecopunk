@@ -1,0 +1,131 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/controls.rs",
+      "before_sha256": "c2db8bba481f37aece74e5fd8359f81b5e17c02f68a178395ed60a20c94d872f",
+      "after_sha256": "e1dc8e9a72c6fe7f3b876fdf5e96088a7c5041ccd657aed3e75310e1ee1d328c"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/checkpoints/editor.rs",
+      "before_sha256": "b19aa5e3e53fecf0f0a675b5d46ac3798ee2ce9c245fa5a28081542388d1bbfe",
+      "after_sha256": "74b07c4015f17c9f6a50b806f33959557c44030350078d1c50341f4352989d9b"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/controller.rs",
+      "before_sha256": "d306fc4d66fb3c5daa070bec678ae970e75d3f552b35447a44691cbb1a421ee7",
+      "after_sha256": "8d0eeb3ba3a5886be4a393d9a2afe2ec50511cd80428373b7b8590a4f63d5fc2"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/controller_support.rs",
+      "before_sha256": null,
+      "after_sha256": "bde5c6724faec1a25bc5d30df673bc41de15658c834ca2fda0fb34977134f270"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/controller_viewport.rs",
+      "before_sha256": null,
+      "after_sha256": "a22914791cf19a5a218f62d747d64bba138a2da4e30d3c092d0f6e166ece79a9"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/cooperation/editor.rs",
+      "before_sha256": "c7027f1e5c7a1cc7984dd8242851fffb91bfb3cfc092119c8327f0a4209609c6",
+      "after_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/editor_contract.rs",
+      "before_sha256": "310f9ddda5e13c0ff4b1b38240e87eb2fe558bb44fb0852fb9a7417ebcdb0be3",
+      "after_sha256": "b269b0b605b78b8c2ff609a0176c01a215e704935dc46c92f0cffd7d07b10d8f"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/entry.rs",
+      "before_sha256": "e5341b147bdaf3a4f3b02198f60bdd9fbd6fa7c9de4fcc96f5ce300bd78a9411",
+      "after_sha256": "e765e1208ef7bfb68147f45bc1a60bf676fd6bd0f4bb018c3f56791d7e3534f9"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/execution.rs",
+      "before_sha256": "bceadc4190f07994f99c324836d2d0d7c1bb4b765056836264c7bef291ce76b3",
+      "after_sha256": "d69649684e8246579189ccd13ff39f767ac7b34e874cd25d20753123ecc9c06a"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/job_actions.rs",
+      "before_sha256": "6e203a1885217bb57857c0119ff453be4432062a6eb1b0f359e4f1234d3bd459",
+      "after_sha256": "ea68696320a55bb060b86dec98bacf18b2784069a48ce4026f95c48670d2205e"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/jobs.rs",
+      "before_sha256": "f8fb59e9dbc1aa907cacd8e318421c9cf170cedcb74db336cc4122ecb548dd64",
+      "after_sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/jobs_tests.rs",
+      "before_sha256": "2239b2c7e5d782f03c3c0f90829ed796f7dffbb4e6d38ccc655694a55db42c9e",
+      "after_sha256": "32cf35e813c5fa5e4c592fd34b9d3b4568d56205b194cad2e7653e3b5993ad5a"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/mod.rs",
+      "before_sha256": "02dfe6a036583fcf2f8779ff4cabdff2216a6e2a10850594f47f474361898df8",
+      "after_sha256": "48e96c6717621f890fa5d3c9788b41b495ab8a9f87fef14f4ded5ac6a449718c"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/native_dispatch.rs",
+      "before_sha256": "ac5fdd48dd858b401aafe99ab0fed1e6e02e7ca3ed87dbe7fda4412cb4702bd9",
+      "after_sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/native_entry/create.rs",
+      "before_sha256": "e922c50bfe3de205cc56f4155a139736624dc728929c1c40699a459b5aaee76e",
+      "after_sha256": "09c6fc898bbba43c29df8d0f692644e7b5be6f4a9e7a4318c1d739bd834ceb03"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/package/mod.rs",
+      "before_sha256": "0394b03be91f44c0bcd1f924418249bf2c0066c8f46b04dc2db49bfb86f6fcad",
+      "after_sha256": "c6ca3117aa0b10d16509e6a117747140b3f084784a699cb56d68ad545a197a61"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/poet_workspace/native_commands.rs",
+      "before_sha256": "22dd15d85886d7c11abfe3f18ca4b2307cadea3207fed33b169cf32f9ab433b0",
+      "after_sha256": "09d8e19076fcb0d6439fd4cd0301c07f7a8bd69194962a9bcb43f68b55848a28"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/session_host.rs",
+      "before_sha256": "ec61fc13a2cedc32ceacaf9f00e4ce41e90411081b0eb4a715a4303b8b20a6d0",
+      "after_sha256": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/shared_host.rs",
+      "before_sha256": "a8a43b774caa2e35caf242828581418d7990ba32a20366a2503c33c87436e248",
+      "after_sha256": "993dd3da7723d89d911fa4791fee54869a12f01434a1c0090e30fa166da157d0"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/ui.rs",
+      "before_sha256": "a9e2863cbc201bdb4d3b60f685e1699da49e2b11d3fdf0743efef1a5036c9e76",
+      "after_sha256": "873d764813a85101e5ad9dff90afe47dfbb36d34830eeb7f4802e97131739d21"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/viewport_contract.rs",
+      "before_sha256": null,
+      "after_sha256": "0781d8e332133e8dcef28dbaf4677eec2735dc04bfe483daed3f69d8b0972e9e"
+    }
+  ]
+}

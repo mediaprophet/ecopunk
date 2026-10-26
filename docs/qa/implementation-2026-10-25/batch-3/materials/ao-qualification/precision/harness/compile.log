@@ -1,0 +1,10 @@
+warning: constant `AODEPTH_LOG1P_BA16` is never used
+ --> docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness\..\candidate\src\render\gpu\ao_depth.rs:7:18
+  |
+7 | pub(super) const AODEPTH_LOG1P_BA16: u32 = 1;
+  |                  ^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+

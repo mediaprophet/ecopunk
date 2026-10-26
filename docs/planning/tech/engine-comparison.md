@@ -62,7 +62,7 @@ itself* can run in a browser tab or on an edge device.
 | Licensing | portal-level note | machine-checkable `LicencePolicy`, **unknown licence fails closed**, derived works inherit union of obligations **[verified]** |
 | Commons economics | none | `socioeconomics`: capped-ROI royalty pools that **discharge at threshold then free globally** **[verified]** |
 | Execution model | server-side daemon | local-first volumes; WASM profiles → **the engine runs in the browser** **[verified]** |
-| Identity | user accounts at the app tier | DID fabric, k-of-n relational recovery, ZCAP-LD delegation **[verified]** |
+| Identifiers | user accounts at the app tier | DID fabric, k-of-n relational recovery, ZCAP-LD delegation **[verified]** |
 | Network | HTTP endpoints | QDNF fabric: authority, contracts, evidence, policy labels, replication, raw-ethernet + acoustic-BLE bearers **[verified]** |
 | AI boundary | external LLM calls | `inference_guard` graph-backed boundary; local GGUF inference incl. browser kernels; receipts & budgets **[verified]** |
 
@@ -105,7 +105,7 @@ model predicts" as distinct values, not one assert bit.
 carry governance; it isn't a wiki page of conventions.
 
 **D7 — Dense and semantic payloads are siblings, not separate worlds.** `.q42`
-volumes + `.10d` sections + `.hmc` packs share identity, provenance, and
+volumes + `.10d` sections + `.hmc` packs share identifiers, provenance, and
 licence machinery — a species page, its geometry, its audio, and its rights
 ship in one governed package.
 
@@ -172,8 +172,8 @@ for them:
 | Compute | Unbounded services over data | Bounded, deterministic kernels inside the data substrate |
 | Authority | Platform accounts; provider is root | Human-rooted delegation chains (SOC-AX-14); agents always downstream |
 | Economics | SaaS billing / advertising enclosure | Obligation pools, category-scoped royalties, micropayments, discharge-to-free |
-| Distribution | DNS-anchored HTTP endpoints | Multi-carrier: content-digest + `did:` identity, HTTP as timestamped alias, DHT/DLT/sneakernet |
-| Identity | URL/account *is* identity | Identifier is a pointer; identity is relational (SOC-AX-8/10) |
+| Distribution | DNS-anchored HTTP endpoints | Multi-carrier: content-digest + `did:` identifiers, HTTP as timestamped alias, DHT/DLT/sneakernet |
+| Identifiers | URL/account *is* identifiers | Identifier is a pointer; identifiers are relational (SOC-AX-8/10) |
 | Epistemics | Boolean rows; confidence as metadata | Objective/Inferred/Hearsay tiers, certainty bands, proposals, recorded contests |
 | Time | Mutable current state | Everything versioned; historical states first-class |
 | Law/policy | Middleware/advisory layer | Deontic+jural modalities in the evaluation plane — fail-closed |

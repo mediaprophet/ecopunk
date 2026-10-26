@@ -1,0 +1,58 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 15.03s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 1 test
+test graphical::surfaces::pixels::canonical_maps_and_uv_transform_change_actual_native_pixels ... native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\base_color-before.png rgba8_sha256=1f2b9990b34bcee908cc7f8882f66de249a972beccfeea36d573976edf7b6719 png_sha256=e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\base_color-after.png rgba8_sha256=7b5816be7271a52b6e4ec8f7af92935001044fefad2c64316ef347bc375604ad png_sha256=26de46419b9d9c4f36d76c0356227c0c963f48c3ac898e64e9c368c139ebd6d0
+native_surface_map=base_color changed_pixels=2304
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\normal-before.png rgba8_sha256=1f2b9990b34bcee908cc7f8882f66de249a972beccfeea36d573976edf7b6719 png_sha256=e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\normal-after.png rgba8_sha256=16e4f709e7fc53ec75d833b310471637d12725158a413056651c21f724d26ebd png_sha256=c2b49709054f39a7e70ede778199eef854dbbc5aa09c5a0845996701c69a82a1
+native_surface_map=normal changed_pixels=2304
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\metallic_roughness-before.png rgba8_sha256=986b3ddba0754c1ab2eb2adf71b4bbf8573346d4211ccbbd6d9b03669c8e7bd5 png_sha256=06165e4bc60d99b97cb7e06c5e6e9fc4cada380c00802d980f18c546f39dd28e
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\metallic_roughness-after.png rgba8_sha256=f2fac0a2eb0a87a4e3f47fbbd943bb9bc7a6155ca28e039f0aa52d67f039dced png_sha256=b3b327be678f2771006f7d8766cc391cccedcf503cf92f2a09e59e1d98c3e7c7
+native_surface_map=metallic_roughness changed_pixels=2304
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\occlusion-before.png rgba8_sha256=1f2b9990b34bcee908cc7f8882f66de249a972beccfeea36d573976edf7b6719 png_sha256=e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\occlusion-after.png rgba8_sha256=09e3ff07e688428c1fc2ef33cebf958f14920b4796248bdf1f4db2a72edb1a5b png_sha256=bfefdaf9d8892fe62cbe6225331401f9c90b2af55dbaea37392d50db218022db
+native_surface_map=occlusion changed_pixels=2304
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\emissive-before.png rgba8_sha256=1d0fd700868a5cfc2e0c98225d7281370f6ccf9788b5dc81b9e2c1c88a8f7703 png_sha256=7ec96becd92cc03bc395d4568f3cdde9a8df751846cb776592f63490dae6dd53
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\emissive-after.png rgba8_sha256=1f2b9990b34bcee908cc7f8882f66de249a972beccfeea36d573976edf7b6719 png_sha256=e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded
+native_surface_map=emissive changed_pixels=2304
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\stylized_ramp-before.png rgba8_sha256=fa6af602e962eed574a10e6f2891fafed481fe9a2a0f16cabebec8855d135293 png_sha256=96e6a32e736378342963af2cf500976b5739408e0e1b12e97fea200d1ef3270d
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\stylized_ramp-after.png rgba8_sha256=2e9e6a6d8a337406e411529f1738377ef79e4fffa19fb605f2bc9e46fb724bbe png_sha256=57f6e9a27197606516d2939e18de9905dc0ececd5e4e5688adfae9857502a5fc
+native_surface_map=stylized_ramp changed_pixels=2304
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\uv-before.png rgba8_sha256=bbddadd7b6331c2dd545cfd2bc838fcbccf6dda1e76d5df899ac61dd82846ab3 png_sha256=c93cd8b65c378aae0957906cb68da7883dc31b3c1776052d2bfebaab86e064fd
+native_surface_calibration_png path=\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-6\rounds\round6\gpu-calibration\uv-offset.png rgba8_sha256=2ed6ac9bf2bf30234c0615cea30373861204a3b435e76c9470b632dbb594ce84 png_sha256=06daa70634990c542bebf4292b312cc105efd07790c1554d76a9e095f9a0c82f
+native_surface_uv_transform changed_pixels=2304
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 173 filtered out; finished in 40.82s
+

@@ -1,0 +1,121 @@
+{
+  "status": "private exact-source snapshot passed; canonical siblings not yet applied",
+  "command": "cargo test --offline --manifest-path verification/qualiaDB/crates/vibe/Cargo.toml",
+  "exit_code": 0,
+  "log_sha256": "6821c0228b09f6b0e295812773ebaf29cda0d627c7e61de55457d663734bd6b5",
+  "targets": [
+    {
+      "target": "vibe library",
+      "status": "ok",
+      "passed": 973,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "vibe binary",
+      "status": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "cell_full_input.rs",
+      "status": "ok",
+      "passed": 5,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "conformance.rs",
+      "status": "ok",
+      "passed": 184,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "graphics_backend_policy.rs",
+      "status": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "pages_samples.rs",
+      "status": "ok",
+      "passed": 6,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "run05_boundary.rs",
+      "status": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 5
+    },
+    {
+      "target": "run05_poet.rs",
+      "status": "ok",
+      "passed": 13,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "run05_sessions.rs",
+      "status": "ok",
+      "passed": 32,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "sprint_b_fixtures.rs",
+      "status": "ok",
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "vibe_bind_lambda.rs",
+      "status": "ok",
+      "passed": 8,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "vibe_catalog_surface.rs",
+      "status": "ok",
+      "passed": 24,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "vibe_features.rs",
+      "status": "ok",
+      "passed": 13,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "vibe_reactive_destructure.rs",
+      "status": "ok",
+      "passed": 14,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "target": "doc-tests",
+      "status": "ok",
+      "passed": 0,
+      "failed": 0,
+      "ignored": 0
+    }
+  ],
+  "total_passed": 1278,
+  "total_ignored": 5,
+  "boundary_isolation": "five separate default-stack test binary processes; no raised stack",
+  "limitations": [
+    "private synthetic manifest and exact overlays, not canonical applied-source run",
+    "ignored boundary cases executed separately with named logs",
+    "no native graphical authoring/cooperation or model acceptance claim"
+  ]
+}

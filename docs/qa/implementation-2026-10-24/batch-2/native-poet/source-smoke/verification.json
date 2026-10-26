@@ -1,0 +1,137 @@
+{
+  "scope": "Actual applied canonical native source API→geometry→PortalGpu render proof only",
+  "verified_utc": "2026-10-24T16:15:04.5480491Z",
+  "build_exit": 0,
+  "run_exit": 0,
+  "build_log_seconds": 31.86,
+  "current_sources_reverified": 46,
+  "binary": {
+    "path": "C:/github/ecopunk/target/debug/poet-source-smoke.exe",
+    "bytes": 215718294,
+    "sha256": "9C3CAF0F4F75B788F56A8248EEBBA115B66701EDF51C550B48C448EB5E892242"
+  },
+  "product_lock_sha256": "F1C6D2DDFD33EC813815B3CEBDEA120B90AFC97CBBDC764742D64EC0D6C1B627",
+  "harness_root_substitution_only": true,
+  "new_dependency_versions": 0,
+  "actual_grants": [
+    "capability.invoke",
+    "ComputationalGeometry.extrude_profile"
+  ],
+  "viewport_side": 256,
+  "geometry_vertices": 22,
+  "geometry_triangles": 40,
+  "edit_changed_pixels": 6927,
+  "asserted_cases": [
+    "first canonical source evaluates actual geometry and renders",
+    "sameprocess source edit changes actual geometry and output",
+    "invalid source does not promote source/session/epoch",
+    "runtime badargs holds execution; no further submit",
+    "explicit read-only rebuild preserves source and retires epoch; no frame replay",
+    "Undo restores accepted first source; explicit rebuild retires prior epoch",
+    "postUndo source edit accepted and actually rendered"
+  ],
+  "visual_inspection": "Viewed all3 generated PNG artifacts; visible changed faceted diagnostic surfaces on background",
+  "material": "Static caller factor material, not source-linked material authoring",
+  "backend": "Actual applied PortalGpu and Etalon runtime executed; selected adapter/device identity not independently instrumented",
+  "ui_access": false,
+  "ui_verification": false,
+  "cooperative_authoring_acceptance": false,
+  "model_or_master_acceptance": false,
+  "files": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\Cargo.toml",
+      "bytes": 1384,
+      "sha256": "CE71ECD4F6E3807138B4D635447DEE8D6D8B8E69A5013B60D8E7CA3443F2801E"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\Cargo.lock",
+      "bytes": 213026,
+      "sha256": "728D4619931249D6B6147796A3BA5B0DEBF71853AB3B63FDE4CF535436E30CAC"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\poet-original.lock",
+      "bytes": 215080,
+      "sha256": "F1C6D2DDFD33EC813815B3CEBDEA120B90AFC97CBBDC764742D64EC0D6C1B627"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\main.rs",
+      "bytes": 10341,
+      "sha256": "CDE8927B93C8E1AD10C091E5C981D9F2C53F04C7CD30689035C145E9212A812A"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\input-freeze.json",
+      "bytes": 10935,
+      "sha256": "361AC1B448B5DB494529E957FB23BCCF25E88C9AAC9E28F1E4767AC11C07348A"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\lock-comparison.json",
+      "bytes": 639,
+      "sha256": "02A562253B4B4551AB37E894AD0FEDA3F67D000D6550D3E3F8CC3AEF06081738"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\build.log",
+      "bytes": 2447,
+      "sha256": "0F2937BCE01FF40AD86BFAACC7829E49D5CA475850C756B406F82BE62D0F8F15"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\run.log",
+      "bytes": 1416,
+      "sha256": "D040177A7A24F266713FB3EB0EA9B9A6FD840A8DF95085F02815DFAAAB66EE2A"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\first.vibe",
+      "bytes": 361,
+      "sha256": "E3701B2D7A4EFF6D3B98705D196A5F91A892D55A676B9EC169DD541A543FF3F1"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\edited.vibe",
+      "bytes": 361,
+      "sha256": "6227AB918FFD265CF87F36FE9B639A21D1ADC48347F84B018098AD252262A537"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\final.vibe",
+      "bytes": 361,
+      "sha256": "479D80648D09B3825BB8D5CAF3DA612FC355B628FB9CFB73ED54AFFC628B983B"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\first.png",
+      "bytes": 8562,
+      "sha256": "B96AF0BA85D0C48D4255EF1E1454B41E4411D62C19C86F92D12295A0F20EC934"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\edited.png",
+      "bytes": 9195,
+      "sha256": "BAA99C8687EDB1E208C1461F3F36683EFD58C2EB42F66B2D66FD7D34DCC53046"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\final.png",
+      "bytes": 10376,
+      "sha256": "AE9A7B2217D7C48FD7A2B9CFEF36494069339DED274DA694835A554C47D88107"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\first.rgba8",
+      "bytes": 262144,
+      "sha256": "859FE5B36E67BC51384E86013033B20590AE46996DA7D13C2083E53623BF7B34"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\edited.rgba8",
+      "bytes": 262144,
+      "sha256": "5244BA4AA97CEA8BCAC3559EA2CCD1D34E3417BEAE09C79F64F968EB658F06C0"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\final.rgba8",
+      "bytes": 262144,
+      "sha256": "44550C9C196F1092484A78DAC19D3D33E70EA3E508B946CDA5B584BE6C4F56D0"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\accepted-artifact-debug.txt",
+      "bytes": 1373,
+      "sha256": "7E99153F4B8C22E609E80354965445C3EEC3DC2A90C58BC4DCF317929D16DA63"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\native-poet\\source-smoke\\geometry-observations.txt",
+      "bytes": 18311,
+      "sha256": "B055684043E28406670115A41B1E27CFD26E9B6ADE98F6B31F6BB9E73680F7DA"
+    }
+  ]
+}

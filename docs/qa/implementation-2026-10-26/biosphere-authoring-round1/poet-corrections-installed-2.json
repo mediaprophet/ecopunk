@@ -1,0 +1,57 @@
+{
+  "date_utc": "2026-10-26T12:26:29.958206+00:00",
+  "scope": "Same-clip source/live pose equivalence and correct selected-window versus direct-session coexistence oracle; credential-provider failure cancels only its pending native challenge without exhausting other logins; botanical emitted Vibe record block fix and actual evaluation regression",
+  "completed": true,
+  "files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\rig_binding\\controls.rs",
+      "before": "b77ba33cb1b2b1f86dd1211b719316beca75c7d17de1c2b7a576f00a1dc96f7c",
+      "after": "71668671a00f04be1b70c312754d7f45a6fee9b2f3c1c097b0fbace7b2c43613"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\rig_binding\\tests.rs",
+      "before": "1ffbcaee3949d74846479a7183719e10351e340570828c2bf4daa552a7507fcc",
+      "after": "3f113e3d63f3866a55ab9185323076ea8ed665e8735e6b9ddc6ef66904c628c2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_workflow_tests.rs",
+      "before": "d59d667d48853dd2baf6e72c5d8b2a9d54aa40f0c656f2b0164e3de7b33642b3",
+      "after": "c0aa3ef6cbf0848bc2664bfcc7f4a0d454594992b1601f7b2e368f3e75b9e503"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\mod.rs",
+      "before": "d52f67b0bca2a7cb1ea5a571608eb7d1f5395bb375b300972f3dc1d78ce4851a",
+      "after": "3c9b9043ca846a61f1daca95ca4842370da5b01147f68dfa08d86ab27c27b1b5"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\session_proof.rs",
+      "before": null,
+      "after": "275826bb7e5e81f84b630fa76230e3e398719cac901003aaf4552312f5a29a79"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\runtime.rs",
+      "before": "568538417ffae736d91c85c33818aa5e1c055ab01496ee8e8ba60bfa3c780770",
+      "after": "90ac09987b1cb5acccb4bd639e2766b967fadb83111fdef65e4162bb989958f9"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+      "before": "c0d2a13ab010d9231f3791b55efb13c3f704180c0f20ecbb0c3a5ef36328bac5",
+      "after": "5b54d07c018a3489bcfdaf0ce55923101d75c6155cf39ffab03f91df659b4bce"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_selected_session_tests.rs",
+      "before": "a4c770b8477173560f54fb972bf7758eb1634269a724aab5a8be71c4e8929dbc",
+      "after": "506ab3e16d0fb6b53443af54ab65187382b538b2a1eb4c8c0291df031de4deda"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\source_edit.rs",
+      "before": "76a205d67fc623d18321b0af27f2ff76126dd8e22084de933dfeddea85bd4935",
+      "after": "8bc56e715e45be2468b6504ccbe74ea0c14fb47f945edee81e68228930e397e8"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\tests.rs",
+      "before": "5209bc64265875ab8693762081fd10a1c42a9e160ad5d3dec5ee7ddb2db632d4",
+      "after": "a1d602b23fda7152be9afdbbeaaabe95f576e671f89bc9af704c370c8d270ec6"
+    }
+  ]
+}

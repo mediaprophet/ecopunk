@@ -1,0 +1,82 @@
+{
+  "applied_utc": "2026-10-24T17:57:59.9914452Z",
+  "manifests": [
+    "cooperative-gateway/publication/apply-manifest.json",
+    "publication-integration/apply-manifest.json",
+    "hmc/poet-reopen-followup-manifest.json"
+  ],
+  "mutations": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs",
+      "sha256": "91D988CDBC9F673A67CD15ECF379416018E36894D328C81E576B8CBA77B305E8",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\publication\\candidate\\graphical\\cooperation\\mod.rs",
+      "original_sha256": "3AA295D488B4E5AE608C4FE108A1BE5BC6A3664B1253AF02608F7CFCE6E728EC"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "sha256": "A63719925E44E0E4678FFE5CA0BABE02AA981A8C185C3FAEAED89F89FA5E7567",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\publication\\candidate\\graphical\\cooperation\\tests.rs",
+      "original_sha256": "8B04F9D70541FAE6BBB2E0C23236ACFD03A33C82F8A0339B6FE67894AA36588D"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mcp_tests.rs",
+      "sha256": "B3E821C32780A954650878FACE38B2558224CBAD5BBB7296122B98289CD8C6E7",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\publication\\candidate\\graphical\\cooperation\\mcp_tests.rs",
+      "original_sha256": null
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "sha256": "09c62140b8b1fd7231e338940e57325494c96c4d6837834a7855434273552768",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\publication-integration\\candidate\\src\\graphical\\controller.rs",
+      "original_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "sha256": "25bf796e78d0b401e3fa09819ea5d1a0e22ba1612705b0381cfa967248240877",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\publication-integration\\candidate\\src\\graphical\\jobs_tests.rs",
+      "original_sha256": "d3ae6ec5fbb2e8fd82e6636b31a9e523471f5f6b2edc22cc8fc9c2bd8a2a0233"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "sha256": "b84a3239504e9db4998870e939ed2ba2514bb3ac47b1c3e25ba6a85ba2059d9b",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\publication-integration\\candidate\\src\\graphical\\jobs.rs",
+      "original_sha256": "2a177862b7fe780c52dc692fb5987ced95565431e36a7b57670ed4d7bed9b907"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "sha256": "32522daef80c6322c965553ab9a69d672026d77e12d03f86ece6b1a36acb83c7",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\publication-integration\\candidate\\src\\graphical\\ui.rs",
+      "original_sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "3a3f5300ae06515da0d0add5f7ccae5adeb5e8c2fc70d166e9c4deb2e7af890d",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\publication-integration\\candidate\\src\\graphical\\mcp\\mod.rs",
+      "original_sha256": "48bdb4f9e7ed24c18ece0d9ebf9308cf8e6f3a5d72b3d87be3dd5bb0687de66c"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_edit.rs",
+      "sha256": "bfc640fdea00ff1825ba37b509736932d4c19f69a8036271d8245a8e2985de8b",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\publication-integration\\candidate\\src\\graphical\\material_edit.rs",
+      "original_sha256": "50152f946c253c4d6727d41bd5c7e331dbbcfd7551dec71e77f4a25b8e59255e"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "sha256": "8946DB5F5530464EE2F0BDE7475C2D5BFF264FBA6664E7EF44E66FBDA2A6BB1A",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-reopen-candidate\\checkpoints\\mod.rs",
+      "original_sha256": "C23AE5A4237FBA2255B4C22D712D4E023BBCB3401567172A45C16FFB484A8915"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen.rs",
+      "sha256": "039BB7D14759319436931674E93D268A14F792C4A4D6CDDAA6A36628E89F2B10",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-reopen-candidate\\checkpoints\\authorised_reopen.rs",
+      "original_sha256": null
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen_tests.rs",
+      "sha256": "37AA7852459E7DA34BA0A94AF5859C19A8E2AAF2B5FEB1AC6B8A0FEA66330D92",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-reopen-candidate\\checkpoints\\authorised_reopen_tests.rs",
+      "original_sha256": null
+    }
+  ]
+}

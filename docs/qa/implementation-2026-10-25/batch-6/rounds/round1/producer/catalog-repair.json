@@ -1,0 +1,15 @@
+{
+  "schema": "ecopunk-round1-catalog-repair/1",
+  "catalog_source": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\ids.rs",
+  "before_sha256": "320e15a059aa777f9013d820ecade9cf9ad202b5e426dc982bea04fc2011f36c",
+  "after_sha256": "e0648a2ba53e682165d576bf2aa464466e69c1ce13b5760c64a2439392b9a7c1",
+  "new_test_source": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\poet_geometry_catalog.rs",
+  "test_sha256": "fabdb45f3a4d33ffefe6d9ca1d40c10d8f1ed7af9a4d9c1e5979c16318faa31b",
+  "operations": [
+    "ComputationalGeometry.profile_sweep",
+    "ComputationalGeometry.torus",
+    "ComputationalGeometry.uv_sphere"
+  ],
+  "compatibility": "Pinned Vibe 0.1 catalog recognition expands to three existing bounded Poet GeometryHost operations. Parser, effects, capability merge, exact/family admission and unknown-method fail-closed checks unchanged. Core dispatch registry and geometry engines unchanged. Recognition neither supplies host authority nor establishes implementation across hosts. LocalHost generic known-ID records are not mesh execution.",
+  "verification": "Tests added, not executed by subagent. Parent owns serial cargo test/build and actual native execution."
+}

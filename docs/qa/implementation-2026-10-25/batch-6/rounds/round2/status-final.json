@@ -1,0 +1,154 @@
+{
+  "schema": "ecopunk.batch6-round2-foundation-status.v1",
+  "captured_utc": "2026-10-25T03:57:52Z",
+  "round": "round-2",
+  "status": "complete_scoped",
+  "scope": "M64/Core-geospatial and .10d typed-field SDK implementation plus selected native conformance only. This is not completion of the full Poet operator, visual/asset, IP-03 C1-C8, or delivery scope.",
+  "implementation": {
+    "installer_source_snapshot_sha256": "3931f35738e1ac71eb4c02690498a98c755b0ca3fa35530bf911221afeaec4bc",
+    "installed_files": 17,
+    "historical_denial": "Earlier six-file agent request was rejected by automatic review; retained as history. Later approved 17-file install is resolved; no current permission block.",
+    "source_frozen": true,
+    "families": [
+      "M64 checked reader/raw geospatial writer",
+      "MID2 typed .10d sidecar resolver and readers"
+    ],
+    "receipt": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/applied-source.json",
+    "receipt_file_hashes_verified": "The 17-file receipt is the historical tested implementation snapshot. A later read-only reconciliation verified the 17 source/test files while applying explicit overrides for two post-test documentation-only prefixes; implementation-body hashes remained unchanged.",
+    "authorization": "Approved hash-pinned install to exact reviewed sibling QualiaDB targets under existing direct user save authorization and the current SDK request.",
+    "post_test_documentation_corrections": {
+      "manifest": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/doc-corrections/manifest.json",
+      "timing": "Applied after conformance; documentation-only, so the test receipt remains the historical source snapshot.",
+      "container_10d_mod_rs": "Current source hash differs from the 17-file receipt due to Rustdoc/comment corrections; manifest records matching implementation-body hash before and after.",
+      "field_section_rs": "Additional Rustdoc/comment correction after conformance; manifest records unchanged implementation-body hash.",
+      "no_implementation_change": true
+    }
+  },
+  "conformance": {
+    "exit_code": 0,
+    "runner": "tools/format-sdk-conformance/Cargo.toml",
+    "working_directory": "C:/github/ecopunk",
+    "binaries": [
+      {
+        "name": "format_sdk_consumers",
+        "failed": 0,
+        "passed": 6,
+        "elapsed": "2.11s",
+        "ignored": 0
+      },
+      {
+        "name": "m64_container_sdk",
+        "failed": 0,
+        "passed": 7,
+        "elapsed": "0.13s",
+        "ignored": 0
+      },
+      {
+        "name": "typed_field_payloads",
+        "failed": 0,
+        "passed": 9,
+        "elapsed": "0.01s",
+        "ignored": 0
+      }
+    ],
+    "log_sha256": "02387ebc4d12898cf17a582e72762e45b79cd6c82ce9e51ffbb3cb5c6b8079a4",
+    "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/native-conformance.log",
+    "boundary": "Compiled actual Core/geospatial SDK crates; 7 and 9 test suites were canonical files under QualiaDB and 6 were existing native consumers. No replacement codec was used. M64 allocation counter observed 0 allocations in one success fixture only; do not generalize to all SDK calls.",
+    "target": "Windows x86_64 little-endian",
+    "build_elapsed": "19m59s",
+    "total": {
+      "failed": 0,
+      "ignored": 0,
+      "passed": 22
+    },
+    "warnings": [
+      "Two non-fatal compiler warnings in QualiaDB: unused HolographicPrimitive import; unused dense_device_layout method."
+    ],
+    "command": "cargo test --manifest-path tools/format-sdk-conformance/Cargo.toml --locked --offline --target-dir target"
+  },
+    "saved_evidence_verification": {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/saved-evidence-verification.json",
+      "sha256": "1f928039de0be2455b10b7dca906ae1b296edcb908c7ed05d4aa91f48a42be33",
+      "status": "passed",
+      "scope": "Read-only verification of receipt sources/tests, documentation-only overrides, final canonical specs, preserved assets, test counts and open gates."
+    },
+    "evidence_index": {
+    "sha256": "8ef12edf68e70d026a12d6b0b3e30396ebf21b8bd676f63d1bdc45bedfd5a0a5",
+    "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence-index.json"
+  },
+  "preserved_assets": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    }
+  ],
+  "foundation_gates": [
+    {
+      "id": "FND-01",
+      "status": "open",
+      "partial_evidence": "M64/E64 magic/version and MID2 declaration structure recorded; identifier authority and qualified mappings remain open."
+    },
+    {
+      "id": "FND-02",
+      "status": "open",
+      "partial_evidence": "Selected checked-reader structure/budget/CRC/version cases and raw geospatial output honesty pass; spatial resolution, vertical datum identifier, nodata, precision and broader budgets remain open."
+    },
+    {
+      "id": "FND-03",
+      "status": "open",
+      "partial_evidence": "Selected frame/morph/scientific-raster coexistence in one MID2/FieldSidecar, legacy fallback, malformed input and transactional refusal cases pass."
+    },
+    {
+      "id": "FND-04",
+      "status": "open",
+      "partial_evidence": "Explicit caller limits, overflow refusal and one success-fixture allocation measurement; full precision and workload/resource budgets remain open."
+    },
+    {
+      "id": "FND-05",
+      "status": "open",
+      "partial_evidence": "Native Poet usable controls, distinct contributor/reviewer workflow and IP-03 C1-C8 remain unqualified."
+    },
+    {
+      "id": "FND-06",
+      "status": "open",
+      "partial_evidence": "No WASM parity/interoperability run or representative performance benchmark."
+    }
+  ],
+  "remaining_work": [
+    "Identifier authority and qualified mappings.",
+    "Geospatial cell size, vertical datum identifier, nodata and precision contract.",
+    "Production caller budgets, workload measurements and unknown-data preservation.",
+    "Actual native Poet parameter/material/TRS authoring, save/reopen and contributor/reviewer source-to-output workflow for IP-03 C1-C8.",
+    "WASM interoperability and representative benchmarks."
+  ],
+  "claim_boundary": {
+    "no_human_acceptance": true,
+    "source_asset_ledger_changes": "None in this bookkeeping turn; no production asset generated.",
+    "cartoon_status": "incomplete; unassessed",
+    "open_world_game_status": "incomplete; unassessed",
+    "ip03_c1_c8_demonstrated": false,
+    "no_foundation_gate_passed": true,
+    "film_status": "incomplete; unassessed",
+    "no_model_completion": true,
+    "all_120_packets_open": true,
+    "catalogue_claims": "193 catalogue plus 8 subject-specific claims remain unassessed."
+  },
+  "later_rounds": {
+    "round3": "not_started; re-estimate after the changed foundation-first order.",
+    "round4": "not_started; re-estimate after the changed foundation-first order."
+  }
+}

@@ -1,0 +1,10 @@
+
+running 1 test
+actual_native_material_pixels field=base_color side=64 changed_pixels=295 source_revision=3
+actual_native_material_pixels field=roughness side=64 changed_pixels=211 source_revision=4
+actual_native_material_pixels field=metallic side=64 changed_pixels=295 source_revision=5
+actual_native_material_pixels field=emissive side=64 changed_pixels=295 source_revision=6
+test graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 62 filtered out; finished in 17.41s
+

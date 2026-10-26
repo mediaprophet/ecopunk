@@ -1,0 +1,73 @@
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+warning: unused imports: `DEFAULT_CONTEXT_IRI`, `TAG_CBOR_LD_COMPRESSED`, `TAG_CBOR_LD_UNCOMPRESSED`, `TAG_VIBE_DISCLOSURE_DENIED`, `TAG_VIBE_DURATION`, `TAG_VIBE_INSTANT`, `TAG_VIBE_IRI`, `TAG_VIBE_QUANTITY`, `TAG_VIBE_QUIN_REF`, `call_cbor_ld`, `compress_iri`, `decode_value_cbor_ld`, `derive_provider_namespace`, `encode_value_cbor_ld`, `expand_term`, and `ingest_json_with_provider_ns`
+  --> C:\github\qualiaDB\crates\vibe\src\cbor_ast\mod.rs:34:5
+   |
+34 |     call_cbor_ld, compress_iri, decode_value_cbor_ld, derive_provider_namespace,
+   |     ^^^^^^^^^^^^  ^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^
+35 |     encode_value_cbor_ld, expand_term, ingest_json_with_provider_ns, DEFAULT_CONTEXT_IRI,
+   |     ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^
+36 |     TAG_CBOR_LD_COMPRESSED, TAG_CBOR_LD_UNCOMPRESSED, TAG_VIBE_DISCLOSURE_DENIED,
+   |     ^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+37 |     TAG_VIBE_DURATION, TAG_VIBE_INSTANT, TAG_VIBE_IRI, TAG_VIBE_QUANTITY, TAG_VIBE_QUIN_REF,
+   |     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0631]: type mismatch in function arguments
+   --> C:\github\qualiaDB\crates\vibe\src\web_runtime\input_format\typed_parsers.rs:108:70
+    |
+108 |     if parts.len() > 2 || numeric.is_empty() || !int_str.chars().all(char::is_ascii_digit) || !frac_str.chars().all(char::is_ascii_...
+    |                                                                  --- ^^^^^^^^^^^^^^^^^^^^
+    |                                                                  |   |
+    |                                                                  |   expected due to this
+    |                                                                  |   found signature defined here
+    |                                                                  required by a bound introduced by this call
+    |
+    = note: expected function signature `fn(_) -> _`
+               found function signature `fn(&_) -> _`
+note: required by a bound in `all`
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\iter\traits\iterator.rs:2831:4
+help: consider wrapping the function in a closure
+    |
+108 |     if parts.len() > 2 || numeric.is_empty() || !int_str.chars().all(|arg0: char| char::is_ascii_digit(&arg0)) || !frac_str.chars().all(char::is_ascii_digit) {
+    |                                                                      ++++++++++++                     +++++++
+
+error[E0631]: type mismatch in function arguments
+   --> C:\github\qualiaDB\crates\vibe\src\web_runtime\input_format\typed_parsers.rs:108:117
+    |
+108 | ...is_ascii_digit) || !frac_str.chars().all(char::is_ascii_digit) {
+    |                                         --- ^^^^^^^^^^^^^^^^^^^^
+    |                                         |   |
+    |                                         |   expected due to this
+    |                                         |   found signature defined here
+    |                                         required by a bound introduced by this call
+    |
+    = note: expected function signature `fn(_) -> _`
+               found function signature `fn(&_) -> _`
+note: required by a bound in `all`
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\iter\traits\iterator.rs:2831:4
+help: consider wrapping the function in a closure
+    |
+108 |     if parts.len() > 2 || numeric.is_empty() || !int_str.chars().all(char::is_ascii_digit) || !frac_str.chars().all(|arg0: char| char::is_ascii_digit(&arg0)) {
+    |                                                                                                                     ++++++++++++                     +++++++
+
+error[E0061]: this function takes 2 arguments but 1 argument was supplied
+  --> C:\github\qualiaDB\crates\vibe\src\web_runtime.rs:98:29
+   |
+98 |             let projected = crate::project_program(&prog);
+   |                             ^^^^^^^^^^^^^^^^^^^^^^------- argument #2 of type `&ProjectOptions` is missing
+   |
+note: function defined here
+  --> C:\github\qualiaDB\crates\vibe\src\projectional.rs:57:8
+   |
+57 | pub fn project_program(prog: &Program, opts: &ProjectOptions) -> String {
+   |        ^^^^^^^^^^^^^^^                 ---------------------
+help: provide the argument
+   |
+98 |             let projected = crate::project_program(&prog, /* &ProjectOptions */);
+   |                                                         +++++++++++++++++++++++
+
+Some errors have detailed explanations: E0061, E0631.
+For more information about an error, try `rustc --explain E0061`.
+warning: `vibe` (lib) generated 1 warning
+error: could not compile `vibe` (lib) due to 3 previous errors; 1 warning emitted

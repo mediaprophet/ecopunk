@@ -1,0 +1,61 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::geometry_host::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "biology-host",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T23:50:30.929453+00:00",
+  "finished_utc": "2026-10-25T23:51:37.647862+00:00",
+  "elapsed_seconds": 66.719,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\biology-host.log",
+  "log_sha256": "7791997ee86f63fb21dc5a7d74b9da7e85b045b857bac4e68511566c20480f60",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\biology-host-source-before.json",
+  "source_snapshot_sha256": "7fe0d0dd035e4dd2b15bba8527ef53e55d9393861473592fab13ffc9473789c7",
+  "recorded_local_source_files": 3285,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      10,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::geometry_host::tests::actual_operation_grants_guard_dynamic_targets_at_runtime",
+    "graphical::geometry_host::tests::granted_source_dispatches_real_native_geometry_kernel",
+    "graphical::geometry_host::tests::profile_grants_and_host_dispatch_budgets_are_current_at_execution",
+    "graphical::geometry_host::turtle_host_tests::turtle_capacity_tessellation_and_scratch_fail_before_dispatch",
+    "graphical::geometry_host::turtle_host_tests::turtle_dynamic_target_requires_actual_runtime_grant",
+    "graphical::geometry_host::turtle_host_tests::turtle_malformed_dimensions_and_unbalanced_scopes_do_not_promote",
+    "graphical::geometry_host::turtle_host_tests::turtle_nonfinite_numbers_and_wrong_root_are_refused",
+    "graphical::geometry_host::turtle_host_tests::turtle_source_session_reaches_actual_core_branch_leaf_and_preview",
+    "graphical::geometry_host::turtle_host_tests::turtle_stack_and_polygon_limits_are_checked_before_core_allocation",
+    "graphical::geometry_host::turtle_host_tests::turtle_work_and_dispatches_are_cumulative_until_submission_reset"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

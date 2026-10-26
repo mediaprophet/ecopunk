@@ -13,6 +13,14 @@ WIP — see §8 status honesty)
 
 ## 1. The claim being modelled
 
+**Current-source reconciliation, 2026-10-24:** the
+[semantic agreement handoff](semantic-agreements-and-compensation.md) finds native
+semantic-instrument package, resolution, execution, attestation and Poet-bridge
+code plus conformance-test source. Earlier WIP labels here retain their historic
+scope; they do not mean only SI-01 vocabulary exists today. Agreement/compensation
+entry points and full-path qualification remain specific obligations. Reuse the
+actual APIs and evidence rather than creating a private evaluator.
+
 Datasets do not interpret themselves. The same census table, occurrence slice,
 or ecosystem account yields different results under different analytical frames
 — and every reading is produced by *something*: a rule set, a statistical model,

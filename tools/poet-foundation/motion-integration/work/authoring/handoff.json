@@ -1,0 +1,180 @@
+{
+  "schema": "poet-material-motion-staging-handoff-v1",
+  "date": "2026-10-26",
+  "owner": "/root/poet_full_authoring",
+  "assigner": "/root",
+  "authority": "User resumed bounded implementation; worker writes staging only, root owns canonical/shared integration and serial Cargo",
+  "status": "staged source and unexecuted tests; no canonical installation by worker",
+  "owned_outputs": [
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\authoring\\material_motion.rs",
+      "canonical_target": "C:/github/poet/native/src/graphical/authoring/material_motion.rs",
+      "sha256": "b51f15d9440fa5c17426613cc18fa06fcbb765fde41a4b9b2d4923b71300ce12",
+      "lines": 443,
+      "required_precondition": "new canonical target absent, or separately reviewed coordinator-owned preimage; worker does not overwrite sibling source"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\authoring\\material_motion_tests.rs",
+      "canonical_target": "C:/github/poet/native/src/graphical/authoring/material_motion_tests.rs",
+      "sha256": "47404ef2dfaa7907a67d195fe70bbec2ed0c42a20c2807e9a1840b62884a641f",
+      "lines": 491,
+      "required_precondition": "new canonical target absent, or separately reviewed coordinator-owned preimage; worker does not overwrite sibling source"
+    }
+  ],
+  "reference_pins": [
+    {
+      "path": "C:/github/ecopunk/AGENTS.md",
+      "sha256": "e08fbd9c0915a34178eb385588ffe872c1163c2793260a1eb966d464f3a39f06",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/Biosphere algorithms Specifications v2.md",
+      "sha256": "986da7a1c23319a272481a78e5161b5b68d11d6aa5adb291771b92550dbf5d07",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md",
+      "sha256": "7b4c757d62147044ed8a0391fdaeb6b9650d801364fafae02940ee454b9005ec",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/motion-integration/work/source-reuse/report.json",
+      "sha256": "1c785db6744c31b538024b52f33bd925a1855a108b89bbef6550ac2bc6f80289",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/motion-integration/work/source-reuse/source-map.json",
+      "sha256": "880a8e869503088005623c71c732db2092481d6704c5f40718be244c4fea6060",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/mod.rs",
+      "sha256": "071e8a9c31c505cbc24ecc9899d7662c5bc10384acefe124db38b84902eabe27",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/source.rs",
+      "sha256": "252c40c7a384be249406cfe905b24d0559f7f022c276b528754d9898cf8679d2",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/controller.rs",
+      "sha256": "5b8718011f32255d08ec0ff099482ac26714db96963cc299ccc0e8c29371b66f",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/assembly_source.rs",
+      "sha256": "ad279a53bf168b81da4f07f15cbf7d3aecdfae1f51d54e64f74d16b425ec0b3f",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/materials.rs",
+      "sha256": "24d71e500dc613481cc9eb03e1f570256704696efd47c3f3a1193e6bb403e818",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/tests.rs",
+      "sha256": "285e87ff7db6fa3fe61757f60cd38ab2c5551b348d1d442bf9af3069c8d2cc8c",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/animation/curves.rs",
+      "sha256": "33b29ca80c9e47a2ebb5c8e7086e20480279c885ebf1e6c684351ce27491f213",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/render/animation.rs",
+      "sha256": "b116c579fe3dc6f398e1123dd2d55d987014eb5b3d9e6b0a2d3f02cf8a9ed07d",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/session/mod.rs",
+      "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/keyframe/src/lib.rs",
+      "sha256": "1b9a2f1caf5b424588286000f1a0d958c29f3073d8be18c861b48fc5277f7a6c",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/keyframe/Cargo.toml",
+      "sha256": "9c932ca3c785f76337a0aa5a228e00057f4c1d549df959569c7275e3e912feb5",
+      "scope": "focused current-code/document/reference inspection; not whole-file semantic or runtime claim"
+    }
+  ],
+  "api": [
+    "MaterialMotionEdit::validate()->Result<(),String>",
+    "MaterialMotionDraft::validate()->Result<(),String>",
+    "MaterialMotionDraft::sample_factors(sample_ms:u32)->Result<([f64;4],f64,f64),String>",
+    "read_tracks(current:Option<&vibe::Value>)->Result<Vec<MaterialMotionTrack>,String>",
+    "edit_source(parts,parameters,parameter_baseline,source_layer,current,edit,revision)->Result<String,String>"
+  ],
+  "binding_schema": "poet.material-motion/v1",
+  "interpolation": [
+    "hold",
+    "linear",
+    "cubic_in_out"
+  ],
+  "bounds": {
+    "tracks": 8,
+    "keys_per_track": 64,
+    "integer_ms_max": 86400000,
+    "generated_source_bytes_max": 61440,
+    "factors": "finite linear RGBA/roughness/metallic in[0,1]"
+  },
+  "existing_owner_calls": [
+    "vibe::animation::EasingCurve::eval",
+    "authoring::source::edit_source_with_layers using AuthoringEdit::Material",
+    "SourceSession real parse/check/evaluate/source cells in unrun tests"
+  ],
+  "canonical_mutation_owner": "/root only: AuthoringEdit/AuthoringView/controller/registry/UI/MCP/manifests/checkpoints integration",
+  "root_required_guards": [
+    "NativeProject shared authorized EditorHost for users and agents",
+    "Current SourceRef/execution epoch/native authorization and strict command envelope",
+    "Existing poet_parts mutable and existing poet_material_motion mutable before submission",
+    "Accepted source/preview validation and ordinary undo/rebuild/HMC source history",
+    "Explicit unknown/unsupported/cancel states, no automatic playback or provider"
+  ],
+  "test_registration": "authoring sibling module material_motion_tests (not child of material_motion)",
+  "tests": [
+    "material_motion_uses_real_vibe_easing_with_explicit_outgoing_modes",
+    "material_motion_source_edits_keys_and_samples_while_preserving_other_fields",
+    "material_motion_remove_keeps_sampled_factors_and_recipe_state_is_replayable",
+    "material_motion_rejects_bad_drafts_and_missing_targets_without_source_changes",
+    "material_motion_strict_source_schema_never_silently_repairs_unknown_state",
+    "material_motion_typed_requests_reject_unknown_fields_modes_and_fractional_time",
+    "material_motion_refuses_non_linear_or_orphaned_targets_before_source_generation",
+    "material_motion_track_limit_preserves_distinct_targets_and_rejects_extra",
+    "material_motion_total_generated_source_is_bounded_without_touching_accepted_work"
+  ],
+  "execution": {
+    "rustfmt": "standalone rustfmt --edition 2021 and final rustfmt --check completed exit 0 after MaterialMotionEdit guard",
+    "cargo": "none",
+    "tests": "not run",
+    "build": "not run",
+    "native_gpu": "not run",
+    "hmc": "not exported by worker",
+    "gui": "not used",
+    "source_copy": "no EffectCraft implementation copied; selected workflow semantics adapted",
+    "sibling_write": "none",
+    "provider": "none",
+    "asset_production": "none"
+  },
+  "process": {
+    "live_command": "none",
+    "pid": "none",
+    "session": "none",
+    "cwd": "C:/github/ecopunk",
+    "handoff": "coordinator installs reviewed pinned new modules then owns serial checks to captured exit"
+  },
+  "limitations": [
+    "Explicit sample at time is a source mutation, not automatic playback",
+    "One bounded material-factor workflow, not full EffectCraft composition/graph/effect parity",
+    "Per-key outgoing preset mode only; custom incoming/outgoing speed/influence and media-time import held",
+    "Existing material opacity mode retained; alpha does not auto-switch blend mode",
+    "HMC/source/history/auth/actual UI and agent same-session qualification pending root integration",
+    "Current source field preservation uses existing material builder; no new animation section/wire format",
+    "No human review, model/package acceptance or complete Poet readiness claim"
+  ]
+}

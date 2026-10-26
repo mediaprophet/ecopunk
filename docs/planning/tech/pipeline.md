@@ -5,6 +5,16 @@
 and `.hmc` packs (which carry `.10d` 3D assets and all other artefacts).
 Governance gates referenced here are specified in [governance.md](governance.md).
 
+**Governing clarification, 2026-10-24:** the production pipeline is native
+QualiaDB/custom-stack tooling with Vibe/Poet authoring, without required
+JavaScript, Node.js or V8. Complete species output is an HMC embodiment containing
+the available species graph corpus and associated resources, not only the graph
+slice needed by a selected mesh. The [shared HMC contract](assets/asset-package-spec.md)
+and [species contract](assets/species-embodiment-spec.md) define completeness,
+representation membership and resource selection; [made-world.md](../made-world.md)
+defines the corresponding artefact families. Loose development/interchange
+payloads below do not satisfy complete-embodiment release requirements.
+
 ---
 
 ## 0. Terminology (engine-verified)
@@ -13,7 +23,7 @@ Governance gates referenced here are specified in [governance.md](governance.md)
 |---|---|---|
 | `.q42` | Unified graph volume. `Q42\0` 256-byte header (v3 readable, v4 written), embedded namespaced Q42LEX, BIDX (+ optional FIDX/PIDX), block directory, LZ4-compressed 40,960-byte SuperBlocks of 48-byte `NQuin` records; optional temporal index + Merkle-DAG history sections. Publication flags: `FLAG_PERMISSIVE_COMMONS 0x0020`, `FLAG_SANCTUARY 0x0040`. | `qualiaDB/docs/manuals/standards/q42-format-internal-draft.md`, `crates/qualia-core-db/src/q42/` |
 | `.hmc` | HyperMedia Container (`QBDL` magic, v1). 64-byte header + 64-byte-aligned **intact file payloads** + CBOR index footer of `BundleEntry{key, kind, offset, length, sha256, meta}` + whole-file CRC-32C. An entry slice is bit-identical to the standalone file — interior `.q42`/`.10d`/`.p64` offsets resolve unchanged under `mmap`, and HTTP range-fetch of an interior segment works directly (`entry.offset + seg.offset`). | `crates/qualia-core-db/src/bundle/format.rs` |
-| `.10d` | Dense-asset container (`10d\0` magic). Sectioned payloads: QuantizedMesh, material (MAT1), normal frames (FRM1), texture coordinates, topology, spatial index, provenance, field sections (`FIEL` — scalar/vector/tensor over nodes/cells/voxels), skeletal animation (`SKL1`), v2 manifold-identity manifest (TypedFieldRecord → section IDs), axis roles. Whole-file CRC-32C seal. | `crates/qualia-core-db/src/container_10d/` |
+| `.10d` | Dense-asset container (`10d\0` magic). Sectioned payloads: QuantizedMesh, material (MAT1), normal frames (FRM1), texture coordinates, topology, spatial index, provenance, field sections (`FIEL` — scalar/vector/tensor over nodes/cells/voxels), skeletal animation (`SKL1`), v2 manifold-identifiers manifest (TypedFieldRecord → section IDs), axis roles. Whole-file CRC-32C seal. | `crates/qualia-core-db/src/container_10d/` |
 | `.p64` | Model-weight container (GGUF-derived). Inference models only — **never** used for geometry or dataset payloads. | `crates/qualia-core-db/src/q42/p64_weight.rs` |
 | `yaml-ld-q42` | Declarative QApp manifest format → compiled to NQuins on ingest (`POST /manifest`). | `docs/manuals/qapps_specification.md` |
 | `manifests/*.json` | Registry JSON (`id/name/version/type/size/url/filename`) for downloadable resources; hosted so entries update without app rebuild. | `qualiaDB/manifests/ontologies.json`, `models.json` |
@@ -111,8 +121,9 @@ footer:         CBOR index — BundleEntry { key, kind, offset, length,
 - `kind` is a string tag — ecopunk convention (to register): `"q42"`, `"10d"`, `"p64"`,
   `"manifest"`, `"shacl"`, `"media"`, `"doc"`, `"licence"`, `"provenance"`.
 - `meta` is opaque CBOR agreed by producer/consumer — the Anatomy pack precedent stores
-  domain semantics there (organ → body-system/position/colour). Ecopunk `meta` schema is
-  defined per pack family in the asset spec (pending doc).
+  domain semantics there (organ → body-system/position/colour). Ecopunk's logical
+  family schema is proposed in [asset-package-spec.md](assets/asset-package-spec.md);
+  exact encoding/bindings remain for upstream review.
 - Header+index are fetchable alone → catalogue/browse a pack without downloading payloads;
   64-byte-aligned entry offsets make interior range-fetch *a format affordance* —
   the `.hmc` QBDL footer entry index here is **separate from** the `.q42` `BIDX`
@@ -127,7 +138,7 @@ footer:         CBOR index — BundleEntry { key, kind, offset, length,
 
 ```
 biosphere-pack.hmc
- ├─ manifest.ecopack.jsonld     kind="manifest"   pack identity, lanes, deps, contents
+ ├─ manifest.ecopack.jsonld     kind="manifest"   pack identifiers, lanes, deps, contents
  ├─ graph/core.ttl.q42          kind="q42"        semantic volume (taxa, traits, places)
  ├─ graph/shapes.shacl.ttl      kind="shacl"      validation shapes used at build
  ├─ ont/tern.ttl.q42            kind="q42"        embedded reference ontologies
@@ -150,7 +161,7 @@ the ZIP variant until reconciled.
 2. **Compile** via `render::compile_10d` / computational-geometry authoring → sections:
    QuantizedMesh + MAT1 material + FRM1 normals + texcoords + topology + spatial index +
    provenance + optional FIEL fields + SKL1 skeletal (exists in-tree — validate before use).
-3. **Bind identity**: v2 manifold-identity manifest inside the `.10d` links typed records to
+3. **Bind identifiers**: v2 manifold-identifiers manifest inside the `.10d` links typed records to
    sections; the `.q42` volume holds the semantic entity the asset *depicts*
    (`eco:depicts`/stable `rc:asset/`-style IDs precedent).
 4. **Seal** (per-section + whole-file CRC-32C) → embed as intact `.10d` entry in the pack.
@@ -223,7 +234,7 @@ guarantees intact:
 
 ## 8. Open questions
 
-1. Pack identity scheme: `eco:pack/<family>/<id>@<version>` IRI + content digest — or reuse
+1. Pack identifiers scheme: `eco:pack/<family>/<id>@<version>` IRI + content digest — or reuse
    `did:q42:` topological pointers? (DID route favours engine-native resolution.)
 2. Whether per-occurrence volumes (potentially 100M+ records for ALA) live as one
    multi-volume family keyed by `ibra7` region × year, or by dataset licence cohort first.

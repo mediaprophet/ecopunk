@@ -1,0 +1,27 @@
+{
+  "status": "staged_only_not_applied",
+  "created_utc": "2026-10-24T19:36:18Z",
+  "scope": "repair four stale Core modeling test contracts",
+  "guard": "Apply only if each target still has original_sha256; candidate bytes must match candidate_sha256.",
+  "verification": "No Cargo build or test run performed; rustfmt only on staged candidates.",
+  "mutations": [
+    {
+      "candidate": "candidate/chemistry_modeling/properties.rs",
+      "candidate_sha256": "4e1e0b0afe6142d725805e6dfb20da3e72297f0c928e184005c0677d97c538e4",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/chemistry_modeling/properties.rs",
+      "original_sha256": "07ffcab13e4dc1ca67cb43ee6d2ed03041aeacf0c3aed043995dbf612c63e42a"
+    },
+    {
+      "candidate": "candidate/financial_modeling/tests.rs",
+      "candidate_sha256": "e2384938586c35f655fbdffa17d0bf71af5558aed6bb4e7b9d9592f3c3f37498",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/financial_modeling/tests.rs",
+      "original_sha256": "3238e1d9026cc6ab0e28ae66a3a32c06a3024172b2c787914a884473113a149f"
+    },
+    {
+      "candidate": "candidate/engineering_analysis/tests.rs",
+      "candidate_sha256": "1b8bc711d578b0f67ae66a11dbb89c15577bf670662eac5bf2a0e757284551c3",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/engineering_analysis/tests.rs",
+      "original_sha256": "ecacecd55ee8ac7b89e0920278eb679982fef2fa216845db992680907088dd5a"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-25",
+  "status": "staged for independent review and specific cross-repository installation approval",
+  "candidate_files": 11,
+  "existing_preimages": 6,
+  "new_files": 5,
+  "live_core_writes_attempted": false,
+  "live_core_writes_applied": false,
+  "live_preimages_verified_unchanged": true,
+  "patch": "foundation-sdk.patch",
+  "patch_sha256": "EE3316D40A42B0BEEEA7180EDC8317F94428E4E213226DC9CAD25383676DF90B",
+  "manifest": "sdk-save-manifest.json",
+  "manifest_sha256": "7886467CD423A0645530FD2B0577A56B87C855845ADF0AB22D2C517D161C0B58",
+  "static_evidence": "static-checks.json",
+  "checks": "rustfmt parsed all 11 staged Rust candidates; all new files under 500 lines",
+  "tests_authored": 9,
+  "tests_executed": false,
+  "cargo_or_rustc_executed": false,
+  "native_or_wasm_runtime_executed": false,
+  "gpu_or_asset_callbacks_executed": false,
+  "human_acceptance": "not performed",
+  "model_package_status": "incomplete; no new model or asset created",
+  "remaining": [
+    "independent review",
+    "specific installation approval",
+    "guarded installation against unchanged preimages",
+    "root-owned frozen Cargo native/WASM qualification",
+    "allocation measurement where required",
+    "native cooperative author/reviewer UX and content/package acceptance"
+  ]
+}

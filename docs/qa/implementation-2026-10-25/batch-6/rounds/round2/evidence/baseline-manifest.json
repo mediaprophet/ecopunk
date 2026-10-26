@@ -1,0 +1,79 @@
+{
+  "schema": "ecopunk.batch6-round2-baseline.v1",
+  "captured_utc": "2026-10-25T02:36:36Z",
+  "source_run": "round1-film-006",
+  "source_claim": "Round 1 status-final.json",
+  "outputs": [
+    {
+      "bytes": 15690,
+      "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63",
+      "path": "assets/reference/community-grounds-growing-station/master.vibe",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/master.vibe",
+      "role": "source_master"
+    },
+    {
+      "bytes": 442,
+      "sha256": "5317fb49df09ea71e477c8e3bb27bf30221f9e042d79167420c2ebed86ad0037",
+      "path": "assets/reference/community-grounds-growing-station/presets/film.vibe",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/film-preset.vibe",
+      "role": "film_preset"
+    },
+    {
+      "bytes": 17571,
+      "sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/accepted-source.vibe",
+      "role": "accepted_source"
+    },
+    {
+      "bytes": 5288192,
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/growing-station.10d",
+      "role": "compiled_10d"
+    },
+    {
+      "bytes": 5413279,
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/growing-station.hmc",
+      "role": "hmc"
+    },
+    {
+      "bytes": 6125,
+      "sha256": "09c848e16c5d95c427fe049ca5ce2b1b70ea739a669e1bbbe5c05e291be5cfe9",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/render-receipt.json",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/render-receipt.json",
+      "role": "render_receipt"
+    },
+    {
+      "bytes": 374766,
+      "sha256": "7b6de328407018785922d18d3ac2c5c258a225424eed0c58fe265c8843648ed4",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/hero.png",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/images/hero.png",
+      "role": "native_png"
+    },
+    {
+      "bytes": 275338,
+      "sha256": "c1c91c7c3e80ecf0f598efad150da1cbd85ed2613b393d46e6679dae27e35efa",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/opposite.png",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/images/opposite.png",
+      "role": "native_png"
+    },
+    {
+      "bytes": 420805,
+      "sha256": "be8b5af69a7289423978580ce88211cb1b70967a46c1bc5c4631cd53cf4fe98d",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/channel-closeup.png",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/images/channel-closeup.png",
+      "role": "native_png"
+    },
+    {
+      "bytes": 217795,
+      "sha256": "e79268ed476274a340adb71e7c2e59ad1127ba9312be23926516251b12083a55",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/cabinet-closeup.png",
+      "baseline_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline/images/cabinet-closeup.png",
+      "role": "native_png"
+    }
+  ],
+  "qualification_boundary": "Copied Round 1 baseline artifacts for later independent comparison; hashes bind bytes only. No new render, visual acceptance, model completion or foundation qualification is implied."
+}

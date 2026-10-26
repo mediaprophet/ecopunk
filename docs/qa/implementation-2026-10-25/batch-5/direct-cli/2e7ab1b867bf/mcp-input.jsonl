@@ -1,0 +1,4 @@
+{"jsonrpc":"2.0","id":"init","method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"batch3-headless-verification","version":"0.0.0"}}}
+{"jsonrpc":"2.0","method":"notifications/initialized"}
+{"jsonrpc":"2.0","id":"tools","method":"tools/list","params":{}}
+{"jsonrpc":"2.0","id":"read","method":"tools/call","params":{"name":"poet_source_read","arguments":{}}}

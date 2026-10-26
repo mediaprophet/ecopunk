@@ -1,0 +1,59 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 1m 00s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-e9761f04da66e76f.exe)
+
+running 3 tests
+test graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph ... FAILED
+test graphical::authoring::tests::every_generated_edit_is_a_canonical_program_with_a_record_result ... ok
+test graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety ... FAILED
+
+failures:
+
+---- graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph stdout ----
+
+thread 'graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph' (29844) panicked at native\src\graphical\authoring\tests.rs:185:10:
+called `Result::unwrap()` on an `Err` value: "checkpoint persist did not commit (retry budget exhausted); destination \\\\?\\C:\\Users\\tim_h\\AppData\\Local\\Packages\\sandbox.{e2bd97f3-def4-477c-8ed6-0bf319e9ef28}\\AC\\Temp\\.tmpSzFWJg\\derived.hmc; staged \\\\?\\C:\\Users\\tim_h\\AppData\\Local\\Packages\\sandbox.{e2bd97f3-def4-477c-8ed6-0bf319e9ef28}\\AC\\Temp\\.tmpSzFWJg\\.poet-source-GH98VY; attempts 6; first persist error: Access is denied. (os error 5); last persist error: Access is denied. (os error 5)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety stdout ----
+
+thread 'graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety' (15152) panicked at native\src\graphical\authoring\tests.rs:109:10:
+called `Result::unwrap()` on an `Err` value: "E600 at Span { start: 427, end: 438 }: undefined poet_edit_2; execution attempted=true; host reconciliation required=true"
+
+
+failures:
+    graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph
+    graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety
+
+test result: FAILED. 1 passed; 2 failed; 0 ignored; 0 measured; 115 filtered out; finished in 0.79s
+
+error: test failed, to rerun pass `-p poet-cli --lib`

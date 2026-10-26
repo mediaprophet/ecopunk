@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-25",
+  "scope": "Bounded read-only source/API inventory; no sibling writes, builds, tests, GUI interaction, or production assets.",
+  "evidence_level": "source presence and selected consumer wiring only; no Round 7 execution or human acceptance",
+  "round6_state": {
+    "status": "complete_scoped",
+    "uv_supported": ["part-local XY/XZ/YZ planar projection", "UV0 offset/scale/rotation"],
+    "explicitly_not_supported": ["general unwrap", "chart generation", "atlas packing", "other UV channels"],
+    "native_texture_workflow": ["project-owned imports", "digest-checked immutable HMC resource binding", "typed material map roles", "HMC dependency composition and save/reopen checks"],
+    "assets": "HOLD",
+    "FND_01_to_06_and_IP03_C1_to_C8": "open"
+  },
+  "findings": [
+    {
+      "id": "UV-01",
+      "capability": "general UV unwrap, charts, and authored atlas packing",
+      "source_presence": "not located in bounded QualiaDB Core render/geometry, native Poet graphical, or Craft symbol/file inspection",
+      "poet_wiring": "not located",
+      "limits": "Round 6 only supports part-local planar projection and UV0 affine transform; atlas names in render-side impostor/shadow code are unrelated to mesh UV authoring",
+      "execution": "not performed",
+      "next": "resolve canonical kernel owner and define deterministic seam/chart/pack/channel/revision contract before implementation"
+    },
+    {
+      "id": "TEX-01",
+      "capability": "texture resource admission and material map assignment",
+      "source_presence": "present: Core asset_package canonical digest key/resolver and Poet TextureResources immutable HMC snapshot path",
+      "poet_wiring": "present in Round 6 native resource/import/material controls, with explicit host authority and rebind after reopen",
+      "limits": "not UV charting or painting; conflicts/same-key compiled resource changes refuse; full graph/rights lineage and safe semantic rewrites remain open",
+      "execution": "Round 6 selected cases only; no new Round 7 execution",
+      "next": "retain digest/resource/source revision checks in new painting/edit workflow"
+    },
+    {
+      "id": "TEX-02",
+      "capability": "procedural tileable surface maps",
+      "source_presence": "present in Core render::surface_authoring with bounded caller-owned output and PNG encoding",
+      "poet_wiring": "not located in inspected native Poet path",
+      "limits": "8..1024 side, max 12 MiB for colour/normal/ORM outputs; deterministic generic procedural tiles, not mesh painting/detail authoring",
+      "execution": "not performed in Round 7",
+      "next": "if used, expose as editable native Poet source intent with explicit save/reopen and resource closure"
+    },
+    {
+      "id": "PAINT-01",
+      "capability": "2D brush/stroke painting",
+      "source_presence": "present in separate poet-photocraft paint crate",
+      "poet_wiring": "no native Poet UV/material adapter located",
+      "limits": "StrokePoint pixel coordinates and raster Surface target; does not supply mesh unwrap, UV atlas, HMC/material lineage or native Poet integration",
+      "execution": "not performed in Round 7",
+      "next": "consider reuse of brush/dab domain behind an explicit Poet adapter and UV-space resource lifecycle; don't treat separate GUI as unified Poet"
+    }
+  ],
+  "source_hash_manifest": "source-hashes.txt",
+  "report": "native-poet-uv-texture-detail-inventory.md"
+}

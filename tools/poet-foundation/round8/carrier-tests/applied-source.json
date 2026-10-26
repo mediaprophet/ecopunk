@@ -1,0 +1,20 @@
+[
+  {
+    "repository": "poet",
+    "target": "native/Cargo.toml",
+    "before_sha256": "5480ce9e01b80f5d5be3611fcf81a037b5884c76d8c19f00e039d70853eb0bc1",
+    "after_sha256": "5d8e5df21a7b53ce270bf5492f149e1ecd35d1da679d6c6e9cc174f95463228b",
+    "after_lines": 88,
+    "live_matches_before": true,
+    "verified_after_sha256": "5d8e5df21a7b53ce270bf5492f149e1ecd35d1da679d6c6e9cc174f95463228b"
+  },
+  {
+    "repository": "poet",
+    "target": "native/tests/foundation_source_carrier.rs",
+    "before_sha256": null,
+    "after_sha256": "2b2810a986a74794db200ce457a71bf2fa43d6c77bf52060b6a3574a4e2d3ed9",
+    "after_lines": 485,
+    "live_matches_before": true,
+    "verified_after_sha256": "2b2810a986a74794db200ce457a71bf2fa43d6c77bf52060b6a3574a4e2d3ed9"
+  }
+]

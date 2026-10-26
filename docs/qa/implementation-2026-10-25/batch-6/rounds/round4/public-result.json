@@ -1,0 +1,80 @@
+{
+  "mode": "public",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--test",
+    "foundation_package_policy",
+    "--test",
+    "foundation_native_package_review",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T07:38:19.734965+00:00",
+  "finished_utc": "2026-10-25T07:39:00.786019+00:00",
+  "elapsed_seconds": 41.062,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\public.log",
+  "log_sha256": "db0d792fe98edc3d7236a5eaa31e856f170d84b05a22a20cb0c168952001697e",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\public-source-before.json",
+  "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+  "recorded_local_source_files": 3021,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 19,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      12,
+      0,
+      0
+    ],
+    [
+      7,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "admin::package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants",
+    "history::package_review_missing_predecessor_stays_explicitly_scoped_and_unassessed",
+    "history::package_review_predecessor_writer_cannot_grant_or_review_renamed_successor",
+    "package_review_contribution_request_decision_and_reopen_keep_exact_lineage",
+    "package_review_old_signed_admission_bytes_remain_exact",
+    "package_review_revocation_and_unsafe_grant_successors_are_atomic",
+    "package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse",
+    "package_review_source_grants_file_mismatch_and_stale_generation_cannot_record",
+    "package_review_source_successor_and_revoked_membership_withhold_old_targets",
+    "publication::package_review_publication_expires_after_same_source_native_package_successor",
+    "source_history::package_review_unsaved_prior_source_contributor_is_excluded_after_source_successor",
+    "target_isolation::package_review_evidence_contains_only_the_exact_selected_target",
+    "observers_cannot_produce_and_foreign_producers_cannot_request",
+    "package_grant_requires_exact_release_source_digest_and_lineage",
+    "producer_source_author_and_known_contributor_cannot_review",
+    "resource_producer_may_differ_from_source_author_and_request_exact_contribution",
+    "revoked_expired_duplicate_and_stale_generation_fail_closed",
+    "scoped_package_decision_and_record_budget_are_explicit",
+    "source_grant_never_implies_package_grant"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round4-nhrnbet6",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

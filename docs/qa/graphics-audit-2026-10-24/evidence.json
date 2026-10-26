@@ -1,0 +1,1307 @@
+{
+  "capturedAt": "2026-10-24T04:46:43.754Z",
+  "scope": "Byte identity and manifest references only; not container or visual acceptance",
+  "published": [
+    {
+      "file": "index.html",
+      "localBytes": 23564,
+      "localSha256": "993f8e3fcfab1b94470c677204fa6d8ba3b6aae2be4c762594a0f3071f13f892",
+      "error": "fetch failed"
+    },
+    {
+      "file": "viewer/index.html",
+      "localBytes": 23564,
+      "localSha256": "993f8e3fcfab1b94470c677204fa6d8ba3b6aae2be4c762594a0f3071f13f892",
+      "error": "fetch failed"
+    },
+    {
+      "file": "viewer/pkg/ecopunk_wasm.js",
+      "localBytes": 315083,
+      "localSha256": "65f1def1a49f1d3fea60c4dc776e64721d0586a73159d4876ce72fc1b2b128bd",
+      "error": "fetch failed"
+    },
+    {
+      "file": "viewer/pkg/ecopunk_wasm_bg.wasm",
+      "localBytes": 6433175,
+      "localSha256": "d9d42f24cc7fffcb03457a15b76c58671cf6e10563215f70c378a10e66dd8e8b",
+      "error": "fetch failed"
+    }
+  ],
+  "modelSet": {
+    "modelCount": 26,
+    "componentReferences": 124,
+    "uniqueFiles": 120,
+    "lodGroups": 7,
+    "readmeBuildScriptExists": false,
+    "mismatchedReferences": 19,
+    "uniqueDigestMismatchFiles": [
+      "10d/leaf-study-blade.10d",
+      "10d/leaf-study-midrib.10d",
+      "10d/leaf-anatomy-cutaway.10d",
+      "10d/flower-dissection.10d",
+      "10d/gumnut-dissection.10d",
+      "10d/bark-study-surface.10d",
+      "10d/stem-anatomy-wedge.10d",
+      "10d/whole-organism-roots.10d"
+    ],
+    "uniqueSizeMismatchFiles": [
+      "10d/leaf-study-blade.10d",
+      "10d/leaf-study-midrib.10d",
+      "10d/leaf-anatomy-cutaway.10d",
+      "10d/flower-study-receptacle.10d",
+      "10d/flower-dissection.10d",
+      "10d/flower-study-stamens.10d",
+      "10d/flower-study-pedicel.10d",
+      "10d/gumnut-study-capsule.10d",
+      "10d/gumnut-study-rim.10d",
+      "10d/gumnut-study-pedicel.10d",
+      "10d/gumnut-dissection.10d",
+      "10d/bark-study-surface.10d",
+      "10d/bark-study-weathering.10d",
+      "10d/stem-anatomy-wedge.10d",
+      "10d/whole-organism-roots.10d"
+    ],
+    "checks": [
+      {
+        "model": "mature-tree",
+        "file": "10d/mature-tree-chalk-bark.10d",
+        "declaredBytes": 68183,
+        "actualBytes": 68183,
+        "declaredSha256": "f51ccf4c6e433b3d1e76f370771614248949b06c85fc60b3c2104993d4815347",
+        "actualSha256": "f51ccf4c6e433b3d1e76f370771614248949b06c85fc60b3c2104993d4815347",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree",
+        "file": "10d/mature-tree-branchwork.10d",
+        "declaredBytes": 28715,
+        "actualBytes": 28715,
+        "declaredSha256": "605c60527c60d09e08ccbf5b898468ee086223cb0089eb78c8a5ad91b24901e8",
+        "actualSha256": "605c60527c60d09e08ccbf5b898468ee086223cb0089eb78c8a5ad91b24901e8",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree",
+        "file": "10d/mature-tree-irregular-canopy.10d",
+        "declaredBytes": 154433,
+        "actualBytes": 154433,
+        "declaredSha256": "b473075552822813fead014bef8ea0db4eddee15334673a788468ae44e73a334",
+        "actualSha256": "b473075552822813fead014bef8ea0db4eddee15334673a788468ae44e73a334",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree",
+        "file": "10d/mature-tree-falcate-foliage.10d",
+        "declaredBytes": 553600,
+        "actualBytes": 553600,
+        "declaredSha256": "42cf93df5330075cd4b7d8694664f849ca3a402dd7592204ced0262365a6ef1d",
+        "actualSha256": "42cf93df5330075cd4b7d8694664f849ca3a402dd7592204ced0262365a6ef1d",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree",
+        "file": "10d/mature-tree-cream-buds.10d",
+        "declaredBytes": 22055,
+        "actualBytes": 22055,
+        "declaredSha256": "acbbf0f4a12e339563ffaaf4573833d32c3cab2a13957dc93892ed3b93a94490",
+        "actualSha256": "acbbf0f4a12e339563ffaaf4573833d32c3cab2a13957dc93892ed3b93a94490",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree",
+        "file": "10d/juvenile-tree-chalk-bark.10d",
+        "declaredBytes": 68185,
+        "actualBytes": 68185,
+        "declaredSha256": "dd1b5876d3d327b541c36c43a1c90a4d9d05d8d5a2c6d2cf74ce1653b827b69c",
+        "actualSha256": "dd1b5876d3d327b541c36c43a1c90a4d9d05d8d5a2c6d2cf74ce1653b827b69c",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree",
+        "file": "10d/juvenile-tree-branchwork.10d",
+        "declaredBytes": 28717,
+        "actualBytes": 28717,
+        "declaredSha256": "ce32c8876a9065205d7a8e72edb5518816fbb8d2751b9c5cbfab63ac82b467a6",
+        "actualSha256": "ce32c8876a9065205d7a8e72edb5518816fbb8d2751b9c5cbfab63ac82b467a6",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree",
+        "file": "10d/juvenile-tree-irregular-canopy.10d",
+        "declaredBytes": 154435,
+        "actualBytes": 154435,
+        "declaredSha256": "fb3f60f9026a6f1f2e54716cbe5b03d481a2bf9c4e3b0d0c436531376475c8d1",
+        "actualSha256": "fb3f60f9026a6f1f2e54716cbe5b03d481a2bf9c4e3b0d0c436531376475c8d1",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree",
+        "file": "10d/juvenile-tree-falcate-foliage.10d",
+        "declaredBytes": 553602,
+        "actualBytes": 553602,
+        "declaredSha256": "ffbf36cdc3ae3942fef9c9f365124c2d1fa5677525891b8db91e80bbdd601cba",
+        "actualSha256": "ffbf36cdc3ae3942fef9c9f365124c2d1fa5677525891b8db91e80bbdd601cba",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree",
+        "file": "10d/juvenile-tree-cream-buds.10d",
+        "declaredBytes": 22057,
+        "actualBytes": 22057,
+        "declaredSha256": "6716763a959a3f9deb3ec59ee2b5cb2dbd69c9c2da5b8c3855cfc70a01618068",
+        "actualSha256": "6716763a959a3f9deb3ec59ee2b5cb2dbd69c9c2da5b8c3855cfc70a01618068",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree",
+        "file": "10d/multi-stem-tree-chalk-bark.10d",
+        "declaredBytes": 89811,
+        "actualBytes": 89811,
+        "declaredSha256": "d7acfa0a3e59a86a9aa6fe9e7ecccc0ae01dbe0b95d889f9dda0d54c62f2b142",
+        "actualSha256": "d7acfa0a3e59a86a9aa6fe9e7ecccc0ae01dbe0b95d889f9dda0d54c62f2b142",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree",
+        "file": "10d/multi-stem-tree-branchwork.10d",
+        "declaredBytes": 28719,
+        "actualBytes": 28719,
+        "declaredSha256": "0bf6c55ca80538689de362bd7bdeb3e989bcae80ef8eb064d0d3351863616c94",
+        "actualSha256": "0bf6c55ca80538689de362bd7bdeb3e989bcae80ef8eb064d0d3351863616c94",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree",
+        "file": "10d/multi-stem-tree-irregular-canopy.10d",
+        "declaredBytes": 154437,
+        "actualBytes": 154437,
+        "declaredSha256": "4aab55b5c32812b63bbc62d34fb8fbc45415e841e25ea1964fd7a9fef1b6c66c",
+        "actualSha256": "4aab55b5c32812b63bbc62d34fb8fbc45415e841e25ea1964fd7a9fef1b6c66c",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree",
+        "file": "10d/multi-stem-tree-falcate-foliage.10d",
+        "declaredBytes": 553604,
+        "actualBytes": 553604,
+        "declaredSha256": "504e8f0fe54a736ca64c87fb7f4d4eff259b46e6f28b88db384d7c470d354970",
+        "actualSha256": "504e8f0fe54a736ca64c87fb7f4d4eff259b46e6f28b88db384d7c470d354970",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree",
+        "file": "10d/multi-stem-tree-cream-buds.10d",
+        "declaredBytes": 22059,
+        "actualBytes": 22059,
+        "declaredSha256": "f50e4f5c2da4afb93ff619d95e701d477662caa39d5036ceb20d344af66dca5c",
+        "actualSha256": "f50e4f5c2da4afb93ff619d95e701d477662caa39d5036ceb20d344af66dca5c",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree",
+        "file": "10d/rocky-open-tree-chalk-bark.10d",
+        "declaredBytes": 55467,
+        "actualBytes": 55467,
+        "declaredSha256": "3140efeb4bfc9286c55f71ea87a001f87c1e350b58c2605c32af1fb32c90f140",
+        "actualSha256": "3140efeb4bfc9286c55f71ea87a001f87c1e350b58c2605c32af1fb32c90f140",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree",
+        "file": "10d/rocky-open-tree-branchwork.10d",
+        "declaredBytes": 19359,
+        "actualBytes": 19359,
+        "declaredSha256": "bc12d79027c82ebbf0834f2d111ae011d811b3edf2577ffcb95cc03af6192210",
+        "actualSha256": "bc12d79027c82ebbf0834f2d111ae011d811b3edf2577ffcb95cc03af6192210",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree",
+        "file": "10d/rocky-open-tree-irregular-canopy.10d",
+        "declaredBytes": 103173,
+        "actualBytes": 103173,
+        "declaredSha256": "76f37818cc5f874dddc59b13cf6b3b7f18e7ba31586cf2e13a7815efdf35af56",
+        "actualSha256": "76f37818cc5f874dddc59b13cf6b3b7f18e7ba31586cf2e13a7815efdf35af56",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree",
+        "file": "10d/rocky-open-tree-falcate-foliage.10d",
+        "declaredBytes": 369284,
+        "actualBytes": 369284,
+        "declaredSha256": "20027fc7a815bd58823a96a88f8d0dc178f484ce5fb53a202b4a17c58e048c20",
+        "actualSha256": "20027fc7a815bd58823a96a88f8d0dc178f484ce5fb53a202b4a17c58e048c20",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree",
+        "file": "10d/rocky-open-tree-cream-buds.10d",
+        "declaredBytes": 12879,
+        "actualBytes": 12879,
+        "declaredSha256": "25227162a732abf8683bdcf07da45783cee7367c165b1cb9d3c9b92e738e2c33",
+        "actualSha256": "25227162a732abf8683bdcf07da45783cee7367c165b1cb9d3c9b92e738e2c33",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree",
+        "file": "10d/ground-scorched-tree-chalk-bark.10d",
+        "declaredBytes": 68192,
+        "actualBytes": 68192,
+        "declaredSha256": "696f0008c0cea6f83bf82937ed0c02fa5696a640cd3c09956f71d34a188a9c28",
+        "actualSha256": "696f0008c0cea6f83bf82937ed0c02fa5696a640cd3c09956f71d34a188a9c28",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree",
+        "file": "10d/ground-scorched-tree-branchwork.10d",
+        "declaredBytes": 28724,
+        "actualBytes": 28724,
+        "declaredSha256": "b0f27ddcb90ca8b716c8531ee4537b452e7525f38024501a1537446749bee070",
+        "actualSha256": "b0f27ddcb90ca8b716c8531ee4537b452e7525f38024501a1537446749bee070",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree",
+        "file": "10d/ground-scorched-tree-irregular-canopy.10d",
+        "declaredBytes": 154442,
+        "actualBytes": 154442,
+        "declaredSha256": "50085f83f79e8984439c413a4b82f4fe14043d0bee3ea2f2927c83c696839e51",
+        "actualSha256": "50085f83f79e8984439c413a4b82f4fe14043d0bee3ea2f2927c83c696839e51",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree",
+        "file": "10d/ground-scorched-tree-falcate-foliage.10d",
+        "declaredBytes": 553609,
+        "actualBytes": 553609,
+        "declaredSha256": "ee7fd13fdd751966c9e5b7095c1d83f54e350f17a755dd47c841e3e515f6d5d4",
+        "actualSha256": "ee7fd13fdd751966c9e5b7095c1d83f54e350f17a755dd47c841e3e515f6d5d4",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree",
+        "file": "10d/ground-scorched-tree-lower-trunk-scorch.10d",
+        "declaredBytes": 1528,
+        "actualBytes": 1528,
+        "declaredSha256": "c4998831fb5c2e2ba467c5e7af312110cfc185dc56f4c5b5e216ef541ce69e37",
+        "actualSha256": "c4998831fb5c2e2ba467c5e7af312110cfc185dc56f4c5b5e216ef541ce69e37",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree",
+        "file": "10d/canopy-scorched-tree-chalk-bark.10d",
+        "declaredBytes": 68192,
+        "actualBytes": 68192,
+        "declaredSha256": "287d861108089a02aa466e902fd0ab9f48116e659a6721342eeb2b5cbbcb18a4",
+        "actualSha256": "287d861108089a02aa466e902fd0ab9f48116e659a6721342eeb2b5cbbcb18a4",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree",
+        "file": "10d/canopy-scorched-tree-branchwork.10d",
+        "declaredBytes": 28724,
+        "actualBytes": 28724,
+        "declaredSha256": "ad503dc0003473df99fd1b247fe42cab5e7fa1fb12d325ada889c212cac8f442",
+        "actualSha256": "ad503dc0003473df99fd1b247fe42cab5e7fa1fb12d325ada889c212cac8f442",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree",
+        "file": "10d/canopy-scorched-tree-irregular-canopy.10d",
+        "declaredBytes": 39098,
+        "actualBytes": 39098,
+        "declaredSha256": "fe6e1e104ce312dd8aeed2a4a903d2797a9669e34fa2c39c142eeb85771cb600",
+        "actualSha256": "fe6e1e104ce312dd8aeed2a4a903d2797a9669e34fa2c39c142eeb85771cb600",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree",
+        "file": "10d/canopy-scorched-tree-falcate-foliage.10d",
+        "declaredBytes": 17929,
+        "actualBytes": 17929,
+        "declaredSha256": "5db8995b77e724fb17005f551520bcd946dfc0a47f87c0e042484caf9fdd1f6a",
+        "actualSha256": "5db8995b77e724fb17005f551520bcd946dfc0a47f87c0e042484caf9fdd1f6a",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree",
+        "file": "10d/epicormic-regrowth-tree-chalk-bark.10d",
+        "declaredBytes": 68195,
+        "actualBytes": 68195,
+        "declaredSha256": "abfc74cb79cbc2898b59c196e1554e77d136827b25ce47b9d2cbaa26129a1e5c",
+        "actualSha256": "abfc74cb79cbc2898b59c196e1554e77d136827b25ce47b9d2cbaa26129a1e5c",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree",
+        "file": "10d/epicormic-regrowth-tree-branchwork.10d",
+        "declaredBytes": 28727,
+        "actualBytes": 28727,
+        "declaredSha256": "d6286acbebc90e1b93ea4b5f431250fc2056ebb6dcc44afe76c536243683028f",
+        "actualSha256": "d6286acbebc90e1b93ea4b5f431250fc2056ebb6dcc44afe76c536243683028f",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree",
+        "file": "10d/epicormic-regrowth-tree-irregular-canopy.10d",
+        "declaredBytes": 154445,
+        "actualBytes": 154445,
+        "declaredSha256": "db5fda973dc6da63e68d5ac60efdebc95dadb9c4e094aa6b61235c5c597b4946",
+        "actualSha256": "db5fda973dc6da63e68d5ac60efdebc95dadb9c4e094aa6b61235c5c597b4946",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree",
+        "file": "10d/epicormic-regrowth-tree-falcate-foliage.10d",
+        "declaredBytes": 553612,
+        "actualBytes": 553612,
+        "declaredSha256": "4eddac9f91aeb842cdbd0f0f129fe1fe0e59c5df22b9080c885112f587dfbad3",
+        "actualSha256": "4eddac9f91aeb842cdbd0f0f129fe1fe0e59c5df22b9080c885112f587dfbad3",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree",
+        "file": "10d/epicormic-regrowth-tree-lower-trunk-scorch.10d",
+        "declaredBytes": 1531,
+        "actualBytes": 1531,
+        "declaredSha256": "93721d11a11a070f6127d66e4e4a577d9b6925fb3c92101e02f1f059cb3aa95b",
+        "actualSha256": "93721d11a11a070f6127d66e4e4a577d9b6925fb3c92101e02f1f059cb3aa95b",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree",
+        "file": "10d/epicormic-regrowth-tree-epicormic-shoots.10d",
+        "declaredBytes": 19733,
+        "actualBytes": 19733,
+        "declaredSha256": "9e621d1e6299321df81ef761be8df34751b8712ffec3160b13bc077af9874416",
+        "actualSha256": "9e621d1e6299321df81ef761be8df34751b8712ffec3160b13bc077af9874416",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-mid",
+        "file": "10d/mature-tree-mid-chalk-bark.10d",
+        "declaredBytes": 12891,
+        "actualBytes": 12891,
+        "declaredSha256": "7d0f48497af0d69eab0a4dde39ccbef1af024a472242462ddaad3ae3e6aea3f6",
+        "actualSha256": "7d0f48497af0d69eab0a4dde39ccbef1af024a472242462ddaad3ae3e6aea3f6",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-mid",
+        "file": "10d/mature-tree-mid-branchwork.10d",
+        "declaredBytes": 20943,
+        "actualBytes": 20943,
+        "declaredSha256": "b7e9df0499d5e0f96cf9935edd9d7703681066edbae4fa627e8587d9c85f0c87",
+        "actualSha256": "b7e9df0499d5e0f96cf9935edd9d7703681066edbae4fa627e8587d9c85f0c87",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-mid",
+        "file": "10d/mature-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 154437,
+        "actualBytes": 154437,
+        "declaredSha256": "8d4f1ddf903ad7df685fd0721b6e25eda87ddad0fb094c0095d5478110c0c612",
+        "actualSha256": "8d4f1ddf903ad7df685fd0721b6e25eda87ddad0fb094c0095d5478110c0c612",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-mid",
+        "file": "10d/mature-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 131972,
+        "actualBytes": 131972,
+        "declaredSha256": "b52dc3a7636285242ebef505b201653da3b7386305dbd5c4dabdd8f94fd54505",
+        "actualSha256": "b52dc3a7636285242ebef505b201653da3b7386305dbd5c4dabdd8f94fd54505",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-mid",
+        "file": "10d/mature-tree-mid-cream-buds.10d",
+        "declaredBytes": 22059,
+        "actualBytes": 22059,
+        "declaredSha256": "ae1f3041c781c9cd5349cc19656fa53d6472746b7e963dd45f736e3c171632b7",
+        "actualSha256": "ae1f3041c781c9cd5349cc19656fa53d6472746b7e963dd45f736e3c171632b7",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-far",
+        "file": "10d/mature-tree-far-chalk-bark.10d",
+        "declaredBytes": 12891,
+        "actualBytes": 12891,
+        "declaredSha256": "90ffef5d68ff06ddacb926354aeb1217fe179b47fe2cfbe7c3dfae1ae573f54d",
+        "actualSha256": "90ffef5d68ff06ddacb926354aeb1217fe179b47fe2cfbe7c3dfae1ae573f54d",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-far",
+        "file": "10d/mature-tree-far-branchwork.10d",
+        "declaredBytes": 20943,
+        "actualBytes": 20943,
+        "declaredSha256": "13251b1b0f5cca29084546bbb52ded4b09094eefaaba4b99a3616edf5443a2c5",
+        "actualSha256": "13251b1b0f5cca29084546bbb52ded4b09094eefaaba4b99a3616edf5443a2c5",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-far",
+        "file": "10d/mature-tree-far-irregular-canopy.10d",
+        "declaredBytes": 77541,
+        "actualBytes": 77541,
+        "declaredSha256": "313016fd0cd5802e1886669622c8604d56fba5f5f14bc2b708a88a3f09c9d7d6",
+        "actualSha256": "313016fd0cd5802e1886669622c8604d56fba5f5f14bc2b708a88a3f09c9d7d6",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-far",
+        "file": "10d/mature-tree-far-falcate-foliage.10d",
+        "declaredBytes": 31748,
+        "actualBytes": 31748,
+        "declaredSha256": "e858e23aa59c5f7c6fdfdbe61b12bcf66cc88d8b0579388433102403dc71a675",
+        "actualSha256": "e858e23aa59c5f7c6fdfdbe61b12bcf66cc88d8b0579388433102403dc71a675",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "mature-tree-far",
+        "file": "10d/mature-tree-far-cream-buds.10d",
+        "declaredBytes": 22059,
+        "actualBytes": 22059,
+        "declaredSha256": "a14482ea7ded0f5c689e64a66316a92e9dbdd1c5d848d50c6859fd4c07bc9801",
+        "actualSha256": "a14482ea7ded0f5c689e64a66316a92e9dbdd1c5d848d50c6859fd4c07bc9801",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-mid",
+        "file": "10d/juvenile-tree-mid-chalk-bark.10d",
+        "declaredBytes": 12893,
+        "actualBytes": 12893,
+        "declaredSha256": "e95acb33d8a338415aea0fd4b09ff0d3257c1ba1c28d205aa15ca3f95f59520d",
+        "actualSha256": "e95acb33d8a338415aea0fd4b09ff0d3257c1ba1c28d205aa15ca3f95f59520d",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-mid",
+        "file": "10d/juvenile-tree-mid-branchwork.10d",
+        "declaredBytes": 20945,
+        "actualBytes": 20945,
+        "declaredSha256": "f18ff1729780b2b6b955f03092ae2d3d0abb55dcd41d59c96e06bca80057f0f5",
+        "actualSha256": "f18ff1729780b2b6b955f03092ae2d3d0abb55dcd41d59c96e06bca80057f0f5",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-mid",
+        "file": "10d/juvenile-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 154439,
+        "actualBytes": 154439,
+        "declaredSha256": "df867894cfa258399c6177970a0984afc4ee61452c1cc3e397cb5aa65f70fcbb",
+        "actualSha256": "df867894cfa258399c6177970a0984afc4ee61452c1cc3e397cb5aa65f70fcbb",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-mid",
+        "file": "10d/juvenile-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 131974,
+        "actualBytes": 131974,
+        "declaredSha256": "3c3cff2e5168c34a72ec68f885bbdee27951514cb8c9424dca27368979da09ad",
+        "actualSha256": "3c3cff2e5168c34a72ec68f885bbdee27951514cb8c9424dca27368979da09ad",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-mid",
+        "file": "10d/juvenile-tree-mid-cream-buds.10d",
+        "declaredBytes": 22061,
+        "actualBytes": 22061,
+        "declaredSha256": "b727ada5e7f4bacd5e542f5edb22a4871b910b6911d6b447931169fe6cac6797",
+        "actualSha256": "b727ada5e7f4bacd5e542f5edb22a4871b910b6911d6b447931169fe6cac6797",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-far",
+        "file": "10d/juvenile-tree-far-chalk-bark.10d",
+        "declaredBytes": 12893,
+        "actualBytes": 12893,
+        "declaredSha256": "ec0131c5a052bac58e2a948442a804cfb7b7b223332a674d3eba2b9cd2369f44",
+        "actualSha256": "ec0131c5a052bac58e2a948442a804cfb7b7b223332a674d3eba2b9cd2369f44",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-far",
+        "file": "10d/juvenile-tree-far-branchwork.10d",
+        "declaredBytes": 20945,
+        "actualBytes": 20945,
+        "declaredSha256": "462473596059ece640c789c5c7103e0c2a9a5175ddae67851e29c4e52d0cee48",
+        "actualSha256": "462473596059ece640c789c5c7103e0c2a9a5175ddae67851e29c4e52d0cee48",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-far",
+        "file": "10d/juvenile-tree-far-irregular-canopy.10d",
+        "declaredBytes": 77543,
+        "actualBytes": 77543,
+        "declaredSha256": "535c8d40427479514a3855511d5ff1521dfd3dcc8537443e09e585bb5fcf4e2b",
+        "actualSha256": "535c8d40427479514a3855511d5ff1521dfd3dcc8537443e09e585bb5fcf4e2b",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-far",
+        "file": "10d/juvenile-tree-far-falcate-foliage.10d",
+        "declaredBytes": 31750,
+        "actualBytes": 31750,
+        "declaredSha256": "116bbe0f95e5d4d65f83c8d228b404b421a0ca4d05f42be7b584d58b8c1ea834",
+        "actualSha256": "116bbe0f95e5d4d65f83c8d228b404b421a0ca4d05f42be7b584d58b8c1ea834",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "juvenile-tree-far",
+        "file": "10d/juvenile-tree-far-cream-buds.10d",
+        "declaredBytes": 22061,
+        "actualBytes": 22061,
+        "declaredSha256": "ae02391feed69d634ddbe70224b3fa1d792ed3e94b3c6d211ec861973ff663b6",
+        "actualSha256": "ae02391feed69d634ddbe70224b3fa1d792ed3e94b3c6d211ec861973ff663b6",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-mid",
+        "file": "10d/multi-stem-tree-mid-chalk-bark.10d",
+        "declaredBytes": 15439,
+        "actualBytes": 15439,
+        "declaredSha256": "5342e4947dda2d1a1efd1ce88e61d5757172591d89f5c5a20a3bcb8019918f55",
+        "actualSha256": "5342e4947dda2d1a1efd1ce88e61d5757172591d89f5c5a20a3bcb8019918f55",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-mid",
+        "file": "10d/multi-stem-tree-mid-branchwork.10d",
+        "declaredBytes": 20947,
+        "actualBytes": 20947,
+        "declaredSha256": "6be513edb5d80f99457da688a48330e426b70cc1a6f6d7a2e61332eff710c6cd",
+        "actualSha256": "6be513edb5d80f99457da688a48330e426b70cc1a6f6d7a2e61332eff710c6cd",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-mid",
+        "file": "10d/multi-stem-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 154441,
+        "actualBytes": 154441,
+        "declaredSha256": "c5df2e42623d90020aaa9b957dc44ed5b6f77d4708d219a4fece076ae7998681",
+        "actualSha256": "c5df2e42623d90020aaa9b957dc44ed5b6f77d4708d219a4fece076ae7998681",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-mid",
+        "file": "10d/multi-stem-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 131976,
+        "actualBytes": 131976,
+        "declaredSha256": "347adf7381e4d1abe44869bcf34e59ad20dc1626cd78e15d19db65970dcf75bc",
+        "actualSha256": "347adf7381e4d1abe44869bcf34e59ad20dc1626cd78e15d19db65970dcf75bc",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-mid",
+        "file": "10d/multi-stem-tree-mid-cream-buds.10d",
+        "declaredBytes": 22063,
+        "actualBytes": 22063,
+        "declaredSha256": "af2b31dab6684359fcfaebb1ddcb9e0101481ca0a440f2d6291b332fe7ea5597",
+        "actualSha256": "af2b31dab6684359fcfaebb1ddcb9e0101481ca0a440f2d6291b332fe7ea5597",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-far",
+        "file": "10d/multi-stem-tree-far-chalk-bark.10d",
+        "declaredBytes": 15439,
+        "actualBytes": 15439,
+        "declaredSha256": "f3abf2cff95454393af831a69a13abd91e3f1f12f950e78f1211dfd60c0c4a39",
+        "actualSha256": "f3abf2cff95454393af831a69a13abd91e3f1f12f950e78f1211dfd60c0c4a39",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-far",
+        "file": "10d/multi-stem-tree-far-branchwork.10d",
+        "declaredBytes": 20947,
+        "actualBytes": 20947,
+        "declaredSha256": "b8da3974c60f4e3ee1d16dcc4581d879e09b08734e994ec17cd2235304682359",
+        "actualSha256": "b8da3974c60f4e3ee1d16dcc4581d879e09b08734e994ec17cd2235304682359",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-far",
+        "file": "10d/multi-stem-tree-far-irregular-canopy.10d",
+        "declaredBytes": 77545,
+        "actualBytes": 77545,
+        "declaredSha256": "0483f6f958afde1c103478bb0df6de5617171987b337fd1c29f3d07dce3fdc87",
+        "actualSha256": "0483f6f958afde1c103478bb0df6de5617171987b337fd1c29f3d07dce3fdc87",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-far",
+        "file": "10d/multi-stem-tree-far-falcate-foliage.10d",
+        "declaredBytes": 31752,
+        "actualBytes": 31752,
+        "declaredSha256": "4c43041c994cc8cbb52631a68ecdb31b90da2880fca9e629523ca0210aaebc0c",
+        "actualSha256": "4c43041c994cc8cbb52631a68ecdb31b90da2880fca9e629523ca0210aaebc0c",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "multi-stem-tree-far",
+        "file": "10d/multi-stem-tree-far-cream-buds.10d",
+        "declaredBytes": 22063,
+        "actualBytes": 22063,
+        "declaredSha256": "b916eacf18c3c0acaf501c138979a1466721dbd8b22f7e6bd9de711c789a7ea8",
+        "actualSha256": "b916eacf18c3c0acaf501c138979a1466721dbd8b22f7e6bd9de711c789a7ea8",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-mid",
+        "file": "10d/rocky-open-tree-mid-chalk-bark.10d",
+        "declaredBytes": 9967,
+        "actualBytes": 9967,
+        "declaredSha256": "48dd5446d317f4895c46a78553a975169d70bd6490a3eaf50235c1a72387c2df",
+        "actualSha256": "48dd5446d317f4895c46a78553a975169d70bd6490a3eaf50235c1a72387c2df",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-mid",
+        "file": "10d/rocky-open-tree-mid-branchwork.10d",
+        "declaredBytes": 14179,
+        "actualBytes": 14179,
+        "declaredSha256": "7c4162433c37bb994713c5af7a3c1bbed3b1ccd775892873e52ff726d68567e7",
+        "actualSha256": "7c4162433c37bb994713c5af7a3c1bbed3b1ccd775892873e52ff726d68567e7",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-mid",
+        "file": "10d/rocky-open-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 103177,
+        "actualBytes": 103177,
+        "declaredSha256": "f4211275e769bb12ada92189f39c5e2825233b221db0b11816b6322d3155009d",
+        "actualSha256": "f4211275e769bb12ada92189f39c5e2825233b221db0b11816b6322d3155009d",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-mid",
+        "file": "10d/rocky-open-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 88200,
+        "actualBytes": 88200,
+        "declaredSha256": "efd896d2d1e109aa1abb0a56084bd818891892600a7f83310a61753fcbc45b65",
+        "actualSha256": "efd896d2d1e109aa1abb0a56084bd818891892600a7f83310a61753fcbc45b65",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-mid",
+        "file": "10d/rocky-open-tree-mid-cream-buds.10d",
+        "declaredBytes": 12883,
+        "actualBytes": 12883,
+        "declaredSha256": "24316f0796ac1b5ce315a6ef6b10af8e3138405c4f9d7cf6eb56aaebc56b5302",
+        "actualSha256": "24316f0796ac1b5ce315a6ef6b10af8e3138405c4f9d7cf6eb56aaebc56b5302",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-far",
+        "file": "10d/rocky-open-tree-far-chalk-bark.10d",
+        "declaredBytes": 9967,
+        "actualBytes": 9967,
+        "declaredSha256": "bb3dcd45a95d777adf1d109a0969bd1a4d473739a29f84cbc4cb45bc6b9d4287",
+        "actualSha256": "bb3dcd45a95d777adf1d109a0969bd1a4d473739a29f84cbc4cb45bc6b9d4287",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-far",
+        "file": "10d/rocky-open-tree-far-branchwork.10d",
+        "declaredBytes": 14179,
+        "actualBytes": 14179,
+        "declaredSha256": "20254d48e0508ee8958813d8ff7a9b3e8df35e9b87d1dc9de29a9deda8cdaa4f",
+        "actualSha256": "20254d48e0508ee8958813d8ff7a9b3e8df35e9b87d1dc9de29a9deda8cdaa4f",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-far",
+        "file": "10d/rocky-open-tree-far-irregular-canopy.10d",
+        "declaredBytes": 51913,
+        "actualBytes": 51913,
+        "declaredSha256": "3f663c01248878fec1a4835cbac2d14c2d0d0f77e1a312853552c5000f4ddda9",
+        "actualSha256": "3f663c01248878fec1a4835cbac2d14c2d0d0f77e1a312853552c5000f4ddda9",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-far",
+        "file": "10d/rocky-open-tree-far-falcate-foliage.10d",
+        "declaredBytes": 21384,
+        "actualBytes": 21384,
+        "declaredSha256": "7d7143f9147f769e3a8d105848f469485a1bfeb2322040e23b7528b43e68cc93",
+        "actualSha256": "7d7143f9147f769e3a8d105848f469485a1bfeb2322040e23b7528b43e68cc93",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "rocky-open-tree-far",
+        "file": "10d/rocky-open-tree-far-cream-buds.10d",
+        "declaredBytes": 12883,
+        "actualBytes": 12883,
+        "declaredSha256": "39d23cb4b66901b6c9151583fd79dc82c4f7da419201ccf1aa526742685973e8",
+        "actualSha256": "39d23cb4b66901b6c9151583fd79dc82c4f7da419201ccf1aa526742685973e8",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-mid",
+        "file": "10d/ground-scorched-tree-mid-chalk-bark.10d",
+        "declaredBytes": 12900,
+        "actualBytes": 12900,
+        "declaredSha256": "2b3b0654f40704797b6ae96a5fc43c3a6d84987d34ca1dacfad9d765496c9f2a",
+        "actualSha256": "2b3b0654f40704797b6ae96a5fc43c3a6d84987d34ca1dacfad9d765496c9f2a",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-mid",
+        "file": "10d/ground-scorched-tree-mid-branchwork.10d",
+        "declaredBytes": 20952,
+        "actualBytes": 20952,
+        "declaredSha256": "93712c01b498f8f35b648099e5a0d5513868230965129e56cf0e837e28af6f4b",
+        "actualSha256": "93712c01b498f8f35b648099e5a0d5513868230965129e56cf0e837e28af6f4b",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-mid",
+        "file": "10d/ground-scorched-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 154446,
+        "actualBytes": 154446,
+        "declaredSha256": "5305a2885eed54e85f2d91881805240bd4a5a02923b360c4cf151a97f2db84e6",
+        "actualSha256": "5305a2885eed54e85f2d91881805240bd4a5a02923b360c4cf151a97f2db84e6",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-mid",
+        "file": "10d/ground-scorched-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 131981,
+        "actualBytes": 131981,
+        "declaredSha256": "73481fdd5c45f1a1f07edc04b00c7b109f73a308d5488ee1f9691485e0755191",
+        "actualSha256": "73481fdd5c45f1a1f07edc04b00c7b109f73a308d5488ee1f9691485e0755191",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-mid",
+        "file": "10d/ground-scorched-tree-mid-lower-trunk-scorch.10d",
+        "declaredBytes": 1532,
+        "actualBytes": 1532,
+        "declaredSha256": "23653564590e01b367258ff09f70693c399a168dcdb3d581cd6722d07571815c",
+        "actualSha256": "23653564590e01b367258ff09f70693c399a168dcdb3d581cd6722d07571815c",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-far",
+        "file": "10d/ground-scorched-tree-far-chalk-bark.10d",
+        "declaredBytes": 12900,
+        "actualBytes": 12900,
+        "declaredSha256": "fae4d45461b11ded9aa1d850569911a4b3cd639711bd072a7978ed50eaa219d3",
+        "actualSha256": "fae4d45461b11ded9aa1d850569911a4b3cd639711bd072a7978ed50eaa219d3",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-far",
+        "file": "10d/ground-scorched-tree-far-branchwork.10d",
+        "declaredBytes": 20952,
+        "actualBytes": 20952,
+        "declaredSha256": "ef4c6a7e9fafe8b50af13ef4ed172e4d3acf8c08ee10d5d42c6db48178bdc808",
+        "actualSha256": "ef4c6a7e9fafe8b50af13ef4ed172e4d3acf8c08ee10d5d42c6db48178bdc808",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-far",
+        "file": "10d/ground-scorched-tree-far-irregular-canopy.10d",
+        "declaredBytes": 77550,
+        "actualBytes": 77550,
+        "declaredSha256": "ea34dc6304f58b2e4116396d942c0144c1bd082adfb2c3ecb5382a12fd54e4bd",
+        "actualSha256": "ea34dc6304f58b2e4116396d942c0144c1bd082adfb2c3ecb5382a12fd54e4bd",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-far",
+        "file": "10d/ground-scorched-tree-far-falcate-foliage.10d",
+        "declaredBytes": 31757,
+        "actualBytes": 31757,
+        "declaredSha256": "397d75b32aa77e125f9ccd404a813c3282373ba7c06d766944441bc99c834b6f",
+        "actualSha256": "397d75b32aa77e125f9ccd404a813c3282373ba7c06d766944441bc99c834b6f",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "ground-scorched-tree-far",
+        "file": "10d/ground-scorched-tree-far-lower-trunk-scorch.10d",
+        "declaredBytes": 1532,
+        "actualBytes": 1532,
+        "declaredSha256": "8102dc68c7a487d67f758c03609873e08f688a000e201689d4b179f1160ce58f",
+        "actualSha256": "8102dc68c7a487d67f758c03609873e08f688a000e201689d4b179f1160ce58f",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-mid",
+        "file": "10d/canopy-scorched-tree-mid-chalk-bark.10d",
+        "declaredBytes": 12900,
+        "actualBytes": 12900,
+        "declaredSha256": "f0e7b00738d31beea4983942cffa51d062590219f125d25580dc2c1a20313b9f",
+        "actualSha256": "f0e7b00738d31beea4983942cffa51d062590219f125d25580dc2c1a20313b9f",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-mid",
+        "file": "10d/canopy-scorched-tree-mid-branchwork.10d",
+        "declaredBytes": 20952,
+        "actualBytes": 20952,
+        "declaredSha256": "799e58d30e3f8a4f0ff5c81048fab864a53e25e46be88448897c04c006e0b061",
+        "actualSha256": "799e58d30e3f8a4f0ff5c81048fab864a53e25e46be88448897c04c006e0b061",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-mid",
+        "file": "10d/canopy-scorched-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 39102,
+        "actualBytes": 39102,
+        "declaredSha256": "0d6d9b14cffd25aad63e8e20957c8343b8cfc8df5935a105e41bf7275becb823",
+        "actualSha256": "0d6d9b14cffd25aad63e8e20957c8343b8cfc8df5935a105e41bf7275becb823",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-mid",
+        "file": "10d/canopy-scorched-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 6701,
+        "actualBytes": 6701,
+        "declaredSha256": "e9ff0069ec76e699a45fc0282a2806f6d10aab44b092cdf49b297b82e992cd57",
+        "actualSha256": "e9ff0069ec76e699a45fc0282a2806f6d10aab44b092cdf49b297b82e992cd57",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-far",
+        "file": "10d/canopy-scorched-tree-far-chalk-bark.10d",
+        "declaredBytes": 12900,
+        "actualBytes": 12900,
+        "declaredSha256": "b58b6f7715dbd791d9d2f4d59660e3b27c67d860b1d6f0d1a8ad7e524874e999",
+        "actualSha256": "b58b6f7715dbd791d9d2f4d59660e3b27c67d860b1d6f0d1a8ad7e524874e999",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-far",
+        "file": "10d/canopy-scorched-tree-far-branchwork.10d",
+        "declaredBytes": 20952,
+        "actualBytes": 20952,
+        "declaredSha256": "dfd4e3f666db32e626a1c63f1d7fc7077d663f3a983037803a475c15d18aed80",
+        "actualSha256": "dfd4e3f666db32e626a1c63f1d7fc7077d663f3a983037803a475c15d18aed80",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-far",
+        "file": "10d/canopy-scorched-tree-far-irregular-canopy.10d",
+        "declaredBytes": 19878,
+        "actualBytes": 19878,
+        "declaredSha256": "d1c9f9823cf7b5895e48b94713d6ec529a1e285770b7286a390c535fd0eb1aea",
+        "actualSha256": "d1c9f9823cf7b5895e48b94713d6ec529a1e285770b7286a390c535fd0eb1aea",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "canopy-scorched-tree-far",
+        "file": "10d/canopy-scorched-tree-far-falcate-foliage.10d",
+        "declaredBytes": 2381,
+        "actualBytes": 2381,
+        "declaredSha256": "903f5448a46a910486ad1c9810db9f071d2dc134dfb683f6f4fd800306b219d2",
+        "actualSha256": "903f5448a46a910486ad1c9810db9f071d2dc134dfb683f6f4fd800306b219d2",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-mid",
+        "file": "10d/epicormic-regrowth-tree-mid-chalk-bark.10d",
+        "declaredBytes": 12903,
+        "actualBytes": 12903,
+        "declaredSha256": "7c346a4d129761fea008689d650b5c4037b3b8cf520c32a4a18108c4fda6c3b3",
+        "actualSha256": "7c346a4d129761fea008689d650b5c4037b3b8cf520c32a4a18108c4fda6c3b3",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-mid",
+        "file": "10d/epicormic-regrowth-tree-mid-branchwork.10d",
+        "declaredBytes": 20955,
+        "actualBytes": 20955,
+        "declaredSha256": "522266e0fba0252c51908dc1dc8c0c84117829aee687d860b51128aa5dd3a7a8",
+        "actualSha256": "522266e0fba0252c51908dc1dc8c0c84117829aee687d860b51128aa5dd3a7a8",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-mid",
+        "file": "10d/epicormic-regrowth-tree-mid-irregular-canopy.10d",
+        "declaredBytes": 154449,
+        "actualBytes": 154449,
+        "declaredSha256": "d25e3dd1e59b0ce847f7a5dfc73c5e24ebb44b1a9936fbc5697d77bc03b993be",
+        "actualSha256": "d25e3dd1e59b0ce847f7a5dfc73c5e24ebb44b1a9936fbc5697d77bc03b993be",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-mid",
+        "file": "10d/epicormic-regrowth-tree-mid-falcate-foliage.10d",
+        "declaredBytes": 131984,
+        "actualBytes": 131984,
+        "declaredSha256": "d4b50073513a0934b03df921d80996a4c6f06665e3bd92d1c4aad76a22777c69",
+        "actualSha256": "d4b50073513a0934b03df921d80996a4c6f06665e3bd92d1c4aad76a22777c69",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-mid",
+        "file": "10d/epicormic-regrowth-tree-mid-lower-trunk-scorch.10d",
+        "declaredBytes": 1535,
+        "actualBytes": 1535,
+        "declaredSha256": "1c8c73036f23d263173347aa8f8ef42a07a7e5e004018a15edc3ec85abd25a91",
+        "actualSha256": "1c8c73036f23d263173347aa8f8ef42a07a7e5e004018a15edc3ec85abd25a91",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-mid",
+        "file": "10d/epicormic-regrowth-tree-mid-epicormic-shoots.10d",
+        "declaredBytes": 19737,
+        "actualBytes": 19737,
+        "declaredSha256": "ac048cfb59c780391073caf69801d0a394582c98bb391a5d79ac54750138a5b0",
+        "actualSha256": "ac048cfb59c780391073caf69801d0a394582c98bb391a5d79ac54750138a5b0",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-far",
+        "file": "10d/epicormic-regrowth-tree-far-chalk-bark.10d",
+        "declaredBytes": 12903,
+        "actualBytes": 12903,
+        "declaredSha256": "3c0e3d85c6f2ab8d623422dadc61dfec3e865a5dd57e7baa0fe4a32c1525ebd0",
+        "actualSha256": "3c0e3d85c6f2ab8d623422dadc61dfec3e865a5dd57e7baa0fe4a32c1525ebd0",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-far",
+        "file": "10d/epicormic-regrowth-tree-far-branchwork.10d",
+        "declaredBytes": 20955,
+        "actualBytes": 20955,
+        "declaredSha256": "edf5f1acf3e56a85cca113dbadb2916b7606faae4ed869b7ca600a1ad146846d",
+        "actualSha256": "edf5f1acf3e56a85cca113dbadb2916b7606faae4ed869b7ca600a1ad146846d",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-far",
+        "file": "10d/epicormic-regrowth-tree-far-irregular-canopy.10d",
+        "declaredBytes": 77553,
+        "actualBytes": 77553,
+        "declaredSha256": "ee28791a239f61843dfa21b63f24809a5ef9794100104e2b13c9795732036660",
+        "actualSha256": "ee28791a239f61843dfa21b63f24809a5ef9794100104e2b13c9795732036660",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-far",
+        "file": "10d/epicormic-regrowth-tree-far-falcate-foliage.10d",
+        "declaredBytes": 31760,
+        "actualBytes": 31760,
+        "declaredSha256": "c7e722fdcf53e2a2d28b5d7ee2801460d37fad6c34ee708ef228c9b7e89f05e1",
+        "actualSha256": "c7e722fdcf53e2a2d28b5d7ee2801460d37fad6c34ee708ef228c9b7e89f05e1",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-far",
+        "file": "10d/epicormic-regrowth-tree-far-lower-trunk-scorch.10d",
+        "declaredBytes": 1535,
+        "actualBytes": 1535,
+        "declaredSha256": "191f0b5510c32b6158d80ca188fc017e8a1a41d10a67a0752916bf3a7df969ca",
+        "actualSha256": "191f0b5510c32b6158d80ca188fc017e8a1a41d10a67a0752916bf3a7df969ca",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "epicormic-regrowth-tree-far",
+        "file": "10d/epicormic-regrowth-tree-far-epicormic-shoots.10d",
+        "declaredBytes": 19737,
+        "actualBytes": 19737,
+        "declaredSha256": "5060ccdbbc7cf2a4310e1e15c522ec1623eb2e999ee17350a0f75ad0c1d3320d",
+        "actualSha256": "5060ccdbbc7cf2a4310e1e15c522ec1623eb2e999ee17350a0f75ad0c1d3320d",
+        "digestMatches": true,
+        "sizeMatches": true
+      },
+      {
+        "model": "leaf-study",
+        "file": "10d/leaf-study-blade.10d",
+        "declaredBytes": 48250,
+        "actualBytes": 135200,
+        "declaredSha256": "2fc7f702f59c4f904622c115117adface3d41f7c7005e6f955d80f33ed103bfe",
+        "actualSha256": "a80fc176c3a9c9c17a728beb6f645df64c0ad08b9587fd69123055f81fe5577d",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "leaf-study",
+        "file": "10d/leaf-study-midrib.10d",
+        "declaredBytes": 21400,
+        "actualBytes": 135200,
+        "declaredSha256": "325a21eb25a1af4ab6f0ac7e99d802a19356edb395cd0f92fc5cfb5d894e59ca",
+        "actualSha256": "a80fc176c3a9c9c17a728beb6f645df64c0ad08b9587fd69123055f81fe5577d",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "leaf-study",
+        "file": "10d/leaf-anatomy-cutaway.10d",
+        "declaredBytes": 72150,
+        "actualBytes": 135200,
+        "declaredSha256": "8f42d109825b682390a7862fec82947e9261895a09289bbde86f9e2b109357ab",
+        "actualSha256": "a80fc176c3a9c9c17a728beb6f645df64c0ad08b9587fd69123055f81fe5577d",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "flower-study",
+        "file": "10d/flower-study-receptacle.10d",
+        "declaredBytes": 14200,
+        "actualBytes": 3308,
+        "declaredSha256": "d3a499b254865155a6a47f7c7f390212a7c8a988175d2fe65aaa4be86a90d598",
+        "actualSha256": "d3a499b254865155a6a47f7c7f390212a7c8a988175d2fe65aaa4be86a90d598",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "flower-study",
+        "file": "10d/flower-dissection.10d",
+        "declaredBytes": 12400,
+        "actualBytes": 124512,
+        "declaredSha256": "e3029f957cb1d02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89a",
+        "actualSha256": "223e72faa9ac419567667364ddfd0315e90e21fad5d44a6a3fabf2ddd5326801",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "flower-study",
+        "file": "10d/flower-study-stamens.10d",
+        "declaredBytes": 32800,
+        "actualBytes": 7545,
+        "declaredSha256": "90f5dcf7cf9c08a2fc7ebacb2e2b0920729b79d3bfdcfc662d57ecc6a141d75f",
+        "actualSha256": "90f5dcf7cf9c08a2fc7ebacb2e2b0920729b79d3bfdcfc662d57ecc6a141d75f",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "flower-study",
+        "file": "10d/flower-study-pedicel.10d",
+        "declaredBytes": 8600,
+        "actualBytes": 933,
+        "declaredSha256": "509ab6fc774e2365f80a3651654129c2fd2cfac9e690a4f1b5e5d8549ccb4290",
+        "actualSha256": "509ab6fc774e2365f80a3651654129c2fd2cfac9e690a4f1b5e5d8549ccb4290",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "flower-study",
+        "file": "10d/flower-dissection.10d",
+        "declaredBytes": 15600,
+        "actualBytes": 124512,
+        "declaredSha256": "47cb59015ba6a048792019cba85a1ef030bb98ef0102aa56bc108849ff01cd20",
+        "actualSha256": "223e72faa9ac419567667364ddfd0315e90e21fad5d44a6a3fabf2ddd5326801",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "gumnut-study",
+        "file": "10d/gumnut-study-capsule.10d",
+        "declaredBytes": 22400,
+        "actualBytes": 3305,
+        "declaredSha256": "18e82ba80dd7cb38dd9b5fefa768fccf87540c7e47b9ffaa582e1cb46635cd66",
+        "actualSha256": "18e82ba80dd7cb38dd9b5fefa768fccf87540c7e47b9ffaa582e1cb46635cd66",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "gumnut-study",
+        "file": "10d/gumnut-study-rim.10d",
+        "declaredBytes": 10200,
+        "actualBytes": 2933,
+        "declaredSha256": "2e1fbb7964b2d7517a04510233a40318030a2b4d179429aa5be99153a4b90f6a",
+        "actualSha256": "2e1fbb7964b2d7517a04510233a40318030a2b4d179429aa5be99153a4b90f6a",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "gumnut-study",
+        "file": "10d/gumnut-study-pedicel.10d",
+        "declaredBytes": 7400,
+        "actualBytes": 897,
+        "declaredSha256": "144f40bd82213865250667a0c3ae7bb2426fb820f4f5f0918dafd7abfe038ec4",
+        "actualSha256": "144f40bd82213865250667a0c3ae7bb2426fb820f4f5f0918dafd7abfe038ec4",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "gumnut-study",
+        "file": "10d/gumnut-dissection.10d",
+        "declaredBytes": 13800,
+        "actualBytes": 124512,
+        "declaredSha256": "3a018bc79940ef9810bbce271890efba108849ff01cd2047cb59015ba6a04879",
+        "actualSha256": "223e72faa9ac419567667364ddfd0315e90e21fad5d44a6a3fabf2ddd5326801",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "bark-study",
+        "file": "10d/bark-study-surface.10d",
+        "declaredBytes": 42800,
+        "actualBytes": 87664,
+        "declaredSha256": "91376cc886107b2b0fd0d60ed22cb2155dcb7f2acbd4c5755a43221b9face9a2",
+        "actualSha256": "e47607da7b6e62153d2b64f8230b8429829c305990255a6561b9b818e4ca8689",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "bark-study",
+        "file": "10d/bark-study-weathering.10d",
+        "declaredBytes": 22400,
+        "actualBytes": 4282,
+        "declaredSha256": "30bde418a77edf2beafc859dba0fbe77cf733975eed43c1725857b78595422cb",
+        "actualSha256": "30bde418a77edf2beafc859dba0fbe77cf733975eed43c1725857b78595422cb",
+        "digestMatches": true,
+        "sizeMatches": false
+      },
+      {
+        "model": "bark-study",
+        "file": "10d/stem-anatomy-wedge.10d",
+        "declaredBytes": 58900,
+        "actualBytes": 87664,
+        "declaredSha256": "7810bbce271890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef",
+        "actualSha256": "e47607da7b6e62153d2b64f8230b8429829c305990255a6561b9b818e4ca8689",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "whole-organism-roots",
+        "file": "10d/whole-organism-roots.10d",
+        "declaredBytes": 19800,
+        "actualBytes": 89200,
+        "declaredSha256": "a1ef030bb98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85",
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "whole-organism-roots",
+        "file": "10d/whole-organism-roots.10d",
+        "declaredBytes": 17200,
+        "actualBytes": 89200,
+        "declaredSha256": "b02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89ae3029f957cb1",
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "whole-organism-roots",
+        "file": "10d/whole-organism-roots.10d",
+        "declaredBytes": 29400,
+        "actualBytes": 89200,
+        "declaredSha256": "c890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef7810bbce27",
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "digestMatches": false,
+        "sizeMatches": false
+      },
+      {
+        "model": "whole-organism-roots",
+        "file": "10d/whole-organism-roots.10d",
+        "declaredBytes": 22600,
+        "actualBytes": 89200,
+        "declaredSha256": "d98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85a1ef030b",
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "digestMatches": false,
+        "sizeMatches": false
+      }
+    ]
+  }
+}

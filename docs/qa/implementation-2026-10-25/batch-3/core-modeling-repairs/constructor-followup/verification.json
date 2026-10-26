@@ -1,0 +1,36 @@
+{
+  "scope": "Exact candidate production types.rs and properties.rs included as source; cached Core provides only unchanged supporting enum/error/metrics types; no whole-Core rebuild or cached constructor substitution.",
+  "exit_code": 0,
+  "compiler_arguments": [
+    "rustc",
+    "--test",
+    "--edition=2021",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\constructor-followup\\focused.rs",
+    "--extern",
+    "qualia_core_db=C:/github/ecopunk/target\\debug\\deps\\libqualia_core_db.rlib",
+    "--extern",
+    "serde=C:/github/ecopunk/target\\debug\\deps\\libserde-98af08b3012770d3.rlib",
+    "-L",
+    "dependency=C:/github/ecopunk/target/debug/deps",
+    "-o",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\constructor-followup\\focused.exe",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\blake3-da8ba380479449f1\\out",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\ring-b53baf53c685dea7\\out",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\zstd-sys-ddb15c1df437b75d\\out",
+    "-L",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\winapi-x86_64-pc-windows-gnu-0.4.0\\lib",
+    "-L",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows_x86_64_gnu-0.52.6\\lib",
+    "-L",
+    "native=C:\\github\\qualiaDB\\crates\\qualia-core-db\\..\\..\\vendor\\directml\\bin\\x64-win"
+  ],
+  "binary_sha256": "efb72d63b1f82074ee002a3179d45d89443cb7e2b803f3b789afdfb22cec6116",
+  "candidate_pins": {
+    "properties.rs": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+    "tests.rs": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28",
+    "types.rs": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006"
+  }
+}

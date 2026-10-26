@@ -1,0 +1,88 @@
+{
+  "checked_utc": "2026-10-25T23:54:38.229873+00:00",
+  "canonical_targets_verified": {
+    "native/src/graphical/geometry_host.rs": "552722c9ca9e4cf57fa8812b8f81687be067e1712dbf6d9fd6f3badfda4e29b6",
+    "native/src/graphical/turtle_host.rs": "969df82cc259c177bb6872cd384450916fc57b0699da3b8e2cd794cb65795d10",
+    "native/src/graphical/turtle_host_tests.rs": "c83ec1362eb479d8922458964108ad5550c6bc6d068f9c74c95df3aefc36d89d",
+    "native/src/graphical/mod.rs": "0603b4665a2e499339f313c24408e53c3a380d7b4cfb73c285e32435e93c0736",
+    "native/src/graphical/biological_reference_tests.rs": "23ce43b2733773000bad35643ae0fd739dd799dbd56cd43475cb706f8190bc13"
+  },
+  "checks": {
+    "biology-host": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\biology-host-result.json",
+      "sha256": "8a3c6ad6910eef8b917bcbb6ad6b7eb18961e2fcc2cd3b0ba47e963de01bc953",
+      "elapsed_seconds": 66.719,
+      "test_results": [
+        [
+          10,
+          0,
+          0
+        ]
+      ]
+    },
+    "biology-render": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\biology-render-result.json",
+      "sha256": "582fc2938955bfbede068e11006c9d44d0de70fd79fc9133b46440b8b4a7f838",
+      "elapsed_seconds": 18.687,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    "build": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\build-result.json",
+      "sha256": "e48de9ff3639937cb8d532802412438cb2c9eab8b4daa85023eef600eaa6e0c6",
+      "elapsed_seconds": 54.453,
+      "test_results": []
+    }
+  },
+  "distinct_passing_tests": 11,
+  "artifacts": [
+    {
+      "label": "establishment",
+      "source": "C:\\github\\ecopunk\\tools\\poet-foundation\\biological-reference\\fixtures\\establishment-branching.vibe",
+      "source_sha256": "90315447247c4f97f96be934e09c6a00e88b4aac8e1ad6d75fd268c909e3715f",
+      "image": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\reference-output\\branching-establishment.png",
+      "image_sha256": "6bc27e4cb2f8f42cbc8a8ecfbbd6a3c8d4cb332f3617c5000acddc93a3c36110",
+      "vertices": 48,
+      "triangles": 48,
+      "biological_validation": "unassessed"
+    },
+    {
+      "label": "young",
+      "source": "C:\\github\\ecopunk\\tools\\poet-foundation\\biological-reference\\fixtures\\young-branching.vibe",
+      "source_sha256": "b991889014385fc9eac1c2f5fd14157b76e09751ff5a6ff0b6b085749521b08e",
+      "image": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\reference-output\\branching-young.png",
+      "image_sha256": "b355de0b8bc05ab9e92d4500696f8e94055aef1a632f9688f5a59926a57f45e3",
+      "vertices": 112,
+      "triangles": 112,
+      "biological_validation": "unassessed"
+    },
+    {
+      "label": "mature",
+      "source": "C:\\github\\ecopunk\\tools\\poet-foundation\\biological-reference\\fixtures\\mature-branching.vibe",
+      "source_sha256": "8d51b0933b406f751380c2293c4d6bae947e7c2bd9d9b514fa6d7f8e0d182413",
+      "image": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\reference-output\\branching-mature.png",
+      "image_sha256": "af9e20cec4ab583e65fbdbecaf2b9f94b8bbd97f321a2a04a06ff0337122bde1",
+      "vertices": 220,
+      "triangles": 220,
+      "biological_validation": "unassessed"
+    }
+  ],
+  "binary": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+  "binary_sha256": "f46aa0fe7a678bd38a7cd430107b4b9377bba55a05ec13ba753c52e932b33eab",
+  "native_gui_or_human_review": "not performed",
+  "species_package_status": {
+    "mountain_white_gum": "incomplete",
+    "swamp_wallaby": "incomplete"
+  },
+  "remaining_cases": [
+    "TREE-01 through TREE-13",
+    "WALLABY-01 through WALLABY-16",
+    "all applicable catalogue rows and expansions"
+  ],
+  "scope": "Native host and branch diagnostic only; no plant species master, animal master, rig, HMC species embodiment, game-demo acceptance or profile acceptance."
+}

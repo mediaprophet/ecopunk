@@ -1,0 +1,56 @@
+{
+  "status": "staged_for_root_review_not_executed",
+  "date": "2026-10-26",
+  "worker": "/root/image_controls_recovery",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "recovered_worker": "/root/image_poet_controls",
+  "recovered_failure": "selectedmodelcapacity for gpt6-sol",
+  "owned_outputs": [
+    "native/src/graphical/authoring/detail_controls.rs"
+  ],
+  "canonical_root": "C:/github/poet",
+  "canonical_preimage_sha256": "b31da3635f64a1199d54ff072879233c3013a0578f5e0a91ec2587f06a800616",
+  "canonical_preimage": "preimages/detail_controls.canonical.rs",
+  "recovered_partial_sha256": "7ec0801ed0b533fb5236c5af0462ef3d384bfa017b60324aa74e84010a01303c",
+  "recovered_partial": "preimages/detail_controls.recovered.rs",
+  "staged_sha256": "5307a61a701b98d261dddd1d8f810b611772ae462e2cfbc85532521fac62bd6b",
+  "implementation": [
+    "Native form exposes grayscale, invert, sepia and all four new filters with bounded typed parameters and units",
+    "Layer controls expose normal plus all nine actual Core modes, signed i32 pixel offsets, none/rectangle/resource mask and red/alpha channel",
+    "All active raw numeric/mask form values reparse before Apply, including disabled effects and hidden layers; invalid text remains retained",
+    "Effect order/removal synchronizes primary and secondary raw values; layer order/removal synchronizes opacity and mask/offset/blend raw fields",
+    "Apply promotes to max(current, required_paint_version); legacy effect Add also promotes without downgrading version 3",
+    "Existing immutable base/side, layers/strokes, names, visibility and source/selection stale draft guards retained; no separate state owner",
+    "Existing default add-effect label and sepia aria label preserved for prior real-component tests"
+  ],
+  "tests_added": [
+    "image_completed_controls_four_filters_roundtrip_fields_and_preserve_paint",
+    "image_completed_controls_filter_ranges_and_disabled_invalid_text_refuse_old_values",
+    "image_completed_controls_all_blends_offsets_and_rectangle_masks_keep_source_layers",
+    "image_completed_controls_mask_channels_raw_refusal_and_hidden_bounds",
+    "image_completed_controls_secondary_order_retention_and_no_version_downgrade"
+  ],
+  "tests_executed": [],
+  "root_checks_required": [
+    "Compile via actual Poet native dependency closure after canonical freeze",
+    "Run image_completed_controls helper tests and all retained texture_effect_controls helper tests",
+    "Run retained texture_effect_component real mounted event tests",
+    "Extend mounted native event checks for all four filters, secondary invalid text, blend/offset/mask fields, layer ordering, stale/reload behavior",
+    "Qualify shared source/MCP, HMC resource closure, undo/rebuild/reopen and native GPU changes separately"
+  ],
+  "inspected_scope": [
+    "CONTRACT.md frozen DTO and exact admission/preservation requirements",
+    "Ec AGENTS.md, architecture.md, development-modes.md, made-world.md and Poet comprehensive authoring review introductions",
+    "Recovered and canonical detail_controls.rs full contents",
+    "Existing texture_effect_component_tests.rs harness/events/old field labels",
+    "Core hypermedia_authoring/image.rs BlendMode actual enum",
+    "Domain-worker staged recipe.rs DTO, required_paint_version and rectangle/resource mask validation; staged mod.rs re-exports"
+  ],
+  "notes": [
+    "No canonical source writes, Cargo/build/test, GUI, providers, assets, manifests or dependency changes",
+    "No complete package/model or whole-product acceptance claim",
+    "Python WindowsApps alias unavailable during an attempted source-edit helper; made no edits and source changes were applied with apply_patch",
+    "Legacy helper wrappers retained under cfg(test); runtime UI uses multi-parameter helpers directly"
+  ]
+}

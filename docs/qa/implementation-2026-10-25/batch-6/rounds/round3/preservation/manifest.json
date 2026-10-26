@@ -1,0 +1,78 @@
+{
+  "schema": "scoped-source-evidence-v1",
+  "status": "staged-frozen-not-installed-not-native-tested",
+  "captured_utc": "2026-10-25T04:23:37.9396333Z",
+  "source_root": "C:/github/qualiaDB",
+  "source_revision": "unavailable: sibling git metadata access denied; exact source hashes below",
+  "owned_targets": [
+    {
+      "target": "crates/qualia-core-db/src/container_10d/section.rs",
+      "before_exists": true,
+      "before_sha256": "2416394e69ac1646f3ec77a4904983806bb190dce82e15e650dcd1bb222e067e",
+      "after_sha256": "bf8b9a3e501348844b1f9e5caa6d51cffec8bb41ee0d3fa3e69fe0af6c857ac6",
+      "after_bytes": 50976,
+      "live_baseline_matches": true
+    },
+    {
+      "target": "crates/qualia-core-db/src/container_10d/section/opaque_preservation.rs",
+      "before_exists": false,
+      "before_sha256": null,
+      "after_sha256": "8f6f1c344ad5d0b6945c23c4be9d37d0364bb601ba75d32d77fb9f2d648bd7e3",
+      "after_bytes": 13007,
+      "live_baseline_matches": true
+    },
+    {
+      "target": "crates/qualia-core-db/tests/ten_d_opaque_preservation.rs",
+      "before_exists": false,
+      "before_sha256": null,
+      "after_sha256": "17b3828cf53f3ddd57d2ca575c3924ca86eecedbd8bbd7d1689a0f8a50c3047f",
+      "after_bytes": 16072,
+      "live_baseline_matches": true
+    },
+    {
+      "target": "crates/qualia-core-db/tests/opaque_preservation_support/mod.rs",
+      "before_exists": false,
+      "before_sha256": null,
+      "after_sha256": "7698806a4a6544fa0bc121700e3902540e5ac85285cc275d387748f9c0c3b106",
+      "after_bytes": 3259,
+      "live_baseline_matches": true
+    }
+  ],
+  "read_only_dependencies": [
+    {
+      "source": "AGENTS.md",
+      "sha256": "a7f143ba70627edaab3221ef883daba625c11fe63e89edb2d73b0c3d9d3374ab"
+    },
+    {
+      "source": "crates/qualia-core-db/src/container_10d/header.rs",
+      "sha256": "465fb36fd7278f203b14341531e8f0b312c1bc2f500cdfcddb3f8e6b0bdae2b9"
+    },
+    {
+      "source": "crates/qualia-core-db/src/container_10d/section/table_validation.rs",
+      "sha256": "96f6585e9af1a0e7fa22108093162d45cb9413d10da7064852f40941be37b7bb"
+    },
+    {
+      "source": "crates/qualia-core-db/src/container_10d/material_container.rs",
+      "sha256": "edf321c184ed9ceda846672421245f5bdf90950443ce7d0c36b5fe61b61c3771"
+    },
+    {
+      "source": "crates/qualia-core-db/src/container_10d/integrity.rs",
+      "sha256": "13e76495e381377388eb2ea9c7d46b16b5642b615ddcee5dfcabbf9e41aabe8b"
+    },
+    {
+      "source": "crates/qualia-core-db/src/container_10d/crc32c.rs",
+      "sha256": "401e264a041fbd7524628b0d609ff018b7c392ebcd67d55dd06b2303d9adb340"
+    }
+  ],
+  "check": {
+    "rustfmt_check": "passed",
+    "native_tests": "not run by worker; thirteen authored tests",
+    "allocation_measurement": "not executed; fixture present only"
+  },
+  "boundaries": [
+    "strict parser/default unchanged",
+    "no material attach behavior change",
+    "unknown semantic dependencies refuse changed replacement",
+    "no assets/network/GUI/sibling writes/builds/commits/publication"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-25",
+  "scope": "read-only source investigation plus two Ecopunk contract notes",
+  "poet_source_changes": [],
+  "core_source_changes": [],
+  "checks_run": ["document line counts", "SHA256 of saved note bytes"],
+  "checks_not_run": ["Cargo", "runtime", "render", "human acceptance"],
+  "notes": [
+    {
+      "path": "field-sidecar-coexistence.md",
+      "lines": 66,
+      "sha256": "B887F63D21B7E0BC695EB54E3B27AF9DCB2783E6523EC6728C1E2AB05A938C99"
+    },
+    {
+      "path": "surface-format-contract.md",
+      "lines": 73,
+      "sha256": "9E4BE3E2646ECFBCCA32EAFE7996FB213D448FB8E181C2A7896341E54AFFDD96"
+    }
+  ],
+  "implementation_status": "held for ecosystem format and SDK contract review",
+  "model_package_status": "incomplete; no model completion assessment performed"
+}

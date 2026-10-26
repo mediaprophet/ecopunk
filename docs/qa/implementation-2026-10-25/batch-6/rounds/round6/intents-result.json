@@ -1,0 +1,59 @@
+{
+  "mode": "intents",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::poet_workspace::tests::",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T10:22:44.146954+00:00",
+  "finished_utc": "2026-10-25T10:23:08.498964+00:00",
+  "elapsed_seconds": 24.359,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\intents.log",
+  "log_sha256": "197cee126d90f8894df21c06a6b960adb4198f757edd9f0310a351b502f71efa",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\intents-source-before.json",
+  "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+  "recorded_local_source_files": 3217,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 5,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      5,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::poet_workspace::tests::foreign_target_context_client_provenance_unknown_and_oversize_are_rejected",
+    "graphical::poet_workspace::tests::native_projection_reuses_original_studio_containers_and_holds_unqualified_services",
+    "graphical::poet_workspace::tests::read_only_refresh_recovers_same_actor_source_successor_without_rebinding_actor",
+    "graphical::poet_workspace::tests::revocation_refuses_dispatch_and_cancel_never_claims_cancelled",
+    "graphical::poet_workspace::tests::same_native_actor_provenance_is_real_and_backend_failure_stays_rejected"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round6-i09usdx1",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

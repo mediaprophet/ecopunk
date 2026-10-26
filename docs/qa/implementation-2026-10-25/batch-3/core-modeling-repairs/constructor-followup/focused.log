@@ -1,0 +1,10 @@
+
+running 5 tests
+test types::constructor_tests::new_molecular_properties_are_zero_initialized_not_chemical_results ... ok
+test types::constructor_tests::new_molecule_is_empty_and_has_no_measured_properties ... ok
+test explicit_carbon_fixture_has_consistent_structure ... ok
+test properties::tests::initialized_predictor_rejects_empty_and_formula_only_molecules ... ok
+test properties::tests::initialized_predictor_uses_registered_group_contribution_formulas ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

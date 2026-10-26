@@ -1,0 +1,55 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::viewport_input",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "input",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:42:01.375983+00:00",
+  "finished_utc": "2026-10-25T22:42:12.181139+00:00",
+  "elapsed_seconds": 10.797,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\input.log",
+  "log_sha256": "5e3efa736cbe345712122d361ad7d5215cdf184e5e2322bc32cd842065083498",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\input-source-before.json",
+  "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb",
+  "recorded_local_source_files": 3279,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      4,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::viewport_input::tests::contain_letterbox_is_not_pickable",
+    "graphical::viewport_input::tests::drag_delta_uses_same_contain_scale_and_rejects_excess",
+    "graphical::viewport_input::tests::maps_square_coordinates_to_attachment",
+    "graphical::viewport_input::tests::rejects_nonfinite_zero_and_outside_inputs"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

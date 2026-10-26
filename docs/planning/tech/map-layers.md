@@ -21,7 +21,7 @@ layer is a separable governed object with its own:
 
 | Property | Rule |
 |---|---|
-| **Identity** | stable layer ID (namespace + name + version) — versions, not overwrites |
+| **Identifiers** | stable layer ID (namespace + name + version) — versions, not overwrites |
 | **Provenance** | source dataset, retrieval date/query/digest, source CRS + declared target CRS, transform chain, importer+version |
 | **Licence** | per-layer `LicencePolicy` — **layers never silently inherit each other's licences** (game-demo rule, adopted) |
 | **Temporal scope** | validity interval(s) and/or observation dates; historical layers are first-class |
@@ -71,7 +71,7 @@ persistence, and contest — a contested anchor is a record, not an edit.
 | Payload | Canonical form | Notes |
 |---|---|---|
 | Point records (occurrences, sites) | quins + quadtree (x,y,t0,t1) index | sensitive coords → generalised + flag |
-| Vector features (borders, roads, regions) | vector quins, source identity retained (`vector_scene` precedent) | geometry validity receipts at ingest |
+| Vector features (borders, roads, regions) | vector quins, source identifiers retained (`vector_scene` precedent) | geometry validity receipts at ingest |
 | Gridded fields (DEM, climate, veg cover) | `.10d` FIEL sections (scalar/vector/tensor over cells) | DEM path exists (`dem_adapter`); general raster→FIEL is a registered gap |
 | Meshes (terrain surface, scene geometry) | `.10d` mesh sections | terrain_pipeline: DEM→mesh→geodetic anchor |
 | Raster imagery | `.10d` FIEL or external tile refs in pack manifest | licence per tile source |

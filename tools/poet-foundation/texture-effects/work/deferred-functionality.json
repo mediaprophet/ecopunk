@@ -1,0 +1,482 @@
+{
+  "inventory": "W2-Poet-texture-effects-deferred-functionality",
+  "scope": "Bounded findings from already inspected qualia-core-db hypermedia_authoring/image.rs only; not a repository-wide stub audit.",
+  "owner": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+  "sha256": "6D492B8DB1E1A78E2F43BD95BC0A9FD2B7DA9DCC054FCA7EAEAE8E789F0AAB49",
+  "status": "all_15_implemented_and_engineering_verified",
+  "existing_requirement_mapping": [
+    "IP-03",
+    "PA-03",
+    "PA-06",
+    "PC-06",
+    "TOOL-06"
+  ],
+  "local_subcase_prefix": "PA-03",
+  "items": [
+    {
+      "id": "PA-03-FILTER-GAUSSIAN-BLUR",
+      "kind": "filter_noop",
+      "symbol": "apply_filter/ImageFilter::GaussianBlur",
+      "range": "210-300",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement bounded canonical blur or route to existing operator; specify radius/sigma, edge extension, alpha, color space, rounding and work bounds.",
+      "acceptance": {
+        "positive": "Pinned impulse/step fixture spreads as expected.",
+        "identity": "Zero radius or declared identity is byte-identical.",
+        "alpha": "Transparent/partial alpha follows explicit policy without fringes.",
+        "bounds": "Invalid/nonfinite parameters and oversized work refuse before mutation; bytes unchanged."
+      },
+      "baseline_behavior": "Wildcard arm performs no pixel change.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/0",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-FILTER-SHARPEN",
+      "kind": "filter_noop",
+      "symbol": "apply_filter/ImageFilter::Sharpen",
+      "range": "210-300",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement bounded canonical unsharp/convolution operator; specify kernel/radius/amount, edge, alpha, color space, clipping and rounding.",
+      "acceptance": {
+        "positive": "Pinned edge fixture increases local contrast per oracle.",
+        "identity": "Zero amount is byte-identical.",
+        "alpha": "Alpha follows declared preserve/transform rule.",
+        "bounds": "Invalid values/dimensions refuse before mutation; bytes unchanged."
+      },
+      "baseline_behavior": "Wildcard arm performs no pixel change.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/1",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-FILTER-HUE-ROTATE",
+      "kind": "filter_noop",
+      "symbol": "apply_filter/ImageFilter::HueRotate",
+      "range": "210-300",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Define typed hue-angle units/range, transform, achromatic behavior, alpha and color space; do not reinterpret current 0..1 intensity implicitly.",
+      "acceptance": {
+        "positive": "Saturated reference colors match pinned rotated oracle.",
+        "identity": "Zero degrees returns exact original bytes.",
+        "alpha": "Alpha unchanged.",
+        "bounds": "Nonfinite/out-of-contract angle refuses before mutation; bytes unchanged."
+      },
+      "baseline_behavior": "Wildcard arm performs no pixel change.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/2",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-FILTER-EMBOSS",
+      "kind": "filter_noop",
+      "symbol": "apply_filter/ImageFilter::Emboss",
+      "range": "210-300",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Define directional kernel, angle/strength/neutral midpoint, edge, alpha and color-space policy; implement bounded canonical operator.",
+      "acceptance": {
+        "positive": "Directional edge fixture matches oracle.",
+        "identity": "Zero strength returns exact input.",
+        "alpha": "Alpha follows explicit rule.",
+        "bounds": "Invalid parameters/dimensions refuse before mutation; bytes unchanged."
+      },
+      "baseline_behavior": "Wildcard arm performs no pixel change.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/3",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-MULTIPLY",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::Multiply",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement specified multiply equation, alpha convention, working space, clipping and rounding, or refuse/disable unsupported mode.",
+      "acceptance": {
+        "positive": "Opaque color pair matches multiply oracle.",
+        "identity": "Transparent source and opaque identity cases match contract.",
+        "alpha": "Partial source/destination matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely without partial output."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/4",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-SCREEN",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::Screen",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement specified screen equation, alpha, color space, clipping and rounding, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Opaque pair matches screen oracle.",
+        "identity": "Transparent source, black identity and white saturation cases match the explicit contract.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/5",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-OVERLAY",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::Overlay",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement channel-branch overlay equation with alpha/color-space/rounding contract, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Dark/light base fixtures exercise both branches against oracle.",
+        "identity": "Transparent/neutral identity cases match contract.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/6",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-SOFTLIGHT",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::SoftLight",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Choose exact soft-light variant and define transfer space, alpha and rounding, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Midtone fixture covers both branches against oracle.",
+        "identity": "Transparent/neutral identity cases match contract.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/7",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-HARDLIGHT",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::HardLight",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement specified hard-light equation, color space and alpha, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Source-threshold and light/dark fixtures match oracle.",
+        "identity": "Transparent/neutral identity cases match contract.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/8",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-COLOR-DODGE",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::ColorDodge",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Define denominator edge behavior, clipping, working space, alpha and rounding, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Channel oracle covers denominator edge case.",
+        "identity": "Transparent/black cases follow declared identities.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/9",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-COLOR-BURN",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::ColorBurn",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Define zero/white edge behavior, clipping, working space, alpha and rounding, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Channel oracle covers denominator edge case.",
+        "identity": "Transparent/white cases follow declared identities.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/10",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-DIFFERENCE",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::Difference",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement absolute channel difference with explicit alpha/color-space/rounding, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Unequal channel pair matches difference oracle.",
+        "identity": "Equal opaque channels yield black.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/11",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-EXCLUSION",
+      "kind": "ignored_blend_mode",
+      "symbol": "ImageDocument::composite / BlendMode::Exclusion",
+      "range": "10-22,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Implement exclusion equation with explicit alpha/color-space/rounding, or refuse unsupported mode.",
+      "acceptance": {
+        "positive": "Nontrivial channel pair matches exclusion oracle.",
+        "identity": "Black interaction identities match contract.",
+        "alpha": "Partial alpha matches pinned equation.",
+        "bounds": "Malformed dimensions/storage refuse safely."
+      },
+      "baseline_behavior": "blend_mode ignored; composition uses Normal/source-over.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/12",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-MASK",
+      "kind": "ignored_layer_field",
+      "symbol": "ImageDocument::composite / ImageLayer.mask",
+      "range": "30-38,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Define mask extent and 0..255 coverage meaning, interaction with source alpha/layer opacity, invalid-length behavior; apply once or reject masked layers.",
+      "acceptance": {
+        "positive": "Zero/half/full mask coverages match oracle.",
+        "identity": "All-255 mask is byte-identical to no mask.",
+        "alpha": "Partial mask combines once with source alpha and layer opacity.",
+        "bounds": "Wrong-length mask refuses safely before output mutation."
+      },
+      "baseline_behavior": "Optional per-pixel mask is stored but not sampled during composite.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/13",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    },
+    {
+      "id": "PA-03-COMPOSITE-OFFSET",
+      "kind": "ignored_layer_field",
+      "symbol": "ImageDocument::composite / ImageLayer.offset_x,offset_y",
+      "range": "30-38,358-370",
+      "current": "Implemented in the owning Core operator and exposed through strict Paint v3, native Poet controls and admitted MCP; executed image qualification passed.",
+      "remedy": "Define coordinate mapping, clipping, layer-size and overflow semantics; implement placement or reject nonzero offsets.",
+      "acceptance": {
+        "positive": "Positive and negative one-pixel translations land at expected coordinates.",
+        "identity": "Zero offset is byte-identical to current same-size output.",
+        "alpha": "Clipping/overlap follows source-over oracle.",
+        "bounds": "Extreme signed offsets and mismatched sizes clip/refuse without overflow or panic."
+      },
+      "baseline_behavior": "Signed offsets are stored but composition uses identical flat index positions.",
+      "status": "implemented_and_engineering_verified",
+      "completion_claim": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json#/claims/14",
+      "operator_source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "evidence_report": "docs/qa/implementation-2026-10-26/image-completion/README.md"
+    }
+  ],
+  "implemented_but_w2_unexposed": [
+    {
+      "symbol": "apply_filter/ImageFilter::Brightness",
+      "status": "implemented_unexposed",
+      "range": "210-300",
+      "current": "Adds intensity*100 to RGB; intensity is clamped 0..1, so positive-only up to +100, not exposure."
+    },
+    {
+      "symbol": "apply_filter/ImageFilter::Contrast",
+      "status": "implemented_unexposed",
+      "range": "210-300",
+      "current": "Scales distance from 128 by 1+intensity; factor 1..2 only."
+    },
+    {
+      "symbol": "apply_filter/ImageFilter::EdgeDetect",
+      "status": "implemented_unexposed",
+      "range": "210-300",
+      "current": "Simple Sobel-like red-channel operation; copies alpha and clones the full pixel buffer."
+    }
+  ],
+  "w2_recommended_exposed": [
+    "Grayscale",
+    "Invert",
+    "Sepia"
+  ],
+  "execution": {
+    "source_reused_from_prior_inspection": true,
+    "new_source_reads": 0,
+    "tests": "not run",
+    "cargo": "not run",
+    "upstream_edits": false
+  },
+  "audit_limit": "Other stubs discovered in later bounded reviews should be appended; this inventory makes no comprehensive repository-wide claim.",
+  "reuse_first_dispatch_rule": "These findings are local stubs/ignored fields, not ecosystem-wide absence. Before implementing a row, trace its selected operation through the existing audited Qualia vision, Core image, shader/operator and renderer owners and their callers; reuse any suitable existing implementation, then qualify this native binding. No duplicate image math from enum-name discovery.",
+  "implementation_contract": "tools/poet-foundation/image-completion/CONTRACT.md",
+  "implementation_evidence": "docs/qa/implementation-2026-10-26/image-completion/README.md",
+  "baseline_owner_sha256": "6D492B8DB1E1A78E2F43BD95BC0A9FD2B7DA9DCC054FCA7EAEAE8E789F0AAB49",
+  "sha256_note": "Historical no-op audit pin; current owner hash is separate.",
+  "current_owner_sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a",
+  "kind_note": "Item kind preserves the historical finding category, not current behavior.",
+  "deferred_count": 0,
+  "implementation_report": "docs/qa/implementation-2026-10-26/image-completion/README.md",
+  "claims": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json",
+  "asset_production": "HOLD",
+  "native_window_human_acceptance": "UNASSESSED"
+}

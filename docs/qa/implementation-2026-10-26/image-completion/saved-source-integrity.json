@@ -1,0 +1,131 @@
+{
+  "scope": "Reviewed saved-source integrity only; runtime checks have separate logs",
+  "asset_production": "HOLD",
+  "native_window_human_acceptance": "UNASSESSED",
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image.rs",
+      "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_filters.rs",
+      "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_composite.rs",
+      "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\image_filters_completed.rs",
+      "sha256": "ef34281633239e742d35b50c8fbc4a22e97ec2fe62127b15ef2b3ae8266d516d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\image_composite_completed.rs",
+      "sha256": "adcb88a285b51c61f2f2870a9abb2d444555620c3c7668ed7b166e6a29a26979"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\Cargo.toml",
+      "sha256": "a77edf2e95ce40722f3b305b2978c773522906c5aa9fe878ed89a7d73716aa6b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\tests\\foundation_image_completion.rs",
+      "sha256": "5216bc9348bee3ef8771a0cbc9bcac48ee44e08eccd48b6f31418b6dddec409b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\field_section\\checked.rs",
+      "sha256": "c8a05d4131c1e804a4e2259f000da37c41a67e1e166097d2b163d65fa33e7e5e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\carrier_tests.rs",
+      "sha256": "ff9c4c24727338a1f6816ee837d0fc8ffe156dc02de3179e47a6dffe31fb3b1e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\execute\\cuda.rs",
+      "sha256": "3bc2437caf522e5ead453efc3dbc32c175dcd56478c4c928dddac01f63ff83e1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\q42\\volume\\payload_catalogue.rs",
+      "sha256": "fefa9f7cc9e020ec77e95584fd88280264a385bfab8cbde0029853656cd706dd"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\identity\\agency.rs",
+      "sha256": "0ee633e7b1ed101380ce054e641cad54313764fe2f7485e19b9adad72929b387"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_image_completed_tests.rs",
+      "sha256": "ff2d721c12205aba256d84d554c7b73fb61f9d0890cafb99d0f135cc52678fac"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_gpu_tests.rs",
+      "sha256": "12a68cb113e9434cefd9bf7eccf4eec7dbffd0c3023302c271ed38db42c0e0ea"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_tests.rs",
+      "sha256": "74c4d1eb75cd9732f99877908bf947cf19a851925a65ec9cac3b6fc27cec18ba"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_uv_detail_tests.rs",
+      "sha256": "763ed102a46252213a8ea7b6c63119389bef7095381101f2253a2d0aa8ec434a"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\detail_controls.rs",
+      "sha256": "330b3c37f7948e955558b572cd4c75ba2a3e2e72507c72a5b79416ced8ce41db"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\image_completed_component_tests.rs",
+      "sha256": "43e5fd4c0f09e8687261c26d6875199030fb07bdbbec7b52d1963c0cb2e90376"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\texture_effect_component_tests.rs",
+      "sha256": "d42a946b0e8f27e7de802f9c6b7dd0d6ce87823219f00e80b00eef822183a264"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "64829da58ae82e7cd49e3ea512daeb64f9f8064feac2d9047c271bee629687f6"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\texture_effects.rs",
+      "sha256": "f3d003e020ae481998ec7a9048f6cf8e2368eb29066993937e1d98efab938fac"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail_pixels.rs",
+      "sha256": "90c2e3f1e6ec6173e07d009a767b9d685210b35aa828fbd7db074df0b064d054"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\resolution.rs",
+      "sha256": "8b19ef4dca7667a20c9eb3fd65b9717559450b283130595a3f9da6e2a1be310b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\resources.rs",
+      "sha256": "ef7c20c29bb6c7270cf5df9635b9b540a8b6333fc781f9e57ad37ff3977bef5b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\texture_inputs.rs",
+      "sha256": "6c51810eef00e14abb4138a19c32ba9524863488cee53f3f449a8b8f84ea0833"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\completed_tests.rs",
+      "sha256": "4158dc98a0fbc68523f85e9524786f311e6989ad87065b7e0b24678ec68f721b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\effect_tests.rs",
+      "sha256": "5136c497dd4ae8621937ab61cad978a8abd9018cd57da2837e704a3f0f71a2d5"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\mod.rs",
+      "sha256": "23f7b1c681591724198739d9d02a87cc462aee1cbf8468fc157e23d27a135c9b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\recipe.rs",
+      "sha256": "d02c35fc1e4cc31c18cf01ce221d038fd84a20a5b4fb8f004e87a5fcfefa443b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\render.rs",
+      "sha256": "d92cc26a8268f334e1b7ae4d436b71067ff2d4b480e161a82dc40731945953e0"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\tests.rs",
+      "sha256": "d4703c70b38c617aad0a545c7c87542a9e37762092dd72e78ef6fe8593f7183e"
+    }
+  ]
+}

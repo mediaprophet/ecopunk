@@ -1,0 +1,11 @@
+   Compiling dioxus-native-dom v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native-dom)
+    Finished `test` profile [unoptimized] target(s) in 22.22s
+     Running unittests src\lib.rs (target\debug\deps\dioxus_native_dom-56aa5f0eade45e01.exe)
+
+running 3 tests
+test mutation_writer::textarea_value::tests::controlled_empty_value_dominates_children_and_uncontrolled_uses_children ... ok
+test mutation_writer::textarea_value::tests::controlled_static_and_dynamic_template_clones_retain_values ... ok
+test mutation_writer::textarea_value::tests::controlled_textarea_value_is_ready_before_first_layout_and_survives_layout ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.19s
+

@@ -1,0 +1,55 @@
+{
+  "mode": "workflow",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "package_workflow_real_producer_separate_reviewer_reopen_and_same_source_successor",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T07:39:18.485589+00:00",
+  "finished_utc": "2026-10-25T07:39:31.255686+00:00",
+  "elapsed_seconds": 12.781,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\workflow.log",
+  "log_sha256": "ee1f8d0c09922e346b271276e09a50dd85d4b4fb51d1ed59088351b6bcc6eb60",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\workflow-source-before.json",
+  "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+  "recorded_local_source_files": 3021,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 1,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::native_project::tests::package_workflow_tests::package_workflow_real_producer_separate_reviewer_reopen_and_same_source_successor"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round4-fx83m_bn",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

@@ -1,0 +1,6 @@
+# Exact focused commands executed from C:/github/ecopunk. Historical evidence,
+# not an instruction to rerun or rebuild dependencies.
+rustc --edition=2021 --test docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness/tests.rs --extern qualia_core_db=C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib -L dependency=C:/github/ecopunk/target/debug/deps -L native=C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/winapi-x86_64-pc-windows-gnu-0.4.0/lib -o docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness/depth-tests.exe
+docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness/depth-tests.exe --nocapture
+rustc --edition=2021 --test docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness/shader_tests.rs --extern naga=C:/github/ecopunk/target/debug/deps/libnaga-fadf9d5a3653b151.rlib -L dependency=C:/github/ecopunk/target/debug/deps -L native=C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/windows_x86_64_gnu-0.48.5/lib -o docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness/shader-tests.exe
+docs/qa/implementation-2026-10-25/batch-3/materials/ao-qualification/precision/harness/shader-tests.exe --nocapture

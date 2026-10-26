@@ -1,0 +1,101 @@
+{
+  "scope": "Explicit user request to fully implement15deferredimagecases in owningCore and Poet. Corekernelphase7files; no productionassets/commits/publication.",
+  "files": [
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image.rs",
+      "before": "6d492b8db1e1a78e2f43bd95bc0a9fd2b7da9dcc054fca7eaeae8e789f0aab49",
+      "after": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_filters.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_filters.rs",
+      "before": null,
+      "after": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_composite.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_composite.rs",
+      "before": null,
+      "after": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/tests/image_filters_completed.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\tests\\image_filters_completed.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\image_filters_completed.rs",
+      "before": null,
+      "after": "ef34281633239e742d35b50c8fbc4a22e97ec2fe62127b15ef2b3ae8266d516d"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/tests/image_composite_completed.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\tests\\image_composite_completed.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\image_composite_completed.rs",
+      "before": null,
+      "after": "adcb88a285b51c61f2f2870a9abb2d444555620c3c7668ed7b166e6a29a26979"
+    },
+    {
+      "repo": "poet",
+      "path": "native/Cargo.toml",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\poet\\native\\Cargo.toml",
+      "destination": "C:\\github\\poet\\native\\Cargo.toml",
+      "before": "5d8e5df21a7b53ce270bf5492f149e1ecd35d1da679d6c6e9cc174f95463228b",
+      "after": "a77edf2e95ce40722f3b305b2978c773522906c5aa9fe878ed89a7d73716aa6b"
+    },
+    {
+      "repo": "poet",
+      "path": "native/tests/foundation_image_completion.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\poet\\native\\tests\\foundation_image_completion.rs",
+      "destination": "C:\\github\\poet\\native\\tests\\foundation_image_completion.rs",
+      "before": null,
+      "after": "5216bc9348bee3ef8771a0cbc9bcac48ee44e08eccd48b6f31418b6dddec409b"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/container_10d/field_section/checked.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\container_10d\\field_section\\checked.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\field_section\\checked.rs",
+      "before": "bc01c79cd60410b3955aaaa2ae31ae4c92cbcdac0c5b0f10add7b0a66fa75690",
+      "after": "c8a05d4131c1e804a4e2259f000da37c41a67e1e166097d2b163d65fa33e7e5e"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\carrier_tests.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\carrier_tests.rs",
+      "before": "9042b1e07e0e9f436791c0a151e8db875d042e5caf11baa4999d6cdd7db54047",
+      "after": "ff9c4c24727338a1f6816ee837d0fc8ffe156dc02de3179e47a6dffe31fb3b1e"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/wgsl_forge/execute/cuda.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\wgsl_forge\\execute\\cuda.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\execute\\cuda.rs",
+      "before": "f18925ec197fb0d97a25bd74d271f532746217dc44860ee53ee6209ca8ba569b",
+      "after": "3bc2437caf522e5ead453efc3dbc32c175dcd56478c4c928dddac01f63ff83e1"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/q42/volume/payload_catalogue.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\q42\\volume\\payload_catalogue.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\q42\\volume\\payload_catalogue.rs",
+      "before": "79c3d7e451671420087a29bb83927daa4bf20246d72c48a163055d2dab568261",
+      "after": "fefa9f7cc9e020ec77e95584fd88280264a385bfab8cbde0029853656cd706dd"
+    },
+    {
+      "repo": "qualiadb",
+      "path": "crates/qualia-core-db/src/identity/agency.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\qualiadb\\crates\\qualia-core-db\\src\\identity\\agency.rs",
+      "destination": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\identity\\agency.rs",
+      "before": "c012643cadd26766e18b64d969777215b92a3bac95d5ea79e7af421e18b6c492",
+      "after": "0ee633e7b1ed101380ce054e641cad54313764fe2f7485e19b9adad72929b387"
+    }
+  ]
+}

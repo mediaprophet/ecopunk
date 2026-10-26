@@ -1,0 +1,43 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "scope": "round9-source-layer-caller-selected-operation-budget",
+  "status": "staged-not-applied-not-executed",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layers/mod.rs",
+      "before_sha256": "837d54deae22f4e88a13ed566e31d1ecd72787c021f732087d98c1c12b8fad49",
+      "after_sha256": "b67c1ae2750c50e4e0813342882856d366319293435be0580bf58990de5f752c",
+      "after_lines": 176
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layers/snapshot_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "5cab0e3638b2e85a2732f7c359f846460eb98a6af9998f2e362ee924727d6bbd",
+      "after_lines": 66
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layers/snapshot.rs",
+      "before_sha256": null,
+      "after_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+      "after_lines": 111
+    }
+  ],
+  "contract": {
+    "caller_api": "validation_snapshot_with_budget(parts,base,working_bytes)",
+    "refusal_evidence": "Reports required/admitted structural bytes, observed Value-node count and text bytes",
+    "native_owner_budget": "SessionLimits.retained_value_bytes supplied by CanonicalEditorHost factory and execution rebuild owner",
+    "legacy_api": "validation_snapshot retains explicit64MiB structural-byte default",
+    "metric": "Full checked structural-byte census including Value slots, record overhead and text before either output clone; not allocator or RSS measurement",
+    "comparison_bounds": "Unchanged per-value1m nodes/1MiB text/64frames; actual reference passed current-value comparison before snapshot byte refusal"
+  },
+  "checks": {
+    "rustfmt": "passed",
+    "tests": "not run by worker;3 focused boundary/type/profile cases supplied",
+    "sibling_writes": "none",
+    "reference_quality": "unchanged master/tessellation/hardware limits/production ledgers",
+    "cargo": "not run"
+  }
+}

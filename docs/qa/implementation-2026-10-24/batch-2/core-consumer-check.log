@@ -1,0 +1,448 @@
+    Checking cfg-if v1.0.5
+    Checking typenum v1.20.1
+    Checking windows-link v0.2.1
+    Checking serde_core v1.0.229
+    Checking getrandom v0.2.17
+    Checking libm v0.2.16
+    Checking once_cell v1.21.4
+    Checking zerocopy v0.8.63
+    Checking subtle v2.6.1
+    Checking log v0.4.34
+    Checking rand_core v0.6.4
+    Checking windows-sys v0.61.2
+    Checking zeroize v1.9.1
+    Checking foldhash v0.2.0
+    Checking scopeguard v1.2.0
+    Checking allocator-api2 v0.2.21
+    Checking lock_api v0.4.14
+    Checking memchr v2.8.3
+    Checking pin-project-lite v0.2.17
+    Checking bytemuck v1.25.2
+    Checking equivalent v1.0.3
+    Checking generic-array v0.14.7
+    Checking hybrid-array v0.4.15
+    Checking itoa v1.0.18
+    Checking bytes v1.12.1
+    Checking futures-core v0.3.34
+    Checking thiserror v2.0.21
+    Checking crypto-common v0.1.7
+    Checking block-buffer v0.10.4
+    Checking crypto-common v0.2.2
+    Checking block-buffer v0.12.1
+    Checking serde v1.0.229
+    Checking hashbrown v0.17.1
+    Checking bitflags v2.13.2
+    Checking digest v0.10.7
+    Checking foldhash v0.1.5
+    Checking cpufeatures v0.3.1
+    Checking smallvec v1.16.3
+    Checking cpufeatures v0.2.17
+    Checking cmov v0.5.4
+    Checking unicode-ident v1.0.27
+    Checking libc v0.2.191
+    Checking windows-strings v0.5.1
+    Checking parking_lot_core v0.9.12
+    Checking num-traits v0.2.19
+    Checking indexmap v2.14.2
+    Checking windows-result v0.4.1
+    Checking ctutils v0.4.3
+    Checking futures-sink v0.3.34
+    Checking parking_lot v0.12.5
+    Checking ppv-lite86 v0.2.21
+    Checking zerofrom v0.1.8
+    Checking windows-core v0.62.2
+    Checking rustc-hash v1.1.0
+    Checking stable_deref_trait v1.2.1
+    Checking yoke v0.8.3
+    Checking tracing-core v0.1.36
+    Checking naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking hashbrown v0.15.5
+    Checking num-integer v0.1.47
+    Checking half v2.7.1
+    Checking arrayvec v0.7.8
+    Checking winapi-util v0.1.11
+    Checking mio v1.2.4
+    Checking socket2 v0.6.5
+    Checking num-bigint v0.4.8
+    Checking tracing v0.1.44
+    Checking http v1.5.0
+    Checking termcolor v1.4.1
+    Checking windows-threading v0.2.1
+    Checking slab v0.4.12
+    Checking bit-vec v0.10.1
+    Checking fixedbitset v0.5.7
+    Checking unicode-width v0.2.2
+    Checking tokio v1.54.0
+    Checking macro_rules_attribute v0.2.3
+    Checking windows-future v0.3.2
+    Checking bit-set v0.11.1
+    Checking zerovec v0.11.8
+    Checking petgraph v0.8.3
+    Checking windows-collections v0.3.2
+    Checking windows-numerics v0.3.1
+    Checking codespan-reporting v0.13.1
+    Checking spirv v0.4.0+sdk-1.4.341.0
+    Checking libloading v0.8.9
+    Checking raw-window-handle v0.6.2
+    Checking futures-io v0.3.34
+    Checking futures-task v0.3.34
+    Checking static_assertions v1.1.0
+    Checking windows v0.62.2
+    Checking getrandom v0.3.4
+    Checking etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking futures-util v0.3.34
+    Checking rand_chacha v0.3.1
+    Checking rand v0.8.8
+    Checking rand_core v0.9.5
+    Checking ash v0.38.0+1.3.281
+    Checking naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking hashbrown v0.16.1
+    Checking const-oid v0.10.2
+    Checking presser v0.3.1
+    Checking rand_core v0.10.1
+    Checking digest v0.11.3
+    Checking ark-std v0.6.0
+    Checking rand_chacha v0.9.0
+    Checking glutin_wgl_sys v0.6.1
+    Checking khronos-egl v6.0.0
+    Checking tinystr v0.8.4
+    Checking http-body v1.1.0
+    Checking ordered-float v5.5.0
+    Checking etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking inout v0.2.4
+    Checking range-alloc v0.1.5
+    Checking writeable v0.6.4
+    Checking renderdoc-sys v1.1.0
+    Checking either v1.19.0
+    Checking untrusted v0.9.0
+    Checking glow v0.18.0
+    Checking percent-encoding v2.3.2
+    Checking litemap v0.8.3
+    Checking profiling v1.0.18
+    Checking ring v0.17.14
+    Checking icu_locale_core v2.3.0
+    Checking ark-serialize v0.6.0
+    Checking rand v0.9.5
+    Checking potential_utf v0.1.6
+    Checking zerotrie v0.2.5
+    Checking tower-service v0.3.3
+    Checking utf8_iter v1.0.4
+    Checking icu_provider v2.3.1
+    Checking ark-ff v0.6.0
+    Checking ahash v0.8.12
+    Checking icu_collections v2.3.0
+    Checking zmij v1.0.23
+    Checking httparse v1.10.1
+    Checking crossbeam-utils v0.8.23
+    Checking cipher v0.5.2
+    Checking rustls-pki-types v1.15.1
+    Checking simd-adler32 v0.3.10
+    Checking keccak v0.1.6
+    Checking serde_json v1.0.154
+    Checking icu_normalizer_data v2.3.0
+    Checking getrandom v0.4.3
+    Checking icu_properties_data v2.3.0
+    Checking itertools v0.14.0
+    Checking num-complex v0.4.6
+    Checking sha2 v0.10.9
+    Checking try-lock v0.2.5
+    Checking atomic-waker v1.1.2
+    Checking byteorder v1.5.0
+    Checking httpdate v1.0.3
+    Checking tower-layer v0.3.3
+    Checking adler2 v2.0.1
+    Checking base64 v0.23.1
+    Checking want v0.3.2
+    Checking icu_normalizer v2.3.0
+    Checking rustls-webpki v0.103.15
+    Checking form_urlencoded v1.2.2
+    Checking universal-hash v0.6.1
+    Checking sync_wrapper v1.0.2
+    Checking ark-poly v0.6.0
+    Checking icu_properties v2.3.0
+    Checking reborrow v0.5.5
+    Checking rustls v0.23.46
+    Checking equator v0.4.2
+    Checking hyper v1.12.0
+    Checking crc32fast v1.5.2
+    Checking winapi-x86_64-pc-windows-gnu v0.4.0
+    Checking crossbeam-epoch v0.9.21
+    Checking miniz_oxide v0.9.1
+    Checking etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking http-body-util v0.1.5
+    Checking wasm-bindgen-shared v0.2.129
+    Checking num-iter v0.1.46
+    Checking idna_adapter v1.2.2
+    Checking futures-channel v0.3.34
+    Checking inout v0.1.4
+    Checking aho-corasick v1.1.5
+    Checking ryu v1.0.23
+    Checking regex-syntax v0.8.11
+    Checking ipnet v2.12.2
+    Checking mime v0.3.17
+    Checking rawpointer v0.2.1
+    Checking cpubits v0.1.1
+    Checking matrixmultiply v0.3.11
+    Checking cipher v0.4.4
+    Checking hyper-util v0.1.21
+    Checking idna v1.1.0
+    Checking flate2 v1.1.10
+    Checking num-bigint-dig v0.9.1
+    Checking wasm-bindgen v0.2.129
+    Checking ark-relations v0.6.0
+    Checking ark-ec v0.6.0
+    Checking crossbeam-deque v0.8.8
+    Checking aligned-vec v0.6.4
+    Checking winapi v0.3.9
+    Checking pulp v0.21.5
+    Checking tower v0.5.3
+    Checking miniz_oxide v0.8.9
+    Checking regex-automata v0.4.18
+    Checking fdeflate v0.3.7
+    Checking sha3 v0.10.9
+    Checking chacha20 v0.10.2
+    Checking tokio-util v0.7.20
+    Checking sha1 v0.10.7
+    Checking blake2 v0.10.6
+    Checking raw-cpuid v11.6.0
+    Checking universal-hash v0.5.1
+    Checking deranged v0.5.9
+    Checking num-conv v0.2.2
+    Checking data-encoding v2.11.1
+    Checking pulp-wasm-simd-flag v0.1.1
+    Checking powerfmt v0.2.1
+    Checking opaque-debug v0.3.1
+    Checking time-core v0.1.9
+    Checking pulp v0.22.3
+    Checking poly1305 v0.8.0
+    Checking tungstenite v0.29.0
+    Checking tfhe-ntt v0.6.1
+    Checking js-sys v0.3.106
+    Checking rayon-core v1.13.0
+    Checking regex v1.13.1
+    Checking time v0.3.55
+    Checking prost v0.14.4
+    Checking fhe-util v0.1.1
+    Checking ark-snark v0.6.0
+    Checking tokio-rustls v0.26.6
+    Checking curve25519-dalek v5.0.0
+    Checking url v2.5.8
+    Checking curve25519-dalek v4.1.3
+    Checking ndarray v0.17.2
+    Checking chacha20 v0.9.1
+    Checking rio_api v0.8.6
+    Checking polyval v0.7.3
+    Checking zstd-sys v2.1.2+zstd.1.5.7
+    Checking merlin v3.0.0
+    Checking fhe-traits v0.1.1
+    Checking aead v0.6.1
+    Checking sha2 v0.11.1
+    Checking aead v0.5.2
+    Checking keyring-core v1.0.1
+    Checking fastrand v2.5.0
+    Checking constant_time_eq v0.4.2
+    Checking unicase v2.10.0
+    Checking ciborium-io v0.2.2
+    Checking oxilangtag v0.1.6
+    Checking base64 v0.22.1
+    Checking ethnum v1.5.3
+    Checking unicode-xid v0.2.6
+    Checking ip_network_table-deps-treebitmap v0.5.0
+    Checking hex v0.4.3
+    Checking oxiri v0.2.11
+    Checking signature v3.0.0
+    Checking ip_network v0.4.1
+    Checking vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+    Checking ciborium-ll v0.2.2
+    Checking ed25519 v3.0.0
+    Checking ip_network_table v0.2.0
+    Checking mime_guess v2.0.5
+    Checking blake3 v1.8.7
+    Checking tempfile v3.27.0
+    Checking windows-native-keyring-store v1.1.0
+    Checking chacha20poly1305 v0.10.1
+    Checking thiserror v1.0.69
+    Checking ark-crypto-primitives v0.6.0
+    Checking x25519-dalek v2.0.1
+    Checking ghash v0.6.0
+    Checking zstd-safe v7.3.0
+    Checking tower-http v0.6.11
+    Checking yasna v0.6.0
+    Checking hyper-rustls v0.27.10
+    Checking tokio-tungstenite v0.29.0
+    Checking rayon v1.12.0
+    Checking serde-wasm-bindgen v0.6.5
+    Checking doc-comment v0.3.4
+    Checking ntapi v0.4.3
+    Checking portable-atomic v1.15.0
+    Checking rand v0.10.3
+    Checking rustls-platform-verifier v0.7.1
+    Checking aes v0.9.3
+    Checking serde_urlencoded v0.7.1
+    Checking fhe-math v0.1.1
+    Checking axum-core v0.5.6
+    Checking poly1305 v0.9.1
+    Checking pem v4.0.0
+    Checking uuid v1.28.0
+    Checking ctr v0.10.1
+    Checking hmac v0.13.0
+    Checking num-rational v0.4.2
+    Checking chrono v0.4.45
+    Checking hmac v0.12.1
+    Checking serde_path_to_error v0.1.20
+    Checking quick-xml v0.36.2
+    Checking csv-core v0.1.13
+    Checking keccak v0.2.2
+    Checking twox-hash v2.1.5
+    Checking bitflags v1.3.2
+    Checking hashbrown v0.14.5
+    Checking glam v0.15.2
+    Checking unsafe-libyaml v0.2.11
+    Checking http-range-header v0.4.2
+    Checking fnv v1.0.7
+    Checking num_cpus v1.17.0
+    Checking matchit v0.8.4
+    Checking sponge-cursor v0.1.0
+    Checking sha3 v0.12.0
+    Checking dashmap v6.2.1
+    Checking axum v0.8.9
+    Checking qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+    Checking core_affinity v0.8.3
+    Checking serde_yaml v0.9.34+deprecated
+    Checking h2 v0.4.20
+    Checking jpeg-decoder v0.3.2
+    Checking rio_xml v0.8.6
+    Checking tower-http v0.7.1
+    Checking lz4_flex v0.13.1
+    Checking png v0.17.16
+    Checking csv v1.4.0
+    Checking mp4 v0.14.0
+    Checking mikktspace v0.3.0
+    Checking boringtun v0.7.1
+    Checking fhe v0.1.1
+    Checking hkdf v0.13.0
+    Checking aes-gcm v0.11.1
+    Checking rcgen v0.14.10
+    Checking chacha20poly1305 v0.11.0
+    Checking rand_distr v0.6.0
+    Checking reqwest v0.13.5
+    Checking zstd v0.13.3
+    Checking ark-groth16 v0.6.0
+    Checking keyring v4.2.0
+    Checking etalon-wgsl-forge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking rio_turtle v0.8.6
+    Checking ciborium v0.2.2
+    Checking ed25519-dalek v3.0.0
+    Checking x25519-dalek v3.0.0
+    Checking tokio-stream v0.1.19
+    Checking fips203 v0.4.3
+    Checking fips205 v0.4.1
+    Checking fips204 v0.4.6
+    Checking ark-bls12-381 v0.6.0
+    Checking crossbeam-channel v0.5.17
+    Checking etalon-wasm v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking sha1 v0.11.0
+    Checking atoi v3.1.1
+    Checking serde_bytes v0.11.19
+    Checking futures-intrusive v0.5.0
+    Checking quick-xml v0.41.0
+    Checking fast_qr v0.13.1
+    Checking qualia-audio v0.0.40 (C:\github\qualiaDB\crates\qualia-audio)
+    Checking pollster v1.0.1
+    Checking urlencoding v2.1.3
+    Checking qualia-inference-kernel v0.0.40 (C:\github\qualiaDB\crates\qualia-inference-kernel)
+    Checking minicbor v2.3.1
+    Checking memmap2 v0.9.11
+    Checking rtrb v0.3.5
+    Checking pxfm v0.1.30
+    Checking png v0.18.1
+    Checking byteorder-lite v0.1.0
+    Checking crc32c v0.6.8
+    Checking vibe-wasm v0.0.40 (C:\github\qualiaDB\crates\vibe-wasm)
+    Checking gpu-allocator v0.28.0
+    Checking sysinfo v0.39.6
+    Checking etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking moxcms v0.8.1
+    Checking etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking image v0.25.10
+    Checking etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+    Checking qualia-sim v0.0.40 (C:\github\qualiaDB\crates\qualia-sim)
+    Checking qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+    Checking webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    Checking ecopunk-terrain v0.1.0 (C:\github\ecopunk\crates\ecopunk-terrain)
+    Checking ecopunk-wasm v0.1.0 (C:\github\ecopunk\crates\ecopunk-wasm)
+warning: unused import: `ecopunk_terrain::botanical_ontology_q42::CANONICAL_ANATOMICAL_PINS`
+  --> crates\ecopunk-wasm\src\lib.rs:31:5
+   |
+31 | use ecopunk_terrain::botanical_ontology_q42::CANONICAL_ANATOMICAL_PINS;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `ContinuumExplorationSession`, `ExplorationMode`, and `ExplorationTickInput`
+  --> crates\ecopunk-wasm\src\lib.rs:33:5
+   |
+33 |     ContinuumExplorationSession, ExplorationMode, ExplorationTickInput,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `ProceduralTextureAsset`, `build_procedural_textures`, `build_sector_10d`, and `sample_sector_elevation`
+  --> crates\ecopunk-wasm\src\lib.rs:37:5
+   |
+37 |     build_procedural_textures, build_sector_10d, sample_sector_elevation, ProceduralTextureAsset,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `RegionalCorridorWorld` and `StudySiteId`
+  --> crates\ecopunk-wasm\src\lib.rs:39:40
+   |
+39 | use ecopunk_terrain::world_continuum::{RegionalCorridorWorld, StudySiteId};
+   |                                        ^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^
+
+warning: unused imports: `Env`, `Program`, and `eval_function`
+  --> crates\ecopunk-wasm\src\lib.rs:42:12
+   |
+42 | use vibe::{eval_function, load_program, Env, Program, Value};
+   |            ^^^^^^^^^^^^^                ^^^  ^^^^^^^
+
+warning: unused import: `crate::vibe_host::EcopunkVibeHost`
+  --> crates\ecopunk-wasm\src\lib.rs:49:5
+   |
+49 | use crate::vibe_host::EcopunkVibeHost;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `ROVER_WIDTH` is never used
+   --> crates\ecopunk-wasm\src\lib.rs:177:11
+    |
+177 |     const ROVER_WIDTH: f32 = 1.88;
+    |           ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `ecopunk-wasm` (lib) generated 7 warnings (run `cargo fix --lib -p ecopunk-wasm` to apply 6 suggestions)
+    Finished `dev` profile [unoptimized] target(s) in 24m 21s

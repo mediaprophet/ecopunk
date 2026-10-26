@@ -1,17 +1,49 @@
 # Interfaces — the explore ↔ author loop (Chora & Poet)
 
-**Status:** draft v0.1 · verified against `qualia-client-core/src/chora` and
-`crates/poet` + `qualia-core-db/src/poet_host`.
+**Status:** draft v0.2 · updated 2026-10-24 with actual local Poet/Craft workspace
+mapping. Earlier verified-source descriptions below retain their original scope,
+not a current end-to-end native qualification claim.
+
+**Current production specification:** [production-toolchain-spec.md](assets/production-toolchain-spec.md)
+maps `poet` and all eleven Craft repositories to actual roles/evidence and needed
+native 3D/rig/material/graph/HMC handoffs. Poet's current `native/` is a Vibe CLI;
+LightCraft is photo/RAW processing; FilmCraft is an NLE; CADCraft's inspected
+model lacks full 3D solids/surfaces/meshes. Do not infer production capability
+from the historical `*_studio` labels below. Canonical Poet changes belong in
+`C:/github/poet`, not the retained `qualiaDB/crates/poet` copy.
+
+**Unified-interface clarification:** the Craft apps are extraction sources for
+one reusable library collection under `C:/github/craft`. Their editing
+functionality belongs in **Poet's** tool chest, content surfaces, panels,
+inspectors and timelines. Preserve/reconcile existing Poet behaviour and native
+host services. [poet-craft-consolidation.md](poet-craft-consolidation.md) records
+the current source/public-UI findings, target layout and staged migration;
+standalone Craft GUIs are not the intended authoring interface.
+
+**Framework and environment:** the [controlled framework/launcher contract](webizen-environment-framework.md)
+places shared UI and native/WASM adapters in **Aether**, the controlled
+`rust-app-framework` fork, launcher/service lifecycle in Webizen Desktop, and editing in Poet.
+WASM versions use authorized native capabilities where required. The older
+host/source descriptions below are recovery evidence, not a mandate to retain
+the failed desktop UX or a webview as the native renderer.
+
+**Chora name and code boundary:** Timothy identifies **Chora** as the separate
+Servo-derived engine at `C:/github/chora`. The “Chora”/`chora_canvas` exploration
+references below describe historical application/source concepts; their actual
+relationship to that engine must be mapped, not assumed. The
+[Chora engine contract](chora-engine-boundary.md) keeps its source/workspace and
+license provenance separate, with generic integration and host-owned adapters.
+No historical name establishes permission to merge engine and application code.
 
 **The interface architecture is two-sided over one substrate:**
 
 - **Chora** — the exploration surface: the spatio-temporal commons *canvas*
   (inside the WellFair host shell), WASM & native.
 - **Poet** — the authorship/contribution environment: tool-chest + capability
-  invocation + browser surface.
+  invocation + harmonised native and WASM authoring surfaces.
 
 Explore finds; author contributes; both produce governed artifacts over the
-same quins/volumes/identity substrate.
+same quins/volumes/identifiers substrate.
 
 ---
 
@@ -20,7 +52,7 @@ same quins/volumes/identity substrate.
 `chora` is **the spatio-temporal commons canvas inside WellFair** ("Peace
 Infrastructure") — one area within the rights-grounded personal vault/host
 shell, reached via `WebizenHostApi`. Not a standalone app bolted on: it lives
-inside the vault context, so governance and identity are ambient.
+inside the vault context, so governance and identifiers are ambient.
 
 **Flagship worlds** (`flagship_worlds.rs`) — seeded `CanvasWorldConfig`s:
 
@@ -128,17 +160,22 @@ linguistic→`nlp`, governance acts→`governance`/`cooperative`.
   obligations check at manifest time); never let a machine proposal
   self-ratify.
 
-## 6. The poet-* studio suite — production toolchain siblings (verified on disk)
+## 6. The Poet/Craft suite — historical labels and current map
 
-Poet is the host; the **`poet-*studio` family** are the per-medium production
-tools (each its own repo/conventions — several carry independent rule systems
+Poet is the intended unified authoring interface; the actual **`poet-*craft`
+repositories** are extraction sources for per-medium library/editor capabilities
+(each currently has its own repo/conventions — several carry independent rule systems
 such as studiorules/never-crash + clean-room asset rules):
 
-`art_studio` (AI image/video *generation* — Tauri app, provider clients) ·
-`cad_studio` (CAD) · `deck_studio` (presentations) · **`film_studio`** (clean-room
-pure-Rust NLE, Premiere-parity target, native + WASM — the film/TV delivery
-path) · `grid_studio` · `light_studio` · `pdf_studio` · `photo_studio` (PS-parity) ·
-`sound_studio` (audio) · `vector_studio` (Illustrator-parity) · `word_studio`.
+Current names: `poet-artcraft`, `poet-cadcraft`, `poet-deckcraft`,
+`poet-filmcraft`, `poet-gridcraft`, `poet-lightcraft`, `poet-pdfcraft`,
+`poet-photocraft`, `poet-soundcraft`, `poet-vectorcraft`, `poet-wordcraft`.
+The old `art_studio` / `film_studio` etc. names are aliases in prior planning.
+Native engines/commands support the proposed reproducible authoring chain through
+Poet; GUI controls and specialised content surfaces must be ported into that
+same interface. The native capabilities, formats and source handoffs still
+require qualification. A capability's missing interface remains
+upstream work, not permission for a JS controller or private exporter.
 
 For ecopunk this is the **asset-production chain**: hero assets, cinematic
 renders, field-guide documents, audio sonifications, CAD-derived anatomy —

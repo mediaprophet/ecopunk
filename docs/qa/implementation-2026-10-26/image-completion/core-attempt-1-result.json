@@ -1,0 +1,12 @@
+{
+  "command": "serial_check.py --owner IMAGE-15 -- cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --test foundation_image_completion -- --nocapture --test-threads=1",
+  "exit_code": 0,
+  "passed": 15,
+  "failed": 0,
+  "ignored": 0,
+  "log": "core-attempt-1.log",
+  "build_profile": "test (unoptimized)",
+  "build_elapsed": "24m 14s",
+  "scope": "Core implementation via actual Poet native dependency closure; before v3 Poet integration. Later strengthened vectors require their own rerun.",
+  "asset_production": "HOLD"
+}

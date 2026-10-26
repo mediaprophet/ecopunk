@@ -1,0 +1,41 @@
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hnia584wm3-1qkafml-working`
+
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-3ous0j4z2ctrl\s-hnia5lf3uh-1y0fdr7-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\run05_sessions-3jyi2l2n5ir5f\s-hnia5lfu1l-0irh08k-working`
+
+warning: `vibe` (bin "vibe") generated 1 warning
+warning: `vibe` (test "run05_sessions") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 37.02s
+     Running tests\run05_sessions.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_sessions-36a441478bf965a5.exe)
+
+running 24 tests
+test copied_alias_keeps_original_external_lambda_effect ... ok
+test functions_keep_non_capturing_0_1_semantics ... ok
+test functions_imports_and_effect_context_survive_without_replay ... ok
+test explicit_type_is_not_discarded_for_bounded_lists ... ok
+test admitted_external_callback_on_named_collection_runs_once ... ok
+test checked_candidates_are_bound_to_session_and_revision ... ok
+test imported_alias_and_pipeline_do_not_hide_effects ... ok
+test inferred_recursive_cycle_effect_reaches_pure_caller ... ok
+test mutable_typed_binding_survives_and_immutable_assignment_is_denied ... ok
+test invalidated_unknown_alias_does_not_follow_later_reassignment ... ok
+test immutable_values_cannot_be_redeclared_via_patterns_blocks_or_bind ... ok
+test control_flow_and_bind_cannot_leave_stale_pure_callbacks ... ok
+test material_transaction_and_clock_cannot_gain_ambient_session_authority ... ok
+test namespace_shadowing_does_not_hide_collection_callback_effects ... ok
+test pure_runtime_failure_does_not_install_function_or_mutated_values ... ok
+test direct_chain_forward_and_recursive_external_calls_are_rejected ... ok
+test pure_builtin_dispatch_precedes_same_named_user_function ... ok
+test higher_order_indirect_callbacks_fail_closed ... ok
+test session_limits_fail_without_dispatch ... ok
+test unknown_dynamic_targets_are_not_pure ... ok
+test requests_do_not_grant_authority_and_failed_candidates_do_not_promote ... ok
+test unknown_namespaced_bindings_and_effectful_budget_are_rejected ... ok
+test runtime_failure_keeps_external_outcome_and_last_accepted_local_state ... ok
+test pure_named_forward_calls_recursion_and_lambda_are_allowed ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.61s
+

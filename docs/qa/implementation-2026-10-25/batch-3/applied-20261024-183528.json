@@ -1,0 +1,77 @@
+{
+  "applied_utc": "2026-10-24T18:35:28.0417552Z",
+  "manifests": [
+    "materials/ao-qualification/precision/apply-manifest.json",
+    "core-cull-fix/apply-manifest.json",
+    "hmc/poet-precision-followup-manifest.json",
+    "diagnostic-checkpoints/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\render\\gpu\\ao.rs",
+      "original_sha256": "8D6259BAB874BEC235F2BBC7DC469164D86F8EE6C58E8BDF5C6A25D336BD9002",
+      "sha256": "E84E2C4654A0DF6C6819D82FA1CDB27F9A50DADF03E9B7FF201E02CF850B0377"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_depth.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\render\\gpu\\ao_depth.rs",
+      "original_sha256": null,
+      "sha256": "767A8C7C8F8EEABEC9457FE6C001B701D14EE747C9C037F2C124D42838F5FA08"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_math.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\render\\gpu\\ao_math.rs",
+      "original_sha256": "3F2E24B8180BABB550154C6A501AF2808EE398DCCFCC772C82E05A0820CFC54B",
+      "sha256": "594470EAAE0617AC7532BFAEAD74D777002EBE71DCA5846228267E642A7CBB31"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_pixel_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\render\\gpu\\material_pixel_tests.rs",
+      "original_sha256": "BCAD6865F9BD497AE95F06829549996B9009F7AE3650566977F504FAFACF84AC",
+      "sha256": "E6756F86F9D9FE63233E6CFC5B4DD2B6277720306FB06B54BF230D4767143125"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\ao_prepass.wgsl",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\shaders\\viewport\\ao_prepass.wgsl",
+      "original_sha256": "531B3F003B063C3A473D1C9E12F9670B386256EB17CE44F773C63FFD4C4A9AB0",
+      "sha256": "59EA9F959F443054CA7D17A388AE21A9EBF8DD831C564E14D744F0C879DBD966"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\ao_generate.wgsl",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\shaders\\viewport\\ao_generate.wgsl",
+      "original_sha256": "55BBA7AE4E5C353CADFD44620410CBB5DC1CC2721F718965D1CAB25B30CEDB49",
+      "sha256": "388A5036B85D5E8D0DEC66B9135BFC44CBF441E79CDDDCA70D87FC621C0AF25D"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\mesh.wgsl",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\candidate\\src\\shaders\\viewport\\mesh.wgsl",
+      "original_sha256": "F2506293CD8A2477D1A5A8D40D4EE86F0D34A9D3336F2793165EAEE6E37A6AFD",
+      "sha256": "D05E587B5D75EB59D2CA49CA76673FECECE66DEAD486498E35F75487B9F4484B"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\indirect_cull.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-cull-fix\\candidate\\indirect_cull.rs",
+      "original_sha256": "602EAF07058EC2C70C8908663381CA9129582BE768057E7DDA9EDB66EC033120",
+      "sha256": "5E27960B5DC4B45C6330049F081B189EF6EECA792A7DAFC7EA2E96163CB474E1"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-precision-candidate\\checkpoints\\restart_tests.rs",
+      "original_sha256": "861DC4D1711F8F2018DB66AF0BE0BC21991A7F8E36A6652848E0610D8B5A3FD6",
+      "sha256": "74FA2D305F44AA09BDED396891F4B6BE3AC4AB4676C3573BCFAC5278D624B3C1"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\diagnostic-checkpoints\\candidate\\graphical\\entry.rs",
+      "original_sha256": "477C87F9AEC2733D867497951A2634DD396738D2EBAAEBE6A03D8A6238166395",
+      "sha256": "0CE65A2312DAE5E59963EA90DDA315DDCE0AB2A4BB12BD9D09CD96EA3057344E"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\entry_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\diagnostic-checkpoints\\candidate\\graphical\\entry_tests.rs",
+      "original_sha256": null,
+      "sha256": "521C7B9BEB4BD0F236D6DDE9FEB85E1E98BCE25A5EE6A5AF54C401FA5EB2CDED"
+    }
+  ]
+}

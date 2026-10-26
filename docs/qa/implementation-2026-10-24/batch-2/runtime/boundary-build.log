@@ -1,0 +1,9 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hnianiywc3-1fn3gwl-working`
+
+warning: `vibe` (lib) generated 1 warning
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-3ous0j4z2ctrl\s-hniao7ed0o-0zlfyvu-working`
+
+warning: `vibe` (bin "vibe") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.66s
+  Executable tests\run05_boundary.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_boundary-43bb3ec0e1980f71.exe)

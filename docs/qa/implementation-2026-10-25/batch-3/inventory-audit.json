@@ -1,0 +1,794 @@
+{
+  "audit_kind": "read-only snapshot inventory",
+  "snapshot_utc": "2026-10-24T17:49:53Z",
+  "scope": "batch-3 receipt hashes, packet statuses, model catalogue baseline and execution-evidence inventory",
+  "limitations": [
+    "Source tree may still be changing; this is a snapshot, not final audit.",
+    "Target hashes establish current byte equality only, not successful build, runtime behavior, or human acceptance.",
+    "Test definitions, harness executables, and Cargo artifacts are source presence; they are not counted as executed tests absent explicit run receipts/logs."
+  ],
+  "receipt_count": 4,
+  "target_hash_summary": [
+    {
+      "status": "matches_receipt",
+      "count": 51
+    },
+    {
+      "status": "target_changed_since_receipt",
+      "count": 4
+    }
+  ],
+  "targets": [
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\lib.rs",
+      "recorded_sha256": "780de522d539c36cbc63537fe69bd7acc09cfd9c4c08d47391b6b87ab2f117f2",
+      "actual_sha256": "780de522d539c36cbc63537fe69bd7acc09cfd9c4c08d47391b6b87ab2f117f2",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\lib.rs",
+      "candidate_sha256": "780de522d539c36cbc63537fe69bd7acc09cfd9c4c08d47391b6b87ab2f117f2"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "recorded_sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4",
+      "actual_sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\mod.rs",
+      "candidate_sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+      "recorded_sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+      "actual_sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\policy.rs",
+      "candidate_sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "recorded_sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6",
+      "actual_sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\records.rs",
+      "candidate_sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\tests.rs",
+      "recorded_sha256": "4f15669384f5d5cbc0ee2d9f52ea0a7aa19f6cac219aa4ead7b9b5a20f7a5a48",
+      "actual_sha256": "4f15669384f5d5cbc0ee2d9f52ea0a7aa19f6cac219aa4ead7b9b5a20f7a5a48",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\tests.rs",
+      "candidate_sha256": "4f15669384f5d5cbc0ee2d9f52ea0a7aa19f6cac219aa4ead7b9b5a20f7a5a48"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\types.rs",
+      "recorded_sha256": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+      "actual_sha256": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\types.rs",
+      "candidate_sha256": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "recorded_sha256": "640b167bdf1900197680d8ae79eb41595087d157af9d230cd91e0fa395fb8524",
+      "actual_sha256": "640b167bdf1900197680d8ae79eb41595087d157af9d230cd91e0fa395fb8524",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_store.rs",
+      "candidate_sha256": "640b167bdf1900197680d8ae79eb41595087d157af9d230cd91e0fa395fb8524"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_journal.rs",
+      "recorded_sha256": "a4dc6e759937baa9b795fe72a126d5739aa55f483b97ad934656b8d3474ee9ea",
+      "actual_sha256": "a4dc6e759937baa9b795fe72a126d5739aa55f483b97ad934656b8d3474ee9ea",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_journal.rs",
+      "candidate_sha256": "a4dc6e759937baa9b795fe72a126d5739aa55f483b97ad934656b8d3474ee9ea"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+      "recorded_sha256": "217255aafc89dd8e245d70ce611101afaebfc8facd91ce221b4e052153a217e4",
+      "actual_sha256": "217255aafc89dd8e245d70ce611101afaebfc8facd91ce221b4e052153a217e4",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_stamped.rs",
+      "candidate_sha256": "217255aafc89dd8e245d70ce611101afaebfc8facd91ce221b4e052153a217e4"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+      "recorded_sha256": "278cb79636944d2be5dad6658eac5314d0431ee62bee6d72cf835e1980524f62",
+      "actual_sha256": "278cb79636944d2be5dad6658eac5314d0431ee62bee6d72cf835e1980524f62",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\mod.rs",
+      "candidate_sha256": "278cb79636944d2be5dad6658eac5314d0431ee62bee6d72cf835e1980524f62"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\snapshot.rs",
+      "recorded_sha256": "82d939659701abde684e99ab79e8666a381e98e8fe6d6e350cafd62be5bf3c20",
+      "actual_sha256": "82d939659701abde684e99ab79e8666a381e98e8fe6d6e350cafd62be5bf3c20",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\snapshot.rs",
+      "candidate_sha256": "82d939659701abde684e99ab79e8666a381e98e8fe6d6e350cafd62be5bf3c20"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\codec.rs",
+      "recorded_sha256": "b97100348aa8715137338ec160f0a89b338c93a5c80c44738aa8571488fca64e",
+      "actual_sha256": "b97100348aa8715137338ec160f0a89b338c93a5c80c44738aa8571488fca64e",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\codec.rs",
+      "candidate_sha256": "b97100348aa8715137338ec160f0a89b338c93a5c80c44738aa8571488fca64e"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\graph.rs",
+      "recorded_sha256": "e8d8d37b166c30c1847d23c8f7c8a4ac9e35f40ad71548c8656ea4dcc5a52b7c",
+      "actual_sha256": "e8d8d37b166c30c1847d23c8f7c8a4ac9e35f40ad71548c8656ea4dcc5a52b7c",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\graph.rs",
+      "candidate_sha256": "e8d8d37b166c30c1847d23c8f7c8a4ac9e35f40ad71548c8656ea4dcc5a52b7c"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+      "recorded_sha256": "80e101f33424ca897dc339b7291e88ac3824744d69ff73dbf185f76127fbf985",
+      "actual_sha256": "80e101f33424ca897dc339b7291e88ac3824744d69ff73dbf185f76127fbf985",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\native_io.rs",
+      "candidate_sha256": "80e101f33424ca897dc339b7291e88ac3824744d69ff73dbf185f76127fbf985"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\tests.rs",
+      "recorded_sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+      "actual_sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\tests.rs",
+      "candidate_sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+      "recorded_sha256": "477c87f9aec2733d867497951a2634dd396738d2ebaaebe6a03d8a6238166395",
+      "actual_sha256": "477c87f9aec2733d867497951a2634dd396738d2ebaaebe6a03d8a6238166395",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\entry.rs",
+      "candidate_sha256": "477c87f9aec2733d867497951a2634dd396738d2ebaaebe6a03d8a6238166395"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_controls.rs",
+      "recorded_sha256": "10e4b40ffba77c400006222301f21728ebfc5e85fbb3aa0a3a782c04bc2909a1",
+      "actual_sha256": "10e4b40ffba77c400006222301f21728ebfc5e85fbb3aa0a3a782c04bc2909a1",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\material_controls.rs",
+      "candidate_sha256": "10e4b40ffba77c400006222301f21728ebfc5e85fbb3aa0a3a782c04bc2909a1"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_pixels.rs",
+      "recorded_sha256": "cb33759e756de382d0723f67026da7ab95372b403fa26af7fac735d69fd6a712",
+      "actual_sha256": "cb33759e756de382d0723f67026da7ab95372b403fa26af7fac735d69fd6a712",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\material_pixels.rs",
+      "candidate_sha256": "cb33759e756de382d0723f67026da7ab95372b403fa26af7fac735d69fd6a712"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\materials_tests.rs",
+      "recorded_sha256": "50b1c2d8ed391e3f1425034b1c2e95d2e1de59b421a84536cf834d2bc963d424",
+      "actual_sha256": "50b1c2d8ed391e3f1425034b1c2e95d2e1de59b421a84536cf834d2bc963d424",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\materials_tests.rs",
+      "candidate_sha256": "50b1c2d8ed391e3f1425034b1c2e95d2e1de59b421a84536cf834d2bc963d424"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\materials.rs",
+      "recorded_sha256": "6cc0d0c31781ad0e57260945d2a80400034a0370662b39d8dc349d3101736a71",
+      "actual_sha256": "6cc0d0c31781ad0e57260945d2a80400034a0370662b39d8dc349d3101736a71",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\materials.rs",
+      "candidate_sha256": "6cc0d0c31781ad0e57260945d2a80400034a0370662b39d8dc349d3101736a71"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "recorded_sha256": "4342b7404ecdbae1681eb4e6ecb1efd75bea269fb3b1f81bbb7bd9197f4d83bf",
+      "actual_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6",
+      "status": "target_changed_since_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\mod.rs",
+      "candidate_sha256": "4342b7404ecdbae1681eb4e6ecb1efd75bea269fb3b1f81bbb7bd9197f4d83bf"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\preview.rs",
+      "recorded_sha256": "8550db02e716038648e108ea026dbdc4b7fe83c7df5b640e814c492fb2ef5036",
+      "actual_sha256": "8550db02e716038648e108ea026dbdc4b7fe83c7df5b640e814c492fb2ef5036",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\preview.rs",
+      "candidate_sha256": "8550db02e716038648e108ea026dbdc4b7fe83c7df5b640e814c492fb2ef5036"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "recorded_sha256": "943af368ec4ce7f84d6126643916c1705533b1c16516532cf904f3b8a99c7ebf",
+      "actual_sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5",
+      "status": "target_changed_since_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\ui.rs",
+      "candidate_sha256": "943af368ec4ce7f84d6126643916c1705533b1c16516532cf904f3b8a99c7ebf"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\mesh.wgsl",
+      "recorded_sha256": "f2506293cd8a2477d1a5a8d40d4ee86f0d34a9d3336f2793165eaee6e37a6afd",
+      "actual_sha256": "f2506293cd8a2477d1a5a8d40d4ee86f0d34a9d3336f2793165eaee6e37a6afd",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\renderer-fix\\candidate\\src\\shaders\\viewport\\mesh.wgsl",
+      "candidate_sha256": "f2506293cd8a2477d1a5a8d40d4ee86f0d34a9d3336f2793165eaee6e37a6afd"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_textures.rs",
+      "recorded_sha256": "76543ace716254e0a439c7d0efa39897352a4080427bb068e05f53f4b1553dbe",
+      "actual_sha256": "76543ace716254e0a439c7d0efa39897352a4080427bb068e05f53f4b1553dbe",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\renderer-fix\\candidate\\src\\render\\gpu\\material_textures.rs",
+      "candidate_sha256": "76543ace716254e0a439c7d0efa39897352a4080427bb068e05f53f4b1553dbe"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+      "recorded_sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+      "actual_sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\session-validation\\candidate\\mod.rs",
+      "candidate_sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\validation_tests.rs",
+      "recorded_sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe",
+      "actual_sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\session-validation\\candidate\\validation_tests.rs",
+      "candidate_sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\Cargo.toml",
+      "recorded_sha256": "f74a82441c71e772e43347901ec0ea25b177b5f4f04ef2858551923130c4c7ae",
+      "actual_sha256": "f74a82441c71e772e43347901ec0ea25b177b5f4f04ef2858551923130c4c7ae",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\Cargo.toml",
+      "candidate_sha256": "f74a82441c71e772e43347901ec0ea25b177b5f4f04ef2858551923130c4c7ae"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\lib.rs",
+      "recorded_sha256": "159ebd57bec536fa178e3ce792687c7c13661d4dad9e0b108c3f1fc27022c604",
+      "actual_sha256": "159ebd57bec536fa178e3ce792687c7c13661d4dad9e0b108c3f1fc27022c604",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\lib.rs",
+      "candidate_sha256": "159ebd57bec536fa178e3ce792687c7c13661d4dad9e0b108c3f1fc27022c604"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\codec.rs",
+      "recorded_sha256": "565e90df786bf3e036afa4d03ad9f1ec547002ba3f84761786a3e7b6fcb2d7e1",
+      "actual_sha256": "565e90df786bf3e036afa4d03ad9f1ec547002ba3f84761786a3e7b6fcb2d7e1",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\codec.rs",
+      "candidate_sha256": "565e90df786bf3e036afa4d03ad9f1ec547002ba3f84761786a3e7b6fcb2d7e1"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\mod.rs",
+      "recorded_sha256": "0870046f4449e2491b260a6941c0a5f316f5389f61e15111dda48e7dbbeeac79",
+      "actual_sha256": "0870046f4449e2491b260a6941c0a5f316f5389f61e15111dda48e7dbbeeac79",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\mod.rs",
+      "candidate_sha256": "0870046f4449e2491b260a6941c0a5f316f5389f61e15111dda48e7dbbeeac79"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\protocol.rs",
+      "recorded_sha256": "28caa12dbe6c6a2fe4bd85eef217a45e4ac1cb18a25a6f0d8695df2e61232223",
+      "actual_sha256": "28caa12dbe6c6a2fe4bd85eef217a45e4ac1cb18a25a6f0d8695df2e61232223",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\protocol.rs",
+      "candidate_sha256": "28caa12dbe6c6a2fe4bd85eef217a45e4ac1cb18a25a6f0d8695df2e61232223"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\stdio.rs",
+      "recorded_sha256": "5eaf88767c46f93de903d6d5b35705018c33198526a6be180597c8dd868cf2f0",
+      "actual_sha256": "5eaf88767c46f93de903d6d5b35705018c33198526a6be180597c8dd868cf2f0",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\stdio.rs",
+      "candidate_sha256": "5eaf88767c46f93de903d6d5b35705018c33198526a6be180597c8dd868cf2f0"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\tests.rs",
+      "recorded_sha256": "c768ae302225dd7c29273af486e8168c7f58cb95273d7cf4e97fcdba58717cfc",
+      "actual_sha256": "c768ae302225dd7c29273af486e8168c7f58cb95273d7cf4e97fcdba58717cfc",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\tests.rs",
+      "candidate_sha256": "c768ae302225dd7c29273af486e8168c7f58cb95273d7cf4e97fcdba58717cfc"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\types.rs",
+      "recorded_sha256": "e5490be398623951015d89adfec97f5b702f21594ceb72e52c0ba102832b6e5d",
+      "actual_sha256": "e5490be398623951015d89adfec97f5b702f21594ceb72e52c0ba102832b6e5d",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\types.rs",
+      "candidate_sha256": "e5490be398623951015d89adfec97f5b702f21594ceb72e52c0ba102832b6e5d"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs",
+      "recorded_sha256": "3aa295d488b4e5ae608c4fe108a1be5bc6a3664b1253af02608f7cfce6e728ec",
+      "actual_sha256": "3aa295d488b4e5ae608c4fe108a1be5bc6a3664b1253af02608f7cfce6e728ec",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\candidate\\graphical\\cooperation\\mod.rs",
+      "candidate_sha256": "3aa295d488b4e5ae608c4fe108a1be5bc6a3664b1253af02608f7cfce6e728ec"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "recorded_sha256": "8b04f9d70541fae6bbb2e0c23236acfd03a33c82f8a0339b6fe67894aa36588d",
+      "actual_sha256": "8b04f9d70541fae6bbb2e0c23236acfd03a33c82f8a0339b6fe67894aa36588d",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\candidate\\graphical\\cooperation\\tests.rs",
+      "candidate_sha256": "8b04f9d70541fae6bbb2e0c23236acfd03a33c82f8a0339b6fe67894aa36588d"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "recorded_sha256": "c23ae5a4237fba2255b4c22d712d4e023bbcb3401567172a45c16ffb484a8915",
+      "actual_sha256": "c23ae5a4237fba2255b4c22d712d4e023bbcb3401567172a45c16ffb484a8915",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\mod.rs",
+      "candidate_sha256": "c23ae5a4237fba2255b4c22d712d4e023bbcb3401567172a45c16ffb484a8915"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "recorded_sha256": "ce1c9452fae8546e61977cfed57aaae851b81a8ea2385a9cafe804e341c51e5c",
+      "actual_sha256": "ce1c9452fae8546e61977cfed57aaae851b81a8ea2385a9cafe804e341c51e5c",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\editor.rs",
+      "candidate_sha256": "ce1c9452fae8546e61977cfed57aaae851b81a8ea2385a9cafe804e341c51e5c"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\tests.rs",
+      "recorded_sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+      "actual_sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\tests.rs",
+      "candidate_sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+      "recorded_sha256": "861dc4d1711f8f2018db66af0be0bc21991a7f8e36a6652848e0610d8b5a3fd6",
+      "actual_sha256": "861dc4d1711f8f2018db66af0be0bc21991a7f8e36a6652848e0610d8b5a3fd6",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\restart_tests.rs",
+      "candidate_sha256": "861dc4d1711f8f2018db66af0be0bc21991a7f8e36a6652848e0610d8b5a3fd6"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "recorded_sha256": "148c4280d1e064880903c8460e54d9ec57d934283d1a9d68eacb75226a9a44df",
+      "actual_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627",
+      "status": "target_changed_since_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\controller.rs",
+      "candidate_sha256": "148c4280d1e064880903c8460e54d9ec57d934283d1a9d68eacb75226a9a44df"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "recorded_sha256": "d3ae6ec5fbb2e8fd82e6636b31a9e523471f5f6b2edc22cc8fc9c2bd8a2a0233",
+      "actual_sha256": "d3ae6ec5fbb2e8fd82e6636b31a9e523471f5f6b2edc22cc8fc9c2bd8a2a0233",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\jobs_tests.rs",
+      "candidate_sha256": "d3ae6ec5fbb2e8fd82e6636b31a9e523471f5f6b2edc22cc8fc9c2bd8a2a0233"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\execution.rs",
+      "recorded_sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c",
+      "actual_sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\execution.rs",
+      "candidate_sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "recorded_sha256": "2a177862b7fe780c52dc692fb5987ced95565431e36a7b57670ed4d7bed9b907",
+      "actual_sha256": "2a177862b7fe780c52dc692fb5987ced95565431e36a7b57670ed4d7bed9b907",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\jobs.rs",
+      "candidate_sha256": "2a177862b7fe780c52dc692fb5987ced95565431e36a7b57670ed4d7bed9b907"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "recorded_sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5",
+      "actual_sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\ui.rs",
+      "candidate_sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "recorded_sha256": "4e68781d7ace0305f249d151997af1c55a7296e7ffbc96d1fa5b28378ba67286",
+      "actual_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6",
+      "status": "target_changed_since_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\mod.rs",
+      "candidate_sha256": "4e68781d7ace0305f249d151997af1c55a7296e7ffbc96d1fa5b28378ba67286"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\lib.rs",
+      "recorded_sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540",
+      "actual_sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\lib.rs",
+      "candidate_sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\main.rs",
+      "recorded_sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b",
+      "actual_sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\main.rs",
+      "candidate_sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\Cargo.toml",
+      "recorded_sha256": "85dc3eb2073839f1ebbbef4f61aa113e8ddb50dd2a1019e1e643891269699326",
+      "actual_sha256": "85dc3eb2073839f1ebbbef4f61aa113e8ddb50dd2a1019e1e643891269699326",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\Cargo.toml",
+      "candidate_sha256": "85dc3eb2073839f1ebbbef4f61aa113e8ddb50dd2a1019e1e643891269699326"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "recorded_sha256": "48bdb4f9e7ed24c18ece0d9ebf9308cf8e6f3a5d72b3d87be3dd5bb0687de66c",
+      "actual_sha256": "48bdb4f9e7ed24c18ece0d9ebf9308cf8e6f3a5d72b3d87be3dd5bb0687de66c",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\mcp\\mod.rs",
+      "candidate_sha256": "48bdb4f9e7ed24c18ece0d9ebf9308cf8e6f3a5d72b3d87be3dd5bb0687de66c"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174932.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "recorded_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627",
+      "actual_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-followup\\candidate\\src\\graphical\\controller.rs",
+      "candidate_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174932.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "recorded_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6",
+      "actual_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-followup\\candidate\\src\\graphical\\mod.rs",
+      "candidate_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174932.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_edit.rs",
+      "recorded_sha256": "50152f946c253c4d6727d41bd5c7e331dbbcfd7551dec71e77f4a25b8e59255e",
+      "actual_sha256": "50152f946c253c4d6727d41bd5c7e331dbbcfd7551dec71e77f4a25b8e59255e",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-followup\\candidate\\src\\graphical\\material_edit.rs",
+      "candidate_sha256": "50152f946c253c4d6727d41bd5c7e331dbbcfd7551dec71e77f4a25b8e59255e"
+    },
+    {
+      "receipt": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174932.json",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_admission_tests.rs",
+      "recorded_sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2",
+      "actual_sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2",
+      "status": "matches_receipt",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-followup\\candidate\\src\\graphical\\material_admission_tests.rs",
+      "candidate_sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2"
+    }
+  ],
+  "packet_claims": {
+    "source_path": "docs/planning/tech/ecopunk-production-claims.json",
+    "source_sha256": "8150cc719790dcf3cfe95392078845868441ae1c251a90944349b772181cec97",
+    "packet_count": 120,
+    "status_counts": [
+      {
+        "status": "open",
+        "count": 120
+      }
+    ],
+    "all_open": true,
+    "complete_packet_count": 0,
+    "human_acceptance_claimed": null
+  },
+  "catalogue": {
+    "path": "docs/planning/tech/assets/model-production-template/deliverables.json",
+    "actual_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+    "expected_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+    "matches_expected": true,
+    "claims_recorded_version": "2026-10-24.2",
+    "claims_recorded_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb"
+  },
+  "execution_evidence": {
+    "verification_receipts": [
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/authorisation/verification.json",
+        "sha256": "7b78c3cb3772a9e1ab2287de420f644a8181f3732b4a7f54339669d27aac4dff",
+        "record": {
+          "scope": "staged cooperative authoring policy and revision evidence",
+          "source_application": "not applied by worker",
+          "command": "cargo test --manifest-path docs/qa/implementation-2026-10-25/batch-3/authorisation/harness/Cargo.toml --offline --locked",
+          "working_directory": "C:/github/ecopunk",
+          "exit_code": 0,
+          "unit_tests_passed": 13,
+          "unit_tests_failed": 0,
+          "doc_tests": 0,
+          "actual_source_dependency": "C:/github/qualiaDB/crates/qualia-cooperative-core",
+          "test_module": "candidate/authoring/tests.rs",
+          "warnings": [
+            "incremental cache hard links unavailable; compiler copied files"
+          ],
+          "production_authority_exercised": false,
+          "full_core_build_run": false,
+          "native_ui_run": false,
+          "mcp_integration_run": false,
+          "durable_cooperative_evidence_commit_run": false,
+          "human_review_or_acceptance": false,
+          "provider_calls_or_money_movement": false,
+          "remaining": [
+            "native verified session and identifier association adapter",
+            "authoritative cooperative admission/revocation projection",
+            "atomic durable contribution/review evidence commit",
+            "shared Poet/MCP gateway and HMC/material integration",
+            "IP-03 C1-C8",
+            "all 120 production packets and complete master/consumer outcome"
+          ]
+        }
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/materials/verification.json",
+        "sha256": "4019a10f75257599ef222af01e6649f4b452513b71bb67f930e11da53bccf2b6",
+        "record": {
+          "scope": "Focused staged materials proof against actual cached engine rlibs; not coherent native product acceptance",
+          "applied": false,
+          "focused_material_tests": {
+            "passed": 5,
+            "failed": 0
+          },
+          "original_gpu_test": {
+            "emissive": "not reached",
+            "roughness_changed_pixels": 211,
+            "passed": 0,
+            "failed": 1,
+            "metallic_changed_pixels": 0,
+            "base_color_changed_pixels": 295
+          },
+          "renderer_correction": "staged, unqualified until parent rebuild",
+          "native_controls_compile": "unrun; parent coherent native source build required",
+          "computer_use": false,
+          "whole_phase_ready": false,
+          "evidence_pins": [
+            {
+              "path": "harness/tests.rs",
+              "sha256": "1BAF40C2D95833748BAED89D62C4287C39024454880CD157B7803509284AA399"
+            },
+            {
+              "path": "harness/material-tests.exe",
+              "sha256": "1AC9A785BF95D92B49F5B153BED7927CDEEC95D24B81B79B0747F29CC4FE5B3C"
+            },
+            {
+              "path": "harness/tests.log",
+              "sha256": "7A94CB26813CFF333BEE6B5D6462CEEFDC418E875CF14222FB13640AA331A801"
+            },
+            {
+              "path": "harness/renderer-original-failed-pixels.log",
+              "sha256": "3C8ECA0E6E3BC2F61F67A741C564FFC0544E9A761FD5E4221093BB5038275544"
+            },
+            {
+              "path": "candidate/graphical/materials.rs",
+              "sha256": "6CC0D0C31781AD0E57260945D2A80400034A0370662B39D8DC349D3101736A71"
+            },
+            {
+              "path": "candidate/graphical/materials_tests.rs",
+              "sha256": "50B1C2D8ED391E3F1425034B1C2E95D2E1DE59B421A84536CF834D2BC963D424"
+            },
+            {
+              "path": "candidate/graphical/material_pixels.rs",
+              "sha256": "CB33759E756DE382D0723F67026DA7AB95372B403FA26AF7FAC735D69FD6A712"
+            }
+          ],
+          "dependency_pins": [
+            {
+              "path": "C:/github/ecopunk/target/debug/deps/libvibe-2937e95bb154f7f6.rlib",
+              "sha256": "A380D7ECA4976BF43B90619312C81AA0CE96F4730E0EBC63DF60F320210C7EA8"
+            },
+            {
+              "path": "C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib",
+              "sha256": "5D72CF9F5EF649A2D2F59BB71642EF71833D782E9365B7E0A3810B685C84CD0D"
+            },
+            {
+              "path": "C:/github/ecopunk/target/debug/deps/libwebizen_render-3a3c5aa8a032b8b0.rlib",
+              "sha256": "FADE063D371C736F6C10D3E9856CB64AEB8A38A274B890C22DD46F02B30054DD"
+            },
+            {
+              "path": "C:/github/poet/native/src/graphical/controller.rs",
+              "sha256": "D89B8B0DDAEC83B9D55ABF69F991C42D63EF3A0D12C9ED5E4AAF6EAD095A38BE"
+            },
+            {
+              "path": "C:/github/poet/native/src/graphical/geometry_host.rs",
+              "sha256": "752F1DF74E7538A40EB6859A713932B5AD00706B8BFFB02A1E87AA746E7535A2"
+            }
+          ]
+        }
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/mcp/verification.json",
+        "sha256": "03a474fc368806e4e8aa1fb1556bf65fd074a7416e3f146ee3d56c7cbe962cab",
+        "record": {
+          "scope": "thin MCP authoring protocol and bounded stdio feature",
+          "source_application": "staged; not applied by worker",
+          "command": "cargo test --manifest-path docs/qa/implementation-2026-10-25/batch-3/mcp/harness/Cargo.toml --offline --locked",
+          "working_directory": "C:/github/ecopunk",
+          "compiled_library": "candidate/src/lib.rs",
+          "features": [
+            "authoring"
+          ],
+          "engine_tools_enabled": false,
+          "exit_code": 0,
+          "unit_tests_passed": 16,
+          "unit_tests_failed": 0,
+          "doc_tests": 0,
+          "initial_fixture_failure": "512-byte frame test used default 256-byte ID budget; fixture and conservative ID/message limit validation corrected",
+          "actual_workspace_cargo_resolution_tested": false,
+          "full_core_build_run": false,
+          "default_engine_tools_build_run": false,
+          "native_poet_gateway_integration_run": false,
+          "actual_stdin_stdout_subprocess_run": false,
+          "caller_owned_stream_transport_tested": true,
+          "production_authority_exercised": false,
+          "human_acceptance_claimed": false,
+          "protocol_version": "2025-11-25",
+          "remaining": [
+            "independent review and guarded application",
+            "actual workspace dependency resolution",
+            "shared native Poet backend integration",
+            "verified native session and cooperative authority provider",
+            "real authoring/HMC/material workflow",
+            "IP-03 C1-C8",
+            "all 120 packets and model/package outcomes"
+          ]
+        }
+      }
+    ],
+    "explicit_run_receipts": [
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/core-library-tests.json",
+        "sha256": "3573f0ca9f26f2a08ca1a64d04de0de06c911ff9e49b8d792deb267f25e2982e",
+        "record": {
+          "command": "cargo test --offline --locked -p qualia-core-db --lib --no-default-features --features native-Poet-selected-profile -- --test-threads=1",
+          "exit_code": 101,
+          "started_utc": "2026-10-24T17:35:34.3482122Z",
+          "finished_utc": "2026-10-24T17:35:35.2534969Z"
+        }
+      }
+    ],
+    "log_inventory": [
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/core-library-canonical-tests.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/core-library-tests.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/compile.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/first-test-failures.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/guards.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/poet-compile.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/poet-tests.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/tests.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/materials/harness/compile.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/materials/harness/initial-failed-tests.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/materials/harness/pixels.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/materials/harness/renderer-original-failed-pixels.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/materials/harness/tests.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      },
+      {
+        "path": "docs/qa/implementation-2026-10-25/batch-3/native-build/tree.log",
+        "hash_status": "present_not_hashed_due_possible_live_writer"
+      }
+    ],
+    "test_definitions_counted_as_executions": 0,
+    "note": "Counts only explicit run records as execution receipts; no test pass count inferred from source test definitions."
+  },
+  "source_hashes": [
+    {
+      "path": "docs/planning/tech/ecopunk-production-claims.json",
+      "sha256": "8150cc719790dcf3cfe95392078845868441ae1c251a90944349b772181cec97"
+    },
+    {
+      "path": "docs/planning/tech/ecopunk-production-backlog.md",
+      "sha256": "5e46bafb76ff411d1495c33c2de7a37f3cb8932625f29d1f174f9210a2566163"
+    },
+    {
+      "path": "docs/planning/tech/assets/model-production-template/deliverables.json",
+      "sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json",
+      "sha256": "86eace7709dfd3304ed2da3bcbfc18b8698998cd773942603535efe3cc02152f"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json",
+      "sha256": "6309da95efc58f30a002723894bf6149f60fc5a31ecb86a38769d76d86ae356f"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174932.json",
+      "sha256": "4a3da024e09196b9257de4a44989020e6960eadd3305c7c4ee1f3e1009bfbe68"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-3/hmc/applied-verification.json",
+      "sha256": "fe48416d1111a11d5974a8b33a1a50d504f81d6c8f25fcc8387c8c3a70934f12"
+    }
+  ]
+}

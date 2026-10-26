@@ -1,0 +1,33 @@
+    Blocking waiting for file lock on build directory
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling syn v3.0.3
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.154
+   Compiling serde_derive v1.0.229
+   Compiling memchr v2.8.3
+   Compiling qualia-mcp v0.0.40 (C:\github\qualiaDB\crates\qualia-mcp)
+    Finished `test` profile [unoptimized] target(s) in 17m 21s
+     Running unittests src\lib.rs (target\debug\deps\qualia_mcp-79a3631be7c99833.exe)
+
+running 16 tests
+test authoring::tests::backend_domain_errors_are_actual_tool_errors_with_no_success_fallback ... ok
+test authoring::tests::duplicate_envelope_or_nested_argument_keys_are_rejected_before_dispatch ... ok
+test authoring::tests::initialized_and_tools_list_accept_protocol_metadata_but_not_task_calls ... ok
+test authoring::tests::invalid_initialize_does_not_activate_and_ping_does_not_change_state ... ok
+test authoring::tests::invalid_or_duplicate_catalog_is_rejected_and_empty_real_catalog_is_honest ... ok
+test authoring::tests::lifecycle_requires_initialize_then_initialized_and_negotiates_only_pinned_version ... ok
+test authoring::tests::malformed_batch_and_wrong_envelopes_never_dispatch ... ok
+test authoring::tests::maximum_frame_and_escaped_id_fit_the_configured_response_budget ... ok
+test authoring::tests::notifications_never_call_tools_or_respond ... ok
+test authoring::tests::only_string_and_integral_ids_are_accepted_and_echoed ... ok
+test authoring::tests::oversized_invalid_utf8_and_unterminated_frames_fail_closed_without_output ... ok
+test authoring::tests::result_budget_failure_does_not_invent_success_and_mentions_operation_state ... ok
+test authoring::tests::stdio_has_only_valid_newline_protocol_messages_and_notifications_are_silent ... ok
+test authoring::tests::successful_backend_object_roundtrips_structured_and_text_output ... ok
+test authoring::tests::supported_catalog_only_and_unknown_tools_methods_or_bad_args_do_not_dispatch ... ok
+test authoring::tests::transport_propagates_safe_io_kind_and_never_prints_error_text ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+

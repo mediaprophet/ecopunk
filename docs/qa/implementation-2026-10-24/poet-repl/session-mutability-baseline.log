@@ -1,0 +1,23 @@
+   Compiling poet-repl-run03-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.88s
+     Running tests\session_mutability_findings.rs (docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\deps\session_mutability_findings-4167cc9829b22357.exe)
+
+running 2 tests
+Observed: declaring and assigning scale in the same submission succeeds with value 2.0.
+test upstream_finding_same_submission_mutable_assignment_succeeds ... ok
+
+thread 'upstream_finding_mutable_binding_cannot_be_assigned_in_a_later_submission' (27096) panicked at tests\session_mutability_findings.rs:19:5:
+assertion `left == right` failed
+  left: E001
+ right: E701
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test upstream_finding_mutable_binding_cannot_be_assigned_in_a_later_submission ... FAILED
+
+failures:
+
+failures:
+    upstream_finding_mutable_binding_cannot_be_assigned_in_a_later_submission
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+error: test failed, to rerun pass `--test session_mutability_findings`

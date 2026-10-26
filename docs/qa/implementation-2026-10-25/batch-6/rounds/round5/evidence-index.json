@@ -1,0 +1,268 @@
+{
+  "schema": "ecopunk.round5.evidence-index.v1",
+  "status": "complete_scoped",
+  "as_of": "2026-10-25",
+  "assets": "HOLD; regression assets and reference master unchanged",
+  "source_application": {
+    "unique_installed_targets": 37,
+    "original_install_receipt": "applied-source.json",
+    "target_groups": [
+      {
+        "group": "authoring",
+        "targets": 8
+      },
+      {
+        "group": "typed .10d",
+        "targets": 8
+      },
+      {
+        "group": "root integration",
+        "targets": 21
+      }
+    ],
+    "all_latest_installed_hashes_match": null,
+    "recorded_later_repairs": [
+      "repairs/authoring-runtime/applied-source.json",
+      "repairs/workflow-selection/applied-source.json"
+    ],
+    "verification_record": "saved-evidence-verification.json",
+    "verification_record_sha256": "091EF2D861D3CF6C410BA4D4AF3BD7C7F348008D6C904D794E779257785468B8",
+    "final_source_pin_files": 3036,
+    "latest_local_source_hashes_match": true,
+    "per_command_source_unchanged": "true for every successful recorded command; hashes/pins are in each receipt"
+  },
+  "selected_native_evidence": {
+    "execution_count": 50,
+    "unique_case_count": 49,
+    "overlap": "One test is counted in both jobs and inspection selections.",
+    "checks": [
+      {
+        "check": "authoring",
+        "receipt": "authoring-result.json",
+        "receipt_sha256": "712562F4BB2B7798CC51BF0E767490F6262A4A76C381015484672A8A28D837A8",
+        "exit_code": 0,
+        "elapsed_seconds": 50.469,
+        "test_results": [
+          [
+            14,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 14,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "authoring.log",
+        "log_sha256": "dc8e105926deeb34181ca15657004e9d75d9c98e722b94d780c71ea97b0685c0",
+        "source_snapshot_sha256": "8317d9081a9f441561cb8b243b6a11d7e484df3a236f57e401385dbd4491d3ff"
+      },
+      {
+        "check": "typed",
+        "receipt": "typed-result.json",
+        "receipt_sha256": "0852B16B126A00DBC20918113B18BD6B3EBAE07F4437CC564590193DB5C95C33",
+        "exit_code": 0,
+        "elapsed_seconds": 15.156,
+        "test_results": [
+          [
+            8,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 8,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "typed.log",
+        "log_sha256": "3ea2f51856da3e09428acbb83b53e5cfc2fcc46701f1f109370522139f86b9b9",
+        "source_snapshot_sha256": "ab907b9e404c853b7bb251367f32da857499b060f07491d3ccde6dcd0e512dbf"
+      },
+      {
+        "check": "fiel",
+        "receipt": "fiel-result.json",
+        "receipt_sha256": "8D6CB08F004C82309C9B8AC28D7876F4C4B5DE6828EB1C322A9A832271FF978F",
+        "exit_code": 0,
+        "elapsed_seconds": 59.141,
+        "test_results": [
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 3,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "fiel.log",
+        "log_sha256": "4a98d86af997da2c018967b3cd1e5f11a3972fa3d78216c4a608ebe665ac5b73",
+        "source_snapshot_sha256": "ab907b9e404c853b7bb251367f32da857499b060f07491d3ccde6dcd0e512dbf"
+      },
+      {
+        "check": "workflow",
+        "receipt": "workflow-result.json",
+        "receipt_sha256": "29C3C90B1106F4E6553B07EB096F35A98C593CD9646BBCE9E5B7686AB3A95E89",
+        "exit_code": 0,
+        "elapsed_seconds": 49.579,
+        "test_results": [
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 1,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "workflow.log",
+        "log_sha256": "e5e81edc200c39a9ead34a6521170901bfaa083f31a46eca229a53eaf5b9adb9",
+        "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784"
+      },
+      {
+        "check": "intents",
+        "receipt": "intents-result.json",
+        "receipt_sha256": "74B75F294159B7D31EB7A82192200E402D9850A3C35D8F10C369D1F3A1805452",
+        "exit_code": 0,
+        "elapsed_seconds": 16.015,
+        "test_results": [
+          [
+            5,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 5,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "intents.log",
+        "log_sha256": "a0d5c3a4d3d12446334b370c66b493c4e6d17ece4f06a7bd0d2e2df69240b7ea",
+        "source_snapshot_sha256": "8317d9081a9f441561cb8b243b6a11d7e484df3a236f57e401385dbd4491d3ff"
+      },
+      {
+        "check": "jobs",
+        "receipt": "jobs-result.json",
+        "receipt_sha256": "F27D7753B34A273AFE22D46C71D39F97656CDDCC528AEEFF3998295EB65C9E98",
+        "exit_code": 0,
+        "elapsed_seconds": 12.157,
+        "test_results": [
+          [
+            13,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 13,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "jobs.log",
+        "log_sha256": "5c45e8b37950ba741a491794e2825793af0aa9f769c4e879ccee494ca3bb89ad",
+        "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784"
+      },
+      {
+        "check": "inspection",
+        "receipt": "inspection-result.json",
+        "receipt_sha256": "D0B99D03051883AAB462AE1E88DEA6F63675A852A9677C4F4AA98CBF6DA990FB",
+        "exit_code": 0,
+        "elapsed_seconds": 16.281,
+        "test_results": [
+          [
+            6,
+            0,
+            0
+          ]
+        ],
+        "selected_case_count": 6,
+        "source_files": 3036,
+        "source_unchanged": true,
+        "log": "inspection.log",
+        "log_sha256": "8a2815d3ab3e76a15105041254eeadcc2568b159965a182e8e4c7176576d6cf4",
+        "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784"
+      }
+    ]
+  },
+  "qualification_commands": [
+    {
+      "check": "check",
+      "receipt": "check-result.json",
+      "receipt_sha256": "06CAD54D3C3C28788C1A7DB7B2564A15466B03118464F15EDC56E688B376A927",
+      "exit_code": 0,
+      "elapsed_seconds": 214.875,
+      "test_results": [],
+      "selected_case_count": 0,
+      "source_files": 3036,
+      "source_unchanged": true,
+      "log": "check.log",
+      "log_sha256": "4e510bfc8412d30cbbf9b0c02eec855697bb653dcc72d5415e3a9ded065db655",
+      "source_snapshot_sha256": "ab907b9e404c853b7bb251367f32da857499b060f07491d3ccde6dcd0e512dbf"
+    },
+    {
+      "check": "build",
+      "receipt": "build-result.json",
+      "receipt_sha256": "6C4BC633CEA07CB87835F6FA5237701BF85FA0D91E78B2EB5206B8ABBA260298",
+      "exit_code": 0,
+      "elapsed_seconds": 51.39,
+      "test_results": [],
+      "selected_case_count": 0,
+      "source_files": 3036,
+      "source_unchanged": true,
+      "log": "build.log",
+      "log_sha256": "d55d378415ff8673f22242945883a09486c4908ae4e7716feef578c291a5c68f",
+      "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784"
+    },
+    {
+      "check": "wasm",
+      "receipt": "wasm-result.json",
+      "receipt_sha256": "8AF89F86CE4A3D2F35655EE085A8A107B45CAC652597EB0613FAD936752213C6",
+      "exit_code": 0,
+      "elapsed_seconds": 148.187,
+      "test_results": [],
+      "selected_case_count": 0,
+      "source_files": 3036,
+      "source_unchanged": true,
+      "log": "wasm.log",
+      "log_sha256": "2c64006ec0e1ef2e2c0faffb2ba14caeb63c097c1abfabe66806703f62306144",
+      "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784"
+    }
+  ],
+  "retained_initial_failures": [
+    {
+      "receipt": "authoring-before-runtime-repair-result.json",
+      "receipt_sha256": "D43F52CE2B09E9857E38A09D38BE2589ED539973FF36FFC2743FC24A6473BC7D",
+      "exit_code": 101,
+      "elapsed_seconds": 379.391,
+      "test_results": [],
+      "log": "authoring-before-runtime-repair.log",
+      "log_sha256": "95787a2bbaf55b9a66198e6ee4f548a901f39951fbedfad29525799213e683c8",
+      "retained": true
+    },
+    {
+      "receipt": "workflow-before-selection-repair-result.json",
+      "receipt_sha256": "C9DB1A98186657F3A5FB177A224213991F573A4D0F364EC3B43399B22E6BBE37",
+      "exit_code": 101,
+      "elapsed_seconds": 12.687,
+      "test_results": [],
+      "log": "workflow-before-selection-repair.log",
+      "log_sha256": "945f5fc5d4ff6b6454e10a7ce72e26fbfe3b07ea81d927e66a20849f2f714b03",
+      "retained": true
+    }
+  ],
+  "repair_records": [
+    "repairs/authoring-runtime: canonical Vibe replacement-generator lambda repaired after preserved first run; 256-part fixture initializer corrected.",
+    "repairs/workflow-selection: test-only resource selection changed from filename suffix assumptions to canonical resource kinds after preserving first failure."
+  ],
+  "source_claims": [
+    "Authoring source preserves edited source/part relationships and HMC package resources; geometry/material compilation uses the existing source route.",
+    "Typed .10d material/field direct edit is bounded and uses canonical Core codecs; unsupported dependencies and stale identifier/graph associations refuse direct rewrite. Source edits and recompilation are the selected update route.",
+    "Native source/package/resource SHA-256 guards remain distinct from the raw-source and compiled-container CRC witnesses in Q42.",
+    "No universal semantic identifier mapping, physical-material validity, or complete HMC meaning is inferred from these tests."
+  ],
+  "claim_boundary": {
+    "FND_01_to_06": "open",
+    "IP_03_C1_to_C8": "open",
+    "GUI_verification": "not run",
+    "human_acceptance": "none claimed",
+    "native_no_JS_V8": "not newly qualified beyond command/profile scope",
+    "WASM_runtime_interoperability": "not run",
+    "model_completion": "not assessed; 193 catalogue plus eight subject-specific claims remain unassessed and all three target packages incomplete",
+    "new_asset_or_model_claim": "none",
+    "asset_production": "HOLD"
+  }
+}

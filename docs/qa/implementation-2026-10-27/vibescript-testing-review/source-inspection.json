@@ -1,0 +1,213 @@
+{
+  "document_kind": "static_source_inspection",
+  "captured_at_utc": "2026-10-26T14:57:14.925559+00:00",
+  "active_source_may_change": true,
+  "runtime_tests_run": false,
+  "source_edited": false,
+  "asset_production": "hold",
+  "gate_passes": [],
+  "sources": [
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/topology_and_manifold/effects_and_systems.rs",
+      "sha256": "2fa7fc4c45295245dc9b3e7cdf95cb593c01514aac8ae7592fa337cbccaa50a1",
+      "bytes": 19060,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "fn code_hash_ast",
+          "lines": [
+            85
+          ]
+        },
+        {
+          "text": "fn code_resolve",
+          "lines": [
+            103
+          ]
+        },
+        {
+          "text": "fn code_spawn_at",
+          "lines": [
+            112
+          ]
+        },
+        {
+          "text": "fn task_cancel",
+          "lines": [
+            154
+          ]
+        },
+        {
+          "text": "fn task_with_timeout",
+          "lines": [
+            162
+          ]
+        },
+        {
+          "text": "fn task_nursery",
+          "lines": [
+            124
+          ]
+        },
+        {
+          "text": "fn supervisor_start_link",
+          "lines": [
+            176
+          ]
+        },
+        {
+          "text": "fn effect_perform",
+          "lines": [
+            49
+          ]
+        },
+        {
+          "text": "fn effect_handle",
+          "lines": [
+            60
+          ]
+        },
+        {
+          "text": "fn effect_resume",
+          "lines": [
+            76
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/expr.rs",
+      "sha256": "a05e97951dcf4f5dcd96368d83f9c00b0a636756932cd6ebdf5aef7e45d7f48c",
+      "bytes": 24365,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "ExprKind::Await(e)",
+          "lines": [
+            350
+          ]
+        },
+        {
+          "text": "check_non_capturing",
+          "lines": [
+            352,
+            489
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/bytecode/compiler.rs",
+      "sha256": "bac0e62afcd80a292c1ca643fa7f29a46618f68d237f5af351b8fdd431e6d3a7",
+      "bytes": 43309,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "ExprKind::Await(inner)",
+          "lines": [
+            259
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/session/mod.rs",
+      "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+      "bytes": 8442,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "This is not durable",
+          "lines": [
+            2
+          ]
+        },
+        {
+          "text": "pub struct SourceSession",
+          "lines": [
+            82
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/capability_schema.rs",
+      "sha256": "4a80977499ef9e67462b71dd98c78d80195757c16dbab92be5f2611615fc0d4e",
+      "bytes": 29192,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "pub struct SchemaEntry",
+          "lines": [
+            119
+          ]
+        },
+        {
+          "text": "pub fn all_schemas",
+          "lines": [
+            188
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/lib.rs",
+      "sha256": "5f804b9f0c545b4d8b5f52bb6a8f0ed8be7a7132806006b15fc55ff17f727812",
+      "bytes": 6630,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "LANGUAGE_VERSION",
+          "lines": [
+            9
+          ]
+        },
+        {
+          "text": "pub mod frame_morphism",
+          "lines": [
+            48
+          ]
+        },
+        {
+          "text": "pub mod quantity",
+          "lines": [
+            59
+          ]
+        },
+        {
+          "text": "pub mod reactive_cell",
+          "lines": [
+            60
+          ]
+        },
+        {
+          "text": "pub mod replay_clock",
+          "lines": [
+            62
+          ]
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/value.rs",
+      "sha256": "bfda461b4c00ca5c97244798da92df6846af966c2594d53617f227ddb96e51f3",
+      "bytes": 48861,
+      "inspected_scope": "Targeted declarations and function bodies; not whole-file semantic coverage",
+      "anchors": [
+        {
+          "text": "    Receipt,",
+          "lines": [
+            442
+          ]
+        },
+        {
+          "text": "    Lambda {",
+          "lines": [
+            476
+          ]
+        }
+      ]
+    }
+  ],
+  "review": "docs/planning/tech/vibescript-testing-review-2026-10-27.md"
+}

@@ -1,0 +1,88 @@
+{
+  "review_scope": "Independent source review of seven-file AO LOG1P BA16 v1 proposal; no edits, build, or GPU execution",
+  "reviewed_utc": "2026-10-24T18:33:04.6689484Z",
+  "candidate_pins": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/ao.rs",
+      "candidate_sha256": "E84E2C4654A0DF6C6819D82FA1CDB27F9A50DADF03E9B7FF201E02CF850B0377",
+      "matches_frozen": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/ao_depth.rs",
+      "candidate_sha256": "767A8C7C8F8EEABEC9457FE6C001B701D14EE747C9C037F2C124D42838F5FA08",
+      "matches_frozen": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/ao_math.rs",
+      "candidate_sha256": "594470EAAE0617AC7532BFAEAD74D777002EBE71DCA5846228267E642A7CBB31",
+      "matches_frozen": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/material_pixel_tests.rs",
+      "candidate_sha256": "E6756F86F9D9FE63233E6CFC5B4DD2B6277720306FB06B54BF230D4767143125",
+      "matches_frozen": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/shaders/viewport/ao_prepass.wgsl",
+      "candidate_sha256": "59EA9F959F443054CA7D17A388AE21A9EBF8DD831C564E14D744F0C879DBD966",
+      "matches_frozen": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/shaders/viewport/ao_generate.wgsl",
+      "candidate_sha256": "388A5036B85D5E8D0DEC66B9135BFC44CBF441E79CDDDCA70D87FC621C0AF25D",
+      "matches_frozen": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/shaders/viewport/mesh.wgsl",
+      "candidate_sha256": "D05E587B5D75EB59D2CA49CA76673FECECE66DEAD486498E35F75487B9F4484B",
+      "matches_frozen": true
+    }
+  ],
+  "source_findings": [
+    {
+      "status": "no_blocking_source_mismatch_found_for_bounded_finite_camera_profile",
+      "topic": "encoding and all consumers",
+      "evidence": [
+        "ao_prepass.wgsl fragment_main: tag1, log2(1+clamp(depth,0,far))/step, clamp0..65534 then +1",
+        "ao_generate.wgsl decode_view_depth and mesh.wgsl screen_space_ao_visibility: exp2((code-1)*same step)-1",
+        "code0 checked before unsigned subtraction in all decode call paths; code1 remains valid zero-depth",
+        "ao_math.rs: fixed native far15000 and log2(15001)/65534; tag1 in camera_forward.w"
+      ],
+      "assessment": "Native world-space view depth and reconstruction units agree. Camera near can change independently; near0 is not background because depth zero maps to code1."
+    },
+    {
+      "status": "no_blocking_source_mismatch_found_for_same_binary_warm_state",
+      "topic": "cold/warm targets and cached pipelines",
+      "evidence": [
+        "portal_gpu/init.rs initializes AO uniform through make_uniform",
+        "render_frame.rs lines200-201 writes uniform copy before record_ao_pass on the same encoder",
+        "AoTargets::record clears BA to0 and AO towhite every recorded pass",
+        "AoTargets pipelines are created from embedded shader sources with cache:None; AO resources/private views cannot persist across binaries",
+        "rebuild_ao_resources recreates views/bindings and uses same factory/layout"
+      ],
+      "assessment": "Within one coherently rebuilt binary the version cannot change through public settings. Disabled/no-target/no-mesh factory sets enabled0; mesh consumer returns neutral. Same-target two-frame hole/solid GPU test will exercise warm overwrite, but remains unexecuted after fix."
+    },
+    {
+      "status": "explicit_runtime_input_limit_not_new_regression_proved",
+      "topic": "NaN and public settings",
+      "evidence": [
+        "ao_depth::encode_depth rejects NaN/Inf/out-of-range only under cfg(test)",
+        "ao_math::camera_basis falls back for nonfinite/zero direction; depth step/far/version are fixedfinite",
+        "make_uniform and PortalGpu::set_screen_space_ao use clamp, which does not sanitize NaN radius/strength/bias",
+        "public camera setters/CameraState.clamped do not comprehensively sanitize NaN yaw/pitch/target"
+      ],
+      "assessment": "CPU invalid-depth oracle tests do not prove runtime invalid-camera/AO-input rejection. This behavior exists in original factory/settings and is outside the seven-file change; do not advertise fail-closed arbitrary NaN input qualification. Native settings owner needs explicit reject/preserve validation and tests before such a claim."
+    },
+    {
+      "status": "qualification_blocker_until_actual_gpu_execution",
+      "topic": "reproduced precision fault and new GPU behavior",
+      "evidence": [
+        "old actual GPU hole18/solid15 agrees with native camera ray/plane oracle",
+        "far15000/65534 gives about0.228889 world-unit depth step; AO horizon ramp0.04 and radius0.05..2.0 overlap that lost precision",
+        "new analytic-code oracle uses actual CameraState, half-target pixel center and expected world planes; original >100-code assertion retained"
+      ],
+      "assessment": "Independent equations and Naga validation are sufficient for source review, not successful actual GPU precision or visual qualification. Parent must run the strengthened native pixel test and relevant AO/material family on the coherent final binary."
+    }
+  ],
+  "decision": "No blocking source-format/consumer/version wiring defect found for the declared bounded finite-camera repair. This is not blanket approval or GPU/quality acceptance. Runtime NaN admission and actual GPU execution remain explicitly unqualified."
+}

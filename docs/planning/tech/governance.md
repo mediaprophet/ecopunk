@@ -178,11 +178,11 @@ attribution/acknowledgement obligations (e.g., AusTraits' citation requirement, 
 DOIs) are *executed* in the pack's generated attribution artefact — a license term made
 executable.
 
-**GOV-SOV-7 — Identity criteria prohibition.** Identity, standing, membership, and
+**GOV-SOV-7 — Identifiers criteria prohibition.** Identifiers, standing, membership, and
 indigeneity are constituted by relations — culture, knowledge, place of life/birth,
 language, community recognition — never by genomic or racial markers (SOC-AX-8). Using
-DNA/ancestry data as an identity gate is recorded as a `values:Prohibition`: deriving,
-filtering, or gating a person's identity/standing/rights from genomic markers violates the
+DNA/ancestry data as identifiers gate is recorded as a `values:Prohibition`: deriving,
+filtering, or gating a person's identifiers/standing/rights from genomic markers violates the
 values baseline. Genomic data in the corpus exists for biological purposes only and carries
 that restriction in its rights profile.
 
@@ -218,9 +218,9 @@ chain of stewardship events, preserving "who was responsible when" — essential
 50-year corpus where organisations merge, rename, and dissolve (e.g., DCCEEW itself is a
 succession of departmental names; CSIRO/TERN hosting arrangements change).
 
-**GOV-SOC-4 — Identity.** Agents carry durable external IDs where they exist:
+**GOV-SOC-4 — Identifiers.** Agents carry durable external IDs where they exist:
 ORCID (people), ROR/GRID-legacy (organisations), Wikidata QIDs, ISNI, ABN/ASIC for AU
-entities, DOI/RAiD for projects; plus DID (`did:`) for verifiable in-ecosystem identity
+entities, DOI/RAiD for projects; plus DID (`did:`) for verifiable in-ecosystem identifiers
 and `did:q42:` internal addressing. Agent records are themselves semantic entities in the
 graph — queryable, versioned.
 
@@ -238,7 +238,7 @@ graph — queryable, versioned.
 the 340+ AusTraits data contributors) remain attached to the record — roll-ups to
 dataset level are views, not replacements.
 
-## 6. Identity & durability
+## 6. Identifiers & durability
 
 **GOV-DUR-1** Stable identifiers: prefer source-minted durable IDs (NSL LSIDs, AFD GUIDs,
 Wikidata QIDs, DOIs, AGLDWG `/def/` PIDs) over ecopunk-local IDs; our IDs *link to* them.
@@ -281,7 +281,7 @@ entities — receipts filed to the capability ledger.
 | S8 lane decision | Human sign-off for `commons` publication; restricted publication may be automated below threshold |
 | Correction/withdrawal | Signed withdrawal record; downstream dependents notified via registry version notes |
 
-**GOV-ROL-1** Agents (build bots, LLM-assisted mappers) act under declared identity DIDs;
+**GOV-ROL-1** Agents (build bots, LLM-assisted mappers) act under declared identifiers DIDs;
 their activity is logged as `prov:Agent` with an accountable human principal — per the
 QualiaDB agency model.
 
@@ -289,7 +289,7 @@ QualiaDB agency model.
 
 **GOV-PRV-6** Occurrence collectors, observers, transcribers, and photo authors are people:
 personal identifiers are minimised to attribution-level (name/ORCID where the licence
-requires credit), never contact/home detail. Collector-identity fields follow Bionomia-style
+requires credit), never contact/home detail. Collector-identifiers fields follow Bionomia-style
 disambiguation without leaking private data.
 
 ## 10. Open questions

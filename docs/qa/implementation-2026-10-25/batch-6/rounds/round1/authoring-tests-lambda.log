@@ -1,0 +1,40 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 36.54s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-e9761f04da66e76f.exe)
+
+running 3 tests
+test graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph ... ok
+test graphical::authoring::tests::every_generated_edit_is_a_canonical_program_with_a_record_result ... ok
+test graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 115 filtered out; finished in 1.02s
+

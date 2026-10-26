@@ -1,0 +1,42 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--bin",
+    "poet"
+  ],
+  "mode": "build",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T23:53:06.353451+00:00",
+  "finished_utc": "2026-10-25T23:54:00.807055+00:00",
+  "elapsed_seconds": 54.453,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\build.log",
+  "log_sha256": "d3746992037823460189e383cb5a2d0c5ad00c789144ba5f3df79a2eabf1111f",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\build-source-before.json",
+  "source_snapshot_sha256": "7fe0d0dd035e4dd2b15bba8527ef53e55d9393861473592fab13ffc9473789c7",
+  "recorded_local_source_files": 3285,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [],
+  "passed_case_names": [],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

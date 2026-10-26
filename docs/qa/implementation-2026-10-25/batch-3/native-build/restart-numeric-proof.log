@@ -1,0 +1,24 @@
+
+running 1 test
+test graphical::checkpoints::restart_tests::source_material_checkpoint_survives_fresh_native_process ... native checkpoint write evidence:
+
+running 1 test
+test graphical::checkpoints::restart_tests::native_restart_child ... native QuantizedMesh per-axis max_error=[4.500150680541992e-6, 2.8759241104125977e-6, 1.3589859008789063e-5]; documented_extent_div_65535_bound=[9.419813103012628e-6, 5.8727260038655695e-6, 3.174184215799152e-5]; indices_exact=true; raw_master_tolerance=none
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 62 filtered out; finished in 0.43s
+
+
+native checkpoint read evidence:
+
+running 1 test
+test graphical::checkpoints::restart_tests::native_restart_child ... native QuantizedMesh per-axis max_error=[4.500150680541992e-6, 2.8759241104125977e-6, 1.3589859008789063e-5]; documented_extent_div_65535_bound=[9.419813103012628e-6, 5.8727260038655695e-6, 3.174184215799152e-5]; indices_exact=true; raw_master_tolerance=none
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 62 filtered out; finished in 0.25s
+
+
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 62 filtered out; finished in 0.98s
+

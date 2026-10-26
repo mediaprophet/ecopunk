@@ -1,0 +1,14 @@
+{
+  "applied_utc": "2026-10-24T19:56:59.5010560Z",
+  "manifests": [
+    "core-forge-repairs/header-followup/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "original_sha256": "E14E7BEC9BD82A5FA187B728082C1EC8BEE1CC98BAF09B9D7E50E9115D11F245",
+      "sha256": "112DAB536827249B1BB50A80E28B841E87724196B41C067B7B1EA4F08D7D8DC3",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-forge-repairs\\header-followup\\coopmat.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\coopmat.rs"
+    }
+  ]
+}

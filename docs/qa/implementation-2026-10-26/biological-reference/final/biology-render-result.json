@@ -1,0 +1,55 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::biological_reference_tests::native_branching_diagnostics",
+    "--",
+    "--ignored",
+    "--test-threads=1"
+  ],
+  "mode": "biology-render",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T23:52:19.624600+00:00",
+  "finished_utc": "2026-10-25T23:52:38.310155+00:00",
+  "elapsed_seconds": 18.687,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\biology-render.log",
+  "log_sha256": "098f615c0b766a0a5edfb5ac02b9edf0c831312f189dddad9d4741ebda012000",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\biology-render-source-before.json",
+  "source_snapshot_sha256": "7fe0d0dd035e4dd2b15bba8527ef53e55d9393861473592fab13ffc9473789c7",
+  "recorded_local_source_files": 3285,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::biological_reference_tests::native_branching_diagnostics_render_each_source_cell"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false",
+    "POET_REFERENCE_QUALIFICATION_ARTIFACTS": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\reference-output",
+    "POET_BIOLOGICAL_DIAGNOSTICS": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\final\\reference-output"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

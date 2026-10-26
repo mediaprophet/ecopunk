@@ -1,0 +1,10 @@
+
+running 5 tests
+test poet_host::invoke::studio_store::stamped_tests::identical_upsert_invalidates_old_stamp_and_cannot_restore_erased_journal ... ok
+test poet_host::invoke::studio_store::stamped_tests::fallible_candidate_error_preserves_source_revision_and_both_stacks ... ok
+test poet_host::invoke::studio_store::stamped_tests::foreign_stamp_and_create_conflict_leave_existing_source_unchanged ... ok
+test poet_host::invoke::studio_store::stamped_tests::initial_admission_rejects_invalid_revision_and_retained_budgets ... ok
+test poet_host::invoke::studio_store::stamped_tests::concurrent_stamped_edit_activates_one_callback_and_returns_current_stamp ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.01s
+

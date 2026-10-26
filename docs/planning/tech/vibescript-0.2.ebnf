@@ -1,0 +1,124 @@
+(* Proposed vibe-0.2 structural grammar, 2026-10-24. NOT the implemented 0.1 grammar.
+   Lexical special sequences are defined in vibescript-0.2-specification.md section 3.
+   Candidate decisions/extensions need ratification and conformance; this is not
+   evidence that the current parser accepts every production. Whitespace/comments
+   are discarded between tokens. Semantic restrictions apply after parsing.
+   Reconcile existing interpolation and extended patterns before ratification.
+   Modes are selected by the host; they are not executed as fallback alternatives. *)
+
+Program        ::= LocaleDecl* ModuleDecl? ImportDecl* PrefixDecl* AccessDecl* Item* ;
+CellBody       ::= '=' Expression ;
+ReplExpression ::= '='? Expression ;
+LocaleDecl     ::= 'locale' Identifier ';' ;
+ModuleDecl     ::= 'module' (IRI | Identifier) ';' ;
+ImportDecl     ::= 'import' (StringLiteral | IRI) ('as' Identifier)? ';' ;
+PrefixDecl     ::= 'prefix' Identifier ':' IRI ';' ;
+AccessDecl     ::= UsingDecl | RequiresDecl ;
+UsingDecl      ::= 'using' UsingSpec (',' UsingSpec)* ';' ;
+UsingSpec      ::= Identifier ('.' '{' Identifier (',' Identifier)* '}')? ;
+RequiresDecl   ::= 'requires' '[' (CapSpec (',' CapSpec)*)? ']' ';' ;
+CapSpec        ::= 'capability' '(' StringLiteral (',' NamedArg)* ')' ;
+
+Item           ::= FunctionDecl | HookDecl | ConstDecl | CellDecl | PresentDecl
+                 | BindDecl | EnumDecl | FieldDecl | MaterialDecl | LawDecl | Statement ;
+FunctionDecl   ::= FunctionEffect? 'fn' Identifier ParamList BudgetClause? ('->' Type)? Block ;
+FunctionEffect ::= 'pure' | 'hot' | 'cold' | 'async' | 'effect' 'async'? ;
+HookDecl       ::= 'on' EventPath ParamList BudgetClause? ('->' Type)? Block ;
+EventPath      ::= Identifier (':' Identifier)* ;
+ParamList      ::= '(' Params? ')' ;
+Params         ::= Param (',' Param)* ;
+Param          ::= Identifier ':' Type ;
+BudgetClause   ::= 'budget' '(' NamedArg (',' NamedArg)* ')' ;
+ConstDecl      ::= 'const' Identifier (':' Type)? '=' Expression ';' ;
+CellDecl       ::= CellEffect? 'cell' Identifier ParamList? ('when' Expression)?
+                   (':=' | '=') Expression ';' ;
+CellEffect     ::= 'pure' | 'hot' | 'effect' ;
+PresentDecl    ::= 'present' Identifier '{' PresentProp* '}' ;
+PresentProp    ::= PropertyName ':' Expression (',' | ';')? ;
+BindDecl       ::= 'bind' Expression '<->' Expression
+                   ('using' Identifier '[' Expression ',' Expression ']')?
+                   ('resolve' ResolveMode)? ';' ;
+ResolveMode    ::= 'latest' | 'left' | 'right' ;
+EnumDecl       ::= 'enum' Identifier '{' (EnumVariant (',' EnumVariant)* ','?)? '}' ;
+EnumVariant    ::= Identifier ('(' Type (',' Type)* ')')? ;
+FieldDecl      ::= 'field' Identifier ':' Type FieldProp* ';' ;
+FieldProp      ::= 'unit' ':' (IRI | StringLiteral | PrefixedName)
+                 | 'support' ':' FieldSupport
+                 | 'representation' ':' FieldRepresentation ;
+FieldSupport   ::= 'region' | 'point' | 'continuant' | 'stream' ;
+FieldRepresentation ::= 'grid' | 'mesh' | 'particles' | 'analytic' | 'sampled' ;
+MaterialDecl   ::= 'material' Identifier ':' Type NamedArg (',' NamedArg)* ';' ;
+LawDecl        ::= 'law' Identifier 'when' Expression '=>' Expression ';' ;
+
+Statement      ::= LetStmt | AssignStmt | IfStmt | ForStmt | WhileStmt | MatchStmt
+                 | ReturnStmt | YieldStmt | TransactionStmt | EffectStmt | ExprStmt ;
+LetStmt        ::= 'let' 'mut'? BindingPattern (':' Type)? ('=' Expression)? ';' ;
+BindingPattern ::= Identifier | ListPattern | RecordPattern | ConstructorPattern ;
+AssignStmt     ::= AssignTarget '=' Expression ';' ;
+AssignTarget   ::= Identifier ('.' PropertyName | '[' Expression ']')* ;
+IfStmt         ::= 'if' Expression Block ('else' (IfStmt | Block))? ;
+ForStmt        ::= 'for' Identifier 'in' Expression Block ;
+WhileStmt      ::= 'while' Expression Block ;
+MatchStmt      ::= 'match' Expression '{' MatchArm* '}' ;
+MatchArm       ::= Pattern '=>' (Block ','? | Expression ',') ;
+ReturnStmt     ::= 'return' Expression? ';' ;
+YieldStmt      ::= 'yield' Expression? ';' ;
+TransactionStmt ::= 'transaction' ('(' NamedArg (',' NamedArg)* ')')? Block ;
+EffectStmt     ::= 'effect' Expression ';' ;
+ExprStmt       ::= Expression ';' ;
+Block          ::= '{' Statement* '}' ;
+
+Expression     ::= Pipeline ;
+Pipeline       ::= TweenExpr ('|>' TweenExpr)* ;
+TweenExpr      ::= LogicalOr ('~' LogicalOr 'over' LogicalOr TweenMode?)? ;
+TweenMode      ::= 'ease' Identifier | 'spring' '(' (NamedArg (',' NamedArg)*)? ')' ;
+LogicalOr      ::= LogicalAnd ('||' LogicalAnd)* ;
+LogicalAnd     ::= Equality ('&&' Equality)* ;
+Equality       ::= Relational (('==' | '!=') Relational)* ;
+Relational     ::= Additive (('<' | '<=' | '>' | '>=') Additive)* ;
+Additive       ::= Multiplicative (('+' | '-') Multiplicative)* ;
+Multiplicative ::= Unary (('*' | '/' | '%') Unary)* ;
+Unary          ::= ('!' | '-' | '+' | 'await') Unary | PostfixExpr ;
+PostfixExpr    ::= Primary ('.' PropertyName | '(' Args? ')' | '[' Expression ']' | '?')* ;
+Args           ::= Arg (',' Arg)* ;
+Arg            ::= (PropertyName ':')? Expression ;
+NamedArg       ::= PropertyName ':' Expression ;
+Primary        ::= Literal | Identifier | QueryVar | IRI | PrefixedName | BlankNode
+                 | TripleTerm | ReifiedTerm | ListLiteral | RecordLiteral | LambdaExpr
+                 | IfExpr | GraphQuery | Modal | ColorLit | QuantityLit | '(' Expression ')' ;
+IfExpr         ::= 'if' Expression '{' Expression '}' 'else' (IfExpr | '{' Expression '}') ;
+(* Postfix directly on an unparenthesized IfExpr is a semantic syntax restriction. *)
+LambdaExpr     ::= '|' (Identifier (',' Identifier)*)? '|' Expression ;
+GraphQuery     ::= 'graph?' 'ask'? '{' (Expression ';'?)* '}' ;
+Modal          ::= ModalName '{' Expression '}' ;
+ModalName      ::= 'obligate' | 'permit' | 'forbid' | 'knows' | 'believes' | 'always' | 'eventually' ;
+Literal        ::= StringLiteral | IntegerLiteral | FloatLiteral | 'true' | 'false' | 'null' ;
+ListLiteral    ::= '[' (Expression (',' Expression)* ','?)? ']' ;
+RecordLiteral  ::= '{' (NamedArg (',' NamedArg)* ','?)? '}' ;
+TripleTerm     ::= '<<(' Subject Predicate Object ')>>' ;
+ReifiedTerm    ::= '<<' Subject Predicate Object '~' Reifier '>>' ;
+Subject        ::= IRI | PrefixedName | BlankNode | TripleTerm | Identifier | QueryVar ;
+Predicate      ::= IRI | PrefixedName | Identifier ;
+Object         ::= Subject | Literal | QuantityLit ;
+Reifier        ::= IRI | PrefixedName | BlankNode | Identifier ;
+
+Type           ::= Identifier ('<' Type (',' Type)* '>')? ;
+Pattern        ::= '_' | Literal | Identifier | UnitVariantPattern | ConstructorPattern | ListPattern | RecordPattern ;
+UnitVariantPattern ::= Identifier '.' Identifier ('.' Identifier)* ;
+ConstructorPattern ::= ConstructorName '(' (Pattern (',' Pattern)*)? ')' ;
+ConstructorName ::= Identifier ('.' Identifier)* ;
+ListPattern    ::= '[' (Pattern (',' Pattern)*)? ']' ;
+RecordPattern  ::= '{' (PatternField (',' PatternField)*)? '}' ;
+PatternField   ::= PropertyName (':' Pattern)? ;
+
+Identifier     ::= ? XID_Start or underscore; then XID_Continue or underscore; lexical policy section 3 ? ;
+PropertyName   ::= Identifier | ? contextual word after dot or before colon, per keyword policy ? ;
+StringLiteral  ::= ? double-quoted Unicode string with escapes specified in section 3 ? ;
+IntegerLiteral ::= ? decimal or hexadecimal token, internal separators, optional integer suffix, section 3 ? ;
+FloatLiteral   ::= ? decimal fraction or exponent token, optional float suffix, section 3 ? ;
+IRI            ::= ? angle-delimited IRI, escaping and relational disambiguation in section 3 ? ;
+PrefixedName   ::= ? identifier prefix, colon, nonempty local name per section 3 and pinned RDF profile ? ;
+BlankNode      ::= ? underscore-colon followed by an identifier label ? ;
+QueryVar       ::= ? question mark immediately followed by an identifier ? ;
+ColorLit       ::= ? hash followed by exactly six or eight hexadecimal digits ? ;
+QuantityLit    ::= ? integer/float with registered unit suffix or unit IRI, section 3 ? ;

@@ -1,0 +1,1137 @@
+{
+  "schema": "ecopunk.round6.evidence-index.v1",
+  "status": "complete_scoped",
+  "as_of": "2026-10-25",
+  "assets": "HOLD; no production assets",
+  "install_manifest": {
+    "path": "install-manifest.json",
+    "sha256": "0ee679a2e1024e909a3bb4cdb9f1db21d64808a631ff62dcf5a1145e82b220e8",
+    "applied_source_receipt": "applied-source.json",
+    "target_count": 53,
+    "groups": [
+      {
+        "targets": 12,
+        "group": "profiles"
+      },
+      {
+        "targets": 12,
+        "group": "surfaces"
+      },
+      {
+        "targets": 29,
+        "group": "root_integration"
+      },
+      {
+        "targets": 1,
+        "group": "compiler_signature_new_target"
+      },
+      {
+        "targets": 4,
+        "group": "core_hmc_texture_union_new_targets"
+      }
+    ],
+    "target_records": [
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\geometry_host.rs",
+        "before_sha256": "3df957c9fd7355aea065f865d3a51e656dc6ebcf5f8a7d244fe235cd09accc56",
+        "expected_after_sha256": "f0e2fc16166fd281b7ce9652be217abec973f1f40840fc26c8922aa42a114858",
+        "saved_after_sha256": "f0e2fc16166fd281b7ce9652be217abec973f1f40840fc26c8922aa42a114858",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\revolve_host.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "746937d617ab60eb81a9e557233717bf8a8fe213b4823a5d1c19bf47cea584e9",
+        "saved_after_sha256": "746937d617ab60eb81a9e557233717bf8a8fe213b4823a5d1c19bf47cea584e9",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\spatial_host.rs",
+        "before_sha256": "e2a5375c6b448a82662e1fe3062497e21c88eaf6ed14c69b8f1671d9ecb02794",
+        "expected_after_sha256": "b862fb92fa2097236963aabc10e205ae93fdaf45974afa7ea66e94060f4bb38c",
+        "saved_after_sha256": "b862fb92fa2097236963aabc10e205ae93fdaf45974afa7ea66e94060f4bb38c",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\cad_controls.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "33c72e1ac308bba93c0aee145ea44ebcee190a8d938aabd369c53b16e1debda0",
+        "saved_after_sha256": "33c72e1ac308bba93c0aee145ea44ebcee190a8d938aabd369c53b16e1debda0",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\cad_recipe.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "f038be0ffdbe6c6a4679f4735bddd19d31633f24b7e603f6f37fa42f6153e2a7",
+        "saved_after_sha256": "f038be0ffdbe6c6a4679f4735bddd19d31633f24b7e603f6f37fa42f6153e2a7",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\cad_tests.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "aa3b2785d9020d23728944fda1dce8c9251134fbf23d2dcaa380e20a03c4ba93",
+        "saved_after_sha256": "aa3b2785d9020d23728944fda1dce8c9251134fbf23d2dcaa380e20a03c4ba93",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\geometry_source.rs",
+        "before_sha256": "430f6090f6758d5a1b1ce61be7cd723eed3f07e9513fdf0e64eebdf5aa8d8e58",
+        "expected_after_sha256": "2c34ab70fee5e274e0e3961c88c4a479ca93e23a83b7c144cb8d9e5050657f66",
+        "saved_after_sha256": "2c34ab70fee5e274e0e3961c88c4a479ca93e23a83b7c144cb8d9e5050657f66",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\profile_controls.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "c2097b76dc69f4166f6fef7e2ec2329bad8bc8664b84039c7fbcd34de824accb",
+        "saved_after_sha256": "c2097b76dc69f4166f6fef7e2ec2329bad8bc8664b84039c7fbcd34de824accb",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\profile_recipe.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "1985b727285aee70d211c693671f70466b751f36c04829581fcc00d8298d2108",
+        "saved_after_sha256": "1985b727285aee70d211c693671f70466b751f36c04829581fcc00d8298d2108",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\profile_tests.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "a77edad7a6ddf6113e57352e4ec306745732f9bd642e44a8cfc6a47ef917c241",
+        "saved_after_sha256": "a77edad7a6ddf6113e57352e4ec306745732f9bd642e44a8cfc6a47ef917c241",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\catalog\\ids.rs",
+        "before_sha256": "e0648a2ba53e682165d576bf2aa464466e69c1ce13b5760c64a2439392b9a7c1",
+        "expected_after_sha256": "ae63440f8325be8a7c8da51d97b69b12f6270a46a567ef6a44f5c8127601e1f9",
+        "saved_after_sha256": "ae63440f8325be8a7c8da51d97b69b12f6270a46a567ef6a44f5c8127601e1f9",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "profiles",
+        "target": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\poet_geometry_catalog.rs",
+        "before_sha256": "fabdb45f3a4d33ffefe6d9ca1d40c10d8f1ed7af9a4d9c1e5979c16318faa31b",
+        "expected_after_sha256": "0b7ab69bae2140fe5bdbe50cc1f7481abc3df0f7a430c13aade1069499621e76",
+        "saved_after_sha256": "0b7ab69bae2140fe5bdbe50cc1f7481abc3df0f7a430c13aade1069499621e76",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\materials.rs",
+        "before_sha256": "627a03c3150515a64e0b115de73a92074ffc45fa159a50254a81c500e68adda5",
+        "expected_after_sha256": "24d71e500dc613481cc9eb03e1f570256704696efd47c3f3a1193e6bb403e818",
+        "saved_after_sha256": "24d71e500dc613481cc9eb03e1f570256704696efd47c3f3a1193e6bb403e818",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\assembly\\admission.rs",
+        "before_sha256": "07ac59c9ae2951184e64e04b383870c508b4560b6cc7d3d7b70f79e4798040a1",
+        "expected_after_sha256": "8e69833a449aca3bf217ba1df4009a974e770b8a75c053a22ebc0506e56d04ef",
+        "saved_after_sha256": "8e69833a449aca3bf217ba1df4009a974e770b8a75c053a22ebc0506e56d04ef",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\assembly\\render.rs",
+        "before_sha256": "06123569def15c070e14c9cf396dc5466ed5c3ae6b82fa6cc456ec79ed745568",
+        "expected_after_sha256": "d2649d7d3b282b2d7b3a31c349db43b8bdce54860214d181828dd74d46648ed8",
+        "saved_after_sha256": "d2649d7d3b282b2d7b3a31c349db43b8bdce54860214d181828dd74d46648ed8",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\surface_controls.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "7dec57882ba9e5538b0ddd4ca726788dba0c7fea9d39af9684b8784976bef32d",
+        "saved_after_sha256": "7dec57882ba9e5538b0ddd4ca726788dba0c7fea9d39af9684b8784976bef32d",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\binding.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "5e06a1d778620edd9782406b7f4837bbf40b693eaa3e0a77586a654b5690e74b",
+        "saved_after_sha256": "5e06a1d778620edd9782406b7f4837bbf40b693eaa3e0a77586a654b5690e74b",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\draft.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "dd645a1d77d47931926b8d20c6f1c5d323be2065f36e2dbb3a8c1b42a00dc6c0",
+        "saved_after_sha256": "dd645a1d77d47931926b8d20c6f1c5d323be2065f36e2dbb3a8c1b42a00dc6c0",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\mod.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "d52cedf0f3e35526099c98f5fa900ceaaecf8e3fbd7cbe269b6657dfd57521b1",
+        "saved_after_sha256": "d52cedf0f3e35526099c98f5fa900ceaaecf8e3fbd7cbe269b6657dfd57521b1",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\pixels.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "a13384470dea99e86a2724bec2abfbf8cf3da5b51e31c96e86a1c3e6fcc11a61",
+        "saved_after_sha256": "a13384470dea99e86a2724bec2abfbf8cf3da5b51e31c96e86a1c3e6fcc11a61",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\resources.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "261a0133d0800b095e71b20f0ee4092e3679a9060c48e36750c3dac85e3e5b81",
+        "saved_after_sha256": "261a0133d0800b095e71b20f0ee4092e3679a9060c48e36750c3dac85e3e5b81",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\tests.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "623714b6963f6cd897cfd97103833a434884855cc81e45d0e5bf595d748ade97",
+        "saved_after_sha256": "623714b6963f6cd897cfd97103833a434884855cc81e45d0e5bf595d748ade97",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\uv.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "18af225a4e9f718d57dce307f7a52cbee253f86fa6b48dd0355f9a283a06d76c",
+        "saved_after_sha256": "18af225a4e9f718d57dce307f7a52cbee253f86fa6b48dd0355f9a283a06d76c",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "surfaces",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\wire.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "36603237e0d9ebec0fff073df0d6ca5bd1cde881dcb6049c7ead67279685b874",
+        "saved_after_sha256": "36603237e0d9ebec0fff073df0d6ca5bd1cde881dcb6049c7ead67279685b874",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+        "before_sha256": "0fcd607bcef2bb6b4bf907913aa2054ff13fdb132cfd0aaaed68b6161956e739",
+        "expected_after_sha256": "02dfe6a036583fcf2f8779ff4cabdff2216a6e2a10850594f47f474361898df8",
+        "saved_after_sha256": "02dfe6a036583fcf2f8779ff4cabdff2216a6e2a10850594f47f474361898df8",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\assembly\\mod.rs",
+        "before_sha256": "1ed0887832fe5ca06444f79f2e752cb6f75415c30d06953ada3038aa5106a070",
+        "expected_after_sha256": "b6534b9e7f26b4e5e76a3baaa185c7c501dbeef882572a88b2127609a2c2c47a",
+        "saved_after_sha256": "b6534b9e7f26b4e5e76a3baaa185c7c501dbeef882572a88b2127609a2c2c47a",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+        "before_sha256": "c9cc4669df00e061b2ffab71cde93ade4de0a94fd74be53744dc13f1927cf0a2",
+        "expected_after_sha256": "c595010fb543b59c88c7b83bfd47602c3aae3cd235ff2b5aecf26ad927e21129",
+        "saved_after_sha256": "c595010fb543b59c88c7b83bfd47602c3aae3cd235ff2b5aecf26ad927e21129",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controller.rs",
+        "before_sha256": "00ca57a90e260a64059ec8827ce7f9b49f240778a81cd91f3800bbe3e97e5cd9",
+        "expected_after_sha256": "b49a0a20336c950acc1f54f101a2486cc796faa8be3bcc25ef674ec80b26b5ca",
+        "saved_after_sha256": "b49a0a20336c950acc1f54f101a2486cc796faa8be3bcc25ef674ec80b26b5ca",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\execution.rs",
+        "before_sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c",
+        "expected_after_sha256": "bceadc4190f07994f99c324836d2d0d7c1bb4b765056836264c7bef291ce76b3",
+        "saved_after_sha256": "bceadc4190f07994f99c324836d2d0d7c1bb4b765056836264c7bef291ce76b3",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+        "before_sha256": "19ce98b89e23735d35140ead782af522dd89808cb106b507a0704e13179229c9",
+        "expected_after_sha256": "a179f866d2a00e8908aa1b6ad73464367401b16d4030616d75b724082ec3995b",
+        "saved_after_sha256": "a179f866d2a00e8908aa1b6ad73464367401b16d4030616d75b724082ec3995b",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+        "before_sha256": "0f56636c47ce5c40efc6cf21d3c1d9884d2e5ab5a440181e58ea1feaeff36a39",
+        "expected_after_sha256": "ec406ea66f89b4adc7e402e84c362748d98fd85b6e985a0dadeea92063da2c79",
+        "saved_after_sha256": "ec406ea66f89b4adc7e402e84c362748d98fd85b6e985a0dadeea92063da2c79",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+        "before_sha256": "fdd72ac96154883e61f9f883794fc7593efb9b9a50a51ce1c226cf77b4950790",
+        "expected_after_sha256": "b8d94956ee19d56b5c6e04ff4b49154daa72ef56f31880cd02327ab1316b08ee",
+        "saved_after_sha256": "b8d94956ee19d56b5c6e04ff4b49154daa72ef56f31880cd02327ab1316b08ee",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+        "before_sha256": "76d1c318c76b8216b4d1fd6c96854b467c9a73bd7c10d4a108be146ae2b7d626",
+        "expected_after_sha256": "796e2b1272112b82f482d80a95461494973283cc8b6650ab8225527a35536235",
+        "saved_after_sha256": "796e2b1272112b82f482d80a95461494973283cc8b6650ab8225527a35536235",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+        "before_sha256": "9b3c1b66c2ae078d61d7fe526dc8ef76a9d92a0508825a9f8e1002e50e6d84fa",
+        "expected_after_sha256": "ca6516794473ac3459342813c966533242cfe5f45209e66278bc4f0a75a33a42",
+        "saved_after_sha256": "ca6516794473ac3459342813c966533242cfe5f45209e66278bc4f0a75a33a42",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+        "before_sha256": "d0bf74cc7b78c184e45d092594dcbc13199f02d70db3a6f434eccf7df28ebd24",
+        "expected_after_sha256": "6ca64a0ad69f231271c15b069955c584a8ab11faab8f8db7a196362e0e20b818",
+        "saved_after_sha256": "6ca64a0ad69f231271c15b069955c584a8ab11faab8f8db7a196362e0e20b818",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+        "before_sha256": "911fb274aa7a41ef0a1e5690b16d914377f69db6e927d2b02d3a3a9e5b8c589d",
+        "expected_after_sha256": "f9f4916efc05c187c2b0a20c0b7fa8be84130cc5a889d7afae05845357a95e1b",
+        "saved_after_sha256": "f9f4916efc05c187c2b0a20c0b7fa8be84130cc5a889d7afae05845357a95e1b",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\job_actions.rs",
+        "before_sha256": "a978cc2f48c03a9cd3574621f1aeb141f4fe6cbaaaed0d0b9362b63f9e6d1747",
+        "expected_after_sha256": "fc817c24a462d325daa52126716f107aa0d3225dce3b867318aec4b7ffb4d490",
+        "saved_after_sha256": "fc817c24a462d325daa52126716f107aa0d3225dce3b867318aec4b7ffb4d490",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+        "before_sha256": "3d77daf6ce746427ebf8869a774913e971346ee9680ccf909c5aabeb90f98c5a",
+        "expected_after_sha256": "99c841e9f931279b684bd6cb4e99ba09ccd80c63b69b85cde085bef1b905cd05",
+        "saved_after_sha256": "99c841e9f931279b684bd6cb4e99ba09ccd80c63b69b85cde085bef1b905cd05",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\surface_resources.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "da269cb03063dd2657871382f5d5008a711eaf0f09ce42493a8bf0b9c6a12fa9",
+        "saved_after_sha256": "da269cb03063dd2657871382f5d5008a711eaf0f09ce42493a8bf0b9c6a12fa9",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+        "before_sha256": "14a105ad555c39ce4638e4963d91368fc3a1b7f20fa461b91bd483a55fce66ff",
+        "expected_after_sha256": "39f6544574f60c3134f21a9db1ccf6edbbfdb3b5a9d0cacf2a725371b591b467",
+        "saved_after_sha256": "39f6544574f60c3134f21a9db1ccf6edbbfdb3b5a9d0cacf2a725371b591b467",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\assembly_source.rs",
+        "before_sha256": "531d9d3474ac5336564cb31e38f8f5415a4e42c94041cf787fc412bdd8f88ebb",
+        "expected_after_sha256": "5d14ec709577649fdda85c476df6e7db5085473c501296aa1149f246910303c0",
+        "saved_after_sha256": "5d14ec709577649fdda85c476df6e7db5085473c501296aa1149f246910303c0",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\surface_host.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "f057e53fc71023020143f7a88485a41521ac6b8accc55a053150972cba05947c",
+        "saved_after_sha256": "f057e53fc71023020143f7a88485a41521ac6b8accc55a053150972cba05947c",
+        "save_status": "verified_saved_repaired"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+        "before_sha256": "46eb9548447b9164474615a3f09588ff357ee8b109be101309d8107acb840df5",
+        "expected_after_sha256": "8a0431f5ba344733551df4cb091108577ec52a8046c22b29d3bf2b66906fe3c0",
+        "saved_after_sha256": "8a0431f5ba344733551df4cb091108577ec52a8046c22b29d3bf2b66906fe3c0",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+        "before_sha256": "ad48525931e39b65f423cb2ba956c6b402e323da0dc519b795121b6f1add9a7e",
+        "expected_after_sha256": "f96328388eb439eb9af33fd993a159abc9f1ae5652a6b325413ea3558318cfd1",
+        "saved_after_sha256": "f96328388eb439eb9af33fd993a159abc9f1ae5652a6b325413ea3558318cfd1",
+        "save_status": "verified_saved_repaired"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\surface_binding_controls.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "635a166a616d7b55560c3f6186ad3468cf4d03f0b28e1c3ee3ccfe928c02fe4b",
+        "saved_after_sha256": "635a166a616d7b55560c3f6186ad3468cf4d03f0b28e1c3ee3ccfe928c02fe4b",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+        "before_sha256": "97e8ba9eb1a53dfdcbfd9c8bf3a9ff9cc0b36eda0b704de370a2ff287a900964",
+        "expected_after_sha256": "eb019482cbfc4a4ef04ae4e8798b3d99fa7ac26d9e571f4472df421479bf0434",
+        "saved_after_sha256": "eb019482cbfc4a4ef04ae4e8798b3d99fa7ac26d9e571f4472df421479bf0434",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+        "before_sha256": "89833149003a65b3ce3760acf7cdad79219f86963aff236bf8281608a0147fea",
+        "expected_after_sha256": "52f1d34da4fdfd03709f4a6884eff8ae699605605dd1e3fee9c0979200fd353c",
+        "saved_after_sha256": "52f1d34da4fdfd03709f4a6884eff8ae699605605dd1e3fee9c0979200fd353c",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+        "before_sha256": "e7f797c3dbafe08060d61b5b1ae39c7109a916ffd1a998b488d8fb2d1b2eaea1",
+        "expected_after_sha256": "59a36a73f4dc7c54a197fb0fa6c2f15ff8fb25e81fa2d712a1c12bf34edde5e0",
+        "saved_after_sha256": "59a36a73f4dc7c54a197fb0fa6c2f15ff8fb25e81fa2d712a1c12bf34edde5e0",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+        "before_sha256": "c9325e92afbb2916f78627a7f44f06cd0d7e249b5c59b7c19e6abfcee886f190",
+        "expected_after_sha256": "e922c50bfe3de205cc56f4155a139736624dc728929c1c40699a459b5aaee76e",
+        "saved_after_sha256": "e922c50bfe3de205cc56f4155a139736624dc728929c1c40699a459b5aaee76e",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\resource_workflow.md",
+        "before_sha256": null,
+        "expected_after_sha256": "861fcfcae7959bc9f44e3764cb302601041922579326521d824ad42e06bedb05",
+        "saved_after_sha256": "861fcfcae7959bc9f44e3764cb302601041922579326521d824ad42e06bedb05",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_surface_tests.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "139f719c88ce11243e6caa237bdde9591182f25a0217f493adefc320ca5b4c73",
+        "saved_after_sha256": "139f719c88ce11243e6caa237bdde9591182f25a0217f493adefc320ca5b4c73",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+        "before_sha256": "a364db08d5e1a5c8b426bef858dadd6948cf4e20a208a34845650c592f22effd",
+        "expected_after_sha256": "75cdac6486dba9523f87fd29d5b8580def0a4d77693519318cced6b31a8e5ef4",
+        "saved_after_sha256": "75cdac6486dba9523f87fd29d5b8580def0a4d77693519318cced6b31a8e5ef4",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration",
+        "target": "C:\\github\\poet\\native\\Cargo.toml",
+        "before_sha256": "854b54739e0edb72197da58a86bb3ec1fd49d69b4038c4b9af0ec75bd217ad9f",
+        "expected_after_sha256": "8b864254c62a8ce3384904af6495c7cb4ad375480f5743589b38d934956e1023",
+        "saved_after_sha256": "8b864254c62a8ce3384904af6495c7cb4ad375480f5743589b38d934956e1023",
+        "save_status": "verified_saved"
+      },
+      {
+        "group": "integration_repair",
+        "target": "C:\\github\\poet\\native\\src\\graphical\\controller_tests.rs",
+        "before_sha256": "08e3bb40ed37d99b7b7f4cee91f322620b105c62e8685f87d4ba44d451435fea",
+        "expected_after_sha256": "8da511294c401226c7748446997f227d31fd7043540e97077f4e2eb9f8670de3",
+        "saved_after_sha256": "8da511294c401226c7748446997f227d31fd7043540e97077f4e2eb9f8670de3",
+        "save_status": "verified_saved_repair"
+      },
+      {
+        "group": "core_hmc_texture_union",
+        "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+        "before_sha256": "adb13882736ba9a67f306fb73be8b873e0be8859c7d0bdfd2ab448a1be427856",
+        "expected_after_sha256": "99b3d82870057b514820070b74c71ad6dd12efde4582f6203cfbfdf09dd80724",
+        "saved_after_sha256": "99b3d82870057b514820070b74c71ad6dd12efde4582f6203cfbfdf09dd80724",
+        "save_status": "verified_saved_hmc_union_repair"
+      },
+      {
+        "group": "core_hmc_texture_union",
+        "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+        "before_sha256": "2f1d9eaeceb7bb2bbe45e5af0b2c26d3c503f500cb3db30feb19ee46e5c0fc05",
+        "expected_after_sha256": "f9eda52c604b7940b5b2b1c088aff1c54680b744d2c7a366d69898f23eb2ee36",
+        "saved_after_sha256": "f9eda52c604b7940b5b2b1c088aff1c54680b744d2c7a366d69898f23eb2ee36",
+        "save_status": "verified_saved_hmc_union_repair"
+      },
+      {
+        "group": "core_hmc_texture_union",
+        "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "6990bc0230deb9abaf1fb3b8a1f0279673764dfcadc7b5d116ae770124753481",
+        "saved_after_sha256": "6990bc0230deb9abaf1fb3b8a1f0279673764dfcadc7b5d116ae770124753481",
+        "save_status": "verified_saved_hmc_union_repair"
+      },
+      {
+        "group": "core_hmc_texture_union",
+        "target": "C:/github/qualiaDB/crates/qualia-core-db/tests/studio_hmc_texture_union.rs",
+        "before_sha256": null,
+        "expected_after_sha256": "97b2ce4d85bbd183133b8a211dfb1b2bfa1126885a0c7698bd094fbe9db798fc",
+        "saved_after_sha256": "97b2ce4d85bbd183133b8a211dfb1b2bfa1126885a0c7698bd094fbe9db798fc",
+        "save_status": "verified_saved_hmc_union_repair"
+      },
+      {
+        "group": "core_hmc_texture_union",
+        "target": "C:/github/poet/native/Cargo.toml",
+        "before_sha256": "8b864254c62a8ce3384904af6495c7cb4ad375480f5743589b38d934956e1023",
+        "expected_after_sha256": "1050d7d01eb350b38870d281ab0b68ed43166fb9a37c6f6b9da1c0fa60ffa6df",
+        "saved_after_sha256": "1050d7d01eb350b38870d281ab0b68ed43166fb9a37c6f6b9da1c0fa60ffa6df",
+        "save_status": "verified_saved_hmc_union_repair"
+      }
+    ],
+    "initial_manifest_target_count": 53,
+    "latest_distinct_target_count_after_repairs": 58,
+    "manifest_scope_note": "install-manifest.json and its digest pin only the original 53-target staged application; later independently receipted repairs add or update five targets and produce a latest distinct target count of 58. HMC repair candidate manifest digest is recorded in recorded_repairs and independent review."
+  },
+  "source_reviews": [
+    {
+      "status": "source_reviewed_no_blocker_in_bounded_scope",
+      "path": "profiles/review/surfaces-review.md",
+      "limits": "No execution or human acceptance."
+    },
+    {
+      "status": "source_reviewed_no_blocker_in_bounded_scope",
+      "path": "profiles/review/root-resources-review.md",
+      "limits": "No execution or human acceptance."
+    },
+    {
+      "status": "source_reviewed_no_remaining_source_blocker_in_reviewed_scope",
+      "path": "surfaces/review/final-root-review.md",
+      "limits": "No build/test/kernel/GPU/GUI/live writes; FND and IP-03 remain open."
+    },
+    {
+      "status": "source_reviewed_no_blocker_in_bounded_scope",
+      "path": "surfaces/profile-cad-cross-review.md",
+      "limits": "No Cargo/kernel/GPU/GUI/model production execution."
+    },
+    {
+      "status": "source_reviewed_repair_required_and_reported",
+      "path": "surfaces/review/root-half-review.md",
+      "limits": "Source review only; repair evidence belongs to final-root-review."
+    },
+    {
+      "path": "repairs/hmc-texture-union/review/independent-review.md",
+      "status": "bounded_source_review_no_remaining_blocker",
+      "limits": "No Cargo/build/test/GPU/GUI/live write; root execution remains required."
+    }
+  ],
+  "planned_checks": [
+    {
+      "status": "pending",
+      "name": "authoring",
+      "receipt": "authoring-result.json",
+      "minimum_tests": 24
+    },
+    {
+      "status": "pending",
+      "name": "surfaces",
+      "receipt": "surfaces-result.json",
+      "minimum_tests": 6
+    },
+    {
+      "status": "pending",
+      "name": "wire",
+      "receipt": "wire-result.json",
+      "minimum_tests": 1
+    },
+    {
+      "status": "pending",
+      "name": "catalog",
+      "receipt": "catalog-result.json",
+      "minimum_tests": 6
+    },
+    {
+      "status": "pending",
+      "name": "hostoptin",
+      "receipt": "hostoptin-result.json",
+      "minimum_tests": 1
+    },
+    {
+      "status": "pending",
+      "name": "workflow",
+      "receipt": "workflow-result.json",
+      "minimum_tests": 1
+    },
+    {
+      "status": "pending",
+      "name": "intents",
+      "receipt": "intents-result.json",
+      "minimum_tests": 5
+    },
+    {
+      "status": "pending",
+      "name": "jobs",
+      "receipt": "jobs-result.json",
+      "minimum_tests": 13
+    },
+    {
+      "status": "pending",
+      "name": "inspection",
+      "receipt": "inspection-result.json",
+      "minimum_tests": 6
+    },
+    {
+      "status": "pending_explicit_ignored_actual_gpu",
+      "name": "gpu",
+      "receipt": "gpu-result.json",
+      "minimum_tests": 1
+    },
+    {
+      "status": "pending",
+      "name": "native_check",
+      "receipt": "check-result.json",
+      "minimum_tests": null
+    },
+    {
+      "status": "pending",
+      "name": "native_build",
+      "receipt": "build-result.json",
+      "minimum_tests": null
+    },
+    {
+      "status": "pending",
+      "name": "wasm_sdk_check",
+      "receipt": "wasm-result.json",
+      "minimum_tests": null
+    }
+  ],
+  "provisional_case_totals": {
+    "overlap": "One identical jobs/inspection case counted twice; 63 passing executions represent 62 distinct passing cases.",
+    "planned_unique_cases_if_all_pass": 63,
+    "actual_passes_claimed": 70,
+    "planned_executions_if_all_selectors_complete": 64,
+    "unique_passed_cases": 69,
+    "actual_failed_executions": 1
+  },
+  "acceptance": {
+    "model_completion": "not assessed",
+    "human_contributor_reviewer_acceptance": "none claimed",
+    "FND_01_to_06": "open",
+    "native_GPU": "pending actual opt-in run",
+    "saved_source_HMC_reopen": "pending execution",
+    "WASM_runtime_interoperability": "not run",
+    "IP_03_C1_to_C8": "open",
+    "native_GUI_usability": "not assessed",
+    "asset_production": "HOLD",
+    "all_target_embodiments": "incomplete"
+  },
+  "notes": [
+    "Read-only final verifier passed: latest source hashes match across 3219 pinned local files and all 58 latest unique installed targets; master and three fixture artifacts unchanged; 14 GPU calibration PNGs pinned.",
+    "Fourteen successful final commands comprise eleven selected test commands plus native check, native build and WASM SDK check. These checks do not demonstrate GUI usability or human contributor/reviewer acceptance.",
+    "Two failed historical attempts are preserved and have successful successor receipts: signature/caller check and pre-texture-union workflow.",
+    "Ecopunk model quality/embodiment and IP-03 C1–C8/FND-01–06 gates remain open. Assets remain HOLD."
+  ],
+  "source_pin_summary": {
+    "reviewed_stage_targets": 53,
+    "final_profile_surface_review": "surfaces/review/final-root-pins.json",
+    "stage_hash_mismatches": 0,
+    "manifest_sha256": "0ee679a2e1024e909a3bb4cdb9f1db21d64808a631ff62dcf5a1145e82b220e8"
+  },
+  "recorded_repairs": [
+    {
+      "path": "repairs/compiler-signature/applied-source.json",
+      "overridden_target": "native/src/graphical/surface_host.rs",
+      "new_unique_target": "native/src/graphical/controller_tests.rs",
+      "order": "repair-order.json",
+      "targets": 2
+    },
+    {
+      "path": "repairs/binding-frame/applied-source.json",
+      "targets": 1,
+      "new_unique_target": "none",
+      "overridden_target": "native/src/graphical/authoring/controls.rs",
+      "order": "repair-order.json"
+    },
+    {
+      "path": "repairs/hmc-texture-union/applied-source.json",
+      "targets": 5,
+      "new_unique_targets": 4,
+      "overridden_target": "poet/native/Cargo.toml",
+      "review": "repairs/hmc-texture-union/review/independent-review.md",
+      "manifest_sha256": "9c0dbd2fb3adcb9f9051748bbf543142569872053b281b3c840984062893714b",
+      "order": "repair-order.json"
+    }
+  ],
+  "completed_checks": [
+    {
+      "receipt_sha256": "33c55b3c5f6ae1297b0d62b5c43d92578191a059e60bec4efd3a400c1a1de32e",
+      "elapsed_seconds": 64.125,
+      "source_snapshot_sha256": "d3689aff8c671243950a44b0592a9dd9e1118fb80f3310e769c4ff83bd871805",
+      "receipt": "check-after-signature-repair-result.json",
+      "exit_code": 0,
+      "name": "native_check",
+      "source_unchanged": true,
+      "source_files": 3217
+    },
+    {
+      "name": "authoring",
+      "receipt": "authoring-result.json",
+      "receipt_sha256": "27daf590695bcebc54326954679ffd8eda8e2dc0d438c115dd90234d0cf5cfe7",
+      "exit_code": 0,
+      "elapsed_seconds": 988.109,
+      "test_results": [
+        [
+          24,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 24,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "d3689aff8c671243950a44b0592a9dd9e1118fb80f3310e769c4ff83bd871805",
+      "log": "authoring.log",
+      "log_sha256": "f510eaf19e748a0252469bb2c0b5d43016f3eebf3326c6b25edad0041ab3902a"
+    },
+    {
+      "name": "surfaces",
+      "receipt": "surfaces-result.json",
+      "receipt_sha256": "d47d435b6b3e767036d7492432dc9796f5564e942c574ad9fbf380f859b82e1d",
+      "exit_code": 0,
+      "elapsed_seconds": 127.89,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 6,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "test_selection_ok": true,
+      "log": "surfaces.log",
+      "log_sha256": "4cdf19b58f9e3d92927fca7ab5e1e8f1fe4576746539ef64cac026f5c344e98c"
+    },
+    {
+      "name": "wire",
+      "receipt": "wire-result.json",
+      "receipt_sha256": "42c41c98c7669158b73bf359792c5092ea4c3516dc8a5269d97fa11cab3007b0",
+      "exit_code": 0,
+      "elapsed_seconds": 24.437,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 1,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "test_selection_ok": true,
+      "log": "wire.log",
+      "log_sha256": "09c080c26a43c9a94a42880b408209648b4b206e3cbe0e857d063b140c1bd2b9"
+    },
+    {
+      "name": "catalog",
+      "receipt": "catalog-result.json",
+      "receipt_sha256": "db3dc74a4af81299b4db960a3a37d83dcfae982d6f5209d74e9a9c473d5ad4ca",
+      "exit_code": 0,
+      "elapsed_seconds": 135.484,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 6,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "test_selection_ok": true,
+      "log": "catalog.log",
+      "log_sha256": "f60b5a12ac147629b57846159b634a6a922169a6caf62078ed46be0daabeae4d"
+    },
+    {
+      "name": "hostoptin",
+      "receipt": "hostoptin-result.json",
+      "receipt_sha256": "519c6b00bb4c7f7d82d7775e6b337ba8b5edb7afa3a85e54f39f5e572046850d",
+      "exit_code": 0,
+      "elapsed_seconds": 25.937,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 1,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "test_selection_ok": true,
+      "log": "hostoptin.log",
+      "log_sha256": "4953c078f57532e6e47172684ab17b205dd3fd95a2486bfdbba34d108e2791a6"
+    },
+    {
+      "name": "workflow",
+      "receipt": "workflow-before-texture-union-result.json",
+      "receipt_sha256": "b354a30abee5ceb9ea99b3589ce58ec053b19e8dfa48149af5c0d14406b9f91f",
+      "exit_code": 101,
+      "elapsed_seconds": 24.953,
+      "test_results": [],
+      "selected_case_count": 0,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "test_selection_ok": false,
+      "log": "workflow-before-texture-union.log",
+      "log_sha256": "373c69538ed8b4509afcb39300965fd1cda0afef94e516ad2c378973d79c270a"
+    },
+    {
+      "name": "gpu",
+      "receipt": "gpu-result.json",
+      "receipt_sha256": "4679124992b79b1c1de9d22c24bc339b5a8ad83a9d8b364197b511f80272cdbf",
+      "exit_code": 0,
+      "elapsed_seconds": 63.812,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 1,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "log": "gpu.log",
+      "log_sha256": "7e7f544502a4acc6ebfb82c90742ac06a87a34086e9287aa752794dc51fc86ee",
+      "ignored_test_explicitly_executed": true,
+      "actual_maps": [
+        {
+          "changed_pixels": 2304,
+          "role": "base_color"
+        },
+        {
+          "changed_pixels": 2304,
+          "role": "normal"
+        },
+        {
+          "changed_pixels": 2304,
+          "role": "metallic_roughness"
+        },
+        {
+          "changed_pixels": 2304,
+          "role": "occlusion"
+        },
+        {
+          "changed_pixels": 2304,
+          "role": "emissive"
+        },
+        {
+          "changed_pixels": 2304,
+          "role": "stylized_ramp"
+        },
+        {
+          "changed_pixels": 2304,
+          "role": "uv_offset"
+        }
+      ]
+    },
+    {
+      "name": "intents",
+      "receipt": "intents-result.json",
+      "receipt_sha256": "b7d6df77521cf51674375f392f31f487fe8b1a741c4cd0a399cd942121e2b49e",
+      "exit_code": 0,
+      "elapsed_seconds": 24.359,
+      "test_results": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 5,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "log": "intents.log",
+      "log_sha256": "197cee126d90f8894df21c06a6b960adb4198f757edd9f0310a351b502f71efa"
+    },
+    {
+      "name": "jobs",
+      "receipt": "jobs-result.json",
+      "receipt_sha256": "36f5a574ee5167e01ee99c6cfc2d0809bd55e5a5fdcbd92cb8deba43d8fb1a42",
+      "exit_code": 0,
+      "elapsed_seconds": 26.578,
+      "test_results": [
+        [
+          13,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 13,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "log": "jobs.log",
+      "log_sha256": "7012df2b391ce5be91a771665f129640c715f6ba4b7f0789682f629a907eb214"
+    },
+    {
+      "name": "inspection",
+      "receipt": "inspection-result.json",
+      "receipt_sha256": "b85c6ea20df347c4e824e816d78a771f29eb25e22577982f4b511aab8a7f86b0",
+      "exit_code": 0,
+      "elapsed_seconds": 25.796,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 6,
+      "source_files": 3217,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f97b0da35795f8a8b895c3f81447efb870c883b3a4d2fff47e6adfad722b9797",
+      "log": "inspection.log",
+      "log_sha256": "82beb4d6a1cdfb9dfc0fe7062fbc08eefc52b57897cad75e6e511d2c9755342e"
+    },
+    {
+      "name": "native_check_after_hmc_texture_union",
+      "receipt": "check-result.json",
+      "receipt_sha256": "6d67802e298505a88e03bb17d067f9869c21a4b6873ce0d48259a66f52f17232",
+      "exit_code": 0,
+      "elapsed_seconds": 229.204,
+      "source_files": 3219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+      "log": "check.log",
+      "log_sha256": "b2deb34979fcf02706c2dc7495d21b1bfb059efb1a09c7cdac40d9935d391b8a"
+    },
+    {
+      "name": "hmc_texture_union",
+      "receipt": "hmctextures-result.json",
+      "receipt_sha256": "15a10bd3f7b2f78e71e5da634c3a6b97ac53e18ebed60bf33e4f071585358fd9",
+      "exit_code": 0,
+      "elapsed_seconds": 401.984,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 6,
+      "source_files": 3219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+      "log": "hmctextures.log",
+      "log_sha256": "19a41fd4bff1156684e6153978f3190c7dfe584916badaf735e0cc558bc8130c"
+    },
+    {
+      "name": "workflow_after_hmc_union_repair",
+      "receipt": "workflow-result.json",
+      "receipt_sha256": "549b894a7c7f583c5a2f3bf415ddd69de44cd9ee7c2755972fcf567941973247",
+      "exit_code": 0,
+      "elapsed_seconds": 74.187,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "selected_case_count": 1,
+      "source_files": 3219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+      "log": "workflow.log",
+      "log_sha256": "ac96bc73708f5a2e32564718a39e55b632596b92fc09357fed5f0f0917853a04"
+    },
+    {
+      "name": "native_build",
+      "receipt": "build-result.json",
+      "receipt_sha256": "0e30e276a0e7556e694c538f9f066c4b676f9e2f6b60e048892b7a791de2bb34",
+      "exit_code": 0,
+      "elapsed_seconds": 14.14,
+      "test_results": [],
+      "selected_case_count": 0,
+      "source_files": 3219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+      "log": "build.log",
+      "log_sha256": "d83c54fc72ecd3d6c06613eaf669e7e317227377990322d6075d219e0ec06dfb"
+    }
+  ],
+  "actual_failed_executions": [
+    {
+      "receipt": "workflow-result.json",
+      "count": 1,
+      "suite": "workflow",
+      "failure": "Core studio_checkpoint bundle rejected duplicate canonical texture key; repair is being staged"
+    }
+  ],
+  "actual_executions_to_date": 71,
+  "gpu_calibration_images": [
+    {
+      "path": "gpu-calibration/base_color-after.png",
+      "sha256": "26de46419b9d9c4f36d76c0356227c0c963f48c3ac898e64e9c368c139ebd6d0",
+      "bytes": 1145
+    },
+    {
+      "path": "gpu-calibration/base_color-before.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/emissive-after.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/emissive-before.png",
+      "sha256": "7ec96becd92cc03bc395d4568f3cdde9a8df751846cb776592f63490dae6dd53",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/metallic_roughness-after.png",
+      "sha256": "b3b327be678f2771006f7d8766cc391cccedcf503cf92f2a09e59e1d98c3e7c7",
+      "bytes": 1193
+    },
+    {
+      "path": "gpu-calibration/metallic_roughness-before.png",
+      "sha256": "06165e4bc60d99b97cb7e06c5e6e9fc4cada380c00802d980f18c546f39dd28e",
+      "bytes": 1181
+    },
+    {
+      "path": "gpu-calibration/normal-after.png",
+      "sha256": "c2b49709054f39a7e70ede778199eef854dbbc5aa09c5a0845996701c69a82a1",
+      "bytes": 1181
+    },
+    {
+      "path": "gpu-calibration/normal-before.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/occlusion-after.png",
+      "sha256": "bfefdaf9d8892fe62cbe6225331401f9c90b2af55dbaea37392d50db218022db",
+      "bytes": 1085
+    },
+    {
+      "path": "gpu-calibration/occlusion-before.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/stylized_ramp-after.png",
+      "sha256": "57f6e9a27197606516d2939e18de9905dc0ececd5e4e5688adfae9857502a5fc",
+      "bytes": 1181
+    },
+    {
+      "path": "gpu-calibration/stylized_ramp-before.png",
+      "sha256": "96e6a32e736378342963af2cf500976b5739408e0e1b12e97fea200d1ef3270d",
+      "bytes": 1211
+    },
+    {
+      "path": "gpu-calibration/uv-before.png",
+      "sha256": "c93cd8b65c378aae0957906cb68da7883dc31b3c1776052d2bfebaab86e064fd",
+      "bytes": 5466
+    },
+    {
+      "path": "gpu-calibration/uv-offset.png",
+      "sha256": "06daa70634990c542bebf4292b312cc105efd07790c1554d76a9e095f9a0c82f",
+      "bytes": 5470
+    }
+  ],
+  "gpu_visual_review": {
+    "inspected_image_count": 5,
+    "performed_by": "root",
+    "human_acceptance": "not claimed",
+    "scope": "visual inspection of retained calibration frames only"
+  },
+  "archived_failures": [
+    {
+      "disposition": "retained historical failure, repaired caller signature",
+      "receipt": "check-before-signature-repair-result.json"
+    },
+    {
+      "disposition": "retained historical failure, duplicate canonical texture key; repair receipt saved, workflow rerun pending",
+      "receipt": "workflow-before-texture-union-result.json"
+    }
+  ],
+  "latest_native_check": {
+    "elapsed_seconds": 229.204,
+    "source_files": 3219,
+    "exit_code": 0,
+    "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+    "receipt": "check-result.json",
+    "source_unchanged": true
+  },
+  "repaired_historical_failures": [
+    {
+      "receipt": "workflow-before-texture-union-result.json",
+      "disposition": "repair landed in repairs/hmc-texture-union; current workflow-result.json passed save/reopen and resource closure",
+      "failure": "duplicate canonical texture HMC entry"
+    }
+  ],
+  "actual_attempted_test_executions_including_historical_failure": 71,
+  "final_source_verification": {
+    "sha256": "5cb652e00e16253197dd38c72b1295f448824d969318b3635fb4625b2489401a",
+    "kind": "read_only_final_reconciliation",
+    "all_latest_installed_hashes_match": true,
+    "latest_local_source_hashes_match": true,
+    "receipt": "saved-evidence-verification.json",
+    "final_local_source_pin_files": 3219,
+    "distinct_installed_targets": 58,
+    "status": "passed",
+    "previous_rounds_not_added": true,
+    "failed_runs_retained": [
+      "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\check-before-signature-repair-result.json",
+      "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\workflow-before-texture-union-result.json"
+    ]
+  },
+  "final_command_summary": {
+    "overlap": "One identical jobs/inspection test counted in both selections.",
+    "unique_selected_native_tests": 69,
+    "successful_final_commands": 14,
+    "check_build_wasm_commands": 3,
+    "selected_native_case_executions": 70,
+    "both_repairs": "caller signature and HMC texture key union repaired; successful later receipts recorded",
+    "test_selection_commands": 11,
+    "historical_failed_attempts": 2
+  },
+  "acceptance_boundary": {
+    "WASM_sdk_compile": "passed",
+    "production_assets": "unchanged",
+    "native_GUI_usability": "not assessed",
+    "assets": "HOLD",
+    "WASM_runtime_interoperability": "not run",
+    "human_contributor_reviewer_acceptance": "none claimed",
+    "complete_model": "not assessed",
+    "IP_03_C1_to_C8": "open",
+    "FND_01_to_06": "open"
+  }
+}

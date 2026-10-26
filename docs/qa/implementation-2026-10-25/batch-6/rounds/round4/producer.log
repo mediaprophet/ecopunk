@@ -1,0 +1,46 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 1m 26s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 9 tests
+test graphical::checkpoints::georaster_edit::source::tests::georaster_source_declarations_remain_unverified_bounded_and_distinct ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_cancellation_budgets_and_coordinates_fail_closed ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_canonical_samples_metadata_and_padding_roundtrip ... ok
+test graphical::checkpoints::georaster_edit::tests::georaster_edit_legacy_corrupt_and_richer_payloads_refuse_loss ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_create_explicit_source_guarded_add_and_refusals_preserve_hmc ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authority_stale_digests_source_and_cancel_leave_hmc_exact ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authorized_save_and_fresh_process_reopen ... ok
+test graphical::cooperation::tests::georaster_edit_tests::georaster_jobs_dispatch_real_authorized_create_edit_and_withhold_revoked_results ... ok
+test graphical::cooperation::tests::georaster_edit_tests::metadata_tests::georaster_edit_refuses_selected_opaque_provided_unknown_and_observation_metadata ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 125 filtered out; finished in 10.79s
+

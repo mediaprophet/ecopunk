@@ -1,0 +1,40 @@
+{
+  "scope": "Poet baseline/functional owner correction and concrete compile repairs",
+  "files": [
+    {
+      "path": "C:\\github\\poet\\Cargo.toml",
+      "before_sha256": "c8edb5c740bbbc1b1d8f105399e5c0199aebfe89b48c9ce9ba5fd7ffc13023a9",
+      "after_sha256": "c3c799be5bd7b68da816621563ba58d7589b18134ffc0340bb67c68644c47d66"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\Cargo.toml",
+      "before_sha256": "7eebce3d2e6cb861a3ccbb06059eb102c33d921be42fecc0d422525b00675346",
+      "after_sha256": "43ab36eb41c3633eca3486614cec786b8b96bad1ae694df0f6ba6f8d21706cb2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+      "before_sha256": "b982b658d8c979488a73986a4dc0dd13e1978313c92528db89c866d077a52bb0",
+      "after_sha256": "9ed176ca44e5d5b43558558c05d346e5dcbbf957b5448e04200ceef2b9390674"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+      "before_sha256": "1b39f96f99b286eff309b56e0a0cc4680bbca2c5256782d8eadf321ef10b5cbd",
+      "after_sha256": "93b2271626423eae0700ca4c2d865a9d2c1a28b071a8426ba0193b128179affe"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "before_sha256": "2b9b9bacb03ac0c4e53ff563133e9404041e0429cae82ddc5d1f9352c14acc51",
+      "after_sha256": "b3d1af349f9c3463e50c05f6b39008015ab7ebea7515d383a250097fcb429b52"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\job_actions.rs",
+      "before_sha256": "f3e93b6e7dc83ef5fc411dbf2daa333a259416f1a3c54bf3f00bcea7d0bc510e",
+      "after_sha256": "5fb127275cba13833368151cbe803529e4a0661efb99a2f1f07fc139a77953a8"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "before_sha256": "9035d3e0b8c219a39929e865030148659075f4ad8c1470b8921c6c5e9c500bb2",
+      "after_sha256": "cb4d3ba2738ba7a381705c972b93a4f99095330b0e33eed465074f509365a17f"
+    }
+  ]
+}

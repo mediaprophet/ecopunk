@@ -1,0 +1,196 @@
+{
+  "schema": "ecopunk.staged-source-change/1",
+  "candidate": "round8-source-carrier-v2",
+  "status": "frozen_for_independent_review_not_applied_or_executed",
+  "rejected_candidate": "rejected/",
+  "source_roots": [
+    "C:/github/qualiaDB",
+    "C:/github/poet"
+  ],
+  "verification": [
+    "rustfmt --edition 2021 (exit 0; staged files only)",
+    "No Cargo, build, runtime, activation, credential, provider or publication performed"
+  ],
+  "files": [
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/package.rs",
+      "before_sha256": "7eb1a61907a5923678ff3f4d2f72ef9e688fc7181c873787c8c0ac5f388c27b5",
+      "after_sha256": "80eb3996f462bc288c2a3c6909b346200d3d6be9a82303c13e847b8d4d481a50",
+      "before_image": "before/poet/native/src/graphical/authoring/package.rs",
+      "after_image": "after/poet/native/src/graphical/authoring/package.rs",
+      "lines": 136
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/checkpoints/editor.rs",
+      "before_sha256": "a048dc80b7231de1c0de3f5ef74ee074e13b3d60d7618e6c605395549054230a",
+      "after_sha256": "b19aa5e3e53fecf0f0a675b5d46ac3798ee2ce9c245fa5a28081542388d1bbfe",
+      "before_image": "before/poet/native/src/graphical/checkpoints/editor.rs",
+      "after_image": "after/poet/native/src/graphical/checkpoints/editor.rs",
+      "lines": 298
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/checkpoints/mod.rs",
+      "before_sha256": "39f6544574f60c3134f21a9db1ccf6edbbfdb3b5a9d0cacf2a725371b591b467",
+      "after_sha256": "2483cf764f917545e1a6190571e5ba6ad1c9a6ee0c9c92b870cf4433687e441a",
+      "before_image": "before/poet/native/src/graphical/checkpoints/mod.rs",
+      "after_image": "after/poet/native/src/graphical/checkpoints/mod.rs",
+      "lines": 244
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/checkpoints/resources.rs",
+      "before_sha256": "e843ec3a132cc1ef14f0ca22b08aa502043deee6e49ee0437403ddc2a79f40f1",
+      "after_sha256": "15cd15bd22cb3a379cbecaaf31546cce229106bbad246701157d08895babb568",
+      "before_image": "before/poet/native/src/graphical/checkpoints/resources.rs",
+      "after_image": "after/poet/native/src/graphical/checkpoints/resources.rs",
+      "lines": 317
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/controller.rs",
+      "before_sha256": "2fe0cfa3ef90a7d095979cbf6509b5eb638863f7f78d6d1a6eeb8d4f9bf7431b",
+      "after_sha256": "d306fc4d66fb3c5daa070bec678ae970e75d3f552b35447a44691cbb1a421ee7",
+      "before_image": "before/poet/native/src/graphical/controller.rs",
+      "after_image": "after/poet/native/src/graphical/controller.rs",
+      "lines": 498
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/cooperation/editor.rs",
+      "before_sha256": "b644174a9fa8d0226d9a4160eac936985ee25e0e0731e643454a69333b4c3911",
+      "after_sha256": "c7027f1e5c7a1cc7984dd8242851fffb91bfb3cfc092119c8327f0a4209609c6",
+      "before_image": "before/poet/native/src/graphical/cooperation/editor.rs",
+      "after_image": "after/poet/native/src/graphical/cooperation/editor.rs",
+      "lines": 341
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/editor_contract.rs",
+      "before_sha256": "1e505f5b0a2c5dd0b8e87f68cf78db14884ff17d5e7419d653e5f702ddacc3ff",
+      "after_sha256": "310f9ddda5e13c0ff4b1b38240e87eb2fe558bb44fb0852fb9a7417ebcdb0be3",
+      "before_image": "before/poet/native/src/graphical/editor_contract.rs",
+      "after_image": "after/poet/native/src/graphical/editor_contract.rs",
+      "lines": 403
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/entry.rs",
+      "before_sha256": "1ef535b3644bf35c771679218f9b2f9b80102c8d6f50f9f9a8ecbcbae1fc674a",
+      "after_sha256": "e5341b147bdaf3a4f3b02198f60bdd9fbd6fa7c9de4fcc96f5ce300bd78a9411",
+      "before_image": "before/poet/native/src/graphical/entry.rs",
+      "after_image": "after/poet/native/src/graphical/entry.rs",
+      "lines": 424
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/package/mod.rs",
+      "before_sha256": "851d134010e65cc5e45e9e310753e05fa84cdfe1a72d43351ed6d25bc5104416",
+      "after_sha256": "0394b03be91f44c0bcd1f924418249bf2c0066c8f46b04dc2db49bfb86f6fcad",
+      "before_image": "before/poet/native/src/graphical/package/mod.rs",
+      "after_image": "after/poet/native/src/graphical/package/mod.rs",
+      "lines": 317
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/session_host.rs",
+      "before_sha256": "83a80e47ff75d165f486b90ad4286a9428f307684d99ea884e7690e9fd52e1c5",
+      "after_sha256": "ec61fc13a2cedc32ceacaf9f00e4ce41e90411081b0eb4a715a4303b8b20a6d0",
+      "before_image": "before/poet/native/src/graphical/session_host.rs",
+      "after_image": "after/poet/native/src/graphical/session_host.rs",
+      "lines": 290
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/shared_host.rs",
+      "before_sha256": "58cc05a5af3e35967ad1c8f7288930e2d1aa815b268dc95ac3258af904263686",
+      "after_sha256": "a8a43b774caa2e35caf242828581418d7990ba32a20366a2503c33c87436e248",
+      "before_image": "before/poet/native/src/graphical/shared_host.rs",
+      "after_image": "after/poet/native/src/graphical/shared_host.rs",
+      "lines": 271
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/surfaces/resources.rs",
+      "before_sha256": "546e4412b8b33d8e245e88a83a23d0fb24b73ac2fa921d861cb2e5e66d2dec43",
+      "after_sha256": "a19e00626297de875979e6c64d910b59306c3cde19c89237ac667c9f0faab2d5",
+      "before_image": "before/poet/native/src/graphical/surfaces/resources.rs",
+      "after_image": "after/poet/native/src/graphical/surfaces/resources.rs",
+      "lines": 295
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/surfaces/source_carrier.rs",
+      "before_sha256": null,
+      "after_sha256": "5caf56ce7616e6798e739f48be37da33282b3888e4577bb76816a40be8aad26a",
+      "before_image": null,
+      "after_image": "after/poet/native/src/graphical/surfaces/source_carrier.rs",
+      "lines": 46
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "9042b1e07e0e9f436791c0a151e8db875d042e5caf11baa4999d6cdd7db54047",
+      "before_image": null,
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier_tests.rs",
+      "lines": 462
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier.rs",
+      "before_sha256": null,
+      "after_sha256": "b711abcfd54ce269237ddcc43c6900030f1321299fcf3df4d16686463076827b",
+      "before_image": null,
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier.rs",
+      "lines": 258
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+      "before_sha256": "99b3d82870057b514820070b74c71ad6dd12efde4582f6203cfbfdf09dd80724",
+      "after_sha256": "6c4ba1c4fe50908a988d8f256810f2b26cc0b46ce66debe51bf80a8cb408e0a4",
+      "before_image": "before/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+      "lines": 289
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+      "before_sha256": "94e33c87da5bf1e3eb1f822651d7ce451a03c30b9c93f96a8c9973eef8bd1168",
+      "after_sha256": "cdcea1e7e2e05708637ab46575c58d1b8e7422845db492451096625698af57e4",
+      "before_image": "before/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+      "lines": 29
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "before_sha256": "6452f63ad5c5687339906f748fa4579d725c321cd3c4d9b81606ed34f0ba04ff",
+      "after_sha256": "3fb258b5f95fc7be87e25c875edec27159445369017c4f680da227f24bd02145",
+      "before_image": "before/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "lines": 250
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resource_tests.rs",
+      "before_sha256": "0efbf92506501bd5f1d2a95ca61410c63275f5d2f053cef79c393f926e1d5c22",
+      "after_sha256": "a480760a9c7e2e25bee71f167b73092d738cb583e152ee17a3353ea13d9e2ab6",
+      "before_image": "before/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resource_tests.rs",
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resource_tests.rs",
+      "lines": 488
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resources.rs",
+      "before_sha256": "8e64f39f7e18b619366a7565833ff7f981f37317f85da1053980761246bc7f16",
+      "after_sha256": "0ef359a349fe622d7c6c7b8246ca6201e89e18c0c7d8f540e0b37487bab296ad",
+      "before_image": "before/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resources.rs",
+      "after_image": "after/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resources.rs",
+      "lines": 293
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+
+running 1 test
+
+thread 'p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram' (5420) panicked at crates\qualia-core-db\src\p2p\social_webnet.rs:324:9:
+assertion failed: a.has_session("b")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram ... FAILED
+
+failures:
+
+failures:
+    p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9857 filtered out; finished in 12.25s
+

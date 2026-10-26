@@ -1,0 +1,119 @@
+    Checking vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+    Checking craft-authoring v0.4.0 (C:\github\craft\crates\authoring)
+    Checking webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    Checking poet-cli v0.0.40 (C:\github\poet\native)
+error: struct literal body without path
+   --> native\src\graphical\authoring\controls.rs:135:81
+    |
+135 | ...put{disabled:!fresh||selected().is_empty(),value:"{transform()[index]}",aria_label:"{label}",style:"width:94px;",oninput:move|e|transform.write()[index]=e.value()}}
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ struct name missing for struct literal
+    |
+help: add the correct type
+    |
+135 |                         label{style:"width:100px;font-size:12px;","{label}"input/* Type */ {disabled:!fresh||selected().is_empty(),value:"{transform()[index]}",aria_label:"{label}",style:"width:94px;",oninput:move|e|transform.write()[index]=e.value()}}
+    |                                                                                 ++++++++++
+
+error: struct literal body without path
+   --> native\src\graphical\authoring\controls.rs:146:81
+    |
+146 | ...put{disabled:!fresh||material_id()==0,value:"{material()[index]}",aria_label:"Assembly material {label}",style:"width:94px;",oninput:move|e|material.write()[index]=e.value()}}
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ struct name missing for struct literal
+    |
+help: add the correct type
+    |
+146 |                         label{style:"width:100px;font-size:12px;","{label}"input/* Type */ {disabled:!fresh||material_id()==0,value:"{material()[index]}",aria_label:"Assembly material {label}",style:"width:94px;",oninput:move|e|material.write()[index]=e.value()}}
+    |                                                                                 ++++++++++
+
+error: struct literal body without path
+   --> native\src\graphical\authoring\controls.rs:169:46
+    |
+169 | ...ilename"input{value:"{filename}",aria_label:"Compiled HMC filename",oninput:move|e|filename.set(e.value())}}
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ struct name missing for struct literal
+    |
+help: add the correct type
+    |
+169 |                 label{"Package filename"input/* Type */ {value:"{filename}",aria_label:"Compiled HMC filename",oninput:move|e|filename.set(e.value())}}
+    |                                              ++++++++++
+
+error: struct literal body without path
+   --> native\src\graphical\authoring\controls.rs:170:39
+    |
+170 | ...t key"input{value:"{asset_key}",aria_label:"Compiled assembly asset key",oninput:move|e|asset_key.set(e.value())}}
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ struct name missing for struct literal
+    |
+help: add the correct type
+    |
+170 |                 label{"Asset key"input/* Type */ {value:"{asset_key}",aria_label:"Compiled assembly asset key",oninput:move|e|asset_key.set(e.value())}}
+    |                                       ++++++++++
+
+error: struct literal body without path
+   --> native\src\graphical\authoring\controls.rs:171:81
+    |
+171 | ...put{value:"{expected_digest}",aria_label:"Compile expected package digest",oninput:move|e|expected_digest.set(e.value())}}
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ struct name missing for struct literal
+    |
+help: add the correct type
+    |
+171 |                 label{"Inspected package SHA256 (empty creates a new file)"input/* Type */ {value:"{expected_digest}",aria_label:"Compile expected package digest",oninput:move|e|expected_digest.set(e.value())}}
+    |                                                                                 ++++++++++
+
+error[E0425]: cannot find type `ExpectedFile` in this scope
+   --> native\src\graphical\entry.rs:309:12
+    |
+309 |         f: ExpectedFile,
+    |            ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `SaveReceipt` in this scope
+   --> native\src\graphical\entry.rs:311:17
+    |
+311 |     ) -> Result<SaveReceipt, String> {
+    |                 ^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+280 | impl<SaveReceipt> EditorHost for DiagnosticEditor {
+    |     +++++++++++++
+
+error[E0425]: cannot find function `outcome_image` in this scope
+   --> native\src\graphical\jobs_tests.rs:382:28
+    |
+382 |     let (message, image) = outcome_image(EditorOutcome {
+    |                            ^^^^^^^^^^^^^ not found in this scope
+    |
+note: function `crate::graphical::jobs::actions::outcome_image` exists but is inaccessible
+   --> native\src\graphical\job_actions.rs:149:1
+    |
+149 | / fn outcome_image(
+150 | |     outcome: crate::graphical::controller::EditorOutcome,
+151 | | ) -> Result<(String, Option<BoundImage>), String> {
+152 | |     let mut image_uri = None;
+...   |
+173 | |     Ok((message, image_uri))
+174 | | }
+    | |_^ not accessible
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `poet-cli` (lib) due to 7 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `poet-cli` (lib test) due to 8 previous errors

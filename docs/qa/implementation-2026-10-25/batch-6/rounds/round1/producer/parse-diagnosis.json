@@ -1,0 +1,16 @@
+{
+  "schema": "ecopunk-round1-parse-diagnosis/1",
+  "source": "C:\\github\\ecopunk\\assets\\reference\\community-grounds-growing-station\\master.vibe",
+  "source_sha256": "5f5edda44959cd146026cd06eb67b0e61ab27de4a11f221cf7b175b0f877d4a3",
+  "observed_log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-002.log",
+  "observed": "E001 Span332..340 expected expression at requires, execution attempted=false",
+  "cause_evidence": [
+    "SourceSession::prepare calls parse_program(trimmed).ok(), discarding the actual program-parser diagnostic and then prefixes = for cell fallback.",
+    "Canonical Lexer::skip_ws_and_comments skips // and /* comments; no comment-sensitive program-mode heuristic found.",
+    "cg_part accepts material as a parameter name, but material is an English keyword (locale.rs:492). parse_primary only permits Ident, or capability keyword, as ordinary variable references; material:material RHS therefore cannot parse."
+  ],
+  "first_defective_rhs_character_offset": 1011,
+  "minimal_remedy": "Recipe owning layer: alpha rename cg_part local parameter material to surface and the two corresponding material:surface values. Keep record field material, callers, geometry, identifiers and TRS unchanged.",
+  "core_change": "None needed for recipe compatibility. Diagnostic masking is separate canonical session behavior, not permission to weaken admission or change mode selection.",
+  "verification": "Read-only source inspection; no parser execution, build, source edit, credential access or model acceptance. Public Poet lint is line-oriented and does not call canonical parser."
+}

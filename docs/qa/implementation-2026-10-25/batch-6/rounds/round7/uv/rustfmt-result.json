@@ -1,0 +1,6 @@
+{
+  "command": "rustfmt --edition 2021 <eight staged Rust files>",
+  "exit_code": 0,
+  "qualification": "Rust parsing and formatting only; no build or tests executed",
+  "staged_targets": 8
+}

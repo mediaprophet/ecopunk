@@ -1,0 +1,111 @@
+{
+  "schema": "ecopunk.format-discovery/1",
+  "date": "2026-10-25",
+  "scope": "Read-only discovery after asset work was stopped. No Cargo, renderer, exports, provider calls or source changes performed. This file is the only saved change by round2_master.",
+  "asset_write_footprint": [],
+  "answer": "Both names exist. The canonical upstream source format is M64 Matter-64 (.m64); early E64 (.e64) magic is accepted as a backward-compatible alias. They are distinct from the .10d section container, .p64 weights and .hmc archive.",
+  "search_scope": {
+    "method": "rg docs/specifications, file paths, then Rust definitions and symbol consumers; direct reads of matching source. Binary header inspected read-only with System.IO.File.ReadAllBytes.",
+    "repositories": ["C:/github/qualiaDB", "C:/github/ecopunk", "C:/github/game-demo", "C:/github/etalon", "C:/github/craft", "C:/github/poet/native", "C:/github/poet-filmcraft", "C:/github/poet-soundcraft", "C:/github/poet-photocraft"],
+    "no_exact_format_consumer_match": ["C:/github/etalon", "C:/github/craft", "C:/github/poet/native", "C:/github/poet-filmcraft", "C:/github/poet-soundcraft", "C:/github/poet-photocraft"],
+    "negative_claim_limit": "No .m64/.e64/M64Header/E64Header match in searched .rs/.md/.toml files does not prove the entire repository lacks an adapter or indirect dependency. ARM64, base64, assembly operand widths and unrelated filenames were excluded from format conclusions."
+  },
+  "canonical_format": {
+    "name": "M64 Matter-64",
+    "owner": "qualia-core-db::q42::m64_matter in C:/github/qualiaDB",
+    "public_module": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/mod.rs:26",
+    "source_directory": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter",
+    "magic": "m64\\0 (hex 6d 36 34 00)",
+    "legacy_magic": "e64\\0 (hex 65 36 34 00)",
+    "magic_evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:16", "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:19", "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:38"],
+    "declared_version": 2,
+    "accepted_header_versions": [1, 2],
+    "version_evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:22", "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:107"],
+    "purpose": "Fixed 64-byte records for geodetic point/spectral anchors, holographic entity parameters, strata/fluid columns and phase-juncture parameters. These declared data meanings are not proof of qualified biology or physics.",
+    "modes": [
+      {"mode": 0, "record": "M64PointRecord", "evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/point_record.rs:11"},
+      {"mode": 1, "record": "M64HoloRecord", "evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/holo_record.rs:12"},
+      {"mode": 2, "record": "M64StrataColumnRecord", "evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/strata_record.rs"},
+      {"mode": 3, "record": "M64PhaseJunctureRecord", "evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/phase_juncture.rs"}
+    ],
+    "layout": {
+      "header": "64 bytes, repr(C, align(64)), Pod: magic[4], version u32, header_size u64, total_file_size u64, spatial_origin f32[2], elevation_datum f32[2], chunk_table_offset u64, chunk_count u64, header_crc32c u32, container_flags u32.",
+      "header_crc": "CRC-32C of header bytes 0..56, excluding checksum and flags.",
+      "header_evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:45",
+      "directory": "64-byte aligned entry: chunk_uuid[16], spatial_hilbert_index u64, byte_offset u64, byte_length u32, record_count u32, srid_geodetic_code u32, lut_bank_epoch_id u16, chunk_record_mode u8, compression_flags u8, bao_root_hash_prefix[12], entry_crc32c u32.",
+      "directory_evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/chunk_directory.rs:42"
+    }
+  },
+  "readers_writers_and_consumers": [
+    {
+      "owner": "qualia-core-db::q42::m64_matter",
+      "status": "Public Rust record layouts, aliases, CRC update/validation and banked LUT APIs present. No complete checked container reader/writer module exposed by this module inventory.",
+      "evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/mod.rs:9", "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:103", "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/chunk_directory.rs:83"],
+      "qualification": "Source inspection only; no execution in this task."
+    },
+    {
+      "owner": "qualia-geospatial",
+      "entrypoints": ["compile_raster_to_m64", "compile_raster_to_m64_with_codec"],
+      "status": "Public producer writes complete header/directory/raw strata records to caller-provided byte slice; emits version 1 and mode 2, 64x64 records per chunk.",
+      "evidence": ["C:/github/qualiaDB/crates/qualia-geospatial/src/lib.rs:22", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:91", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:127", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:183"],
+      "qualification": "Wiring/source present; this task did not execute producer or test."
+    },
+    {
+      "owner": "ecopunk-terrain",
+      "status": "Legacy e64 module reexports upstream canonical M64/E64 header, point and holo types. The separate local e64/header.rs, point_record.rs and holo_record.rs remain on disk but e64/mod.rs declares none of them; their presence must not be mistaken for active independent owners.",
+      "evidence": ["C:/github/ecopunk/crates/ecopunk-terrain/src/e64/mod.rs:6", "C:/github/ecopunk/crates/ecopunk-terrain/src/e64/mod.rs:11", "C:/github/ecopunk/crates/ecopunk-terrain/src/lib.rs:48"]
+    },
+    {
+      "owner": "ecopunk-terrain compile_east_coast_substrate binary",
+      "status": "Source invokes upstream raster compiler, saves talbingo_catchment.m64, casts/validates header and first directory entry, then adds unchanged bytes to HMC BundleWriter. This is a source-linked producer/packager, not a fresh execution receipt.",
+      "evidence": ["C:/github/ecopunk/crates/ecopunk-terrain/src/bin/compile_east_coast_substrate.rs:885", "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/compile_east_coast_substrate.rs:889", "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/compile_east_coast_substrate.rs:891", "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/compile_east_coast_substrate.rs:2007"]
+    },
+    {
+      "owner": "ecopunk-terrain world_continuum",
+      "status": "Uses canonical M64ChunkDirectoryEntry in generated study-site/corridor streaming descriptors. This does not establish reading stored M64 files.",
+      "evidence": ["C:/github/ecopunk/crates/ecopunk-terrain/src/world_continuum.rs:16", "C:/github/ecopunk/crates/ecopunk-terrain/src/world_continuum.rs:626", "C:/github/ecopunk/crates/ecopunk-terrain/src/world_continuum.rs:994"]
+    },
+    {
+      "owner": "ecopunk-wasm",
+      "status": "Manifest-like JSON names terrain_m64 entries. A named asset reference alone is not a decoder/render consumer.",
+      "evidence": "C:/github/ecopunk/crates/ecopunk-wasm/src/lib.rs:167"
+    }
+  ],
+  "existing_artifact_read_only_observation": {
+    "path": "C:/github/ecopunk/assets/terrain/talbingo_catchment.m64",
+    "size_bytes": 262272,
+    "magic_hex": "6d363400",
+    "version": 1,
+    "header_size": 64,
+    "declared_file_size": 262272,
+    "chunk_table_offset": 64,
+    "chunk_count": 1,
+    "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+    "limit": "Header fields read directly, without running canonical validation. No record CRC, geospatial truth, source rights or runtime presentation accepted."
+  },
+  "tests_present_not_run": [
+    {"path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/tests.rs", "cases": ["header and directory size/alignment", "header and directory CRC roundtrip/tamper", "strata record size/alignment/CRC/navigation", "phase juncture size/alignment/CRC/reinflation", "constituent LUT size/alignment/CRC", "banked LUT paging isolation"], "lines": [4, 18, 32, 57, 74, 88, 117, 131, 158, 172, 187]},
+    {"path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/point_record.rs:88", "cases": ["point size/alignment", "normal packing; no embedded CRC exists in point layout"]},
+    {"path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/holo_record.rs:85", "cases": ["holo size/alignment"]},
+    {"path": "C:/github/qualiaDB/crates/qualia-geospatial/src/lib.rs:87", "cases": ["test_raster_to_m64_compilation inspects header, directory and first strata record"]}
+  ],
+  "relationship_to_10d_and_hmc": {
+    "m64_vs_10d": "Distinct format owners/magics. M64 records carry matter/geospatial parameters; container_10d carries versioned sections for mesh, materials, fields, nodes and other tensor-manifold payloads. Shared CRC implementation is code reuse, not byte-layout equivalence.",
+    "evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:10", "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/mod.rs:46", "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/mod.rs:110"],
+    "hmc": "Canonical bundle owner uses QBDL magic, bundle version 1. Ecopunk producer adds .m64 as a named intact file entry alongside .10d/.q42; packaging does not convert or validate M64 semantics.",
+    "hmc_evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/bundle/format.rs:40", "C:/github/qualiaDB/crates/qualia-core-db/src/bundle/format.rs:43", "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/compile_east_coast_substrate.rs:2007"],
+    "ambiguous_api": "StudioArtifact::export_format(10d/e64) returns application/x-qualia-10d+json, a JSON Tensor10D envelope. It is not the binary M64/E64/10D producer.",
+    "ambiguous_api_evidence": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs:149"
+  },
+  "concrete_sdk_gaps_for_prioritization": [
+    {"priority": "P0 before exposing untrusted bytes", "gap": "Promote complete checked M64 parsing to the canonical owner: checked header/directory arithmetic and bounds, count/length agreement, alignment-safe reads, mode/version/codec admission, overlapping regions, actual record validation and clear endian policy. Existing directory.validate checks CRC only; header.validate does not compare declared size/offset/count to a byte slice.", "evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/chunk_directory.rs:83", "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:103", "C:/github/qualiaDB/crates/qualia-geospatial/src/lib.rs:106"]},
+    {"priority": "P0 truth in producer", "gap": "with_codec accepts nonzero codec flags but writes the same raw 64-byte strata payloads and zero Bao hash prefix. Restrict unsupported codecs or implement each codec before advertising it; test flagged payload decoding. The compiler also labels chunks as Hilbert-sorted while loops write row-major chunk_idx and merely store the Hilbert index.", "evidence": ["C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:101", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:146", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:161", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:188"]},
+    {"priority": "P1 compatibility qualification", "gap": "Reconcile upstream current version 2, producer version 1 and legacy E64_VERSION=1 explicitly. Add compatibility and malformed/tampered-container tests through public SDK APIs rather than treating type aliases as complete compatibility proof.", "evidence": ["C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs:22", "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs:129", "C:/github/ecopunk/crates/ecopunk-terrain/src/e64/mod.rs:11"]},
+    {"priority": "P1 native consumer demonstration", "gap": "Demonstrate a native no-JS/V8 SDK path reading packaged M64 and producing meaningful inspected output. Rust layouts, archive entry names and generated directory descriptors alone do not qualify decoding, rendering, material science or authoring outcomes."}
+  ],
+  "source_pins_sha256": {
+    "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/layout.rs": "618ae53add6face4c450a50a0c8a55c4f2d45cbf8cabf8960e051e67037b0cf9",
+    "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs": "19a4006b3bc3bfcfea1c379fff8cb79f1a3f3fdd495b9f8f4ef1dfaa1e440bd1"
+  },
+  "completion_claim": "Discovery complete within this bounded read-only scope. No SDK implementation, model/package completion, runtime qualification, human adoption or acceptance claimed."
+}

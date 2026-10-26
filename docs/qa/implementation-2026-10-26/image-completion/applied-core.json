@@ -1,0 +1,42 @@
+{
+  "date_utc": "2026-10-26T07:56:41.895863+00:00",
+  "scope": "Explicit user request to fully implement15deferredimagecases in owningCore and Poet. Corekernelphase7files; no productionassets/commits/publication.",
+  "completed": true,
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image.rs",
+      "before": "6d492b8db1e1a78e2f43bd95bc0a9fd2b7da9dcc054fca7eaeae8e789f0aab49",
+      "after": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_filters.rs",
+      "before": null,
+      "after": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\hypermedia_authoring\\image_composite.rs",
+      "before": null,
+      "after": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\image_filters_completed.rs",
+      "before": null,
+      "after": "1650cb2b577fc8d35664f40a4683fec4c9716eb3e0cf99641f9f8f44fd8694cf"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\image_composite_completed.rs",
+      "before": null,
+      "after": "918ed3b1ea0c99dea3104b69387fe3afd944b1cc57bb41360b8848f908361a98"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\Cargo.toml",
+      "before": "5d8e5df21a7b53ce270bf5492f149e1ecd35d1da679d6c6e9cc174f95463228b",
+      "after": "a77edf2e95ce40722f3b305b2978c773522906c5aa9fe878ed89a7d73716aa6b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\tests\\foundation_image_completion.rs",
+      "before": null,
+      "after": "5216bc9348bee3ef8771a0cbc9bcac48ee44e08eccd48b6f31418b6dddec409b"
+    }
+  ]
+}

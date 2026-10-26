@@ -1,0 +1,32 @@
+{
+  "applied_utc": "2026-10-24T18:16:01.1348018Z",
+  "manifests": [
+    "native-build/compile-repair/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "sha256": "84d8411bef114e0ed47851110ae98b18cc1b98bd770fcec7f60d69fa48987387",
+      "original_sha256": "85dc3eb2073839f1ebbbef4f61aa113e8ddb50dd2a1019e1e643891269699326",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-build\\compile-repair\\candidate\\Cargo.toml",
+      "target": "C:\\github\\poet\\native\\Cargo.toml"
+    },
+    {
+      "sha256": "08e3bb40ed37d99b7b7f4cee91f322620b105c62e8685f87d4ba44d451435fea",
+      "original_sha256": "2944f3704a4b1d67c74920beea91c73a25ed66acb2904fe48ed9c053e2946f42",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-build\\compile-repair\\candidate\\src\\graphical\\controller_tests.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller_tests.rs"
+    },
+    {
+      "sha256": "ba1acbf12e37ded48123281ee7f7b3407b2ba9b76c2ccc77cbe77b8301aff443",
+      "original_sha256": "91d988cdbc9f673a67cd15ecf379416018e36894d328c81e576b8cba77b305e8",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-build\\compile-repair\\candidate\\src\\graphical\\cooperation\\mod.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs"
+    },
+    {
+      "sha256": "24ec5003765d0cec18f5c4c80427052f3bf3b01f62a79e9dc46d2bf4963d4e1b",
+      "original_sha256": "dca95488d7b110a65563fc6d174963326ff40e16b7960642ac672dab8a01dbda",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-build\\compile-repair\\candidate\\src\\graphical\\shared_host_tests.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host_tests.rs"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+warning: function `eval_line` is never used
+  --> C:\github\poet\native\src\repl.rs:11:8
+   |
+11 | pub fn eval_line(line: &str, host: &mut impl Host, env: &mut Env) -> Result<Value, Diagnostic> {
+   |        ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `run_repl` is never used
+  --> C:\github\poet\native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+
+warning: 2 warnings emitted
+

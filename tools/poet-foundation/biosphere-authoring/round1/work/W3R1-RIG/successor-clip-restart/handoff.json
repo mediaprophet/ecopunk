@@ -1,0 +1,23 @@
+{
+  "job": "W3R1-RIG successor clip restart",
+  "status": "staged-only",
+  "tests": "NOT RUN; root serial native check in progress",
+  "canonical_edited": false,
+  "reason": "Core select_clip no-ops for active clip, causing live t1 pose to diverge from serialized seek_seconds 0",
+  "change": "Use Core restart_clip(id,0) for authored SelectClip action; retain nonzero fade refusal",
+  "regression": "Seek active clip to t1, select same clip, assert live t0 and source seek0; serialize descriptor literal and reopen to same t0 frame",
+  "files": [
+    {
+      "canonical": "C:/github/poet/native/src/graphical/rig_binding/controls.rs",
+      "canonical_preimage_sha256": "b77ba33cb1b2b1f86dd1211b719316beca75c7d17de1c2b7a576f00a1dc96f7c",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/successor-clip-restart/poet/native/src/graphical/rig_binding/controls.rs",
+      "staged_after_sha256": "727d3f969a25e235bab02ce1b78867613f7b20168c722acb6e39e104c54a3ec6"
+    },
+    {
+      "canonical": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "canonical_preimage_sha256": "1ffbcaee3949d74846479a7183719e10351e340570828c2bf4daa552a7507fcc",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/biosphere-authoring/round1/work/W3R1-RIG/successor-clip-restart/poet/native/src/graphical/rig_binding/tests.rs",
+      "staged_after_sha256": "c2ff1d3155710c8048b62d96c3b97c08062fe717b96a063f8e328cea1d5b4ca6"
+    }
+  ]
+}

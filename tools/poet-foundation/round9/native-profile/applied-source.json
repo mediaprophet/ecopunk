@@ -1,0 +1,65 @@
+[
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/entry.rs",
+    "before_sha256": "e765e1208ef7bfb68147f45bc1a60bf676fd6bd0f4bb018c3f56791d7e3534f9",
+    "after_sha256": "6e6e24225f249bed250b6502cbedb2d63b6077b04d2e9c5368daa44ed13c8880",
+    "after_lines": 434,
+    "live_matches_before": true,
+    "verified_after_sha256": "6e6e24225f249bed250b6502cbedb2d63b6077b04d2e9c5368daa44ed13c8880"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/mod.rs",
+    "before_sha256": "dd3e7d7d1a412e7d03cf39499fc25d92738f0cfe76468483a96fd0a870d61ccc",
+    "after_sha256": "dba20def02850c42fdfc1d7f5ff0bee933a17bd11f90aeaba5ddc68ecc8f8a75",
+    "after_lines": 66,
+    "live_matches_before": true,
+    "verified_after_sha256": "dba20def02850c42fdfc1d7f5ff0bee933a17bd11f90aeaba5ddc68ecc8f8a75"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/native_authoring_profile.rs",
+    "before_sha256": null,
+    "after_sha256": "ca141fe2f391b4457a006af3a3a7480eaa214db22027c2bab4e82a9a5cb13346",
+    "after_lines": 137,
+    "live_matches_before": true,
+    "verified_after_sha256": "ca141fe2f391b4457a006af3a3a7480eaa214db22027c2bab4e82a9a5cb13346"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/native_entry/create.rs",
+    "before_sha256": "09c6fc898bbba43c29df8d0f692644e7b5be6f4a9e7a4318c1d739bd834ceb03",
+    "after_sha256": "8360769c273cbc27843ea267182a20a33039a4752a193de4a10498454bda4915",
+    "after_lines": 221,
+    "live_matches_before": true,
+    "verified_after_sha256": "8360769c273cbc27843ea267182a20a33039a4752a193de4a10498454bda4915"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/native_entry/runtime.rs",
+    "before_sha256": "fa1a3e3d68efccdf014acf6b330780613e150b59af9b07bf4f0a15d85e428b94",
+    "after_sha256": "568538417ffae736d91c85c33818aa5e1c055ab01496ee8e8ba60bfa3c780770",
+    "after_lines": 288,
+    "live_matches_before": true,
+    "verified_after_sha256": "568538417ffae736d91c85c33818aa5e1c055ab01496ee8e8ba60bfa3c780770"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/native_entry/ui.rs",
+    "before_sha256": "6ad7206d2a171f3c36e5e75fd5ec071f4ca874ba312e261b315faaba99e1ff2d",
+    "after_sha256": "b23dbdd3c4bd9c7afe0246d41cd179c07af50d1359072e18fda6114c42806830",
+    "after_lines": 167,
+    "live_matches_before": true,
+    "verified_after_sha256": "b23dbdd3c4bd9c7afe0246d41cd179c07af50d1359072e18fda6114c42806830"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/native_project.rs",
+    "before_sha256": "880287df6d21d4f0e989cd1fd33e188664063478c1a2814973a093ffb69f3657",
+    "after_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+    "after_lines": 236,
+    "live_matches_before": true,
+    "verified_after_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080"
+  }
+]

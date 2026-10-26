@@ -1,0 +1,27 @@
+
+running 5 tests
+test graphical::materials::tests::generated_draft_refuses_invalid_factor_before_source_generation ... ok
+
+thread 'graphical::materials::tests::canonical_material_declaration_and_live_edit_preserve_actual_geometry' (13832) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\candidate\graphical\materials_tests.rs:18:10:
+called `Result::unwrap()` on an `Err` value: SubmissionError { diagnostic: Diagnostic { code: E001, span: Span { start: 2, end: 10 }, message: "expected expression", suggested_fix: None, evidential: None }, execution_attempted: false, host_reconciliation_required: false, active_revision: 0 }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test graphical::materials::tests::canonical_material_declaration_and_live_edit_preserve_actual_geometry ... FAILED
+
+thread 'graphical::materials::tests::material_mapping_refuses_wrong_colour_semantics_ranges_and_textures' (24148) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\candidate\graphical\materials_tests.rs:84:10:
+called `Result::unwrap()` on an `Err` value: SubmissionError { diagnostic: Diagnostic { code: E001, span: Span { start: 2, end: 10 }, message: "expected expression", suggested_fix: None, evidential: None }, execution_attempted: false, host_reconciliation_required: false, active_revision: 0 }
+test graphical::materials::tests::material_mapping_refuses_wrong_colour_semantics_ranges_and_textures ... FAILED
+
+thread 'graphical::materials::tests::material_source_replays_under_unchanged_geometry_grants' (17112) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\candidate\graphical\materials_tests.rs:18:10:
+called `Result::unwrap()` on an `Err` value: SubmissionError { diagnostic: Diagnostic { code: E001, span: Span { start: 2, end: 10 }, message: "expected expression", suggested_fix: None, evidential: None }, execution_attempted: false, host_reconciliation_required: false, active_revision: 0 }
+test graphical::materials::tests::material_source_replays_under_unchanged_geometry_grants ... FAILED
+test graphical::materials::tests::bare_mesh_remains_compatible_and_authored_material_never_uses_fallback ... ok
+
+failures:
+
+failures:
+    graphical::materials::tests::canonical_material_declaration_and_live_edit_preserve_actual_geometry
+    graphical::materials::tests::material_mapping_refuses_wrong_colour_semantics_ranges_and_textures
+    graphical::materials::tests::material_source_replays_under_unchanged_geometry_grants
+
+test result: FAILED. 2 passed; 3 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.32s
+

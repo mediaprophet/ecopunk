@@ -1,0 +1,12 @@
+{
+  "date_utc": "2026-10-26T09:55:35.417312+00:00",
+  "scope": "Resolve shared-tree HKDF constructor qualification against actual pinned HMAC APIs: KeyInit owns new_from_slice; preserve keys, inputs, domain separation, algorithm and error handling",
+  "completed": true,
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\identity\\agency.rs",
+      "before": "c012643cadd26766e18b64d969777215b92a3bac95d5ea79e7af421e18b6c492",
+      "after": "0ee633e7b1ed101380ce054e641cad54313764fe2f7485e19b9adad72929b387"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "schema": "ecopunk-document-review-coverage/v1",
+  "encoding": "UTF-8",
+  "task": "Review of Biosphere algorithms Specifications.md ontology/knowledge/corpus/AI/commons/contributor/roadmap content",
+  "review_scope": {
+    "initial_evidence_files": 18,
+    "bounded_follow_up_reads": 5,
+    "total_review_reads": 23,
+    "unique_files_touched": 20,
+    "saved_prior_source_review_artifacts": 6,
+    "new_source_body_audit": false,
+    "follow_up_read_breakdown": "Two additional saved audit artifacts plus three targeted re-reads of already listed sources. Counts distinguish read events from unique files.",
+    "actions_not_performed": [
+      "authoring/runtime commands",
+      "builds",
+      "tests",
+      "GUI",
+      "provider calls",
+      "source edits",
+      "external source fetches"
+    ],
+    "follow_up_read_events": [
+      "compute-reuse.md:1-12,66-81",
+      "emf-source-inventory.md:1-12,36-47",
+      "Biosphere algorithms Specifications.md:425-547",
+      "biosphere-graph-spectra-and-streaming.md:138-154",
+      "biosphere-work-packets.json: selected R/BS/PA-R records, lines 17-740 and 941-1495"
+    ]
+  },
+  "files": [
+    {
+      "path": "docs/Biosphere algorithms Specifications.md",
+      "lines": 547,
+      "sha256": "883fe0ecf692d6a9b6d55870ef28c729df125fc550e5f506e20343176d5c5afc",
+      "read_ranges": [
+        "1-547"
+      ],
+      "role": "supplied draft; full read"
+    },
+    {
+      "path": "AGENTS.md",
+      "lines": 220,
+      "sha256": "e08fbd9c0915a34178eb385588ffe872c1163c2793260a1eb966d464f3a39f06",
+      "read_ranges": [
+        "1-220"
+      ],
+      "role": "repository instructions"
+    },
+    {
+      "path": "docs/planning/architecture.md",
+      "lines": 152,
+      "sha256": "3ac9d92b781075fcf86b83637b670382516d97b225ba2cbdae265ba1408900bb",
+      "read_ranges": [
+        "35-58",
+        "70-108",
+        "130-145"
+      ],
+      "role": "native product, identifiers, Poet architecture"
+    },
+    {
+      "path": "docs/planning/made-world.md",
+      "lines": 157,
+      "sha256": "56c22983c0a75e365fe0ed06e25b5d4a5de2dbc8d2887cc339d65245e7be2ce8",
+      "read_ranges": [
+        "1-55",
+        "77-100",
+        "135-157"
+      ],
+      "role": "subject, occurrence and representation contract"
+    },
+    {
+      "path": "docs/planning/tech/assets/species-embodiment-spec.md",
+      "lines": 149,
+      "sha256": "e9b0bc3f43af96a65323c6e7172bff41c7dcc11368af74a9429547997f13d33d",
+      "read_ranges": [
+        "1-149"
+      ],
+      "role": "finite corpus, taxonomy/individual, uncertainty and representation"
+    },
+    {
+      "path": "docs/planning/tech/assets/model-completion-claims.md",
+      "lines": 228,
+      "sha256": "cab0286ed2ab99c28c3c5d2e9dcc4dd2d5d35311bad7cf4cbee1bfa4b4c77c31",
+      "read_ranges": [
+        "1-70",
+        "80-145",
+        "180-228"
+      ],
+      "role": "completion claims, review, target distinctions and gate status"
+    },
+    {
+      "path": "docs/planning/tech/assets/asset-package-spec.md",
+      "lines": 135,
+      "sha256": "4f7ae8c106590211fadc4512a99dd68b9ae76fc03640ddda66e248abfcb1cd46",
+      "read_ranges": [
+        "1-135"
+      ],
+      "role": "HMC identifiers, completeness and resource selection"
+    },
+    {
+      "path": "docs/planning/tech/semantic-agreements-and-compensation.md",
+      "lines": 159,
+      "sha256": "5b3b9167c2a04f74f54babe4d343c2a527d3099b101fb106a5da6166e38c4d22",
+      "read_ranges": [
+        "1-47",
+        "58-112",
+        "118-159"
+      ],
+      "role": "agreement/adoption/obligation/payment distinctions"
+    },
+    {
+      "path": "docs/planning/tech/credit-allocations-and-periodic-reconciliation.md",
+      "lines": 100,
+      "sha256": "00cac35fcb76fe5b7ae7de0e084fb06fba861444bc5d16b6705cb8c0530d8107",
+      "read_ranges": [
+        "15-45",
+        "50-55"
+      ],
+      "role": "funding, obligation and settlement states"
+    },
+    {
+      "path": "docs/planning/tech/high-grade-production-and-civics-experience.md",
+      "lines": 185,
+      "sha256": "6f9bc0a6b5886aa8fcfd9fed561f38b74595575248fd382b616af42ab0a8527e",
+      "read_ranges": [
+        "108-143"
+      ],
+      "role": "editable master/derivative and production quality"
+    },
+    {
+      "path": "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+      "lines": 222,
+      "sha256": "08882c3932f282c60ff2e1d62fc3c70a1cfb9fb95b71028958d9db0c2d38c169",
+      "read_ranges": [
+        "51-73",
+        "83-125",
+        "130-158",
+        "164-210"
+      ],
+      "role": "BGS requirements, evidence chain, source and selected closure"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+      "lines": 93,
+      "sha256": "2bf06a8ad65a50f3ff39538d0d6ca6f0670f2bd629fab5e0e47cfc4c31c5f414",
+      "read_ranges": [
+        "3-6",
+        "20-32",
+        "34-40",
+        "51-55",
+        "75-78",
+        "88-93"
+      ],
+      "role": "nine-location audit scope and limits"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/domain-logic-instruments.md",
+      "lines": 46,
+      "sha256": "75a9d4e3f9ab43f7336824e969031b9c2efb1f024f5dbf5dd7bbd51c42a76a50",
+      "read_ranges": [
+        "1-2",
+        "5-11",
+        "20-25",
+        "36-45"
+      ],
+      "role": "epistemic classifier, domain decoders and instruments"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/graph-streaming-reuse.md",
+      "lines": 155,
+      "sha256": "fd37b53d4e422d811157201becf41b727e90d7de375c81d3d17e28c15077fbc5",
+      "read_ranges": [
+        "30-35",
+        "138-154"
+      ],
+      "role": "selected graph/resource reuse and closure limits"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/solver-kernel-forge.md",
+      "lines": 108,
+      "sha256": "2045ca7c92c7bbb144d38ab6dd3496651798adb6a62a82676c06e5c68fdad87d",
+      "read_ranges": [
+        "30-35",
+        "60-64",
+        "76-80",
+        "100-105"
+      ],
+      "role": "bounded solver and simulation semantics"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/vision-audio-render.md",
+      "lines": 38,
+      "sha256": "4a3f8de8d7e2956e37122ffe28cb2d2007db3b68a33c9d275330eaddfa6cd50c",
+      "read_ranges": [
+        "13-15",
+        "24-35"
+      ],
+      "role": "bounded image, audio, capture and renderer evidence"
+    },
+    {
+      "path": "docs/planning/implementation-plan.md",
+      "lines": 637,
+      "sha256": "40846a99f1b7165f3de247ea245e5226eccaafa8ac44908237ed03fee642bf13",
+      "read_ranges": [
+        "1-18",
+        "45-74",
+        "190-219",
+        "285-315"
+      ],
+      "role": "existing phase order and native acceptance"
+    },
+    {
+      "path": "docs/planning/biosphere-work-packets.json",
+      "lines": 1495,
+      "sha256": "3eadcc5e2270d41d471e8e1e894cfb4819cd8da5044d801fb939f2008e126426",
+      "read_ranges": [
+        "17-510",
+        "512-740",
+        "941-1495"
+      ],
+      "role": "existing R, BS and PA-R packet identifiers/status"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/compute-reuse.md",
+      "lines": 81,
+      "sha256": "e3b219b822cb4b9e0337103ca33e4ea0ba09b908f9c4f40e74fcb058d0c13874",
+      "read_ranges": [
+        "1-12",
+        "66-81"
+      ],
+      "role": "follow-up saved source-review artifact; no new source audit"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/biosphere-integration-review/emf-source-inventory.md",
+      "lines": 47,
+      "sha256": "49c7cda4202d327fffc94897259eeab649ef58be6727a89e8419766190f12f9c",
+      "read_ranges": [
+        "1-12",
+        "36-47"
+      ],
+      "role": "follow-up saved source-review artifact; no new source audit"
+    }
+  ],
+  "not_reviewed_or_not_claimed": [
+    "External references cited by the draft were not fetched.",
+    "No source code was newly inspected or executed; prior audit conclusions are reused only within their recorded scope.",
+    "No scientific, legal, rights adoption, payment, runtime, or human acceptance determination is made.",
+    "No new algorithm, ontology syntax, implementation capability, or readiness gate is qualified."
+  ],
+  "output": {
+    "report": "docs/qa/implementation-2026-10-26/biosphere-specification-review/ontology-and-handoff.md",
+    "coverage": "docs/qa/implementation-2026-10-26/biosphere-specification-review/ontology-and-handoff.coverage.json"
+  }
+}

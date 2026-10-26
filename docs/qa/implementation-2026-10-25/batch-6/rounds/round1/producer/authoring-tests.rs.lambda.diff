@@ -1,0 +1,61 @@
+diff --git "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.before-lambda" "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.after-lambda"
+index d915232..2ed4027 100644
+--- "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.before-lambda"
++++ "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.after-lambda"
+@@ -62,6 +62,13 @@ fn every_generated_edit_is_a_canonical_program_with_a_record_result() {
+     let mut session = vibe::session::SourceSession::default();
+     let mut local = vibe::LocalHost::default();
+     session.submit(&fixture, &mut local, vibe::Budget::default()).unwrap();
++    let Value::List(initial_parts) = session.value("poet_parts").unwrap() else {
++        panic!("fixture parts");
++    };
++    let initial_geometry = initial_parts.iter().map(|part| {
++        let Value::Record(part) = part else { panic!("fixture part record") };
++        part.get("geometry").unwrap().clone()
++    }).collect::<Vec<_>>();
+     let edits = [
+         AuthoringEdit::Parameter { key: "offset".into(), value: 1.25 },
+         AuthoringEdit::Transform {
+@@ -84,8 +91,40 @@ fn every_generated_edit_is_a_canonical_program_with_a_record_result() {
+             Some(vibe::Item::Statement(vibe::Stmt::Expr { expr, .. }))
+                 if matches!(&expr.kind, vibe::ExprKind::Record(_))),
+             "generated edit must end with a record expression: {edit:?}");
+-        session.prepare(&generated)
+-            .unwrap_or_else(|error| panic!("generated edit must pass canonical preparation: {edit:?}: {error:?}"));
++        let candidate = session.prepare(&generated)
++            .unwrap_or_else(|error| panic!("generated edit preparation: {edit:?}: {error:?}"));
++        let result = session.execute(candidate, &mut local, vibe::Budget::default())
++            .unwrap_or_else(|error| panic!("generated edit execution: {edit:?}: {error:?}"));
++        assert_eq!(session.revision(), index as u64 + 2);
++        let Value::Record(output) = result.value else { panic!("edit record output") };
++        assert_eq!(output.get("parts"), session.value("poet_parts"));
++        let Value::Record(parameters) = session.value("poet_parameters").unwrap() else {
++            panic!("retained parameters");
++        };
++        assert_eq!(parameters.get("offset"), Some(&Value::F64(1.25)));
++        assert_eq!(parameters.get("channels"), Some(&Value::I64(6)));
++        let Value::List(parts) = session.value("poet_parts").unwrap() else { panic!("parts") };
++        assert_eq!(parts.len(), 2);
++        for (part_index, part) in parts.iter().enumerate() {
++            let Value::Record(part) = part else { panic!("part record") };
++            assert_eq!(part.get("geometry"), Some(&initial_geometry[part_index]));
++            assert_eq!(part.get("id"), Some(&Value::String(if part_index == 0 { "body" } else { "lever" }.into())));
++            if part_index == 0 {
++                assert!(matches!(part.get("parent"), None | Some(Value::Null)));
++                let x = if index == 0 { 1.25 } else { 2.0 };
++                assert_eq!(part.get("translation"), Some(&Value::List(vec![Value::F64(x), Value::F64(0.0), Value::F64(0.0)])));
++            } else {
++                assert_eq!(part.get("parent"), Some(&Value::String("body".into())));
++                assert_eq!(part.get("translation"), Some(&Value::List(vec![Value::F64(0.0), Value::F64(1.0), Value::F64(0.0)])));
++            }
++            let Value::Record(material) = part.get("material").unwrap() else { panic!("material") };
++            assert_eq!(material.get("id"), Some(&Value::I64(1)));
++            assert_eq!(material.get("roughness"), Some(&Value::F64(if index == 2 { 0.8 } else { 0.5 })));
++            assert_eq!(material.get("metallic"), Some(&Value::F64(if index == 2 { 0.0 } else { 0.1 })));
++            if index == 2 {
++                assert_eq!(material.get("base_color"), Some(&Value::List(vec![Value::F64(0.2), Value::F64(0.3), Value::F64(0.4), Value::F64(1.0)])));
++            }
++        }
+     }
+ }
+ #[test]

@@ -1,0 +1,194 @@
+{
+  "date_utc": "2026-10-26T03:31:29.615336+00:00",
+  "source_document": {
+    "path": "C:\\github\\ecopunk\\docs\\Biosphere algorithms Specifications.md",
+    "sha256": "883fe0ecf692d6a9b6d55870ef28c729df125fc550e5f506e20343176d5c5afc",
+    "line_count": 547,
+    "read_ranges_1_based": [
+      [
+        1,
+        63
+      ],
+      [
+        123,
+        270
+      ],
+      [
+        509,
+        517
+      ]
+    ],
+    "scope": "Coordinator architecture/format assessment; other report owners read full document for context and their selected domains."
+  },
+  "source_reads": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/section.rs",
+      "sha256": "bf8b9a3e501348844b1f9e5caa6d51cffec8bb41ee0d3fa3e69fe0af6c857ac6",
+      "read_ranges_1_based": [
+        [
+          1,
+          337
+        ]
+      ],
+      "finding": "Section tags, version reservations, actual alignment values and 24-byte descriptor; selected declarations/methods.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/procedural_synthesis.rs",
+      "sha256": "debd985c7b08190025806d3e446f5574c9637c8653cd3ee127a6640d2f42fcd0",
+      "read_ranges_1_based": [
+        [
+          1,
+          100
+        ]
+      ],
+      "finding": "PROC header, fields and selected encoder; not every procedural kernel or renderer.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/entity_ontology_section.rs",
+      "sha256": "19aa5cb479a0e5952e2bf9785dcf737353d8e5d19f9f2f9fea8e3df0c758a9ea",
+      "read_ranges_1_based": [
+        [
+          1,
+          65
+        ]
+      ],
+      "finding": "EONT affordance header/record declarations, not skeletal clip or developmental evaluator.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/material_section.rs",
+      "sha256": "d9a4fe73cb8507603fdd40acc5c9eb907eae0214e8eb1f0364d37e664087d3ed",
+      "read_ranges_1_based": [
+        [
+          1,
+          42
+        ]
+      ],
+      "finding": "MAT4 and legacy magic/record-size declarations only.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/bundle/format.rs",
+      "sha256": "d67077a2d1aadb1b996fa85da1b643994016708dc15cfae23db95d7707c4942e",
+      "read_ranges_1_based": [
+        [
+          1,
+          110
+        ]
+      ],
+      "finding": "QBDL version/header/alignment/index fields and transparency contract.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/bundle/variant_matrix.rs",
+      "sha256": "2b4ab482fb9b0d20c256074c40719ef6b4e3216229b96cfc141da2b94a5a5714",
+      "read_ranges_1_based": [
+        [
+          1,
+          100
+        ],
+        [
+          139,
+          202
+        ]
+      ],
+      "finding": "Actual variant dimensions plus scanning/collecting resolver, not O(1) qualification.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/bundle/streaming_loader.rs",
+      "sha256": "1643cef6cc208330eed78f59feda599562ef683dd7c46e8bddc3622bd836ea6c",
+      "read_ranges_1_based": [
+        [
+          1,
+          80
+        ],
+        [
+          322,
+          365
+        ]
+      ],
+      "finding": "Range planning contracts and actual supplied-range SHA256/CRC verification excerpt, not network/Bao proof.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/banked_lut.rs",
+      "sha256": "0276f88b308eb53b0093adc7bcc0b158ac7d50c1b3ba627682fee174093f2356",
+      "read_ranges_1_based": [
+        [
+          1,
+          78
+        ]
+      ],
+      "finding": "Existing 256-entry three-bank manager and selected default setup; comments are not empirical certification.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/tensor/mod.rs",
+      "sha256": "d7938d5c54380a0a95794ace76b5e7f8a5a66612644a8a384d2c9d1936092ec1",
+      "read_ranges_1_based": [
+        [
+          1,
+          100
+        ]
+      ],
+      "finding": "Tensor10D public f32 lanes and source axis-role comments.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/tensor/coordinate.rs",
+      "sha256": "cf427ee9ffd002b59ae5d368b7d8266524867f3230648f43cb8fbb7515ed0ff2",
+      "read_ranges_1_based": [
+        [
+          1,
+          25
+        ]
+      ],
+      "finding": "Coordinate type aliases only.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/manifold.rs",
+      "sha256": "8f85b834195b64e5e0db96cecda16d40f6dc6c8498c7a504b364e22502388a85",
+      "read_ranges_1_based": [
+        [
+          48,
+          82
+        ]
+      ],
+      "finding": "Explicit Vibe-visible versus inference-internal distinction and coordinate fields.",
+      "execution": "not run"
+    }
+  ],
+  "discovery_limits": [
+    "Filename/constant searches located existing codecs, module exports and Etalon source homes. Failed guessed physical paths were resolved by filename discovery; no absence claim follows.",
+    "Exact-token search in etalon/crates/etalon-agent/src and etalon/etalon-hal/src did not establish NeuralSystolic/DXCore/ANE/quantum-cache implementation; this is not a complete fork audit or evidence those capabilities are absent elsewhere.",
+    "Other field/spectral/voxel magic declarations seen via symbol search only; not full body reviews.",
+    "Reuse previous checked M64 and native Poet source evidence; no replacement format implementation or current execution qualification."
+  ],
+  "external_sources": [
+    {
+      "url": "https://gpuweb.github.io/cts/docs/tsdoc/functions/webgpu_capability_info.getDefaultLimits.html",
+      "scope": "WebGPU CTS default alignment descriptors; W3C TR full-page fetch exceeded tool size limit."
+    },
+    {
+      "url": "https://docs.vulkan.org/spec/latest/chapters/limits.html",
+      "scope": "Implementation-dependent limits and minStorageBufferOffsetAlignment definition."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile",
+      "scope": "File offset alignment follows allocation granularity, queried through GetSystemInfo."
+    },
+    {
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/pdf/cuda-programming-guide.pdf",
+      "scope": "Search-returned primary guide 13.2 global-memory coalescing examples; no full manual assessment."
+    }
+  ],
+  "builds": false,
+  "tests": false,
+  "gui": false,
+  "exports": false,
+  "source_edits": false
+}

@@ -1,0 +1,80 @@
+error[E0364]: `read_vec3` is private, and cannot be re-exported
+  --> docs/qa/implementation-2026-10-25/batch-3/materials/texture-repairs/harness/candidate.rs:14:38
+   |
+14 |             pub(super) use readers::{read_vec3,read_vec4};
+   |                                      ^^^^^^^^^
+   |
+note: consider marking `read_vec3` as `pub` in the imported module
+  --> docs/qa/implementation-2026-10-25/batch-3/materials/texture-repairs/harness/candidate.rs:14:38
+   |
+14 |             pub(super) use readers::{read_vec3,read_vec4};
+   |                                      ^^^^^^^^^
+
+error[E0364]: `read_vec4` is private, and cannot be re-exported
+  --> docs/qa/implementation-2026-10-25/batch-3/materials/texture-repairs/harness/candidate.rs:14:48
+   |
+14 |             pub(super) use readers::{read_vec3,read_vec4};
+   |                                                ^^^^^^^^^
+   |
+note: consider marking `read_vec4` as `pub` in the imported module
+  --> docs/qa/implementation-2026-10-25/batch-3/materials/texture-repairs/harness/candidate.rs:14:48
+   |
+14 |             pub(super) use readers::{read_vec3,read_vec4};
+   |                                                ^^^^^^^^^
+
+error[E0432]: unresolved import `super::AssetError`
+ --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\texture-repairs\harness\glb_private_readers.rs:3:5
+  |
+3 | use super::AssetError;
+  |     ^^^^^^^^^^^^^^^^^ no `AssetError` in `render::assets::glb`
+
+error[E0603]: function import `read_vec3` is private
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\texture-repairs\candidate\src\render\assets\glb_skins_anims.rs:13:43
+   |
+13 | use super::glb::{import_glb_with_normals, read_vec3, read_vec4};
+   |                                           ^^^^^^^^^ private function import
+   |
+note: the function import `read_vec3` is defined here...
+  --> docs/qa/implementation-2026-10-25/batch-3/materials/texture-repairs/harness/candidate.rs:14:38
+   |
+14 |             pub(super) use readers::{read_vec3,read_vec4};
+   |                                      ^^^^^^^^^
+note: ...and refers to the function `read_vec3` which is defined here
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\texture-repairs\harness\glb_private_readers.rs:4:1
+   |
+ 4 | / pub(super) fn read_vec3(
+ 5 | |     accessor: &Value,
+ 6 | |     bvs: &[Value],
+ 7 | |     bin: &[u8],
+...  |
+51 | |     Ok(out)
+52 | | }
+   | |_^
+
+error[E0603]: function import `read_vec4` is private
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\texture-repairs\candidate\src\render\assets\glb_skins_anims.rs:13:54
+    |
+ 13 | use super::glb::{import_glb_with_normals, read_vec3, read_vec4};
+    |                                                      ^^^^^^^^^ private function import
+    |
+note: the function import `read_vec4` is defined here...
+   --> docs/qa/implementation-2026-10-25/batch-3/materials/texture-repairs/harness/candidate.rs:14:48
+    |
+ 14 |             pub(super) use readers::{read_vec3,read_vec4};
+    |                                                ^^^^^^^^^
+note: ...and refers to the function `read_vec4` which is defined here
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\texture-repairs\harness\glb_private_readers.rs:54:1
+    |
+ 54 | / pub(super) fn read_vec4(
+ 55 | |     accessor: &Value,
+ 56 | |     bvs: &[Value],
+ 57 | |     bin: &[u8],
+...   |
+101 | |     Ok(out)
+102 | | }
+    | |_^
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0364, E0432, E0603.
+For more information about an error, try `rustc --explain E0364`.

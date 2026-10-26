@@ -1,11 +1,24 @@
-# Development modes — VibeScript-first, and the two browser stacks
+# Development modes — controlled framework, native launcher and WASM
 
-**Status:** draft v0.1 · the development-practice rule for everything ecopunk
-builds on this stack.
+**Status:** draft v0.4 · updated 2026-10-24 from native/framework/WASM and source-REPL clarifications.
+The [architecture](../architecture.md) governs authoring, packaging and runtime.
+The [environment/framework contract](webizen-environment-framework.md) defines
+**Aether**, the controlled Dioxus fork, Webizen Desktop launcher/host and native-assisted WASM.
+
+The [Chora engine boundary](chora-engine-boundary.md) keeps the Servo fork at
+`C:/github/chora` separate, with generic interfaces and host adapters outside
+its source/workspace. Existing references to a Chora exploration canvas below
+are historical application terminology pending source/dependency reconciliation.
+The inspected Chora embedded profile enables JS JIT; its use requires explicit
+qualification against the native workflow below.
 
 ## 1. The rule
 
-**Qualia-native environments run VibeScript, not JavaScript.** `vibe-0.1` is
+**The native workflow requires the Qualia-native stack without JavaScript,
+Node.js or V8**, including authoring, package construction, UI, graph query,
+simulation and rendering. Harmonised WASM versions are also required; they
+use the same authored rules/contracts and running native capabilities where
+declared necessary. `vibe-0.1` is
 the JS-replacement language (`crates/vibe` — its own lib doc: *"Vibe is the
 scripting language (the JS replacement). Poet is the human creative
 environment and CLI that hosts Vibe"*). Poet hosts it; Chora consumes the
@@ -27,21 +40,21 @@ language), `budget`/`degrade` (designed boundedness + degradation), receipts/
 provenance paths, and the two-tens visibility rule (pose lanes visible,
 epistemic internals not).
 
-## 2. The two browser stacks (modes, not tiers)
+## 2. Supported execution modes
 
-| | **Native mode** | **Standard-web mode** |
+| Mode | Application execution | Qualification |
 |---|---|---|
-| Stack | Qualia's own browser/Webizen stack — VibeScript-hosted UI, `.vibe` shader/asset sources (e.g. `portal/graphics_backend.vibe`), `.hmc` packs, WebGPU/native render | WASM profile ladder (`wasm-edge.md`) served to standard browsers |
-| Scripting | VibeScript | JS shims bind the WASM surface — the *interop bridge*, not the authoring model |
-| Role | primary | compatibility/projection — *supported, as a different kind of mode* |
+| Native | Controlled framework's qualified native renderer/host; Vibe-authored interaction and native Rust/custom engine capabilities. Webizen Desktop supplies launcher and native environment services. | Actual fork/backend/dependency provenance, no required JS/V8 workflow, real app/service operation and data recovery. |
+| WASM local | Shared authored application compiled for the supported WASM profile; locally available capabilities execute there. | Actual profile coverage, local/offline behaviour and explicit unsupported/held features; no promise that every native operation runs in-browser. |
+| WASM native-assisted | Same application projection using an authorized compatible running native provider for declared capabilities. | Versioned discovery/pairing, scoped authority, one state owner, jobs/cancellation and disconnect/reconnect/recovery. |
 
-The standard web is a **target the stack projects into** — not the thing the
-stack is made of. Practically: author once in VibeScript; the standard-web
-mode is a compiled/projected surface (WASM + minimal JS glue), not a parallel
-hand-maintained codebase. Native-mode surfaces get the full stack (portal
-renderer, `.vibe` sources, direct substrate); standard-web mode gets whatever
-the declared profile supports — with the profile gap stated honestly per
-feature (wasm-edge.md §6 tiers apply).
+WASM is a supported product target, not merely a legacy surface. Existing
+hand-maintained JS editor/state/control logic remains legacy debt. Browser
+platform/DOM binding infrastructure must be declared and qualified through
+the fork; it is not a substitute for Vibe/engine functionality and cannot
+establish native no-JS/V8 conformance. Required authored logic remains shared.
+The inspected fork's `desktop` path uses a webview/JS interpreter; its `native`
+path is a distinct renderer candidate. Do not equate those feature names.
 
 ## 3. What this means for ecopunk work items
 
@@ -52,26 +65,34 @@ feature (wasm-edge.md §6 tiers apply).
    `crates/vibe` or engine requirement for Timothy to commission upstream,
    not permission to implement a JS fallback. Record the public interface
    needed, inspected revision/profile, source evidence, and acceptance case.
-   A browser-only interop exception requires the specific platform operation
-   and why an existing Vibe/engine binding cannot perform it; keep authored
-   rules, semantic state transitions, and evaluation logic out of that shim.
-3. **Pack mode declarations** — packs should declare `native` / `std-web`
-   surface coverage honestly; a pack may be native-only where the standard
-   profile can't carry it (that's a stated boundary, not a defect).
-4. **The 168 `vibe/fixtures`** are the language's existing coverage corpus —
-   check there first before declaring a gap.
-5. **WebizenVM continuity** — VibeScript compiles to the Webizen bytecode/
-   modality machinery (`logic/` WebizenVM/compiler, `webizen_bytecode`);
-   extension work inherits the 64-opcode/bytecode discipline and opcode
-   ranges (AGENTS.md §1).
+   Any browser platform-binding need must be explicit in the controlled fork's
+   projection contract; it cannot introduce new JS business/state/physics logic
+   or become a dependency of the JS/V8-independent native workflow.
+3. **Pack and capability modes** — declare native, WASM-local and WASM-assisted
+   coverage and required native providers per operation. An unsupported browser
+   operation stays held; required WASM product coverage remains open until
+   delivered, rather than silently relabelling the entire app native-only.
+4. **Existing coverage corpus** — read the current language fixtures before
+   declaring a gap. The 2026-10-24 source inventory found 166 `.vibe` fixtures
+   and eight integration-test source files; these counts are not executed passes.
+5. **Source-evaluated REPL** — `.vibe` source is parsed, checked and evaluated
+   by the installed interpreter. Script edits do not require Rust/Cargo builds,
+   JS translation or generated WASM binaries. Bytecode is optional, separately
+   versioned and parity-qualified for its supported subset. Existing Webizen VM
+   compiler/opcode work retains its own contracts; it is not a prerequisite for
+   every interactive script. Follow the [proposed 0.2 definition](vibescript-0.2-specification.md)
+   and [source audit](vibescript-0.2-source-and-conformance.md), preserving pinned
+   0.1 semantics until explicit migration. Required REPL/host/live-edit gaps are
+   ENG-13/G89 work in the governing implementation plan.
 6. **Operational boundary for existing JS surfaces** — game-demo's current JS
    owns semantic state, walking, cameras, and scene lifecycle; migrating that
    to Vibe-owned scheduling over publicly supported bindings is remediation
    work R2/R4 (see
    [game-demo-remediation.md](game-demo-remediation.md),
-   [webizen-execution.md](webizen-execution.md)). Browser **bootstrapping**
-   JS (interop glue, loaders) is not prohibited — the rule is *no new
-   business logic* in JS. Migration is not an automatic speedup: bounded
+   [webizen-execution.md](webizen-execution.md)). Existing bootstrapping/binding
+   machinery requires explicit target-specific framework qualification and is
+   not an allowed dependency of the JS/V8-independent native workflow.
+   Migration is not an automatic speedup: bounded
    Rust kernels/GPU work stay behind Vibe, and speed comes from the
    corrections in the remediation plan, not the language move itself.
 
@@ -87,6 +108,8 @@ feature (wasm-edge.md §6 tiers apply).
    `wasm_bridge` directly?
 4. Where does `vibe` governance (`law_package`, `deontic_interrupt`) intersect
    the pack/SHACL validation gates — same rule source or two?
+5. Exact controlled fork pin/features, native-renderer integration, shared
+   launcher/Poet UI contract and per-capability WASM/native provider requirements.
 
 ## 5. Supervised development and evaluation integrity
 
@@ -108,12 +131,12 @@ A plausible screen or passing game-owned substitute is not engine evidence.
    requirement, authored VibeScript entry point, public engine API, allowed
    files, and acceptance cases. Missing capability becomes an upstream
    requirements entry reported to Timothy, not a JS or game-owned replacement
-   implementation. Browser interop exceptions identify the necessary platform
-   operation, checked Vibe/engine bindings, and the narrow shim responsibility.
+   implementation. Historical compatibility interop mapping is not authorization
+   to add JS/V8 dependencies to the native workflow clarified on 2026-10-24.
    Rust adapters marshal inputs and outputs; they must not silently take
    ownership of authored semantic/game policy.
 2. **Separate claims from evidence.** Record revision, build/profile, input
-   artifact identity, actual invocation path, expected and observed result,
+   artifact identifiers, actual invocation path, expected and observed result,
    and evidence location. Distinguish source inspection, compiled code,
    executed fixture, and rendered-browser integration. Unexecuted checks
    stay unverified; do not manufacture receipts or mark them passed.

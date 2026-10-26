@@ -1,0 +1,203 @@
+{
+  "all_match": true,
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "expected": "6844b8bc5a790a685e585f2c5ab47d68fa2d8796e577e83b2b78ec230d00f9e4",
+      "actual": "6844b8bc5a790a685e585f2c5ab47d68fa2d8796e577e83b2b78ec230d00f9e4",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\types.rs",
+      "expected": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+      "actual": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+      "expected": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+      "actual": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "expected": "a441cd012402e403f132daea7b311585fdd59424814b8f1e27270325adb579df",
+      "actual": "a441cd012402e403f132daea7b311585fdd59424814b8f1e27270325adb579df",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\projects.rs",
+      "expected": "518181fa5f780df20fc7eccf026367842c40fb1d783cba7e75ca583dc437780b",
+      "actual": "518181fa5f780df20fc7eccf026367842c40fb1d783cba7e75ca583dc437780b",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\agency_delegation.rs",
+      "expected": "51bb3e5a15faa4336e8e007aeaa99eb43880927b98a16a5f37f3cd06bbc33d93",
+      "actual": "51bb3e5a15faa4336e8e007aeaa99eb43880927b98a16a5f37f3cd06bbc33d93",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authority_type.rs",
+      "expected": "2c3f19c1d5cc238abb657a6da8845a390ca1bce7ad18e855df04da74f2ae1a6c",
+      "actual": "2c3f19c1d5cc238abb657a6da8845a390ca1bce7ad18e855df04da74f2ae1a6c",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\provenance.rs",
+      "expected": "0c9715efca928dbd4a3472047275d696b8b280c0ab4a4d77f2cc16ddd6b8c330",
+      "actual": "0c9715efca928dbd4a3472047275d696b8b280c0ab4a4d77f2cc16ddd6b8c330",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\delegation.rs",
+      "expected": "c61fb26f3c04c7148d275d964504f2c1ecc014eabbce56252cbc6957b844e121",
+      "actual": "c61fb26f3c04c7148d275d964504f2c1ecc014eabbce56252cbc6957b844e121",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+      "expected": "c95e5e19664668a26d5531643d5aa235f3dca2753bbb861320a40dc2574454e7",
+      "actual": "c95e5e19664668a26d5531643d5aa235f3dca2753bbb861320a40dc2574454e7",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "expected": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "actual": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "expected": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373",
+      "actual": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "expected": "77e8e82b6eeb5ab7959bd3a173254bad570dd9c720bed7d12475be89aea36aab",
+      "actual": "77e8e82b6eeb5ab7959bd3a173254bad570dd9c720bed7d12475be89aea36aab",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\tests.rs",
+      "expected": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb",
+      "actual": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\modalities\\delegation.rs",
+      "expected": "3b801ffcb3beb8736dda5411ba438c8082583b5b2102d9b6683c22dcd098c11a",
+      "actual": "3b801ffcb3beb8736dda5411ba438c8082583b5b2102d9b6683c22dcd098c11a",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\foundation\\crdt.rs",
+      "expected": "186002f094213908f615da41b077549678f7f535ada7c7dd60b91429310e1a6d",
+      "actual": "186002f094213908f615da41b077549678f7f535ada7c7dd60b91429310e1a6d",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\governance\\coord_seams.rs",
+      "expected": "899a583fa6d5da16d385200ecbfa61a90ed7c67185b27b0bd53dac6f568d5259",
+      "actual": "899a583fa6d5da16d385200ecbfa61a90ed7c67185b27b0bd53dac6f568d5259",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\entity_view\\rights_filter.rs",
+      "expected": "c7186c1669350718c879dd9087f6661e9b2d41770a3ed7ebce89fe976ab7d0b3",
+      "actual": "c7186c1669350718c879dd9087f6661e9b2d41770a3ed7ebce89fe976ab7d0b3",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\digest_bind.rs",
+      "expected": "3d3063255e57080f832bc9407a78e3da620e9ae648b1209d05172eecfd9804b1",
+      "actual": "3d3063255e57080f832bc9407a78e3da620e9ae648b1209d05172eecfd9804b1",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner.rs",
+      "expected": "1bd4f33f33c8348caf5ef35617a677f7c321b53a30feecdf27efa924cae26110",
+      "actual": "1bd4f33f33c8348caf5ef35617a677f7c321b53a30feecdf27efa924cae26110",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\permit.rs",
+      "expected": "6727030b04a899e5191d35314e1841ce09fc49b67d74e714ed8106754efd5935",
+      "actual": "6727030b04a899e5191d35314e1841ce09fc49b67d74e714ed8106754efd5935",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\policy.rs",
+      "expected": "e39e53977df3a31f07c7353fe28c35278e85b9c7a56b7e9b9616c354e90a955a",
+      "actual": "e39e53977df3a31f07c7353fe28c35278e85b9c7a56b7e9b9616c354e90a955a",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\contracts\\evaluate.rs",
+      "expected": "a7e2f4396fba7a0096d82b085dbf117b6c8d1ddfa7837bccc991d11c116f2360",
+      "actual": "a7e2f4396fba7a0096d82b085dbf117b6c8d1ddfa7837bccc991d11c116f2360",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\cooperative\\permits.rs",
+      "expected": "552b2b8082bec1c20f55a58dde9f975f9b0f975fed446962f5e1236c9e2c16d0",
+      "actual": "552b2b8082bec1c20f55a58dde9f975f9b0f975fed446962f5e1236c9e2c16d0",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\wellfair\\api\\agency.rs",
+      "expected": "4e1a93e2e7d4e136172181d4c3fbb956e21f1b557906fb36f5b6ba36a341f1c1",
+      "actual": "4e1a93e2e7d4e136172181d4c3fbb956e21f1b557906fb36f5b6ba36a341f1c1",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\wellfair\\api\\host_core.rs",
+      "expected": "ad871840cc87a35d83bb9d339a6d59f493cad5936bd6ac7d1ff6a817049fb7e6",
+      "actual": "ad871840cc87a35d83bb9d339a6d59f493cad5936bd6ac7d1ff6a817049fb7e6",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\wellfair\\api\\guardianship.rs",
+      "expected": "03a95518f5587ef83cc6246d7d88c0d286536a3345a3e6ae1c4bb4358a28d0cd",
+      "actual": "03a95518f5587ef83cc6246d7d88c0d286536a3345a3e6ae1c4bb4358a28d0cd",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\job_router.rs",
+      "expected": "c89d3213206e7ef3a28c4faf14d4963dd09b647eb3255fe181e51cdbdda0e3cf",
+      "actual": "c89d3213206e7ef3a28c4faf14d4963dd09b647eb3255fe181e51cdbdda0e3cf",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\domain_licence\\model.rs",
+      "expected": "1d0b7b0ae6d1aecaaff409b434d3cc3f996ccd4175bebb3202daa704ddad3ee0",
+      "actual": "1d0b7b0ae6d1aecaaff409b434d3cc3f996ccd4175bebb3202daa704ddad3ee0",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\domain_licence\\verify.rs",
+      "expected": "7747bad1fa8ce30f105a297004f7424b406bad8a0dc6a01ca0164eb104d901d0",
+      "actual": "7747bad1fa8ce30f105a297004f7424b406bad8a0dc6a01ca0164eb104d901d0",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments\\mod.rs",
+      "expected": "2ff88c305b8d38c38bd1cde13e33e2c4769b64c061ca0e2c7e988be56775c42c",
+      "actual": "2ff88c305b8d38c38bd1cde13e33e2c4769b64c061ca0e2c7e988be56775c42c",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments\\attestation\\native.rs",
+      "expected": "6555dcce6c8a69f720b6842958118ac3e939835991aaae87cc70349ce43c25c9",
+      "actual": "6555dcce6c8a69f720b6842958118ac3e939835991aaae87cc70349ce43c25c9",
+      "matches": true
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments\\attestation\\w3c.rs",
+      "expected": "f3aeffe21c6ecbd580439f923d886ebfb406797c908a4b7fccf363d8cd0bd76d",
+      "actual": "f3aeffe21c6ecbd580439f923d886ebfb406797c908a4b7fccf363d8cd0bd76d",
+      "matches": true
+    }
+  ]
+}

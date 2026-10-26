@@ -1,0 +1,17 @@
+{
+  "scope": "Focused CPU actual-source harness only; no GPU/Cargo",
+  "passed": 11,
+  "failed": 0,
+  "ignored": 0,
+  "compile_exit": 0,
+  "test_exit": 0,
+  "binary_sha256": "C86299961D4209ACDC0249073B9D3244CD2EACB311A85AEC6ED334596E1CA58D",
+  "cached_core_rlib_sha256": "1BB5035BB54782E5918F9B827326C1C6189DB4E7C0F8E224C9A0921D6C336618",
+  "manifest_sha256": "95EA1C868937DC6C8015C941164C51950EF8686BF24EBD159F9FEA64313BAE41",
+  "baseline_log": "harness/baseline-tests.log",
+  "candidate_log": "harness/candidate-tests.log",
+  "compiler_log": "harness/candidate-compile.log",
+  "exact_command": "harness/run-focused.ps1",
+  "applied": false,
+  "core_full_suite_required": true
+}

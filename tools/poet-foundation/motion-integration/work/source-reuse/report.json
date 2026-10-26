@@ -1,0 +1,66 @@
+{
+  "title": "EffectCraft motion authoring source reuse assessment",
+  "as_of": "2026-10-26",
+  "scope": {
+    "effectcraft_root": "C:/github/storytold/effectcraft-main",
+    "effectcraft_implementation_body_files_read": 3,
+    "effectcraft_implementation_body_file_limit": 8,
+    "body_files": [
+      "crates/keyframe/src/lib.rs",
+      "crates/keyframe/src/value.rs",
+      "crates/time/src/lib.rs"
+    ],
+    "manifest_files_read": ["crates/keyframe/Cargo.toml", "crates/time/Cargo.toml", "Cargo.toml"],
+    "prior_reviews_reused": [
+      "docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.md",
+      "docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.coverage.json",
+      "docs/qa/implementation-2026-10-26/effectcraft-review/ui-functions.md",
+      "docs/qa/implementation-2026-10-26/effectcraft-review/source-admission.md",
+      "docs/qa/implementation-2026-10-26/biosphere-integration-review/vision-audio-render.md"
+    ],
+    "qualia_selected_body_files_read": [
+      "C:/github/QualiaDB/crates/vibe/src/animation/curves.rs",
+      "C:/github/QualiaDB/crates/vibe/src/animation/families/timeline.rs",
+      "C:/github/QualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs",
+      "C:/github/QualiaDB/crates/qualia-core-db/src/render/spectral_operator.rs"
+    ],
+    "not_performed": ["build", "tests", "GUI", "runtime execution", "source relocation", "provider calls", "asset production"]
+  },
+  "license_and_notices": {
+    "declared_license": "MIT OR Apache-2.0 (workspace and both selected crate manifests)",
+    "mit_option": "MIT License; exact text copied from upstream LICENSE-MIT to notices/LICENSE-MIT",
+    "notice": "Root NOTICE copied to notices/; preserve it and any applicable ATTRIBUTION.md/per-file attribution when copying any additional EffectCraft material.",
+    "trademark_limit": "EffectCraft NOTICE excludes ArtCraft name/wordmark/logos and docs/brand material from the software license.",
+    "third_party_limit": "This review did not audit complete dependency or asset attribution closure. No code was copied into this candidate package."
+  },
+  "candidate": {
+    "decision": "Do not copy the EffectCraft interpolation solver or time crate. Reuse a narrow property-key editing interaction contract in Poet, backed by Poet/Qualia-owned time, typed values, history, authorization and render operators.",
+    "reusable_classes": [
+      "Authored per-property key insertion/editing at an explicit playhead time and bound property identity",
+      "Independent incoming/outgoing interpolation state (linear, hold, Bezier) with per-dimension temporal speed and influence as editable authored parameters",
+      "Key-icon half classification (left/right segment interpretation) as a view-model derived from that authored state",
+      "Shared selected property/track target between timeline gestures, property controls, menus/shortcuts and agent commands"
+    ],
+    "not_reusable_as_is": [
+      "EffectCraft Tick/timebase types: separate exact media-time domain and arithmetic; Poet must bind to its admitted time authority",
+      "EffectCraft Value enum and lerp: embeds EffectCraft-specific geometry, color, text and layer-reference models",
+      "EffectCraft ease_progress, spatial Bezier arc-length evaluator and property interpolation: substantial numeric behavior duplicates/overlaps existing Qualia animation/render ownership and needs exact contract adjudication before any adoption",
+      "EffectCraft UI shell, Boa expression runtime, standalone MCP/CLI/session, renderer/GPU ownership, project serializer or command authority"
+    ],
+    "existing_owner_comparison": {
+      "qualia_vibe_curves": "Cubic/standard easing evaluator exists at animation/curves.rs, but this scanned module is a normalized curve library, not key storage or property editing.",
+      "qualia_vibe_timeline_family": "animation/families/timeline.rs defines three sample presets; it is not a multi-track authored document/timeline model.",
+      "qualia_image_source_over": "qualia-core-db hypermedia_authoring/image_source_over.rs is a narrow encoded-RGBA source-over helper and does not supply an editorial track model.",
+      "qualia_spectral_operator": "qualia-core-db render/spectral_operator.rs owns physical/spectral rendering operations; do not route ordinary keyframe interpolation or display easing through spectral operators.",
+      "effectcraft_property_effect_stack": "Prior bounded engine-authoring review traces property/effect-instance IDs and command-backed edits/history. It does not qualify a selected effect kernel; use as an integration-seam map only."
+    },
+    "minimal_slice_recommendation": "Implement one Poet-owned keyed-property interaction vertical slice: add a typed key at explicit time, edit its in/out ease metadata, reflect key-half state in a native timeline, and route both pointer/UI and agent edits through the same admitted intent/history boundary. Reuse the described EffectCraft semantics only where they map cleanly; keep evaluation with the existing selected Qualia operator. No copy-ready engine implementation is recommended by this limited review.",
+    "integration_status": "Recommendation only; no code extracted, no canonical source edited, and no Poet implementation or runtime acceptance established."
+  },
+  "limits": [
+    "The three body files are source readings, not executed behavior or tests.",
+    "The Qualia comparison inspected only the listed four selected modules and prior saved reports; it is not a nine-root completeness audit.",
+    "The existing EffectCraft route report covers a selected composition/keyframe/effect/property/history/save path, not all effect kernels or complete dependency closure.",
+    "No claim that EffectCraft track insertion is independent of its time crate: Keyframe.time is EffectCraft Tick and its evaluator converts Tick to seconds. The UI-level command concept is separable; the current serialized/runtime model is not drop-in separable without an adapter."
+  ]
+}

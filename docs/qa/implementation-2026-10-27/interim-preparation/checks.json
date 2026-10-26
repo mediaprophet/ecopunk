@@ -1,0 +1,108 @@
+{
+  "checked_at_utc": "2026-10-26T14:47:50.702143+00:00",
+  "scope": "Documentation, case dependency and pinned catalogue consistency only",
+  "passed": true,
+  "cases": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "T00",
+    "V01",
+    "V02",
+    "V03"
+  ],
+  "all_case_results": "unassessed; no execution/review claimed",
+  "source_code_changed": false,
+  "cargo_commands_run": 0,
+  "native_checks_run": 0,
+  "assets_created": 0,
+  "catalogue_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+  "catalogue_unchanged": true,
+  "links": [
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "implementation-plan.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "../qa/implementation-2026-10-26/biological-reference/tree-cases.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "../qa/implementation-2026-10-26/biological-reference/wallaby-cases.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "tech/assets/model-production-template/README.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "tech/assets/species-embodiment-spec.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "tech/human-principal-agent-authority.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "../qa/implementation-2026-10-27/interim-preparation/reference-evidence-gaps.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "target": "interim-production-readiness-cases.json",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-27\\interim-preparation\\reference-evidence-gaps.md",
+      "target": "../../implementation-2026-10-26/biological-reference/tree-cases.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-27\\interim-preparation\\reference-evidence-gaps.md",
+      "target": "../../implementation-2026-10-26/biological-reference/wallaby-cases.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-27\\interim-preparation\\reference-evidence-gaps.md",
+      "target": "../../../planning/tech/semantic-agreements-and-compensation.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-27\\interim-preparation\\reference-evidence-gaps.md",
+      "target": "../../../planning/tech/assets/model-production-template/README.md",
+      "exists": true
+    },
+    {
+      "from": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-27\\interim-preparation\\reference-evidence-gaps.md",
+      "target": "../../../production/community-grounds-growing-station/README.md",
+      "exists": true
+    }
+  ],
+  "files": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness.md",
+      "sha256": "707f543eb97d5156060f1f8226d678c3aa3df7187f7d00a2d52e47ebd3265611"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\planning\\interim-production-readiness-cases.json",
+      "sha256": "db91626754d2373e50b5307fc16e9d198138e93a1e1cc7df40e752c1d1c1b189"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-27\\interim-preparation\\reference-evidence-gaps.md",
+      "sha256": "aaa6b3d178436cc1e431409f79f15db91793cad60481c0854da21e86cc851d72"
+    }
+  ],
+  "external_sources_verified": false
+}

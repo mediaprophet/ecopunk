@@ -1,0 +1,36 @@
+{
+  "applied": false,
+  "mutations": [
+    {
+      "candidate_sha256": "79B17618E4FC1DF34B9C446248F9C68BCE25A62CC81B410F672001021652E94D",
+      "candidate": "candidate/native/Cargo.toml",
+      "target": "C:/github/poet/native/Cargo.toml",
+      "original_sha256": "26B7717720FBFF54139B4E761E4DDF6F1C0C5D2E8FB11722E087B04B1281E27B"
+    },
+    {
+      "candidate_sha256": "004E0F683CDC4AF2DA231801C622FEBC90392D24FA6BE8CF13AAF804985BA2C8",
+      "candidate": "candidate/Cargo.lock",
+      "target": "C:/github/poet/Cargo.lock",
+      "original_sha256": "F1C6D2DDFD33EC813815B3CEBDEA120B90AFC97CBBDC764742D64EC0D6C1B627"
+    },
+    {
+      "candidate_sha256": "9449F4676BA86F0FAE1702BE9F65C2FC0E4A14116BF69E00EB4A02FB693EAFCC",
+      "candidate": "candidate/native/src/graphical/ui.rs",
+      "target": "C:/github/poet/native/src/graphical/ui.rs",
+      "original_sha256": "B2BB9D0E2F070F99BDBFFEC642661C9AA58ABA229A6FB9565E1ED1A05ADFC81C"
+    },
+    {
+      "candidate_sha256": "EC7D66A88D3BCC1B52822E8AED23ACC7E384A6B4AF8DC27881CA12B09D040324",
+      "candidate": "candidate/aether/packages/native-dom/src/mutation_writer.rs",
+      "target": "C:/github/rust-app-framework/packages/native-dom/src/mutation_writer.rs",
+      "original_sha256": "F23D6CE877C6FFB266B3BC5BFEBE296ADC1CD4C18AA0C0958D4A3D691B70DA77"
+    },
+    {
+      "candidate_sha256": "16287C4E793B33C5481159EF82946FFBBDD6197A45F74BA697175AE5FA0857BA",
+      "candidate": "candidate/aether/packages/native-dom/src/textarea_value.rs",
+      "target": "C:/github/rust-app-framework/packages/native-dom/src/textarea_value.rs",
+      "original_sha256": null
+    }
+  ],
+  "scope": "UI5 focused actual native profile/layout and Aether controlled textarea initialization; no acceptance claim"
+}

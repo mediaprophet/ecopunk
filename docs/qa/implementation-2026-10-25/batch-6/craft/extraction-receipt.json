@@ -1,0 +1,86 @@
+[
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\Cargo.toml",
+    "destination": "C:\\github\\craft\\crates\\geom\\Cargo.toml",
+    "origin_sha256": "ff4ae68050ebfa2ba40452da0812235c6d821cdd6727a3afdc95a65cce77ddc4",
+    "copied_sha256": "ff4ae68050ebfa2ba40452da0812235c6d821cdd6727a3afdc95a65cce77ddc4"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\bounds.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\bounds.rs",
+    "origin_sha256": "e9227ca6f12a4b0d83827d35938cf59d851c1a44a104209834103ce091eb07e9",
+    "copied_sha256": "e9227ca6f12a4b0d83827d35938cf59d851c1a44a104209834103ce091eb07e9"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\curve.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\curve.rs",
+    "origin_sha256": "b451ca7277cd95702167a75cd675959b0f784c9a160767bbca983f7318195ac8",
+    "copied_sha256": "b451ca7277cd95702167a75cd675959b0f784c9a160767bbca983f7318195ac8"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\intersect.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\intersect.rs",
+    "origin_sha256": "23aabb289ae1b72af4e59cf3b4604ce3fac15d380c99ef1b6163695801358bcd",
+    "copied_sha256": "23aabb289ae1b72af4e59cf3b4604ce3fac15d380c99ef1b6163695801358bcd"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\lib.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\lib.rs",
+    "origin_sha256": "246ab5b08b6a1714fb65d9268f47456fbbfc8b303b5b8018c1ae9238e719fe2a",
+    "copied_sha256": "246ab5b08b6a1714fb65d9268f47456fbbfc8b303b5b8018c1ae9238e719fe2a"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\mat.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\mat.rs",
+    "origin_sha256": "e47810e00928ff0a95daedf615d1a7a2e3acab2d9368cec9ff4964e65a617a3d",
+    "copied_sha256": "e47810e00928ff0a95daedf615d1a7a2e3acab2d9368cec9ff4964e65a617a3d"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\region.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\region.rs",
+    "origin_sha256": "a953cbd48b3899b1ecd7a4dedc5d055d2784868546ceaa6755d486ec926c9607",
+    "copied_sha256": "a953cbd48b3899b1ecd7a4dedc5d055d2784868546ceaa6755d486ec926c9607"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\spline.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\spline.rs",
+    "origin_sha256": "58f67277bb7a9021046f2360662de26cd174994f7348950874298e5447dd388f",
+    "copied_sha256": "58f67277bb7a9021046f2360662de26cd174994f7348950874298e5447dd388f"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\tests.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\tests.rs",
+    "origin_sha256": "a2119bf17fe160eafcf6011af34b43251c54996ff97d4e31c125d04af971467b",
+    "copied_sha256": "a2119bf17fe160eafcf6011af34b43251c54996ff97d4e31c125d04af971467b"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\crates\\geom\\src\\vec.rs",
+    "destination": "C:\\github\\craft\\crates\\geom\\src\\vec.rs",
+    "origin_sha256": "f8fd2fd51a853e081a6756cb032faccf6156c6e472f019677c445795e389f74c",
+    "copied_sha256": "f8fd2fd51a853e081a6756cb032faccf6156c6e472f019677c445795e389f74c"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\LICENSE-MIT",
+    "destination": "C:\\github\\craft\\migration\\origins\\cadcraft\\LICENSE-MIT",
+    "origin_sha256": "54b0fc87ed7b61b59c20340070dd2b8c7f9d0b53795347819c3bd7c67ea2508a",
+    "copied_sha256": "54b0fc87ed7b61b59c20340070dd2b8c7f9d0b53795347819c3bd7c67ea2508a"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\LICENSE-APACHE",
+    "destination": "C:\\github\\craft\\migration\\origins\\cadcraft\\LICENSE-APACHE",
+    "origin_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "copied_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\NOTICE",
+    "destination": "C:\\github\\craft\\migration\\origins\\cadcraft\\NOTICE",
+    "origin_sha256": "cdfbfa6606bc6c389758cfdc5addeccb47a2a2cc7bfb7fcc4be9a2b783bd1561",
+    "copied_sha256": "cdfbfa6606bc6c389758cfdc5addeccb47a2a2cc7bfb7fcc4be9a2b783bd1561"
+  },
+  {
+    "origin": "C:\\github\\poet-cadcraft\\ATTRIBUTION.md",
+    "destination": "C:\\github\\craft\\migration\\origins\\cadcraft\\ATTRIBUTION.md",
+    "origin_sha256": "f7c53dffd94302510948de78af6b646c2eb355fe6048ed655c60aff45ff51a58",
+    "copied_sha256": "f7c53dffd94302510948de78af6b646c2eb355fe6048ed655c60aff45ff51a58"
+  }
+]

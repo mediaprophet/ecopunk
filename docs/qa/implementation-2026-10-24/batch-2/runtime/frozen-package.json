@@ -1,0 +1,40 @@
+{
+  "candidate": "RUN-05B-2026-10-24-final",
+  "frozen_at": "2026-10-24T10:56:19.976575+00:00",
+  "status": "review-ready, sibling targets verified unchanged, NOT APPLIED",
+  "source_targets": 24,
+  "artifacts": {
+    "patch-map.json": "741c51314b8aff6899247690e1c5fc02a49d0a40cfc1fb57c97b49cc896adb0d",
+    "poet-patch-map.json": "61e1f173654fde85acc6b8d26b42334f200829ca70e3cf3618dbd81ca3d70e4e",
+    "verification-receipt.json": "06dc4c09b53eb73f90bf674b9d90b9e03f0a402e4c0c6c246f99612160e9c639",
+    "verification-overlay.json": "85aa527614786070b08fc447fb8304de6a271f3fb3273f7ad54ec3eab3944646",
+    "verification-inputs.json": "c9753a38eade504ba7776de47ff86f507ba2a7c97e2c8fffd2e0ecf2a01c42a5",
+    "verification-includes.json": "65c64f3c354c2ca0ec77fd5246b73b0edfe46afcd79f15074f73f6d4ee07e1f9",
+    "poet-verification-inputs.json": "4ff5a62a45e500ba7343d9437f08509116e1022696529006c970a1247cb4e7bb",
+    "native-poet-build.log": "e6e20fb3fbf3bc6ab91bcd60fe16d7f7836086bd7a5e6e631c25c2e26020496c",
+    "native-default-session.log": "e06cbd912af37d96f8f52f45f4a18fdd8d3128f9d4ac1569adfd0906cb06e7ab",
+    "native-granted-session.log": "ef76ea01ed1f835c6796e2aa815dc498287bab217dffb6a1937d46b77e12c8bf",
+    "guarded-boundary_combined_calls_and_expression_path.log": "d4df6536caf7ba56c2ce177f2743cf2d5d2e36cebdada446712cfe7216984738",
+    "guarded-boundary_combined_qualified_success.log": "751e07820379859486c5ce62b8d6cc7f13c69bc90137f6951fd732d6c7f55740",
+    "guarded-boundary_groups_16.log": "777e41e228770e20e8755ed088c658dd69f2c9d60a2c8de387a1b2268f57df60",
+    "guarded-boundary_postfix_64_path_units.log": "d9861313bbb152062e036fc20e7d1c9bf3eb7ee471ba016d5b6eb1893e7ec108",
+    "guarded-boundary_unary_64_path_units.log": "27e6c3c70267c7e2e14c59ca2a967ed4fb73cb9782c58c429befb5e703cd7881"
+  },
+  "native_binary": {
+    "path": "verification/qualiaDB/crates/vibe/target/debug/poet.exe",
+    "sha256": "908f07e93c502d332ee16143990a5f857277082e2004149a38527791dbf4bc1f"
+  },
+  "checks": {
+    "full_private_suite_exit_code": 0,
+    "full_private_passes": 1278,
+    "isolated_boundary_passes": 5,
+    "native_default_exit_code": 0,
+    "native_granted_exit_code": 0
+  },
+  "remaining": [
+    "supervisor guarded canonical apply and target verification",
+    "durable shared sessions and checked replacement/live jobs",
+    "actual native graphical Poet/Craft cooperative authoring/IP-03 C1-C8",
+    "full proposed 0.2 conformance and exceptional Ecopunk output/model acceptance"
+  ]
+}

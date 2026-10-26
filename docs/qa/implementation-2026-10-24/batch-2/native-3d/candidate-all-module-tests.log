@@ -1,0 +1,33 @@
+
+running 17 tests
+test poet_host::invoke::studio_domains::tests::test_studio_lifecycle_dispatch ... ok
+test poet_host::invoke::studio_store::journal_tests::explicit_host_limits_admit_large_sources_and_refuse_lossy_reduction ... ok
+test poet_host::invoke::studio_store::journal_tests::clock_and_history_limits_refuse_without_wrapping_or_losing_source ... ok
+test poet_host::invoke::studio_store::journal_tests::legacy_replacement_and_import_cannot_reuse_old_snapshots ... ok
+test poet_host::invoke::studio_domains::tests::test_doc_create_receipt_has_q42 ... ok
+test poet_host::invoke::studio_store::journal_tests::existing_studio_handlers_accept_checked_and_legacy_calls ... ok
+test poet_host::invoke::studio_store::journal_tests::prospective_audit_bytes_are_admitted_before_every_activation ... ok
+test poet_host::invoke::studio_store::journal_tests::concurrent_same_revision_accepts_one_edit_without_running_stale_callback ... ok
+test poet_host::invoke::studio_store::journal_tests::rejected_source_or_policy_edits_leave_all_state_unchanged ... ok
+test poet_host::invoke::studio_store::journal_tests::stale_edits_and_undo_redo_are_atomic ... ok
+test poet_host::invoke::studio_store::tests::test_artifact_lifecycle ... ok
+test poet_host::invoke::studio_store::journal_tests::retained_byte_and_audit_budgets_refuse_atomically ... ok
+test poet_host::invoke::studio_store::journal_tests::source_undo_redo_regenerates_identical_loft_and_material ... ok
+test poet_host::invoke::studio_store::tests::test_export_native_formats ... ok
+
+thread 'poet_host::invoke::studio_store::tests::test_import_cml_and_csv' (8204) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-3d\candidate\studio_store.rs:443:9:
+assertion `left == right` failed
+  left: None
+ right: Some("#000")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test poet_host::invoke::studio_store::tests::test_undo_redo ... ok
+test regression::undo_restores_source_and_advances_revision ... ok
+test poet_host::invoke::studio_store::tests::test_import_cml_and_csv ... FAILED
+
+failures:
+
+failures:
+    poet_host::invoke::studio_store::tests::test_import_cml_and_csv
+
+test result: FAILED. 16 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.10s
+

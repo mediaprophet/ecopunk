@@ -1,0 +1,12 @@
+{
+  "scope": "Correct test-only WebGPU projection near/far planes; production culling and expected counts unchanged",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/indirect_cull.rs",
+      "original_sha256": "602EAF07058EC2C70C8908663381CA9129582BE768057E7DDA9EDB66EC033120",
+      "candidate": "candidate/indirect_cull.rs",
+      "candidate_sha256": "5E27960B5DC4B45C6330049F081B189EF6EECA792A7DAFC7EA2E96163CB474E1"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "command": "cargo",
+  "arguments": [
+    "check",
+    "--offline",
+    "--locked",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--lib",
+    "--features",
+    "native-graphical",
+    "--target-dir",
+    "C:/github/ecopunk/target"
+  ],
+  "exit_code": 101,
+  "input_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-4\\source-snapshots\\1e1fd768bb4f04f035f6f36f0314a6a39e44c6d6a09c1b63510cff7aa6af3b31.json",
+    "sha256": "1e1fd768bb4f04f035f6f36f0314a6a39e44c6d6a09c1b63510cff7aa6af3b31"
+  },
+  "started_utc": "2026-10-24T21:08:23.3916652Z",
+  "finished_utc": "2026-10-24T21:18:49.4979085Z",
+  "source_changes_during_command": [
+    "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resources.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperation\\native_owner.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\mcp\\resources.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resource_tests.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resources.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\journal.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs"
+  ],
+  "source_unchanged": false
+}

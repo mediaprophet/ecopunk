@@ -1,0 +1,39 @@
+{
+  "inspected_utc": "2026-10-24T17:50:58.7170757Z",
+  "worker_wrote_siblings": false,
+  "scope": "Read-only four-target verification following parent apply 2026-10-24T17:44:13Z",
+  "targets": [
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/mod.rs",
+      "actual_sha256": "C23AE5A4237FBA2255B4C22D712D4E023BBCB3401567172A45C16FFB484A8915",
+      "frozen_candidate_sha256": "C23AE5A4237FBA2255B4C22D712D4E023BBCB3401567172A45C16FFB484A8915",
+      "latest_candidate_sha256": "C23AE5A4237FBA2255B4C22D712D4E023BBCB3401567172A45C16FFB484A8915",
+      "manifest_matches_candidate": true,
+      "actual_matches_candidate": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/editor.rs",
+      "actual_sha256": "CE1C9452FAE8546E61977CFED57AAAE851B81A8EA2385A9CAFE804E341C51E5C",
+      "frozen_candidate_sha256": "CE1C9452FAE8546E61977CFED57AAAE851B81A8EA2385A9CAFE804E341C51E5C",
+      "latest_candidate_sha256": "CE1C9452FAE8546E61977CFED57AAAE851B81A8EA2385A9CAFE804E341C51E5C",
+      "manifest_matches_candidate": true,
+      "actual_matches_candidate": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/tests.rs",
+      "actual_sha256": "9330B9BB8B0FB2E88402C4541E2F778E704ADAE9593CF2865B62F03FD30ABDBD",
+      "frozen_candidate_sha256": "9330B9BB8B0FB2E88402C4541E2F778E704ADAE9593CF2865B62F03FD30ABDBD",
+      "latest_candidate_sha256": "9330B9BB8B0FB2E88402C4541E2F778E704ADAE9593CF2865B62F03FD30ABDBD",
+      "manifest_matches_candidate": true,
+      "actual_matches_candidate": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/restart_tests.rs",
+      "actual_sha256": "861DC4D1711F8F2018DB66AF0BE0BC21991A7F8E36A6652848E0610D8B5A3FD6",
+      "frozen_candidate_sha256": "861DC4D1711F8F2018DB66AF0BE0BC21991A7F8E36A6652848E0610D8B5A3FD6",
+      "latest_candidate_sha256": "861DC4D1711F8F2018DB66AF0BE0BC21991A7F8E36A6652848E0610D8B5A3FD6",
+      "manifest_matches_candidate": true,
+      "actual_matches_candidate": true
+    }
+  ]
+}

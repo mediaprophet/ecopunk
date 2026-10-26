@@ -1,0 +1,41 @@
+{
+  "url": "https://mediaprophet.github.io/ecopunk/",
+  "capturedAt": "2026-10-24T04:47:03.406Z",
+  "browser": "Chrome via connected extension",
+  "reportedBackend": "Tier 2 (QualiaPortal WebGPU)",
+  "viewportCss": {
+    "height": 646,
+    "width": 1614
+  },
+  "canvas": {
+    "height": 755,
+    "width": 1888
+  },
+  "logs": [
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-24T04:45:57.533Z",
+      "url": "https://mediaprophet.github.io/ecopunk/viewer/pkg/ecopunk_wasm.js"
+    },
+    {
+      "level": "error",
+      "message": "Error: Could not establish connection. Receiving end does not exist.",
+      "timestamp": "2026-10-24T04:45:57.534Z",
+      "url": "https://mediaprophet.github.io/ecopunk/"
+    },
+    {
+      "level": "error",
+      "message": "Error: Could not establish connection. Receiving end does not exist.",
+      "timestamp": "2026-10-24T04:45:57.535Z",
+      "url": "https://mediaprophet.github.io/ecopunk/"
+    },
+    {
+      "level": "error",
+      "message": "Error: Could not establish connection. Receiving end does not exist.",
+      "timestamp": "2026-10-24T04:45:57.535Z",
+      "url": "https://mediaprophet.github.io/ecopunk/"
+    }
+  ],
+  "limits": "No GPU adapter or frame-time profiling collected; screenshot and visible UI evidence only. One later navigation click timed out; not a measured application performance diagnosis."
+}

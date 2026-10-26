@@ -1,0 +1,4867 @@
+{
+  "schema": "effectcraft-source-admission-coverage-v1",
+  "encoding": "UTF-8",
+  "inventory_date": "2026-10-26",
+  "source_root": "C:\\github\\storytold\\effectcraft-main",
+  "provenance": {
+    "folder_name_is_not_version_or_origin_evidence": true,
+    "dot_git_present": false,
+    "declared_repository": "https://github.com/storytold/effectcraft",
+    "declared_version": "0.17.0",
+    "git_head_remote_branch_dirty_state": "unavailable: checkout has no .git entry; repository identity/history not verified"
+  },
+  "method": "rg --files first; Python 3 tomllib parses Cargo.toml and Cargo.lock directly. No cargo metadata was invoked. Dependency edges preserve manifest, target, dependency scope, alias, resolved workspace inheritance, source kind/spec and features. This is direct workspace metadata, not complete transitive licensing or source audit.",
+  "summary": {
+    "manifest_files": 38,
+    "package_manifests": 37,
+    "lock_packages": 691,
+    "direct_dependency_edges_including_dev_build_and_target": 351,
+    "direct_dependency_kinds": {
+      "path": 164,
+      "version": 159,
+      "git": 28
+    },
+    "workspace_inherited_direct_edges": 320,
+    "asset_attribution_sidecars": 57,
+    "git_locked_source_groups": [
+      {
+        "repository": "git+https://github.com/storytold/craft-libs",
+        "revision": "25da1314d443171b4adeaad2cd9454b273f35c6f",
+        "packages": [
+          "craft-ui@0.1.0"
+        ],
+        "count": 1
+      },
+      {
+        "repository": "git+https://github.com/storytold/craft-libs",
+        "revision": "495e5971bc024aa96e6ed318cb6e7cd3a0103184",
+        "packages": [
+          "craft-update@0.1.0"
+        ],
+        "count": 1
+      },
+      {
+        "repository": "git+https://github.com/storytold/craft-libs",
+        "revision": "82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+        "packages": [
+          "craft-docpath@0.1.0"
+        ],
+        "count": 1
+      },
+      {
+        "repository": "git+https://github.com/storytold/craft-libs",
+        "revision": "9f75d3dc19b4b514c4f3d4847ed1ec1b0e86b4ef",
+        "packages": [
+          "craft-pdf@0.1.0",
+          "hayro-jbig2@0.3.0",
+          "hayro-syntax@0.7.2"
+        ],
+        "count": 3
+      },
+      {
+        "repository": "git+https://github.com/storytold/egui.git",
+        "revision": "6d518fc799681571963842f95b55a6b68431b15a",
+        "packages": [
+          "ecolor@0.37.0",
+          "eframe@0.37.0",
+          "egui-wgpu@0.37.0",
+          "egui-winit@0.37.0",
+          "egui@0.37.0",
+          "egui_glow@0.37.0",
+          "egui_kittest@0.37.0",
+          "emath@0.37.0",
+          "epaint@0.37.0",
+          "epaint_default_fonts@0.37.0"
+        ],
+        "count": 10
+      },
+      {
+        "repository": "git+https://github.com/storytold/filmcraft",
+        "revision": "2c5ba7a72619935f0481f99d59409e0d1844b234",
+        "packages": [
+          "filmcraft-aac@0.1.1",
+          "filmcraft-ac3@0.1.1",
+          "filmcraft-av1@0.1.1",
+          "filmcraft-bitstream@0.1.1",
+          "filmcraft-cfb@0.1.1",
+          "filmcraft-codecs@0.1.1",
+          "filmcraft-color@0.1.1",
+          "filmcraft-dnx@0.1.1",
+          "filmcraft-frame@0.1.1",
+          "filmcraft-geom@0.1.1",
+          "filmcraft-h264@0.1.1",
+          "filmcraft-h264enc@0.1.1",
+          "filmcraft-hevc@0.1.1",
+          "filmcraft-interchange@0.1.1",
+          "filmcraft-isobmff@0.1.1",
+          "filmcraft-matroska@0.1.1",
+          "filmcraft-media@0.1.1",
+          "filmcraft-mpeg2v@0.1.1",
+          "filmcraft-mpegts@0.1.1",
+          "filmcraft-mxf@0.1.1",
+          "filmcraft-ogg@0.1.1",
+          "filmcraft-opus@0.1.1",
+          "filmcraft-project@0.1.1",
+          "filmcraft-prores@0.1.1",
+          "filmcraft-time@0.1.1",
+          "filmcraft-vp9@0.1.1"
+        ],
+        "count": 26
+      },
+      {
+        "repository": "git+https://github.com/storytold/winit.git",
+        "revision": "a517b3846ee8457d84ee4975110bfda6797c44dc",
+        "packages": [
+          "winit@0.30.13"
+        ],
+        "count": 1
+      }
+    ],
+    "filmcraft_workspace_dependency_specs": 16,
+    "filmcraft_direct_consumer_edges": 21,
+    "filmcraft_consumer_manifest_count": 6
+  },
+  "manifests": [
+    {
+      "path": "apps/effectcraft/Cargo.toml",
+      "sha256": "a277a0e04ff5c764dcbbdd788d9aff59c3735fa385d9cfc44b1808e294345f05",
+      "lines": 53,
+      "package": "effectcraft",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "EffectCraft desktop app",
+      "workspace_root": false
+    },
+    {
+      "path": "apps/effectcraft-cli/Cargo.toml",
+      "sha256": "f173302979b301a196137b9a43f06767bd617d1ba40442787304fe40b32d26f5",
+      "lines": 25,
+      "package": "effectcraft-cli",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "EffectCraft headless CLI: render frames and sequences, run commands, MCP server",
+      "workspace_root": false
+    },
+    {
+      "path": "apps/effectcraft-web/Cargo.toml",
+      "sha256": "61189106972c5ef152e9b5b1ba92c16c8ccd50e36ed37c4015265c9877582c00",
+      "lines": 57,
+      "package": "effectcraft-web",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "EffectCraft in the browser (wasm32): eframe web runner, persistent browser storage (OPFS / IndexedDB), Web Audio, Web Worker renders, PWA, window.effectcraft API",
+      "workspace_root": false
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "lines": 239,
+      "package": null,
+      "version": null,
+      "edition": null,
+      "license": null,
+      "workspace_member": false,
+      "description": null,
+      "workspace_root": true
+    },
+    {
+      "path": "crates/automation/Cargo.toml",
+      "sha256": "766f05da72f70a4622800269b24da8d5126aa5885ac5c55066d14361103ea11f",
+      "lines": 20,
+      "package": "effectcraft-automation",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "EffectCraft MCP server (JSON-RPC 2.0 over stdio) over a headless session or bridged to the running app's control channel",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/av1enc/Cargo.toml",
+      "sha256": "d91f48803aa70738c126878cb356b376bcb3e66d4a07df22d8848141af45bd62",
+      "lines": 15,
+      "package": "effectcraft-av1enc",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Clean-room pure-Rust AV1 encoder (Main profile, key and inter frames) for MP4/WebM export, from the AV1 Bitstream & Decoding Process Specification",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/color/Cargo.toml",
+      "sha256": "57b655e43dd9f6d2ab06a8e59d1348f101cd900a68e85ab8ab109f68e4dc3558",
+      "lines": 15,
+      "package": "effectcraft-color",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": null,
+      "workspace_root": false
+    },
+    {
+      "path": "crates/effects/Cargo.toml",
+      "sha256": "d3514dd17308ce9862be2b0123b5df9664de135534364aa531bc7a9f980ab0c5",
+      "lines": 25,
+      "package": "effectcraft-effects",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Effect registry (specs, parameters, categories) and CPU implementations of the effects library",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/engine/Cargo.toml",
+      "sha256": "c57ae2f4dca2a038769a4d850e01f14f6fa0349dbdb6c0b793b3c5b169bbd593",
+      "lines": 41,
+      "package": "effectcraft-engine",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "The EffectCraft engine: session, undo history, editor state and the command registry every frontend (UI, CLI, control channel, MCP) dispatches through",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/export/Cargo.toml",
+      "sha256": "867d9d955b52d8838bf4af8b8a42235768f8433bb00239889d8cde7246343bd4",
+      "lines": 38,
+      "package": "effectcraft-export",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Render Queue jobs and output modules: H.264 MP4 (+AAC), ProRes and uncompressed MOV (+PCM) via FilmCraft, HEVC / AV1 MP4 (+AAC) and WebM (VP9 or AV1 + Opus) via EffectCraft encoders, PNG/JPEG/TIFF/EXR sequences, animated GIF, WAV/AIFF",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/expr/Cargo.toml",
+      "sha256": "4ec1fb92a0388b0b666b4587f018ad619b5db6461c703aba7985aad01e115a02",
+      "lines": 29,
+      "package": "effectcraft-expr",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "After Effects-compatible expressions: a boa JavaScript runtime with the AE object model (thisComp, thisLayer, wiggle, loopOut, valueAtTime…) and array maths",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/geom/Cargo.toml",
+      "sha256": "3883a7be7c7832d71cc4f90d8c7360e3f9f6716e77e8e68d7729f0ccccf8eef3",
+      "lines": 15,
+      "package": "effectcraft-geom",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": null,
+      "workspace_root": false
+    },
+    {
+      "path": "crates/gpu/Cargo.toml",
+      "sha256": "ca0b8d00a8e24004496c399a3e3bb137c03ca59d178c445aaed32cb5722fa390",
+      "lines": 34,
+      "package": "effectcraft-gpu",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "The GPU compositor (wgpu compute): layer transforms, masks/mattes, the 38 blend modes, motion blur, bit-depth quantisation and GPU effects, with the CPU renderer as the reference",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/hevcenc/Cargo.toml",
+      "sha256": "ced9cb404a1dc00a303d20e62a72e98e91c9a191dd6014625016ab74b5441198",
+      "lines": 15,
+      "package": "effectcraft-hevcenc",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Clean-room pure-Rust HEVC (H.265) encoder (Main / Main 10, I and P slices, CABAC) for MP4 export, from ITU-T H.265",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/host/Cargo.toml",
+      "sha256": "49102722275ab4e1b94b0d4012ea291981bcfef454c4b073dd4c9c40e0bcc98c",
+      "lines": 37,
+      "package": "effectcraft-host",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Builds a fully wired EffectCraft session: media decoding (FilmCraft codecs), importer, the expression engine and scripting",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/interchange/Cargo.toml",
+      "sha256": "0a9a01da4bbb1342c47e8a818f1725ef7b981e149bd1853abe246afb9d7b44a1",
+      "lines": 25,
+      "package": "effectcraft-interchange",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Premiere Pro interop through timeline interchange: Final Cut Pro 7 XML (xmeml), FCPXML, OpenTimelineIO and CMX 3600 EDL sequences to and from compositions (via filmcraft-interchange)",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/keyframe/Cargo.toml",
+      "sha256": "9c932ca3c785f76337a0aa5a228e00057f4c1d549df959569c7275e3e912feb5",
+      "lines": 20,
+      "package": "effectcraft-keyframe",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Animated values: keyframes, temporal ease (speed/influence), spatial Bezier motion paths, hold/linear/auto interpolation",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/lottie/Cargo.toml",
+      "sha256": "1453d1f9218979e1321262c070c191db3d015457f37a76cb878a2e357b3395db",
+      "lines": 26,
+      "package": "effectcraft-lottie",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Lottie JSON import and export: compositions, precomps, shape/solid/null/image/text layers, keyframes with temporal and spatial easing, masks, track mattes and a few effects",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/media/Cargo.toml",
+      "sha256": "44c8e55dae6c8c5d2d10a5b527e54824596b1fa9877e5c7f8e7ff2c538a08243",
+      "lines": 36,
+      "package": "effectcraft-media",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Footage import: probing, stills, image sequences, video and audio via FilmCraft's pure-Rust codecs, memory-budgeted frame cache",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/model/Cargo.toml",
+      "sha256": "663b79f8c37f34162546a0387b66f49626db1a7c7c284f2202ea856dffa7a313",
+      "lines": 18,
+      "package": "effectcraft-model",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "3D models: glTF 2.0 (.gltf/.glb), Wavefront OBJ/MTL, STL and FBX 7.x (binary and ASCII) import, PBR metallic-roughness materials, node hierarchy, skinning and animation, parametric primitives, and extruded/bevelled outline meshes",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/opusenc/Cargo.toml",
+      "sha256": "c52ca7594cecf20d26f62e167f2f6e5190a6cb9b0f6530170f0c475cace7d676",
+      "lines": 15,
+      "package": "effectcraft-opusenc",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Clean-room pure-Rust Opus encoder (RFC 6716 SILK NB/MB/WB, hybrid SWB/FB and CELT FB modes, 48 kHz, 20 ms; RFC 7845 OpusHead) for WebM export audio",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/path/Cargo.toml",
+      "sha256": "712edf9c2c2a08dfa31c900cd73065ccb3b12dfb0fd24228461819a4ff0cb652",
+      "lines": 18,
+      "package": "effectcraft-path",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Bezier shapes: AE vertex model ⇄ kurbo, parametric shapes, path operations, stroking/dashing and anti-aliased coverage rasterisation",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/pdf/Cargo.toml",
+      "sha256": "4357282cec350386e766f1f4efbb89cd1e6e45b24c08ecccc93b67b7cbd9dd5a",
+      "lines": 29,
+      "package": "effectcraft-pdf",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Vector footage import: PDF and PDF-compatible Illustrator (.ai) pages and EPS (a PostScript subset) parsed into the SVG render tree (paths, fills, strokes, shadings, tiling patterns, clipping, text with embedded fonts, images, blend modes, soft masks, optional-content layers)",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/plugin/Cargo.toml",
+      "sha256": "9950a37bd5429117626d0c9f8b4b741fa956d07c9818e8a681305b321345b51a",
+      "lines": 25,
+      "package": "effectcraft-plugin",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "EffectCraft effect plug-ins: loads sandboxed WebAssembly effect modules (plug-in API v1) into the effect registry",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/project/Cargo.toml",
+      "sha256": "dfa7e0f0636211809826f65798b8502a6723177e7bc9f7cc6ef4b617a97cb2ae",
+      "lines": 19,
+      "package": "effectcraft-project",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "The EffectCraft document: project items, compositions, layers and the After-Effects-style property tree",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/psd/Cargo.toml",
+      "sha256": "1bb51f1a2e4a7a3341c4c9f6adad5b509a4872d0d983a7669fdacc9ad0ba9f1f",
+      "lines": 13,
+      "package": "effectcraft-psd",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Photoshop PSD/PSB reader (layers, groups, masks, blend modes, text, layer effects, adjustment layers; 8/16/32-bit, RGB/CMYK/Gray/Lab/Indexed, raw/RLE/ZIP) and a minimal writer, from Adobe's published file format specification",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/raster/Cargo.toml",
+      "sha256": "1113dc965863a1a1fd63c4bc03a0dbf9d8437e5bcb56cc9ed778e9247788946f",
+      "lines": 15,
+      "package": "effectcraft-raster",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "f32 premultiplied RGBA images: sampling, projective warps, blurs, convolution, compositing (rayon-parallel)",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/render/Cargo.toml",
+      "sha256": "fc0427e43ce6c0d5241cc57b2361fec10655e51343909b99cd7069094d91243b",
+      "lines": 28,
+      "package": "effectcraft-render",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "The CPU compositor: property evaluation, layer sources (solids, footage, text, shapes, precomps), masks, effects, track mattes, 2D/3D transforms, motion blur and blending",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/script/Cargo.toml",
+      "sha256": "43ad7743e71071a509a23bfcb56916085b2c5b0654fb482b25240ae011d486d5",
+      "lines": 32,
+      "package": "effectcraft-script",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "EffectCraft scripting: JavaScript (boa) with an After Effects-style object model (app, project, CompItem, Layer, Property…) over the engine's undoable commands",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/segment/Cargo.toml",
+      "sha256": "9aff93c0790b042b79187afd24434b8106017d11ca0ab288d695f6b504c67c45",
+      "lines": 15,
+      "package": "effectcraft-segment",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Swappable trained models for Roto Brush and face tracking: the MaskModel and FaceModel interfaces, a registry of open-licensed models, PyTorch checkpoint and TensorFlow Lite readers, a pure-Rust MobileSAM and MediaPipe Face Landmarker",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/svg/Cargo.toml",
+      "sha256": "0abb645db094211e6076d16daa8764daf12331015825fabdc276694ad0075d8a",
+      "lines": 18,
+      "package": "effectcraft-svg",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "SVG import: parses SVG 1.1 / SVG 2 static vector content (paths, basic shapes, groups, transforms, use, CSS styles, solid and gradient fills/strokes, opacity) and rasterises it at any scale",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/text/Cargo.toml",
+      "sha256": "2fdb6f878dc1fa1db788922b254df4d763d516174c31119633550407493bbb1d",
+      "lines": 22,
+      "package": "effectcraft-text",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Text engine: fonts (bundled OFL + system), shaping (harfrust), bidi, line breaking, paragraph layout and glyph outlines as Bezier paths",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/time/Cargo.toml",
+      "sha256": "f60ed8272dea9cd134a8d919cf25f01ce73ae9513ad70d0d68b3e7a80e83e8d3",
+      "lines": 15,
+      "package": "effectcraft-time",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": null,
+      "workspace_root": false
+    },
+    {
+      "path": "crates/track/Cargo.toml",
+      "sha256": "b1f8a9198eae89b9ae784933e76484cc1cf720abb56a20a6b9de3c63a428214d",
+      "lines": 18,
+      "package": "effectcraft-track",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "Motion tracking: feature/search region point tracking (pyramid normalized cross-correlation + Lucas-Kanade refinement), confidence, corner-pin / transform solves, stabilization, Roto Brush segmentation (graph cut, matting) and 3D camera solving (structure from motion)",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/ui-egui/Cargo.toml",
+      "sha256": "d56a68d54de8c6cdfe89f51caf882e5cbe5898d18580b20a0dc923108b5e3526",
+      "lines": 50,
+      "package": "effectcraft-ui-egui",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "The EffectCraft egui frontend (swappable): docking panels, composition viewer, timeline, effect controls, control channel",
+      "workspace_root": false
+    },
+    {
+      "path": "crates/vp9enc/Cargo.toml",
+      "sha256": "3b5d3f5ae4f40f5ff2e60c85d5dddada72d6e2c7f81b0416917ddf72be336ad8",
+      "lines": 12,
+      "package": "effectcraft-vp9enc",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": "VP9 encoder (profile 0, 8-bit 4:2:0; intra + inter frames, loop filter, rate control) for WebM export, from the VP9 Bitstream & Decoding Process Specification",
+      "workspace_root": false
+    },
+    {
+      "path": "examples/plugins/posterize-bands/Cargo.toml",
+      "sha256": "f6b0e1e9531df14780838dcd61a346239ff5437f9c218de820e26b860e27ee84",
+      "lines": 18,
+      "package": "posterize-bands",
+      "version": "1.0.0",
+      "edition": "2024",
+      "license": "MIT OR Apache-2.0",
+      "workspace_member": false,
+      "description": "Example EffectCraft effect plug-in (WebAssembly, plug-in API v1): posterizes luminance into tinted bands",
+      "workspace_root": false
+    },
+    {
+      "path": "xtask/Cargo.toml",
+      "sha256": "017861da6b9a91a42bedfcd90f048deacc57356128de3bed275ac3c544dd6ba9",
+      "lines": 12,
+      "package": "xtask",
+      "version": {
+        "workspace": true
+      },
+      "edition": {
+        "workspace": true
+      },
+      "license": {
+        "workspace": true
+      },
+      "workspace_member": true,
+      "description": null,
+      "workspace_root": false
+    }
+  ],
+  "direct_dependency_edges": [
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-host",
+      "kind": "path",
+      "spec": "crates/host",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-ui-egui",
+      "kind": "path",
+      "spec": "crates/ui-egui",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "egui",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "monochrome_emoji_fonts"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "eframe",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "wgpu",
+        "accesskit",
+        "clipboard",
+        "links",
+        "wayland",
+        "x11"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "winit",
+      "kind": "version",
+      "spec": "0.30",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rfd",
+      "kind": "version",
+      "spec": "0.17",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "pollster",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "cpal",
+      "kind": "version",
+      "spec": "0.16",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml",
+      "target": null,
+      "section": "build-dependencies",
+      "alias": "winresource",
+      "kind": "version",
+      "spec": "0.1",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(target_os = \"linux\")]",
+      "target": "cfg(target_os = \"linux\")",
+      "section": "dependencies",
+      "alias": "zbus",
+      "kind": "version",
+      "spec": "5.19",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(target_os = \"macos\")]",
+      "target": "cfg(target_os = \"macos\")",
+      "section": "dependencies",
+      "alias": "objc2-foundation",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": false,
+      "features": [
+        "std",
+        "NSProcessInfo",
+        "NSString",
+        "NSObject"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(target_os = \"macos\")]",
+      "target": "cfg(target_os = \"macos\")",
+      "section": "dependencies",
+      "alias": "muda",
+      "kind": "version",
+      "spec": "0.21",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(target_os = \"macos\")]",
+      "target": "cfg(target_os = \"macos\")",
+      "section": "dependencies",
+      "alias": "objc2",
+      "kind": "version",
+      "spec": "0.6",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(target_os = \"macos\")]",
+      "target": "cfg(target_os = \"macos\")",
+      "section": "dependencies",
+      "alias": "objc2-app-kit",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": false,
+      "features": [
+        "std",
+        "NSApplication",
+        "NSResponder",
+        "NSPasteboard"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(target_os = \"macos\")]",
+      "target": "cfg(target_os = \"macos\")",
+      "section": "dependencies",
+      "alias": "fmv-macos-events",
+      "kind": "version",
+      "spec": "=0.1.0",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft/Cargo.toml [target.cfg(windows)]",
+      "target": "cfg(windows)",
+      "section": "dependencies",
+      "alias": "craft-update",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": [
+        "egui"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-host",
+      "kind": "path",
+      "spec": "crates/host",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-automation",
+      "kind": "path",
+      "spec": "crates/automation",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-ui-egui",
+      "kind": "path",
+      "spec": "crates/ui-egui",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-gpu",
+      "kind": "path",
+      "spec": "crates/gpu",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-cli/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "cpu-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "effectcraft-host",
+      "kind": "path",
+      "spec": "crates/host",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "effectcraft-gpu",
+      "kind": "path",
+      "spec": "crates/gpu",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "effectcraft-media",
+      "kind": "path",
+      "spec": "crates/media",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "effectcraft-export",
+      "kind": "path",
+      "spec": "crates/export",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "effectcraft-expr",
+      "kind": "path",
+      "spec": "crates/expr",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "effectcraft-ui-egui",
+      "kind": "path",
+      "spec": "crates/ui-egui",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "egui",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "monochrome_emoji_fonts"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "eframe",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "wgpu"
+      ]
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "wasm-bindgen",
+      "kind": "version",
+      "spec": "=0.2.129",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "wasm-bindgen-futures",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "js-sys",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "apps/effectcraft-web/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "web-sys",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": false,
+      "features": [
+        "Blob",
+        "BlobPropertyBag",
+        "CssStyleDeclaration",
+        "Document",
+        "Element",
+        "DedicatedWorkerGlobalScope",
+        "Event",
+        "EventTarget",
+        "File",
+        "FileList",
+        "HtmlAnchorElement",
+        "HtmlCanvasElement",
+        "HtmlElement",
+        "HtmlInputElement",
+        "Location",
+        "Navigator",
+        "Url",
+        "UrlSearchParams",
+        "Window"
+      ]
+    },
+    {
+      "manifest": "crates/automation/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/automation/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/automation/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/automation/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "crates/automation/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-script",
+      "kind": "path",
+      "spec": "crates/script",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/automation/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-host",
+      "kind": "path",
+      "spec": "crates/host",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/av1enc/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "filmcraft-av1",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/color/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/color/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "proptest",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-segment",
+      "kind": "path",
+      "spec": "crates/segment",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-track",
+      "kind": "path",
+      "spec": "crates/track",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/effects/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "chrono",
+      "kind": "version",
+      "spec": "0.4.45",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "craft-docpath",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-segment",
+      "kind": "path",
+      "spec": "crates/segment",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-track",
+      "kind": "path",
+      "spec": "crates/track",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-model",
+      "kind": "path",
+      "spec": "crates/model",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-lottie",
+      "kind": "path",
+      "spec": "crates/lottie",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-interchange",
+      "kind": "path",
+      "spec": "crates/interchange",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-psd",
+      "kind": "path",
+      "spec": "crates/psd",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-svg",
+      "kind": "path",
+      "spec": "crates/svg",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-pdf",
+      "kind": "path",
+      "spec": "crates/pdf",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "chrono",
+      "kind": "version",
+      "spec": "0.4.45",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/engine/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "exr",
+      "kind": "version",
+      "spec": "1.74",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-h264enc",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-prores",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-aac",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-isobmff",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-opusenc",
+      "kind": "path",
+      "spec": "crates/opusenc",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-vp9enc",
+      "kind": "path",
+      "spec": "crates/vp9enc",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-hevcenc",
+      "kind": "path",
+      "spec": "crates/hevcenc",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-av1enc",
+      "kind": "path",
+      "spec": "crates/av1enc",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg",
+        "tiff",
+        "exr"
+      ]
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "gif",
+      "kind": "version",
+      "spec": "0.14",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-media",
+      "kind": "path",
+      "spec": "crates/media",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "filmcraft-opus",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "filmcraft-vp9",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/export/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "boa_engine",
+      "kind": "version",
+      "spec": "0.22",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/expr/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "boa_engine",
+      "kind": "version",
+      "spec": "0.22",
+      "workspace_inherited": true,
+      "features": [
+        "js"
+      ]
+    },
+    {
+      "manifest": "crates/geom/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/geom/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "proptest",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "wgpu",
+      "kind": "version",
+      "spec": "30.0.1",
+      "workspace_inherited": true,
+      "features": [
+        "fragile-send-sync-non-atomic-wasm"
+      ]
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "bytemuck",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml [target.cfg(not(target_arch = \"wasm32\"))]",
+      "target": "cfg(not(target_arch = \"wasm32\"))",
+      "section": "dependencies",
+      "alias": "pollster",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "wasm-bindgen",
+      "kind": "version",
+      "spec": "=0.2.129",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/gpu/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "js-sys",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/hevcenc/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "filmcraft-hevc",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-media",
+      "kind": "path",
+      "spec": "crates/media",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-expr",
+      "kind": "path",
+      "spec": "crates/expr",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-script",
+      "kind": "path",
+      "spec": "crates/script",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-export",
+      "kind": "path",
+      "spec": "crates/export",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-plugin",
+      "kind": "path",
+      "spec": "crates/plugin",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-psd",
+      "kind": "path",
+      "spec": "crates/psd",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-svg",
+      "kind": "path",
+      "spec": "crates/svg",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-pdf",
+      "kind": "path",
+      "spec": "crates/pdf",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-interchange",
+      "kind": "path",
+      "spec": "crates/interchange",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "gif",
+      "kind": "version",
+      "spec": "0.14",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "exr",
+      "kind": "version",
+      "spec": "1.74",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/host/Cargo.toml [target.cfg(not(target_arch = \"wasm32\"))]",
+      "target": "cfg(not(target_arch = \"wasm32\"))",
+      "section": "dependencies",
+      "alias": "effectcraft-plugin",
+      "kind": "path",
+      "spec": "crates/plugin",
+      "workspace_inherited": true,
+      "features": [
+        "wasm"
+      ]
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-interchange",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-project",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-media",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-time",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-geom",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-color",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/interchange/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/keyframe/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/keyframe/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/keyframe/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/keyframe/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/keyframe/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/keyframe/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "proptest",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "craft-docpath",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/lottie/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "craft-docpath",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-psd",
+      "kind": "path",
+      "spec": "crates/psd",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-svg",
+      "kind": "path",
+      "spec": "crates/svg",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-pdf",
+      "kind": "path",
+      "spec": "crates/pdf",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-model",
+      "kind": "path",
+      "spec": "crates/model",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-codecs",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-media",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-isobmff",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-frame",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-color",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "filmcraft-time",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "symphonia",
+      "kind": "version",
+      "spec": "0.5.5",
+      "workspace_inherited": true,
+      "features": [
+        "aiff"
+      ]
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "exr",
+      "kind": "version",
+      "spec": "1.74",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "gif",
+      "kind": "version",
+      "spec": "0.14",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "gif",
+        "webp",
+        "tiff",
+        "bmp",
+        "exr",
+        "tga",
+        "hdr"
+      ]
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/media/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/model/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/model/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/model/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/model/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/model/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "crates/model/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "miniz_oxide",
+      "kind": "version",
+      "spec": "0.9",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/opusenc/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "filmcraft-opus",
+      "kind": "git",
+      "spec": "https://github.com/storytold/filmcraft",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/path/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/path/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/path/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/path/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/path/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "tiny-skia",
+      "kind": "version",
+      "spec": "0.12",
+      "workspace_inherited": true,
+      "features": [
+        "std",
+        "simd"
+      ]
+    },
+    {
+      "manifest": "crates/path/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "linesweeper",
+      "kind": "version",
+      "spec": "0.5",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "craft-pdf",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": [
+        "read"
+      ]
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-svg",
+      "kind": "path",
+      "spec": "crates/svg",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "miniz_oxide",
+      "kind": "version",
+      "spec": "0.9",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "skrifa",
+      "kind": "version",
+      "spec": "0.44",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "zune-jpeg",
+      "kind": "version",
+      "spec": "0.5",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/pdf/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dev-dependencies",
+      "alias": "wasm-bindgen-test",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/plugin/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/plugin/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/plugin/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "wasmi",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": [
+        "std",
+        "validate",
+        "wat",
+        "deterministic",
+        "portable-dispatch"
+      ]
+    },
+    {
+      "manifest": "crates/plugin/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/plugin/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/plugin/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/project/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "thiserror",
+      "kind": "version",
+      "spec": "2",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/psd/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "miniz_oxide",
+      "kind": "version",
+      "spec": "0.9",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/raster/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/raster/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/raster/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-effects",
+      "kind": "path",
+      "spec": "crates/effects",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "lz4_flex",
+      "kind": "version",
+      "spec": "0.14",
+      "workspace_inherited": false,
+      "features": [
+        "std",
+        "safe-encode",
+        "safe-decode",
+        "checked-decode"
+      ]
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-model",
+      "kind": "path",
+      "spec": "crates/model",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/render/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "boa_engine",
+      "kind": "version",
+      "spec": "0.22",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-expr",
+      "kind": "path",
+      "spec": "crates/expr",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-psd",
+      "kind": "path",
+      "spec": "crates/psd",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/script/Cargo.toml [target.cfg(target_arch = \"wasm32\")]",
+      "target": "cfg(target_arch = \"wasm32\")",
+      "section": "dependencies",
+      "alias": "boa_engine",
+      "kind": "version",
+      "spec": "0.22",
+      "workspace_inherited": true,
+      "features": [
+        "js"
+      ]
+    },
+    {
+      "manifest": "crates/script/Cargo.toml [target.cfg(not(target_arch = \"wasm32\"))]",
+      "target": "cfg(not(target_arch = \"wasm32\"))",
+      "section": "dev-dependencies",
+      "alias": "socket2",
+      "kind": "version",
+      "spec": "0.6",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/segment/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "miniz_oxide",
+      "kind": "version",
+      "spec": "0.9",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/segment/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "ndarray",
+      "kind": "version",
+      "spec": "0.17",
+      "workspace_inherited": false,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/segment/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/svg/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/svg/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/svg/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/svg/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/svg/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "roxmltree",
+      "kind": "version",
+      "spec": "0.21",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/svg/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/text/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/text/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/text/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "skrifa",
+      "kind": "version",
+      "spec": "0.44",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/text/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "harfrust",
+      "kind": "version",
+      "spec": "0.12",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/text/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "unicode-bidi",
+      "kind": "version",
+      "spec": "0.3.18",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/text/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "unicode-linebreak",
+      "kind": "version",
+      "spec": "0.1.5",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/time/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/time/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "proptest",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/track/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-raster",
+      "kind": "path",
+      "spec": "crates/raster",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/track/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-segment",
+      "kind": "path",
+      "spec": "crates/segment",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/track/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/track/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/track/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/track/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "craft-ui",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-time",
+      "kind": "path",
+      "spec": "crates/time",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-geom",
+      "kind": "path",
+      "spec": "crates/geom",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-color",
+      "kind": "path",
+      "spec": "crates/color",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-keyframe",
+      "kind": "path",
+      "spec": "crates/keyframe",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-project",
+      "kind": "path",
+      "spec": "crates/project",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-path",
+      "kind": "path",
+      "spec": "crates/path",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-text",
+      "kind": "path",
+      "spec": "crates/text",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-render",
+      "kind": "path",
+      "spec": "crates/render",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-engine",
+      "kind": "path",
+      "spec": "crates/engine",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "effectcraft-gpu",
+      "kind": "path",
+      "spec": "crates/gpu",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "egui",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "monochrome_emoji_fonts"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "eframe",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "wgpu",
+        "accesskit",
+        "clipboard"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "derive",
+        "rc"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "log",
+      "kind": "version",
+      "spec": "0.4",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "chrono",
+      "kind": "version",
+      "spec": "0.4.45",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "rayon",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "web-time",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "kurbo",
+      "kind": "version",
+      "spec": "0.13",
+      "workspace_inherited": true,
+      "features": [
+        "serde"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "image",
+      "kind": "version",
+      "spec": "0.25",
+      "workspace_inherited": true,
+      "features": [
+        "png",
+        "jpeg"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "egui",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": [
+        "default_fonts",
+        "monochrome_emoji_fonts"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "egui_kittest",
+      "kind": "version",
+      "spec": "0.37",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "pollster",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "effectcraft-host",
+      "kind": "path",
+      "spec": "crates/host",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "dev-dependencies",
+      "alias": "exr",
+      "kind": "version",
+      "spec": "1.74",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "build-dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml",
+      "target": null,
+      "section": "build-dependencies",
+      "alias": "toml",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": false,
+      "features": []
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml [target.cfg(not(target_arch = \"wasm32\"))]",
+      "target": "cfg(not(target_arch = \"wasm32\"))",
+      "section": "dependencies",
+      "alias": "craft-update",
+      "kind": "git",
+      "spec": "https://github.com/storytold/craft-libs",
+      "workspace_inherited": true,
+      "features": [
+        "egui"
+      ]
+    },
+    {
+      "manifest": "crates/ui-egui/Cargo.toml [target.cfg(not(target_arch = \"wasm32\"))]",
+      "target": "cfg(not(target_arch = \"wasm32\"))",
+      "section": "dependencies",
+      "alias": "sys-locale",
+      "kind": "version",
+      "spec": "0.3",
+      "workspace_inherited": true,
+      "features": []
+    },
+    {
+      "manifest": "xtask/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "serde_json",
+      "kind": "version",
+      "spec": "1",
+      "workspace_inherited": true,
+      "features": [
+        "float_roundtrip"
+      ]
+    },
+    {
+      "manifest": "xtask/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "chrono",
+      "kind": "version",
+      "spec": "0.4.45",
+      "workspace_inherited": true,
+      "features": [
+        "std"
+      ]
+    },
+    {
+      "manifest": "xtask/Cargo.toml",
+      "target": null,
+      "section": "dependencies",
+      "alias": "tempfile",
+      "kind": "version",
+      "spec": "3",
+      "workspace_inherited": false,
+      "features": []
+    }
+  ],
+  "selected_lock_git_sources": [
+    {
+      "repository": "git+https://github.com/storytold/craft-libs",
+      "revision": "25da1314d443171b4adeaad2cd9454b273f35c6f",
+      "packages": [
+        "craft-ui@0.1.0"
+      ],
+      "count": 1
+    },
+    {
+      "repository": "git+https://github.com/storytold/craft-libs",
+      "revision": "495e5971bc024aa96e6ed318cb6e7cd3a0103184",
+      "packages": [
+        "craft-update@0.1.0"
+      ],
+      "count": 1
+    },
+    {
+      "repository": "git+https://github.com/storytold/craft-libs",
+      "revision": "82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+      "packages": [
+        "craft-docpath@0.1.0"
+      ],
+      "count": 1
+    },
+    {
+      "repository": "git+https://github.com/storytold/craft-libs",
+      "revision": "9f75d3dc19b4b514c4f3d4847ed1ec1b0e86b4ef",
+      "packages": [
+        "craft-pdf@0.1.0",
+        "hayro-jbig2@0.3.0",
+        "hayro-syntax@0.7.2"
+      ],
+      "count": 3
+    },
+    {
+      "repository": "git+https://github.com/storytold/egui.git",
+      "revision": "6d518fc799681571963842f95b55a6b68431b15a",
+      "packages": [
+        "ecolor@0.37.0",
+        "eframe@0.37.0",
+        "egui-wgpu@0.37.0",
+        "egui-winit@0.37.0",
+        "egui@0.37.0",
+        "egui_glow@0.37.0",
+        "egui_kittest@0.37.0",
+        "emath@0.37.0",
+        "epaint@0.37.0",
+        "epaint_default_fonts@0.37.0"
+      ],
+      "count": 10
+    },
+    {
+      "repository": "git+https://github.com/storytold/filmcraft",
+      "revision": "2c5ba7a72619935f0481f99d59409e0d1844b234",
+      "packages": [
+        "filmcraft-aac@0.1.1",
+        "filmcraft-ac3@0.1.1",
+        "filmcraft-av1@0.1.1",
+        "filmcraft-bitstream@0.1.1",
+        "filmcraft-cfb@0.1.1",
+        "filmcraft-codecs@0.1.1",
+        "filmcraft-color@0.1.1",
+        "filmcraft-dnx@0.1.1",
+        "filmcraft-frame@0.1.1",
+        "filmcraft-geom@0.1.1",
+        "filmcraft-h264@0.1.1",
+        "filmcraft-h264enc@0.1.1",
+        "filmcraft-hevc@0.1.1",
+        "filmcraft-interchange@0.1.1",
+        "filmcraft-isobmff@0.1.1",
+        "filmcraft-matroska@0.1.1",
+        "filmcraft-media@0.1.1",
+        "filmcraft-mpeg2v@0.1.1",
+        "filmcraft-mpegts@0.1.1",
+        "filmcraft-mxf@0.1.1",
+        "filmcraft-ogg@0.1.1",
+        "filmcraft-opus@0.1.1",
+        "filmcraft-project@0.1.1",
+        "filmcraft-prores@0.1.1",
+        "filmcraft-time@0.1.1",
+        "filmcraft-vp9@0.1.1"
+      ],
+      "count": 26
+    },
+    {
+      "repository": "git+https://github.com/storytold/winit.git",
+      "revision": "a517b3846ee8457d84ee4975110bfda6797c44dc",
+      "packages": [
+        "winit@0.30.13"
+      ],
+      "count": 1
+    }
+  ],
+  "selected_lock_packages": [
+    {
+      "name": "boa_engine",
+      "version": "0.22.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "craft-docpath",
+      "version": "0.1.0",
+      "source": "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63"
+    },
+    {
+      "name": "craft-pdf",
+      "version": "0.1.0",
+      "source": "git+https://github.com/storytold/craft-libs?rev=9f75d3dc19b4b514c4f3d4847ed1ec1b0e86b4ef#9f75d3dc19b4b514c4f3d4847ed1ec1b0e86b4ef"
+    },
+    {
+      "name": "craft-ui",
+      "version": "0.1.0",
+      "source": "git+https://github.com/storytold/craft-libs?rev=25da1314d443171b4adeaad2cd9454b273f35c6f#25da1314d443171b4adeaad2cd9454b273f35c6f"
+    },
+    {
+      "name": "craft-update",
+      "version": "0.1.0",
+      "source": "git+https://github.com/storytold/craft-libs?rev=495e5971bc024aa96e6ed318cb6e7cd3a0103184#495e5971bc024aa96e6ed318cb6e7cd3a0103184"
+    },
+    {
+      "name": "eframe",
+      "version": "0.37.0",
+      "source": "git+https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc799681571963842f95b55a6b68431b15a"
+    },
+    {
+      "name": "egui",
+      "version": "0.37.0",
+      "source": "git+https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc799681571963842f95b55a6b68431b15a"
+    },
+    {
+      "name": "js-sys",
+      "version": "0.3.106",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "wasm-bindgen",
+      "version": "0.2.129",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "wasmi",
+      "version": "2.0.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "web-sys",
+      "version": "0.3.106",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "wgpu",
+      "version": "30.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "winit",
+      "version": "0.30.13",
+      "source": "git+https://github.com/storytold/winit.git?rev=a517b3846ee8457d84ee4975110bfda6797c44dc#a517b3846ee8457d84ee4975110bfda6797c44dc"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4e31a1e4a7c24f29e885fbec58a65e88ac9610bd9d06492272deed2f81c49992",
+      "lines": 146,
+      "read_ranges": [
+        "1-146"
+      ],
+      "purpose_or_limit": "Full contributor/agent rules, including asset licensing and trademarks."
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "lines": 239,
+      "read_ranges": [
+        "1-239"
+      ],
+      "purpose_or_limit": "Full parsed workspace manifest; extracted relevant declarations at lines 1-16, 65-79, 103-120, 122-125, 222-239."
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "bc9d49460dbedc71358d4a51d1b6494b7ad793384570f2cc03dea2a68a585d41",
+      "lines": 7341,
+      "read_ranges": [
+        "1-7341"
+      ],
+      "purpose_or_limit": "Full TOML parse of lockfile and selected source/revision/version records."
+    },
+    {
+      "path": "README.md",
+      "sha256": "d5f22f2311b3bf1da0cf01a96c0bb1c6fe3585aa81df8b99ecce61cbba9ede60",
+      "lines": 387,
+      "read_ranges": [
+        "1-387"
+      ],
+      "purpose_or_limit": "Full read for declared product/surfaces; descriptive claims only."
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "d6286054452e79d2a675dee90ec93ab243e3f54e22f0f85854426d7151dc28af",
+      "lines": 725,
+      "read_ranges": [
+        "1-50",
+        "546-575",
+        "594-617",
+        "719-725"
+      ],
+      "purpose_or_limit": "Selected architecture/dependency/UI/command boundaries; not implementation audit."
+    },
+    {
+      "path": "docs/plugins.md",
+      "sha256": "fcd949fa74977cf8357a3332feae18ae73b0eaf07c471eb4e301663c61efb8f7",
+      "lines": 263,
+      "read_ranges": [
+        "136-153"
+      ],
+      "purpose_or_limit": "Plugin v1 boundary."
+    },
+    {
+      "path": "docs/web.md",
+      "sha256": "2e366254aabbd7fbd574c3cfe7aa0cb255907e1fd276c66415c6d245b91a6218",
+      "lines": 491,
+      "read_ranges": [
+        "1-7",
+        "51-72"
+      ],
+      "purpose_or_limit": "WASM/browser boundary and JS glue."
+    },
+    {
+      "path": "LICENSE-MIT",
+      "sha256": "7b6db9a363688683feacdf9b528f059637f2e5d2edbacd8720fc9b26781c9abe",
+      "lines": 21,
+      "read_ranges": [
+        "1-21"
+      ],
+      "purpose_or_limit": "Text pinned; header/terms not fully semantically audited."
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "lines": 177,
+      "read_ranges": [
+        "1-177"
+      ],
+      "purpose_or_limit": "Text pinned; no legal opinion."
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "c7ecb79db5a35e749c037773c9867d07f6ff598edce3d72bd443b4d00f24e0be",
+      "lines": 291,
+      "read_ranges": [
+        "1-291"
+      ],
+      "purpose_or_limit": "Hash/line count pinned; selected opening/brand/dependency/font sections read, remainder not individually reviewed."
+    },
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "653802d1bb337bec8a1105134620bc9bb09f383bd9ee4227c9d5de20a0f49aed",
+      "lines": 146,
+      "read_ranges": [
+        "1-146"
+      ],
+      "purpose_or_limit": "Full index read; not every asset/sidecar pair audited."
+    },
+    {
+      "path": "docs/brand/LICENSE-brand.txt",
+      "sha256": "7ee27fdb49f96a969ab80d5f800d8422aa17cb39d1cca286d18aa6227d8c7628",
+      "lines": 42,
+      "read_ranges": [
+        "1-42"
+      ],
+      "purpose_or_limit": "Full brand restriction text read."
+    },
+    {
+      "path": "assets/app-icon/LICENSE.txt",
+      "sha256": "6f7a100b47da67df0c9e8e06397a7222766932c36cdebeff2e89cb2cd2917b85",
+      "lines": 13,
+      "read_ranges": [
+        "1-13"
+      ],
+      "purpose_or_limit": "Full app-icon license text read."
+    }
+  ],
+  "unexamined_or_unverified": [
+    "No .git metadata exists here; no HEAD, remote, branch, dirty-state, author or original upstream identity claim.",
+    "No full source audit; no implementation bodies were read in this admission pass. Engine/UI semantic review belongs to the assigned engine reviewer.",
+    "No transitive dependency/license audit; 57 sidecar count does not prove every asset is paired or license-qualified.",
+    "No builds, tests, package commands, application runtime, UI, MCP, provider or network calls executed.",
+    "The existing C:/github/poet-filmcraft local repository is a related, previously audited Poet app, but was not inspected during this admission pass and is not proven identical to the locked EffectCraft FilmCraft source/revision.",
+    "Read-only Git status/revision/remote/history commands against the EffectCraft path were denied with permission denied under the sandbox; no escalation was attempted. The absent .git entry independently leaves checkout provenance unavailable."
+  ],
+  "related_local_references": [
+    {
+      "path": "C:/github/poet-filmcraft",
+      "exists": true,
+      "relationship": "Related local Poet application repository already covered by the existing media-tools report; not asserted equal to or the same revision as the locked EffectCraft git source.",
+      "prior_evidence": "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+      "prior_evidence_read_ranges": [
+        "19-19",
+        "31-31"
+      ],
+      "prior_evidence_lines": 42,
+      "prior_evidence_sha256": "be982adee3763f6ab6401e15056c59d73509d656098d42f48bbabe26597cd8fa"
+    },
+    {
+      "path": "C:/github/filmcraft",
+      "exists": false,
+      "relationship": "No separate local checkout at this path; remote lockfile source remains unverified against local source."
+    }
+  ],
+  "local_related_checkout_status": {
+    "C:/github/poet-filmcraft": "present; previously audited in existing Ecopunk media-tools review; not inspected in this metadata admission and not proven identical to lockfile FilmCraft source/revision.",
+    "C:/github/filmcraft": "absent",
+    "C:/github/egui": "absent",
+    "C:/github/winit": "absent",
+    "C:/github/storytold/craft-libs": "absent",
+    "C:/github/craft": "present but not equated to craft-libs."
+  }
+}

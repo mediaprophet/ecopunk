@@ -1,0 +1,2142 @@
+{
+  "scope": "Selected function-body and export/consumer audit across all nine requested roots; not exhaustive code, execution, correctness or security certification.",
+  "unique_files_listed_in_review_manifests": 101,
+  "unique_files_with_implementation_body_excerpts": 65,
+  "requested_root_summary": [
+    {
+      "root": "domains",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\domains",
+      "source_files_discovered": 49,
+      "body_excerpt_files": 3,
+      "api_or_discovery_files": 4,
+      "unreviewed_files": 42
+    },
+    {
+      "root": "modalities",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\modalities",
+      "source_files_discovered": 94,
+      "body_excerpt_files": 7,
+      "api_or_discovery_files": 1,
+      "unreviewed_files": 86
+    },
+    {
+      "root": "solvers",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\solvers",
+      "source_files_discovered": 190,
+      "body_excerpt_files": 3,
+      "api_or_discovery_files": 2,
+      "unreviewed_files": 185
+    },
+    {
+      "root": "specialized_libs",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs",
+      "source_files_discovered": 485,
+      "body_excerpt_files": 10,
+      "api_or_discovery_files": 4,
+      "unreviewed_files": 471
+    },
+    {
+      "root": "wgsl_forge",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge",
+      "source_files_discovered": 73,
+      "body_excerpt_files": 6,
+      "api_or_discovery_files": 3,
+      "unreviewed_files": 64
+    },
+    {
+      "root": "qualia-vision",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-vision\\src",
+      "source_files_discovered": 110,
+      "body_excerpt_files": 3,
+      "api_or_discovery_files": 6,
+      "unreviewed_files": 101
+    },
+    {
+      "root": "qualia-audio",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-audio",
+      "source_files_discovered": 254,
+      "body_excerpt_files": 3,
+      "api_or_discovery_files": 2,
+      "unreviewed_files": 249
+    },
+    {
+      "root": "webizen-render",
+      "path": "C:\\github\\qualiaDB\\crates\\webizen-render",
+      "source_files_discovered": 33,
+      "body_excerpt_files": 4,
+      "api_or_discovery_files": 1,
+      "unreviewed_files": 28
+    },
+    {
+      "root": "semantic_instruments",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments",
+      "source_files_discovered": 26,
+      "body_excerpt_files": 12,
+      "api_or_discovery_files": 4,
+      "unreviewed_files": 10
+    }
+  ],
+  "source_entries": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              12
+            ]
+          ],
+          "symbols": [
+            "public domain module exports"
+          ]
+        }
+      ],
+      "sha256": "ef6a8568c2d6faf1878677400b78473b047e7428d7f5645c6ec2897d59f11444"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biological/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              7
+            ]
+          ],
+          "symbols": [
+            "pub mod bioinformatics"
+          ]
+        }
+      ],
+      "sha256": "edc5758e2936e85dc7d77b061b1e104dc165ad839a8e19b9c5933bfc02643e59"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/physical/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              7
+            ]
+          ],
+          "symbols": [
+            "pub mod thermodynamics"
+          ]
+        }
+      ],
+      "sha256": "440cdf3e0de7c50b68d338f2a368e7c1e476c03e5922f466369fbcbe6a4bf617"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geospatial/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              31
+            ]
+          ],
+          "symbols": [
+            "environmental raster and geospatial exports"
+          ]
+        }
+      ],
+      "sha256": "67277e0228134af14c7ed158374604f5e845ddc519a015f514defb732a2de9ef"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              207
+            ]
+          ],
+          "symbols": [
+            "modality exports"
+          ]
+        }
+      ],
+      "sha256": "c9e34e63c17061b6c06864193c4c76d848d4b5275cb5349bb57a5f94799c48ad"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              45
+            ]
+          ],
+          "symbols": [
+            "module declarations/public reexports"
+          ]
+        }
+      ],
+      "sha256": "2ff88c305b8d38c38bd1cde13e33e2c4769b64c061ca0e2c7e988be56775c42c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/execution/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              8
+            ]
+          ],
+          "symbols": [
+            "module declarations/public reexports"
+          ]
+        }
+      ],
+      "sha256": "f2c374c45d96f068bb3209f78a4d48830c7cd9e4a8e932e7f2e513803bc7c4b2"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              11
+            ]
+          ],
+          "symbols": [
+            "module declarations/public reexports"
+          ]
+        }
+      ],
+      "sha256": "c09db4e4cee42388e7f1dc01d92125ec742607336b79fc0fb33a7dd3533f0330"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/attestation/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              16
+            ]
+          ],
+          "symbols": [
+            "module declarations/public reexports"
+          ]
+        }
+      ],
+      "sha256": "68c63ea984d6447d8f4b029203395cc60c51b8f0f1ca6328f71d5a344e70523d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biological/bioinformatics.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              121,
+              256
+            ],
+            [
+              330,
+              363
+            ]
+          ],
+          "symbols": [
+            "smith_waterman",
+            "traceback_local",
+            "empty_result",
+            "align_nucleotide",
+            "align_protein",
+            "align_sequences"
+          ]
+        }
+      ],
+      "sha256": "015e76b9967e7f9b13e588eadf55f3150b5c70736d8ff84838dd8ed9e3b1d75c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/physical/thermodynamics.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ],
+          "symbols": [
+            "ThermodynamicSampler::new",
+            "metropolis_step",
+            "calculate_gibbs_free_energy"
+          ]
+        }
+      ],
+      "sha256": "2d3d504f69be4cab4828556bda0d9550be741983faaf82b53fc5db66254730b9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geospatial/environmental_raster.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              116
+            ],
+            [
+              426,
+              545
+            ]
+          ],
+          "symbols": [
+            "EnvironmentalRasterLayer::new",
+            "sample_geo",
+            "sample_bilinear",
+            "compile_environmental_rasters_to_10d"
+          ]
+        }
+      ],
+      "sha256": "fb08c05a9d66f3a147fa88bc73590f1a47ccb29a4fd573fac1dee9f0906632ed"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/botany.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              255
+            ]
+          ],
+          "symbols": [
+            "pack_botany_metamer_quin",
+            "pack_botany_turgor_quin",
+            "pack_botany_phenology_quin",
+            "evaluate_botanical_frame"
+          ]
+        }
+      ],
+      "sha256": "6ce24390738877f242ad2244f0f0721f97c19a916e92f4f8cbee112c6fba2cab"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/hydrology.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              140,
+              263
+            ]
+          ],
+          "symbols": [
+            "unpack_hydro_submersion_quin",
+            "unpack_hydro_wetness_quin",
+            "evaluate_hydrological_frame"
+          ]
+        }
+      ],
+      "sha256": "1c62769ebbb1e10a80d443934ce4c7c3dbbd570f67f973ad313111dde97c1c82"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/graph_theory.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              230
+            ],
+            [
+              570,
+              667
+            ]
+          ],
+          "symbols": [
+            "BoundedQualiaGraph::from_quins",
+            "calculate_betweenness_centrality (partial body)",
+            "analyze_graph_topology_bounded",
+            "pagerank_bounded",
+            "find_subgraph_isomorphisms_bounded"
+          ]
+        }
+      ],
+      "sha256": "3507c97b1b1f7cd721bfac28dc5647b38b706d41a52f5b259ee4b5583cb2d2cb"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/blackboard.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              546
+            ]
+          ],
+          "symbols": [
+            "Constraint",
+            "Channel::write",
+            "check_constraints",
+            "SemanticBlackboard::write",
+            "check_all",
+            "BlackboardBus::write_outputs",
+            "propagate_constraints"
+          ]
+        }
+      ],
+      "sha256": "978f66b8b3672c3266dce2d5502554d48ad7d902a434d164ad7655f6a92c4ab3"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/epistemic_ontology.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              108,
+              178
+            ],
+            [
+              300,
+              389
+            ]
+          ],
+          "symbols": [
+            "compile_epistemic_stance_quin",
+            "synset_to_cili",
+            "is_epistemic_subsumed",
+            "evaluate_epistemic_stances"
+          ]
+        }
+      ],
+      "sha256": "cf847ae6d7e6bf55979869c0e7be205c6df7febbb8884e5a5cd046869decf642"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/inference_guard.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              214
+            ]
+          ],
+          "symbols": [
+            "evaluate_inference_guard"
+          ]
+        }
+      ],
+      "sha256": "5f2deb5184181e062114d40040f8c6553e24a00e29543f9031a79dc466da414f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/contract.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              170
+            ]
+          ],
+          "symbols": [
+            "formation_stage",
+            "is_binding_contract",
+            "incorporates_by_reference",
+            "terms_respect_limits",
+            "contract_state",
+            "performance_met"
+          ]
+        }
+      ],
+      "sha256": "dbedf99edf631215eb650c33c252dc2cd5045b43eb4b76af7c8b04ff5e6fb079"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/execution/runner.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "symbols": [
+            "preflight",
+            "run_entry",
+            "bind_receipt"
+          ]
+        }
+      ],
+      "sha256": "b25b075dcc7d06dc151b1dc5a8973c1d93d7c01779ad073c66adf82e546cd4be"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/execution/receipt.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              105
+            ]
+          ],
+          "symbols": [
+            "ExecutionReceipt::bind",
+            "ExecutionReceipt::id"
+          ]
+        }
+      ],
+      "sha256": "feb6f878beec9d2d99211bbf2aea3dab6fe5ff59da6871df7024e9794e4e9b6c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/package.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              77
+            ],
+            [
+              112,
+              205
+            ]
+          ],
+          "symbols": [
+            "push_member",
+            "build_collectable",
+            "open_collectable"
+          ]
+        }
+      ],
+      "sha256": "191a286dba7ea1be6fc6a41fd183a37725ad658378a1f100662416fa177cf576"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/manifest.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              86
+            ]
+          ],
+          "symbols": [
+            "InstrumentManifest::validate"
+          ]
+        }
+      ],
+      "sha256": "d0a82d823f4ef4f9bcf1487e5ebd061121e37ac3c6875f935089951f0e72cdc9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/manufacture.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              80
+            ]
+          ],
+          "symbols": [
+            "inspect_for_publish",
+            "assert_can_publish"
+          ]
+        }
+      ],
+      "sha256": "c7201664ecc398dfb38a3bde871f8544f4f17f251e2e76964484c78778a2fed6"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/resolver.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              165
+            ]
+          ],
+          "symbols": [
+            "plan_resolution",
+            "prepare_requirements",
+            "resolve_one",
+            "diagnose_required"
+          ]
+        }
+      ],
+      "sha256": "b74abbdf75dd09ac8b9e644babea7dacd98c6f98ccebd7e74165cefa8021d577"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/dependency.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              50,
+              103
+            ]
+          ],
+          "symbols": [
+            "DependencyLock::digest",
+            "version_matches",
+            "require_digest"
+          ]
+        }
+      ],
+      "sha256": "41371808eb4b0f13d471643436a9d96422037c526d7250b53a1d551bab0a9959"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/registry.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              83
+            ]
+          ],
+          "symbols": [
+            "LocalRegistry::install",
+            "lookup",
+            "uninstall",
+            "activate"
+          ]
+        }
+      ],
+      "sha256": "bb8eb8b746b74fb09aeb41bf52781c754914d5204af115549ef25b4c3f68594e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/catalogue.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              70,
+              155
+            ]
+          ],
+          "symbols": [
+            "LocalCatalogue::publish",
+            "discover",
+            "download",
+            "verify_and_collect"
+          ]
+        }
+      ],
+      "sha256": "9ce31284e9ae93b28316691fed9b77e858abc2cd6c5c96dece55c82dfc2b349e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/attestation/native.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              170
+            ]
+          ],
+          "symbols": [
+            "credential_from",
+            "issue_native",
+            "verify_native"
+          ]
+        }
+      ],
+      "sha256": "6555dcce6c8a69f720b6842958118ac3e939835991aaae87cc70349ce43c25c9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/attestation/status.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              160
+            ]
+          ],
+          "symbols": [
+            "StatusRegistry::revoke",
+            "status",
+            "assert_rely"
+          ]
+        }
+      ],
+      "sha256": "791cceed1e3a0cdb2cc188749aa381ca53415a8833b6119a395133ff562b8d0e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/rpl.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              200
+            ]
+          ],
+          "symbols": [
+            "evaluate_rpl",
+            "maybe_issue_award",
+            "path_cost (partial)"
+          ]
+        }
+      ],
+      "sha256": "cd613bf72edc555ce41eec3a540fe6567c03ba552265b3c8db7c685f2be7e800"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/semantic_instrument_bridge.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              52
+            ],
+            [
+              144,
+              233
+            ],
+            [
+              294,
+              325
+            ]
+          ],
+          "symbols": [
+            "resolve_bytes",
+            "instrument_inspect",
+            "install_helper",
+            "instrument_collect",
+            "instrument_activate",
+            "instrument_run",
+            "handle_semantic_instrument"
+          ]
+        }
+      ],
+      "sha256": "f713b3fbe6a31948dc4519d089090ca49bf602ea9180f1f1523cb041c5021e1d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/bio.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "symbols": [
+            "align",
+            "bio_compute (partial)"
+          ]
+        }
+      ],
+      "sha256": "a53571067343c01c7400ffbc333fb7076b71b6571fd07718ca766deeb966b3b3"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/physics_workbench.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              60,
+              100
+            ],
+            [
+              232,
+              262
+            ]
+          ],
+          "symbols": [
+            "metropolis",
+            "compute (partial)"
+          ]
+        }
+      ],
+      "sha256": "b6b1fbab076bb6bca75f887bb8b96a7356cde87f5923de4fd7338a65b7a87789"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/logic/legal_workbench.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              209,
+              251
+            ]
+          ],
+          "symbols": [
+            "contract_eval"
+          ]
+        }
+      ],
+      "sha256": "8028a994a718a01865fec956ce67371215f93aeadad61fe91ed0165201fd036d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wasm_bridge/governance.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              123,
+              184
+            ]
+          ],
+          "symbols": [
+            "evaluate_inference_guard_wasm"
+          ]
+        }
+      ],
+      "sha256": "3c11735f0dc8c0e5bfb308a157e74c622428beafd9f2251dbe58a38a81630d48"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/agent/dag_executor.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              141,
+              301
+            ]
+          ],
+          "symbols": [
+            "execute_pipeline_with_policy (body portion)"
+          ]
+        }
+      ],
+      "sha256": "e57c0629005b9eaadc5d041ae389cf07225cc725959f93e6d75a39aeef4fc916"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/shed_registry.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              215,
+              237
+            ]
+          ],
+          "symbols": [
+            "toolchain_execute (dispatch portion)"
+          ]
+        }
+      ],
+      "sha256": "785fc338cffcadce4466672a461f11f343d5c7a0cafe001fe8a6e3eba8a516e9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              132,
+              147
+            ],
+            [
+              280,
+              305
+            ],
+            [
+              672,
+              704
+            ]
+          ],
+          "symbols": [
+            "LEGAL_LOGIC_WORKBENCH dispatch",
+            "PHYS_WORKBENCH dispatch",
+            "BIO_ALIGN/BIO_WORKBENCH dispatch"
+          ]
+        },
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              75
+            ],
+            [
+              215,
+              223
+            ],
+            [
+              502,
+              519
+            ],
+            [
+              683,
+              691
+            ]
+          ],
+          "symbols": [
+            "dispatch selected match arms",
+            "invoke module roots"
+          ]
+        },
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "dispatch line 531 and line 859 search hits",
+          "symbols": "VISION_AHASH and RENDER_SCENE invoke dispatch"
+        }
+      ],
+      "sha256": "9862763cf1103c77c6ecc66eb489d7d0269e6d46edff549e38c0cbe76627f210"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/ids.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              305,
+              313
+            ]
+          ],
+          "symbols": [
+            "PHYS_WORKBENCH",
+            "BIO_ALIGN",
+            "BIO_WORKBENCH"
+          ]
+        }
+      ],
+      "sha256": "bf3d2dafcaf3df233c88673ea25c4671be61fe9fe124ccece9704adf2bae2e2f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/lib.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              255,
+              265
+            ],
+            [
+              317,
+              328
+            ],
+            [
+              1972,
+              1980
+            ]
+          ],
+          "symbols": [
+            "pub mod modalities",
+            "pub mod semantic_instruments",
+            "pub mod domains"
+          ]
+        },
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              266,
+              290
+            ],
+            [
+              544,
+              556
+            ],
+            [
+              1969,
+              1980
+            ]
+          ],
+          "symbols": [
+            "module feature gates"
+          ]
+        }
+      ],
+      "sha256": "acd78ff148293a1996569488a93bd46642b5600e059467832fba4b483fabd50b"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/semantic-agreements-and-compensation.md",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\domain-logic-instruments.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              159
+            ]
+          ],
+          "symbols": []
+        }
+      ],
+      "sha256": "5b3b9167c2a04f74f54babe4d343c2a527d3099b101fb106a5da6166e38c4d22"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/mod.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              156
+            ]
+          ],
+          "symbols": [
+            "public solver families",
+            "SolverConfig",
+            "SolverState"
+          ]
+        }
+      ],
+      "sha256": "7888f5554d9fc76f15edbb2600a037856600ae002004c92172a0ec2365c2c752"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              86
+            ]
+          ],
+          "symbols": [
+            "public library modules",
+            "target/feature gates"
+          ]
+        }
+      ],
+      "sha256": "77b85765b6964a2db029775c20a7accd02fd9593d60fa06806bad8fc17db44fe"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/mod.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              278
+            ]
+          ],
+          "symbols": [
+            "public Forge modules and exports",
+            "Etalon conversion methods",
+            "generate_and_certify_via_etalon"
+          ]
+        }
+      ],
+      "sha256": "19833f5d98d366d72a936b49306aa1c1dc0d0b7fdb669beed6b7e8d653f96003"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/transforms/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              21
+            ]
+          ],
+          "symbols": [
+            "Fourier exports"
+          ]
+        }
+      ],
+      "sha256": "2569023ebca6954179f9f569ddd72542aa09a62b26295ac1bf59e9bb31fd6b31"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/transforms/fourier.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              140
+            ]
+          ],
+          "symbols": [
+            "dft",
+            "dft_cpu",
+            "dft_accelerated",
+            "idft"
+          ]
+        }
+      ],
+      "sha256": "9564aaddb3a312370f68cfb30dac26a52bad93a23d6fbc703908a4ae1349435a"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/calculus/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              90
+            ]
+          ],
+          "symbols": [
+            "calculus submodules",
+            "RK4/BVP type declarations"
+          ]
+        }
+      ],
+      "sha256": "7c6e360e72ca228444763b73ddcba25928437d5b28e9053634b54ddc61d00cc1"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/calculus/ode_adaptive.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              292
+            ]
+          ],
+          "symbols": [
+            "integrate_dopri5",
+            "valid_config",
+            "eval",
+            "stage",
+            "dopri5_workspace_len"
+          ]
+        }
+      ],
+      "sha256": "e689958286d466236169213443da095e34ff440a4f38bb426552af8ba450879a"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              77
+            ]
+          ],
+          "symbols": [
+            "solver imports",
+            "physics exports",
+            "population exports"
+          ]
+        }
+      ],
+      "sha256": "97901c35fb7a8d7d2dbc16b3d002bbc61c7f216d05bf7f389e4eb4aaf46ae957"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/mechanics.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              80
+            ]
+          ],
+          "symbols": [
+            "estimate_period_from_crossings",
+            "run_projectile_motion (partial)"
+          ]
+        }
+      ],
+      "sha256": "52c18c038f03602449ce352fbd621dd955e58d0320a3500ffddbf473772ff086"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/population.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              176
+            ]
+          ],
+          "symbols": [
+            "run_logistic_growth",
+            "step_flocking_simulation",
+            "BoidAgent",
+            "FlockingParameters"
+          ]
+        }
+      ],
+      "sha256": "73156d1c51b00f7a106b318c56214507673dab818a5a1ece487e24252251df2a"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/ode.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ],
+          "symbols": [
+            "integrate_ode_samples"
+          ]
+        }
+      ],
+      "sha256": "44e652c455323e463b4f72defe1dd391b8e8fc7453d3220f921e109d00ed9189"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              135
+            ],
+            [
+              260,
+              282
+            ]
+          ],
+          "symbols": [
+            "module inventory prefix",
+            "botanical hull exports",
+            "canopy radiation exports"
+          ]
+        }
+      ],
+      "sha256": "659f705a02ef44b7e53a8e724741d061353ed6c08b6cab1f155a8122ef3e5fa4"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/botanical_hulls.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              275
+            ]
+          ],
+          "symbols": [
+            "asymmetric_hull_capacity",
+            "asymmetric_hull_into",
+            "fit_asymmetric_hull"
+          ]
+        }
+      ],
+      "sha256": "8a37cf06bb370e4b45775749060a43241e6b9bb25f1a6995690bbb673452d7e9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/canopy_radiation.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              221,
+              320
+            ],
+            [
+              371,
+              515
+            ]
+          ],
+          "symbols": [
+            "rasterize_orthographic_id_buffer",
+            "integrate_canopy_radiation"
+          ]
+        }
+      ],
+      "sha256": "ea3cee6c97d5427f96665fddcc7af1f10505a725b7f07d7de82ad1e7faa7de81"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/emit/mod.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              94
+            ]
+          ],
+          "symbols": [
+            "TargetBackend",
+            "GeneratedShader",
+            "emit_shader"
+          ]
+        }
+      ],
+      "sha256": "c4c68c8778ea840ae3a3ca0f61aa88cc27cd7799ee48f85830a9cab5b781d39c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/oracle/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              22
+            ]
+          ],
+          "symbols": [
+            "oracle exports"
+          ]
+        }
+      ],
+      "sha256": "ad2f3c2412e65bc59f8dec581b65b5612b1482e3882d232f915f69031b855cc7"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/oracle/evaluate.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              185
+            ],
+            [
+              406,
+              477
+            ]
+          ],
+          "symbols": [
+            "evaluate_builtin",
+            "evaluate_affine",
+            "certify_builtin",
+            "candidate_evaluation"
+          ]
+        }
+      ],
+      "sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/execute/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              13
+            ]
+          ],
+          "symbols": [
+            "QualiaCompute and wgpu exports"
+          ]
+        }
+      ],
+      "sha256": "8909718afb11dd69588242915148623f64d5142ca90a1470efd4c2f872179e6d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/execute/compute.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              23
+            ]
+          ],
+          "symbols": [
+            "QualiaCompute::dispatch signature"
+          ]
+        }
+      ],
+      "sha256": "b2228ca66ab3927fbc0d53c1cc01125996f10b0d8f20a3a3eb2491bb09a4ce88"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/execute/wgpu.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              774,
+              804
+            ],
+            [
+              900,
+              946
+            ],
+            [
+              1089,
+              1134
+            ],
+            [
+              1232,
+              1316
+            ]
+          ],
+          "symbols": [
+            "compile_pipeline",
+            "submit_graph",
+            "WgpuPipeline::compile",
+            "compile_spirv",
+            "compile_msl",
+            "QualiaCompute::dispatch"
+          ]
+        }
+      ],
+      "sha256": "da345e9a7e236f2f482f2939f8ade3e5c3e940b631c4e766b1a0ecfea95efade"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/runtime.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              97,
+              220
+            ],
+            [
+              710,
+              785
+            ]
+          ],
+          "symbols": [
+            "compile_kernel_pipeline",
+            "tuned_schedule",
+            "lookup_tuned_schedule",
+            "default_schedule",
+            "ForgeRuntime::fft"
+          ]
+        }
+      ],
+      "sha256": "6572abd093f3df49b15ee78c98a6d5ce4431188394a631eaa8b3cef2693b201f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/dispatch.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1110,
+              1174
+            ]
+          ],
+          "symbols": [
+            "fft_f32",
+            "fft_f32_gpu"
+          ]
+        }
+      ],
+      "sha256": "1e15ef1d33623756d6692c39df229a2a85de2bdc7b1130525f0f8cffea6951f6"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              89,
+              116
+            ],
+            [
+              223,
+              257
+            ]
+          ],
+          "symbols": [
+            "native/scientific wave27 reexports",
+            "stub-list fragment"
+          ]
+        }
+      ],
+      "sha256": "9742f649ff723cfd553b613951227c7dfd817550fd2e916c524ba01060f9c05b"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave27_host.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              106,
+              164
+            ],
+            [
+              452,
+              544
+            ]
+          ],
+          "symbols": [
+            "asymmetric_hull_host",
+            "canopy_integrate_host"
+          ]
+        }
+      ],
+      "sha256": "202dadbda187b36e99ffffb7c37b34f1704c343c39560a096f2e149c085d0fc6"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              1,
+              42
+            ]
+          ],
+          "symbols": [
+            "physics native/scientific export gates"
+          ]
+        }
+      ],
+      "sha256": "d83baec63e8613354a25bcdc83ca2c39a09cf2940d1438a8aa1f0d487bd1a225"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/physics.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              350,
+              404
+            ]
+          ],
+          "symbols": [
+            "logistic_growth"
+          ]
+        }
+      ],
+      "sha256": "8d441142eb3a58bcbda21c83895632ce592a5651c58e71e96190275374446275"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/math/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              148,
+              159
+            ]
+          ],
+          "symbols": [
+            "transforms reexport target gates"
+          ]
+        }
+      ],
+      "sha256": "fafa437588a4eafe61b2f709e7c7a004e6a5571ddefa61cc4b4b2041c47cffd4"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/math/transforms.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": [
+            [
+              1,
+              112
+            ]
+          ],
+          "symbols": [
+            "pack_spectrum",
+            "dft",
+            "dft_complex"
+          ]
+        }
+      ],
+      "sha256": "0fea618941e54bac2124d3d8c288d82022236f6dcbf9d79d39d9558d9e081d74"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-cli/src/shader.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\solver-kernel-forge.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": [
+            [
+              415,
+              469
+            ]
+          ],
+          "symbols": [
+            "run / Certify branch dry-run and actual invocation"
+          ]
+        }
+      ],
+      "sha256": "c92c8896dc160452088109b158925c2cba90451ce28eec95cac8f756ccd09420"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/lib.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "module declarations and public exports, lines 8-38 and 88-173",
+          "symbols": "bio, biosense, cv, spatial, preprocessing and product exports"
+        }
+      ],
+      "sha256": "e710b671c468f862e5b79c9671de47aa8110c17ca7485b5c2cc2d58b0de77112"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/bio/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-3",
+          "symbols": "bio re-export"
+        }
+      ],
+      "sha256": "8ee39c2fbdff419f01dc37e94e1f4802e99beaee0f36ce57b14e7243c7beb905"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/cv/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-3",
+          "symbols": "cv re-export"
+        }
+      ],
+      "sha256": "e6e039aa013d37d63092b9606db4c7829c50b604d7896ca28935dccddea096b0"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/spatial/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-22",
+          "symbols": "image_to_heightfield_mesh; mesh export/validation reexports; compile_10d_handoff"
+        }
+      ],
+      "sha256": "b43ca164384b67978c3638e84e8d7f6beaa38543564c604e9c1b080717657817"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/spatial/image_to_3d.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-146",
+          "symbols": "sample_luma; image_to_heightfield_mesh; ImageTo3dReceipt"
+        }
+      ],
+      "sha256": "0241bbb21c28b07d53192d1c8e94b4dbfc5332082edb4d4fd1847b3f03d688c7"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/spatial/compile_10d_handoff.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-53",
+          "symbols": "pack_geometry_export_for_10d; detections_to_node_hints"
+        }
+      ],
+      "sha256": "7ebf989474bc77653c2ea2beabaff729ae68dce01a6d230d6d76c51f8984128d"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/types.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-110",
+          "symbols": "ImageView; PixelFormat; Detection"
+        }
+      ],
+      "sha256": "a78b46811451af7c2d4132a6e40ff40c1ba51000160863d23fc4683dfdabc78c"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/preprocess.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-220",
+          "symbols": "resize_nearest_rgb8; normalize_rgb8_to_f32_chw; iou_u16; nms_class_agnostic; letterbox_rgb8"
+        }
+      ],
+      "sha256": "2862e605a630ea5668cb4f0a6c928f0449916435086c8245ec93884c80bbf873"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-vision/src/biosense/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-67",
+          "symbols": "biosense module exports"
+        }
+      ],
+      "sha256": "ff63f0482a4a29cffa8e881a5c49f033e693fb73171478701a720555ab720179"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/histopathology/macenko_deconvolution.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "131-300",
+          "symbols": "macenko_deconvolution"
+        }
+      ],
+      "sha256": "eee5021c09be743536b4ca7d2065babfe553e54e54adcb5f0f7e8e408ba11ddf"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/medical/spectral_unmix_nnls.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-161",
+          "symbols": "spectral_unmix_nnls; spectral_unmix_roi_mean; spectral_unmix_per_pixel"
+        }
+      ],
+      "sha256": "799b8fdca38fbb7176b6faec1fb6a4a3cb061590028645443bfc47feb211add7"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/morphology/voronoi_otsu_label.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "172-234",
+          "symbols": "voronoi_otsu_label; otsu_threshold_from_hist"
+        }
+      ],
+      "sha256": "cbcbf42f66c2c62d2f4636e3f32425237495d54a94412636712655d75da8fe5e"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/cv/edges/canny_u8.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-54",
+          "symbols": "canny_u8"
+        }
+      ],
+      "sha256": "296f0d83c59497b914cec2e2831381ca60af401beb8e4e182cdc9a198f02519c"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/medical/mip_project.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-85",
+          "symbols": "MipAxis; mip_project_axis"
+        }
+      ],
+      "sha256": "ae92d31795e8074d09d7d40053eeb11053ce319f075daaef6991540d0c3cdc18"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/bio/radiomics/shape_3d_lite.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "147-225",
+          "symbols": "shape_3d_from_voxels"
+        }
+      ],
+      "sha256": "85fb7942eef59680e2ae6cc58a00f3b8a6dae7f785b83c4a08448bc71b574a9f"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/vision/ahash.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-24",
+          "symbols": "ahash Vibe handler"
+        }
+      ],
+      "sha256": "a51378971d5c129375fd1bbde0584b1d8bde3b14293411335e95355de58c2063"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/poet/src/browser/container_views_ext/senses.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-140",
+          "symbols": "build_vision_view; build_listen_view"
+        }
+      ],
+      "sha256": "e31d96c03292a36059d4a6831fefbedf80f527c7591041b41dacd48fce7ed141"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-audio/src/lib.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "42-97",
+          "symbols": "feature, capture, spatial, pipeline, media and speech exports"
+        }
+      ],
+      "sha256": "19a24ee1d7512ff258d7ed3c01a87bd21985fba0e0e6a522d2b82f37a029455f"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-audio/src/pipeline.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-110",
+          "symbols": "run_ears_demo; EarsDemoResult"
+        }
+      ],
+      "sha256": "7610a64e5fc454af8799004314d4ed4dd7f4b07f8a5180b21ca9c0f573a52dd9"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-audio/src/features/mod.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-35",
+          "symbols": "StreamingStft; log_mel_from_mono; forward_cqt_mono exports"
+        }
+      ],
+      "sha256": "bd6e61c497107f8221220db5044f221cb6594d588d05c7adb7183320e38d4ae2"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-audio/src/capture.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-94",
+          "symbols": "CaptureSession::grant_intent/start/push_mono/pull_mono"
+        }
+      ],
+      "sha256": "4970e514fd7827e91921cba9aad92936d46cf8f6c3ca53aa9179198300d36e03"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-audio/src/spatial.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-30,119-162,219-400",
+          "symbols": "SPEED_OF_SOUND_AIR; SpatialListener; SpatialEmitter::evaluate_spatial; mix_spatial_voice_into; mix_spatial_voice_occluded_into"
+        }
+      ],
+      "sha256": "fb829507023f0feeb854a6890aba3b4b8432a242a3fb60c01e85382164517a05"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/webizen-render/src/lib.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-85",
+          "symbols": "feature/target-gated renderer exports; WgpuRenderer; Etalon exports"
+        }
+      ],
+      "sha256": "bdba7a17dc7fe92be9cf5432c5f250e5437bbc773dde9fa4c2e713435e1d47ec"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/webizen-render/src/volumetric_hmc_stream.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-145,446-610",
+          "symbols": "HmcTextureResidencyRequest; request_texture_stream; apply_texture_stream"
+        }
+      ],
+      "sha256": "1301e76c86ed9fd1835bfbded85ecea8de4e6a226fc0c22475db425448a8c782"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/webizen-render/src/poet_preview.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-53",
+          "symbols": "register_poet_render_provider; WebizenPoetRenderProvider::render_preview"
+        }
+      ],
+      "sha256": "4cc5a019669816d9a923cd211e6d0f137d14f58d10fd3a0c9585ac83631ac808"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/webizen-render/src/wgpu_renderer.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1430-1474",
+          "symbols": "capabilities; offscreen_extent; read_pixels_with_receipt"
+        }
+      ],
+      "sha256": "8be428cc311b6f3ad09cc532fd5ba7de920b3c85ee230fd6076a2070bc4e15d3"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-cli/src/daemon.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "160-190 excerpt containing line 178",
+          "symbols": "register_poet_render_provider daemon startup call"
+        }
+      ],
+      "sha256": "6b0a5f7cf0c2814b8440e5eb04c083aa92873a7584737539ad9a27c03c9c4263"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/poet/src/browser/render_preview.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-121,95-121,181-288",
+          "symbols": "build; wire_render_click; daemon_render_preview result handling"
+        }
+      ],
+      "sha256": "77ee0a6ff6f2902a7b66564761206e38985e48d6c084a1b430a6cf3eaa60ccc5"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/poet/src/browser/native_daemon.rs",
+      "body_excerpt_read": false,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": false,
+          "read_ranges": "1-180 excerpt; daemon_render_preview declaration line 818 found by search",
+          "symbols": "NativeRenderRequest/Response; daemon_render_preview"
+        }
+      ],
+      "sha256": "58ad8a96a5a4325f8743aa3b179f0cff6fa7095cf97b7a3c2edcaa8c2318f39c"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/webizen-render/src/audio_contract.rs",
+      "body_excerpt_read": true,
+      "reviews": [
+        {
+          "coverage_report": "docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\vision-audio-render.coverage.json",
+          "body_excerpt_read": true,
+          "read_ranges": "1-240 excerpt",
+          "symbols": "AudioMode; SpectralParams; AudioSpectralSheet; from_tensor; AudioScene"
+        }
+      ],
+      "sha256": "75e1b5e3281d517db702ec46b7783ab806982c5630a96d8c4c3ee2e5a159030e"
+    }
+  ],
+  "new_engine_tests": 0,
+  "new_engine_builds": 0,
+  "source_pins_unchanged_for_reviewed_inventory_entries": true
+}

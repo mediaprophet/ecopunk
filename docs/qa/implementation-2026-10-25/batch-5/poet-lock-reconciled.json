@@ -1,0 +1,29 @@
+{
+  "exit_code": 0,
+  "before_sha256": "a1a1bd1f0fce4d1e625b837388178304896d358d66c2f1a44e86f07c1860dc89",
+  "after_sha256": "4eca142e96a6aa0ab6c62d234778f43e686c7769a1e6835578d53aa48a346dcb",
+  "existing_packages_preserved": 850,
+  "added_packages": [
+    {
+      "name": "argon2",
+      "version": "0.5.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "base64ct",
+      "version": "1.8.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "password-hash",
+      "version": "0.5.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    },
+    {
+      "name": "pbkdf2",
+      "version": "0.13.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index"
+    }
+  ],
+  "scope": "Offline optional encryption feature resolution; no existing package upgrade"
+}

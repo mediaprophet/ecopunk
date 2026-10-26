@@ -1,0 +1,56 @@
+{
+  "status": "passed_stage_hashes_and_rustfmt",
+  "rustfmt_exit": 0,
+  "cargo_run": false,
+  "ui_run": false,
+  "targets": [
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/detail_controls.rs",
+      "after_sha256": "80cdfc2f4b1120dd864faede2e0953ce09d7ae0b55e674ebf255f8f543f5dfb1",
+      "lines": 265,
+      "new_implementation_under_500": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/mod.rs",
+      "after_sha256": "b8f7628bb571844f051d39fda7b931d4eb22b7335094897334534783efff9187",
+      "lines": 9,
+      "new_implementation_under_500": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/recipe.rs",
+      "after_sha256": "5b9429061eacc6f8e404d54c59eaa4b093020d6b89e0d304d25e65a358f77371",
+      "lines": 288,
+      "new_implementation_under_500": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/render.rs",
+      "after_sha256": "48491aaaab748ca8eecb1d5598ee36e371c9daa6cca4dd4719defcc1a84f3fa6",
+      "lines": 144,
+      "new_implementation_under_500": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/tests.rs",
+      "after_sha256": "011f47883694038a5e5788a29a1635dff6a89def5da24b8d55656539a020744c",
+      "lines": 224,
+      "new_implementation_under_500": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs",
+      "after_sha256": "e04dc49f5e08216057ba56927ef1dcd98046179f658c17f46dd1f7e4e66cb84e",
+      "lines": 18,
+      "new_implementation_under_500": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+      "after_sha256": "6d492b8db1e1a78e2f43bd95bc0a9fd2b7da9dcc054fca7eaeae8e789f0aab49",
+      "lines": 508,
+      "new_implementation_under_500": false
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/tests/image_source_over.rs",
+      "after_sha256": "557da96f96d11389e32f310012e40b88c4cd13295c0600b7859a5307d763c1a4",
+      "lines": 54,
+      "new_implementation_under_500": true
+    }
+  ]
+}

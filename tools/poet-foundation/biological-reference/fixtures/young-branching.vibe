@@ -1,0 +1,12 @@
+// Vibe 0.1 SourceSession diagnostic cell. Parameters are ARTISTIC TEST PARAMETERS only.
+requires [capability("capability.invoke"), capability("ComputationalGeometry.turtle_3d")];
+let young_branching_mesh = capability.invoke("ComputationalGeometry.turtle_3d",{commands:[
+    ["&",90.0],["!",0.22],["F",0.62,0.16],
+    ["["],["/",34.0],["!",0.095],["-",42.0],["F",0.34,0.075],
+    ["["],["/",76.0],["!",0.045],["+",48.0],["F",0.24,0.026],["]"],["]"],
+    ["F",0.56,0.105],
+    ["["],["/",108.0],["!",0.082],["+",38.0],["F",0.40,0.060],
+    ["["],["/",55.0],["!",0.040],["-",62.0],["F",0.22,0.024],["]"],["]"],
+    ["F",0.58,0.050]
+],ring_slices:8,capacity:1024});
+young_branching_mesh;

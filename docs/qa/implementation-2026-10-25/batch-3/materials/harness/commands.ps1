@@ -1,0 +1,5 @@
+# Exact focused final commands, retained as evidence, not an automatic rerun.
+# The rlibs are actual current cached engine artifacts, pinned in verification.json.
+rustc --edition=2021 --test docs/qa/implementation-2026-10-25/batch-3/materials/harness/tests.rs --extern vibe=C:/github/ecopunk/target/debug/deps/libvibe-2937e95bb154f7f6.rlib --extern qualia_core_db=C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib --extern webizen_render=C:/github/ecopunk/target/debug/deps/libwebizen_render-3a3c5aa8a032b8b0.rlib --extern base64=C:/github/ecopunk/target/debug/deps/libbase64-5dcee36dfdc160f9.rlib -L dependency=C:/github/ecopunk/target/debug/deps -L native=C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/winapi-x86_64-pc-windows-gnu-0.4.0/lib -o docs/qa/implementation-2026-10-25/batch-3/materials/harness/material-tests.exe
+docs/qa/implementation-2026-10-25/batch-3/materials/harness/material-tests.exe graphical::materials::tests --nocapture
+docs/qa/implementation-2026-10-25/batch-3/materials/harness/material-tests.exe --ignored --exact graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels --nocapture

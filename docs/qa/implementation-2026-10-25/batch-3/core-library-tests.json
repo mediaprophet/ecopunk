@@ -1,0 +1,6 @@
+{
+  "command": "cargo test --offline --locked -p qualia-core-db --lib --no-default-features --features native-Poet-selected-profile -- --test-threads=1",
+  "exit_code": 101,
+  "started_utc": "2026-10-24T17:35:34.3482122Z",
+  "finished_utc": "2026-10-24T17:35:35.2534969Z"
+}

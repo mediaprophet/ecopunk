@@ -1,0 +1,140 @@
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+    Checking webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    Checking poet-cli v0.0.40 (C:\github\poet\native)
+error[E0433]: cannot find module or crate `preview` in this scope
+  --> native\src\graphical\material_admission_tests.rs:18:20
+   |
+18 |             camera:preview::PreviewCamera { yaw:0.45,pitch:0.2,distance:3.2,target:[0.0;3] },
+   |                    ^^^^^^^ use of unresolved module or unlinked crate `preview`
+   |
+help: to make use of source file native\src\graphical\preview.rs, use `mod preview` in this file to declare the module
+  --> native\src\lib.rs:2:1
+   |
+ 2 + mod preview;
+   |
+help: consider importing this module
+   |
+ 1 + use crate::graphical::preview;
+   |
+
+error[E0433]: cannot find module or crate `preview` in this scope
+  --> native\src\graphical\material_admission_tests.rs:19:20
+   |
+19 |             limits:preview::PreviewLimits::default(),
+   |                    ^^^^^^^ use of unresolved module or unlinked crate `preview`
+   |
+help: to make use of source file native\src\graphical\preview.rs, use `mod preview` in this file to declare the module
+  --> native\src\lib.rs:2:1
+   |
+ 2 + mod preview;
+   |
+help: consider importing this struct
+   |
+ 1 + use crate::graphical::preview::PreviewLimits;
+   |
+help: if you import `PreviewLimits`, refer to it directly
+   |
+19 -             limits:preview::PreviewLimits::default(),
+19 +             limits:PreviewLimits::default(),
+   |
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\ui.rs:84:9
+   |
+84 |     let mut save = {
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:102:9
+    |
+102 |     let mut check = {
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:117:9
+    |
+117 |     let mut submit = {
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:135:9
+    |
+135 |     let mut undo = {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:150:9
+    |
+150 |     let mut redo = {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:165:9
+    |
+165 |     let mut refresh = {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:180:9
+    |
+180 |     let mut rebuild = {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib) generated 8 warnings (run `cargo fix --lib -p poet-cli` to apply 7 suggestions)
+For more information about this error, try `rustc --explain E0433`.
+warning: `poet-cli` (lib test) generated 7 warnings (7 duplicates)
+error: could not compile `poet-cli` (lib test) due to 2 previous errors; 7 warnings emitted
+warning: build failed, waiting for other jobs to finish...
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (bin "poet" test) generated 1 warning

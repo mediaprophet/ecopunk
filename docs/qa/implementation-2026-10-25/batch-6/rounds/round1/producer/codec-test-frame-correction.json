@@ -1,0 +1,9 @@
+{
+  "source": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\mesh_section_bounds.rs",
+  "before_sha256": "94b90233cfcbab03f0520279fff1a717e72447ae18d75afa836f00b262c86344",
+  "after_sha256": "b13138544ee5b33cf6ff201110508c84a014181f793a89a7353614c2e560de09",
+  "change": "Explicit requested header endpoint bytes in decoder fixture, preserving -0/+0 as specified; q samples already explicit",
+  "reason": "Public encoder numerical bbox retains first signed zero, so initial signed endpoint assertion would target different stored bits. Found statically before root Cargo; no production code change.",
+  "initial_source": "mesh_section_bounds.rs.initial",
+  "initial_receipt": "codec-repair.initial.json"
+}

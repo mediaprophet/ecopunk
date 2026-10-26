@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-24",
+  "scope": "Actual source consumer checks before RUN-07A stamped-store addendum",
+  "checks": [
+    {
+      "cwd": "C:/github/ecopunk",
+      "log": "core-consumer-check.log",
+      "log_sha256": "831b7f81579fae39390fe719a6b1c82082b5e3ac461f77ff6941cf6f0ee1b69b",
+      "source_receipt": "applied-sources.json",
+      "exit_code": 0,
+      "duration": "24m 21s",
+      "command": "cargo check --offline --locked -p ecopunk-wasm --lib",
+      "source_receipt_sha256": "753d61a79eef3b08d0452c58e5c671bfa55c4a9683fc06c14d8f379af564a5c9",
+      "qualification": "Native type/consumer check; no full core test suite, render, HMC/model or cooperative product acceptance"
+    },
+    {
+      "command": "cargo check --locked --manifest-path C:/github/rust-app-framework/packages/native/Cargo.toml --no-default-features --features vello-cpu-softbuffer,system-fonts,data-uri --target-dir C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/native-poet/harness/target-aether",
+      "log": "native-poet/aether-locked-check.log",
+      "duration": "13m 52s",
+      "lock_before_and_after_sha256": "e43e1dea22e85c4b8f062132c779067cd71c5b2866c78fed54cf20288407659a",
+      "log_sha256": "ceb7d6921e4039a4dcf797f72790ba590826348810702a1f7047566e4f360017",
+      "qualification": "Actual Aether native CPU UI dependency/profile check; no mounted Poet window or GPU viewport proved by this command",
+      "exit_code": 0,
+      "lock_unchanged": true
+    }
+  ],
+  "human_acceptance_claimed": false
+}

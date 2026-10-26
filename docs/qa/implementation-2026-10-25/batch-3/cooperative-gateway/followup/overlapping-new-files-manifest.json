@@ -1,0 +1,24 @@
+{
+  "scope": "Native trusted-owner UI/MCP authorization wrapper plus actual protocol/source fixture tests; parent integration required",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation/mod.rs",
+      "candidate": "candidate/graphical/cooperation/mod.rs",
+      "original_sha256": null,
+      "candidate_sha256": "3AA295D488B4E5AE608C4FE108A1BE5BC6A3664B1253AF02608F7CFCE6E728EC"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation/tests.rs",
+      "candidate": "candidate/graphical/cooperation/tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "78B77ACD08F452AA2D7501A258B8E46CC2F8245DBB546BCB959C450AD098170D"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation/mcp_tests.rs",
+      "candidate": "candidate/graphical/cooperation/mcp_tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "B3E821C32780A954650878FACE38B2558224CBAD5BBB7296122B98289CD8C6E7"
+    }
+  ]
+}

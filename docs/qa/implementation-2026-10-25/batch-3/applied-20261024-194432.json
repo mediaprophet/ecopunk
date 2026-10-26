@@ -1,0 +1,174 @@
+{
+  "applied_utc": "2026-10-24T19:44:32.0492428Z",
+  "manifests": [
+    "core-graph-repairs/apply-manifest.json",
+    "core-runtime-repairs/apply-manifest.json",
+    "materials/texture-repairs/apply-manifest.json",
+    "core-modeling-repairs/apply-manifest.json",
+    "core-forge-repairs/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\q42\\q42_lexicon.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\q42_lexicon.rs",
+      "sha256": "CBDA12C32476D68D7859BE37B88B5C803A0F8FE35D6E80AAED3A505DD927D1A8",
+      "original_sha256": "5CD40CC4F3D5ECD8961D7F50C12BFDA0A35B2512E71BD71BA81B881DDA39DFD9"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\q42\\q42_lexicon_tests.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\q42_lexicon_tests.rs",
+      "sha256": "6FA4167630C9ABA1ACB8B5C22B5FE83023A132FC56F398D2784BE48659B52E80",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\sparql_library\\sparql_mm.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\sparql_library\\sparql_mm.rs",
+      "sha256": "C2768A5D2B877882F1F39AE3F1FAD309570E2A757AB0E502C44508C776FCFF2B",
+      "original_sha256": "BF468FF8FF337712A2EFE927F10FFAF8606AEB703A75A9556121DA9E2A9485E5"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\sparql_library\\sparql_grammar\\pattern.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\sparql_library\\sparql_grammar\\pattern.rs",
+      "sha256": "84A9218459C74A239C89D44A4D1505ED5B2870CDB3D9586AFB563FF6755E2A4B",
+      "original_sha256": "8F7E9C8BAE0038D0290CF5E183619711D0F9F0820F27039CC54D80FC40FD232E"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\query\\ingest.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\query\\ingest.rs",
+      "sha256": "7492EAA0E41AE7D88A9FEE5E04540468B2607497BC380BF6F161266984E75570",
+      "original_sha256": "4049BBED657932F80A84703EB03F6F395963E27623D0252AE2176724F2E0C9F0"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\poet_host\\invoke\\studio_store.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "sha256": "B0C1983267D27F9CCCEF3356A780A7EC2DC7A45F2568B0F06DEE82503F3AA250",
+      "original_sha256": "640B167BDF1900197680D8AE79EB41595087D157AF9D230CD91E0FA395FB8524"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\poet_host\\invoke\\studio_cml\\mod.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\mod.rs",
+      "sha256": "71079101B443BE0F526BBAE449A7523AC5B4AF57758147FD20248EBB61E5ECE9",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\poet_host\\invoke\\studio_cml\\parser.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\parser.rs",
+      "sha256": "587BBD0ED7D0A6B04301C8703866CD113559ACCD23A3626378FFDE9E70789762",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\poet_host\\invoke\\studio_cml\\writer.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\writer.rs",
+      "sha256": "FB7E783AE839A0EDFAEEB25D109C64873235DE956B1B7AFEF5FDD7408B18066F",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-graph-repairs\\candidate\\src\\poet_host\\invoke\\studio_cml\\tests.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\tests.rs",
+      "sha256": "10D9FC2096B12B3C32572B308D9535714E26280534BA5DE479A44F930DBCD2FE",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-runtime-repairs\\candidate\\mod.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\mod.rs",
+      "sha256": "e4faa1390464c2589f1570fcba3f1d9d829fcc9578bf6a831ca849d1d25b43c8",
+      "original_sha256": "a358d3943d828b4779cfcbcf44cc4f0fd3348568e6b9174ce45ab73f198d011e"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-runtime-repairs\\candidate\\scoped_effects\\host.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\host.rs",
+      "sha256": "9dc617ced4d39b16f56175d871f152a5619a840d744ed67289950cf22c8a72e7",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-runtime-repairs\\candidate\\scoped_effects\\mod.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\mod.rs",
+      "sha256": "59e18a520825394d9dff9c377fb4259b001a107a229d3dc977ee20594aed7994",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-runtime-repairs\\candidate\\scoped_effects\\tests.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\tests.rs",
+      "sha256": "c4f86e047fbc3cebe9af55636422b1dc1086067a83590a60574b87181e645e74",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\texture-repairs\\candidate\\src\\render\\assets\\glb_skins_anims.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_skins_anims.rs",
+      "sha256": "44B5648EC6D533B64C7B3844BA87F2FD072686000F42143AC84863F6E83EA245",
+      "original_sha256": "8000D1319143DCCD691E267A77EAB880CB3A7A6E9AC5BC2A83C24486D110D9A1"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\texture-repairs\\candidate\\src\\render\\assets\\glb_rigid_skin.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_skin.rs",
+      "sha256": "C488C9DB38BFED7AD398948EBA07B32FDFC0C78B04D8584F82CF582D7D0FCEFF",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\texture-repairs\\candidate\\src\\render\\assets\\glb_rigid_animation.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_animation.rs",
+      "sha256": "D7747366181A6C04EE75E2CD6961CADE167BD731B5D0AE9CD067F95F78489260",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\texture-repairs\\candidate\\src\\render\\assets\\glb_rigid_tests.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_tests.rs",
+      "sha256": "EBD420D7A2317327862002A3A95CF36C74F665710A52C120803CD370477337DE",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\texture-repairs\\candidate\\src\\render\\texture_transcode.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\texture_transcode.rs",
+      "sha256": "7E8ADFD8230504ABE2D22CCC1077DFBF25A343C86D5116728FADD2A2D03506DC",
+      "original_sha256": "02FBDCB2BD1DFF0DCC71EA48B726C27535058D717D5804FB4F154F2C46BB7ACF"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\texture-repairs\\candidate\\src\\render\\texture_bc7_conformance_tests.rs",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\texture_bc7_conformance_tests.rs",
+      "sha256": "3CF26A4C5C2434F011A33312C4953FD292DF484723CAC39AC19EE22A8BAB9415",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\candidate\\chemistry_modeling\\properties.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\properties.rs",
+      "sha256": "4e1e0b0afe6142d725805e6dfb20da3e72297f0c928e184005c0677d97c538e4",
+      "original_sha256": "07ffcab13e4dc1ca67cb43ee6d2ed03041aeacf0c3aed043995dbf612c63e42a"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\candidate\\financial_modeling\\tests.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\financial_modeling\\tests.rs",
+      "sha256": "e2384938586c35f655fbdffa17d0bf71af5558aed6bb4e7b9d9592f3c3f37498",
+      "original_sha256": "3238e1d9026cc6ab0e28ae66a3a32c06a3024172b2c787914a884473113a149f"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\candidate\\engineering_analysis\\tests.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\engineering_analysis\\tests.rs",
+      "sha256": "1b8bc711d578b0f67ae66a11dbb89c15577bf670662eac5bf2a0e757284551c3",
+      "original_sha256": "ecacecd55ee8ac7b89e0920278eb679982fef2fa216845db992680907088dd5a"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-forge-repairs\\candidate\\wgsl_forge\\emit\\coopmat.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\coopmat.rs",
+      "sha256": "e14e7bec9bd82a5fa187b728082c1ec8bee1cc98baf09b9d7e50e9115d11f245",
+      "original_sha256": "2e85c7d4be90b52deac4a82aa9dfa1e630fba32d696aeed855e1130a6ad54818"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-forge-repairs\\candidate\\wgsl_forge\\emit\\wgsl.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\wgsl.rs",
+      "sha256": "4ae5dc725616927c31a0fa57182f4af14ba481ebffb6f1405c008cbd22f1e56b",
+      "original_sha256": "5d1e823b8e540107119e6ed0f7aef6bfbf943585b02829d8adbc0ee06ccec173"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-forge-repairs\\candidate\\wgsl_forge\\oracle\\evaluate.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\oracle\\evaluate.rs",
+      "sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d",
+      "original_sha256": "c35a5d0bb9a16d1d31a6dc0f97b6f638de7b15520c1a72003a54eca753e290b1"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-forge-repairs\\candidate\\poet_host\\invoke\\wgsl_forge_seam.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\wgsl_forge_seam.rs",
+      "sha256": "c316f38014c87c475e85c60e903dd88eabef770d749ff0d273a476c165c076a5",
+      "original_sha256": "31636cf8c4eacf5c17cb571cfe57ab4cacfc7962d72d39c0e610143945bfc6a4"
+    }
+  ]
+}

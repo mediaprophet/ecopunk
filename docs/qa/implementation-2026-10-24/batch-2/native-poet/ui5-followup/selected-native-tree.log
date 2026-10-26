@@ -1,0 +1,1830 @@
+poet-cli v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-poet\ui5-followup\resolve\native)
+├── base64 v0.22.1
+├── dioxus v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus)
+│   ├── dioxus-config-macros v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\config-macros)
+│   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)
+│   │   ├── anyhow v1.0.104
+│   │   ├── const_format v0.2.36
+│   │   │   ├── const_format_proc_macros v0.2.34 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107
+│   │   │   │   │   └── unicode-ident v1.0.27
+│   │   │   │   ├── quote v1.0.47
+│   │   │   │   │   └── proc-macro2 v1.0.107 (*)
+│   │   │   │   └── unicode-xid v0.2.6
+│   │   │   └── konst v0.2.20
+│   │   │       └── konst_macro_rules v0.2.19
+│   │   ├── dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec)
+│   │   ├── dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro)
+│   │   │   ├── convert_case v0.8.0
+│   │   │   │   └── unicode-segmentation v1.13.3
+│   │   │   ├── dioxus-rsx v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\rsx)
+│   │   │   │   ├── dioxus-core-template v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-template)
+│   │   │   │   │   ├── dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec)
+│   │   │   │   │   └── xxhash-rust v0.8.19
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── proc-macro2-diagnostics v0.10.1
+│   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   └── syn v2.0.119
+│   │   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │   │       └── unicode-ident v1.0.27
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   ├── rustversion v1.0.23 (proc-macro)
+│   │   │   │   └── syn v2.0.119 (*)
+│   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   ├── quote v1.0.47 (*)
+│   │   │   └── syn v2.0.119 (*)
+│   │   ├── dioxus-core-template v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-template)
+│   │   │   ├── dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec)
+│   │   │   └── xxhash-rust v0.8.19
+│   │   ├── dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types)
+│   │   ├── futures-channel v0.3.34
+│   │   │   ├── futures-core v0.3.34
+│   │   │   └── futures-sink v0.3.34
+│   │   ├── futures-util v0.3.34
+│   │   │   ├── futures-core v0.3.34
+│   │   │   ├── futures-io v0.3.34
+│   │   │   ├── futures-macro v0.3.34 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v3.0.9
+│   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │       └── unicode-ident v1.0.27
+│   │   │   ├── futures-sink v0.3.34
+│   │   │   ├── futures-task v0.3.34
+│   │   │   ├── memchr v2.8.3
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   └── slab v0.4.12
+│   │   ├── generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)
+│   │   │   ├── parking_lot v0.12.5
+│   │   │   │   ├── lock_api v0.4.14
+│   │   │   │   │   └── scopeguard v1.2.0
+│   │   │   │   └── parking_lot_core v0.9.12
+│   │   │   │       ├── cfg-if v1.0.5
+│   │   │   │       ├── smallvec v1.16.3
+│   │   │   │       │   └── serde v1.0.229
+│   │   │   │       │       ├── serde_core v1.0.229
+│   │   │   │       │       └── serde_derive v1.0.229 (proc-macro)
+│   │   │   │       │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │           ├── quote v1.0.47 (*)
+│   │   │   │       │           └── syn v3.0.9 (*)
+│   │   │   │       └── windows-link v0.2.1
+│   │   │   └── tracing v0.1.44
+│   │   │       ├── log v0.4.34
+│   │   │       ├── pin-project-lite v0.2.17
+│   │   │       ├── tracing-attributes v0.1.31 (proc-macro)
+│   │   │       │   ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   ├── quote v1.0.47 (*)
+│   │   │       │   └── syn v2.0.119 (*)
+│   │   │       └── tracing-core v0.1.36
+│   │   │           └── once_cell v1.21.4
+│   │   ├── longest-increasing-subsequence v0.1.0
+│   │   ├── rustc-hash v2.1.3
+│   │   ├── rustversion v1.0.23 (proc-macro)
+│   │   ├── slab v0.4.12
+│   │   ├── slotmap v1.1.1
+│   │   │   └── serde v1.0.229 (*)
+│   │   ├── subsecond v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond)
+│   │   │   ├── libc v0.2.191
+│   │   │   ├── libloading v0.8.9
+│   │   │   │   └── windows-link v0.2.1
+│   │   │   ├── memmap2 v0.9.11
+│   │   │   ├── serde v1.0.229 (*)
+│   │   │   ├── subsecond-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond-types)
+│   │   │   │   └── serde v1.0.229 (*)
+│   │   │   └── thiserror v2.0.21
+│   │   │       └── thiserror-impl v2.0.21 (proc-macro)
+│   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │           ├── quote v1.0.47 (*)
+│   │   │           └── syn v3.0.9 (*)
+│   │   ├── tracing v0.1.44 (*)
+│   │   └── xxhash-rust v0.8.19
+│   ├── dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) (*)
+│   ├── dioxus-hooks v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\hooks)
+│   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   ├── dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals)
+│   │   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   │   ├── futures-channel v0.3.34 (*)
+│   │   │   ├── futures-util v0.3.34 (*)
+│   │   │   ├── generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box) (*)
+│   │   │   ├── parking_lot v0.12.5 (*)
+│   │   │   ├── rustc-hash v2.1.3
+│   │   │   ├── tracing v0.1.44 (*)
+│   │   │   └── warnings v0.2.1
+│   │   │       ├── pin-project v1.1.13
+│   │   │       │   └── pin-project-internal v1.1.13 (proc-macro)
+│   │   │       │       ├── proc-macro2 v1.0.107 (*)
+│   │   │       │       ├── quote v1.0.47 (*)
+│   │   │       │       └── syn v2.0.119 (*)
+│   │   │       ├── tracing v0.1.44 (*)
+│   │   │       └── warnings-macro v0.2.0 (proc-macro)
+│   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │           ├── quote v1.0.47 (*)
+│   │   │           └── syn v2.0.119 (*)
+│   │   ├── futures-channel v0.3.34 (*)
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box) (*)
+│   │   ├── rustversion v1.0.23 (proc-macro)
+│   │   ├── slab v0.4.12
+│   │   └── tracing v0.1.44 (*)
+│   ├── dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html)
+│   │   ├── async-trait v0.1.92 (proc-macro)
+│   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   ├── quote v1.0.47 (*)
+│   │   │   └── syn v3.0.9 (*)
+│   │   ├── bytes v1.12.1
+│   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   ├── dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) (*)
+│   │   ├── dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types)
+│   │   ├── dioxus-hooks v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\hooks) (*)
+│   │   ├── dioxus-html-internal-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\html-internal-macro)
+│   │   │   ├── convert_case v0.8.0 (*)
+│   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   ├── quote v1.0.47 (*)
+│   │   │   └── syn v2.0.119 (*)
+│   │   ├── enumset v1.1.14
+│   │   │   └── enumset_derive v0.15.0 (proc-macro)
+│   │   │       ├── darling v0.21.3
+│   │   │       │   ├── darling_core v0.21.3
+│   │   │       │   │   ├── fnv v1.0.7
+│   │   │       │   │   ├── ident_case v1.0.1
+│   │   │       │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   ├── quote v1.0.47 (*)
+│   │   │       │   │   └── syn v2.0.119 (*)
+│   │   │       │   └── darling_macro v0.21.3 (proc-macro)
+│   │   │       │       ├── darling_core v0.21.3 (*)
+│   │   │       │       ├── quote v1.0.47 (*)
+│   │   │       │       └── syn v2.0.119 (*)
+│   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │       ├── quote v1.0.47 (*)
+│   │   │       └── syn v2.0.119 (*)
+│   │   ├── euclid v0.22.14
+│   │   │   ├── num-traits v0.2.19
+│   │   │   │   └── libm v0.2.16
+│   │   │   └── serde v1.0.229 (*)
+│   │   ├── futures-channel v0.3.34 (*)
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box) (*)
+│   │   ├── keyboard-types v0.8.3
+│   │   │   └── bitflags v2.13.2
+│   │   │       └── serde_core v1.0.229
+│   │   ├── rustversion v1.0.23 (proc-macro)
+│   │   └── tracing v0.1.44 (*)
+│   ├── dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals) (*)
+│   ├── dioxus-stores v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\stores)
+│   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   ├── dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals) (*)
+│   │   ├── dioxus-stores-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\stores-macro)
+│   │   │   ├── convert_case v0.8.0 (*)
+│   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   ├── quote v1.0.47 (*)
+│   │   │   └── syn v2.0.119 (*)
+│   │   └── generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box) (*)
+│   └── subsecond v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond) (*)
+├── dioxus-native v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native)
+│   ├── anyrender v0.14.0
+│   │   ├── kurbo v0.13.1
+│   │   │   ├── arrayvec v0.7.8
+│   │   │   │   └── serde v1.0.229 (*)
+│   │   │   ├── polycool v0.4.0
+│   │   │   │   └── arrayvec v0.7.8 (*)
+│   │   │   └── smallvec v1.16.3 (*)
+│   │   ├── peniko v0.6.1
+│   │   │   ├── bytemuck v1.25.2
+│   │   │   │   └── bytemuck_derive v1.12.1 (proc-macro)
+│   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │       └── syn v3.0.9 (*)
+│   │   │   ├── color v0.3.3
+│   │   │   │   └── bytemuck v1.25.2 (*)
+│   │   │   ├── kurbo v0.13.1 (*)
+│   │   │   ├── linebender_resource_handle v0.1.1
+│   │   │   └── smallvec v1.16.3 (*)
+│   │   ├── raw-window-handle v0.6.2
+│   │   └── smallvec v1.16.3 (*)
+│   ├── anyrender_vello_cpu v0.18.0
+│   │   ├── anyrender v0.14.0 (*)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── color v0.3.3 (*)
+│   │   ├── debug_timer v0.1.3
+│   │   ├── glifo v0.4.0
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── foldhash v0.2.0
+│   │   │   ├── hashbrown v0.17.1
+│   │   │   │   ├── allocator-api2 v0.2.21
+│   │   │   │   ├── foldhash v0.2.0
+│   │   │   │   └── serde_core v1.0.229
+│   │   │   ├── log v0.4.34
+│   │   │   ├── peniko v0.6.1 (*)
+│   │   │   ├── skrifa v0.44.0
+│   │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │   └── read-fonts v0.41.0
+│   │   │   │       ├── bytemuck v1.25.2 (*)
+│   │   │   │       ├── font-types v0.12.6
+│   │   │   │       │   └── bytemuck v1.25.2 (*)
+│   │   │   │       └── once_cell v1.21.4
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   └── vello_common v0.3.0
+│   │   │       ├── bytemuck v1.25.2 (*)
+│   │   │       ├── fearless_simd v0.7.0
+│   │   │       ├── guillotiere v0.7.0
+│   │   │       │   └── euclid v0.22.14 (*)
+│   │   │       ├── log v0.4.34
+│   │   │       ├── peniko v0.6.1 (*)
+│   │   │       ├── png v0.18.1
+│   │   │       │   ├── bitflags v2.13.2 (*)
+│   │   │       │   ├── crc32fast v1.5.2
+│   │   │       │   │   └── cfg-if v1.0.5
+│   │   │       │   ├── fdeflate v0.3.7
+│   │   │       │   │   └── simd-adler32 v0.3.10
+│   │   │       │   ├── flate2 v1.1.10
+│   │   │       │   │   ├── crc32fast v1.5.2 (*)
+│   │   │       │   │   └── miniz_oxide v0.9.1
+│   │   │       │   │       ├── adler2 v2.0.1
+│   │   │       │   │       └── simd-adler32 v0.3.10
+│   │   │       │   └── miniz_oxide v0.8.9
+│   │   │       │       ├── adler2 v2.0.1
+│   │   │       │       └── simd-adler32 v0.3.10
+│   │   │       ├── smallvec v1.16.3 (*)
+│   │   │       └── thiserror v2.0.21 (*)
+│   │   ├── kurbo v0.13.1 (*)
+│   │   ├── peniko v0.6.1 (*)
+│   │   ├── softbuffer_window_renderer v0.9.0
+│   │   │   ├── anyrender v0.14.0 (*)
+│   │   │   ├── debug_timer v0.1.3
+│   │   │   ├── kurbo v0.13.1 (*)
+│   │   │   ├── peniko v0.6.1 (*)
+│   │   │   └── softbuffer v0.4.8
+│   │   │       ├── raw-window-handle v0.6.2
+│   │   │       ├── tracing v0.1.44 (*)
+│   │   │       └── windows-sys v0.61.2
+│   │   │           └── windows-link v0.2.1
+│   │   ├── vello_common v0.3.0 (*)
+│   │   └── vello_cpu v0.3.0
+│   │       ├── bytemuck v1.25.2 (*)
+│   │       ├── glifo v0.4.0 (*)
+│   │       ├── hashbrown v0.17.1 (*)
+│   │       └── vello_common v0.3.0 (*)
+│   ├── blitz-dom v0.3.0-beta.4
+│   │   ├── accesskit v0.25.1
+│   │   │   └── uuid v1.28.0
+│   │   │       ├── getrandom v0.4.3
+│   │   │       │   ├── cfg-if v1.0.5
+│   │   │       │   └── rand_core v0.10.1
+│   │   │       └── serde_core v1.0.229
+│   │   ├── anyrender v0.14.0 (*)
+│   │   ├── app_units v0.7.8
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   └── serde v1.0.229 (*)
+│   │   ├── atomic_refcell v0.1.14
+│   │   ├── bitflags v2.13.2 (*)
+│   │   ├── blitz-traits v0.3.0-beta.4
+│   │   │   ├── atomic_refcell v0.1.14
+│   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   ├── bytes v1.12.1
+│   │   │   ├── cursor-icon v1.2.0
+│   │   │   ├── http v1.5.0
+│   │   │   │   ├── bytes v1.12.1
+│   │   │   │   └── itoa v1.0.18
+│   │   │   ├── keyboard-types v0.8.3 (*)
+│   │   │   ├── serde v1.0.229 (*)
+│   │   │   ├── smol_str v0.3.6
+│   │   │   └── url v2.5.8
+│   │   │       ├── form_urlencoded v1.2.2
+│   │   │       │   └── percent-encoding v2.3.2
+│   │   │       ├── idna v1.1.0
+│   │   │       │   ├── idna_adapter v1.2.2
+│   │   │       │   │   ├── icu_normalizer v2.3.0
+│   │   │       │   │   │   ├── icu_collections v2.3.0
+│   │   │       │   │   │   │   ├── displaydoc v0.2.7 (proc-macro)
+│   │   │       │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │       │   │   │   │   │   └── syn v3.0.9 (*)
+│   │   │       │   │   │   │   ├── potential_utf v0.1.6
+│   │   │       │   │   │   │   │   ├── writeable v0.6.4
+│   │   │       │   │   │   │   │   └── zerovec v0.11.8
+│   │   │       │   │   │   │   │       ├── yoke v0.8.3
+│   │   │       │   │   │   │   │       │   ├── stable_deref_trait v1.2.1
+│   │   │       │   │   │   │   │       │   ├── yoke-derive v0.8.4 (proc-macro)
+│   │   │       │   │   │   │   │       │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   │   │   │       │   │   ├── quote v1.0.47 (*)
+│   │   │       │   │   │   │   │       │   │   ├── syn v3.0.9 (*)
+│   │   │       │   │   │   │   │       │   │   └── synstructure v0.14.0
+│   │   │       │   │   │   │   │       │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   │   │   │       │   │       ├── quote v1.0.47 (*)
+│   │   │       │   │   │   │   │       │   │       └── syn v3.0.9 (*)
+│   │   │       │   │   │   │   │       │   └── zerofrom v0.1.8
+│   │   │       │   │   │   │   │       │       └── zerofrom-derive v0.1.8 (proc-macro)
+│   │   │       │   │   │   │   │       │           ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   │   │   │       │           ├── quote v1.0.47 (*)
+│   │   │       │   │   │   │   │       │           ├── syn v3.0.9 (*)
+│   │   │       │   │   │   │   │       │           └── synstructure v0.14.0 (*)
+│   │   │       │   │   │   │   │       ├── zerofrom v0.1.8 (*)
+│   │   │       │   │   │   │   │       └── zerovec-derive v0.11.6 (proc-macro)
+│   │   │       │   │   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   │   │   │           ├── quote v1.0.47 (*)
+│   │   │       │   │   │   │   │           └── syn v3.0.9 (*)
+│   │   │       │   │   │   │   ├── utf8_iter v1.0.4
+│   │   │       │   │   │   │   ├── yoke v0.8.3 (*)
+│   │   │       │   │   │   │   ├── zerofrom v0.1.8 (*)
+│   │   │       │   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │       │   │   │   ├── icu_normalizer_data v2.3.0
+│   │   │       │   │   │   ├── icu_provider v2.3.1
+│   │   │       │   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │       │   │   │   │   ├── icu_locale_core v2.3.0
+│   │   │       │   │   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │       │   │   │   │   │   ├── litemap v0.8.3
+│   │   │       │   │   │   │   │   ├── tinystr v0.8.4
+│   │   │       │   │   │   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │       │   │   │   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │       │   │   │   │   │   ├── writeable v0.6.4
+│   │   │       │   │   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │       │   │   │   │   ├── stable_deref_trait v1.2.1
+│   │   │       │   │   │   │   ├── writeable v0.6.4
+│   │   │       │   │   │   │   ├── yoke v0.8.3 (*)
+│   │   │       │   │   │   │   ├── zerofrom v0.1.8 (*)
+│   │   │       │   │   │   │   ├── zerotrie v0.2.5
+│   │   │       │   │   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │       │   │   │   │   │   ├── yoke v0.8.3 (*)
+│   │   │       │   │   │   │   │   └── zerofrom v0.1.8 (*)
+│   │   │       │   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │       │   │   │   ├── smallvec v1.16.3 (*)
+│   │   │       │   │   │   └── zerovec v0.11.8 (*)
+│   │   │       │   │   └── icu_properties v2.3.0
+│   │   │       │   │       ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │       │   │       ├── icu_collections v2.3.0 (*)
+│   │   │       │   │       ├── icu_locale_core v2.3.0 (*)
+│   │   │       │   │       ├── icu_properties_data v2.3.0
+│   │   │       │   │       ├── icu_provider v2.3.1 (*)
+│   │   │       │   │       ├── zerotrie v0.2.5 (*)
+│   │   │       │   │       └── zerovec v0.11.8 (*)
+│   │   │       │   ├── smallvec v1.16.3 (*)
+│   │   │       │   └── utf8_iter v1.0.4
+│   │   │       ├── percent-encoding v2.3.2
+│   │   │       ├── serde v1.0.229 (*)
+│   │   │       └── serde_derive v1.0.229 (proc-macro) (*)
+│   │   ├── color v0.3.3 (*)
+│   │   ├── cssparser v0.38.0
+│   │   │   ├── cssparser-macros v0.7.1 (proc-macro)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v3.0.9 (*)
+│   │   │   ├── dtoa-short v0.3.5
+│   │   │   │   └── dtoa v1.0.11
+│   │   │   ├── itoa v1.0.18
+│   │   │   ├── phf v0.14.0
+│   │   │   │   ├── phf_macros v0.14.0 (proc-macro)
+│   │   │   │   │   ├── phf_generator v0.14.0
+│   │   │   │   │   │   ├── fastrand v2.5.0
+│   │   │   │   │   │   └── phf_shared v0.14.0
+│   │   │   │   │   │       └── siphasher v1.0.4
+│   │   │   │   │   ├── phf_shared v0.14.0 (*)
+│   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   └── phf_shared v0.14.0
+│   │   │   │       └── siphasher v1.0.4
+│   │   │   ├── serde v1.0.229 (*)
+│   │   │   └── smallvec v1.16.3 (*)
+│   │   ├── cursor-icon v1.2.0
+│   │   ├── debug_timer v0.1.3
+│   │   ├── euclid v0.22.14 (*)
+│   │   ├── html-escape v0.2.15
+│   │   ├── icu_casemap v2.3.0
+│   │   │   ├── icu_casemap_data v2.3.0
+│   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   ├── icu_properties v2.3.0 (*)
+│   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   ├── writeable v0.6.4
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── icu_locale_core v2.3.0 (*)
+│   │   ├── icu_properties v2.3.0 (*)
+│   │   ├── icu_segmenter v2.3.0
+│   │   │   ├── core_maths v0.1.1
+│   │   │   │   └── libm v0.2.16
+│   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   ├── icu_locale_fallback v2.3.0
+│   │   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   │   ├── icu_locale_fallback_data v2.3.0
+│   │   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   │   ├── tinystr v0.8.4 (*)
+│   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   ├── icu_segmenter_data v2.3.0
+│   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   ├── utf8_iter v1.0.4
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── image v0.25.10
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── byteorder-lite v0.1.0
+│   │   │   ├── moxcms v0.8.1
+│   │   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   │   └── pxfm v0.1.30
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   └── png v0.18.1 (*)
+│   │   ├── keyboard-types v0.8.3 (*)
+│   │   ├── kurbo v0.13.1 (*)
+│   │   ├── linebender_resource_handle v0.1.1
+│   │   ├── markup5ever v0.40.0
+│   │   │   ├── log v0.4.34
+│   │   │   ├── tendril v0.5.1
+│   │   │   │   └── new_debug_unreachable v1.0.6
+│   │   │   └── web_atoms v0.3.0
+│   │   │       ├── phf v0.14.0 (*)
+│   │   │       └── string_cache v0.11.0
+│   │   │           ├── new_debug_unreachable v1.0.6
+│   │   │           ├── parking_lot v0.12.5 (*)
+│   │   │           ├── phf_shared v0.14.0 (*)
+│   │   │           ├── precomputed-hash v0.1.1
+│   │   │           └── serde v1.0.229 (*)
+│   │   ├── parley v0.12.0
+│   │   │   ├── fontique v0.12.0
+│   │   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   │   ├── linebender_resource_handle v0.1.1
+│   │   │   │   ├── memmap2 v0.9.11
+│   │   │   │   ├── parlance v0.1.1
+│   │   │   │   │   └── bytemuck v1.25.2 (*)
+│   │   │   │   ├── read-fonts v0.41.0 (*)
+│   │   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   │   ├── windows v0.62.2
+│   │   │   │   │   ├── windows-collections v0.3.2
+│   │   │   │   │   │   └── windows-core v0.62.2
+│   │   │   │   │   │       ├── windows-implement v0.60.2 (proc-macro)
+│   │   │   │   │   │       │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │       │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │       │   └── syn v2.0.119 (*)
+│   │   │   │   │   │       ├── windows-interface v0.59.3 (proc-macro)
+│   │   │   │   │   │       │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │       │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │       │   └── syn v2.0.119 (*)
+│   │   │   │   │   │       ├── windows-link v0.2.1
+│   │   │   │   │   │       ├── windows-result v0.4.1
+│   │   │   │   │   │       │   └── windows-link v0.2.1
+│   │   │   │   │   │       └── windows-strings v0.5.1
+│   │   │   │   │   │           └── windows-link v0.2.1
+│   │   │   │   │   ├── windows-core v0.62.2 (*)
+│   │   │   │   │   ├── windows-future v0.3.2
+│   │   │   │   │   │   ├── windows-core v0.62.2 (*)
+│   │   │   │   │   │   ├── windows-link v0.2.1
+│   │   │   │   │   │   └── windows-threading v0.2.1
+│   │   │   │   │   │       └── windows-link v0.2.1
+│   │   │   │   │   └── windows-numerics v0.3.1
+│   │   │   │   │       ├── windows-core v0.62.2 (*)
+│   │   │   │   │       └── windows-link v0.2.1
+│   │   │   │   └── windows-core v0.62.2 (*)
+│   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   ├── linebender_resource_handle v0.1.1
+│   │   │   ├── parlance v0.1.1 (*)
+│   │   │   ├── parley_engine v0.12.0
+│   │   │   │   ├── fontique v0.12.0 (*)
+│   │   │   │   ├── harfrust v0.12.0
+│   │   │   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │   │   ├── read-fonts v0.41.0 (*)
+│   │   │   │   │   └── smallvec v1.16.3 (*)
+│   │   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   │   ├── icu_normalizer v2.3.0 (*)
+│   │   │   │   ├── icu_properties v2.3.0 (*)
+│   │   │   │   ├── icu_segmenter v2.3.0 (*)
+│   │   │   │   ├── linebender_resource_handle v0.1.1
+│   │   │   │   ├── parlance v0.1.1 (*)
+│   │   │   │   ├── parley_data v0.12.0
+│   │   │   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   │   │   └── icu_properties v2.3.0 (*)
+│   │   │   │   ├── parley_emoji v0.12.0
+│   │   │   │   └── skrifa v0.44.0 (*)
+│   │   │   └── smallvec v1.16.3 (*)
+│   │   ├── percent-encoding v2.3.2
+│   │   ├── rayon v1.12.0
+│   │   │   ├── either v1.19.0
+│   │   │   └── rayon-core v1.13.0
+│   │   │       ├── crossbeam-deque v0.8.8
+│   │   │       │   ├── crossbeam-epoch v0.9.21
+│   │   │       │   │   └── crossbeam-utils v0.8.23
+│   │   │       │   └── crossbeam-utils v0.8.23
+│   │   │       └── crossbeam-utils v0.8.23
+│   │   ├── selectors v0.41.0
+│   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   ├── cssparser v0.38.0 (*)
+│   │   │   ├── derive_more v2.1.1
+│   │   │   │   └── derive_more-impl v2.1.1 (proc-macro)
+│   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │       └── syn v2.0.119 (*)
+│   │   │   ├── log v0.4.34
+│   │   │   ├── new_debug_unreachable v1.0.6
+│   │   │   ├── precomputed-hash v0.1.1
+│   │   │   ├── rustc-hash v2.1.3
+│   │   │   ├── servo_arc v0.5.0
+│   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   └── stable_deref_trait v1.2.1
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   ├── to_shmem v0.6.0
+│   │   │   │   ├── cssparser v0.38.0 (*)
+│   │   │   │   ├── servo_arc v0.5.0 (*)
+│   │   │   │   ├── smallbitvec v2.6.1
+│   │   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   │   ├── string_cache v0.11.0 (*)
+│   │   │   │   └── thin-vec v0.2.21
+│   │   │   └── to_shmem_derive v0.2.0 (proc-macro)
+│   │   │       ├── darling v0.20.11
+│   │   │       │   ├── darling_core v0.20.11
+│   │   │       │   │   ├── fnv v1.0.7
+│   │   │       │   │   ├── ident_case v1.0.1
+│   │   │       │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │       │   │   ├── quote v1.0.47 (*)
+│   │   │       │   │   └── syn v2.0.119 (*)
+│   │   │       │   └── darling_macro v0.20.11 (proc-macro)
+│   │   │       │       ├── darling_core v0.20.11 (*)
+│   │   │       │       ├── quote v1.0.47 (*)
+│   │   │       │       └── syn v2.0.119 (*)
+│   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │       ├── quote v1.0.47 (*)
+│   │   │       ├── syn v2.0.119 (*)
+│   │   │       └── synstructure v0.13.2
+│   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │           ├── quote v1.0.47 (*)
+│   │   │           └── syn v2.0.119 (*)
+│   │   ├── skrifa v0.44.0 (*)
+│   │   ├── slotmap v1.1.1 (*)
+│   │   ├── smallvec v1.16.3 (*)
+│   │   ├── stylo v0.22.0
+│   │   │   ├── app_units v0.7.8 (*)
+│   │   │   ├── arrayvec v0.7.8 (*)
+│   │   │   ├── atomic_refcell v0.1.14
+│   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   ├── byteorder v1.5.0
+│   │   │   ├── cssparser v0.38.0 (*)
+│   │   │   ├── derive_more v2.1.1 (*)
+│   │   │   ├── encoding_rs v0.8.42
+│   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   ├── core_detect v1.0.0
+│   │   │   │   ├── multiversion_no_op v1.0.0 (proc-macro)
+│   │   │   │   ├── scopeguard v1.2.0
+│   │   │   │   └── simdutf8 v0.1.5
+│   │   │   ├── euclid v0.22.14 (*)
+│   │   │   ├── icu_segmenter v2.3.0 (*)
+│   │   │   ├── indexmap v2.14.2
+│   │   │   │   ├── equivalent v1.0.3
+│   │   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   │   └── serde_core v1.0.229
+│   │   │   ├── itertools v0.14.0
+│   │   │   │   └── either v1.19.0
+│   │   │   ├── itoa v1.0.18
+│   │   │   ├── log v0.4.34
+│   │   │   ├── malloc_size_of_derive v0.1.3 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── syn v2.0.119 (*)
+│   │   │   │   └── synstructure v0.13.2 (*)
+│   │   │   ├── mime v0.3.17
+│   │   │   ├── new_debug_unreachable v1.0.6
+│   │   │   ├── num-derive v0.4.2 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v2.0.119 (*)
+│   │   │   ├── num-integer v0.1.47
+│   │   │   │   └── num-traits v0.2.19 (*)
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   ├── num_cpus v1.17.0
+│   │   │   ├── parking_lot v0.12.5 (*)
+│   │   │   ├── precomputed-hash v0.1.1
+│   │   │   ├── rayon v1.12.0 (*)
+│   │   │   ├── rayon-core v1.13.0 (*)
+│   │   │   ├── rustc-hash v2.1.3
+│   │   │   ├── selectors v0.41.0 (*)
+│   │   │   ├── serde v1.0.229 (*)
+│   │   │   ├── servo_arc v0.5.0 (*)
+│   │   │   ├── smallbitvec v2.6.1
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   ├── static_assertions v1.1.0
+│   │   │   ├── string_cache v0.11.0 (*)
+│   │   │   ├── strum v0.28.0
+│   │   │   ├── strum_macros v0.28.0 (proc-macro)
+│   │   │   │   ├── heck v0.5.0
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v2.0.119 (*)
+│   │   │   ├── stylo_atoms v0.22.0
+│   │   │   │   └── string_cache v0.11.0 (*)
+│   │   │   ├── stylo_derive v0.22.0 (proc-macro)
+│   │   │   │   ├── darling v0.20.11 (*)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   ├── syn v2.0.119 (*)
+│   │   │   │   └── synstructure v0.13.2 (*)
+│   │   │   ├── stylo_dom v0.22.0
+│   │   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   │   └── stylo_malloc_size_of v0.22.0
+│   │   │   │       ├── app_units v0.7.8 (*)
+│   │   │   │       ├── cssparser v0.38.0 (*)
+│   │   │   │       ├── euclid v0.22.14 (*)
+│   │   │   │       ├── parking_lot v0.12.5 (*)
+│   │   │   │       ├── selectors v0.41.0 (*)
+│   │   │   │       ├── servo_arc v0.5.0 (*)
+│   │   │   │       ├── smallbitvec v2.6.1
+│   │   │   │       ├── smallvec v1.16.3 (*)
+│   │   │   │       ├── string_cache v0.11.0 (*)
+│   │   │   │       ├── thin-vec v0.2.21
+│   │   │   │       └── void v1.0.2
+│   │   │   ├── stylo_malloc_size_of v0.22.0 (*)
+│   │   │   ├── stylo_static_prefs v0.22.0
+│   │   │   ├── stylo_traits v0.22.0
+│   │   │   │   ├── app_units v0.7.8 (*)
+│   │   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   │   ├── cssparser v0.38.0 (*)
+│   │   │   │   ├── euclid v0.22.14 (*)
+│   │   │   │   ├── malloc_size_of_derive v0.1.3 (proc-macro) (*)
+│   │   │   │   ├── selectors v0.41.0 (*)
+│   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   ├── servo_arc v0.5.0 (*)
+│   │   │   │   ├── stylo_atoms v0.22.0 (*)
+│   │   │   │   ├── stylo_malloc_size_of v0.22.0 (*)
+│   │   │   │   ├── thin-vec v0.2.21
+│   │   │   │   ├── to_shmem v0.6.0 (*)
+│   │   │   │   ├── to_shmem_derive v0.2.0 (proc-macro) (*)
+│   │   │   │   └── url v2.5.8 (*)
+│   │   │   ├── thin-vec v0.2.21
+│   │   │   ├── to_shmem v0.6.0 (*)
+│   │   │   ├── to_shmem_derive v0.2.0 (proc-macro) (*)
+│   │   │   ├── uluru v3.1.0
+│   │   │   │   └── arrayvec v0.7.8 (*)
+│   │   │   ├── url v2.5.8 (*)
+│   │   │   ├── void v1.0.2
+│   │   │   └── web_atoms v0.3.0 (*)
+│   │   ├── stylo_dom v0.22.0 (*)
+│   │   ├── stylo_static_prefs v0.22.0
+│   │   ├── stylo_taffy v0.3.0-beta.4
+│   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   ├── stylo v0.22.0 (*)
+│   │   │   ├── stylo_atoms v0.22.0 (*)
+│   │   │   └── taffy v0.15.0
+│   │   │       └── smallvec v1.16.3 (*)
+│   │   ├── stylo_traits v0.22.0 (*)
+│   │   ├── svgtypes v0.16.1
+│   │   │   ├── kurbo v0.13.1 (*)
+│   │   │   └── siphasher v1.0.4
+│   │   ├── taffy v0.15.0 (*)
+│   │   ├── thin-vec v0.2.21
+│   │   ├── thread_local v1.1.10
+│   │   │   └── cfg-if v1.0.5
+│   │   ├── url v2.5.8 (*)
+│   │   ├── usvg v0.48.1
+│   │   │   ├── base64 v0.23.1
+│   │   │   ├── data-url v0.3.2
+│   │   │   ├── flate2 v1.1.10 (*)
+│   │   │   ├── fontdb v0.24.0
+│   │   │   │   ├── log v0.4.34
+│   │   │   │   ├── memmap2 v0.9.11
+│   │   │   │   ├── slotmap v1.1.1 (*)
+│   │   │   │   └── tinyvec v1.13.3
+│   │   │   ├── harfrust v0.12.0 (*)
+│   │   │   ├── imagesize v0.15.0
+│   │   │   ├── kurbo v0.13.1 (*)
+│   │   │   ├── log v0.4.34
+│   │   │   ├── pico-args v0.5.0
+│   │   │   ├── roxmltree v0.21.1
+│   │   │   │   └── memchr v2.8.3
+│   │   │   ├── simplecss v0.2.2
+│   │   │   │   └── log v0.4.34
+│   │   │   ├── siphasher v1.0.4
+│   │   │   ├── skrifa v0.44.0 (*)
+│   │   │   ├── strict-num v0.1.1
+│   │   │   │   └── float-cmp v0.9.0
+│   │   │   ├── svgtypes v0.16.1 (*)
+│   │   │   ├── tiny-skia-path v0.12.0
+│   │   │   │   ├── arrayref v0.3.9
+│   │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │   └── strict-num v0.1.1 (*)
+│   │   │   ├── unicode-bidi v0.3.18
+│   │   │   ├── unicode-script v0.5.8
+│   │   │   ├── unicode-vo v0.1.0
+│   │   │   └── xmlwriter v0.1.0
+│   │   ├── web-time v1.1.0
+│   │   └── writeable v0.6.4
+│   ├── blitz-shell v0.3.0-beta.4
+│   │   ├── accesskit v0.25.1 (*)
+│   │   ├── accesskit_xplat v0.2.1
+│   │   │   ├── accesskit v0.25.1 (*)
+│   │   │   ├── accesskit_windows v0.35.1
+│   │   │   │   ├── accesskit v0.25.1 (*)
+│   │   │   │   ├── accesskit_consumer v0.39.1
+│   │   │   │   │   ├── accesskit v0.25.1 (*)
+│   │   │   │   │   └── hashbrown v0.17.1 (*)
+│   │   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   │   ├── static_assertions v1.1.0
+│   │   │   │   ├── windows v0.62.2 (*)
+│   │   │   │   └── windows-core v0.62.2 (*)
+│   │   │   └── raw-window-handle v0.6.2
+│   │   ├── anyrender v0.14.0 (*)
+│   │   ├── arboard v3.7.0
+│   │   │   ├── clipboard-win v5.4.1
+│   │   │   │   └── error-code v3.4.0
+│   │   │   ├── log v0.4.34
+│   │   │   └── windows-sys v0.52.0
+│   │   │       └── windows-targets v0.52.6
+│   │   │           └── windows_x86_64_msvc v0.52.6
+│   │   ├── atomic_refcell v0.1.14
+│   │   ├── blitz-dom v0.3.0-beta.4 (*)
+│   │   ├── blitz-paint v0.3.0-beta.4
+│   │   │   ├── anyrender v0.14.0 (*)
+│   │   │   ├── blitz-dom v0.3.0-beta.4 (*)
+│   │   │   ├── blitz-traits v0.3.0-beta.4 (*)
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── color v0.3.3 (*)
+│   │   │   ├── euclid v0.22.14 (*)
+│   │   │   ├── kurbo v0.13.1 (*)
+│   │   │   ├── parley v0.12.0 (*)
+│   │   │   ├── peniko v0.6.1 (*)
+│   │   │   ├── skrifa v0.44.0 (*)
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   ├── stylo v0.22.0 (*)
+│   │   │   └── taffy v0.15.0 (*)
+│   │   ├── blitz-traits v0.3.0-beta.4 (*)
+│   │   ├── data-url v0.3.2
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── keyboard-types v0.8.3 (*)
+│   │   ├── web-time v1.1.0
+│   │   └── winit v0.31.0-beta.3
+│   │       ├── bitflags v2.13.2 (*)
+│   │       ├── cursor-icon v1.2.0
+│   │       ├── dpi v0.1.2
+│   │       ├── raw-window-handle v0.6.2
+│   │       ├── smol_str v0.3.6
+│   │       ├── tracing v0.1.44 (*)
+│   │       ├── winit-core v0.31.0-beta.3
+│   │       │   ├── bitflags v2.13.2 (*)
+│   │       │   ├── cursor-icon v1.2.0
+│   │       │   ├── dpi v0.1.2
+│   │       │   ├── keyboard-types v0.8.3 (*)
+│   │       │   ├── raw-window-handle v0.6.2
+│   │       │   ├── smol_str v0.3.6
+│   │       │   └── url v2.5.8 (*)
+│   │       └── winit-win32 v0.31.0-beta.3
+│   │           ├── bitflags v2.13.2 (*)
+│   │           ├── cursor-icon v1.2.0
+│   │           ├── dpi v0.1.2
+│   │           ├── raw-window-handle v0.6.2
+│   │           ├── smol_str v0.3.6
+│   │           ├── tracing v0.1.44 (*)
+│   │           ├── unicode-segmentation v1.13.3
+│   │           ├── url v2.5.8 (*)
+│   │           ├── windows-sys v0.61.2 (*)
+│   │           ├── winit-common v0.31.0-beta.3
+│   │           │   ├── dpi v0.1.2
+│   │           │   ├── tracing v0.1.44 (*)
+│   │           │   └── winit-core v0.31.0-beta.3 (*)
+│   │           └── winit-core v0.31.0-beta.3 (*)
+│   ├── blitz-traits v0.3.0-beta.4 (*)
+│   ├── cfg-if v1.0.5
+│   ├── dioxus-asset-resolver v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\asset-resolver)
+│   │   ├── dioxus-cli-config v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\cli-config)
+│   │   ├── http v1.5.0 (*)
+│   │   ├── infer v0.19.0
+│   │   │   └── cfb v0.7.3
+│   │   │       ├── byteorder v1.5.0
+│   │   │       ├── fnv v1.0.7
+│   │   │       └── uuid v1.28.0 (*)
+│   │   ├── percent-encoding v2.3.2
+│   │   ├── thiserror v2.0.21 (*)
+│   │   └── tokio v1.54.0
+│   │       ├── bytes v1.12.1
+│   │       ├── mio v1.2.4
+│   │       │   └── windows-sys v0.61.2 (*)
+│   │       ├── parking_lot v0.12.5 (*)
+│   │       ├── pin-project-lite v0.2.17
+│   │       ├── socket2 v0.6.5
+│   │       │   └── windows-sys v0.61.2 (*)
+│   │       ├── tokio-macros v2.7.2 (proc-macro)
+│   │       │   ├── proc-macro2 v1.0.107 (*)
+│   │       │   ├── quote v1.0.47 (*)
+│   │       │   └── syn v3.0.9 (*)
+│   │       └── windows-sys v0.61.2 (*)
+│   ├── dioxus-cli-config v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\cli-config)
+│   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   ├── dioxus-document v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\document)
+│   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   ├── dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) (*)
+│   │   ├── dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types)
+│   │   ├── dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html) (*)
+│   │   ├── futures-channel v0.3.34 (*)
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box) (*)
+│   │   ├── serde v1.0.229 (*)
+│   │   ├── serde_json v1.0.154
+│   │   │   ├── itoa v1.0.18
+│   │   │   ├── memchr v2.8.3
+│   │   │   ├── serde_core v1.0.229
+│   │   │   └── zmij v1.0.23
+│   │   └── tracing v0.1.44 (*)
+│   ├── dioxus-history v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\history)
+│   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   └── tracing v0.1.44 (*)
+│   ├── dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html) (*)
+│   ├── dioxus-native-dom v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native-dom)
+│   │   ├── blitz-dom v0.3.0-beta.4 (*)
+│   │   ├── blitz-traits v0.3.0-beta.4 (*)
+│   │   ├── dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) (*)
+│   │   ├── dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html) (*)
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── keyboard-types v0.8.3 (*)
+│   │   └── rustc-hash v2.1.3
+│   ├── futures-util v0.3.34 (*)
+│   ├── keyboard-types v0.8.3 (*)
+│   ├── peniko v0.6.1 (*)
+│   ├── rustc-hash v2.1.3
+│   ├── slotmap v1.1.1 (*)
+│   ├── webbrowser v1.2.4
+│   │   ├── log v0.4.34
+│   │   └── url v2.5.8 (*)
+│   └── winit v0.31.0-beta.3 (*)
+├── futures-channel v0.3.34 (*)
+├── qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+│   ├── aead v0.6.1
+│   │   ├── crypto-common v0.2.2
+│   │   │   └── hybrid-array v0.4.15
+│   │   │       └── typenum v1.20.1
+│   │   └── inout v0.2.4
+│   │       └── hybrid-array v0.4.15 (*)
+│   ├── aes-gcm v0.11.1
+│   │   ├── aead v0.6.1 (*)
+│   │   ├── aes v0.9.3
+│   │   │   ├── cipher v0.5.2
+│   │   │   │   ├── block-buffer v0.12.1
+│   │   │   │   │   └── hybrid-array v0.4.15 (*)
+│   │   │   │   ├── crypto-common v0.2.2 (*)
+│   │   │   │   └── inout v0.2.4 (*)
+│   │   │   ├── cpubits v0.1.1
+│   │   │   └── cpufeatures v0.3.1
+│   │   ├── cipher v0.5.2 (*)
+│   │   ├── ctr v0.10.1
+│   │   │   └── cipher v0.5.2 (*)
+│   │   ├── ctutils v0.4.3
+│   │   │   └── cmov v0.5.4
+│   │   └── ghash v0.6.0
+│   │       └── polyval v0.7.3
+│   │           ├── cpubits v0.1.1
+│   │           ├── cpufeatures v0.3.1
+│   │           └── universal-hash v0.6.1
+│   │               ├── crypto-common v0.2.2 (*)
+│   │               └── ctutils v0.4.3 (*)
+│   ├── ark-bls12-381 v0.6.0
+│   │   ├── ark-ec v0.6.0
+│   │   │   ├── ahash v0.8.12
+│   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   ├── once_cell v1.21.4
+│   │   │   │   └── zerocopy v0.8.63
+│   │   │   │       └── zerocopy-derive v0.8.63 (proc-macro)
+│   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │           ├── quote v1.0.47 (*)
+│   │   │   │           └── syn v2.0.119 (*)
+│   │   │   ├── ark-ff v0.6.0
+│   │   │   │   ├── ark-ff-asm v0.6.0 (proc-macro)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   ├── ark-ff-macros v0.6.0 (proc-macro)
+│   │   │   │   │   ├── num-bigint v0.4.8
+│   │   │   │   │   │   ├── num-integer v0.1.47
+│   │   │   │   │   │   │   └── num-traits v0.2.19
+│   │   │   │   │   │   └── num-traits v0.2.19
+│   │   │   │   │   ├── num-traits v0.2.19
+│   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   ├── ark-serialize v0.6.0
+│   │   │   │   │   ├── ark-serialize-derive v0.6.0 (proc-macro)
+│   │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   │   ├── ark-std v0.6.0
+│   │   │   │   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   │   │   │   └── rand v0.8.8
+│   │   │   │   │   │       ├── rand_chacha v0.3.1
+│   │   │   │   │   │       │   ├── ppv-lite86 v0.2.21
+│   │   │   │   │   │       │   │   └── zerocopy v0.8.63 (*)
+│   │   │   │   │   │       │   └── rand_core v0.6.4
+│   │   │   │   │   │       │       └── getrandom v0.2.17
+│   │   │   │   │   │       │           └── cfg-if v1.0.5
+│   │   │   │   │   │       └── rand_core v0.6.4 (*)
+│   │   │   │   │   ├── digest v0.10.7
+│   │   │   │   │   │   ├── block-buffer v0.10.4
+│   │   │   │   │   │   │   └── generic-array v0.14.7
+│   │   │   │   │   │   │       └── typenum v1.20.1
+│   │   │   │   │   │   ├── crypto-common v0.1.7
+│   │   │   │   │   │   │   ├── generic-array v0.14.7 (*)
+│   │   │   │   │   │   │   ├── rand_core v0.6.4 (*)
+│   │   │   │   │   │   │   └── typenum v1.20.1
+│   │   │   │   │   │   └── subtle v2.6.1
+│   │   │   │   │   └── num-bigint v0.4.8
+│   │   │   │   │       ├── num-integer v0.1.47 (*)
+│   │   │   │   │       └── num-traits v0.2.19 (*)
+│   │   │   │   ├── ark-std v0.6.0 (*)
+│   │   │   │   ├── digest v0.10.7 (*)
+│   │   │   │   ├── educe v0.6.0 (proc-macro)
+│   │   │   │   │   ├── enum-ordinalize v4.4.2
+│   │   │   │   │   │   └── enum-ordinalize-derive v4.4.2 (proc-macro)
+│   │   │   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │   │   │       └── syn v3.0.9 (*)
+│   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   ├── num-bigint v0.4.8 (*)
+│   │   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   │   └── zeroize v1.9.1
+│   │   │   │       └── zeroize_derive v1.5.0 (proc-macro)
+│   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │           ├── quote v1.0.47 (*)
+│   │   │   │           └── syn v2.0.119 (*)
+│   │   │   ├── ark-poly v0.6.0
+│   │   │   │   ├── ahash v0.8.12 (*)
+│   │   │   │   ├── ark-ff v0.6.0 (*)
+│   │   │   │   ├── ark-serialize v0.6.0 (*)
+│   │   │   │   ├── ark-std v0.6.0 (*)
+│   │   │   │   ├── educe v0.6.0 (proc-macro) (*)
+│   │   │   │   └── hashbrown v0.17.1 (*)
+│   │   │   ├── ark-serialize v0.6.0 (*)
+│   │   │   ├── ark-std v0.6.0 (*)
+│   │   │   ├── educe v0.6.0 (proc-macro) (*)
+│   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   ├── itertools v0.14.0 (*)
+│   │   │   ├── num-bigint v0.4.8 (*)
+│   │   │   ├── num-integer v0.1.47 (*)
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   └── zeroize v1.9.1 (*)
+│   │   ├── ark-ff v0.6.0 (*)
+│   │   ├── ark-serialize v0.6.0 (*)
+│   │   └── ark-std v0.6.0 (*)
+│   ├── ark-ec v0.6.0 (*)
+│   ├── ark-ff v0.6.0 (*)
+│   ├── ark-groth16 v0.6.0
+│   │   ├── ark-crypto-primitives v0.6.0
+│   │   │   ├── ahash v0.8.12 (*)
+│   │   │   ├── ark-crypto-primitives-macros v0.5.0 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v2.0.119 (*)
+│   │   │   ├── ark-ec v0.6.0 (*)
+│   │   │   ├── ark-ff v0.6.0 (*)
+│   │   │   ├── ark-relations v0.6.0
+│   │   │   │   ├── ark-ff v0.6.0 (*)
+│   │   │   │   ├── ark-poly v0.6.0 (*)
+│   │   │   │   ├── ark-serialize v0.6.0 (*)
+│   │   │   │   ├── ark-std v0.6.0 (*)
+│   │   │   │   ├── foldhash v0.1.5
+│   │   │   │   ├── indexmap v2.14.2 (*)
+│   │   │   │   └── tracing v0.1.44 (*)
+│   │   │   ├── ark-serialize v0.6.0 (*)
+│   │   │   ├── ark-snark v0.6.0
+│   │   │   │   ├── ark-ff v0.6.0 (*)
+│   │   │   │   ├── ark-relations v0.6.0 (*)
+│   │   │   │   ├── ark-serialize v0.6.0 (*)
+│   │   │   │   └── ark-std v0.6.0 (*)
+│   │   │   ├── ark-std v0.6.0 (*)
+│   │   │   ├── blake2 v0.10.6
+│   │   │   │   └── digest v0.10.7 (*)
+│   │   │   ├── derivative v2.2.0 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v1.0.109
+│   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │       └── unicode-ident v1.0.27
+│   │   │   ├── digest v0.10.7 (*)
+│   │   │   ├── merlin v3.0.0
+│   │   │   │   ├── byteorder v1.5.0
+│   │   │   │   ├── keccak v0.1.6
+│   │   │   │   ├── rand_core v0.6.4 (*)
+│   │   │   │   └── zeroize v1.9.1 (*)
+│   │   │   ├── num-bigint v0.4.8 (*)
+│   │   │   └── sha2 v0.10.9
+│   │   │       ├── cfg-if v1.0.5
+│   │   │       ├── cpufeatures v0.2.17
+│   │   │       └── digest v0.10.7 (*)
+│   │   ├── ark-ec v0.6.0 (*)
+│   │   ├── ark-ff v0.6.0 (*)
+│   │   ├── ark-poly v0.6.0 (*)
+│   │   ├── ark-relations v0.6.0 (*)
+│   │   ├── ark-serialize v0.6.0 (*)
+│   │   ├── ark-snark v0.6.0 (*)
+│   │   └── ark-std v0.6.0 (*)
+│   ├── ark-relations v0.6.0 (*)
+│   ├── ark-serialize v0.6.0 (*)
+│   ├── ark-snark v0.6.0 (*)
+│   ├── ark-std v0.6.0 (*)
+│   ├── async-trait v0.1.92 (proc-macro) (*)
+│   ├── atoi v3.1.1
+│   │   └── num-traits v0.2.19 (*)
+│   ├── axum v0.8.9
+│   │   ├── axum-core v0.5.6
+│   │   │   ├── bytes v1.12.1
+│   │   │   ├── futures-core v0.3.34
+│   │   │   ├── http v1.5.0 (*)
+│   │   │   ├── http-body v1.1.0
+│   │   │   │   ├── bytes v1.12.1
+│   │   │   │   └── http v1.5.0 (*)
+│   │   │   ├── http-body-util v0.1.5
+│   │   │   │   ├── bytes v1.12.1
+│   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   ├── http v1.5.0 (*)
+│   │   │   │   ├── http-body v1.1.0 (*)
+│   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   ├── mime v0.3.17
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   ├── sync_wrapper v1.0.2
+│   │   │   │   └── futures-core v0.3.34
+│   │   │   ├── tower-layer v0.3.3
+│   │   │   ├── tower-service v0.3.3
+│   │   │   └── tracing v0.1.44 (*)
+│   │   ├── base64 v0.22.1
+│   │   ├── bytes v1.12.1
+│   │   ├── form_urlencoded v1.2.2 (*)
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── http v1.5.0 (*)
+│   │   ├── http-body v1.1.0 (*)
+│   │   ├── http-body-util v0.1.5 (*)
+│   │   ├── hyper v1.12.0
+│   │   │   ├── atomic-waker v1.1.2
+│   │   │   ├── bytes v1.12.1
+│   │   │   ├── futures-core v0.3.34
+│   │   │   ├── http v1.5.0 (*)
+│   │   │   ├── http-body v1.1.0 (*)
+│   │   │   ├── httparse v1.10.1
+│   │   │   ├── httpdate v1.0.3
+│   │   │   ├── itoa v1.0.18
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   ├── tokio v1.54.0 (*)
+│   │   │   └── want v0.3.2
+│   │   │       └── try-lock v0.2.5
+│   │   ├── hyper-util v0.1.21
+│   │   │   ├── base64 v0.23.1
+│   │   │   ├── bytes v1.12.1
+│   │   │   ├── futures-channel v0.3.34 (*)
+│   │   │   ├── futures-util v0.3.34 (*)
+│   │   │   ├── http v1.5.0 (*)
+│   │   │   ├── http-body v1.1.0 (*)
+│   │   │   ├── httparse v1.10.1
+│   │   │   ├── hyper v1.12.0 (*)
+│   │   │   ├── ipnet v2.12.2
+│   │   │   ├── libc v0.2.191
+│   │   │   ├── percent-encoding v2.3.2
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   ├── socket2 v0.6.5 (*)
+│   │   │   ├── tokio v1.54.0 (*)
+│   │   │   ├── tower-service v0.3.3
+│   │   │   └── tracing v0.1.44 (*)
+│   │   ├── itoa v1.0.18
+│   │   ├── matchit v0.8.4
+│   │   ├── memchr v2.8.3
+│   │   ├── mime v0.3.17
+│   │   ├── percent-encoding v2.3.2
+│   │   ├── pin-project-lite v0.2.17
+│   │   ├── serde_core v1.0.229
+│   │   ├── serde_json v1.0.154 (*)
+│   │   ├── serde_path_to_error v0.1.20
+│   │   │   ├── itoa v1.0.18
+│   │   │   └── serde_core v1.0.229
+│   │   ├── serde_urlencoded v0.7.1
+│   │   │   ├── form_urlencoded v1.2.2 (*)
+│   │   │   ├── itoa v1.0.18
+│   │   │   ├── ryu v1.0.23
+│   │   │   └── serde v1.0.229 (*)
+│   │   ├── sha1 v0.10.7
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── cpufeatures v0.2.17
+│   │   │   └── digest v0.10.7 (*)
+│   │   ├── sync_wrapper v1.0.2 (*)
+│   │   ├── tokio v1.54.0 (*)
+│   │   ├── tokio-tungstenite v0.29.0
+│   │   │   ├── futures-util v0.3.34 (*)
+│   │   │   ├── log v0.4.34
+│   │   │   ├── tokio v1.54.0 (*)
+│   │   │   └── tungstenite v0.29.0
+│   │   │       ├── bytes v1.12.1
+│   │   │       ├── data-encoding v2.11.1
+│   │   │       ├── http v1.5.0 (*)
+│   │   │       ├── httparse v1.10.1
+│   │   │       ├── log v0.4.34
+│   │   │       ├── rand v0.9.5
+│   │   │       │   ├── rand_chacha v0.9.0
+│   │   │       │   │   ├── ppv-lite86 v0.2.21 (*)
+│   │   │       │   │   └── rand_core v0.9.5
+│   │   │       │   │       └── getrandom v0.3.4
+│   │   │       │   │           └── cfg-if v1.0.5
+│   │   │       │   └── rand_core v0.9.5 (*)
+│   │   │       ├── sha1 v0.10.7 (*)
+│   │   │       └── thiserror v2.0.21 (*)
+│   │   ├── tower v0.5.3
+│   │   │   ├── futures-core v0.3.34
+│   │   │   ├── futures-util v0.3.34 (*)
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   ├── sync_wrapper v1.0.2 (*)
+│   │   │   ├── tokio v1.54.0 (*)
+│   │   │   ├── tower-layer v0.3.3
+│   │   │   ├── tower-service v0.3.3
+│   │   │   └── tracing v0.1.44 (*)
+│   │   ├── tower-layer v0.3.3
+│   │   ├── tower-service v0.3.3
+│   │   └── tracing v0.1.44 (*)
+│   ├── base64 v0.23.1
+│   ├── blake3 v1.8.7
+│   │   ├── arrayvec v0.7.8 (*)
+│   │   ├── cfg-if v1.0.5
+│   │   ├── constant_time_eq v0.4.2
+│   │   └── cpufeatures v0.3.1
+│   ├── boringtun v0.7.1
+│   │   ├── aead v0.5.2
+│   │   │   ├── crypto-common v0.1.7 (*)
+│   │   │   └── generic-array v0.14.7 (*)
+│   │   ├── base64 v0.22.1
+│   │   ├── blake2 v0.10.6 (*)
+│   │   ├── chacha20poly1305 v0.10.1
+│   │   │   ├── aead v0.5.2 (*)
+│   │   │   ├── chacha20 v0.9.1
+│   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   ├── cipher v0.4.4
+│   │   │   │   │   ├── crypto-common v0.1.7 (*)
+│   │   │   │   │   ├── inout v0.1.4
+│   │   │   │   │   │   └── generic-array v0.14.7 (*)
+│   │   │   │   │   └── zeroize v1.9.1 (*)
+│   │   │   │   └── cpufeatures v0.2.17
+│   │   │   ├── cipher v0.4.4 (*)
+│   │   │   ├── poly1305 v0.8.0
+│   │   │   │   ├── cpufeatures v0.2.17
+│   │   │   │   ├── opaque-debug v0.3.1
+│   │   │   │   └── universal-hash v0.5.1
+│   │   │   │       ├── crypto-common v0.1.7 (*)
+│   │   │   │       └── subtle v2.6.1
+│   │   │   └── zeroize v1.9.1 (*)
+│   │   ├── hex v0.4.3
+│   │   ├── hmac v0.12.1
+│   │   │   └── digest v0.10.7 (*)
+│   │   ├── ip_network v0.4.1
+│   │   ├── ip_network_table v0.2.0
+│   │   │   ├── ip_network v0.4.1
+│   │   │   └── ip_network_table-deps-treebitmap v0.5.0
+│   │   ├── libc v0.2.191
+│   │   ├── parking_lot v0.12.5 (*)
+│   │   ├── portable-atomic v1.15.0
+│   │   ├── rand_core v0.6.4 (*)
+│   │   ├── ring v0.17.14
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── getrandom v0.2.17 (*)
+│   │   │   └── untrusted v0.9.0
+│   │   ├── tracing v0.1.44 (*)
+│   │   ├── untrusted v0.9.0
+│   │   └── x25519-dalek v2.0.1
+│   │       ├── curve25519-dalek v4.1.3
+│   │       │   ├── cfg-if v1.0.5
+│   │       │   ├── cpufeatures v0.2.17
+│   │       │   ├── curve25519-dalek-derive v0.1.1 (proc-macro)
+│   │       │   │   ├── proc-macro2 v1.0.107 (*)
+│   │       │   │   ├── quote v1.0.47 (*)
+│   │       │   │   └── syn v2.0.119 (*)
+│   │       │   ├── subtle v2.6.1
+│   │       │   └── zeroize v1.9.1 (*)
+│   │       ├── rand_core v0.6.4 (*)
+│   │       └── zeroize v1.9.1 (*)
+│   ├── bytemuck v1.25.2 (*)
+│   ├── bytes v1.12.1
+│   ├── chacha20poly1305 v0.11.0
+│   │   ├── aead v0.6.1 (*)
+│   │   ├── chacha20 v0.10.2
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── cipher v0.5.2 (*)
+│   │   │   ├── cpufeatures v0.3.1
+│   │   │   └── rand_core v0.10.1
+│   │   ├── cipher v0.5.2 (*)
+│   │   └── poly1305 v0.9.1
+│   │       ├── cpufeatures v0.3.1
+│   │       └── universal-hash v0.6.1 (*)
+│   ├── chrono v0.4.45
+│   │   ├── num-traits v0.2.19 (*)
+│   │   ├── serde v1.0.229 (*)
+│   │   └── windows-link v0.2.1
+│   ├── ciborium v0.2.2
+│   │   ├── ciborium-io v0.2.2
+│   │   ├── ciborium-ll v0.2.2
+│   │   │   ├── ciborium-io v0.2.2
+│   │   │   └── half v2.7.1
+│   │   │       ├── cfg-if v1.0.5
+│   │   │       ├── num-traits v0.2.19 (*)
+│   │   │       └── zerocopy v0.8.63 (*)
+│   │   └── serde v1.0.229 (*)
+│   ├── core_affinity v0.8.3
+│   │   ├── num_cpus v1.17.0
+│   │   └── winapi v0.3.9
+│   ├── crossbeam-channel v0.5.17
+│   │   └── crossbeam-utils v0.8.23
+│   ├── csv v1.4.0
+│   │   ├── csv-core v0.1.13
+│   │   │   └── memchr v2.8.3
+│   │   ├── itoa v1.0.18
+│   │   ├── ryu v1.0.23
+│   │   └── serde_core v1.0.229
+│   ├── dashmap v6.2.1
+│   │   ├── cfg-if v1.0.5
+│   │   ├── crossbeam-utils v0.8.23
+│   │   ├── hashbrown v0.14.5
+│   │   ├── lock_api v0.4.14 (*)
+│   │   ├── once_cell v1.21.4
+│   │   └── parking_lot_core v0.9.12 (*)
+│   ├── ed25519-dalek v3.0.0
+│   │   ├── curve25519-dalek v5.0.0
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── cpufeatures v0.3.1
+│   │   │   ├── curve25519-dalek-derive v0.1.1 (proc-macro) (*)
+│   │   │   ├── digest v0.11.3
+│   │   │   │   ├── block-buffer v0.12.1 (*)
+│   │   │   │   ├── const-oid v0.10.2
+│   │   │   │   ├── crypto-common v0.2.2 (*)
+│   │   │   │   └── ctutils v0.4.3 (*)
+│   │   │   ├── subtle v2.6.1
+│   │   │   └── zeroize v1.9.1 (*)
+│   │   ├── ed25519 v3.0.0
+│   │   │   └── signature v3.0.0
+│   │   ├── sha2 v0.11.1
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── cpufeatures v0.3.1
+│   │   │   └── digest v0.11.3 (*)
+│   │   └── subtle v2.6.1
+│   ├── etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── arrayvec v0.7.8 (*)
+│   │   ├── bitflags v2.13.2 (*)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── cfg-if v1.0.5
+│   │   ├── document-features v0.2.12 (proc-macro)
+│   │   │   └── litrs v1.0.1
+│   │   ├── etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   ├── arrayvec v0.7.8 (*)
+│   │   │   ├── bit-set v0.11.1
+│   │   │   │   └── bit-vec v0.10.1
+│   │   │   ├── bit-vec v0.10.1
+│   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── document-features v0.2.12 (proc-macro) (*)
+│   │   │   ├── etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │   └── etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │       ├── arrayvec v0.7.8 (*)
+│   │   │   │       ├── ash v0.38.0+1.3.281
+│   │   │   │       │   └── libloading v0.8.9 (*)
+│   │   │   │       ├── bit-set v0.11.1 (*)
+│   │   │   │       ├── bitflags v2.13.2 (*)
+│   │   │   │       ├── bytemuck v1.25.2 (*)
+│   │   │   │       ├── cfg-if v1.0.5
+│   │   │   │       ├── etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │       │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │       │   │   ├── bitflags v2.13.2 (*)
+│   │   │   │       │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │       │   │   ├── log v0.4.34
+│   │   │   │       │   │   ├── macro_rules_attribute v0.2.3
+│   │   │   │       │   │   │   ├── macro_rules_attribute-proc_macro v0.2.3 (proc-macro)
+│   │   │   │       │   │   │   └── pastey v0.2.3 (proc-macro)
+│   │   │   │       │   │   ├── naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │       │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │       │   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   │       │   │   │   ├── indexmap v2.14.2 (*)
+│   │   │   │       │   │   │   ├── rustc-hash v1.1.0
+│   │   │   │       │   │   │   └── serde v1.0.229 (*)
+│   │   │   │       │   │   ├── raw-window-handle v0.6.2
+│   │   │   │       │   │   ├── serde v1.0.229 (*)
+│   │   │   │       │   │   └── static_assertions v1.1.0
+│   │   │   │       │   └── naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │       │       ├── arrayvec v0.7.8 (*)
+│   │   │   │       │       ├── bit-set v0.11.1 (*)
+│   │   │   │       │       ├── bitflags v2.13.2 (*)
+│   │   │   │       │       ├── cfg-if v1.0.5
+│   │   │   │       │       ├── codespan-reporting v0.13.1
+│   │   │   │       │       │   ├── termcolor v1.4.1
+│   │   │   │       │       │   │   └── winapi-util v0.1.11
+│   │   │   │       │       │   │       └── windows-sys v0.61.2 (*)
+│   │   │   │       │       │   └── unicode-width v0.2.2
+│   │   │   │       │       ├── half v2.7.1 (*)
+│   │   │   │       │       ├── hashbrown v0.17.1 (*)
+│   │   │   │       │       ├── indexmap v2.14.2 (*)
+│   │   │   │       │       ├── libm v0.2.16
+│   │   │   │       │       ├── log v0.4.34
+│   │   │   │       │       ├── naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   │       │       ├── num-traits v0.2.19 (*)
+│   │   │   │       │       ├── once_cell v1.21.4
+│   │   │   │       │       ├── petgraph v0.8.3
+│   │   │   │       │       │   ├── fixedbitset v0.5.7
+│   │   │   │       │       │   ├── hashbrown v0.15.5
+│   │   │   │       │       │   │   └── foldhash v0.1.5
+│   │   │   │       │       │   └── indexmap v2.14.2 (*)
+│   │   │   │       │       ├── rustc-hash v1.1.0
+│   │   │   │       │       ├── spirv v0.4.0+sdk-1.4.341.0
+│   │   │   │       │       │   └── bitflags v2.13.2 (*)
+│   │   │   │       │       ├── thiserror v2.0.21 (*)
+│   │   │   │       │       └── unicode-ident v1.0.27
+│   │   │   │       ├── etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   │   │       │   ├── cfg-if v1.0.5
+│   │   │   │       │   ├── lock_api v0.4.14 (*)
+│   │   │   │       │   ├── once_cell v1.21.4
+│   │   │   │       │   └── parking_lot v0.12.5 (*)
+│   │   │   │       ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   │       ├── glow v0.18.0
+│   │   │   │       ├── glutin_wgl_sys v0.6.1
+│   │   │   │       ├── gpu-allocator v0.28.0
+│   │   │   │       │   ├── ash v0.38.0+1.3.281 (*)
+│   │   │   │       │   ├── hashbrown v0.16.1
+│   │   │   │       │   │   ├── allocator-api2 v0.2.21
+│   │   │   │       │   │   ├── equivalent v1.0.3
+│   │   │   │       │   │   └── foldhash v0.2.0
+│   │   │   │       │   ├── log v0.4.34
+│   │   │   │       │   ├── presser v0.3.1
+│   │   │   │       │   ├── thiserror v2.0.21 (*)
+│   │   │   │       │   └── windows v0.62.2 (*)
+│   │   │   │       ├── hashbrown v0.17.1 (*)
+│   │   │   │       ├── khronos-egl v6.0.0
+│   │   │   │       │   ├── libc v0.2.191
+│   │   │   │       │   └── libloading v0.8.9 (*)
+│   │   │   │       ├── libloading v0.8.9 (*)
+│   │   │   │       ├── log v0.4.34
+│   │   │   │       ├── naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   │       ├── naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   │       ├── ordered-float v5.5.0
+│   │   │   │       │   └── num-traits v0.2.19 (*)
+│   │   │   │       ├── profiling v1.0.18
+│   │   │   │       ├── range-alloc v0.1.5
+│   │   │   │       ├── raw-window-handle v0.6.2
+│   │   │   │       ├── renderdoc-sys v1.1.0
+│   │   │   │       ├── smallvec v1.16.3 (*)
+│   │   │   │       ├── static_assertions v1.1.0
+│   │   │   │       ├── thiserror v2.0.21 (*)
+│   │   │   │       ├── windows v0.62.2 (*)
+│   │   │   │       ├── windows-core v0.62.2 (*)
+│   │   │   │       └── windows-result v0.4.1 (*)
+│   │   │   ├── etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   ├── etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   ├── etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   ├── hashbrown v0.17.1 (*)
+│   │   │   ├── indexmap v2.14.2 (*)
+│   │   │   ├── log v0.4.34
+│   │   │   ├── macro_rules_attribute v0.2.3 (*)
+│   │   │   ├── naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   ├── naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   ├── profiling v1.0.18
+│   │   │   ├── raw-window-handle v0.6.2
+│   │   │   ├── rustc-hash v1.1.0
+│   │   │   ├── scopeguard v1.2.0
+│   │   │   ├── serde v1.0.229 (*)
+│   │   │   ├── smallvec v1.16.3 (*)
+│   │   │   └── thiserror v2.0.21 (*)
+│   │   ├── etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── log v0.4.34
+│   │   ├── naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── profiling v1.0.18
+│   │   ├── raw-window-handle v0.6.2
+│   │   ├── smallvec v1.16.3 (*)
+│   │   └── static_assertions v1.1.0
+│   ├── etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── log v0.4.34
+│   │   └── thiserror v2.0.21 (*)
+│   ├── etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── log v0.4.34
+│   │   └── thiserror v2.0.21 (*)
+│   ├── etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── log v0.4.34
+│   │   └── thiserror v2.0.21 (*)
+│   ├── etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── log v0.4.34
+│   │   └── thiserror v2.0.21 (*)
+│   ├── etalon-wasm v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── log v0.4.34
+│   │   └── thiserror v2.0.21 (*)
+│   ├── etalon-wgsl-forge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   ├── blake3 v1.8.7 (*)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── log v0.4.34
+│   │   ├── naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   │   ├── serde v1.0.229 (*)
+│   │   ├── serde_json v1.0.154 (*)
+│   │   ├── tempfile v3.27.0
+│   │   │   ├── fastrand v2.5.0
+│   │   │   ├── getrandom v0.4.3 (*)
+│   │   │   ├── once_cell v1.21.4
+│   │   │   └── windows-sys v0.61.2 (*)
+│   │   └── thiserror v2.0.21 (*)
+│   ├── fast_qr v0.13.1
+│   ├── fhe v0.1.1
+│   │   ├── doc-comment v0.3.4
+│   │   ├── fhe-math v0.1.1
+│   │   │   ├── ethnum v1.5.3
+│   │   │   ├── fhe-traits v0.1.1
+│   │   │   │   └── rand v0.9.5 (*)
+│   │   │   ├── fhe-util v0.1.1
+│   │   │   │   ├── num-bigint-dig v0.9.1
+│   │   │   │   │   ├── libm v0.2.16
+│   │   │   │   │   ├── num-integer v0.1.47 (*)
+│   │   │   │   │   ├── num-iter v0.1.46
+│   │   │   │   │   │   ├── num-integer v0.1.47 (*)
+│   │   │   │   │   │   └── num-traits v0.2.19 (*)
+│   │   │   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   │   │   ├── once_cell v1.21.4
+│   │   │   │   │   ├── rand v0.9.5 (*)
+│   │   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   │   └── smallvec v1.16.3 (*)
+│   │   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   │   └── rand v0.9.5 (*)
+│   │   │   ├── itertools v0.14.0 (*)
+│   │   │   ├── ndarray v0.17.2
+│   │   │   │   ├── matrixmultiply v0.3.11
+│   │   │   │   │   └── rawpointer v0.2.1
+│   │   │   │   ├── num-complex v0.4.6
+│   │   │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │   │   └── num-traits v0.2.19 (*)
+│   │   │   │   ├── num-integer v0.1.47 (*)
+│   │   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   │   └── rawpointer v0.2.1
+│   │   │   ├── num-bigint v0.4.8 (*)
+│   │   │   ├── num-bigint-dig v0.9.1 (*)
+│   │   │   ├── num-complex v0.4.6 (*)
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   ├── prost v0.14.4
+│   │   │   │   ├── bytes v1.12.1
+│   │   │   │   └── prost-derive v0.14.4 (proc-macro)
+│   │   │   │       ├── anyhow v1.0.104
+│   │   │   │       ├── itertools v0.14.0
+│   │   │   │       │   └── either v1.19.0
+│   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │       └── syn v2.0.119 (*)
+│   │   │   ├── pulp v0.22.3
+│   │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   ├── libm v0.2.16
+│   │   │   │   ├── num-complex v0.4.6 (*)
+│   │   │   │   ├── paste v1.0.15 (proc-macro)
+│   │   │   │   ├── pulp-wasm-simd-flag v0.1.1
+│   │   │   │   ├── raw-cpuid v11.6.0
+│   │   │   │   │   └── bitflags v2.13.2 (*)
+│   │   │   │   └── reborrow v0.5.5
+│   │   │   ├── rand v0.9.5 (*)
+│   │   │   ├── rand_chacha v0.9.0 (*)
+│   │   │   ├── sha2 v0.10.9 (*)
+│   │   │   ├── tfhe-ntt v0.6.1
+│   │   │   │   ├── aligned-vec v0.6.4
+│   │   │   │   │   └── equator v0.4.2
+│   │   │   │   │       └── equator-macro v0.4.2 (proc-macro)
+│   │   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │           ├── quote v1.0.47 (*)
+│   │   │   │   │           └── syn v2.0.119 (*)
+│   │   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   │   └── pulp v0.21.5
+│   │   │   │       ├── bytemuck v1.25.2 (*)
+│   │   │   │       ├── cfg-if v1.0.5
+│   │   │   │       ├── libm v0.2.16
+│   │   │   │       ├── num-complex v0.4.6 (*)
+│   │   │   │       └── reborrow v0.5.5
+│   │   │   ├── thiserror v2.0.21 (*)
+│   │   │   └── zeroize v1.9.1 (*)
+│   │   ├── fhe-traits v0.1.1 (*)
+│   │   ├── fhe-util v0.1.1 (*)
+│   │   ├── itertools v0.14.0 (*)
+│   │   ├── ndarray v0.17.2 (*)
+│   │   ├── num-bigint v0.4.8 (*)
+│   │   ├── num-traits v0.2.19 (*)
+│   │   ├── once_cell v1.21.4
+│   │   ├── prost v0.14.4 (*)
+│   │   ├── rand v0.9.5 (*)
+│   │   ├── rand_chacha v0.9.0 (*)
+│   │   ├── thiserror v2.0.21 (*)
+│   │   ├── zeroize v1.9.1 (*)
+│   │   └── zeroize_derive v1.5.0 (proc-macro) (*)
+│   ├── fhe-traits v0.1.1 (*)
+│   ├── fips203 v0.4.3
+│   │   ├── rand_core v0.6.4 (*)
+│   │   ├── sha3 v0.10.9
+│   │   │   ├── digest v0.10.7 (*)
+│   │   │   └── keccak v0.1.6
+│   │   ├── subtle v2.6.1
+│   │   └── zeroize v1.9.1 (*)
+│   ├── fips204 v0.4.6
+│   │   ├── rand_core v0.6.4 (*)
+│   │   ├── sha2 v0.10.9 (*)
+│   │   ├── sha3 v0.10.9 (*)
+│   │   └── zeroize v1.9.1 (*)
+│   ├── fips205 v0.4.1
+│   │   ├── rand_core v0.6.4 (*)
+│   │   ├── sha2 v0.10.9 (*)
+│   │   ├── sha3 v0.10.9 (*)
+│   │   └── zeroize v1.9.1 (*)
+│   ├── flate2 v1.1.10 (*)
+│   ├── futures-channel v0.3.34 (*)
+│   ├── futures-core v0.3.34
+│   ├── futures-intrusive v0.5.0
+│   │   ├── futures-core v0.3.34
+│   │   └── lock_api v0.4.14 (*)
+│   ├── futures-util v0.3.34 (*)
+│   ├── getrandom v0.4.3 (*)
+│   ├── h2 v0.4.20
+│   │   ├── atomic-waker v1.1.2
+│   │   ├── bytes v1.12.1
+│   │   ├── fnv v1.0.7
+│   │   ├── futures-core v0.3.34
+│   │   ├── futures-sink v0.3.34
+│   │   ├── http v1.5.0 (*)
+│   │   ├── indexmap v2.14.2 (*)
+│   │   ├── slab v0.4.12
+│   │   ├── tokio v1.54.0 (*)
+│   │   ├── tokio-util v0.7.20
+│   │   │   ├── bytes v1.12.1
+│   │   │   ├── futures-core v0.3.34
+│   │   │   ├── futures-sink v0.3.34
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   └── tokio v1.54.0 (*)
+│   │   └── tracing v0.1.44 (*)
+│   ├── half v2.7.1 (*)
+│   ├── hex v0.4.3
+│   ├── hkdf v0.13.0
+│   │   └── hmac v0.13.0
+│   │       └── digest v0.11.3 (*)
+│   ├── hmac v0.13.0 (*)
+│   ├── http v1.5.0 (*)
+│   ├── http-body-util v0.1.5 (*)
+│   ├── jpeg-decoder v0.3.2
+│   │   └── rayon v1.12.0 (*)
+│   ├── keyring v4.2.0
+│   │   ├── keyring-core v1.0.1
+│   │   │   └── log v0.4.34
+│   │   └── windows-native-keyring-store v1.1.0
+│   │       ├── byteorder v1.5.0
+│   │       ├── keyring-core v1.0.1 (*)
+│   │       ├── regex v1.13.1
+│   │       │   ├── aho-corasick v1.1.5
+│   │       │   │   └── memchr v2.8.3
+│   │       │   ├── memchr v2.8.3
+│   │       │   ├── regex-automata v0.4.18
+│   │       │   │   ├── aho-corasick v1.1.5 (*)
+│   │       │   │   ├── memchr v2.8.3
+│   │       │   │   └── regex-syntax v0.8.11
+│   │       │   └── regex-syntax v0.8.11
+│   │       ├── windows-sys v0.61.2 (*)
+│   │       └── zeroize v1.9.1 (*)
+│   ├── libc v0.2.191
+│   ├── log v0.4.34
+│   ├── lz4_flex v0.13.1
+│   │   └── twox-hash v2.1.5
+│   ├── memmap2 v0.9.11
+│   ├── mikktspace v0.3.0
+│   │   └── glam v0.15.2
+│   ├── minicbor v2.3.1
+│   ├── mp4 v0.14.0
+│   │   ├── byteorder v1.5.0
+│   │   ├── bytes v1.12.1
+│   │   ├── num-rational v0.4.2
+│   │   │   ├── num-bigint v0.4.8 (*)
+│   │   │   ├── num-integer v0.1.47 (*)
+│   │   │   ├── num-traits v0.2.19 (*)
+│   │   │   └── serde v1.0.229 (*)
+│   │   ├── serde v1.0.229 (*)
+│   │   ├── serde_json v1.0.154 (*)
+│   │   └── thiserror v1.0.69
+│   │       └── thiserror-impl v1.0.69 (proc-macro)
+│   │           ├── proc-macro2 v1.0.107 (*)
+│   │           ├── quote v1.0.47 (*)
+│   │           └── syn v2.0.119 (*)
+│   ├── naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   ├── num_cpus v1.17.0
+│   ├── oxiri v0.2.11
+│   ├── png v0.17.16
+│   │   ├── bitflags v1.3.2
+│   │   ├── crc32fast v1.5.2 (*)
+│   │   ├── fdeflate v0.3.7 (*)
+│   │   ├── flate2 v1.1.10 (*)
+│   │   └── miniz_oxide v0.8.9 (*)
+│   ├── pollster v1.0.1
+│   ├── qualia-audio v0.0.40 (C:\github\qualiaDB\crates\qualia-audio)
+│   ├── qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+│   │   ├── chrono v0.4.45 (*)
+│   │   ├── hex v0.4.3
+│   │   ├── serde v1.0.229 (*)
+│   │   ├── serde_json v1.0.154 (*)
+│   │   ├── sha2 v0.11.1 (*)
+│   │   └── uuid v1.28.0 (*)
+│   ├── qualia-inference-kernel v0.0.40 (C:\github\qualiaDB\crates\qualia-inference-kernel)
+│   ├── quick-xml v0.41.0
+│   │   └── memchr v2.8.3
+│   ├── rand v0.9.5 (*)
+│   ├── rand v0.10.3
+│   │   ├── chacha20 v0.10.2 (*)
+│   │   ├── getrandom v0.4.3 (*)
+│   │   └── rand_core v0.10.1
+│   ├── rand_distr v0.6.0
+│   │   ├── num-traits v0.2.19 (*)
+│   │   └── rand v0.10.3 (*)
+│   ├── raw-window-handle v0.6.2
+│   ├── rayon v1.12.0 (*)
+│   ├── rcgen v0.14.10
+│   │   ├── pem v4.0.0
+│   │   │   └── base64 v0.23.1
+│   │   ├── ring v0.17.14 (*)
+│   │   ├── rustls-pki-types v1.15.1
+│   │   │   └── zeroize v1.9.1 (*)
+│   │   ├── time v0.3.55
+│   │   │   ├── deranged v0.5.9
+│   │   │   ├── num-conv v0.2.2
+│   │   │   ├── powerfmt v0.2.1
+│   │   │   └── time-core v0.1.9
+│   │   └── yasna v0.6.0
+│   │       └── time v0.3.55 (*)
+│   ├── regex v1.13.1 (*)
+│   ├── reqwest v0.13.5
+│   │   ├── base64 v0.23.1
+│   │   ├── bytes v1.12.1
+│   │   ├── futures-channel v0.3.34 (*)
+│   │   ├── futures-core v0.3.34
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── http v1.5.0 (*)
+│   │   ├── http-body v1.1.0 (*)
+│   │   ├── http-body-util v0.1.5 (*)
+│   │   ├── hyper v1.12.0 (*)
+│   │   ├── hyper-rustls v0.27.10
+│   │   │   ├── http v1.5.0 (*)
+│   │   │   ├── hyper v1.12.0 (*)
+│   │   │   ├── hyper-util v0.1.21 (*)
+│   │   │   ├── rustls v0.23.46
+│   │   │   │   ├── log v0.4.34
+│   │   │   │   ├── once_cell v1.21.4
+│   │   │   │   ├── ring v0.17.14 (*)
+│   │   │   │   ├── rustls-pki-types v1.15.1 (*)
+│   │   │   │   ├── rustls-webpki v0.103.15
+│   │   │   │   │   ├── ring v0.17.14 (*)
+│   │   │   │   │   ├── rustls-pki-types v1.15.1 (*)
+│   │   │   │   │   └── untrusted v0.9.0
+│   │   │   │   ├── subtle v2.6.1
+│   │   │   │   └── zeroize v1.9.1 (*)
+│   │   │   ├── tokio v1.54.0 (*)
+│   │   │   ├── tokio-rustls v0.26.6
+│   │   │   │   ├── rustls v0.23.46 (*)
+│   │   │   │   └── tokio v1.54.0 (*)
+│   │   │   └── tower-service v0.3.3
+│   │   ├── hyper-util v0.1.21 (*)
+│   │   ├── log v0.4.34
+│   │   ├── percent-encoding v2.3.2
+│   │   ├── pin-project-lite v0.2.17
+│   │   ├── rustls v0.23.46 (*)
+│   │   ├── rustls-pki-types v1.15.1 (*)
+│   │   ├── rustls-platform-verifier v0.7.1
+│   │   │   ├── log v0.4.34
+│   │   │   ├── rustls v0.23.46 (*)
+│   │   │   └── windows-sys v0.61.2 (*)
+│   │   ├── serde v1.0.229 (*)
+│   │   ├── serde_json v1.0.154 (*)
+│   │   ├── sync_wrapper v1.0.2 (*)
+│   │   ├── tokio v1.54.0 (*)
+│   │   ├── tokio-rustls v0.26.6 (*)
+│   │   ├── tower v0.5.3 (*)
+│   │   ├── tower-http v0.6.11
+│   │   │   ├── bitflags v2.13.2 (*)
+│   │   │   ├── bytes v1.12.1
+│   │   │   ├── futures-util v0.3.34 (*)
+│   │   │   ├── http v1.5.0 (*)
+│   │   │   ├── http-body v1.1.0 (*)
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   ├── tower v0.5.3 (*)
+│   │   │   ├── tower-layer v0.3.3
+│   │   │   ├── tower-service v0.3.3
+│   │   │   └── url v2.5.8 (*)
+│   │   ├── tower-service v0.3.3
+│   │   └── url v2.5.8 (*)
+│   ├── rio_api v0.8.6
+│   ├── rio_turtle v0.8.6
+│   │   ├── oxilangtag v0.1.6
+│   │   ├── oxiri v0.2.11
+│   │   └── rio_api v0.8.6
+│   ├── rio_xml v0.8.6
+│   │   ├── oxilangtag v0.1.6
+│   │   ├── oxiri v0.2.11
+│   │   ├── quick-xml v0.36.2
+│   │   │   └── memchr v2.8.3
+│   │   └── rio_api v0.8.6
+│   ├── rtrb v0.3.5
+│   ├── rustls v0.23.46 (*)
+│   ├── rustls-pki-types v1.15.1 (*)
+│   ├── serde v1.0.229 (*)
+│   ├── serde-wasm-bindgen v0.6.5
+│   │   ├── js-sys v0.3.106
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── futures-util v0.3.34 (*)
+│   │   │   └── wasm-bindgen v0.2.129
+│   │   │       ├── cfg-if v1.0.5
+│   │   │       ├── once_cell v1.21.4
+│   │   │       ├── wasm-bindgen-macro v0.2.129 (proc-macro)
+│   │   │       │   ├── quote v1.0.47 (*)
+│   │   │       │   └── wasm-bindgen-macro-support v0.2.129
+│   │   │       │       ├── bumpalo v3.20.3
+│   │   │       │       ├── proc-macro2 v1.0.107 (*)
+│   │   │       │       ├── quote v1.0.47 (*)
+│   │   │       │       ├── syn v3.0.9 (*)
+│   │   │       │       └── wasm-bindgen-shared v0.2.129
+│   │   │       │           └── unicode-ident v1.0.27
+│   │   │       └── wasm-bindgen-shared v0.2.129
+│   │   │           └── unicode-ident v1.0.27
+│   │   ├── serde v1.0.229 (*)
+│   │   └── wasm-bindgen v0.2.129 (*)
+│   ├── serde_bytes v0.11.19
+│   │   └── serde_core v1.0.229
+│   ├── serde_json v1.0.154 (*)
+│   ├── serde_yaml v0.9.34+deprecated
+│   │   ├── indexmap v2.14.2 (*)
+│   │   ├── itoa v1.0.18
+│   │   ├── ryu v1.0.23
+│   │   ├── serde v1.0.229 (*)
+│   │   └── unsafe-libyaml v0.2.11
+│   ├── sha1 v0.11.0
+│   │   ├── cfg-if v1.0.5
+│   │   ├── cpufeatures v0.3.1
+│   │   └── digest v0.11.3 (*)
+│   ├── sha2 v0.11.1 (*)
+│   ├── sha3 v0.12.0
+│   │   ├── digest v0.11.3 (*)
+│   │   ├── keccak v0.2.2
+│   │   │   └── cfg-if v1.0.5
+│   │   └── sponge-cursor v0.1.0
+│   ├── sysinfo v0.39.6
+│   │   ├── libc v0.2.191
+│   │   ├── memchr v2.8.3
+│   │   ├── ntapi v0.4.3
+│   │   │   └── winapi v0.3.9
+│   │   └── windows v0.62.2 (*)
+│   ├── tempfile v3.27.0 (*)
+│   ├── tokio v1.54.0 (*)
+│   ├── tokio-rustls v0.26.6 (*)
+│   ├── tokio-stream v0.1.19
+│   │   ├── futures-core v0.3.34
+│   │   ├── pin-project-lite v0.2.17
+│   │   ├── tokio v1.54.0 (*)
+│   │   └── tokio-util v0.7.20 (*)
+│   ├── tower-http v0.7.1
+│   │   ├── bitflags v2.13.2 (*)
+│   │   ├── bytes v1.12.1
+│   │   ├── futures-core v0.3.34
+│   │   ├── futures-util v0.3.34 (*)
+│   │   ├── http v1.5.0 (*)
+│   │   ├── http-body v1.1.0 (*)
+│   │   ├── http-body-util v0.1.5 (*)
+│   │   ├── http-range-header v0.4.2
+│   │   ├── httpdate v1.0.3
+│   │   ├── mime v0.3.17
+│   │   ├── mime_guess v2.0.5
+│   │   │   ├── mime v0.3.17
+│   │   │   └── unicase v2.10.0
+│   │   ├── percent-encoding v2.3.2
+│   │   ├── pin-project-lite v0.2.17
+│   │   ├── tokio v1.54.0 (*)
+│   │   ├── tokio-util v0.7.20 (*)
+│   │   ├── tower-layer v0.3.3
+│   │   └── tower-service v0.3.3
+│   ├── urlencoding v2.1.3
+│   ├── vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   └── unicode-xid v0.2.6
+│   ├── wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+│   │   └── etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+│   ├── windows v0.62.2 (*)
+│   ├── x25519-dalek v3.0.0
+│   │   ├── curve25519-dalek v5.0.0 (*)
+│   │   ├── rand_core v0.10.1
+│   │   └── zeroize v1.9.1 (*)
+│   ├── zeroize v1.9.1 (*)
+│   └── zstd v0.13.3
+│       └── zstd-safe v7.3.0
+│           └── zstd-sys v2.1.2+zstd.1.5.7
+├── vibe v0.0.40 (C:\github\qualiaDB\crates\vibe) (*)
+└── webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    ├── base64 v0.23.1
+    ├── bytemuck v1.25.2 (*)
+    ├── etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)
+    ├── image v0.25.10 (*)
+    ├── log v0.4.34
+    ├── pollster v1.0.1
+    ├── qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db) (*)
+    ├── serde v1.0.229 (*)
+    ├── vibe v0.0.40 (C:\github\qualiaDB\crates\vibe) (*)
+    └── wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) (*)

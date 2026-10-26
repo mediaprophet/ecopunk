@@ -1,0 +1,38 @@
+{
+  "command": [
+    "cargo",
+    "check",
+    "--manifest-path",
+    "C:\\github\\ecopunk\\tools\\format-sdk-wasm-check\\Cargo.toml",
+    "--locked",
+    "--offline",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target"
+  ],
+  "mode": "wasm",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T14:30:05.404783+00:00",
+  "finished_utc": "2026-10-25T14:32:49.157351+00:00",
+  "elapsed_seconds": 163.75,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\wasm.log",
+  "log_sha256": "d95353400266365a8b675825256a1f33ca2a92d78fff4e738337dfa6b3dc478b",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\wasm-source-before.json",
+  "source_snapshot_sha256": "7fa9719e12675fcaac981fd4ea397c349133c49f1c6cba38c5fc979b3f5c58d4",
+  "recorded_local_source_files": 3253,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [],
+  "passed_case_names": [],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

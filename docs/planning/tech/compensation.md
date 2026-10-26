@@ -10,6 +10,31 @@
 
 ## 1. The claim being modelled
 
+**2026-10-24 clarification:** retain unpaid/underpaid/self-funded civics work and
+its compensation status when funded civic/government activity later adopts it.
+Actor capacity and payment status are separate; paid people-led work remains
+civics. Use the existing cooperative project's obligation-cost mechanism:
+qualifying commercial use contributes until discharge; an applicable human-rights
+no-charge use is a policy treatment of that use, not evidence of payment, an
+authorized contributor waiver or discharge. Preserve remaining obligations and
+bounded cost recovery without turning the work into perpetual rent. See the
+[purpose/terminology contract](high-grade-production-and-civics-experience.md).
+
+**Concrete source handoff:** [semantic-agreements-and-compensation.md](semantic-agreements-and-compensation.md)
+links the Humanitarian Equity Framework, licence profiles, semantic instruments,
+tokens and native cooperative APIs. Inspected `projects::derive_obligations`
+currently adds effort minutes to capital cents before scaling into a score;
+that score is not a unit-qualified monetary valuation. AGR-03 qualifies the
+rate/unit/benchmark mapping and actual-compensation distinction using this model
+and its owning native APIs. No rate or payable debt is inferred in this review.
+
+[Provider credit and period terms](credit-allocations-and-periodic-reconciliation.md)
+must retain actual funding, reservations/drawdown, separately accepted debts,
+verified settlement and provider-directed residuals as distinct records. A token
+representing an obligation is not payment; unused provider funds are not
+automatically project revenue or a donor's gift. Qualify existing QDNF/finance
+owners and real rail evidence rather than replacing the compensation model.
+
 Contributors accrue obligation costs (cooperative-layer §3); "fair" is the
 normative question of *what that obligation should be* for a unit of work. The
 model required by the project direction has three modulation axes:

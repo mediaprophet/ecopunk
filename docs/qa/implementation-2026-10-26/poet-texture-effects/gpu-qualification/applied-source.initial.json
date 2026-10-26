@@ -1,0 +1,27 @@
+{
+  "date_utc": "2026-10-26T07:03:53.647810+00:00",
+  "scope": "User requests remaining Wave2 native GPU/control qualification. Four reviewed test/registration files only, preimages preserved; no production assets, manifests or upstream source changes.",
+  "files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\detail_controls.rs",
+      "sha256_before": "be70ad2b39ba7ef633b3e269a49b08614d22e9f1f731741d8ebbf3b0f11551d7",
+      "sha256_after": "b31da3635f64a1199d54ff072879233c3013a0578f5e0a91ec2587f06a800616"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_tests.rs",
+      "sha256_before": "abddde692ca30aa9fd2ebc5bb199e2edce8de27d36fa9757d3c2f9288f85a6fd",
+      "sha256_after": "812f6a09ecdbd2103af4caeb763f394f227db263716db31fe59d815fb4c3745e"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\texture_effect_component_tests.rs",
+      "sha256_before": null,
+      "sha256_after": "01db0ba1166e85f923b6af8c598fccc7a4c0c823f1f6d88fadfae08747913e8c"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_gpu_tests.rs",
+      "sha256_before": null,
+      "sha256_after": "d340bbbe911ace607ee5ab680ec9ee538a8f45941ab9defdc5d19d8c5f746a8d"
+    }
+  ],
+  "completed": true
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "poet-reference-producer-source-save/1",
+  "created_utc": "2026-10-25T01:10:40.8067387Z",
+  "destination": "C:/github/Poet/native/examples/growing_reference",
+  "before": "absent",
+  "files": [
+    {
+      "name": "authority.rs",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\reference-producer\\candidate\\authority.rs",
+      "sha256": "1a85f317770e19fd5d0eb719ace32c89363abc8d438f85e9bdf512bb44759a45"
+    },
+    {
+      "name": "files.rs",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\reference-producer\\candidate\\files.rs",
+      "sha256": "acc7706bcd7b152058f70b38126659172978ccd485f55b33bab804351c13fc2f"
+    },
+    {
+      "name": "main.rs",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\reference-producer\\candidate\\main.rs",
+      "sha256": "10a278431af5373e7539be2a587d9d1ab00aa6bda7e309dd42c1ab4291a2186b"
+    },
+    {
+      "name": "package.rs",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\reference-producer\\candidate\\package.rs",
+      "sha256": "7c2ea80502dfa32ed29bbd767d9c038d85bcc4cb9ea1bed0af853d1d7b8f2be3"
+    },
+    {
+      "name": "produce.rs",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\reference-producer\\candidate\\produce.rs",
+      "sha256": "648aafad28ee7ee860d6e2f0f8b3fa76203e26207c635ad5c31ce83ae36f9d64"
+    },
+    {
+      "name": "render.rs",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\reference-producer\\candidate\\render.rs",
+      "sha256": "639c21ba5c24b512c3121c4a89584663200c151e543fbcbfdffccf01c96a4415"
+    }
+  ],
+  "cargo_run": false,
+  "gpu_run": false,
+  "os_credentials_accessed": false,
+  "human_acceptance": false
+}

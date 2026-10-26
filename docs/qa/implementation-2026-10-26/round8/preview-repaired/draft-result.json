@@ -1,0 +1,55 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::draft_buffer::tests::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "draft",
+  "attempt": "preview-repaired",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T14:33:56.927113+00:00",
+  "finished_utc": "2026-10-25T14:35:44.228646+00:00",
+  "elapsed_seconds": 107.296,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\draft.log",
+  "log_sha256": "e918ea240cbf2fc9583d5c88039f7ada407461168af8f2103f6f61692c532a89",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\draft-source-before.json",
+  "source_snapshot_sha256": "64592fc95a4059eaf09c39dd09e8aa4841adc7c0c39a87dd58c2e7d4b70b31bf",
+  "recorded_local_source_files": 3253,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      4,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::draft_buffer::tests::pending_completion_preserves_typing_and_detects_edit_then_undo",
+    "graphical::draft_buffer::tests::pending_success_adopts_text_only_for_unchanged_private_draft",
+    "graphical::draft_buffer::tests::returning_reviewer_explicitly_adopts_current_source_without_changing_shared_state",
+    "graphical::draft_buffer::tests::standalone_completion_and_buffer_context_fail_closed"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

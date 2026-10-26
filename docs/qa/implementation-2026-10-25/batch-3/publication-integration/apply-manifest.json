@@ -1,0 +1,41 @@
+{
+  "scope": "Native source/execution/authority publication guards and material-parser ingress hardening",
+  "mutations": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "candidate": "candidate/src/graphical/controller.rs",
+      "original_sha256": "3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627",
+      "candidate_sha256": "09c62140b8b1fd7231e338940e57325494c96c4d6837834a7855434273552768"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "candidate": "candidate/src/graphical/jobs_tests.rs",
+      "original_sha256": "d3ae6ec5fbb2e8fd82e6636b31a9e523471f5f6b2edc22cc8fc9c2bd8a2a0233",
+      "candidate_sha256": "25bf796e78d0b401e3fa09819ea5d1a0e22ba1612705b0381cfa967248240877"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "candidate": "candidate/src/graphical/jobs.rs",
+      "original_sha256": "2a177862b7fe780c52dc692fb5987ced95565431e36a7b57670ed4d7bed9b907",
+      "candidate_sha256": "b84a3239504e9db4998870e939ed2ba2514bb3ac47b1c3e25ba6a85ba2059d9b"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "candidate": "candidate/src/graphical/ui.rs",
+      "original_sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5",
+      "candidate_sha256": "32522daef80c6322c965553ab9a69d672026d77e12d03f86ece6b1a36acb83c7"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "candidate": "candidate/src/graphical/mcp/mod.rs",
+      "original_sha256": "48bdb4f9e7ed24c18ece0d9ebf9308cf8e6f3a5d72b3d87be3dd5bb0687de66c",
+      "candidate_sha256": "3a3f5300ae06515da0d0add5f7ccae5adeb5e8c2fc70d166e9c4deb2e7af890d"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_edit.rs",
+      "candidate": "candidate/src/graphical/material_edit.rs",
+      "original_sha256": "50152f946c253c4d6727d41bd5c7e331dbbcfd7551dec71e77f4a25b8e59255e",
+      "candidate_sha256": "bfc640fdea00ff1825ba37b509736932d4c19f69a8036271d8245a8e2985de8b"
+    }
+  ]
+}

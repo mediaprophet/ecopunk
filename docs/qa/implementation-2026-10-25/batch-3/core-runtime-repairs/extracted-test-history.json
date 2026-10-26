@@ -1,0 +1,32 @@
+[
+  {
+    "name": "dispatch_tick_hook_fires",
+    "original": "    #[test]\r\n    fn dispatch_tick_hook_fires() {\r\n        let mut snap = PoetSnapshot::with_demo_seed();\r\n        let src = r#\"\r\nrequires [ capability(\"pulse.publish\") ];\r\neffect fn emit() {\r\n    effect pulse.publish(\"poet/tick\", 1);\r\n    return null;\r\n}\r\non tick() {\r\n    return emit();\r\n}\r\n\"#;\r\n        let path = vec![\"tick\".to_string()];\r\n        let v = snap.dispatch_hook_src(src, &path, vec![]).unwrap();\r\n        assert_eq!(v, Value::Null);\r\n        assert_eq!(\r\n            snap.published.len(),\r\n            1,\r\n            \"tick hook should have triggered a publish\"\r\n        );\r\n        assert_eq!(snap.published[0].topic, \"poet/tick\");\r\n    }\r\n",
+    "new_module": "poet_host::scoped_effects::tests"
+  },
+  {
+    "name": "g_tick_hook_with_pulse_publish_through_snapshot",
+    "original": "    #[test]\r\n    fn g_tick_hook_with_pulse_publish_through_snapshot() {\r\n        let mut snap = PoetSnapshot::with_demo_seed();\r\n        let src = r#\"\r\nrequires [ capability(\"pulse.publish\") ];\r\neffect fn emit() {\r\n    effect pulse.publish(\"poet/tick\", 42);\r\n    return null;\r\n}\r\non tick() {\r\n    return emit();\r\n}\r\n\"#;\r\n        let path = vec![\"tick\".to_string()];\r\n        let v = snap.dispatch_hook_src(src, &path, vec![]).unwrap();\r\n        assert_eq!(v, Value::Null);\r\n        assert_eq!(snap.published.len(), 1);\r\n        assert_eq!(snap.published[0].topic, \"poet/tick\");\r\n    }\r\n",
+    "new_module": "poet_host::scoped_effects::tests"
+  },
+  {
+    "name": "t42_hid_vibescript_poll",
+    "original": "    #[test]\r\n    fn t42_hid_vibescript_poll() {\r\n        let mut snap = PoetSnapshot::default();\r\n        let event = vibe::hid::InboundEvent::pointer_move(100, \"mouse:0\", 5.0, 10.0);\r\n        snap.enqueue_hid_event(&event).unwrap();\r\n\r\n        // Test via VibeScript\r\n        let v = snap.eval_cell_src(\"= hid.poll()\").unwrap();\r\n        match v {\r\n            Value::Record(r) => {\r\n                assert_eq!(r.get(\"timestamp_ns\"), Some(&Value::U64(100)));\r\n            }\r\n            other => panic!(\"expected record, got {other:?}\"),\r\n        }\r\n    }\r\n",
+    "new_module": "poet_host::scoped_effects::tests"
+  },
+  {
+    "name": "t42_hid_vibescript_poll_empty",
+    "original": "    #[test]\r\n    fn t42_hid_vibescript_poll_empty() {\r\n        let mut snap = PoetSnapshot::default();\r\n        let v = snap.eval_cell_src(\"= hid.poll()\").unwrap();\r\n        assert_eq!(v, Value::Null);\r\n    }\r\n",
+    "new_module": "poet_host::scoped_effects::tests"
+  },
+  {
+    "name": "test_crypto_ed25519_generate_sign_verify_roundtrip",
+    "original": "    #[test]\r\n    fn test_crypto_ed25519_generate_sign_verify_roundtrip() {\r\n        let mut snap = PoetSnapshot::default();\r\n        let gen_src = r#\"\r\n            import \"crypto\" as crypto;\r\n            fn make_key() {\r\n                return crypto.generate_key(\"Ed25519\");\r\n            }\r\n        \"#;\r\n        let key_rec_val = snap.eval_fn(gen_src, \"make_key\", vec![]).unwrap();\r\n        let key_rec = match key_rec_val {\r\n            Value::Record(r) => r,\r\n            _ => panic!(\"expected Record\"),\r\n        };\r\n        let key_id = match key_rec.get(\"key_id\").unwrap() {\r\n            Value::String(s) => s.clone(),\r\n            _ => panic!(\"expected String key_id\"),\r\n        };\r\n\r\n        let sign_src = format!(\r\n            r#\"\r\n            import \"crypto\" as crypto;\r\n            fn sign_doc() {{\r\n                return crypto.sign(\"{}\", \"authentic contract payload\");\r\n            }}\r\n            \"#,\r\n            key_id\r\n        );\r\n        let sig_val = snap.eval_fn(&sign_src, \"sign_doc\", vec![]).unwrap();\r\n        let sig_hex = match sig_val {\r\n            Value::String(s) => s,\r\n            _ => panic!(\"expected String signature\"),\r\n        };\r\n\r\n        let verify_src = format!(\r\n            r#\"\r\n            import \"crypto\" as crypto;\r\n            fn verify_doc() {{\r\n                return crypto.verify(\"{}\", \"authentic contract payload\", \"{}\");\r\n            }}\r\n            \"#,\r\n            key_id, sig_hex\r\n        );\r\n        let verify_val = snap.eval_fn(&verify_src, \"verify_doc\", vec![]).unwrap();\r\n        assert_eq!(verify_val, Value::Bool(true));\r\n\r\n        let verify_bad_src = format!(\r\n            r#\"\r\n            import \"crypto\" as crypto;\r\n            fn verify_tampered() {{\r\n                return crypto.verify(\"{}\", \"tampered payload\", \"{}\");\r\n            }}\r\n            \"#,\r\n            key_id, sig_hex\r\n        );\r\n        let verify_bad_val = snap.eval_fn(&verify_bad_src, \"verify_tampered\", vec![]).unwrap();\r\n        assert_eq!(verify_bad_val, Value::Bool(false));\r\n    }\r\n",
+    "new_module": "poet_host::scoped_effects::tests"
+  },
+  {
+    "name": "crypto_sign_fail_closed",
+    "original": "    #[test]\r\n    fn crypto_sign_fail_closed() {\r\n        let mut snap = PoetSnapshot::default();\r\n        let src = r#\"\r\n            import \"crypto\" as crypto;\r\n            fn sign_it() {\r\n                return crypto.sign(\"key:ed25519:0\", \"data\");\r\n            }\r\n        \"#;\r\n        let result = snap.eval_fn(src, \"sign_it\", vec![]);\r\n        assert!(result.is_err());\r\n    }\r\n",
+    "new_module": "poet_host::scoped_effects::tests"
+  }
+]

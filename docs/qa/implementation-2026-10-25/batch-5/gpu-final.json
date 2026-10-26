@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "binary": "C:\\github\\ecopunk\\target\\debug\\deps\\poet_cli-4552951f723d5116.exe",
+  "sha256": "E608D7650AEDCB9A4A67D4A9A4035A4396F740CC4CB3D24E22D173A580A2392B",
+  "test": "graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels",
+  "started_utc": "2026-10-24T23:54:34.3319196Z",
+  "finished_utc": "2026-10-24T23:54:47.1636629Z",
+  "input_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\source-snapshots\\2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc.json",
+    "sha256": "2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc"
+  },
+  "source_unchanged": true,
+  "core_receipt": "core-final.json",
+  "native_receipt": "native-final.json",
+  "scope": "Actual saved-source native source admission, material edits and PortalGpu readback; no window or human acceptance"
+}

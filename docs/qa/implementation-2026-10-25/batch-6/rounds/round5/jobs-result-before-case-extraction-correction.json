@@ -1,0 +1,66 @@
+{
+  "mode": "jobs",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::jobs::tests::",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T08:41:19.839292+00:00",
+  "finished_utc": "2026-10-25T08:41:32.002492+00:00",
+  "elapsed_seconds": 12.157,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\jobs.log",
+  "log_sha256": "5c45e8b37950ba741a491794e2825793af0aa9f769c4e879ccee494ca3bb89ad",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\jobs-source-before.json",
+  "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784",
+  "recorded_local_source_files": 3036,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 13,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      13,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::jobs::tests::actual_source_successor_and_retired_rebuild_epoch_publish_into_the_requesting_view",
+    "graphical::jobs::tests::closing_joins_started_rebuild_and_cancels_queued_command",
+    "graphical::jobs::tests::completed_image_cannot_follow_a_new_source_or_session_snapshot",
+    "graphical::jobs::tests::failed_host_attempt_delivers_reconciliation_snapshot_without_retry",
+    "graphical::jobs::tests::held_state_transition_rejects_prior_success_with_unchanged_epoch_revision_and_source",
+    "graphical::jobs::tests::one_worker_one_queue_and_cancelled_queued_work_never_starts",
+    "graphical::jobs::tests::preview_with_another_execution_epoch_is_withheld_before_encoding",
+    "graphical::jobs::tests::publication_rechecks_actual_store_after_worker_completion",
+    "graphical::jobs::tests::rebuilt_epoch_rejects_old_queued_reply_and_frame_even_when_revision_repeats",
+    "graphical::jobs::tests::resource_inspection_late_source_and_session_completions_are_withheld",
+    "graphical::jobs::tests::stale_session_or_replaced_incarnation_cannot_dispatch_or_install",
+    "graphical::jobs::tests::unsupported_profile_has_no_rebuild_dispatch"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round5-zmv117ex",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

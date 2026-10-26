@@ -1,0 +1,1966 @@
+{
+  "distinctCanonicalPathCount": 122,
+  "issues": [
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-surface.10d",
+      "finding": {
+        "actualBytes": 87664,
+        "context": "model:bark-study:component:0",
+        "expectedBytes": 42800,
+        "path": "10d/bark-study-surface.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000000"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-surface.10d",
+      "finding": {
+        "actualSha256": "e47607da7b6e62153d2b64f8230b8429829c305990255a6561b9b818e4ca8689",
+        "context": "model:bark-study:component:0",
+        "expectedSha256": "91376cc886107b2b0fd0d60ed22cb2155dcb7f2acbd4c5755a43221b9face9a2",
+        "path": "10d/bark-study-surface.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000001"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-weathering.10d",
+      "finding": {
+        "actualBytes": 4282,
+        "context": "model:bark-study:component:1",
+        "expectedBytes": 22400,
+        "path": "10d/bark-study-weathering.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000002"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "finding": {
+        "context": "model:flower-study:component:1",
+        "expectedBytes": 12400,
+        "expectedSha256": "e3029f957cb1d02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89a",
+        "path": "10d/flower-dissection.10d",
+        "status": "conflicting_metadata"
+      },
+      "id": "I000003"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "finding": {
+        "context": "model:flower-study:component:4",
+        "expectedBytes": 15600,
+        "expectedSha256": "47cb59015ba6a048792019cba85a1ef030bb98ef0102aa56bc108849ff01cd20",
+        "path": "10d/flower-dissection.10d",
+        "status": "conflicting_metadata"
+      },
+      "id": "I000004"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "finding": {
+        "actualBytes": 124512,
+        "context": "model:flower-study:component:1",
+        "expectedBytes": 12400,
+        "path": "10d/flower-dissection.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000005"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "finding": {
+        "actualSha256": "223e72faa9ac419567667364ddfd0315e90e21fad5d44a6a3fabf2ddd5326801",
+        "context": "model:flower-study:component:1",
+        "expectedSha256": "e3029f957cb1d02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89a",
+        "path": "10d/flower-dissection.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000006"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "finding": {
+        "actualBytes": 124512,
+        "context": "model:flower-study:component:4",
+        "expectedBytes": 15600,
+        "path": "10d/flower-dissection.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000007"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "finding": {
+        "actualSha256": "223e72faa9ac419567667364ddfd0315e90e21fad5d44a6a3fabf2ddd5326801",
+        "context": "model:flower-study:component:4",
+        "expectedSha256": "47cb59015ba6a048792019cba85a1ef030bb98ef0102aa56bc108849ff01cd20",
+        "path": "10d/flower-dissection.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000008"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-pedicel.10d",
+      "finding": {
+        "actualBytes": 933,
+        "context": "model:flower-study:component:3",
+        "expectedBytes": 8600,
+        "path": "10d/flower-study-pedicel.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000009"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-receptacle.10d",
+      "finding": {
+        "actualBytes": 3308,
+        "context": "model:flower-study:component:0",
+        "expectedBytes": 14200,
+        "path": "10d/flower-study-receptacle.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000010"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-stamens.10d",
+      "finding": {
+        "actualBytes": 7545,
+        "context": "model:flower-study:component:2",
+        "expectedBytes": 32800,
+        "path": "10d/flower-study-stamens.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000011"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-dissection.10d",
+      "finding": {
+        "actualBytes": 124512,
+        "context": "model:gumnut-study:component:3",
+        "expectedBytes": 13800,
+        "path": "10d/gumnut-dissection.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000012"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-dissection.10d",
+      "finding": {
+        "actualSha256": "223e72faa9ac419567667364ddfd0315e90e21fad5d44a6a3fabf2ddd5326801",
+        "context": "model:gumnut-study:component:3",
+        "expectedSha256": "3a018bc79940ef9810bbce271890efba108849ff01cd2047cb59015ba6a04879",
+        "path": "10d/gumnut-dissection.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000013"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-capsule.10d",
+      "finding": {
+        "actualBytes": 3305,
+        "context": "model:gumnut-study:component:0",
+        "expectedBytes": 22400,
+        "path": "10d/gumnut-study-capsule.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000014"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-pedicel.10d",
+      "finding": {
+        "actualBytes": 897,
+        "context": "model:gumnut-study:component:2",
+        "expectedBytes": 7400,
+        "path": "10d/gumnut-study-pedicel.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000015"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-rim.10d",
+      "finding": {
+        "actualBytes": 2933,
+        "context": "model:gumnut-study:component:1",
+        "expectedBytes": 10200,
+        "path": "10d/gumnut-study-rim.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000016"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-anatomy-cutaway.10d",
+      "finding": {
+        "actualBytes": 135200,
+        "context": "model:leaf-study:component:2",
+        "expectedBytes": 72150,
+        "path": "10d/leaf-anatomy-cutaway.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000017"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-anatomy-cutaway.10d",
+      "finding": {
+        "actualSha256": "a80fc176c3a9c9c17a728beb6f645df64c0ad08b9587fd69123055f81fe5577d",
+        "context": "model:leaf-study:component:2",
+        "expectedSha256": "8f42d109825b682390a7862fec82947e9261895a09289bbde86f9e2b109357ab",
+        "path": "10d/leaf-anatomy-cutaway.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000018"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-blade.10d",
+      "finding": {
+        "actualBytes": 135200,
+        "context": "model:leaf-study:component:0",
+        "expectedBytes": 48250,
+        "path": "10d/leaf-study-blade.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000019"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-blade.10d",
+      "finding": {
+        "actualSha256": "a80fc176c3a9c9c17a728beb6f645df64c0ad08b9587fd69123055f81fe5577d",
+        "context": "model:leaf-study:component:0",
+        "expectedSha256": "2fc7f702f59c4f904622c115117adface3d41f7c7005e6f955d80f33ed103bfe",
+        "path": "10d/leaf-study-blade.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000020"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-midrib.10d",
+      "finding": {
+        "actualBytes": 135200,
+        "context": "model:leaf-study:component:1",
+        "expectedBytes": 21400,
+        "path": "10d/leaf-study-midrib.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000021"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-midrib.10d",
+      "finding": {
+        "actualSha256": "a80fc176c3a9c9c17a728beb6f645df64c0ad08b9587fd69123055f81fe5577d",
+        "context": "model:leaf-study:component:1",
+        "expectedSha256": "325a21eb25a1af4ab6f0ac7e99d802a19356edb395cd0f92fc5cfb5d894e59ca",
+        "path": "10d/leaf-study-midrib.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000022"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\stem-anatomy-wedge.10d",
+      "finding": {
+        "actualBytes": 87664,
+        "context": "model:bark-study:component:2",
+        "expectedBytes": 58900,
+        "path": "10d/stem-anatomy-wedge.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000023"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\stem-anatomy-wedge.10d",
+      "finding": {
+        "actualSha256": "e47607da7b6e62153d2b64f8230b8429829c305990255a6561b9b818e4ca8689",
+        "context": "model:bark-study:component:2",
+        "expectedSha256": "7810bbce271890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef",
+        "path": "10d/stem-anatomy-wedge.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000024"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "context": "model:whole-organism-roots:component:0",
+        "expectedBytes": 19800,
+        "expectedSha256": "a1ef030bb98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "conflicting_metadata"
+      },
+      "id": "I000025"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "context": "model:whole-organism-roots:component:1",
+        "expectedBytes": 17200,
+        "expectedSha256": "b02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89ae3029f957cb1",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "conflicting_metadata"
+      },
+      "id": "I000026"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "context": "model:whole-organism-roots:component:2",
+        "expectedBytes": 29400,
+        "expectedSha256": "c890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef7810bbce27",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "conflicting_metadata"
+      },
+      "id": "I000027"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "context": "model:whole-organism-roots:component:3",
+        "expectedBytes": 22600,
+        "expectedSha256": "d98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85a1ef030b",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "conflicting_metadata"
+      },
+      "id": "I000028"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualBytes": 89200,
+        "context": "model:whole-organism-roots:component:0",
+        "expectedBytes": 19800,
+        "path": "10d/whole-organism-roots.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000029"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "context": "model:whole-organism-roots:component:0",
+        "expectedSha256": "a1ef030bb98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000030"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualBytes": 89200,
+        "context": "model:whole-organism-roots:component:1",
+        "expectedBytes": 17200,
+        "path": "10d/whole-organism-roots.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000031"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "context": "model:whole-organism-roots:component:1",
+        "expectedSha256": "b02c529ba89012cdbf899450a80e1a1ef05f0376fba89955e89ae3029f957cb1",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000032"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualBytes": 89200,
+        "context": "model:whole-organism-roots:component:2",
+        "expectedBytes": 29400,
+        "path": "10d/whole-organism-roots.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000033"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "context": "model:whole-organism-roots:component:2",
+        "expectedSha256": "c890efba108849ff01cd2047cb59015ba6a048793a018bc79940ef7810bbce27",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000034"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualBytes": 89200,
+        "context": "model:whole-organism-roots:component:3",
+        "expectedBytes": 22600,
+        "path": "10d/whole-organism-roots.10d",
+        "status": "byte_count_mismatch"
+      },
+      "id": "I000035"
+    },
+    {
+      "canonicalResource": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "finding": {
+        "actualSha256": "61ad1b9e57e7397d8dd283972701bb731cc32193a8ba553726305b723aec6435",
+        "context": "model:whole-organism-roots:component:3",
+        "expectedSha256": "d98ef0102aa56bc108849ff01cd2047cb59015ba6a048792019cba85a1ef030b",
+        "path": "10d/whole-organism-roots.10d",
+        "status": "sha256_mismatch"
+      },
+      "id": "I000036"
+    }
+  ],
+  "manifest": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\model-set.json",
+  "manifestBytes": 77254,
+  "manifestSha256": "fcbd9adc8c9e6ce2aa7d3aa5efdaa6cec795adf19b2e23b2f68dd1cb0d193a96",
+  "referenceCount": 126,
+  "references": [
+    {
+      "context": "model:mature-tree:component:0",
+      "id": "R000000",
+      "path": "10d/mature-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree:component:1",
+      "id": "R000001",
+      "path": "10d/mature-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree:component:2",
+      "id": "R000002",
+      "path": "10d/mature-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree:component:3",
+      "id": "R000003",
+      "path": "10d/mature-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree:component:4",
+      "id": "R000004",
+      "path": "10d/mature-tree-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree:component:0",
+      "id": "R000005",
+      "path": "10d/juvenile-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree:component:1",
+      "id": "R000006",
+      "path": "10d/juvenile-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree:component:2",
+      "id": "R000007",
+      "path": "10d/juvenile-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree:component:3",
+      "id": "R000008",
+      "path": "10d/juvenile-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree:component:4",
+      "id": "R000009",
+      "path": "10d/juvenile-tree-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree:component:0",
+      "id": "R000010",
+      "path": "10d/multi-stem-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree:component:1",
+      "id": "R000011",
+      "path": "10d/multi-stem-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree:component:2",
+      "id": "R000012",
+      "path": "10d/multi-stem-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree:component:3",
+      "id": "R000013",
+      "path": "10d/multi-stem-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree:component:4",
+      "id": "R000014",
+      "path": "10d/multi-stem-tree-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree:component:0",
+      "id": "R000015",
+      "path": "10d/rocky-open-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree:component:1",
+      "id": "R000016",
+      "path": "10d/rocky-open-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree:component:2",
+      "id": "R000017",
+      "path": "10d/rocky-open-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree:component:3",
+      "id": "R000018",
+      "path": "10d/rocky-open-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree:component:4",
+      "id": "R000019",
+      "path": "10d/rocky-open-tree-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree:component:0",
+      "id": "R000020",
+      "path": "10d/ground-scorched-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree:component:1",
+      "id": "R000021",
+      "path": "10d/ground-scorched-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree:component:2",
+      "id": "R000022",
+      "path": "10d/ground-scorched-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree:component:3",
+      "id": "R000023",
+      "path": "10d/ground-scorched-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree:component:4",
+      "id": "R000024",
+      "path": "10d/ground-scorched-tree-lower-trunk-scorch.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree:component:0",
+      "id": "R000025",
+      "path": "10d/canopy-scorched-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree:component:1",
+      "id": "R000026",
+      "path": "10d/canopy-scorched-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree:component:2",
+      "id": "R000027",
+      "path": "10d/canopy-scorched-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree:component:3",
+      "id": "R000028",
+      "path": "10d/canopy-scorched-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree:component:0",
+      "id": "R000029",
+      "path": "10d/epicormic-regrowth-tree-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree:component:1",
+      "id": "R000030",
+      "path": "10d/epicormic-regrowth-tree-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree:component:2",
+      "id": "R000031",
+      "path": "10d/epicormic-regrowth-tree-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree:component:3",
+      "id": "R000032",
+      "path": "10d/epicormic-regrowth-tree-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree:component:4",
+      "id": "R000033",
+      "path": "10d/epicormic-regrowth-tree-lower-trunk-scorch.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree:component:5",
+      "id": "R000034",
+      "path": "10d/epicormic-regrowth-tree-epicormic-shoots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-epicormic-shoots.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-mid:component:0",
+      "id": "R000035",
+      "path": "10d/mature-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-mid:component:1",
+      "id": "R000036",
+      "path": "10d/mature-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-mid:component:2",
+      "id": "R000037",
+      "path": "10d/mature-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-mid:component:3",
+      "id": "R000038",
+      "path": "10d/mature-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-mid:component:4",
+      "id": "R000039",
+      "path": "10d/mature-tree-mid-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-far:component:0",
+      "id": "R000040",
+      "path": "10d/mature-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-far:component:1",
+      "id": "R000041",
+      "path": "10d/mature-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-far:component:2",
+      "id": "R000042",
+      "path": "10d/mature-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-far:component:3",
+      "id": "R000043",
+      "path": "10d/mature-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:mature-tree-far:component:4",
+      "id": "R000044",
+      "path": "10d/mature-tree-far-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-mid:component:0",
+      "id": "R000045",
+      "path": "10d/juvenile-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-mid:component:1",
+      "id": "R000046",
+      "path": "10d/juvenile-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-mid:component:2",
+      "id": "R000047",
+      "path": "10d/juvenile-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-mid:component:3",
+      "id": "R000048",
+      "path": "10d/juvenile-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-mid:component:4",
+      "id": "R000049",
+      "path": "10d/juvenile-tree-mid-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-far:component:0",
+      "id": "R000050",
+      "path": "10d/juvenile-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-far:component:1",
+      "id": "R000051",
+      "path": "10d/juvenile-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-far:component:2",
+      "id": "R000052",
+      "path": "10d/juvenile-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-far:component:3",
+      "id": "R000053",
+      "path": "10d/juvenile-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:juvenile-tree-far:component:4",
+      "id": "R000054",
+      "path": "10d/juvenile-tree-far-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-mid:component:0",
+      "id": "R000055",
+      "path": "10d/multi-stem-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-mid:component:1",
+      "id": "R000056",
+      "path": "10d/multi-stem-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-mid:component:2",
+      "id": "R000057",
+      "path": "10d/multi-stem-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-mid:component:3",
+      "id": "R000058",
+      "path": "10d/multi-stem-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-mid:component:4",
+      "id": "R000059",
+      "path": "10d/multi-stem-tree-mid-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-far:component:0",
+      "id": "R000060",
+      "path": "10d/multi-stem-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-far:component:1",
+      "id": "R000061",
+      "path": "10d/multi-stem-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-far:component:2",
+      "id": "R000062",
+      "path": "10d/multi-stem-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-far:component:3",
+      "id": "R000063",
+      "path": "10d/multi-stem-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:multi-stem-tree-far:component:4",
+      "id": "R000064",
+      "path": "10d/multi-stem-tree-far-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-mid:component:0",
+      "id": "R000065",
+      "path": "10d/rocky-open-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-mid:component:1",
+      "id": "R000066",
+      "path": "10d/rocky-open-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-mid:component:2",
+      "id": "R000067",
+      "path": "10d/rocky-open-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-mid:component:3",
+      "id": "R000068",
+      "path": "10d/rocky-open-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-mid:component:4",
+      "id": "R000069",
+      "path": "10d/rocky-open-tree-mid-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-far:component:0",
+      "id": "R000070",
+      "path": "10d/rocky-open-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-far:component:1",
+      "id": "R000071",
+      "path": "10d/rocky-open-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-far:component:2",
+      "id": "R000072",
+      "path": "10d/rocky-open-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-far:component:3",
+      "id": "R000073",
+      "path": "10d/rocky-open-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:rocky-open-tree-far:component:4",
+      "id": "R000074",
+      "path": "10d/rocky-open-tree-far-cream-buds.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-mid:component:0",
+      "id": "R000075",
+      "path": "10d/ground-scorched-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-mid:component:1",
+      "id": "R000076",
+      "path": "10d/ground-scorched-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-mid:component:2",
+      "id": "R000077",
+      "path": "10d/ground-scorched-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-mid:component:3",
+      "id": "R000078",
+      "path": "10d/ground-scorched-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-mid:component:4",
+      "id": "R000079",
+      "path": "10d/ground-scorched-tree-mid-lower-trunk-scorch.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-far:component:0",
+      "id": "R000080",
+      "path": "10d/ground-scorched-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-far:component:1",
+      "id": "R000081",
+      "path": "10d/ground-scorched-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-far:component:2",
+      "id": "R000082",
+      "path": "10d/ground-scorched-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-far:component:3",
+      "id": "R000083",
+      "path": "10d/ground-scorched-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:ground-scorched-tree-far:component:4",
+      "id": "R000084",
+      "path": "10d/ground-scorched-tree-far-lower-trunk-scorch.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-mid:component:0",
+      "id": "R000085",
+      "path": "10d/canopy-scorched-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-mid:component:1",
+      "id": "R000086",
+      "path": "10d/canopy-scorched-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-mid:component:2",
+      "id": "R000087",
+      "path": "10d/canopy-scorched-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-mid:component:3",
+      "id": "R000088",
+      "path": "10d/canopy-scorched-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-far:component:0",
+      "id": "R000089",
+      "path": "10d/canopy-scorched-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-far:component:1",
+      "id": "R000090",
+      "path": "10d/canopy-scorched-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-far:component:2",
+      "id": "R000091",
+      "path": "10d/canopy-scorched-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:canopy-scorched-tree-far:component:3",
+      "id": "R000092",
+      "path": "10d/canopy-scorched-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-mid:component:0",
+      "id": "R000093",
+      "path": "10d/epicormic-regrowth-tree-mid-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-mid:component:1",
+      "id": "R000094",
+      "path": "10d/epicormic-regrowth-tree-mid-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-mid:component:2",
+      "id": "R000095",
+      "path": "10d/epicormic-regrowth-tree-mid-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-mid:component:3",
+      "id": "R000096",
+      "path": "10d/epicormic-regrowth-tree-mid-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-mid:component:4",
+      "id": "R000097",
+      "path": "10d/epicormic-regrowth-tree-mid-lower-trunk-scorch.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-mid:component:5",
+      "id": "R000098",
+      "path": "10d/epicormic-regrowth-tree-mid-epicormic-shoots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-epicormic-shoots.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-far:component:0",
+      "id": "R000099",
+      "path": "10d/epicormic-regrowth-tree-far-chalk-bark.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-far:component:1",
+      "id": "R000100",
+      "path": "10d/epicormic-regrowth-tree-far-branchwork.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-far:component:2",
+      "id": "R000101",
+      "path": "10d/epicormic-regrowth-tree-far-irregular-canopy.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-far:component:3",
+      "id": "R000102",
+      "path": "10d/epicormic-regrowth-tree-far-falcate-foliage.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-far:component:4",
+      "id": "R000103",
+      "path": "10d/epicormic-regrowth-tree-far-lower-trunk-scorch.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:epicormic-regrowth-tree-far:component:5",
+      "id": "R000104",
+      "path": "10d/epicormic-regrowth-tree-far-epicormic-shoots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-epicormic-shoots.10d",
+      "status": "ok"
+    },
+    {
+      "context": "model:leaf-study:component:0",
+      "id": "R000105",
+      "path": "10d/leaf-study-blade.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-blade.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:leaf-study:component:1",
+      "id": "R000106",
+      "path": "10d/leaf-study-midrib.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-midrib.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:leaf-study:component:2",
+      "id": "R000107",
+      "path": "10d/leaf-anatomy-cutaway.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-anatomy-cutaway.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:flower-study:component:0",
+      "id": "R000108",
+      "path": "10d/flower-study-receptacle.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-receptacle.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:flower-study:component:1",
+      "id": "R000109",
+      "path": "10d/flower-dissection.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:flower-study:component:2",
+      "id": "R000110",
+      "path": "10d/flower-study-stamens.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-stamens.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:flower-study:component:3",
+      "id": "R000111",
+      "path": "10d/flower-study-pedicel.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-pedicel.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:flower-study:component:4",
+      "id": "R000112",
+      "path": "10d/flower-dissection.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:gumnut-study:component:0",
+      "id": "R000113",
+      "path": "10d/gumnut-study-capsule.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-capsule.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:gumnut-study:component:1",
+      "id": "R000114",
+      "path": "10d/gumnut-study-rim.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-rim.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:gumnut-study:component:2",
+      "id": "R000115",
+      "path": "10d/gumnut-study-pedicel.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-pedicel.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:gumnut-study:component:3",
+      "id": "R000116",
+      "path": "10d/gumnut-dissection.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-dissection.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:bark-study:component:0",
+      "id": "R000117",
+      "path": "10d/bark-study-surface.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-surface.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:bark-study:component:1",
+      "id": "R000118",
+      "path": "10d/bark-study-weathering.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-weathering.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:bark-study:component:2",
+      "id": "R000119",
+      "path": "10d/stem-anatomy-wedge.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\stem-anatomy-wedge.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:whole-organism-roots:component:0",
+      "id": "R000120",
+      "path": "10d/whole-organism-roots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:whole-organism-roots:component:1",
+      "id": "R000121",
+      "path": "10d/whole-organism-roots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:whole-organism-roots:component:2",
+      "id": "R000122",
+      "path": "10d/whole-organism-roots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "model:whole-organism-roots:component:3",
+      "id": "R000123",
+      "path": "10d/whole-organism-roots.10d",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "context": "graph:source",
+      "id": "R000124",
+      "path": "graph/ecology-graph.json",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\graph\\ecology-graph.json",
+      "status": "ok"
+    },
+    {
+      "context": "graph:volume",
+      "id": "R000125",
+      "path": "graph/ecology.q42",
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\graph\\ecology.q42",
+      "status": "ok"
+    }
+  ],
+  "resources": [
+    {
+      "issueIds": [
+        "I000000",
+        "I000001"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-surface.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000002"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-weathering.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\canopy-scorched-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-epicormic-shoots.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-epicormic-shoots.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-far-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-epicormic-shoots.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\epicormic-regrowth-tree-mid-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [
+        "I000003",
+        "I000004",
+        "I000005",
+        "I000006",
+        "I000007",
+        "I000008"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000009"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-pedicel.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000010"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-receptacle.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000011"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-stamens.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-far-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\ground-scorched-tree-mid-lower-trunk-scorch.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [
+        "I000012",
+        "I000013"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-dissection.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000014"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-capsule.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000015"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-pedicel.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000016"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-rim.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\juvenile-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [
+        "I000017",
+        "I000018"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-anatomy-cutaway.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000019",
+        "I000020"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-blade.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000021",
+        "I000022"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-midrib.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\mature-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\multi-stem-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-far-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-branchwork.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-chalk-bark.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-cream-buds.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-falcate-foliage.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\rocky-open-tree-mid-irregular-canopy.10d",
+      "status": "ok"
+    },
+    {
+      "issueIds": [
+        "I000023",
+        "I000024"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\stem-anatomy-wedge.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [
+        "I000025",
+        "I000026",
+        "I000027",
+        "I000028",
+        "I000029",
+        "I000030",
+        "I000031",
+        "I000032",
+        "I000033",
+        "I000034",
+        "I000035",
+        "I000036"
+      ],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d",
+      "status": "integrity_issue"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\graph\\ecology-graph.json",
+      "status": "ok"
+    },
+    {
+      "issueIds": [],
+      "resourceId": "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\graph\\ecology.q42",
+      "status": "ok"
+    }
+  ],
+  "schema": "asset-integrity-report-v1",
+  "status": "issues"
+}

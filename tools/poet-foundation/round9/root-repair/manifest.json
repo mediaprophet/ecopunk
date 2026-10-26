@@ -1,0 +1,17 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/controller_support.rs",
+      "before_sha256": "bde5c6724faec1a25bc5d30df673bc41de15658c834ca2fda0fb34977134f270",
+      "after_sha256": "8de14f60a493cbfa99a672174e5eaeaa2616fe76ae76301df699cfce44310db3"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/mod.rs",
+      "before_sha256": "48e96c6717621f890fa5d3c9788b41b495ab8a9f87fef14f4ded5ac6a449718c",
+      "after_sha256": "dd3e7d7d1a412e7d03cf39499fc25d92738f0cfe76468483a96fd0a870d61ccc"
+    }
+  ]
+}

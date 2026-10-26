@@ -1,0 +1,333 @@
+Canonical selected-profile core suite: FAILED — 9712 passed, 43 failed, 3 ignored; 591.97 seconds.
+
+Classification counts:
+unresolved = 28
+environment_permission_denial_proved = 7
+unresolved_cpu_culling = 1
+possible_changed_renderer_path = 1
+known_prior_cml_failure = 1
+unresolved_effect_contract = 5
+
+Actual Studio evidence:
+vibe_host::invoke::studio_store::checkpoint::tests: 6 passed / 0 failed / 6 observed
+vibe_host::invoke::studio_store::journal_tests: 10 passed / 0 failed / 10 observed
+vibe_host::invoke::studio_store::stamped_tests: 5 passed / 0 failed / 5 observed
+
+No baseline/full rerun was performed. Do not label all 43 preexisting. AO pixel failure remains unresolved and may intersect the changed renderer path; indirect culling is a separate observed CPU routine failure.
+
+Every failure and exact output:
+
+[unresolved] net::peer::fabric::connect::tests::local_bound_udp_delivers_and_admits_session
+Log header line 10152
+thread 'net::peer::fabric::connect::tests::local_bound_udp_delivers_and_admits_session' (22796) panicked at crates\qualia-core-db\src\net\peer\fabric\connect.rs:338:18:
+called `Result::unwrap()` on an `Err` value: Capacity
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] net::peer::fabric::lease_protocol::tests::two_local_peers_exchange_under_cscp_lease
+Log header line 10157
+thread 'net::peer::fabric::lease_protocol::tests::two_local_peers_exchange_under_cscp_lease' (5832) panicked at crates\qualia-core-db\src\net\peer\fabric\lease_protocol.rs:100:9:
+assertion `left == right` failed
+  left: 0
+ right: 4
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] net::peer::fabric::relay::tests::lease_expiry_stops_forward
+Log header line 10164
+thread 'net::peer::fabric::relay::tests::lease_expiry_stops_forward' (23088) panicked at crates\qualia-core-db\src\net\peer\fabric\relay.rs:153:9:
+assertion `left == right` failed
+  left: Ok(0)
+ right: Err(LeaseDead)
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[environment_permission_denial_proved] p2p::connectivity::cscp_h2::tests::cscp_control_then_qsession_on_local_tls_h2
+Log header line 10171
+thread 'p2p::connectivity::cscp_h2::tests::cscp_control_then_qsession_on_local_tls_h2' (11792) panicked at crates\qualia-core-db\src\p2p\connectivity\cscp_h2.rs:232:62:
+called `Result::unwrap()` on an `Err` value: "tls-h2: An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)"
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[environment_permission_denial_proved] p2p::connectivity::cscp_h2::tests::unknown_critical_capsule_rejected
+Log header line 10176
+thread 'p2p::connectivity::cscp_h2::tests::unknown_critical_capsule_rejected' (26704) panicked at crates\qualia-core-db\src\p2p\connectivity\cscp_h2.rs:254:51:
+called `Result::unwrap()` on an `Err` value: "An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)"
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[environment_permission_denial_proved] p2p::connectivity::cscp_h2::tests::wrong_connect_protocol_rejected
+Log header line 10181
+thread 'p2p::connectivity::cscp_h2::tests::wrong_connect_protocol_rejected' (20980) panicked at crates\qualia-core-db\src\p2p\connectivity\cscp_h2.rs:245:9:
+An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[environment_permission_denial_proved] p2p::connectivity::cscp_wss::tests::cscp_control_then_qsession_on_local_tls_wss
+Log header line 10186
+thread 'p2p::connectivity::cscp_wss::tests::cscp_control_then_qsession_on_local_tls_wss' (20724) panicked at crates\qualia-core-db\src\p2p\connectivity\cscp_wss.rs:165:63:
+called `Result::unwrap()` on an `Err` value: "tls: An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)"
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[unresolved] p2p::connectivity::establish::tests::local_production_path_requires_qsession
+Log header line 10191
+thread 'p2p::connectivity::establish::tests::local_production_path_requires_qsession' (5924) panicked at crates\qualia-core-db\src\p2p\connectivity\establish.rs:113:66:
+called `Result::unwrap()` on an `Err` value: "ice: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (os error 10060)"
+Socket timeout OS 10060 is proved; its cause is unresolved. Other tests report explicit access denial, but that context does not prove this timeout has the same cause.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::connectivity::ice_udp::tests::binding_check_required_before_nominate
+Log header line 10196
+thread 'p2p::connectivity::ice_udp::tests::binding_check_required_before_nominate' (31312) panicked at crates\qualia-core-db\src\p2p\connectivity\ice_udp.rs:59:44:
+local STUN Binding: "A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (os error 10060)"
+Socket timeout OS 10060 is proved; its cause is unresolved. Other tests report explicit access denial, but that context does not prove this timeout has the same cause.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::connectivity::turn_local::tests::allocate_then_send_reaches_peer
+Log header line 10201
+thread 'p2p::connectivity::turn_local::tests::allocate_then_send_reaches_peer' (23604) panicked at crates\qualia-core-db\src\p2p\connectivity\turn_local.rs:224:58:
+local TURN: "A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (os error 10060)"
+Socket timeout OS 10060 is proved; its cause is unresolved. Other tests report explicit access denial, but that context does not prove this timeout has the same cause.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[environment_permission_denial_proved] p2p::connectivity::two_process::tests::two_process_authenticated_wss
+Log header line 10206
+thread 'p2p::connectivity::two_process::tests::two_process_authenticated_wss' (11420) panicked at crates\qualia-core-db\src\p2p\connectivity\two_process.rs:93:23:
+wss parent: "An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)"
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[environment_permission_denial_proved] p2p::connectivity::wss::tests::loopback_ws_datagram
+Log header line 10211
+thread 'p2p::connectivity::wss::tests::loopback_ws_datagram' (20484) panicked at crates\qualia-core-db\src\p2p\connectivity\wss.rs:375:46:
+called `Result::unwrap()` on an `Err` value: Os { code: 10013, kind: PermissionDenied, message: "An attempt was made to access a socket in a way forbidden by its access permissions." }
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[environment_permission_denial_proved] p2p::connectivity::wss_tls::tests::tls_wss_verifies_cert_and_carries_256
+Log header line 10216
+thread 'p2p::connectivity::wss_tls::tests::tls_wss_verifies_cert_and_carries_256' (7748) panicked at crates\qualia-core-db\src\p2p\connectivity\wss_tls.rs:235:52:
+called `Result::unwrap()` on an `Err` value: "An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)"
+Windows explicitly denied socket access (OS 10013). This proves the run encountered an OS access restriction; it does not identify whether sandbox, firewall or another policy supplied that restriction, or prove protocol correctness.
+Next: Qualify the focused loopback case in an authorized environment permitting the needed socket operation; preserve the denied-run evidence.
+
+[unresolved] p2p::mesh_service::tests::two_services_peer_and_deliver_over_channels
+Log header line 10221
+thread 'p2p::mesh_service::tests::two_services_peer_and_deliver_over_channels' (13412) panicked at crates\qualia-core-db\src\p2p\mesh_service.rs:439:9:
+session established via the service threads
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::social_qdnf::tests::chat_and_qdnf_demux_on_the_same_tunnel
+Log header line 10226
+thread 'p2p::social_qdnf::tests::chat_and_qdnf_demux_on_the_same_tunnel' (29812) panicked at crates\qualia-core-db\src\p2p\social_qdnf.rs:211:9:
+A WireGuard session
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::social_qdnf::tests::fragmented_handshake_over_wireguard_overlay
+Log header line 10231
+thread 'p2p::social_qdnf::tests::fragmented_handshake_over_wireguard_overlay' (25068) panicked at crates\qualia-core-db\src\p2p\social_qdnf.rs:211:9:
+A WireGuard session
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::social_qdnf::tests::two_meshes_exchange_a_qframe_over_wireguard
+Log header line 10236
+thread 'p2p::social_qdnf::tests::two_meshes_exchange_a_qframe_over_wireguard' (19840) panicked at crates\qualia-core-db\src\p2p\social_qdnf.rs:211:9:
+A WireGuard session
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram
+Log header line 10241
+thread 'p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram' (21444) panicked at crates\qualia-core-db\src\p2p\social_webnet.rs:324:9:
+assertion failed: a.has_session("b")
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::social_webnet::tests::two_meshes_peer_and_exchange_by_id
+Log header line 10246
+thread 'p2p::social_webnet::tests::two_meshes_peer_and_exchange_by_id' (2156) panicked at crates\qualia-core-db\src\p2p\social_webnet.rs:268:9:
+A established a session with B
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::wireguard_runtime::tests::endpoint_is_learned_from_authenticated_source
+Log header line 10251
+thread 'p2p::wireguard_runtime::tests::endpoint_is_learned_from_authenticated_source' (30316) panicked at crates\qualia-core-db\src\p2p\wireguard_runtime.rs:388:9:
+assertion `left == right` failed: A learned B's endpoint from the authenticated handshake (roaming)
+  left: None
+ right: Some(127.0.0.1:54711)
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] p2p::wireguard_runtime::tests::two_tunnels_handshake_and_carry_data_over_udp
+Log header line 10258
+thread 'p2p::wireguard_runtime::tests::two_tunnels_handshake_and_carry_data_over_udp' (30372) panicked at crates\qualia-core-db\src\p2p\wireguard_runtime.rs:331:9:
+A established a session
+Network/session/capacity assertion failed without explicit OS permission evidence in this failure block. Shared environment restriction is plausible context, not an established cause for this individual result.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] query::ingest::tests::turtle_with_empty_prefix_names_ingests
+Log header line 10263
+thread 'query::ingest::tests::turtle_with_empty_prefix_names_ingests' (24064) panicked at crates\qualia-core-db\src\query\ingest.rs:1198:9:
+assertion failed: report.flags & crate::q42_volume::FLAG_PERMISSIVE_COMMONS != 0
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] render::assets::tests::parse_glb_living_scene_decodes_hierarchy_skins_anims_morphs_and_khr
+Log header line 10268
+thread 'render::assets::tests::parse_glb_living_scene_decodes_hierarchy_skins_anims_morphs_and_khr' (27484) panicked at crates\qualia-core-db\src\render\assets\mod.rs:1140:9:
+assertion failed: scene.skl1_section.is_some()
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved_cpu_culling] render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap
+Log header line 10273
+thread 'render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap' (25100) panicked at crates\qualia-core-db\src\render\gpu\indirect_cull.rs:869:9:
+assertion `left == right` failed
+  left: 1
+ right: 3
+Assertion mesh_draw_count is 1 rather than 3. Inspected test calls cull_and_select_lod_indirect_zero_heap directly, a CPU routine over input/output slices with None HZB. It does not invoke the changed mesh fragment shader or material fallback textures. This source is outside the 11 changed core targets, but no original baseline proves it preexisting.
+Next: Culling owner should inspect frustum planes, world radius, effective projected radius, policy and fixture camera setup in this focused CPU case; do not attribute the count to MR shader changes without new evidence.
+
+[possible_changed_renderer_path] render::gpu::material_pixel_tests::native_mask_hole_preserves_receiver_depth_in_ao_prepass
+Log header line 10280
+thread 'render::gpu::material_pixel_tests::native_mask_hole_preserves_receiver_depth_in_ao_prepass' (21684) panicked at crates\qualia-core-db\src\render\gpu\material_pixel_tests.rs:425:5:
+transparent cutout must leave the rear receiver in the AO surface, not the front caster: hole=18, solid=15
+Actual native AO readback assertion failed: hole=18, solid=15; required hole > solid+100. This executes PortalGpu, material defaults, texture masks and AO targets, so it overlaps the family containing the changed MR fallback texel/shader. Inspected diff changes only unbound MR B from 0 to 1 (and default byte 0 to 255); both test materials start from legacy_default metallic=0. That makes a direct metallic-factor explanation less apparent, but is not a before/after proof. Cannot waive or label preexisting.
+Next: Render owner must run this single existing pixel test with original and changed MR shader/defaults on the same adapter/backend/fixture and inspect AO encoding/readback and alpha/depth coverage before accepting the renderer change.
+
+[unresolved] render::texture_transcode::tests::bc7_all_modes_decode_deterministically_without_fallback
+Log header line 10285
+thread 'render::texture_transcode::tests::bc7_all_modes_decode_deterministically_without_fallback' (21944) panicked at crates\qualia-core-db\src\render\texture_transcode.rs:416:13:
+assertion failed: out.iter().any(|p| p[3] > 0)
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] services::daemon_query::tests::sparql_local_service_executes_inner
+Log header line 10290
+thread 'services::daemon_query::tests::sparql_local_service_executes_inner' (14712) panicked at crates\qualia-core-db\src\services\daemon_query.rs:343:67:
+service query: ParseError("SPARQL SERVICE federation to remote endpoint DID 0x85af0579e90f48de is not wired to local executor (fails closed; use FederatedQueryHandler with configured endpoint URL)")
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] services::solid_ldp::export_q42::tests::q42_export_writes_turtle_and_manifest
+Log header line 10295
+Solid leave/migrate: Exported 1 record(s); omitted 0 sanctuary/restricted; classified redacted 0. → C:\github\ecopunk\target\qa-tmp\.tmpDEOYnB\solid-out
+
+thread 'services::solid_ldp::export_q42::tests::q42_export_writes_turtle_and_manifest' (12784) panicked at crates\qualia-core-db\src\services\solid_ldp\export_q42.rs:172:9:
+assertion failed: ttl.contains("https://example.org/Alice")
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] sparql_library::sparql_mm::tests::c2pa_never_claims_verified_from_field_presence
+Log header line 10301
+thread 'sparql_library::sparql_mm::tests::c2pa_never_claims_verified_from_field_presence' (4052) panicked at crates\qualia-core-db\src\sparql_library\sparql_mm.rs:1148:9:
+assertion `left == right` failed
+  left: IntegrityChecked
+ right: ParsedOnly
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] specialized_libs::chemistry_modeling::properties::tests::predict_from_molecule_density_and_boiling_point
+Log header line 10308
+thread 'specialized_libs::chemistry_modeling::properties::tests::predict_from_molecule_density_and_boiling_point' (29836) panicked at crates\qualia-core-db\src\specialized_libs\chemistry_modeling\properties.rs:750:14:
+called `Result::unwrap()` on an `Err` value: NotImplemented("no QSPR models available for the requested property types")
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] specialized_libs::engineering_analysis::tests::structural_vibration_facade_is_honest_not_implemented
+Log header line 10313
+thread 'specialized_libs::engineering_analysis::tests::structural_vibration_facade_is_honest_not_implemented' (23020) panicked at crates\qualia-core-db\src\specialized_libs\engineering_analysis\tests.rs:1118:5:
+assertion failed: matches!(res, Err(EngineeringError::NotImplemented(_)))
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] specialized_libs::engineering_analysis::tests::test_mechanical_analysis
+Log header line 10318
+thread 'specialized_libs::engineering_analysis::tests::test_mechanical_analysis' (3316) panicked at crates\qualia-core-db\src\specialized_libs\engineering_analysis\tests.rs:95:5:
+assertion failed: matches!(result, Err(EngineeringError::NotImplemented(_)))
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] specialized_libs::financial_modeling::tests::ingest_from_feed_generates_deterministic_series_when_no_cache
+Log header line 10323
+thread 'specialized_libs::financial_modeling::tests::ingest_from_feed_generates_deterministic_series_when_no_cache' (31512) panicked at crates\qualia-core-db\src\specialized_libs\financial_modeling\tests.rs:353:35:
+called `Result::unwrap()` on an `Err` value: DataError("price feed 'seeded_feed' for asset 'B' has no cached prices and real network feed transport is not configured (fails closed)")
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[known_prior_cml_failure] vibe_host::invoke::studio_store::tests::test_import_cml_and_csv
+Log header line 10328
+thread 'vibe_host::invoke::studio_store::tests::test_import_cml_and_csv' (14600) panicked at crates\qualia-core-db\src\poet_host\invoke\studio_store.rs:452:9:
+assertion `left == right` failed
+  left: None
+ right: Some("#000")
+Exact None versus Some("#000") mismatch was already observed in hmc/first-test-failures.log. Current checkpoint changes add serde/routing/retained-state validation; importer body is preserved. This is a prior observed failure, not a claim that all 43 failures predate this work.
+Next: Studio format owner should repair the line-oriented CML importer/test contract separately; preserve current accepted source semantics.
+
+[unresolved] vibe_host::invoke::wgsl_forge_seam::tests::wgsl_forge_seam_generates_and_validates
+Log header line 10335
+thread 'vibe_host::invoke::wgsl_forge_seam::tests::wgsl_forge_seam_generates_and_validates' (23912) panicked at crates\qualia-core-db\src\poet_host\invoke\wgsl_forge_seam.rs:397:10:
+called `Result::unwrap()` on an `Err` value: Diagnostic { code: E100, span: Span { start: 0, end: 0 }, message: "WgslForge.validate unknown kernel: unknown kernel: rmsnorm-f32", suggested_fix: None, evidential: None }
+Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved_effect_contract] vibe_host::tests::dispatch_tick_hook_fires
+Log header line 10340
+thread 'vibe_host::tests::dispatch_tick_hook_fires' (23428) panicked at crates\qualia-core-db\src\poet_host\mod.rs:2902:60:
+called `Result::unwrap()` on an `Err` value: Diagnostic { code: E200, span: Span { start: 146, end: 152 }, message: "call exceeds permitted effect class", suggested_fix: None, evidential: None }
+E200 effect permission rejection is observed through legacy PoetSnapshot eval/load entry points. Inspected eval_cell_src calls vibe::eval_cell and eval_fn calls load_program/eval_function; neither routes through SourceSession::submit_validated. New callback additions are not a demonstrated cause; earlier checker compatibility and each test capability/effect declaration require reconciliation. No old baseline proves this preexisting.
+Next: Vibe/host owner should reconcile this exact legacy test declaration and transitive effect contract; retain strict admission rather than bypass effects to make the test pass.
+
+[unresolved_effect_contract] vibe_host::tests::g_tick_hook_with_pulse_publish_through_snapshot
+Log header line 10345
+thread 'vibe_host::tests::g_tick_hook_with_pulse_publish_through_snapshot' (13476) panicked at crates\qualia-core-db\src\poet_host\mod.rs:3139:60:
+called `Result::unwrap()` on an `Err` value: Diagnostic { code: E200, span: Span { start: 147, end: 153 }, message: "call exceeds permitted effect class", suggested_fix: None, evidential: None }
+E200 effect permission rejection is observed through legacy PoetSnapshot eval/load entry points. Inspected eval_cell_src calls vibe::eval_cell and eval_fn calls load_program/eval_function; neither routes through SourceSession::submit_validated. New callback additions are not a demonstrated cause; earlier checker compatibility and each test capability/effect declaration require reconciliation. No old baseline proves this preexisting.
+Next: Vibe/host owner should reconcile this exact legacy test declaration and transitive effect contract; retain strict admission rather than bypass effects to make the test pass.
+
+[unresolved_effect_contract] vibe_host::tests::t42_hid_vibescript_poll
+Log header line 10350
+thread 'vibe_host::tests::t42_hid_vibescript_poll' (9288) panicked at crates\qualia-core-db\src\poet_host\mod.rs:2018:52:
+called `Result::unwrap()` on an `Err` value: Diagnostic { code: E200, span: Span { start: 2, end: 12 }, message: "call exceeds permitted effect class", suggested_fix: None, evidential: None }
+E200 effect permission rejection is observed through legacy PoetSnapshot eval/load entry points. Inspected eval_cell_src calls vibe::eval_cell and eval_fn calls load_program/eval_function; neither routes through SourceSession::submit_validated. New callback additions are not a demonstrated cause; earlier checker compatibility and each test capability/effect declaration require reconciliation. No old baseline proves this preexisting.
+Next: Vibe/host owner should reconcile this exact legacy test declaration and transitive effect contract; retain strict admission rather than bypass effects to make the test pass.
+
+[unresolved_effect_contract] vibe_host::tests::t42_hid_vibescript_poll_empty
+Log header line 10355
+thread 'vibe_host::tests::t42_hid_vibescript_poll_empty' (8100) panicked at crates\qualia-core-db\src\poet_host\mod.rs:2030:52:
+called `Result::unwrap()` on an `Err` value: Diagnostic { code: E200, span: Span { start: 2, end: 12 }, message: "call exceeds permitted effect class", suggested_fix: None, evidential: None }
+E200 effect permission rejection is observed through legacy PoetSnapshot eval/load entry points. Inspected eval_cell_src calls vibe::eval_cell and eval_fn calls load_program/eval_function; neither routes through SourceSession::submit_validated. New callback additions are not a demonstrated cause; earlier checker compatibility and each test capability/effect declaration require reconciliation. No old baseline proves this preexisting.
+Next: Vibe/host owner should reconcile this exact legacy test declaration and transitive effect contract; retain strict admission rather than bypass effects to make the test pass.
+
+[unresolved_effect_contract] vibe_host::tests::test_crypto_ed25519_generate_sign_verify_roundtrip
+Log header line 10360
+thread 'vibe_host::tests::test_crypto_ed25519_generate_sign_verify_roundtrip' (11724) panicked at crates\qualia-core-db\src\poet_host\mod.rs:2249:69:
+called `Result::unwrap()` on an `Err` value: Diagnostic { code: E200, span: Span { start: 91, end: 121 }, message: "call exceeds permitted effect class", suggested_fix: None, evidential: None }
+E200 effect permission rejection is observed through legacy PoetSnapshot eval/load entry points. Inspected eval_cell_src calls vibe::eval_cell and eval_fn calls load_program/eval_function; neither routes through SourceSession::submit_validated. New callback additions are not a demonstrated cause; earlier checker compatibility and each test capability/effect declaration require reconciliation. No old baseline proves this preexisting.
+Next: Vibe/host owner should reconcile this exact legacy test declaration and transitive effect contract; retain strict admission rather than bypass effects to make the test pass.
+
+[unresolved] wgsl_forge::validate::tests::cooperative_matrix_tile_validates
+Log header line 10365
+thread 'wgsl_forge::validate::tests::cooperative_matrix_tile_validates' (16912) panicked at crates\qualia-core-db\src\wgsl_forge\validate.rs:368:45:
+coopmat tile should validate: WgslParse("error: unknown enable-extension `wgpu_cooperative_matrix`\n  ┌─ wgsl:1:8\n  │\n1 │ enable wgpu_cooperative_matrix;\n  │        ^^^^^^^^^^^^^^^^^^^^^^^\n  │\n  = note: See available extensions at <https://www.w3.org/TR/WGSL/#enable-extension>.\n\n")
+Selected Naga validator rejects the named enable-extension in the exact message. This is a real selected-profile capability/validation mismatch; neither MR fallback nor checkpoint serialization directly changes these generated kernels. An original baseline and supported-feature reconciliation remain needed.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] wgsl_forge::validate::tests::cooperative_matrix_tiled_gemm_validates
+Log header line 10370
+thread 'wgsl_forge::validate::tests::cooperative_matrix_tiled_gemm_validates' (25400) panicked at crates\qualia-core-db\src\wgsl_forge\validate.rs:379:45:
+tiled coopmat GEMM should validate: WgslParse("error: unknown enable-extension `wgpu_cooperative_matrix`\n  ┌─ wgsl:1:8\n  │\n1 │ enable wgpu_cooperative_matrix;\n  │        ^^^^^^^^^^^^^^^^^^^^^^^\n  │\n  = note: See available extensions at <https://www.w3.org/TR/WGSL/#enable-extension>.\n\n")
+Selected Naga validator rejects the named enable-extension in the exact message. This is a real selected-profile capability/validation mismatch; neither MR fallback nor checkpoint serialization directly changes these generated kernels. An original baseline and supported-feature reconciliation remain needed.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.
+
+[unresolved] wgsl_forge::validate::tests::generated_ray_probe_passes_naga_validation
+Log header line 10375
+thread 'wgsl_forge::validate::tests::generated_ray_probe_passes_naga_validation' (30032) panicked at crates\qualia-core-db\src\wgsl_forge\validate.rs:267:55:
+Naga validation of ray-probe: WgslParse("error: unknown enable-extension `wgpu_ray_query`\n  ┌─ wgsl:5:8\n  │\n5 │ enable wgpu_ray_query;\n  │        ^^^^^^^^^^^^^^\n  │\n  = note: See available extensions at <https://www.w3.org/TR/WGSL/#enable-extension>.\n\n")
+Selected Naga validator rejects the named enable-extension in the exact message. This is a real selected-profile capability/validation mismatch; neither MR fallback nor checkpoint serialization directly changes these generated kernels. An original baseline and supported-feature reconciliation remain needed.
+Next: Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed.

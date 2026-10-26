@@ -1,0 +1,71 @@
+diff --git "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.before" "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.after"
+index 2a357ec..7d1a4ae 100644
+--- "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.before"
++++ "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-tests.rs.after"
+@@ -30,7 +30,7 @@ pure fn poet_rebuild_parts(p:Record)->List<Record>{{
+ }}
+ let mut poet_parameters={{offset:0.0,channels:6}};
+ let mut poet_parts=poet_rebuild_parts(poet_parameters);
+-{{parts:poet_parts}};
++({{parts:poet_parts}});
+ "#
+     )
+ }
+@@ -56,6 +56,39 @@ fn host() -> CanonicalEditorHost {
+     .unwrap()
+ }
+ #[test]
++fn every_generated_edit_is_a_canonical_program_with_a_record_result() {
++    let fixture = source();
++    vibe::parse_program(&fixture).expect("authoring fixture must be canonical Vibe 0.1");
++    let mut session = vibe::session::SourceSession::default();
++    let mut local = vibe::LocalHost::default();
++    session.submit(&fixture, &mut local, vibe::Budget::default()).unwrap();
++    let edits = [
++        AuthoringEdit::Parameter { key: "offset".into(), value: 1.25 },
++        AuthoringEdit::Transform {
++            id: "body".into(), translation: [2.0, 0.0, 0.0],
++            rotation: [0.0; 3], scale: [1.0; 3],
++        },
++        AuthoringEdit::Material {
++            material_id: 1, base_color: [0.2, 0.3, 0.4, 1.0],
++            roughness: 0.8, metallic: 0.0,
++        },
++    ];
++    for (index, edit) in edits.iter().enumerate() {
++        let generated = super::source::edit_source(
++            session.value("poet_parts").unwrap(), session.value("poet_parameters"),
++            edit, index as u64 + 2,
++        ).unwrap();
++        let program = vibe::parse_program(&generated)
++            .unwrap_or_else(|error| panic!("{edit:?}: {error:?}\n{generated}"));
++        assert!(matches!(program.items.last(),
++            Some(vibe::ast::Item::Statement(vibe::ast::Stmt::Expr { expr, .. }))
++                if matches!(&expr.kind, vibe::ast::ExprKind::Record(_))),
++            "generated edit must end with a record expression: {edit:?}");
++        session.prepare(&generated)
++            .unwrap_or_else(|error| panic!("generated edit must pass canonical preparation: {edit:?}: {error:?}"));
++    }
++}
++#[test]
+ fn part_material_parameter_edits_are_real_source_revisions_with_stale_safety() {
+     let mut h = host();
+     let first = h.snapshot().unwrap();
+@@ -76,6 +109,8 @@ fn part_material_parameter_edits_are_real_source_revisions_with_stale_safety() {
+         .unwrap();
+     let moved = h.authoring_view(out.snapshot.source.clone()).unwrap();
+     assert_eq!(moved.parts[0].translation, [2.0, 0.0, 0.0]);
++    assert_eq!(moved.parts[0].parent, None);
++    assert_eq!(moved.parts[1].parent.as_deref(), Some("body"));
+     let revision = out.snapshot.source_revision;
+     assert!(h
+         .authoring_edit(
+@@ -100,6 +135,8 @@ fn part_material_parameter_edits_are_real_source_revisions_with_stale_safety() {
+         .unwrap();
+     let material = h.authoring_view(out.snapshot.source.clone()).unwrap();
+     assert!(material.parts.iter().all(|p| p.roughness == 0.8));
++    assert_eq!(material.parts[0].parent, None);
++    assert_eq!(material.parts[1].parent.as_deref(), Some("body"));
+     let out = h
+         .authoring_edit(
+             AuthoringEdit::Parameter {

@@ -1,0 +1,29 @@
+{
+  "scope": "Selected Etalon extension compatibility and truthful native Forge availability",
+  "mutations": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\coopmat.rs",
+      "candidate": "candidate/wgsl_forge/emit/coopmat.rs",
+      "original_sha256": "2e85c7d4be90b52deac4a82aa9dfa1e630fba32d696aeed855e1130a6ad54818",
+      "candidate_sha256": "e14e7bec9bd82a5fa187b728082c1ec8bee1cc98baf09b9d7e50e9115d11f245"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\wgsl.rs",
+      "candidate": "candidate/wgsl_forge/emit/wgsl.rs",
+      "original_sha256": "5d1e823b8e540107119e6ed0f7aef6bfbf943585b02829d8adbc0ee06ccec173",
+      "candidate_sha256": "4ae5dc725616927c31a0fa57182f4af14ba481ebffb6f1405c008cbd22f1e56b"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\oracle\\evaluate.rs",
+      "candidate": "candidate/wgsl_forge/oracle/evaluate.rs",
+      "original_sha256": "c35a5d0bb9a16d1d31a6dc0f97b6f638de7b15520c1a72003a54eca753e290b1",
+      "candidate_sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\wgsl_forge_seam.rs",
+      "candidate": "candidate/poet_host/invoke/wgsl_forge_seam.rs",
+      "original_sha256": "31636cf8c4eacf5c17cb571cfe57ab4cacfc7962d72d39c0e610143945bfc6a4",
+      "candidate_sha256": "c316f38014c87c475e85c60e903dd88eabef770d749ff0d273a476c165c076a5"
+    }
+  ]
+}

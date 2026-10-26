@@ -1,0 +1,42 @@
+{
+  "event": "Human-authorized internal Poet ownership and capability namespace correction",
+  "utc": "2026-10-25T00:48:11.5157163Z",
+  "replaces": "Unreleased craft_authoring/CraftPart/Craft.profile_sweep active dependency projection",
+  "current": "Internal poet_spatial_authoring/AssemblyPart/ComputationalGeometry.profile_sweep",
+  "historical_evidence": "Earlier candidates, before/after pins and save scripts remain preserved as superseded evidence; do not replay their old namespace",
+  "source_shapes_changed": false,
+  "presets_changed": false,
+  "cargo_or_tests_run": false,
+  "files": [
+    {
+      "path": "C:/github/Poet/native/src/graphical/assembly/mod.rs",
+      "before": "4b04d9d331274838d48dc915e463db658ed320fa8d5047bf8fffc5f890d6c697",
+      "after": "1ed0887832fe5ca06444f79f2e752cb6f75415c30d06953ada3038aa5106a070"
+    },
+    {
+      "path": "C:/github/Poet/native/src/graphical/assembly/admission.rs",
+      "before": "b4f8c83029939c0f09ca7d5b11ff21b945f770bf90f60cbc9e06ace25bad58bf",
+      "after": "07ac59c9ae2951184e64e04b383870c508b4560b6cc7d3d7b70f79e4798040a1"
+    },
+    {
+      "path": "C:/github/Poet/native/src/graphical/assembly/tests.rs",
+      "before": "9fadd4b59010646513956aa1d1591c83c5b7c228af3223cbd988590f4e1b8656",
+      "after": "020f8acea05ecd1f57523828e3a4d9f2e9c30d05793abeb1db105c2ff3271440"
+    },
+    {
+      "path": "C:/github/Poet/native/src/graphical/materials.rs",
+      "before": "9ad70c77b5ebb4eb8b8134c62a2ce255b5ef25ef792bbb0a2f793a9929f2a7c3",
+      "after": "627a03c3150515a64e0b115de73a92074ffc45fa159a50254a81c500e68adda5"
+    },
+    {
+      "path": "C:/github/ecopunk/assets/reference/community-grounds-growing-station/master.vibe",
+      "before": "e1d690f24cd6144b757d978c840d0e1cbb28ffa94042c6f32726eafed378c597",
+      "after": "759b4fa479f228b5ccfb74cd8b49763144c39069d79130fa7bcbebfacd1f15c1"
+    },
+    {
+      "path": "C:/github/ecopunk/assets/reference/community-grounds-growing-station/README.md",
+      "before": "2a443c68d3ee8039b6f7c664831c258f4df76b1688aeb7472fccdff97f8075c9",
+      "after": "a5557f3b018cc84f7fc5856f1423fec1baf662d27e9a59d3422dcb938fcdab9f"
+    }
+  ]
+}

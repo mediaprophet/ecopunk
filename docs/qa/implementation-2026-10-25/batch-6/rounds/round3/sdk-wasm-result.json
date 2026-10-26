@@ -1,0 +1,27 @@
+{
+  "command": [
+    "cargo",
+    "check",
+    "--manifest-path",
+    "C:\\github\\ecopunk\\tools\\format-sdk-wasm-check\\Cargo.toml",
+    "--locked",
+    "--offline",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T04:48:00.371202+00:00",
+  "finished_utc": "2026-10-25T04:52:23.023072+00:00",
+  "elapsed_seconds": 262.641,
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\sdk-wasm-source-before.json",
+  "source_snapshot_sha256": "5e6d492446e7e66d6d59234f63a5add2f8b534ed9c94a724ced809e36e9fc37d",
+  "recorded_local_source_files": 2965,
+  "source_changes": [],
+  "source_unchanged": true,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\sdk-wasm.log",
+  "log_sha256": "532d721188b1c7a2e31992cb08ed98f8e43be9ef1cfb6fd7cffbb8d131685578",
+  "boundary": "Recorded local Core/geospatial/Poet source and manifests/locks; not every transitive dependency source. Compilation is not runtime WASM, GUI, human review or readiness acceptance."
+}

@@ -1,0 +1,171 @@
+{
+  "schema": "ecopunk.round3.frames.fullsource.v1",
+  "status": "staged-uncompiled-unexecuted",
+  "source_branch": "0.0.40.8-dev",
+  "source_git_head": "2df91e2f76545875e734c0d78dbcd3b1a5f76a4d",
+  "source_git_head_evidence": "read .git/HEAD and .git/refs/heads/0.0.40.8-dev; git -C revision command denied; source may contain pre-existing uncommitted changes captured by per-file hashes",
+  "created_utc": "2026-10-25T04:18:26.9368893Z",
+  "files": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/container_10d/mod.rs",
+      "relative_path": "crates/qualia-core-db/src/container_10d/mod.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/container_10d/mod.rs",
+        "sha256": "d97c2aa0c76a489880a3bbcbf12742cb0e82f6f07bda46aa127933dbec41b1f9",
+        "bytes": 11263,
+        "lines": 220
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/container_10d/mod.rs",
+        "sha256": "f47f0301e03645934daba9e7de011d3efcafc573dc2c469864bd1aacca7fb7ba",
+        "bytes": 11501,
+        "lines": 224
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/container_10d/normal_section.rs",
+      "relative_path": "crates/qualia-core-db/src/container_10d/normal_section.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/container_10d/normal_section.rs",
+        "sha256": "996ca418ba5693e6651bcdef1a9d914be353615f9ebbef964faae9392847db3d",
+        "bytes": 19589,
+        "lines": 532
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/container_10d/normal_section.rs",
+        "sha256": "f81c4c1d6532e99e8334502a2d3660f2d69b3b107c7c997c963915174f098838",
+        "bytes": 15415,
+        "lines": 426
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/container_10d/normal_section/frame_decode.rs",
+      "relative_path": "crates/qualia-core-db/src/container_10d/normal_section/frame_decode.rs",
+      "before": null,
+      "after": {
+        "path": "after/crates/qualia-core-db/src/container_10d/normal_section/frame_decode.rs",
+        "sha256": "8dc5af48634bde0aff5cf04ba496995c6b7b2665ec5a623df0e3950b6830713c",
+        "bytes": 7841,
+        "lines": 219
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/container_10d/typed_payloads/frames.rs",
+      "relative_path": "crates/qualia-core-db/src/container_10d/typed_payloads/frames.rs",
+      "before": null,
+      "after": {
+        "path": "after/crates/qualia-core-db/src/container_10d/typed_payloads/frames.rs",
+        "sha256": "57da3e33ec400f7fcc80986295ca51da89f1a740f552b718c0b295a0c64afdb8",
+        "bytes": 3753,
+        "lines": 94
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/container_10d/typed_payloads/mod.rs",
+      "relative_path": "crates/qualia-core-db/src/container_10d/typed_payloads/mod.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/container_10d/typed_payloads/mod.rs",
+        "sha256": "02b0f3d4b7368ef53ed9d3e6e535bf78d694f3762f2075db46000d304a2abfea",
+        "bytes": 255,
+        "lines": 5
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/container_10d/typed_payloads/mod.rs",
+        "sha256": "8dd52b4b81514fa781d6632adf2e6b1ed8c8cbf6a36689540ec14b58cb5393d8",
+        "bytes": 398,
+        "lines": 10
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/container_10d/typed_payloads/readers.rs",
+      "relative_path": "crates/qualia-core-db/src/container_10d/typed_payloads/readers.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/container_10d/typed_payloads/readers.rs",
+        "sha256": "ac29d080bfd4cc52d643afc6faa97ee4adc86f5acaee3a6468b10afc91a329fe",
+        "bytes": 3953,
+        "lines": 95
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/container_10d/typed_payloads/readers.rs",
+        "sha256": "c3389ab1bac8daf5830d647b8451ccfab200327847da179a4ac52b280feaa639",
+        "bytes": 1760,
+        "lines": 39
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/compile_10d.rs",
+      "relative_path": "crates/qualia-core-db/src/render/compile_10d.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/render/compile_10d.rs",
+        "sha256": "d61eb4c387f8f60f94278e9397216a72dbd051af9b99c00285568e50c498a121",
+        "bytes": 48238,
+        "lines": 1222
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/render/compile_10d.rs",
+        "sha256": "92428549a8a60f517094f50c7dcdc0ce0fb3380594ac715cb4da1b4f215b7106",
+        "bytes": 48333,
+        "lines": 1225
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/portal/mod.rs",
+      "relative_path": "crates/qualia-core-db/src/render/portal/mod.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/render/portal/mod.rs",
+        "sha256": "29e10e77c158f0bcdb47e813f9cbeb3761f6eac3d51835bcac0ce1465351210b",
+        "bytes": 123149,
+        "lines": 2985
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/render/portal/mod.rs",
+        "sha256": "0f5a9d5552d5284f66821aaf12a94ee7a69e8b9144979da20a815796e3fad6f6",
+        "bytes": 123420,
+        "lines": 2992
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/portal/scene_mesh.rs",
+      "relative_path": "crates/qualia-core-db/src/render/portal/scene_mesh.rs",
+      "before": {
+        "path": "before/crates/qualia-core-db/src/render/portal/scene_mesh.rs",
+        "sha256": "79edaa05f2ebba650885d89709c868be2329578db1bddf65b55e4bf45da84316",
+        "bytes": 20315,
+        "lines": 522
+      },
+      "after": {
+        "path": "after/crates/qualia-core-db/src/render/portal/scene_mesh.rs",
+        "sha256": "3ac2407910cb9d18555fddfd76fbcd158ed640e6547aada758b3c78bb4fda58f",
+        "bytes": 20664,
+        "lines": 529
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/tests/frame_decode_sdk.rs",
+      "relative_path": "crates/qualia-core-db/tests/frame_decode_sdk.rs",
+      "before": null,
+      "after": {
+        "path": "after/crates/qualia-core-db/tests/frame_decode_sdk.rs",
+        "sha256": "252d2d194203d3459adfcfb634c087add276d6b4e0fc107af67ce987ccd4d46b",
+        "bytes": 12025,
+        "lines": 349
+      }
+    },
+    {
+      "target": "C:/github/QualiaDB/docs/manuals/standards/10d-typed-field-payloads.md",
+      "relative_path": "docs/manuals/standards/10d-typed-field-payloads.md",
+      "before": {
+        "path": "before/docs/manuals/standards/10d-typed-field-payloads.md",
+        "sha256": "e14758e9e3ebcdf2fbdaaa638408adca55d481fba339506c4c1f83782d67df34",
+        "bytes": 7128,
+        "lines": 82
+      },
+      "after": {
+        "path": "after/docs/manuals/standards/10d-typed-field-payloads.md",
+        "sha256": "9c63eb5919fe5e1713c9f5fe352847d804fd33e31c7818dcec8604bc5c057196",
+        "bytes": 11500,
+        "lines": 100
+      }
+    }
+  ]
+}

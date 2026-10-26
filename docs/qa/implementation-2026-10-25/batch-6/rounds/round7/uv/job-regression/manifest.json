@@ -1,0 +1,19 @@
+{
+  "scope": "Round7 selected surface stale-payload worker regressions; staged, tests unrun",
+  "targets": [
+    {
+      "target": "C:/github/poet/native/src/graphical/jobs_surface_tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/job-regression/after/native/src/graphical/jobs_surface_tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "50d7aa9b207a7ecbd01bb46eab1f9ba742b484e4d4b3052ad5be3ab0b5c2eabe"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/jobs_tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/job-regression/after/native/src/graphical/jobs_tests.rs",
+      "before": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/job-regression/before/native/src/graphical/jobs_tests.rs",
+      "before_sha256": "7dbd6343e19c1f4e451238eaf146c66a5a805ca3eda5f6147b70375648d3c83c",
+      "after_sha256": "d78a800f7d7fd11999befbb0e1db3cefaaf096bbdf365e6caccc66b4d6ad974d"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "ecopunk.batch6-round1-source-delta.v1",
+  "captured_utc": "2026-10-25T01:57:24Z",
+  "purpose": "Incremental source and executable snapshot for the post-authoring-fix reference rebuild; supplements source-manifest.json and does not overwrite its earlier snapshot.",
+  "source_manifest": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/source-manifest.json",
+  "build_evidence": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-authoring.log",
+  "repair_history": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/producer/authoring-lambda-repair.json",
+  "file_count": 4,
+  "files": [
+    {
+      "scope": "poet_authoring_source",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "bytes": 10388,
+      "sha256": "005919ff32f433c995988d74e39be50a3d34540084da1e0fb7a13a8ec933ac72"
+    },
+    {
+      "scope": "poet_authoring_tests",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\tests.rs",
+      "bytes": 11871,
+      "sha256": "1ff221a90e712767e8839d3950e23d590779b5b9db23002691fc6f96348a43da"
+    },
+    {
+      "scope": "reference_recipe_master",
+      "path": "C:\\github\\ecopunk\\assets\\reference\\community-grounds-growing-station\\master.vibe",
+      "bytes": 15690,
+      "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+    },
+    {
+      "scope": "reference_producer_executable",
+      "path": "C:\\github\\ecopunk\\target\\debug\\examples\\growing_reference.exe",
+      "bytes": 321373139,
+      "sha256": "e05ecd71f5c3c35c70324167fc7a9f90fce8e92a794cd9c0271c3f77805c5cd0"
+    }
+  ],
+  "evidence_boundary": "Hashes identify current inputs and executable bytes only; they do not establish successful runtime, PNG/HMC output, visual quality, human acceptance, or model completion."
+}

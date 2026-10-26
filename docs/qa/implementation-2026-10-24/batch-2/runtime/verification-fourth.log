@@ -1,0 +1,42 @@
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hnia9yqx2k-1xnsyjo-working`
+
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-3ous0j4z2ctrl\s-hniaaexvak-0cow4x0-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\run05_sessions-3jyi2l2n5ir5f\s-hniaaexxj1-1gnln6q-working`
+
+warning: `vibe` (bin "vibe") generated 1 warning
+warning: `vibe` (test "run05_sessions") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 44.32s
+     Running tests\run05_sessions.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_sessions-36a441478bf965a5.exe)
+
+running 28 tests
+test denied_native_cue_has_no_host_dispatch_and_explicit_grant_allows_one ... ok
+test explicit_type_is_not_discarded_for_bounded_lists ... ok
+test admitted_external_callback_on_named_collection_runs_once ... ok
+test copied_alias_keeps_original_external_lambda_effect ... ok
+test checked_candidates_are_bound_to_session_and_revision ... ok
+test early_return_cannot_promote_unexecuted_pure_callback_metadata ... ok
+test functions_keep_non_capturing_0_1_semantics ... ok
+test effectful_native_host_seams_require_actual_grants ... ok
+test inferred_recursive_cycle_effect_reaches_pure_caller ... ok
+test functions_imports_and_effect_context_survive_without_replay ... ok
+test direct_chain_forward_and_recursive_external_calls_are_rejected ... ok
+test higher_order_indirect_callbacks_fail_closed ... ok
+test immutable_values_cannot_be_redeclared_via_patterns_blocks_or_bind ... ok
+test invalidated_unknown_alias_does_not_follow_later_reassignment ... ok
+test control_flow_and_bind_cannot_leave_stale_pure_callbacks ... ok
+test imported_alias_and_pipeline_do_not_hide_effects ... ok
+test pure_builtin_dispatch_precedes_same_named_user_function ... ok
+test material_transaction_and_clock_cannot_gain_ambient_session_authority ... ok
+test mutable_typed_binding_survives_and_immutable_assignment_is_denied ... ok
+test session_limits_fail_without_dispatch ... ok
+test namespace_shadowing_does_not_hide_collection_callback_effects ... ok
+
+thread 'recursive_and_failed_budget_diagnostics_are_bounded_and_preserved' (23236) has overflowed its stack
+error: test failed, to rerun pass `--test run05_sessions`
+
+Caused by:
+  process didn't exit successfully: `C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_sessions-36a441478bf965a5.exe` (exit code: 0xc00000fd, STATUS_STACK_OVERFLOW)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

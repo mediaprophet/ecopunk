@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "scope": "round7_exact_compiler_input_retention_repair",
+  "targets": [
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/package.rs",
+      "before": "before/native/src/graphical/authoring/package.rs",
+      "before_sha256": "e3bd3058ee1513a950737eea2ac766403e01baf4d8f011d332ea4193c8f0f659",
+      "after": "after/native/src/graphical/authoring/package.rs",
+      "after_sha256": "bc02ae9cc61afcd695bd053a996073b5185074e86bd269b839ab9f85e9402445",
+      "lines": 97,
+      "status": "staged_not_applied"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/resources.rs",
+      "before": "before/native/src/graphical/checkpoints/resources.rs",
+      "before_sha256": "2e9db0ddb1267ea7a832a6678abdf610d9c74790c5373a43443e8bd3286201f6",
+      "after": "after/native/src/graphical/checkpoints/resources.rs",
+      "after_sha256": "28ff9371f4be1a1e4bfc8cbfc56adf76dc507836a877385f4ca3deb5d6a1078f",
+      "lines": 279,
+      "status": "staged_not_applied"
+    }
+  ],
+  "rustfmt_exit": 0,
+  "cargo_run": false
+}

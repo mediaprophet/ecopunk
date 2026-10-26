@@ -1,0 +1,44 @@
+warning: qualia-core-db@0.0.40: Qualia-DB: failed to stage DirectML.dll → C:/github/ecopunk/target\debug\deps: The process cannot access the file because it is being used by another process. (os error 32)
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused variable: `vp`
+   --> crates\qualia-core-db\src\render\gpu\indirect_cull.rs:885:13
+    |
+885 |         let vp = perspective_view_proj();
+    |             ^^ help: if this is intentional, prefix it with an underscore: `_vp`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib test) generated 2 warnings (run `cargo fix --lib -p qualia-core-db --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized] target(s) in 6m 58s
+     Running unittests src\lib.rs (target\debug\deps\qualia_core_db-965ec002a98bf526.exe)
+
+running 15 tests
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::combined_resource_budget_stale_package_and_corruption_preserve_disk ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::explicit_add_replace_remove_are_digest_guarded_transactional_and_keep_metadata ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::explicit_guarded_companion_graph_edit_may_retain_identical_authoritative_bytes ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::mixed_package_source_material_edit_preserves_raw_bytes_graph_lexicon_and_metadata ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::native_texture_and_compiled_graph_dependency_invalidations_are_refused ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::source_only_legacy_checkpoint_remains_compatible_and_resources_never_execute ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::checkpoint_child ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::exact_source_schema_lineage_and_real_10d_roundtrip ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::stale_capture_and_activation_conflict_preserve_accepted_work ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::tamper_truncation_schema_sequence_and_budget_fail_without_promotion ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::windows_install::changed_expected_bytes_stop_retry_before_replacement ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::windows_install::permanent_deny_delete_refusal_preserves_destination_and_cleans_staging ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::windows_install::real_deny_delete_handle_release_allows_bounded_retry ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 9843 filtered out; finished in 0.87s
+

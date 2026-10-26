@@ -1,0 +1,154 @@
+    Checking qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `QUINS_PER_BLOCK`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:22:43
+   |
+22 | use crate::{NQuin, PermissiveRoutingLane, QUINS_PER_BLOCK};
+   |                                           ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `bidx_blocks_for_hash_into`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\mod.rs:114:51
+    |
+114 | pub(crate) use index::{bidx_block_range_for_hash, bidx_blocks_for_hash_into};
+    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `validate::validate_volume_structure`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\mod.rs:115:16
+    |
+115 | pub(crate) use validate::validate_volume_structure;
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_field_range_index` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\index.rs:118:15
+    |
+118 | pub(crate) fn validate_field_range_index(bytes: &[u8], expected_blocks: usize) -> io::Result<()> {
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `bidx_blocks_for_hash_into` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\index.rs:203:15
+    |
+203 | pub(crate) fn bidx_blocks_for_hash_into(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_postings_section` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\postings.rs:198:8
+    |
+198 | pub fn validate_postings_section(bytes: &[u8], expected_blocks: usize) -> io::Result<()> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `block_payload` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\postings.rs:259:8
+    |
+259 | pub fn block_payload<'a>(bytes: &'a [u8], block_index: usize) -> io::Result<&'a [u8]> {
+    |        ^^^^^^^^^^^^^
+
+warning: function `accumulate` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:322:4
+    |
+322 | fn accumulate(counts: &mut ClassificationCounts, quin: &NQuin) {
+    |    ^^^^^^^^^^
+
+warning: function `sanctuary_quin_count` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:346:4
+    |
+346 | fn sanctuary_quin_count(counts: &ClassificationCounts) -> u64 {
+    |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `decide` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:361:4
+    |
+361 | fn decide(
+    |    ^^^^^^
+
+warning: struct `Section` is never constructed
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:13:8
+   |
+13 | struct Section {
+   |        ^^^^^^^
+
+warning: function `invalid` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:19:4
+   |
+19 | fn invalid(message: impl Into<String>) -> io::Error {
+   |    ^^^^^^^
+
+warning: function `checked_usize` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:23:4
+   |
+23 | fn checked_usize(value: u64, name: &str) -> io::Result<usize> {
+   |    ^^^^^^^^^^^^^
+
+warning: function `section` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:27:4
+   |
+27 | fn section(
+   |    ^^^^^^^
+
+warning: function `validate_non_overlapping` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:50:4
+   |
+50 | fn validate_non_overlapping(sections: &[Option<Section>]) -> io::Result<()> {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_volume_structure` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:68:15
+   |
+68 | pub(crate) fn validate_volume_structure(header: &Q42VolumeHeader, bytes: &[u8]) -> io::Result<()> {
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `from_local` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\net\peer\fabric\evidence.rs:26:25
+   |
+24 | impl TransportWitness {
+   | --------------------- associated function in this implementation
+25 |     /// Builds `TransportWitness` from `local`.
+26 |     pub(crate) const fn from_local(
+   |                         ^^^^^^^^^^
+
+warning: constant `VIEWPORT_PIPELINES` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\poet_host\invoke\wgsl_forge_seam.rs:20:7
+   |
+20 | const VIEWPORT_PIPELINES: [&str; 8] = [
+   |       ^^^^^^^^^^^^^^^^^^
+
+warning: methods `organs_loaded` and `organs_refused` are never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\render\portal\scene_mesh.rs:81:19
+   |
+57 | impl SceneMeshAccum {
+   | ------------------- methods in this implementation
+...
+81 |     pub(crate) fn organs_loaded(&self) -> u32 {
+   |                   ^^^^^^^^^^^^^
+...
+87 |     pub(crate) fn organs_refused(&self) -> u32 {
+   |                   ^^^^^^^^^^^^^^
+
+warning: function `compute_router_logits_from_raw` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\moe_gguf.rs:283:15
+    |
+283 | pub(super) fn compute_router_logits_from_raw(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: method `dispatch_output_argmax_batched_async` is never used
+    --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\prefill_async.rs:1449:25
+     |
+   5 | impl QTensorEngine {
+     | ------------------ method in this implementation
+...
+1449 |     pub(crate) async fn dispatch_output_argmax_batched_async(
+     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `qualia-core-db` (lib) generated 22 warnings (run `cargo fix --lib -p qualia-core-db` to apply 4 suggestions)
+    Checking qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+    Checking ecopunk-format-sdk-wasm-check v0.1.0 (C:\github\ecopunk\tools\format-sdk-wasm-check)
+    Finished `dev` profile [unoptimized] target(s) in 2m 05s

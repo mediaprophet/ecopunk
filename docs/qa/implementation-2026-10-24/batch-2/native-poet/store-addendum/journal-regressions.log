@@ -1,0 +1,15 @@
+
+running 10 tests
+test poet_host::invoke::studio_store::journal_tests::prospective_audit_bytes_are_admitted_before_every_activation ... ok
+test poet_host::invoke::studio_store::journal_tests::explicit_host_limits_admit_large_sources_and_refuse_lossy_reduction ... ok
+test poet_host::invoke::studio_store::journal_tests::source_undo_redo_regenerates_identical_loft_and_material ... ok
+test poet_host::invoke::studio_store::journal_tests::concurrent_same_revision_accepts_one_edit_without_running_stale_callback ... ok
+test poet_host::invoke::studio_store::journal_tests::legacy_replacement_and_import_cannot_reuse_old_snapshots ... ok
+test poet_host::invoke::studio_store::journal_tests::rejected_source_or_policy_edits_leave_all_state_unchanged ... ok
+test poet_host::invoke::studio_store::journal_tests::retained_byte_and_audit_budgets_refuse_atomically ... ok
+test poet_host::invoke::studio_store::journal_tests::stale_edits_and_undo_redo_are_atomic ... ok
+test poet_host::invoke::studio_store::journal_tests::existing_studio_handlers_accept_checked_and_legacy_calls ... ok
+test poet_host::invoke::studio_store::journal_tests::clock_and_history_limits_refuse_without_wrapping_or_losing_source ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.06s
+

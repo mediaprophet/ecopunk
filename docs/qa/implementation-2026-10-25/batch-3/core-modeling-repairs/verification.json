@@ -1,0 +1,29 @@
+{
+  "scope": "Exact four candidate tests and helpers against the actual cached production modeling implementation",
+  "exit_code": 101,
+  "compiler_arguments": [
+    "rustc",
+    "--test",
+    "--edition=2021",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\focused.rs",
+    "--extern",
+    "qualia_core_db=C:/github/ecopunk/target\\debug\\deps\\libqualia_core_db.rlib",
+    "-L",
+    "dependency=C:/github/ecopunk/target/debug/deps",
+    "-o",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\focused.exe",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\blake3-da8ba380479449f1\\out",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\ring-b53baf53c685dea7\\out",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\zstd-sys-ddb15c1df437b75d\\out",
+    "-L",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\winapi-x86_64-pc-windows-gnu-0.4.0\\lib",
+    "-L",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows_x86_64_gnu-0.52.6\\lib",
+    "-L",
+    "native=C:\\github\\qualiaDB\\crates\\qualia-core-db\\..\\..\\vendor\\directml\\bin\\x64-win"
+  ],
+  "binary_sha256": "98d1fafd2426ba3f7b19f2d6ff2806979aa925ba9351692ece7e8e3f1db121d1"
+}

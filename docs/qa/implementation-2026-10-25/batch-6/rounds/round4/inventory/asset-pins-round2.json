@@ -1,0 +1,91 @@
+{
+  "schema": "round2-preserved-evidence-files-v1",
+  "scope": "Round2 preserved_artifacts entries; these are evidence/fixture files, not asset master pins; count is distinct from Round3 final-verification preserved_regression_artifacts.",
+  "count": 16,
+  "entries": [
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/native-conformance.log",
+      "bytes": 3849,
+      "sha256": "02387ebc4d12898cf17a582e72762e45b79cd6c82ce9e51ffbb3cb5c6b8079a4"
+    },
+    {
+      "path": "tools/format-sdk-conformance/Cargo.toml",
+      "bytes": 1071,
+      "sha256": "d53c364272be53a8f81dafb69bb2da1b6c1e8554cca78174c0c073a1b892d904"
+    },
+    {
+      "path": "tools/format-sdk-conformance/Cargo.lock",
+      "bytes": 141365,
+      "sha256": "95ea8bb56aedf82ea338f951ae04ea6031df2d1aed0621ea0c4216241cf882ad"
+    },
+    {
+      "path": "tools/format-sdk-conformance/README.md",
+      "bytes": 892,
+      "sha256": "b223e790f103a65f1a5ba07759910e8d646a69e5073ee343139b02bd5d401b30"
+    },
+    {
+      "path": "tools/format-sdk-conformance/tests/format_sdk_consumers.rs",
+      "bytes": 6004,
+      "sha256": "9e902d241b5897937dab7d13bb3794b10524073bc8449ddfd80599f2f4777fa2"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/applied-source.json",
+      "bytes": 4304,
+      "sha256": "28cf257e35f222574c1d08b8ce33b061f4f7e6d405b873cc91d8f4a334d89408"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/format-discovery.json",
+      "bytes": 12796,
+      "sha256": "06f9f08582c5770b40955e5dd318b46dc9c79571417534de053073d9224cc157"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/surfaces/field-sidecar-coexistence.md",
+      "bytes": 4278,
+      "sha256": "b887f63d21b7e0bc695eb54e3b27af9dcb2783e6523ec6728c1e2ab05a938c99"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/standards/m64-matter-container.md",
+      "bytes": 5993,
+      "sha256": "dff22e9a76a9357a08bf8c422fee8bdf8ba6e7867ec91c3860a9d1b6a29bb742"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/standards/10d-typed-field-payloads.md",
+      "bytes": 7128,
+      "sha256": "e14758e9e3ebcdf2fbdaaa638408adca55d481fba339506c4c1f83782d67df34"
+    },
+    {
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "bytes": 262272,
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+      "bytes": 17571,
+      "sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "bytes": 5288192,
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "bytes": 5413279,
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-final.json",
+      "bytes": 5737,
+      "sha256": "690a8000a6a074bd784b0c5979db6e4ed33378db9c3a5a56feb1499e7a3fba95"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline-manifest.json",
+      "bytes": 4238,
+      "sha256": "6a952431cd8d6d8dcb3d318c46aee5798cca26d1d79a53f9266305cc0a7e25b2"
+    }
+  ],
+  "round3_distinct_scope": {
+    "preserved_regression_artifacts": 3,
+    "reference_source_unchanged": true
+  }
+}

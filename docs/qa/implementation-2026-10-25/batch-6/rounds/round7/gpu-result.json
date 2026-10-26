@@ -1,0 +1,58 @@
+{
+  "mode": "gpu",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::surfaces::detail_pixels::authored_atlas_paint_and_procedural_detail_change_actual_native_pixels",
+    "--",
+    "--ignored",
+    "--exact",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false",
+    "POET_SURFACE_TEST_ARTIFACTS": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu-calibration"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T12:47:20.672165+00:00",
+  "finished_utc": "2026-10-25T12:47:43.470578+00:00",
+  "elapsed_seconds": 22.812,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu.log",
+  "log_sha256": "32aa9bee2254d3ea55931c4971a50307334a08a54ce3aae1689cb4a8ef9982ab",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\gpu-source-before.json",
+  "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+  "recorded_local_source_files": 3245,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 1,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::surfaces::detail_pixels::authored_atlas_paint_and_procedural_detail_change_actual_native_pixels"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round7-botcfvk1",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

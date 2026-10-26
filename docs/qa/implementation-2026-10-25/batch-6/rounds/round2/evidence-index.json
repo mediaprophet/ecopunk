@@ -1,0 +1,340 @@
+{
+  "schema": "ecopunk.round2-format-sdk-evidence-index.v1",
+  "captured_utc": "2026-10-25T03:57:22Z",
+  "scope": "Round 2 foundation implementation and selected native conformance only; no asset production, Poet contributor acceptance, WASM qualification or model completion.",
+  "run": {
+    "exit_code": 0,
+    "command": "cargo test --manifest-path tools/format-sdk-conformance/Cargo.toml --locked --offline --target-dir target",
+    "working_directory": "C:/github/ecopunk",
+    "allocation_observation": "M64 allocation-counter test recorded zero allocations for its successful validation/borrowed-access fixture only; no all-SDK zero-heap claim.",
+    "test_binary_results": [
+      {
+        "binary": "format_sdk_consumers",
+        "failed": 0,
+        "passed": 6,
+        "ignored": 0,
+        "seconds": 2.11
+      },
+      {
+        "binary": "m64_container_sdk",
+        "failed": 0,
+        "passed": 7,
+        "ignored": 0,
+        "seconds": 0.13
+      },
+      {
+        "binary": "typed_field_payloads",
+        "failed": 0,
+        "passed": 9,
+        "ignored": 0,
+        "seconds": 0.01
+      }
+    ],
+    "host": "Windows x86_64, little-endian",
+    "total": {
+      "failed": 0,
+      "passed": 22,
+      "ignored": 0
+    },
+    "runner": "tools/format-sdk-conformance/Cargo.toml",
+    "build_seconds": 1199,
+    "source_boundary": "Runner compiled actual QualiaDB Core and geospatial crates and called canonical SDK tests plus six existing native-consumer cases; it contains no replacement codec. Selected results do not pass FND-01..06 wholesale."
+  },
+  "install": {
+    "mismatches": 0,
+    "receipt_sha256": "28cf257e35f222574c1d08b8ce33b061f4f7e6d405b873cc91d8f4a334d89408",
+    "history": "Earlier six-file install attempt auto-review rejection retained as historical. Later exact hash-pinned 17-file install (six M64 + eleven .10d) approved under prior direct user QualiaDB save authorization/current reviewed request and applied; no current permission block.",
+    "installer_source_snapshot_sha256": "3931f35738e1ac71eb4c02690498a98c755b0ca3fa35530bf911221afeaec4bc",
+    "files_verified": 17,
+    "receipt": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/applied-source.json",
+    "files_expected": 17,
+    "current_files": [
+      {
+        "observed_sha256": "96f6585e9af1a0e7fa22108093162d45cb9413d10da7064852f40941be37b7bb",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\section\\table_validation.rs",
+        "receipt_after_sha256": "96f6585e9af1a0e7fa22108093162d45cb9413d10da7064852f40941be37b7bb",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "74af35954a905dd2086cc9618301c7ffebd59160823d026f4bf6220f23eaca47",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\resolver.rs",
+        "receipt_after_sha256": "74af35954a905dd2086cc9618301c7ffebd59160823d026f4bf6220f23eaca47",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "6e3ffe3603577c200db3c8fbd3e336b175baa5efa257374247f1535c3bde85dc",
+        "matches_receipt": true,
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/mod.rs",
+        "receipt_after_sha256": "6e3ffe3603577c200db3c8fbd3e336b175baa5efa257374247f1535c3bde85dc",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "767876d697c7b45d3ed714cfb9421cea0af5d190bd925cd67c9aee76ef4c3dd5",
+        "matches_receipt": true,
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/intervals.rs",
+        "receipt_after_sha256": "767876d697c7b45d3ed714cfb9421cea0af5d190bd925cd67c9aee76ef4c3dd5",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "8477d7eb60c0c3ab77189c6e245058122afdfdf72d90735838d8bed262f02cbd",
+        "matches_receipt": true,
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/validation.rs",
+        "receipt_after_sha256": "8477d7eb60c0c3ab77189c6e245058122afdfdf72d90735838d8bed262f02cbd",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "1d0daa68b1502a9c74244522b4e8b46490c502befcbfb41f2be9e21174a4c707",
+        "matches_receipt": true,
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/tests/m64_container_sdk.rs",
+        "receipt_after_sha256": "1d0daa68b1502a9c74244522b4e8b46490c502befcbfb41f2be9e21174a4c707",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "3f914ebda4ca4fa8f7bfc17d633c6a864cfee4322929d2000f04811ea6f8e458",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\typed_field_payloads.rs",
+        "receipt_after_sha256": "3f914ebda4ca4fa8f7bfc17d633c6a864cfee4322929d2000f04811ea6f8e458",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "ac29d080bfd4cc52d643afc6faa97ee4adc86f5acaee3a6468b10afc91a329fe",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\readers.rs",
+        "receipt_after_sha256": "ac29d080bfd4cc52d643afc6faa97ee4adc86f5acaee3a6468b10afc91a329fe",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "02b0f3d4b7368ef53ed9d3e6e535bf78d694f3762f2075db46000d304a2abfea",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\mod.rs",
+        "receipt_after_sha256": "02b0f3d4b7368ef53ed9d3e6e535bf78d694f3762f2075db46000d304a2abfea",
+        "before_sha256": null
+      },
+      {
+        "observed_sha256": "29e10e77c158f0bcdb47e813f9cbeb3761f6eac3d51835bcac0ce1465351210b",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\portal\\mod.rs",
+        "receipt_after_sha256": "29e10e77c158f0bcdb47e813f9cbeb3761f6eac3d51835bcac0ce1465351210b",
+        "before_sha256": "eff5e5befde24031f13028398924b18c65c0ff8ef919e8fee38cde080c016cd6"
+      },
+      {
+        "observed_sha256": "394eaceffb842b3c7a4aaf0a778b09d551cc503d208b88d382e6c435e0dcb070",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\morph_section.rs",
+        "receipt_after_sha256": "394eaceffb842b3c7a4aaf0a778b09d551cc503d208b88d382e6c435e0dcb070",
+        "before_sha256": "20675ad8110a80094507eeccce459b4b9b45dcf4429544ad77b1566a666d9fb0"
+      },
+      {
+        "observed_sha256": "2416394e69ac1646f3ec77a4904983806bb190dce82e15e650dcd1bb222e067e",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\section.rs",
+        "receipt_after_sha256": "2416394e69ac1646f3ec77a4904983806bb190dce82e15e650dcd1bb222e067e",
+        "before_sha256": "719770b98ff55f9f879cabafaa039a0c3ae9227a7b5d7eddd0c256fabf9c0a4e"
+      },
+      {
+        "observed_sha256": "9c8147b541ee6d8cd99589458ab8e6116e1e8f96e558c7ed27b1227d34e76647",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\manifold_identity_v2.rs",
+        "receipt_after_sha256": "9c8147b541ee6d8cd99589458ab8e6116e1e8f96e558c7ed27b1227d34e76647",
+        "before_sha256": "72165d59351a5411921795a90aaa940be0e1ea405bc70c59a1209a87053f1ca7"
+      },
+      {
+        "observed_sha256": "d97c2aa0c76a489880a3bbcbf12742cb0e82f6f07bda46aa127933dbec41b1f9",
+        "matches_receipt": false,
+        "matches_receipt_note": "Post-test docs-only change; historical receipt hash retained below.",
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\mod.rs",
+        "receipt_after_sha256": "1aa072dc8e8ddbc55e80f05f6bd147305b0ab6fbe0ed20b8de6185e70f1f5ed6",
+        "before_sha256": "a64e5a01617a9dd48e45f2ae756c13005ed7603fa29d5ddf5639b11afda9a2e2"
+      },
+      {
+        "observed_sha256": "c21fffa0283234e42f7c8785bddda19b875c809b728d52c9da6d6912d55fad76",
+        "matches_receipt": true,
+        "path": "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs",
+        "receipt_after_sha256": "c21fffa0283234e42f7c8785bddda19b875c809b728d52c9da6d6912d55fad76",
+        "before_sha256": "19a4006b3bc3bfcfea1c379fff8cb79f1a3f3fdd495b9f8f4ef1dfaa1e440bd1"
+      },
+      {
+        "observed_sha256": "d61eb4c387f8f60f94278e9397216a72dbd051af9b99c00285568e50c498a121",
+        "matches_receipt": true,
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\compile_10d.rs",
+        "receipt_after_sha256": "d61eb4c387f8f60f94278e9397216a72dbd051af9b99c00285568e50c498a121",
+        "before_sha256": "1253597e43f686e6d29f0cf02975c0e485560bf2a8437085073d4b8ab611831e"
+      },
+      {
+        "observed_sha256": "c8ed4d49dd997a5bc6953a7ed92f77a8b2024190dbaf73a975afe14e79343e08",
+        "matches_receipt": true,
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/mod.rs",
+        "receipt_after_sha256": "c8ed4d49dd997a5bc6953a7ed92f77a8b2024190dbaf73a975afe14e79343e08",
+        "before_sha256": "a61743883b310ce3814147f3218bf7aed291aea488034d9434ea5fe237113623"
+      }
+    ]
+  },
+  "post_test_documentation_corrections": {
+    "timing": "Applied after the 22-test conformance run; documentation-only and not part of the tested source state.",
+    "manifest": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/doc-corrections/manifest.json",
+    "targets": [
+      {
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/mod.rs",
+        "historical_test_receipt_sha256": "1aa072dc8e8ddbc55e80f05f6bd147305b0ab6fbe0ed20b8de6185e70f1f5ed6",
+        "current_sha256": "d97c2aa0c76a489880a3bbcbf12742cb0e82f6f07bda46aa127933dbec41b1f9",
+        "implementation_body_sha256": "262c80e2035f62bbe65b2423ee8333bb7626f3ce6b149b800c28abc49fbd1fbf",
+        "implementation_body_unchanged": true
+      },
+      {
+        "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/field_section.rs",
+        "historical_test_receipt_sha256": "not in the 17-file install receipt",
+        "before_sha256": "db14d1c9611b9d268cad0ecd8d8009f33df6812379937128eb8ccf7caf639ad8",
+        "current_sha256": "a3c5f19c8b0a23d8cd5d88e8ed379028ce6ef5c8ba213fff8450f7a447642426",
+        "implementation_body_sha256": "944f232e88601bde15766df32228a412aa79157fdf2580b7af3cd132167d03af",
+        "implementation_body_unchanged": true
+      }
+    ],
+    "qualification": "Rustdoc/source-comment corrections only. The 17-file install receipt remains the historical tested source snapshot; corrections do not alter the implementation tested by the recorded run."
+  },
+  "canonical_standards_documents": {
+    "manifest": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/spec-final-manifest.json",
+    "documents": [
+      {
+        "path": "C:/github/qualiaDB/docs/manuals/standards/m64-matter-container.md",
+        "sha256": "dff22e9a76a9357a08bf8c422fee8bdf8ba6e7867ec91c3860a9d1b6a29bb742",
+        "local_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/spec-final/m64-matter-container.md"
+      },
+      {
+        "path": "C:/github/qualiaDB/docs/manuals/standards/10d-typed-field-payloads.md",
+        "sha256": "e14758e9e3ebcdf2fbdaaa638408adca55d481fba339506c4c1f83782d67df34",
+        "local_copy": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/spec-final/10d-typed-field-payloads.md"
+      }
+    ],
+    "relationship": "Each canonical document hash matches its saved local spec-final copy and the final manifest."
+  },
+  "saved_evidence_verification": {
+    "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/saved-evidence-verification.json",
+    "sha256": "1f928039de0be2455b10b7dca906ae1b296edcb908c7ed05d4aa91f48a42be33",
+    "status": "passed",
+    "checks": "Read-only reconciliation verified the 17 source/test files with explicit post-test documentation overrides, two unchanged implementation-body hashes, two canonical spec hashes, three preserved assets, exact 6/7/9 test counts, and all six gates open. No build or test was run by this verification script."
+  },
+  "preserved_artifacts": [
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/native-conformance.log",
+      "bytes": 3849,
+      "sha256": "02387ebc4d12898cf17a582e72762e45b79cd6c82ce9e51ffbb3cb5c6b8079a4"
+    },
+    {
+      "path": "tools/format-sdk-conformance/Cargo.toml",
+      "bytes": 1071,
+      "sha256": "d53c364272be53a8f81dafb69bb2da1b6c1e8554cca78174c0c073a1b892d904"
+    },
+    {
+      "path": "tools/format-sdk-conformance/Cargo.lock",
+      "bytes": 141365,
+      "sha256": "95ea8bb56aedf82ea338f951ae04ea6031df2d1aed0621ea0c4216241cf882ad"
+    },
+    {
+      "path": "tools/format-sdk-conformance/README.md",
+      "bytes": 892,
+      "sha256": "b223e790f103a65f1a5ba07759910e8d646a69e5073ee343139b02bd5d401b30"
+    },
+    {
+      "path": "tools/format-sdk-conformance/tests/format_sdk_consumers.rs",
+      "bytes": 6004,
+      "sha256": "9e902d241b5897937dab7d13bb3794b10524073bc8449ddfd80599f2f4777fa2"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/applied-source.json",
+      "bytes": 4304,
+      "sha256": "28cf257e35f222574c1d08b8ce33b061f4f7e6d405b873cc91d8f4a334d89408"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/format-discovery.json",
+      "bytes": 12796,
+      "sha256": "06f9f08582c5770b40955e5dd318b46dc9c79571417534de053073d9224cc157"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/surfaces/field-sidecar-coexistence.md",
+      "bytes": 4278,
+      "sha256": "b887f63d21b7e0bc695eb54e3b27af9dcb2783e6523ec6728c1e2ab05a938c99"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/standards/m64-matter-container.md",
+      "bytes": 5993,
+      "sha256": "dff22e9a76a9357a08bf8c422fee8bdf8ba6e7867ec91c3860a9d1b6a29bb742"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/standards/10d-typed-field-payloads.md",
+      "bytes": 7128,
+      "sha256": "e14758e9e3ebcdf2fbdaaa638408adca55d481fba339506c4c1f83782d67df34"
+    },
+    {
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "bytes": 262272,
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+      "bytes": 17571,
+      "sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "bytes": 5288192,
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "bytes": 5413279,
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-final.json",
+      "bytes": 5737,
+      "sha256": "690a8000a6a074bd784b0c5979db6e4ed33378db9c3a5a56feb1499e7a3fba95"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-25/batch-6/rounds/round2/evidence/baseline-manifest.json",
+      "bytes": 4238,
+      "sha256": "6a952431cd8d6d8dcb3d318c46aee5798cca26d1d79a53f9266305cc0a7e25b2"
+    }
+  ],
+  "gates": [
+    {
+      "status": "open",
+      "partial": "M64/E64 magic/version and MID2/source identifiers recorded; identifier authority and qualified mappings remain open.",
+      "id": "FND-01"
+    },
+    {
+      "status": "open",
+      "partial": "Selected M64 structural/version/CRC/budget checks and raw-writer truthfulness cases pass; geospatial cell size, vertical datum identifier, nodata, precision and broader budgets remain open.",
+      "id": "FND-02"
+    },
+    {
+      "status": "open",
+      "partial": "Selected MID2 frame/morph/scientific raster coexistence, legacy paths and refusal cases pass; broader unknown-payload preservation and cross-consumer scope remain open.",
+      "id": "FND-03"
+    },
+    {
+      "status": "open",
+      "partial": "Caller limits/overflow and fixture allocation behavior measured for selected cases; production precision, memory and performance budgets remain open.",
+      "id": "FND-04"
+    },
+    {
+      "status": "open",
+      "partial": "Native Poet controls, contributor/reviewer work and IP-03 C1-C8 remain unqualified.",
+      "id": "FND-05"
+    },
+    {
+      "status": "open",
+      "partial": "No WASM interoperability or representative benchmark qualification in this run.",
+      "id": "FND-06"
+    }
+  ],
+  "claim_boundary": {
+    "no_human_acceptance": true,
+    "round1_52_checks": "Historical Round 1 evidence only; not recounted in Round 2.",
+    "ip03_c1_c8_demonstrated": false,
+    "no_foundation_gate_passed": true,
+    "no_model_completion": true,
+    "all_120_packets_open": true
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "source_cause_inputs": [
+    {
+      "sha256": "a4fcf3e8bbd57c032b3c31b8053d53b707a16b9255690385f153cb2c9ed052bd",
+      "path": "C:/github/rust-app-framework/packages/native/Cargo.toml"
+    },
+    {
+      "sha256": "db8249f196e60321599554541fc14b50ed14f84147cbecd704a8bb8cae39f2b7",
+      "path": "C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/blitz-dom-0.3.0-beta.4/src/layout/construct.rs"
+    },
+    {
+      "sha256": "2f661423448925695e3dcbb4daf81a3b17e487712ffd2f14c4b2c72fcf5f5f5e",
+      "path": "C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/blitz-dom-0.3.0-beta.4/src/mutator.rs"
+    },
+    {
+      "sha256": "43e14923b4de01a2cb55a4e1a9f8ce1ea6eb8ce92ee75a7256c524a1d1a0d8f5",
+      "path": "C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/blitz-dom-0.3.0-beta.4/src/node/text.rs"
+    }
+  ],
+  "tests": {
+    "executed_by_ui5_task": 0,
+    "staged_actual_aether": 3
+  },
+  "commands": {
+    "offline_locked_native_tree_exit": 0,
+    "root_locked_metadata_exit": 0,
+    "rustfmt_exit": 0,
+    "guard_dry_run": "passed",
+    "offline_metadata_exit": 101
+  },
+  "status": "frozen staged proposal; not applied by UI5 task",
+  "targets": 5,
+  "pins": [
+    {
+      "sha256": "963f3e7466d84b870984f9080a40b3e9d981f623ab22cdcd846d73d1d2a6c6b3",
+      "path": "apply-manifest.json"
+    },
+    {
+      "sha256": "64a1645a11938793c876d7a6d7d0e3edf9bf340bfcee1acba1f870a7ad756bd2",
+      "path": "verify-or-apply.ps1"
+    },
+    {
+      "sha256": "79b17618e4fc1df34b9c446248f9c68bce25a62cc81b410f672001021652e94d",
+      "path": "candidate/native/Cargo.toml"
+    },
+    {
+      "sha256": "004e0f683cdc4af2da231801c622febc90392d24fa6be8cf13aaf804985ba2c8",
+      "path": "candidate/Cargo.lock"
+    },
+    {
+      "sha256": "9449f4676ba86f0fae1702be9f65c2fc0e4a14116bf69e00eb4a02fb693eafcc",
+      "path": "candidate/native/src/graphical/ui.rs"
+    },
+    {
+      "sha256": "ec7d66a88d3bcc1b52822e8aed23acc7e384a6b4af8dc27881ca12b09d040324",
+      "path": "candidate/aether/packages/native-dom/src/mutation_writer.rs"
+    },
+    {
+      "sha256": "16287c4e793b33c5481159ef82946ffbbdd6197a45f74ba697175ae5fa0857ba",
+      "path": "candidate/aether/packages/native-dom/src/textarea_value.rs"
+    },
+    {
+      "sha256": "01637e75094c227c8d298c533088536e067067c89dbe82f3e0ef94a84ab8db7a",
+      "path": "guard-dry-run.log"
+    },
+    {
+      "sha256": "f185e661a07151ab247cb77e2e5358c3459a201c9a0d9db07035f13f9d2fd470",
+      "path": "metadata.log"
+    },
+    {
+      "sha256": "25d9784c316087b819316948251a21907faee096d6d0a66a57120f39fe60600b",
+      "path": "locked-metadata.json"
+    },
+    {
+      "sha256": "e97b49b07bb9c01eee2125f326d1fe5c04b1193e0aebc6feaa40204c99acb57a",
+      "path": "locked-metadata.log"
+    },
+    {
+      "sha256": "f77bcece1662e8295c86ac5ad2d08af0b5968ae23ad4d0ab554dbc4174b4f242",
+      "path": "selected-native-tree.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "selected-native-tree-errors.log"
+    },
+    {
+      "sha256": "7dcade8d5345e9044e1550a48066f7982507174248bf00e9b4aa1c1a1503e991",
+      "path": "README.md"
+    }
+  ],
+  "active_commands": [],
+  "runtime_receipt_unchanged_sha256": "3fd219e6ef8bdce7244448055f08ea057e8284091ffcbbc22107d7bdd95f1927"
+}

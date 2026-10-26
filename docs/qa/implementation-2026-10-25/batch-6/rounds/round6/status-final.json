@@ -1,0 +1,387 @@
+{
+  "schema": "ecopunk.round6.status.v1",
+  "status": "complete_scoped",
+  "target_count": 58,
+  "groups": {
+    "compiler_signature_repair_new_unique": 1,
+    "root_integration_original": 29,
+    "profiles": 12,
+    "core_hmc_texture_union_new_unique": 4,
+    "surfaces": 12
+  },
+  "install_manifest_sha256": "0ee679a2e1024e909a3bb4cdb9f1db21d64808a631ff62dcf5a1145e82b220e8",
+  "saved_target_hashes": "passed final verifier; latest installed hashes match across 58 unique targets",
+  "checks": [
+    {
+      "status": "passed",
+      "name": "authoring",
+      "minimum_tests": 24,
+      "receipt": "authoring-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          24,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 988.109
+    },
+    {
+      "status": "passed",
+      "name": "surfaces",
+      "minimum_tests": 6,
+      "receipt": "surfaces-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 127.89
+    },
+    {
+      "status": "passed",
+      "name": "wire",
+      "minimum_tests": 1,
+      "receipt": "wire-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 24.437
+    },
+    {
+      "status": "passed",
+      "name": "catalog",
+      "minimum_tests": 6,
+      "receipt": "catalog-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 135.484
+    },
+    {
+      "status": "passed",
+      "name": "hostoptin",
+      "minimum_tests": 1,
+      "receipt": "hostoptin-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 25.937
+    },
+    {
+      "status": "passed",
+      "name": "workflow",
+      "minimum_tests": 1,
+      "receipt": "workflow-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 74.187,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "historical_failure_repaired_by": "workflow-result.json"
+    },
+    {
+      "status": "passed",
+      "name": "intents",
+      "minimum_tests": 5,
+      "receipt": "intents-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 24.359
+    },
+    {
+      "status": "passed",
+      "name": "jobs",
+      "minimum_tests": 13,
+      "receipt": "jobs-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          13,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 26.578
+    },
+    {
+      "status": "passed",
+      "name": "inspection",
+      "minimum_tests": 6,
+      "receipt": "inspection-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 25.796
+    },
+    {
+      "status": "passed",
+      "name": "gpu",
+      "minimum_tests": 1,
+      "receipt": "gpu-result.json",
+      "exit_code": 0,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 63.812
+    },
+    {
+      "status": "passed",
+      "name": "native_check",
+      "minimum_tests": null,
+      "receipt": "check-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 229.204,
+      "source_files": 3219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864"
+    },
+    {
+      "status": "passed",
+      "name": "native_build",
+      "minimum_tests": null,
+      "receipt": "build-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 14.14,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+      "source_unchanged": true
+    },
+    {
+      "status": "pending",
+      "name": "wasm_sdk_check",
+      "minimum_tests": null,
+      "receipt": "wasm-result.json"
+    },
+    {
+      "name": "hmc_textures",
+      "status": "passed",
+      "receipt": "hmctextures-result.json",
+      "minimum_tests": 6,
+      "exit_code": 0,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "elapsed_seconds": 401.984,
+      "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864"
+    }
+  ],
+  "planned_native_execution_count": 64,
+  "planned_unique_cases": 63,
+  "source_reviews": "bounded source reviews recorded; no execution inferred",
+  "open_gates": [
+    "FND-01",
+    "FND-02",
+    "FND-03",
+    "FND-04",
+    "FND-05",
+    "FND-06",
+    "IP-03 C1",
+    "IP-03 C2",
+    "IP-03 C3",
+    "IP-03 C4",
+    "IP-03 C5",
+    "IP-03 C6",
+    "IP-03 C7",
+    "IP-03 C8",
+    "Native Poet usability and human contributor/reviewer acceptance",
+    "Saved source-to-HMC reopen/review",
+    "Complete models and film/open-world-game/cartoon delivery acceptance"
+  ],
+  "assets": "HOLD",
+  "finalization_owner": "root",
+  "finalization_trigger": "Scoped implementation/check evidence reconciled; broader product, human acceptance and readiness gates remain open.",
+  "preserved_initial_failures": [
+    {
+      "disposition": "retained; repaired controller test caller signature",
+      "receipt": "check-before-signature-repair-result.json",
+      "exit_code": 101
+    }
+  ],
+  "recorded_repairs": [
+    "repairs/compiler-signature/applied-source.json: one new target controller_tests.rs and updated surface_host.rs",
+    "repairs/binding-frame/applied-source.json: updated existing authoring/controls.rs; no new unique target"
+  ],
+  "failed_executions": [
+    {
+      "receipt": "workflow-result.json",
+      "count": 1,
+      "reason": "duplicate canonical texture resource key in Core studio_checkpoint bundle; repair pending",
+      "suite": "workflow"
+    }
+  ],
+  "gpu_calibration_images": [
+    {
+      "path": "gpu-calibration/base_color-after.png",
+      "sha256": "26de46419b9d9c4f36d76c0356227c0c963f48c3ac898e64e9c368c139ebd6d0",
+      "bytes": 1145
+    },
+    {
+      "path": "gpu-calibration/base_color-before.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/emissive-after.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/emissive-before.png",
+      "sha256": "7ec96becd92cc03bc395d4568f3cdde9a8df751846cb776592f63490dae6dd53",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/metallic_roughness-after.png",
+      "sha256": "b3b327be678f2771006f7d8766cc391cccedcf503cf92f2a09e59e1d98c3e7c7",
+      "bytes": 1193
+    },
+    {
+      "path": "gpu-calibration/metallic_roughness-before.png",
+      "sha256": "06165e4bc60d99b97cb7e06c5e6e9fc4cada380c00802d980f18c546f39dd28e",
+      "bytes": 1181
+    },
+    {
+      "path": "gpu-calibration/normal-after.png",
+      "sha256": "c2b49709054f39a7e70ede778199eef854dbbc5aa09c5a0845996701c69a82a1",
+      "bytes": 1181
+    },
+    {
+      "path": "gpu-calibration/normal-before.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/occlusion-after.png",
+      "sha256": "bfefdaf9d8892fe62cbe6225331401f9c90b2af55dbaea37392d50db218022db",
+      "bytes": 1085
+    },
+    {
+      "path": "gpu-calibration/occlusion-before.png",
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded",
+      "bytes": 1205
+    },
+    {
+      "path": "gpu-calibration/stylized_ramp-after.png",
+      "sha256": "57f6e9a27197606516d2939e18de9905dc0ececd5e4e5688adfae9857502a5fc",
+      "bytes": 1181
+    },
+    {
+      "path": "gpu-calibration/stylized_ramp-before.png",
+      "sha256": "96e6a32e736378342963af2cf500976b5739408e0e1b12e97fea200d1ef3270d",
+      "bytes": 1211
+    },
+    {
+      "path": "gpu-calibration/uv-before.png",
+      "sha256": "c93cd8b65c378aae0957906cb68da7883dc31b3c1776052d2bfebaab86e064fd",
+      "bytes": 5466
+    },
+    {
+      "path": "gpu-calibration/uv-offset.png",
+      "sha256": "06daa70634990c542bebf4292b312cc105efd07790c1554d76a9e095f9a0c82f",
+      "bytes": 5470
+    }
+  ],
+  "latest_repair_review": {
+    "review_manifest_sha256": "9c0dbd2fb3adcb9f9051748bbf543142569872053b281b3c840984062893714b",
+    "review": "repairs/hmc-texture-union/review/independent-review.md",
+    "target_count": 5,
+    "new_unique_targets": 4,
+    "receipt": "repairs/hmc-texture-union/applied-source.json"
+  },
+  "archived_failures": [
+    "check-before-signature-repair-result.json",
+    "workflow-before-texture-union-result.json"
+  ],
+  "latest_native_check": {
+    "elapsed_seconds": 229.204,
+    "source_files": 3219,
+    "exit_code": 0,
+    "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+    "receipt": "check-result.json",
+    "source_unchanged": true
+  },
+  "initial_manifest_target_count": 53,
+  "latest_distinct_target_count": 58,
+  "repaired_historical_failures": [
+    "workflow-before-texture-union-result.json -> workflow-result.json passed after texture-union repair"
+  ],
+  "historical_failed_runs": [
+    {
+      "receipt": "check-before-signature-repair-result.json",
+      "exit_code": 101,
+      "repaired_by": "check-after-signature-repair-result.json / latest check-result.json"
+    },
+    {
+      "receipt": "workflow-before-texture-union-result.json",
+      "exit_code": 101,
+      "repaired_by": "workflow-result.json"
+    }
+  ],
+  "claim_boundary": {
+    "native_GUI_usability": "not assessed",
+    "model_completion": "not assessed",
+    "FND_01_to_06": "open",
+    "human_contributor_reviewer_acceptance": "none claimed",
+    "WASM_runtime_interoperability": "not run",
+    "IP_03_C1_to_C8": "open",
+    "assets": "HOLD"
+  },
+  "source_pin_verification": {
+    "status": "passed",
+    "source_pin_files": 3219,
+    "sha256": "5cb652e00e16253197dd38c72b1295f448824d969318b3635fb4625b2489401a",
+    "receipt": "saved-evidence-verification.json",
+    "latest_local_source_hashes_match": true
+  },
+  "final_command_count": 14,
+  "successful_test_selection_commands": 11,
+  "successful_check_build_wasm_commands": 3,
+  "actual_passed_case_count": 70,
+  "unique_passed_case_count": 69,
+  "actual_executions_to_date": 71,
+  "checks_complete": true,
+  "final_status": "complete_scoped"
+}

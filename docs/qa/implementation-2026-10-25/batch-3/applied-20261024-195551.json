@@ -1,0 +1,26 @@
+{
+  "applied_utc": "2026-10-24T19:55:51.5990604Z",
+  "manifests": [
+    "core-modeling-repairs/constructor-followup/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "sha256": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\types.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\constructor-followup\\candidate\\types.rs",
+      "original_sha256": "eb6986a7cb4c8c144f86e89cf180a2e0a802b9b2f5b64a4601480a93efad31dc"
+    },
+    {
+      "sha256": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\tests.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\constructor-followup\\candidate\\tests.rs",
+      "original_sha256": "0258a920e46e13884397fc845b4435a337d68d7883c6f07c7b2243b54235a314"
+    },
+    {
+      "sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\properties.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\core-modeling-repairs\\constructor-followup\\candidate\\properties.rs",
+      "original_sha256": "4e1e0b0afe6142d725805e6dfb20da3e72297f0c928e184005c0677d97c538e4"
+    }
+  ]
+}

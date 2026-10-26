@@ -1,0 +1,56 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::poet_workspace::tests::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "intents",
+  "attempt": "inspector-final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:48:30.534059+00:00",
+  "finished_utc": "2026-10-25T22:48:40.754834+00:00",
+  "elapsed_seconds": 10.218,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\intents.log",
+  "log_sha256": "45414b1f79fd7e05fd8e77bc69e23875f45c08e6faa8f0e1cf191038cb125049",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\intents-source-before.json",
+  "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9",
+  "recorded_local_source_files": 3279,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      5,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::poet_workspace::tests::foreign_target_context_client_provenance_unknown_and_oversize_are_rejected",
+    "graphical::poet_workspace::tests::native_projection_reuses_original_studio_containers_and_holds_unqualified_services",
+    "graphical::poet_workspace::tests::read_only_refresh_recovers_same_actor_source_successor_without_rebinding_actor",
+    "graphical::poet_workspace::tests::revocation_refuses_dispatch_and_cancel_never_claims_cancelled",
+    "graphical::poet_workspace::tests::same_native_actor_provenance_is_real_and_backend_failure_stays_rejected"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

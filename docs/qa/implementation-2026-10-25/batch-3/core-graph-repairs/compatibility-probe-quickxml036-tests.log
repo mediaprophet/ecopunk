@@ -1,0 +1,47 @@
+
+running 1 test
+test candidate_lexicon::tests::namespaced_v4_volume_preserves_original_hash_associations_and_full_terms ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.04s
+
+
+running 2 tests
+test sparql_library::sparql_mm::tests::c2pa_manifest_certificate_and_claimed_anchor_do_not_fabricate_verification ... ok
+test sparql_library::sparql_mm::tests::c2pa_never_claims_verified_from_field_presence ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.01s
+
+
+running 1 test
+test daemon_query::tests::sparql_local_service_executes_inner ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.01s
+
+
+running 1 test
+test sparql_library::sparql_grammar::pattern::tests::only_exact_reserved_local_graph_selects_the_default_graph ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.01s
+
+
+running 3 tests
+test studio_store::cml::tests::compact_xml_preserves_explicit_style_and_tracks_the_current_node ... ok
+test studio_store::cml::tests::malformed_unknown_duplicate_and_budgeted_xml_never_partially_changes_source ... ok
+test studio_store::cml::tests::native_cml_roundtrip_preserves_unicode_escapes_whitespace_and_provenance_properties ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.02s
+
+
+running 2 tests
+test solid_ldp::export_q42::tests::q42_export_writes_turtle_and_manifest ... Solid leave/migrate: Exported 1 record(s); omitted 0 sanctuary/restricted; classified redacted 0. → C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-graph-repairs\harness\.tmppTd4CG\solid-out
+ok
+test solid_ldp::export_q42::tests::sanctuary_without_choice_fails ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.34s
+
+
+running 1 test
+test graph_repairs::native_rio_default_ingest_keeps_lexical_source_without_licence_inference ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.20s
+

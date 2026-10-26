@@ -1,0 +1,562 @@
+[
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+    "before_sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4",
+    "after_sha256": "6844b8bc5a790a685e585f2c5ab47d68fa2d8796e577e83b2b78ec230d00f9e4",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "6844b8bc5a790a685e585f2c5ab47d68fa2d8796e577e83b2b78ec230d00f9e4"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "4cc1ae423d66ab065670d2ac2e39b9bf84bc17c57b72adccac0bfc20db350be9",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "4cc1ae423d66ab065670d2ac2e39b9bf84bc17c57b72adccac0bfc20db350be9"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\policy.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\policy.rs",
+    "before_sha256": null,
+    "after_sha256": "f831cae52032d3c22293e2305d7e2eb0c421b542535e829bab14c3e988809044",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "f831cae52032d3c22293e2305d7e2eb0c421b542535e829bab14c3e988809044"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\records.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\records.rs",
+    "before_sha256": null,
+    "after_sha256": "3658443c6fbffb9a93bd1815d456503a5b49db6b9e576e32713ab87eb2d61d6c",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "3658443c6fbffb9a93bd1815d456503a5b49db6b9e576e32713ab87eb2d61d6c"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\tests.rs",
+    "before_sha256": null,
+    "after_sha256": "7b1b1dc093091f71f6e49e9f62a6a830692130d963c05cb20a470113c51b73c9",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "7b1b1dc093091f71f6e49e9f62a6a830692130d963c05cb20a470113c51b73c9"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\types.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\types.rs",
+    "before_sha256": null,
+    "after_sha256": "38d2db4d2e0f4481b3d9e151e6f7f1315308d16cd654eaf2fe94d0cb328ac275",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "38d2db4d2e0f4481b3d9e151e6f7f1315308d16cd654eaf2fe94d0cb328ac275"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+    "before_sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6",
+    "after_sha256": "a441cd012402e403f132daea7b311585fdd59424814b8f1e27270325adb579df",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "a441cd012402e403f132daea7b311585fdd59424814b8f1e27270325adb579df"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+    "before_sha256": null,
+    "after_sha256": "46d8b3485b83a43421027d8ec7730d7d9b462bdc7a5f50725220d206f8e2d291",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "46d8b3485b83a43421027d8ec7730d7d9b462bdc7a5f50725220d206f8e2d291"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+    "before_sha256": "ee39334d89ea64f740d940562e488e28c639506f2a18d971f9aa2fc2ac09e97f",
+    "after_sha256": "c95e5e19664668a26d5531643d5aa235f3dca2753bbb861320a40dc2574454e7",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "c95e5e19664668a26d5531643d5aa235f3dca2753bbb861320a40dc2574454e7"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\fixture.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\fixture.rs",
+    "before_sha256": "23106f9380da4eed354f96bcccd45ddb285a9f92ee068fef55580f3fe14b03f1",
+    "after_sha256": "40edc4c62b1e24139e46f09df012ee33c23507df7d70957bf86f88f6f0fd6908",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "40edc4c62b1e24139e46f09df012ee33c23507df7d70957bf86f88f6f0fd6908"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\mod.rs",
+    "before_sha256": "cdfff00d305ef10fbbf1f647f084831aa5265f7222aac6831ac406bd7e43d2b3",
+    "after_sha256": "493c7f47d87faf7eda7eaf1c19c562ab9f59b190eb85b02984ca98c3758f7c14",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "493c7f47d87faf7eda7eaf1c19c562ab9f59b190eb85b02984ca98c3758f7c14"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+    "before_sha256": "3e77c07e39842441c0d76c5aeab17a1eeb286d38f56038f9d8251a3720f6e428",
+    "after_sha256": "9188647665c6e51f17f03d8f27e230e31a1c651dc19ec16a5e389d49d7262edb",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "9188647665c6e51f17f03d8f27e230e31a1c651dc19ec16a5e389d49d7262edb"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+    "before_sha256": null,
+    "after_sha256": "b246e802cde9fbc0ca38a88935fee216c76a80207d0220f0d23bb9cccef99c93",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "b246e802cde9fbc0ca38a88935fee216c76a80207d0220f0d23bb9cccef99c93"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\journal.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\journal.rs",
+    "before_sha256": "2688c505d4946a2f6d92312c3b25b95bd5ba091b1f9342e8c97b5000499322b2",
+    "after_sha256": "480e5af0364855e0ded62e44ac905d4ae4b42e824f35fc51f332e041a7f26b1f",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "480e5af0364855e0ded62e44ac905d4ae4b42e824f35fc51f332e041a7f26b1f"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+    "before_sha256": "4bdfcb3fbdd34f7c38b65ad9b785f9c6d818fe02719a4fa5cc65e767eb8b13c9",
+    "after_sha256": "37b117b3c06a9025beb9f6d053aa20c72ba84cb03ab2d44ee13f787a49c42b36",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "37b117b3c06a9025beb9f6d053aa20c72ba84cb03ab2d44ee13f787a49c42b36"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\admin_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\admin_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "bf1e8e78655e0face15dfbd7b78dd4856a51c1299839002e693f04e8ae7b4478",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "bf1e8e78655e0face15dfbd7b78dd4856a51c1299839002e693f04e8ae7b4478"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\history.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\history.rs",
+    "before_sha256": null,
+    "after_sha256": "e50ba6eacb7084493ebc1f254f963a2d56134f9465ad13492510b42e5905aa60",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "e50ba6eacb7084493ebc1f254f963a2d56134f9465ad13492510b42e5905aa60"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "a6bd46a3fd3949bceb2b121ac109b26a0de9423cc949b8a451183246146928e0",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "a6bd46a3fd3949bceb2b121ac109b26a0de9423cc949b8a451183246146928e0"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\tests.rs",
+    "before_sha256": null,
+    "after_sha256": "9e42eeabe9b5d28613b1bcf7a3c6509ad3d06ca380e1c8908f9bc827f22b5856",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "9e42eeabe9b5d28613b1bcf7a3c6509ad3d06ca380e1c8908f9bc827f22b5856"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\validation.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\validation.rs",
+    "before_sha256": null,
+    "after_sha256": "c34e00352a48cd934b345292b316de72d4732d1038a795e7fa2b55e4d08905fa",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "c34e00352a48cd934b345292b316de72d4732d1038a795e7fa2b55e4d08905fa"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\workflow.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\workflow.rs",
+    "before_sha256": null,
+    "after_sha256": "b7f576a161b1775a1733ff97893a9101e799459bc99a296a532dbbc69b49155f",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "b7f576a161b1775a1733ff97893a9101e799459bc99a296a532dbbc69b49155f"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+    "before_sha256": "faecd91c88565d8cc44986746cfec34e512850c342a9f9a40837f33fe87ac832",
+    "after_sha256": "22acd11c53d1fb7c8681f5fcb65b41053110c0ae5731df525eafa084c40ea2e4",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "22acd11c53d1fb7c8681f5fcb65b41053110c0ae5731df525eafa084c40ea2e4"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\admin.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\admin.rs",
+    "before_sha256": null,
+    "after_sha256": "a998d33e0a97b59cfe537f55bc1dabe0a73ad22c12265283872edc4806e76eb5",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "a998d33e0a97b59cfe537f55bc1dabe0a73ad22c12265283872edc4806e76eb5"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\fixture.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\fixture.rs",
+    "before_sha256": null,
+    "after_sha256": "932ff900d03c242fec19ae99a67749ce96aed53afa42a8529a89ca601b57177b",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "932ff900d03c242fec19ae99a67749ce96aed53afa42a8529a89ca601b57177b"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\history.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\history.rs",
+    "before_sha256": null,
+    "after_sha256": "e68e6d456d61b4b9160968927e9050b210f16b6df42e8f15e651b6e670f42f34",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "e68e6d456d61b4b9160968927e9050b210f16b6df42e8f15e651b6e670f42f34"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\publication.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\publication.rs",
+    "before_sha256": null,
+    "after_sha256": "6cf6252fac8323766278b4ec0558047a83cbe653bab2a5585c286ab8b75c7756",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "6cf6252fac8323766278b4ec0558047a83cbe653bab2a5585c286ab8b75c7756"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\source_history.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\source_history.rs",
+    "before_sha256": null,
+    "after_sha256": "c810ccda5cd61856c17ee69ee616f1691413f4dbe171b313690b8fb7ee84bb36",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "c810ccda5cd61856c17ee69ee616f1691413f4dbe171b313690b8fb7ee84bb36"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\target_isolation.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\target_isolation.rs",
+    "before_sha256": null,
+    "after_sha256": "5ac7fdd0338bc7ac0dedcc24f294a96197706908e2e7c2f8b04281e5f5e4afe9",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "5ac7fdd0338bc7ac0dedcc24f294a96197706908e2e7c2f8b04281e5f5e4afe9"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+    "before_sha256": null,
+    "after_sha256": "82d8cc0e3412fe4ab688cfd759e1c787f2bbcbad99a6981723988a29c4aca7ab",
+    "job": "R4 canonical package review",
+    "verified_after_sha256": "82d8cc0e3412fe4ab688cfd759e1c787f2bbcbad99a6981723988a29c4aca7ab"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\Cargo.toml",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\Cargo.toml",
+    "before_sha256": "f5e3d41b1de37eb92fcd392a5b43485f7e1a88d67621059faab60ff8dac70133",
+    "after_sha256": "cd5d1125344f2289f9bb7181310203123fe600db3fe7da634dabfd615a06a4f9",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "cd5d1125344f2289f9bb7181310203123fe600db3fe7da634dabfd615a06a4f9"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\examples\\growing_reference\\authority.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\examples\\growing_reference\\authority.rs",
+    "before_sha256": "1a85f317770e19fd5d0eb719ace32c89363abc8d438f85e9bdf512bb44759a45",
+    "after_sha256": "00c593d128ad95accf5339b87e85625a2abcb173f1e27901f0e96d1dfcd421f3",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "00c593d128ad95accf5339b87e85625a2abcb173f1e27901f0e96d1dfcd421f3"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\editor_contract.rs",
+    "before_sha256": "8bb8b921ff3eb15fbf36d72d20955bb4d8bfb36efc8183623d8350ea7933253a",
+    "after_sha256": "de0942314a178f1ef2d642e0e6ae32cc62a7cb8f5652021132a36216163e305b",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "de0942314a178f1ef2d642e0e6ae32cc62a7cb8f5652021132a36216163e305b"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\jobs.rs",
+    "before_sha256": "a8cb4c999c99b3f248157184d053537b302e5398299a2da1011bfd4e0d04781c",
+    "after_sha256": "2d9cd6dc2d39976d8cb2b8067bdbe0ef9db57e80f88cdb4efceb552528eac1e5",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "2d9cd6dc2d39976d8cb2b8067bdbe0ef9db57e80f88cdb4efceb552528eac1e5"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\jobs_tests.rs",
+    "before_sha256": "785a24fdf9d5c9e1f913a580813b528bea5ca9e5fe50edede2b2fabca5d2da4d",
+    "after_sha256": "121ede13fea55d21f732de071132586b89017d59da8728ce07d9158c91f3cb0f",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "121ede13fea55d21f732de071132586b89017d59da8728ce07d9158c91f3cb0f"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\job_actions.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\job_actions.rs",
+    "before_sha256": "48f42f936248b4b7d9e572c842d6ab256c5d4f670bb71897e692592b4830ec83",
+    "after_sha256": "c85d503c8a5f492728067fcb958b18cbf698b0cbce72153ac84ed1ab7ddba294",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "c85d503c8a5f492728067fcb958b18cbf698b0cbce72153ac84ed1ab7ddba294"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\mod.rs",
+    "before_sha256": "639b814a5e218865dd5c64838f065f6a8f5cdbe18ef8bcf0d896886337533096",
+    "after_sha256": "0fcd607bcef2bb6b4bf907913aa2054ff13fdb132cfd0aaaed68b6161956e739",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "0fcd607bcef2bb6b4bf907913aa2054ff13fdb132cfd0aaaed68b6161956e739"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_project.rs",
+    "before_sha256": "e6e70e9b80e4f07674a6b47d636bdb5efd0ead6b7745fe70b0b9a0d113deb07a",
+    "after_sha256": "880287df6d21d4f0e989cd1fd33e188664063478c1a2814973a093ffb69f3657",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "880287df6d21d4f0e989cd1fd33e188664063478c1a2814973a093ffb69f3657"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_package_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_project_package_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "45907e0592258bcfe36c5ce10f8befaae36ba889f6fa0dec7b1ad8772991badb",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "45907e0592258bcfe36c5ce10f8befaae36ba889f6fa0dec7b1ad8772991badb"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_project_tests.rs",
+    "before_sha256": "76cabaf9144905ea8e6660ef45400a74188d3cc11db91f21bf3611de1807ebca",
+    "after_sha256": "8dcaec0cbfb7c574b65fde33e36f39a177695c1dd4d448dcfc7767e5b7c15b6a",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "8dcaec0cbfb7c574b65fde33e36f39a177695c1dd4d448dcfc7767e5b7c15b6a"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package_controls.rs",
+    "before_sha256": "a813c2b3a628f1bb8bc48808cb4fc3de604631ab67ef11b40249e351f5dd0e5c",
+    "after_sha256": "70e9bf07baec778fcb12a1d6e8c2732e815785047b5ef5a45a900d130e774d17",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "70e9bf07baec778fcb12a1d6e8c2732e815785047b5ef5a45a900d130e774d17"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_create_view.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package_georaster_create_view.rs",
+    "before_sha256": null,
+    "after_sha256": "0791992d265d9e61c37b637fa50fd69bf1af9072f907c462e9cd9232cc3b27c8",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "0791992d265d9e61c37b637fa50fd69bf1af9072f907c462e9cd9232cc3b27c8"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_edit_view.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package_georaster_edit_view.rs",
+    "before_sha256": null,
+    "after_sha256": "78c83da52b954b2f2c9c323c7ca0f8468b633b563756f3f228da81f7be39ea11",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "78c83da52b954b2f2c9c323c7ca0f8468b633b563756f3f228da81f7be39ea11"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_review_controls.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package_review_controls.rs",
+    "before_sha256": null,
+    "after_sha256": "542644152e6c16139cc611c0650c738f8ef2b3a03da7764e4be65d124a13d858",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "542644152e6c16139cc611c0650c738f8ef2b3a03da7764e4be65d124a13d858"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\session_host.rs",
+    "before_sha256": "a2fdb1bd7fdbf71dac162e14310a1a1e37ffdf1bca3c19ecddf04a93af2dab76",
+    "after_sha256": "a4061198bc473be18ceb8f6fcac783df18d57842511391990fb2fda7a0805181",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "a4061198bc473be18ceb8f6fcac783df18d57842511391990fb2fda7a0805181"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\shared_host.rs",
+    "before_sha256": "74b31445c1b54291b60acb12c12989ec25f680f8180a5c8ffb65d47f17bac93b",
+    "after_sha256": "be3759c744f592e3a4014f2b7e85f3d37d48555f191aeb5509d12a9a9704f131",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "be3759c744f592e3a4014f2b7e85f3d37d48555f191aeb5509d12a9a9704f131"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\checkpoints\\editor.rs",
+    "before_sha256": "6f2d2ffb6d27b44de4aa16620242faa8a58abaff96e109cb103f74dd4a7b1341",
+    "after_sha256": "cab14d471224d8ac74cbdb813a0a9fe40611e46fbb9a2046b289f960a120db79",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "cab14d471224d8ac74cbdb813a0a9fe40611e46fbb9a2046b289f960a120db79"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\checkpoints\\mod.rs",
+    "before_sha256": "3c584b8a36dbc364163db1efbea774762b1b6d18750788080792c6ab4574bd68",
+    "after_sha256": "a73a307174cc10dfe8428733ab2831f5851e1914add545a71bd112885b81a2ed",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "a73a307174cc10dfe8428733ab2831f5851e1914add545a71bd112885b81a2ed"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\cooperation\\editor.rs",
+    "before_sha256": "5120d552169eaeb4528bb23c03fa68556fa63814103ab3038b9c0214c33877b3",
+    "after_sha256": "296ceed97dce6a6090ee8a26aacaa24ed0733b114bd2ab164b056f2297a741f8",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "296ceed97dce6a6090ee8a26aacaa24ed0733b114bd2ab164b056f2297a741f8"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+    "before_sha256": null,
+    "after_sha256": "f0a5206ad5ff65baec3f118d35e47a0b0d4c7d2155da89759c4ee07bc98bccc1",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "f0a5206ad5ff65baec3f118d35e47a0b0d4c7d2155da89759c4ee07bc98bccc1"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "b8991755527dacae64ccd5e760da5ee34ff533dc7a315c4b06f1b50762294b67",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "b8991755527dacae64ccd5e760da5ee34ff533dc7a315c4b06f1b50762294b67"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_metadata_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\cooperation\\georaster_metadata_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "365857640ff8dca6ea0f8efefe15a363aff4b5e08efef10bb3047af6c9b71c09",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "365857640ff8dca6ea0f8efefe15a363aff4b5e08efef10bb3047af6c9b71c09"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\cooperation\\tests.rs",
+    "before_sha256": "fa5e63f3b716ec4622b23da101d82fcaaf62d341545b095cf60ded20f0add3ab",
+    "after_sha256": "ec7cb829f5162d875ab6909cd9cda5ec6a9e46452f4065d4d81d127b7f79c881",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "ec7cb829f5162d875ab6909cd9cda5ec6a9e46452f4065d4d81d127b7f79c881"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\actions.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\actions.rs",
+    "before_sha256": "e08347c6595b4110839a9963b760460e3d53b5ca499f1f501b96ad2c591f6869",
+    "after_sha256": "94648007382f5c679fca1bffc6a67fabe92cb1855f56f9cf8f19e3ca0531d3d3",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "94648007382f5c679fca1bffc6a67fabe92cb1855f56f9cf8f19e3ca0531d3d3"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\create.rs",
+    "before_sha256": "93b2271626423eae0700ca4c2d865a9d2c1a28b071a8426ba0193b128179affe",
+    "after_sha256": "c9325e92afbb2916f78627a7f44f06cd0d7e249b5c59b7c19e6abfcee886f190",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "c9325e92afbb2916f78627a7f44f06cd0d7e249b5c59b7c19e6abfcee886f190"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\mod.rs",
+    "before_sha256": "e3aa8ad21b45246b4f32eb426a347b3faac81bccbdda361553f9e92cde3ace9f",
+    "after_sha256": "d52f67b0bca2a7cb1ea5a571608eb7d1f5395bb375b300972f3dc1d78ce4851a",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "d52f67b0bca2a7cb1ea5a571608eb7d1f5395bb375b300972f3dc1d78ce4851a"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\package_admin.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\package_admin.rs",
+    "before_sha256": null,
+    "after_sha256": "85a95cab332c5b7707fb5992b1c3a32845548ac236d34e3a3048c981866d54c7",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "85a95cab332c5b7707fb5992b1c3a32845548ac236d34e3a3048c981866d54c7"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\package_grant_controls.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\package_grant_controls.rs",
+    "before_sha256": null,
+    "after_sha256": "244f5eaac8a55e6ddb522bc8155998c5ae38c6209baabaa45272dbd672f61938",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "244f5eaac8a55e6ddb522bc8155998c5ae38c6209baabaa45272dbd672f61938"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\runtime.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\runtime.rs",
+    "before_sha256": "fcc85da589d7c5e63b3c9dc8570f4fcf5dcf18f9920cf828216bbcfadb5539e4",
+    "after_sha256": "fa1a3e3d68efccdf014acf6b330780613e150b59af9b07bf4f0a15d85e428b94",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "fa1a3e3d68efccdf014acf6b330780613e150b59af9b07bf4f0a15d85e428b94"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\types.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\types.rs",
+    "before_sha256": "3b30a9e87c3a6cb79cfbc59076682b85f8c3b4b239d56fe366bc1a3340d8ebd0",
+    "after_sha256": "3fcb0d55ad3a3d4218fbd922d39fcb99ab9ac39233e97870ea4f22472381128e",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "3fcb0d55ad3a3d4218fbd922d39fcb99ab9ac39233e97870ea4f22472381128e"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\ui.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\native_entry\\ui.rs",
+    "before_sha256": "6317268bc67e7f100fd56d6ce83ec5a39cdeaded574411aa46a014e1946293b0",
+    "after_sha256": "ce81c1f3d3c15599b636e7ece37d6ec953e6223312989dcff70b0fe4de872142",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "ce81c1f3d3c15599b636e7ece37d6ec953e6223312989dcff70b0fe4de872142"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package\\mod.rs",
+    "before_sha256": "e1f2d605f852bb67e5f06914dc856cc1e72ed617eeff9c9acfeb096f9281884f",
+    "after_sha256": "70faaf99d10003d7e02c0c1c49ad01464f943779155c8b10ff964b47c2201322",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "70faaf99d10003d7e02c0c1c49ad01464f943779155c8b10ff964b47c2201322"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_workflow\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package_workflow\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "cd150c98e0a267b2d8da3a8829416061d9b218f42736d0e1bddab9a1c7fd91dd",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "cd150c98e0a267b2d8da3a8829416061d9b218f42736d0e1bddab9a1c7fd91dd"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_workflow\\service.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\package_workflow\\service.rs",
+    "before_sha256": null,
+    "after_sha256": "375e37b53c6dfaad299496073004bbe1d793535211eb0a195c4692ffcc172ca3",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "375e37b53c6dfaad299496073004bbe1d793535211eb0a195c4692ffcc172ca3"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\poet_workspace\\tests.rs",
+    "before_sha256": "9e8354704b69bece78353621084ba7ebb14bc1cc1eba78318294a32fe20f9bf4",
+    "after_sha256": "61521fd80aa151c9673f575d9863fb9e8936e834455b6c2d60d0370481284574",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "61521fd80aa151c9673f575d9863fb9e8936e834455b6c2d60d0370481284574"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "3ab56d6d4c49b0f1f0647d6b097088d958277914b0230de95d1f370bdd71a521",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "3ab56d6d4c49b0f1f0647d6b097088d958277914b0230de95d1f370bdd71a521"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+    "before_sha256": null,
+    "after_sha256": "d30bf0ca276bda7bc8d041b58e14802a93aaeb4330abe2a705dc143d7974874b",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "d30bf0ca276bda7bc8d041b58e14802a93aaeb4330abe2a705dc143d7974874b"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+    "before_sha256": null,
+    "after_sha256": "0fe448cda647975bbae4f886e4260704b39a4faa53e123dad533cd4a250d06a6",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "0fe448cda647975bbae4f886e4260704b39a4faa53e123dad533cd4a250d06a6"
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\tests.rs",
+    "before_sha256": null,
+    "after_sha256": "a925cb9d3f0db0e3ce3445fbb223219404a9b49323161c80c5497c81295495b2",
+    "job": "R4 integrated native producer/review",
+    "verified_after_sha256": "a925cb9d3f0db0e3ce3445fbb223219404a9b49323161c80c5497c81295495b2"
+  },
+  {
+    "target": "C:\\github\\poet\\Cargo.lock",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\Cargo.lock",
+    "before_sha256": "76ce1ce08e775fab9ead61e4cb5c13af773de81232e9b8e2be72f36a552785d6",
+    "after_sha256": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a",
+    "job": "R4 exact offline local-path dependency lock",
+    "verified_after_sha256": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a"
+  },
+  {
+    "target": "C:\\github\\qualiaDB\\docs\\manuals\\standards\\native-poet-package-review.md",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\integration\\native-poet-package-review.md",
+    "before_sha256": null,
+    "after_sha256": "70c9cad2e60543fcb5fbadc6a01b5f605fc69decedc3fe10c0524ea41297374b",
+    "job": "R4 canonical implementation contract",
+    "verified_after_sha256": "70c9cad2e60543fcb5fbadc6a01b5f605fc69decedc3fe10c0524ea41297374b"
+  }
+]

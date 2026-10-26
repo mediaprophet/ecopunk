@@ -1,0 +1,65 @@
+   Compiling qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling ecopunk-format-sdk-conformance v0.1.0 (C:\github\ecopunk\tools\format-sdk-conformance)
+    Finished `test` profile [unoptimized] target(s) in 19m 59s
+     Running tests\format_sdk_consumers.rs (target\debug\deps\format_sdk_consumers-d3259d0267fe7953.exe)
+
+running 6 tests
+test overflowing_raster_dimensions_leave_caller_output_untouched ... ok
+test stored_matter_fixture_passes_native_reader_without_claiming_geographic_truth ... ok
+test raster_producer_emits_only_the_raw_codec_it_actually_implements ... ok
+test intact_hmc_does_not_certify_corrupt_inner_matter_records ... ok
+test hmc_preserves_intact_matter_and_native_reader_borrows_embedded_payload ... ok
+test existing_10d_and_m64_share_hmc_without_reframing_or_rebuilding_assets ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.11s
+
+     Running ..\..\..\qualiaDB\crates\qualia-core-db\tests\m64_container_sdk.rs (target\debug\deps\m64_container_sdk-0fec3ba630c1f0fa.exe)
+
+running 7 tests
+test public_reader_rejects_header_and_directory_structural_failures ... ok
+test public_reader_checks_budgets_and_scratch_before_record_work ... ok
+test public_reader_allocates_zero_bytes_in_validation_and_borrowed_access ... ok
+test public_reader_rejects_payload_policy_bounds_and_overlap ... ok
+test public_reader_checks_actual_record_crcs_and_discloses_unchecksummed_modes ... ok
+test public_reader_preserves_versions_aliases_and_unaligned_borrowed_payloads ... ok
+test public_reader_accepts_permuted_nonoverlapping_directories_and_empty_files ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+     Running ..\..\..\qualiaDB\crates\qualia-core-db\tests\typed_field_payloads.rs (target\debug\deps\typed_field_payloads-a8301a53e3ec4c13.exe)
+
+running 9 tests
+test canonical_parser_preserves_a_valid_payload_before_a_later_table ... ok
+test invalid_ranges_preserve_manifest_output_and_writer_output ... ok
+test malformed_later_morph_delta_leaves_all_output_unchanged ... ok
+test legacy_whole_mrp1_is_supported_but_mid2_never_guesses_it ... ok
+test legacy_single_payload_survives_but_mid2_never_guesses_vector_normals ... ok
+test duplicate_frames_unknown_kind_and_bad_codec_fail_clearly ... ok
+test counts_empty_declarations_wrong_binding_and_small_buffers_refuse_transactionally ... ok
+test malformed_table_overlap_and_unaligned_input_fail_without_panicking ... ok
+test frames_morph_and_scientific_raster_coexist_in_either_payload_order ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

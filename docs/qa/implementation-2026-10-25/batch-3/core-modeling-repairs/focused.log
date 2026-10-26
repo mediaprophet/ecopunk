@@ -1,0 +1,18 @@
+
+running 4 tests
+test chemistry::initialized_predictor_uses_registered_group_contribution_formulas ... FAILED
+test engineering::structural_vibration_facade_matches_prismatic_closed_form_and_rejects_invalid_density ... ok
+test engineering::test_mechanical_analysis ... ok
+test finance::ingest_from_feed_fails_closed_without_cached_prices ... ok
+
+failures:
+
+failures:
+    chemistry::initialized_predictor_uses_registered_group_contribution_formulas
+
+test result: FAILED. 3 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+thread 'chemistry::initialized_predictor_uses_registered_group_contribution_formulas' (20432) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\focused.rs:78:5:
+assertion failed: (res.properties["density"] - 0.962427).abs() < 1e-12
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,30 @@
+{
+  "scope": "Native host effect grants and canonical 0.1 conformance fixtures",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\mod.rs",
+      "original_sha256": "a358d3943d828b4779cfcbcf44cc4f0fd3348568e6b9174ce45ab73f198d011e",
+      "candidate": "candidate/mod.rs",
+      "candidate_sha256": "e4faa1390464c2589f1570fcba3f1d9d829fcc9578bf6a831ca849d1d25b43c8"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\host.rs",
+      "original_sha256": null,
+      "candidate": "candidate/scoped_effects/host.rs",
+      "candidate_sha256": "9dc617ced4d39b16f56175d871f152a5619a840d744ed67289950cf22c8a72e7"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\mod.rs",
+      "original_sha256": null,
+      "candidate": "candidate/scoped_effects/mod.rs",
+      "candidate_sha256": "59e18a520825394d9dff9c377fb4259b001a107a229d3dc977ee20594aed7994"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/scoped_effects/tests.rs",
+      "candidate_sha256": "c4f86e047fbc3cebe9af55636422b1dc1086067a83590a60574b87181e645e74"
+    }
+  ]
+}

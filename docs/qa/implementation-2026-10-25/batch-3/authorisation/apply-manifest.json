@@ -1,0 +1,42 @@
+{
+  "scope": "Batch-3 host-bound cooperative authoring policy and revision evidence; staged only",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/lib.rs",
+      "original_sha256": "ABD1A438B7C895B5B9A580E205F96575EB0D03F95FBEA689F1D2B5F82A2B9BAE",
+      "candidate": "candidate/lib.rs",
+      "candidate_sha256": "780DE522D539C36CBC63537FE69BD7ACC09CFD9C4C08D47391B6B87AB2F117F2"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/mod.rs",
+      "original_sha256": null,
+      "candidate": "candidate/authoring/mod.rs",
+      "candidate_sha256": "CB2C39CC3952474A5431000F25828808976966FFEDB0BF778D96B45DF521B2B4"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/policy.rs",
+      "original_sha256": null,
+      "candidate": "candidate/authoring/policy.rs",
+      "candidate_sha256": "F284467310895A478B18E7E53F2DEAEC9168D743A6422E8E5646F4A0B422A631"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/records.rs",
+      "original_sha256": null,
+      "candidate": "candidate/authoring/records.rs",
+      "candidate_sha256": "07BC8CE23C4D91ACDB10ACCB219DE00C78533956F2DC2158927390E859DA54C6"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/authoring/tests.rs",
+      "candidate_sha256": "4F15669384F5D5CBC0EE2D9F52EA0A7AA19F6CAC219AA4EAD7B9B5A20F7A5A48"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/types.rs",
+      "original_sha256": null,
+      "candidate": "candidate/authoring/types.rs",
+      "candidate_sha256": "9788D844D87055DB4E1CFA1D71FFEA4D4F0C9BAE08FFDD49EBB950357ABEA68F"
+    }
+  ]
+}

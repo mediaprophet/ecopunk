@@ -1,0 +1,29 @@
+{
+  "scope": "Native grant adapter plus canonical effect-contract fixture repairs",
+  "staged_only": true,
+  "source_application": "No sibling changes by worker",
+  "compiler": "rustc",
+  "compile_exit_code": 0,
+  "test_exit_code": 0,
+  "passed": 11,
+  "failed": 0,
+  "duration_seconds": 0.53,
+  "compile_command": "rustc --edition=2021 --test docs/qa/implementation-2026-10-25/batch-3/core-runtime-repairs/harness/tests.rs --extern vibe=C:/github/ecopunk/target/debug/deps/libvibe-2937e95bb154f7f6.rlib --extern qualia_core_db=C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib -L dependency=C:/github/ecopunk/target/debug/deps -L native=C:/Users/tim_h/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/winapi-x86_64-pc-windows-gnu-0.4.0/lib -o docs/qa/implementation-2026-10-25/batch-3/core-runtime-repairs/harness/runtime-effects-tests.exe",
+  "run_command": "docs/qa/implementation-2026-10-25/batch-3/core-runtime-repairs/harness/runtime-effects-tests.exe --nocapture",
+  "actual_cached_native_host_used": true,
+  "actual_os_ed25519_key_generation": true,
+  "private_key_seed_logged": false,
+  "effect_checker_weakened": false,
+  "source_requests_used_as_actual_grants": false,
+  "cargo_build_run": false,
+  "full_core_suite_run": false,
+  "attached_pulse_network_or_daemon": false,
+  "gui_or_gpu_run": false,
+  "remaining": [
+    "Independent review and guarded application",
+    "Coherent actual-source selected tests/core integration",
+    "Production authentication/revocation owner binding",
+    "Other core failures allocated separately",
+    "IP-03 C1-C8 and all complete package/model claims"
+  ]
+}

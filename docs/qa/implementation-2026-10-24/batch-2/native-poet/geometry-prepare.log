@@ -1,0 +1,4 @@
+
+thread 'main' (15416) panicked at docs/qa/implementation-2026-10-24/batch-2/native-poet/geometry-prepare.rs:5:31:
+geometry source must prepare under explicit grant: Diagnostic { code: E300, span: Span { start: 46, end: 307 }, message: "missing capability(\"ComputationalGeometry.extrude_profile\") for capability.invoke(\"ComputationalGeometry.extrude_profile\")", suggested_fix: Some("add `using Family;` or requires [ capability(\"id\") ];"), evidential: None }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,556 @@
+{
+  "schema": "ecopunk-poet-authoring-review-v1",
+  "date": "2026-10-26",
+  "assignment": {
+    "agent": "/root/poet_full_authoring",
+    "assigner": "/root coordinator",
+    "scope": "read-only current source and saved evidence; documentation pair only",
+    "authorized_outputs": [
+      "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+      "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.coverage.json"
+    ],
+    "implementation_activation": "none; PR-N01 through PR-N07 are local source-study sketches superseded for assignment by central PA-R research jobs/register; central PA-01 through PA-12 are capability cases",
+    "assignment_authority": "C:/github/ecopunk/docs/planning/tech/poet-comprehensive-authoring-review.md and its central PA-R research register"
+  },
+  "source_pin_kind": "current filesystem SHA256; no Git operations or clean-revision assertion",
+  "own_new_body_file_budget": 18,
+  "own_new_body_file_count": 18,
+  "source_reads": [
+    {
+      "path": "C:/github/poet/native/src/graphical/poet_workspace/intents.rs",
+      "sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 301
+        }
+      ],
+      "symbols": [
+        "NativeIntentBus::new/current_context/inspect_actor/refresh/envelope/dispatch_with_reply",
+        "IntentBus::dispatch/cancel"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Existing shared-contract native adapter, authenticated source/session guard; cancellation explicitly unsupported"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/poet_workspace/native_commands.rs",
+      "sha256": "09d8e19076fcb0d6439fd4cd0301c07f7a8bd69194962a9bcb43f68b55848a28",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 378
+        }
+      ],
+      "symbols": [
+        "Command",
+        "Command::action_type/scope/action"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Strict bounded source/spatial/surface command conversion to existing Action; not all media dispatch"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/poet_workspace/model.rs",
+      "sha256": "9fee08a9cd3b2753f28c0ceb8afb975cada34ee62e0326835ca30fecb59a8647",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 62
+        }
+      ],
+      "symbols": [
+        "WorkspaceProjection::for_source"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Reuse original Poet Construct and Studio seed; held/partial service honesty, not full native workspace"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/ui.rs",
+      "sha256": "873d764813a85101e5ad9dff90afe47dfbb36d34830eeb7f4802e97131739d21",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 331
+        }
+      ],
+      "symbols": [
+        "dispatch",
+        "NativeStudio",
+        "EditorSnapshot::eq"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Native draft/check/submit/undo/rebuild/checkpoint and selected spatial/cooperative UI callers; no window execution"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project.rs",
+      "sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 236
+        }
+      ],
+      "symbols": [
+        "NativeProject::open/open_with_rebuild_limits/connect/mcp_backend/launch",
+        "workflow_service/package_workflow_service/verify_package_target"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Single SharedEditorHost wrapped separately per admitted UI/MCP connection; checkpoint/host limits and authority"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/editor.rs",
+      "sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "read_ranges_1_based": [
+        {
+          "start": 168,
+          "end": 350
+        }
+      ],
+      "symbols": [
+        "AuthorizedEditorHost EditorHost impl: authoring_view/authoring_edit/compiled_assets/compile_checkpoint",
+        "snapshot/check/source_cells/submit/material_edit/undo/redo/rebuild_execution/save_checkpoint",
+        "resource preflight/inventory/edit/import/apply"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Selected public editor forwards through read/write authorization; inner ownership not reimplemented"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperative_workbench/projection.rs",
+      "sha256": "ec2c1a3dbcbb6ceb4c2fc36a7c065acd07e9d977b858223c14ea0f7a2751de63",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 162
+        }
+      ],
+      "symbols": [
+        "WorkbenchProjection",
+        "project",
+        "only_unanswered_requests_for_the_exact_revision_are_pending"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Exact target separates pending/current/historical review, preserves PrincipalKind; local test source read not executed"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_dispatch.rs",
+      "sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 168
+        }
+      ],
+      "symbols": [
+        "run"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Native UI Action to original payload adapter; diagnostic direct-worker and existing package/cooperation fallback are explicit"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/mcp/mod.rs",
+      "sha256": "5ea132ef6eb28d7a5604a711ba49c099a49fe34fec697592d8f5ea19080238b7",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 360
+        }
+      ],
+      "symbols": [
+        "NativeAuthoringBackend::unbound/bound/host/read/expected",
+        "schema/args/receipt_authority/outcome",
+        "AuthoringBackend::tools/call"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Agent transport shares authorized host and stale guards, source/material/checkpoint operations; not all structured UI commands"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/session_host.rs",
+      "sha256": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 80
+        },
+        {
+          "start": 217,
+          "end": 296
+        }
+      ],
+      "symbols": [
+        "SessionEditorHost::new/current",
+        "EditorHost impl snapshot/check/submit/undo/redo/rebuild/material/source/checkpoint/resource forwarding"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Current selected opaque session rebind with stable derived frontend for same actor; source/recovery forwarding"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/jobs.rs",
+      "sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88",
+      "read_ranges_1_based": [
+        {
+          "start": 14,
+          "end": 32
+        },
+        {
+          "start": 143,
+          "end": 240
+        },
+        {
+          "start": 372,
+          "end": 476
+        }
+      ],
+      "symbols": [
+        "Context::from_snapshot",
+        "Worker::start/finish/join/Drop",
+        "run",
+        "completion_is_current"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Bounded serialized worker and queue/refusal/completion checks; no forced started-effect cancellation"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/core/intent_bus.rs",
+      "sha256": "59c55d4ff0b4fa7411423d76b01bf5ebedb61f19cbac5df21ecfc4ba4b615d19",
+      "read_ranges_1_based": [
+        {
+          "start": 226,
+          "end": 300
+        },
+        {
+          "start": 324,
+          "end": 402
+        }
+      ],
+      "symbols": [
+        "VibeScriptPayload",
+        "ContextRef::default",
+        "VibeScriptPayload::new/with_context/with_provenance excerpt",
+        "IntentStatus/IntentReceipt/IntentBus"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Existing shared payload/router trait and constructor, not entire rich ST contract or authority implementation"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/core/registry.rs",
+      "sha256": "dedaaeb98959d1304c45cd0b10ccb41b7257930f0a7f42c738f27d8e5eb4f14d",
+      "read_ranges_1_based": [
+        {
+          "start": 129,
+          "end": 304
+        }
+      ],
+      "symbols": [
+        "ManifoldSeed::is_social",
+        "ContainerKind::from_type/class_suffix",
+        "SeedContainer::new"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Original content/panel/widget composition and source/view state hooks; constructor is not durable domain source engine"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/browser/intent_bus.rs",
+      "sha256": "1c22077db90d6b721c8c0c85189434cb04b2a5d23be61bc4083e39009dc85c95",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 202
+        }
+      ],
+      "symbols": [
+        "WasmIntentBus::new/with_default_identity/stamp_provenance/encode_cbor_ld",
+        "capability_scope_for",
+        "IntentBus::dispatch/cancel"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Connected-loopback browser CBOR-LD transport, demo stamping, HTTP acknowledgement, unsupported cancellation; no native auth/WASM runtime proof"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/browser/containers/body_core.rs",
+      "sha256": "b49234b1118be93843da25ffe671e9b5e4b3c8194c6965980e516f98c890885c",
+      "read_ranges_1_based": [
+        {
+          "start": 71,
+          "end": 170
+        }
+      ],
+      "symbols": [
+        "try_fill selected match branches: dual_studio/map/media/code/doc/sheet/graph/ontology/pulse excerpt"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Actual DOM builder dispatch, not body audit of every called editor or proof of canonical engine binding"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/browser/containers/body_studio.rs",
+      "sha256": "a1a8d71709c9d0b0e99cabc16c3c0707e5cbbf34d663d0a256f0972f2ea888a4",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 157
+        }
+      ],
+      "symbols": [
+        "try_fill selected branches: audio_session/scene_view/animation_timeline/transport/routing_matrix/spatial_audio/presentation/material/light/channel/automation"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Existing studio/media DOM builder calls; called timeline/audio bodies unreviewed"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/browser/container_views/doc.rs",
+      "sha256": "a167a04742afa2d15f45505e976f776b04dfa295141186f8e4ee53a62c485b50",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 160
+        }
+      ],
+      "symbols": [
+        "build_doc_view excerpt"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Visual CML/Markdown/RDF tabs, contenteditable view, embedded calculation cell; synchronization/persistence not established by excerpt"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/browser/studio_views/persist/editors.rs",
+      "sha256": "49221079d96a3a9a85340f3acabe5628166eeef44271e2b412b88ea98574aa7a",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 140
+        }
+      ],
+      "symbols": [
+        "build_scene_graph_view/build_material_editor_view/build_lighting_editor_view/build_shadow_settings_view/build_lod_chain_view/build_gis_maps_view"
+      ],
+      "inspection_level": "selected implementation or caller body excerpt",
+      "evidence_level": "current source inspected; not newly executed",
+      "finding": "Ledger forms with explicit unbound GPU/render notices, not complete domain editing controls"
+    }
+  ],
+  "api_or_discovery_only": [
+    {
+      "path": "C:/github/poet/wasm/src/browser/studio_views/animation_timeline.rs",
+      "sha256": "659d33d58c20dcfcf1be23250c26d4926694b51c68c4eeca9ad4a22cd0823218",
+      "read_ranges_1_based": [
+        {
+          "start": 1,
+          "end": 3
+        }
+      ],
+      "level": "re-export only, no function body",
+      "finding": "animation timeline delegates to persist; not counted as implementation body audit"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-app-contract/src",
+      "level": "file discovery only in this worker",
+      "files": [
+        "lib.rs",
+        "adapter.rs",
+        "descriptor.rs",
+        "request.rs",
+        "target.rs",
+        "gesture.rs",
+        "catalog.rs",
+        "delegation.rs"
+      ],
+      "finding": "Existing contract owner must be reconciled, never commission duplicate from old ST proposal"
+    }
+  ],
+  "document_and_prior_report_pins": [
+    {
+      "path": "C:/github/ecopunk/AGENTS.md",
+      "sha256": "c670455597cb36d287d7909fe4acf16f37cd8d00cbb14134fb41d7e946c0dfc8",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/architecture.md",
+      "sha256": "3ac9d92b781075fcf86b83637b670382516d97b225ba2cbdae265ba1408900bb",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/development-modes.md",
+      "sha256": "ddaddb6e35d361621ad0c8ce6a3f7c3820b28a7d619611bccd40fc5adceeae5c",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/delivery-revision-and-agent-handoff.md",
+      "sha256": "3d5c07f5d1be297d37246db82816faa8701541ebd83d314548cdd5e1be1bdbde",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/poet-craft-consolidation.md",
+      "sha256": "e1aa1fa617e07e99f58d4034a674f6e6b6006e568cccd84994fd55785fc4c1df",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/assets/production-toolchain-spec.md",
+      "sha256": "7bbcb8ee85265c0545782901056eef507df310acb99519b268ea82dee511ffb9",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/poet-ui-recovery/README.md",
+      "sha256": "a400ee0782d8de10626e0cc9b06cd42780bfdba3050dd9759524a06f89a331f9",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/poet-ui-recovery/ui-function-inventory.json",
+      "sha256": "35042745dbe241f143497258d793ecd0bb4a82f110f5b1fa7aa7412e7fad059d",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "sha256": "94204e419a12640be6ead18f7cae943c58dfaccab1ae8b7a0f139fb8434d453b",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+      "sha256": "2bf06a8ad65a50f3ff39538d0d6ca6f0670f2bd629fab5e0e47cfc4c31c5f414",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/round9/progress.md",
+      "sha256": "5867087cd439f42e8cfbee4b27c439536ebf0022fc05b69c4cfa12ec6b37086e",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-3/shared-host/README.md",
+      "sha256": "f03e48909710a0ccd7fae635cb8304004457134020317ea25ce5241e3b309e0f",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-4/README.md",
+      "sha256": "a0159d39e9e48a1cf9c1cc66847287eec5fe9cbfae0abfcf9b4e95ced1d6d023",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/craft/README.md",
+      "sha256": "2f19e92d26ff8e509f9998115e689b0be47f1a54345f81129a72f0fc07e54abf",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/work-in-progress/POET_UPDATED_IMPLEMENTATION_PLAN_2026-09-05.md",
+      "sha256": "2fa9f9139960effa8f4a02a5caf7d119ae110c8fdfd4c85acdcecd5288011f46",
+      "inspection_level": "governing or prior evidence text/excerpts; not current source execution"
+    }
+  ],
+  "prior_execution": {
+    "receipt": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/round9/inspector-final/intents-result.json",
+    "sha256": "9733d80b9d68fc7f2911b4d4d22663e4fa3e61615b1d45d8672363070ea1abb2",
+    "command": [
+      "cargo",
+      "test",
+      "--manifest-path",
+      "C:/github/poet/Cargo.toml",
+      "-p",
+      "poet-cli",
+      "--features",
+      "native-graphical",
+      "--locked",
+      "--offline",
+      "--target-dir",
+      "C:\\github\\ecopunk\\target",
+      "--lib",
+      "graphical::poet_workspace::tests::",
+      "--",
+      "--test-threads=1"
+    ],
+    "exit_code": 0,
+    "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9",
+    "source_unchanged": true,
+    "passed_case_names": [
+      "graphical::poet_workspace::tests::foreign_target_context_client_provenance_unknown_and_oversize_are_rejected",
+      "graphical::poet_workspace::tests::native_projection_reuses_original_studio_containers_and_holds_unqualified_services",
+      "graphical::poet_workspace::tests::read_only_refresh_recovers_same_actor_source_successor_without_rebinding_actor",
+      "graphical::poet_workspace::tests::revocation_refuses_dispatch_and_cancel_never_claims_cancelled",
+      "graphical::poet_workspace::tests::same_native_actor_provenance_is_real_and_backend_failure_stays_rejected"
+    ],
+    "classification": "saved prior execution; not rerun, not whole-app/user acceptance or proof of every present source hash",
+    "other_evidence": [
+      "C:/github/ecopunk/docs/qa/implementation-2026-10-26/round9/saved-evidence-verification.json",
+      "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-4/native-final.json",
+      "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-4/direct-cli/130ad0c42d5e/checks.json"
+    ],
+    "relevant_source_test_owners": [
+      "C:/github/poet/native/src/graphical/poet_workspace/tests.rs",
+      "C:/github/poet/native/src/graphical/shared_host_tests.rs",
+      "C:/github/poet/native/src/graphical/native_project_tests.rs",
+      "C:/github/poet/native/src/graphical/cooperation/mcp_tests.rs",
+      "C:/github/poet/native/src/graphical/jobs_tests.rs"
+    ],
+    "new_source_test_execution": "none; test bodies not newly audited except inline projection test"
+  },
+  "bounded_searches": [
+    {
+      "paths": [
+        "C:/github/poet/Cargo.toml",
+        "C:/github/poet/native/Cargo.toml",
+        "C:/github/poet/wasm/Cargo.toml",
+        "C:/github/craft/Cargo.toml"
+      ],
+      "pattern": "qualia-app-contract|poet-adapter|AppAdapter|CommandDescriptor|adapter",
+      "result": "no matches; applies only to those manifest text searches, not proof of absent contracts/adapters"
+    },
+    {
+      "paths": [
+        "C:/github/poet-<eleven craft source families>"
+      ],
+      "pattern": "poet-adapter path candidates",
+      "result": "none returned by selected rg discovery; no absent-implementation conclusion"
+    }
+  ],
+  "root_attributed_review": {
+    "status": "coordinator separately reported body reads; not counted in this worker scope",
+    "paths_and_ranges": [
+      "qualia-app-contract/src/lib.rs whole",
+      "qualia-app-contract/src/adapter.rs whole",
+      "qualia-app-contract/src/descriptor.rs:1-135",
+      "qualia-app-contract/src/request.rs:1-130"
+    ],
+    "findings": "Existing AppAdapter/command/session/surface/job types and validators. Trait defaults include empty/permissive successes, so presence is not functional adapter or permission enforcement. Coordinator owns separate hashes and detailed coverage.",
+    "coverage_ref": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/qualia-app-contract-source-review.json"
+  },
+  "runtime_and_acceptance": {
+    "new_builds": 0,
+    "new_tests": 0,
+    "gui_launches": 0,
+    "computer_use": "none",
+    "current_window": "unassessed",
+    "accessibility_tree": "unassessed",
+    "human_acceptance": "unassessed",
+    "wasm_runtime": "not newly executed",
+    "native_no_js": "prior selected native architecture/execution only, not broader parity claim",
+    "source_counts_are_usability_evidence": false
+  },
+  "process_handoff": {
+    "live_command": "none",
+    "pid": "none",
+    "session": "none",
+    "working_directory": "C:/github/ecopunk",
+    "status": "read-only inspection commands exited; no background process started",
+    "next_action": "Use central PA-R research jobs/register for ownership and activation; local PR-N01 contract reconciliation sketch remains evidence-informed input, not dispatch authority"
+  },
+  "remaining": [
+    "PC-01 through PC-08 full scope",
+    "TOOL-01 through TOOL-12 full scope",
+    "all 30 existing UI migration family rows and all eight item categories",
+    "IP-03 C1-C8 product acceptance",
+    "full MIT source disposition/notices and medium fidelity",
+    "film/open-world-game/cartoon species and equipment production packages incomplete"
+  ]
+}

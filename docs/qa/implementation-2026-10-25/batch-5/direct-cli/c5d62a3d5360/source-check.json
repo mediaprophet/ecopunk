@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "C:\\github\\ecopunk\\target\\debug\\poet-batch5-c5d62a3d5360.exe",
+    "studio",
+    "--diagnostic-new-source",
+    "--grant",
+    "capability.invoke",
+    "--grant",
+    "ComputationalGeometry.extrude_profile",
+    "--check-source"
+  ],
+  "started_utc": "2026-10-24T23:14:49.635281+00:00",
+  "timeout_seconds": 30,
+  "creation_flags": 134217728,
+  "gui_requested": false,
+  "owned_process_id": 10196,
+  "timed_out": false,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T23:14:50.206104+00:00",
+  "stdout_bytes": 87,
+  "stderr_bytes": 152,
+  "stdout_file": "source-check.stdout.log",
+  "stderr_file": "source-check.stderr.log"
+}

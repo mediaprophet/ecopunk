@@ -16,6 +16,39 @@ rule: obligation = work done (+ capped ROI), discharged, freed globally.
 
 ## 1. The social commons substrate (`social-permissive-commons.n3` — verified)
 
+**2026-10-24 purpose and policy clarification:** in Timothy's vocabulary,
+**civics** is people-led work; **civic** is government activity. Contributor
+identifiers, role/authority, origin history and paid/unpaid/underpaid/self-funded
+status remain distinct. Later funded adoption cannot erase earlier contributions
+or establish that they were compensated.
+
+Qualifying commercial uses contribute toward the applicable **obligation cost
+until it is fully compensated/discharged**. Applicable human-rights purposes may
+be without charge before discharge, under the identified project/commons policy.
+That no-charge use does not create a payment receipt, imply a gift/waiver by
+contributors or settle the outstanding pool. Once the pool discharges, its
+cost-recovery charge ends under the commons rule; distinct legitimate new work
+and hosting remain separately identified. Preserve upstream source-rights terms.
+
+These clarify requirements for the existing machinery below, not proof that all
+commercial/exemption/settlement cases have already been runtime-qualified. See
+[REQ-CIVICS-001–005](high-grade-production-and-civics-experience.md).
+
+The [semantic agreement handoff](semantic-agreements-and-compensation.md) records
+actual project/ontology fields, native host commands, semantic-instrument code,
+commons arithmetic and the earlier framework/token/licence work. It identifies
+unit-safe valuation, old pool-choice text, zero-cost states and agreement-to-use
+integration as cases needing reconciliation/qualification, rather than assuming
+this document's earlier verified-source labels prove the complete workflow.
+
+[Credit allocations and period reconciliation](credit-allocations-and-periodic-reconciliation.md)
+adds provider-defined pre-funded limits, drawdown and residual return/carry/
+purpose delegation, plus statements for separately agreed obligations. QDNF
+already has capped ownership/holds/settlement/aggregation source to reuse; live
+rail and whole-period workflow coverage remain to qualify. A provider's available
+allocation, outstanding contributor compensation and actual settlement are
+distinct. Payment also cannot enlarge consent or host resource authority.
+
 `spc:` — the general framework for any social environment of 2+ **agents**
 (natural persons, legal persons, artificial agents):
 

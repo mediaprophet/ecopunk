@@ -1,0 +1,21 @@
+{
+  "binary": "C:/github/ecopunk/target/debug/deps/qualia_core_db-965ec002a98bf526.exe",
+  "sha256": "DE35C1B879D0F9EFD70707E3AE0F6B87A1FAF7F9848A2CEA843C56C79911A5F1",
+  "arguments": [
+    "p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram",
+    "--exact",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "boundary": "native",
+  "exit_code": 0,
+  "started_utc": "2026-10-24T23:45:33.5872410Z",
+  "finished_utc": "2026-10-24T23:45:34.8158123Z",
+  "input_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\source-snapshots\\2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc.json",
+    "sha256": "2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc"
+  },
+  "source_unchanged": true,
+  "log_sha256": "41BC41633E314CF1A98F5C0616295298449DBBB9BCF450D6A73131F770B712AD",
+  "scope": "Exact local loopback test, unchanged binary/sources; boundary selected by supervising tool invocation, not inferred from success"
+}

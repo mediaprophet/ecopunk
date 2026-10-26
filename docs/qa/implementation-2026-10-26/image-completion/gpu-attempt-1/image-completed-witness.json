@@ -1,0 +1,127 @@
+{
+  "alpha_output_sha256": "c3b93906644e4b1a975544b20e5cd6ee5637a94a37cf56633b0a838a9ca391a4",
+  "base_sha256": "da3b54b2d271adae7cb93e287c5dbc28817ccc0abcb5c2d311c58c1801292622",
+  "cases": {
+    "color_burn": {
+      "gpu_png_file": "image-color_burn-gpu.png",
+      "gpu_png_sha256": "9a402b4379d18e1dfc5d6f76004f694aca8821d4aaa2e882b66c19dfc3cbccee",
+      "gpu_sha256": "1ef619dfd99038716891e280910cb4319a0078b910c5a7199393cbfa288a23c4",
+      "output_sha256": "a371c127945cacc41e2554fc531cf04d3f2d116d09e9a8a5a2d05e96e589860e"
+    },
+    "color_dodge": {
+      "gpu_png_file": "image-color_dodge-gpu.png",
+      "gpu_png_sha256": "c36c9db449570bf1cf43fd05a31dfd711f201e3fe4032e5d26884afa63d1f350",
+      "gpu_sha256": "6b81a79f6bfefcf103eaad90fe744b14b09689991646447b961afb38612fced8",
+      "output_sha256": "9c5fc928ce0be59d13431380222d6e57f9edc53d63d4c80e0bbd489346090069"
+    },
+    "difference": {
+      "gpu_png_file": "image-difference-gpu.png",
+      "gpu_png_sha256": "14fb88e316580e58ec587d5a737b30412432dc695598bfa12241b9c452606bed",
+      "gpu_sha256": "01c2d793eab2e8865f94a52f54e9c780694c7652c0d681d838f7d5629dd49a2e",
+      "output_sha256": "fe1834e0be59441dc5a418b31b4ddd2d6054209eeb68f342892a05a03b16d44e"
+    },
+    "emboss": {
+      "gpu_png_file": "image-emboss-gpu.png",
+      "gpu_png_sha256": "533a674cc4c90172e6d198635b70073c704e141adadf958db9d3c0c73c512804",
+      "gpu_sha256": "7b0b7fbb91d56a0f2ed8b698c34c0974ed08fe6f237809125827beece167bdc9",
+      "output_sha256": "3143ddd2602ef03f5aba6fe788677203445d4f00d64384b22bcb33a85ba3045a"
+    },
+    "exclusion": {
+      "gpu_png_file": "image-exclusion-gpu.png",
+      "gpu_png_sha256": "e4ea5cb009fcd5a52bc2ac9438eef4bb39093c46b8bf74752a5e19e9902bf981",
+      "gpu_sha256": "453749dfff433c93a681af10136ea28b5daece2a0d6eed978aa295c0fe0de07e",
+      "output_sha256": "82f94a9807436a56ee7d5f5fce977390436f14604a23fc0b1625d9f9667a9b0e"
+    },
+    "gaussian_blur": {
+      "gpu_png_file": "image-gaussian_blur-gpu.png",
+      "gpu_png_sha256": "b2c41aba038b71a45895bbdda9329f3282215d688efc274b440ef5a9fbcdf03a",
+      "gpu_sha256": "545b65c29579634d4bf8c8d3175fb543dcae0ac36c0d1ec1b2fb8288aca1e2ac",
+      "output_sha256": "e4d2f4d534c5101853886fb669d9251970b30bed7475ecf65b0b8fe87c98a3ac"
+    },
+    "hard_light": {
+      "gpu_png_file": "image-hard_light-gpu.png",
+      "gpu_png_sha256": "746576c7d2f9f446e3c893f272b02b0550d1944f717bcad48ceeb0b4b6856ba9",
+      "gpu_sha256": "84c5fd031d11063f869dd3dc17440325ad7625d21045110c5b8dd0522ae7f825",
+      "output_sha256": "335741a46ea4085ccffb9f5110f5c2bdf4d2270e50717985d7264467b84ca34e"
+    },
+    "hue_rotate": {
+      "gpu_png_file": "image-hue_rotate-gpu.png",
+      "gpu_png_sha256": "d3abaf843e566c77ecc65e9704abe5e7b14d70637fb64c80b82767556f3a61f3",
+      "gpu_sha256": "8393ecf2b274dd700555ccc5f11471022bbc98561cebc0363c81b4a2ed4053c5",
+      "output_sha256": "1576400ecb93b762b15335c81f5cbef9f8d7935cd02aedd2cc537fae7588832c"
+    },
+    "multiply": {
+      "gpu_png_file": "image-multiply-gpu.png",
+      "gpu_png_sha256": "6e6c14dfe5eb7267a892bfd06ba163f736a0408f87eb42e0154b8bffddde81ab",
+      "gpu_sha256": "c175e637c30b6639db55de1bd20a0898bf95c6389dcd08c326ca8aef7b4a5868",
+      "output_sha256": "88d863cfb01ba8fd4335b7e4158fe7e779e0bb6495b9ea440e55230e7c4dabb6"
+    },
+    "overlay": {
+      "gpu_png_file": "image-overlay-gpu.png",
+      "gpu_png_sha256": "191090e82f3d385ded92e8361f05bb1474150abd88a98160282244a665c252d1",
+      "gpu_sha256": "6327202bef9a994e557d24e73c94145e121effddf7379474b74eff0b82863d7d",
+      "output_sha256": "8f549103e56b3a0799a43965bb479eea4b31defb51f3d34cca64ff5178893fe2"
+    },
+    "screen": {
+      "gpu_png_file": "image-screen-gpu.png",
+      "gpu_png_sha256": "e7359ffec038442b3b55d496ff2d583d6d9f9969d889ce4da6fc8a16af10d416",
+      "gpu_sha256": "708c6b806808dea2d78ef2ffb90fa804e7b7f3ba230e5171d5c0518d6937ba05",
+      "output_sha256": "e4331a77bed76ce391cb7814d4e061790ed2f8a789b85700a319805a82e45d92"
+    },
+    "sharpen": {
+      "gpu_png_file": "image-sharpen-gpu.png",
+      "gpu_png_sha256": "f03fe54d5d13fe70c0ac4329f32d9207411886c2047ef37a0aa1d5152c92b457",
+      "gpu_sha256": "11f16a461d0198beb0b9f36bea09f4fb0f768f3ec90e8bf76d2216ce57b12886",
+      "output_sha256": "84ac8dd2db23f4b2192d7c4e7e6402ec17bd70269470a85bbc83729410b3e245"
+    },
+    "soft_light": {
+      "gpu_png_file": "image-soft_light-gpu.png",
+      "gpu_png_sha256": "b6788b596220647df76623585d1e9772ff39666dd515b32eaccdbe50c9b3633e",
+      "gpu_sha256": "0ba67cc7ed72a698b068b2d0436f1c6faef17e6733ff81df83df7cd40ba28ead",
+      "output_sha256": "a2c907d04aefeeada7c60135bf5b50d73b8dc44294c9bb8c26b4143c668f3420"
+    }
+  },
+  "evidence_files_sha256": {
+    "child-reopened-gpu.png": "959d1ebd983d8ce5207bdaaed1eca53c68deb14253f053dd0e0ec8ae764d0e87",
+    "image-child-recovered.json": "d1f279f7d1834335701a9445a36ff1cf1d7786fe16b8d57435bc53bfdb53a037",
+    "image-child-resaved-gpu.hmc": "6b4a1c71302fbe63ddb91a781a8d6c616ad50722f3adde35d042d2f1fdee46ec",
+    "image-color_burn-gpu.png": "9a402b4379d18e1dfc5d6f76004f694aca8821d4aaa2e882b66c19dfc3cbccee",
+    "image-color_dodge-gpu.png": "c36c9db449570bf1cf43fd05a31dfd711f201e3fe4032e5d26884afa63d1f350",
+    "image-completed.hmc": "c6485ca1df9b95f1fa50ab69663fcf86fea4bc1e5c072f848d5ab29dd5e7b3b7",
+    "image-difference-gpu.png": "14fb88e316580e58ec587d5a737b30412432dc695598bfa12241b9c452606bed",
+    "image-emboss-gpu.png": "533a674cc4c90172e6d198635b70073c704e141adadf958db9d3c0c73c512804",
+    "image-exclusion-gpu.png": "e4ea5cb009fcd5a52bc2ac9438eef4bb39093c46b8bf74752a5e19e9902bf981",
+    "image-gaussian_blur-gpu.png": "b2c41aba038b71a45895bbdda9329f3282215d688efc274b440ef5a9fbcdf03a",
+    "image-gpu-child-recovered.json": "5dcc3cdf4adf7b87fd883282ca54bc5033fc3cb0acd79ca5f643809961de63db",
+    "image-hard_light-gpu.png": "746576c7d2f9f446e3c893f272b02b0550d1944f717bcad48ceeb0b4b6856ba9",
+    "image-hue_rotate-gpu.png": "d3abaf843e566c77ecc65e9704abe5e7b14d70637fb64c80b82767556f3a61f3",
+    "image-mask-alpha-gpu.png": "959d1ebd983d8ce5207bdaaed1eca53c68deb14253f053dd0e0ec8ae764d0e87",
+    "image-mask-red-gpu.png": "64d1a4d1836d3eab0904d44d04d2d47b1bdf51423898e5e59b593c24cd4786e8",
+    "image-multiply-gpu.png": "6e6c14dfe5eb7267a892bfd06ba163f736a0408f87eb42e0154b8bffddde81ab",
+    "image-normal-gpu.png": "74af3cd94b0548a031295e8ebc375be065c44935239d68f9c548d1d85431ff6c",
+    "image-overlay-gpu.png": "191090e82f3d385ded92e8361f05bb1474150abd88a98160282244a665c252d1",
+    "image-rectangle-offset-gpu.png": "7cc1a294e72b220d90d404d6ebb3168b2a6229a309c5b900e553aed501d1a80a",
+    "image-saved-gpu.hmc": "3ed6d403baff4e0845c3d38289718bdce3896d832d51d8910d78f6af1ffae41c",
+    "image-screen-gpu.png": "e7359ffec038442b3b55d496ff2d583d6d9f9969d889ce4da6fc8a16af10d416",
+    "image-sharpen-gpu.png": "f03fe54d5d13fe70c0ac4329f32d9207411886c2047ef37a0aa1d5152c92b457",
+    "image-soft_light-gpu.png": "b6788b596220647df76623585d1e9772ff39666dd515b32eaccdbe50c9b3633e",
+    "image-source-witness.json": "878930642bc44e9c4fee191a60679a8d60f2645d8e12564f2932fa1c7c975a44"
+  },
+  "gpu_png_files": {
+    "mask_alpha": "image-mask-alpha-gpu.png",
+    "mask_red": "image-mask-red-gpu.png",
+    "normal": "image-normal-gpu.png",
+    "rectangle_offset": "image-rectangle-offset-gpu.png"
+  },
+  "gpu_png_sha256": {
+    "mask_alpha": "959d1ebd983d8ce5207bdaaed1eca53c68deb14253f053dd0e0ec8ae764d0e87",
+    "mask_red": "64d1a4d1836d3eab0904d44d04d2d47b1bdf51423898e5e59b593c24cd4786e8",
+    "normal": "74af3cd94b0548a031295e8ebc375be065c44935239d68f9c548d1d85431ff6c",
+    "rectangle_offset": "7cc1a294e72b220d90d404d6ebb3168b2a6229a309c5b900e553aed501d1a80a"
+  },
+  "mask_sha256": "47284e0c510add2ba0d4de73cf667cc2c779702052d19c0fde19a5eed70f347a",
+  "normal_output_sha256": "d5c1849f7f94419680e9270ea66415adb0addd242dd3ab49c89f92102ba7c5e7",
+  "qualification": "signed native GPU + MCP + retained HMC synthetic 8x8 image case",
+  "rectangle_output_sha256": "bb152517908238c0a406ac3fe8532e6003d95796cdc4d211d0f83667f592216a",
+  "red_output_sha256": "ac3a657fd5916c6a51b697bfe05cdbc86e8d2b7018bbd78c85638c51df31ee51"
+}

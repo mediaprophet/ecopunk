@@ -1,0 +1,15 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hnia584wm3-1qkafml-working`
+
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\run05_sessions-3jyi2l2n5ir5f\s-hnia5lfu1l-0irh08k-working`
+
+warning: `vibe` (test "run05_sessions") generated 1 warning
+error: couldn't read `tests\../../qualia-core-db/src/render/portal/graphics_backend.vibe`: The system cannot find the path specified. (os error 3)
+ --> tests\graphics_backend_policy.rs:3:22
+  |
+3 | const POLICY: &str = include_str!("../../qualia-core-db/src/render/portal/graphics_backend.vibe");
+  |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: could not compile `vibe` (test "graphics_backend_policy") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

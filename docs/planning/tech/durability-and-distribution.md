@@ -11,7 +11,7 @@ communications.
 ## 1. The DNS threat model (lived, not hypothetical)
 
 The design pressure is concrete: **a natural person's ABN was cancelled,
-and the domain names bound to it were lost** — identity, hosting, and every
+and the domain names bound to it were lost** — identifiers, hosting, and every
 HTTP URI minted under those domains broke at once. This is not an edge case:
 
 - domains lapse, get repossessed, get transferred, get seized;
@@ -20,9 +20,9 @@ HTTP URI minted under those domains broke at once. This is not an edge case:
 - individuals are *disproportionately* exposed — a company can lose a domain
   and survive; a sole trader's identifier graph can die with one registry event.
 
-**Rule:** for a 50-year corpus, **canonical identity must not depend on DNS**.
+**Rule:** for a 50-year corpus, **canonical identifiers must not depend on DNS**.
 An HTTP URI is a resolution *service* — a claim with provenance and datetime —
-never the thing's identity.
+never the thing's identifiers.
 
 ## 2. The dual-addressing model
 
@@ -30,7 +30,7 @@ Every governed object (entity, layer, pack, term, observation) carries:
 
 | Address class | Nature | Rules |
 |---|---|---|
-| **Canonical identity** | content digest (hash/parity family) + DID (`did:qi`, `did:q42` coord) | stable for the object's lifetime; derivable from the object itself — *resolution-independent* |
+| **Canonical identifiers** | content digest (hash/parity family) + DID (`did:qi`, `did:q42` coord) | stable for the object's lifetime; derivable from the object itself — *resolution-independent* |
 | **HTTP URI aliases** | service claims — `resolvedTo`, `asOf`, `via`, `operator` | timestamped + provenance-bearing; many per object; can all fail without killing the object |
 | **Non-HTTP URIs** | `did:`, content-addressed, DHT keys, QDNF QSR names | first-class, not second-class (the user's original DID motivation: *the commons must support non-HTTP URIs to remain decentralised*) |
 
@@ -56,7 +56,7 @@ of our border/version rule: *everything assertable has a time dimension*.)
 | **IPFS partial-CAR** | trustless partial retrieval — every CAR block CID-verified *before* payload delivery; Q42 offsets address the UnixFS entity | `q42/volume/car.rs` |
 | **ILP dispatcher** | SPSP→ILP-STREAM micropayments with receipts, optional Nym routing, offline queue retry, stablecoin fallback | `services/ilp_dispatcher.rs` |
 
-The 10D address-grid row is the 'quantum'-style addressing foundation: durable identity
+The 10D address-grid row is the 'quantum'-style addressing foundation: durable identifiers
 (digest + `did:`) names *what* an object is; the 10D grid names *where* it sits
 — and every ecopunk layer/asset/field value inherits a position in that one
 typed address space. Detail + the two-tens distinction (pose vs epistemic
@@ -131,12 +131,12 @@ deploy-side, not code-side.
 ## 6. Consequences for ecopunk specs
 
 1. **PID strategy (amends `ontology-stack.md` §6):** HTTP PIDs (AGLDGW `/def/`,
-   w3id, own domains) are **durable aliases, not canonical identity**.
-   Canonical identity = digest + `did:` identifier; HTTP resolution records
+   w3id, own domains) are **durable aliases, not canonical identifiers**.
+   Canonical identifiers = digest + `did:` identifier; HTTP resolution records
    carry `asOf`/operator provenance so post-loss reconstruction is provable.
    Registering a `/def/` PID is still worth doing (human-facing discoverability)
    — but the graph must never *depend* on it.
-2. **Pack manifest** gains an identity block: canonical digest + `did:` +
+2. **Pack manifest** gains identifiers block: canonical digest + `did:` +
    alias list + resolution-history references.
 3. **Every ingest/spec** that names an external resource records *both*
    address classes; an HTTP URL alone is an incomplete reference (the LOD
@@ -147,7 +147,7 @@ deploy-side, not code-side.
 
 ## 7. Open questions
 
-1. `did:qi` vs `did:q42` for pack identity — which method anchors *objects*
+1. `did:qi` vs `did:q42` for pack identifiers — which method anchors *objects*
    (vs persons/agents)? Probably `did:q42` for resources, `did:qi` for agents —
    confirm upstream convention.
 2. QDNF QSR naming ↔ HTTP alias bridging — who operates resolution gateways,

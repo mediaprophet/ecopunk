@@ -1,0 +1,115 @@
+{
+  "checked_utc": "2026-10-24T23:58:41.992952+00:00",
+  "source_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\source-snapshots\\2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc.json",
+    "sha256": "2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc"
+  },
+  "source_inputs_verified": 166,
+  "reviewed_inputs_verified": 53,
+  "receipts": [
+    {
+      "path": "checkpoint-final.json",
+      "sha256": "bf53a4aba1b1c814c39c6260cf8cb94f49eb50bd613be08552187ec32bd7e0da",
+      "exit_code": 0
+    },
+    {
+      "path": "core-fresh-process-corrected.json",
+      "sha256": "200ea3e446cf2f29828c875e4b9530b85d2d0b9d0b69b0826a24894a76009b9d",
+      "exit_code": 0
+    },
+    {
+      "path": "core-final.json",
+      "sha256": "014272abc3658c27c6544b12dd3b7247fea5e02dad1af15f5d23ad12d9094ab1",
+      "exit_code": 0
+    },
+    {
+      "path": "native-final.json",
+      "sha256": "f803db6f78a34aeaff43c2aaedc2fbc1178bce95ee616983d95a055a8a615747",
+      "exit_code": 0
+    },
+    {
+      "path": "library-final.json",
+      "sha256": "36aeaf063cfba8c0d82ba35ce255fbfa72b43d159d15f3e51c68c2900dc67190",
+      "exit_code": 0
+    },
+    {
+      "path": "wasm-final.json",
+      "sha256": "9400f4b2360fdf1d32ed03af154462b2038a10e5fa5b396c63573069732bbc89",
+      "exit_code": 0
+    },
+    {
+      "path": "gpu-final.json",
+      "sha256": "cc13e8d3a5d78547e93c61a3b3ebed2c7a4f554bec46c070eccc62d288a2190f",
+      "exit_code": 0
+    },
+    {
+      "path": "direct-cli/native-project-check.json",
+      "sha256": "0d6cb759f95b4d8f039761b72f1c1b0ff13cdbe1fdc4f2d12fc007a7b55b0a47",
+      "exit_code": 0
+    }
+  ],
+  "cli_artifact": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet-batch5-2e7ab1b867bf.exe",
+    "sha256": "5f29320457b05c0567025361fb228280882d0ea01cae6e2c99d44ed8f0a0c091",
+    "bytes": 322625455,
+    "main_sha256": "4e5951f79ff7ba3c1f29d1b2405617c95b6e18d2e383ee556aad81ef30fc003e",
+    "poet_rlib_sha256": "81080431607914ced4e552edf85b720188bf81c5d9ae1106d24e89c107e43f72",
+    "vibe_rlib_sha256": "0b1821db2038666811458715fa37c138e91863b6c3c1598bd7e76761b986daa0",
+    "actual_source_entry": "C:\\github\\poet\\native\\src\\main.rs",
+    "cargo_bin_build": false,
+    "running_user_executable_untouched": true,
+    "gui_launch_requested": false
+  },
+  "live_builds": 0,
+  "production_packets_open": 120,
+  "verification_scripts": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\check-network-boundary.ps1",
+      "sha256": "9fc273229b99ba6c1c4305d8a860d73c980aa380490f6814ff723b74335d4e8f"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\direct-cli\\link_and_check.py",
+      "sha256": "7ece3376563a119f728b03e31d818af95aa82461bace74fd245fcb67521c76b9"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\final-audit.py",
+      "sha256": "a90b915bcb34dc60a966d015aba4ebe0fae51b9bae50e29f23ec730397de8dc6"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\freeze.py",
+      "sha256": "d396f1c203f7227f5f3eb69727b9790af5b3541d2352edae2dc756e122337b7f"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\prepare-checks.py",
+      "sha256": "83b1549acc91b3e6593a4d0c7a61523ddc0119311b36920b61ff529bb2d36875"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\prepare-native-proofs.py",
+      "sha256": "6298c2ec8d2d1aa5da58b75e544b754e1015a68d2e7411c74238b8dd3358f2bf"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\reconcile-poet-lock.py",
+      "sha256": "642082280a0c46ee58688bdadd97f8b55c2cfae66e9891bcbc195e7df8c3e473"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\refresh-records.py",
+      "sha256": "2a2bd039a6adb1ddc0907ce738aa3f3c599d8b55d7ebf46d83fb787f6df7ade1"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\run-check.ps1",
+      "sha256": "a3b73d0a72ca43309f9e5f6410c2b67b13c116db3079b95961ef10799550769c"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\run-final-pixels.ps1",
+      "sha256": "f628740e7e8ae912ab465f6e875d07ea1bf5b7bc9a8704842fa250f86172b2b1"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\save-handoff.py",
+      "sha256": "595eb536f2af93b8a8d7d2b95f3b294afbd7346d1ff2d4edfa50c577de190c8b"
+    }
+  ],
+  "starter_milestones": 0,
+  "human_acceptance_claimed": false,
+  "model_completion_claimed": false,
+  "production_ready_claimed": false
+}

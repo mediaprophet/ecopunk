@@ -1,0 +1,36 @@
+{
+  "search_scope": "C:/github/qualiaDB/crates (all crates)",
+  "command": "rg -n Molecule::new C:/github/qualiaDB/crates",
+  "actual_callers": [
+    {
+      "path": "specialized_libs/chemistry_modeling/tests.rs",
+      "uses": [
+        "MD empty-input denial remains empty using new()",
+        "quantum unsupported carbon now explicit formula C / Atom::new / one coordinate",
+        "property prediction positive now explicit formula C / Atom::new / one coordinate"
+      ],
+      "actual_source_sha256": "0258a920e46e13884397fc845b4435a337d68d7883c6f07c7b2243b54235a314"
+    },
+    {
+      "path": "specialized_libs/chemistry_modeling/properties.rs",
+      "uses": [
+        "water helper now explicit H2O / OHH / three coordinates",
+        "new empty and formula-only direct predictor denial tests"
+      ],
+      "actual_source_sha256": "4e1e0b0afe6142d725805e6dfb20da3e72297f0c928e184005c0677d97c538e4"
+    },
+    {
+      "path": "mcp/mcp_tool_impls/chemistry.rs",
+      "uses": [
+        "quantum replaces atoms and coordinates from explicit JSON atom list; empty base adds no inferred structure",
+        "structure replaces atoms and coordinates from explicit JSON atom list; structural output computes formula from atoms",
+        "formula-only fallback has no atoms and existing library validate_molecule returns ValidationError -> InvalidParameters, rather than pretend carbon prediction"
+      ],
+      "actual_source_sha256": "09d8019846e5043529ef4599a542163c3320c05634c3e528a3f2bbeef788bfb0"
+    }
+  ],
+  "unrelated_existing_limitations": [
+    "The MCP SMILES branch manually supplies Atom::new rather than invoking Molecule::new. It is unchanged and is not qualified as a chemically faithful SMILES atom-list adapter by this repair."
+  ],
+  "md_fixture": "Current MD positive is explicit Ar4, so no implicit-carbon dependency exists there."
+}

@@ -1,0 +1,19 @@
+# Batch 3 inventory audit
+
+Snapshot UTC: 2026-10-24T17:49:53Z
+Scope: read-only receipt/hash and claims inventory; source may still be changing.
+
+- Applied receipts: 4; target records: 55.
+- Current target hashes matching receipt: 51; changed: 4; missing: 0.
+- Actual production claims: 120 packets; statuses: open=120.
+- Complete packets: 0; all open: True.
+- Catalogue baseline: c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb (expected c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb); matches: True.
+- Explicit evidence: verification and run receipts are listed in inventory-audit.json. Presence of source test definitions or compiled harnesses is not counted as test execution.
+- Log files were inventoried but not hashed because one log was locked by an active writer.
+- This inventory does not establish broad production readiness or human acceptance.
+
+Targets changed since receipt:
+- C:\github\poet\native\src\graphical\mod.rs: recorded 4342b7404ecdbae1681eb4e6ecb1efd75bea269fb3b1f81bbb7bd9197f4d83bf; current 266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6; receipt docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json.
+- C:\github\poet\native\src\graphical\ui.rs: recorded 943af368ec4ce7f84d6126643916c1705533b1c16516532cf904f3b8a99c7ebf; current 51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5; receipt docs/qa/implementation-2026-10-25/batch-3/applied-20261024-173122.json.
+- C:\github\poet\native\src\graphical\controller.rs: recorded 148c4280d1e064880903c8460e54d9ec57d934283d1a9d68eacb75226a9a44df; current 3fe157c41eca2549d2a956a765ab879dda05013c628de803cc74edd17f933627; receipt docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json.
+- C:\github\poet\native\src\graphical\mod.rs: recorded 4e68781d7ace0305f249d151997af1c55a7296e7ffbc96d1fa5b28378ba67286; current 266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6; receipt docs/qa/implementation-2026-10-25/batch-3/applied-20261024-174413.json.

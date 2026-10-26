@@ -1,0 +1,12 @@
+{
+  "schema": "ecopunk-round1-catalog-diagnosis/1",
+  "observed": "E300 for explicitly requested/granted ComputationalGeometry.profile_sweep at first effect helper",
+  "merge_evidence": [
+    "session/prepare.rs:59-75 retains admitted requests into definitions.requires",
+    "check/context.rs:281 derives granted from definitions.requires",
+    "check/mod.rs:343-393 forwards granted into function-body walk"
+  ],
+  "cause": "catalog/ids.rs omitted three existing Poet GeometryHost operations; catalog::granted_covers intentionally rejects unregistered methods of a known family, even when exact string appears in host grants.",
+  "remedy": "Add three explicit static registrations and provenance comment only; retain unknown-path, request, host-grant and effect rules. Do not change central Core dispatch.",
+  "tests": "Six integration tests cover all three operations: exact and family host authority with explicit requests, missing target request, missing host target/invoke grants, unknown sibling denial and Pure effect denial. Not executed by agent."
+}

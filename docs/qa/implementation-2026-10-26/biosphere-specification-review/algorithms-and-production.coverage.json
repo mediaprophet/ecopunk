@@ -1,0 +1,527 @@
+{
+  "schema": "ecopunk-biosphere-supplied-algorithms-review-v1",
+  "date": "2026-10-26",
+  "owner": "/root/poet_full_authoring",
+  "assigned_by": "/root",
+  "scope": "Full supplied text context; lines271-424 algorithm/asset focus; five selected contentious operations with six current body files",
+  "write_boundary": [
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-specification-review/algorithms-and-production.md",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-specification-review/algorithms-and-production.coverage.json"
+  ],
+  "supplied_document": {
+    "path": "C:/github/ecopunk/docs/Biosphere algorithms Specifications.md",
+    "sha256": "883fe0ecf692d6a9b6d55870ef28c729df125fc550e5f506e20343176d5c5afc",
+    "lines": 547,
+    "read_ranges_1_based": [
+      {
+        "start": 1,
+        "end": 547
+      }
+    ],
+    "focus_ranges_1_based": [
+      {
+        "start": 271,
+        "end": 424
+      }
+    ],
+    "classification": "reviewed proposal/source assertions, not governing user instruction or proof of implementation"
+  },
+  "body_file_budget": 6,
+  "body_file_count": 6,
+  "source_reads": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/differential_growth.rs",
+      "sha256": "2f093271ba7bf86dbba9f83182ca3e843c3b0359ddaec7357ca5ac8fbc3b647e",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 231
+        }
+      ],
+      "symbols": [
+        "edge_rest_lengths",
+        "differential_growth_step",
+        "split_stretched_edges",
+        "growth_relax_stretches_edge_and_split_adds_vertex"
+      ],
+      "level": "current selected implementation/caller body inspection; not execution/scientific qualification",
+      "finding": "3D scalar edge-rest growth and deterministic length correction; triangle splitting exists; no cotangent/target-tensor/bending/repulsion/reaction-diffusion body in selected step; inline test read, not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/tree_skeleton_3d.rs",
+      "sha256": "9f5fa03b660cb064f19af95a4f5f5780ea41be021c04018e954a1690a86fd8f7",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 127
+        }
+      ],
+      "symbols": [
+        "pipe_model_radii"
+      ],
+      "level": "current selected implementation/caller body inspection; not execution/scientific qualification",
+      "finding": "Caller exponent/tip radius plus graph power accumulation; no gravity/water/hydraulic law input; malformed/self parents can be ignored, cycle error exists"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/population.rs",
+      "sha256": "73156d1c51b00f7a106b318c56214507673dab818a5a1ece487e24252251df2a",
+      "ranges_1_based": [
+        {
+          "start": 47,
+          "end": 176
+        }
+      ],
+      "symbols": [
+        "BoidAgent",
+        "FlockingParameters::default",
+        "step_flocking_simulation"
+      ],
+      "level": "current selected implementation/caller body inspection; not execution/scientific qualification",
+      "finding": "Pairwise O(n^2) separation/alignment/cohesion and speed clamp; in-place update, no read-old/write-next spatial grid or predator force in this body"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/curve_skeleton.rs",
+      "sha256": "8d641f9770a14f775c1194e095d86bc367fb59b22be3ea2eec34a2d5441fd038",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 240
+        }
+      ],
+      "symbols": [
+        "contract_to_skeleton",
+        "extract_skeleton_graph",
+        "contraction_pulls_grid_inward"
+      ],
+      "level": "current selected implementation/caller body inspection; not execution/scientific qualification",
+      "finding": "Uniform neighbour-mean contraction/proximity clustering/BFS graph rooted lowest Z; no anatomical rig/SKL1 output; inline test read, not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/pbd_softbody.rs",
+      "sha256": "b07ecfb3410991be0c5ad4285a73a4a3b87be65109f1abe30bb456f508c87405",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 198
+        }
+      ],
+      "symbols": [
+        "PbdConstraint",
+        "pbd_step"
+      ],
+      "level": "current selected implementation/caller body inspection; not execution/scientific qualification",
+      "finding": "Verlet plus fixed projection distance/tet-volume constraints and Z clamp; no compliance parameter or persistent per-constraint multiplier; previous state supplied by caller"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave28_host.rs",
+      "sha256": "02a21f40d8621c1c96d06dc41762b5d6a859978d3d8e2c50ee0f0a33cef989fa",
+      "ranges_1_based": [
+        {
+          "start": 346,
+          "end": 438
+        },
+        {
+          "start": 494,
+          "end": 572
+        }
+      ],
+      "symbols": [
+        "differential_growth_step_host",
+        "curve_skeleton_host",
+        "pbd_step_host"
+      ],
+      "level": "current selected implementation/caller body inspection; not execution/scientific qualification",
+      "finding": "Actual Core consumers: differential rest metric reinitialized and vertices-only return, mesh-to-graph result, PBD previous positions reset per call and not returned; default Earth gravity explicit"
+    }
+  ],
+  "api_callsite_only": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave29_host.rs",
+      "sha256": "dd2183b1b6e685d31c968bd1add19f677518045596db1d6119dbf22ffeb347e8",
+      "located_lines_1_based": [
+        116
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "pipe_model_radii caller located; body reused from prior audit, not newly read"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs",
+      "sha256": "9862763cf1103c77c6ecc66eb489d7d0269e6d46edff549e38c0cbe76627f210",
+      "located_lines_1_based": [
+        508,
+        521,
+        522,
+        524,
+        528
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "Current dispatch arm locations only"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs",
+      "sha256": "659f705a02ef44b7e53a8e724741d061353ed6c08b6cab1f155a8122ef3e5fa4",
+      "located_lines_1_based": [
+        70,
+        83,
+        147,
+        209,
+        316,
+        353,
+        511,
+        614
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "Selected public module/reexport locations only"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/physics_simulation/mod.rs",
+      "sha256": "97901c35fb7a8d7d2dbc16b3d002bbc61c7f216d05bf7f389e4eb4aaf46ae957",
+      "located_lines_1_based": [
+        74
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "Flocking reexport located"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/sweep_extrusion.rs",
+      "sha256": "dac6ab22dc846f1b55bcec692c2d071f99ec92d677a9ef462fb4b5bdc532835f",
+      "located_lines_1_based": [
+        89,
+        183,
+        300,
+        411,
+        461,
+        487
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "Bishop frame/IFS and other public API discovery; these paths exist, bodies not audited this pass"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/voronoi_variants.rs",
+      "sha256": "b40fbf49b1b0f088b58b74539cc9000d663dfec52ab47f7e5e44210b1cdb766d",
+      "located_lines_1_based": [
+        59,
+        66,
+        80,
+        100,
+        109,
+        122,
+        211,
+        325,
+        339,
+        350,
+        357,
+        368,
+        377,
+        407,
+        415
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "Bounded public API discovery finds Voronoi geometry; does not establish Turing implementation here or global absence elsewhere"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/spectral_basis.rs",
+      "sha256": "a03289a34d77d5650471f446138f5a3f23236f6668d11e7225507f5574397d65",
+      "located_lines_1_based": [
+        52,
+        61,
+        69,
+        87,
+        121,
+        170,
+        196,
+        217,
+        248,
+        285,
+        301,
+        357,
+        414
+      ],
+      "level": "API/reexport/call-site discovery only",
+      "note": "Thin-film Airy API and test-name location exists; body/species calibration/caller not audited this pass"
+    }
+  ],
+  "reference_pins": [
+    {
+      "path": "C:/github/ecopunk/AGENTS.md",
+      "sha256": "e08fbd9c0915a34178eb385588ffe872c1163c2793260a1eb966d464f3a39f06",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/architecture.md",
+      "sha256": "3ac9d92b781075fcf86b83637b670382516d97b225ba2cbdae265ba1408900bb",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/development-modes.md",
+      "sha256": "ddaddb6e35d361621ad0c8ce6a3f7c3820b28a7d619611bccd40fc5adceeae5c",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/delivery-revision-and-agent-handoff.md",
+      "sha256": "c659d531429859c2bb840a038f57014cc4f773b7ac0b95afe77957dfa97952b0",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/biosphere-work-packets.json",
+      "sha256": "3eadcc5e2270d41d471e8e1e894cfb4819cd8da5044d801fb939f2008e126426",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/biosphere-earth-and-anatomy-capabilities.md",
+      "sha256": "0ae86d71f456eecbee132b3dbafd49806340c78c0e350ed679aeffe8c1e179be",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/native-capabilities.md",
+      "sha256": "c1921d68b05c55567fda05951399abcb76aa9b03991b5153a8ee820163adab3a",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/execution.md",
+      "sha256": "4b0217ecfee685c01220a065b09ca4f3b65c17019932bcb8486c4268f1bf9c61",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/saved-delivery.json",
+      "sha256": "4d49c04fad7f03f38cdf4d9843911874511f05b5fbae5ab781a051c1025d063e",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+      "sha256": "2bf06a8ad65a50f3ff39538d0d6ca6f0670f2bd629fab5e0e47cfc4c31c5f414",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/compute-reuse.md",
+      "sha256": "e3b219b822cb4b9e0337103ca33e4ea0ba09b908f9c4f40e74fcb058d0c13874",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/solver-kernel-forge.md",
+      "sha256": "2045ca7c92c7bbb144d38ab6dd3496651798adb6a62a82676c06e5c68fdad87d",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/vision-audio-render.md",
+      "sha256": "4a3f8de8d7e2956e37122ffe28cb2d2007db3b68a33c9d275330eaddfa6cd50c",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "sha256": "94204e419a12640be6ead18f7cae943c58dfaccab1ae8b7a0f139fb8434d453b",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.coverage.json",
+      "sha256": "39c5c9bbf3553cde96f852179e26e94202df84b073ddb7624270ebf821c33983",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+      "sha256": "2ad60bda25905d146b4c1c95a90b73a21f5eb8359169ece6519b2dbc14f743d2",
+      "level": "existing governing/reference or saved evidence reused; no new underlying source/body/execution assertion"
+    }
+  ],
+  "prior_execution": [
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/final/biology-host-result.json",
+      "sha256": "8a3c6ad6910eef8b917bcbb6ad6b7eb18961e2fcc2cd3b0ba47e963de01bc953",
+      "recorded_exit_code": 0,
+      "recorded_source_unchanged": true,
+      "recorded_passed_case_names": [
+        "graphical::geometry_host::tests::actual_operation_grants_guard_dynamic_targets_at_runtime",
+        "graphical::geometry_host::tests::granted_source_dispatches_real_native_geometry_kernel",
+        "graphical::geometry_host::tests::profile_grants_and_host_dispatch_budgets_are_current_at_execution",
+        "graphical::geometry_host::turtle_host_tests::turtle_capacity_tessellation_and_scratch_fail_before_dispatch",
+        "graphical::geometry_host::turtle_host_tests::turtle_dynamic_target_requires_actual_runtime_grant",
+        "graphical::geometry_host::turtle_host_tests::turtle_malformed_dimensions_and_unbalanced_scopes_do_not_promote",
+        "graphical::geometry_host::turtle_host_tests::turtle_nonfinite_numbers_and_wrong_root_are_refused",
+        "graphical::geometry_host::turtle_host_tests::turtle_source_session_reaches_actual_core_branch_leaf_and_preview",
+        "graphical::geometry_host::turtle_host_tests::turtle_stack_and_polygon_limits_are_checked_before_core_allocation",
+        "graphical::geometry_host::turtle_host_tests::turtle_work_and_dispatches_are_cumulative_until_submission_reset"
+      ],
+      "classification": "prior scoped saved execution, not rerun and not acceptance of the supplied specification or full species"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/final/biology-render-result.json",
+      "sha256": "582fc2938955bfbede068e11006c9d44d0de70fd79fc9133b46440b8b4a7f838",
+      "recorded_exit_code": 0,
+      "recorded_source_unchanged": true,
+      "recorded_passed_case_names": [
+        "graphical::biological_reference_tests::native_branching_diagnostics_render_each_source_cell"
+      ],
+      "classification": "prior scoped saved execution, not rerun and not acceptance of the supplied specification or full species"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/final/build-result.json",
+      "sha256": "e48de9ff3639937cb8d532802412438cb2c9eab8b4daa85023eef600eaa6e0c6",
+      "recorded_exit_code": 0,
+      "recorded_source_unchanged": true,
+      "recorded_passed_case_names": [],
+      "classification": "prior scoped saved execution, not rerun and not acceptance of the supplied specification or full species"
+    }
+  ],
+  "bounded_searches": [
+    {
+      "root": "C:/github/qualiaDB/crates",
+      "pattern": "step_flocking_simulation(",
+      "result": "Exact spelling matched definition only in selected recursive Rust search; does not establish engine-wide lack of swarm consumers or alternate implementation"
+    },
+    {
+      "roots": [
+        "computational_geometry/voronoi_variants.rs",
+        "computational_geometry/sweep_extrusion.rs",
+        "render/spectral_basis.rs"
+      ],
+      "pattern": "selected public function/type names",
+      "result": "IFS/Bishop/ThinFilm APIs exist; Voronoi geometry APIs located; no whole-body or whole-engine conclusion"
+    },
+    {
+      "root": "C:/github/qualiaDB/crates/vibe/src",
+      "pattern": "pga|cosmic|animation path discovery",
+      "result": "Existing animation/pga.rs and cosmic modules located; no language/cosmic implementation audit"
+    }
+  ],
+  "selected_findings": [
+    {
+      "id": "ALG-01",
+      "supplied_lines": [
+        60,
+        330,
+        341
+      ],
+      "status": "existing geometric kernel; asserted physiological/gravity coupling unestablished",
+      "maps_to": [
+        "R-02",
+        "BS-10A",
+        "BS-10B",
+        "BS-10E",
+        "BSA-03",
+        "BSA-04"
+      ]
+    },
+    {
+      "id": "ALG-02",
+      "supplied_lines": [
+        287,
+        322,
+        352,
+        355,
+        423
+      ],
+      "status": "existing edge/triangle ingredient; stronger PDE/biological guarantee not established",
+      "maps_to": [
+        "R-02",
+        "BS-10C",
+        "BS-10E",
+        "BSA-03",
+        "BSA-04"
+      ]
+    },
+    {
+      "id": "ALG-03",
+      "supplied_lines": [
+        377,
+        379,
+        380
+      ],
+      "status": "existing mesh-to-graph reconstruction; anatomical rig/codec coupling proposed",
+      "maps_to": [
+        "R-03",
+        "BS-20A",
+        "BS-20B",
+        "BS-20C",
+        "BSA-03",
+        "BSA-06"
+      ]
+    },
+    {
+      "id": "ALG-04",
+      "supplied_lines": [
+        58,
+        151,
+        267,
+        381
+      ],
+      "status": "existing PBD projection; persistent wrapper state/compliance/domain qualification missing for asserted model",
+      "maps_to": [
+        "R-03",
+        "BS-20C",
+        "BS-20D",
+        "BSA-06"
+      ]
+    },
+    {
+      "id": "ALG-05",
+      "supplied_lines": [
+        216,
+        408,
+        409,
+        410,
+        515
+      ],
+      "status": "existing in-place pairwise kernel contradicts claimed double-buffer/Morton behavior for named operation",
+      "maps_to": [
+        "BSA-04",
+        "BSA-06",
+        "BSA-09",
+        "future bounded source/consumer research assigned by coordinator"
+      ]
+    }
+  ],
+  "test_evidence": {
+    "newly_read_but_unexecuted": [
+      "differential_growth.rs:201 growth_relax_stretches_edge_and_split_adds_vertex",
+      "curve_skeleton.rs:208 contraction_pulls_grid_inward"
+    ],
+    "located_not_newly_body_read": [
+      "pbd_softbody.rs:202 distance_constraint_restores_rest_length",
+      "pbd_softbody.rs:229 gravity_pulls_particle_to_ground",
+      "pbd_softbody.rs:250 volume_constraint_resists_tet_compression",
+      "tree_skeleton_3d.rs:466 xu_skeletonizer_and_pipe_model_reconstruct_y_branch"
+    ],
+    "new_execution": "none",
+    "biological_acceptance": "none"
+  },
+  "scope_classifications": {
+    "existing_native": "Turtle seam already delivered under saved source/execution scope; preserve instead of redispatch",
+    "existing_unwired_uncalibrated": "sim metamer/leaf, SKL1/weight/player/upload, graph/radii/canopy owners as explicitly traced by prior reports",
+    "proposals": "context-sensitive/differential developmental grammar, CPG/foot-lock coupling, pheromone diffusion, flight/aeroacoustic, mycelial translocation/symbiosis path",
+    "scientific_assertions": "Not adjudicated as biological truth by source inspection; delegated empirical review retained",
+    "source_unverified": "Full PDE, all-scale performance/SDK, guarantees and proposed format state/tag mapping",
+    "assets": "Authored/acquired masters, procedural/sim sources and compiled representations complementary; complete HMC/Q42/source/history/rights required"
+  },
+  "current_job_states": {
+    "observed_research": "R-01 through R-06 research_ready",
+    "observed_implementation": "BS-10A through BS-10E and BS-20A through BS-20E implementation_prepared_inactive",
+    "assignment_note": "Local ALG IDs are findings, not new dispatch; recheck central ownership/current scope"
+  },
+  "process_handoff": {
+    "command": "none live",
+    "pid": "none",
+    "session": "none",
+    "cwd": "C:/github/ecopunk",
+    "state": "read-only inspection commands completed; no background process",
+    "next": "Resume only mapped existing research using source pins, classify conjecture and define selected source/state/consumer/acceptance contract; no implementation activation inferred"
+  },
+  "actions_this_pass": {
+    "builds": 0,
+    "tests": 0,
+    "exports": 0,
+    "gui": 0,
+    "provider_calls": 0,
+    "source_moves": 0,
+    "git": 0,
+    "engine_source_edits": 0,
+    "central_plan_edits": 0
+  },
+  "remaining": [
+    "TREE-01 through TREE-13",
+    "WALLABY-01 through WALLABY-16",
+    "applicable catalogue and expanded obligations",
+    "complete HMC graph/resources/source/rights/lineage",
+    "film/open-world-game/cartoon all incomplete",
+    "IP-03 C1-C8 native human contributor/reviewer acceptance"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "scope": "Root resource chain source review, initial findings before root repair; no builds or live writes",
+  "sources": [
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/surface_host.rs",
+      "sha256": "89432e35afb47b9b0a6328afc2dedf3fbe47ffb523b7672fafc322d4f63dea6c"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/checkpoints/surface_resources.rs",
+      "sha256": "70677cd8f3f9bd31b227802639520a848564686cce41f5205da4cae571f4e63f"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/editor_contract.rs",
+      "sha256": "233b21aa0c6449cdcb761f7cf003e329efc4980eadec3852edcbd15a1d8ea84e"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/controller.rs",
+      "sha256": "f20d6fa23fa9f45c226219be92644d68ce4ddbdbaacfe2d1cd462ecf27f6eb6e"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/execution.rs",
+      "sha256": "6454d45e379519cc228fc88e75025a9c7763f6d655af82d7ee3235059679d7d2"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/controller.rs",
+      "sha256": "068a0ea2bb84f2a7ad895bde01341fd616e59f5990dc09ae831d6f84ca7072cd"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/cooperation/editor.rs",
+      "sha256": "5bd7c260084738c4dde306e354949ed05d0f923193d646b2f05b12527fca0486"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/package/mod.rs",
+      "sha256": "3a9bab29eb5c5d9dabe4250a4ea564495d75bed3947ce980fd8f43a7192f5338"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/checkpoints/editor.rs",
+      "sha256": "cf9866cf421003bbd329abc263e55e04b3fc768abf631d5c4b692a6a1ef7de92"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/session_host.rs",
+      "sha256": "f8d05d417817ca6ee5d35fd232139bae49c814e12c4eb06041f9ca4ea9990baf"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/shared_host.rs",
+      "sha256": "396d509f38ab3d7976319389bf004e2a07bf881bced55498876eee834f0db280"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/entry.rs",
+      "sha256": "99c841e9f931279b684bd6cb4e99ba09ccd80c63b69b85cde085bef1b905cd05"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_common.py",
+      "sha256": "0ec519f0c593944589ff65118e3fb131e50c7853ded49a76edb23d231b3af1ea"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_resources.py",
+      "sha256": "49fc89f9987de5e9d71a2b1ff26c0e145238ef0ac261bad2c8e926564e0bc41e"
+    }
+  ]
+}

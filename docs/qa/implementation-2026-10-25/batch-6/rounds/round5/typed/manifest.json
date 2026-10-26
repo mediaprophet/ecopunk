@@ -1,0 +1,79 @@
+{
+  "schema": "ecopunk.round5.typed.stage.v1",
+  "status": "staged_not_applied",
+  "verification": "rustfmt only; no Cargo build or tests run",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/field_section.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/core/container_10d/field_section.rs",
+      "before": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/before/core/container_10d/field_section.rs",
+      "before_sha256": "a3c5f19c8b0a23d8cd5d88e8ed379028ce6ef5c8ba213fff8450f7a447642426",
+      "after_sha256": "a3a71e2e4e0ee383823c0773fb082cf75761216c61f79ecae72f1e30c695c9d3",
+      "status": "staged_not_applied",
+      "lines": 721
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/field_section/checked.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/core/container_10d/field_section/checked.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "bc01c79cd60410b3955aaaa2ae31ae4c92cbcdac0c5b0f10add7b0a66fa75690",
+      "status": "staged_not_applied",
+      "lines": 158
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/field_section/checked/tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/core/container_10d/field_section/checked/tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "f14ae4aac9a94429474a8cbcc4b8beec598238bd7868f63b808c37245d1ad71a",
+      "status": "staged_not_applied",
+      "lines": 107
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/mod.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/mod.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "2094af3031f76e0c34e9fe1f3f555c47b3465bef0cfd19804f387716bd0234d7",
+      "status": "staged_not_applied",
+      "lines": 109
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/payload.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/payload.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "4cfc3042b433444b888594ea04d8533a140bce626e0f5d30ba8fc70e1669ebe7",
+      "status": "staged_not_applied",
+      "lines": 291
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/service.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/service.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "3335d736b670497133399359f14196610aeea857b812a0d9f910433ff9320b6d",
+      "status": "staged_not_applied",
+      "lines": 144
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "32cdc3d68ab7168c51aabbc25d8ebed3a1de1f5a3c3be708a6b4ae102a82840f",
+      "status": "staged_not_applied",
+      "lines": 405
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/tests/admission.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/tests/admission.rs",
+      "before": null,
+      "before_sha256": null,
+      "after_sha256": "390d1ddc556abe3b0b287e696b9b2e0f1a853206e0b20f32b52c80d3c385f92b",
+      "status": "staged_not_applied",
+      "lines": 306
+    }
+  ]
+}

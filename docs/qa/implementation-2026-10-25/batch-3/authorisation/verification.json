@@ -1,0 +1,21 @@
+{
+  "scope": "staged cooperative authoring policy and revision evidence",
+  "source_application": "not applied by worker",
+  "command": "cargo test --manifest-path docs/qa/implementation-2026-10-25/batch-3/authorisation/harness/Cargo.toml --offline --locked",
+  "working_directory": "C:/github/ecopunk",
+  "exit_code": 0,
+  "unit_tests_passed": 13,
+  "unit_tests_failed": 0,
+  "doc_tests": 0,
+  "actual_source_dependency": "C:/github/qualiaDB/crates/qualia-cooperative-core",
+  "test_module": "candidate/authoring/tests.rs",
+  "warnings": ["incremental cache hard links unavailable; compiler copied files"],
+  "production_authority_exercised": false,
+  "full_core_build_run": false,
+  "native_ui_run": false,
+  "mcp_integration_run": false,
+  "durable_cooperative_evidence_commit_run": false,
+  "human_review_or_acceptance": false,
+  "provider_calls_or_money_movement": false,
+  "remaining": ["native verified session and identifier association adapter", "authoritative cooperative admission/revocation projection", "atomic durable contribution/review evidence commit", "shared Poet/MCP gateway and HMC/material integration", "IP-03 C1-C8", "all 120 production packets and complete master/consumer outcome"]
+}

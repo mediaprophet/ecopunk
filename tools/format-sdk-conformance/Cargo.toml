@@ -1,0 +1,48 @@
+[package]
+name = "ecopunk-format-sdk-conformance"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+qualia-core-db = { path = "../../../qualiaDB/crates/qualia-core-db", default-features = false, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-portable", "gpu-native-dx12", "wgsl-forge", "privacy-he", "sanctuary-crypto"] }
+qualia-geospatial = { path = "../../../qualiaDB/crates/qualia-geospatial" }
+bytemuck = "=1.25.2"
+
+[[test]]
+name = "m64_container_sdk"
+path = "../../../qualiaDB/crates/qualia-core-db/tests/m64_container_sdk.rs"
+
+[[test]]
+name = "typed_field_payloads"
+path = "../../../qualiaDB/crates/qualia-core-db/tests/typed_field_payloads.rs"
+
+[[test]]
+name = "format_sdk_consumers"
+path = "tests/format_sdk_consumers.rs"
+
+[[test]]
+name = "frame_decode_sdk"
+path = "../../../qualiaDB/crates/qualia-core-db/tests/frame_decode_sdk.rs"
+
+[[test]]
+name = "m64_georaster_v3"
+path = "../../../qualiaDB/crates/qualia-geospatial/tests/m64_georaster_v3.rs"
+
+[[test]]
+name = "ten_d_opaque_preservation"
+path = "../../../qualiaDB/crates/qualia-core-db/tests/ten_d_opaque_preservation.rs"
+
+[patch.crates-io]
+wgpu = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+naga = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.test]
+debug = 0
+incremental = false

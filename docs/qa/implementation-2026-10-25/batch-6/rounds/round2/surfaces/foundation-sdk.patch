@@ -1,0 +1,1144 @@
+--- a/src/container_10d/mod.rs
++++ b/src/container_10d/mod.rs
+@@ -72,6 +72,8 @@
+ pub mod surface_reading;
+ pub mod texture_coordinate_container;
+ pub mod texture_coordinate_section;
++/// Borrowed typed-field selection and existing-codec container readers.
++pub mod typed_payloads;
+ // `topology_section` and `spatial_index_section` depend on
+ // `crate::specialized_libs::computational_geometry`, which is itself gated
+ // `#[cfg(any(not(target_arch = "wasm32"), feature = "wasm-scientific"))]` at
+@@ -124,7 +126,8 @@
+     encode_manifold_identity_v2_with_extensions, encoded_len as manifold_identity_v2_encoded_len,
+     IntegrityIndexDigest, ManifestV2Error, ManifoldIdentityV2, StableEntityId, TypedFieldRecord,
+     BUILTIN_FIELD_KINDS, FIELD_KIND_ELECTROMAGNETIC, FIELD_KIND_SCALAR, FIELD_KIND_SPECTRAL,
+-    FIELD_KIND_TENSOR, FIELD_KIND_VECTOR, MANIFOLD_IDENTITY_V2_AXIS_ORDER,
++    FIELD_KIND_TENSOR, FIELD_KIND_VECTOR, FIELD_KIND_SURFACE_FRAMES, FIELD_KIND_MORPH_TARGETS,
++    MANIFOLD_IDENTITY_V2_AXIS_ORDER,
+     MANIFOLD_IDENTITY_V2_FIELD_RECORD_SIZE, MANIFOLD_IDENTITY_V2_HEADER_SIZE,
+     MANIFOLD_IDENTITY_V2_MAGIC, MANIFOLD_IDENTITY_V2_MAX_BYTES, MANIFOLD_IDENTITY_V2_MAX_FIELDS,
+     MANIFOLD_IDENTITY_V2_VERSION,
+@@ -190,6 +193,10 @@
+     validate_provenance, ProvenanceMiniHeader, ProvenanceSectionError, ProvenanceSidecar,
+     ProvenanceSidecarView, FLAG_HAS_VC, PROVENANCE_MAGIC, PROVENANCE_MINI_HEADER_SIZE,
+     PROVENANCE_SECTION_VERSION,
++};
++pub use typed_payloads::{
++    read_container_mesh_frames, read_container_morph_targets_into, TypedPayload,
++    TypedPayloadError, TypedPayloadResolver,
+ };
+ pub use section::{
+     encode_container, parse_section_table, AlignmentTier, SectionDescriptor, SectionInput,
+--- a/src/container_10d/manifold_identity_v2.rs
++++ b/src/container_10d/manifold_identity_v2.rs
+@@ -7,9 +7,9 @@
+ //!
+ //! The identity record keeps three concepts distinct:
+ //!
+-//! - `StableEntityId` is an opaque continuity handle supplied by a trusted,
+-//!   global identity authority. The authority MUST guarantee global uniqueness
+-//!   and collision-check issuance; this codec never derives it from content.
++//! - `StableEntityId` is an opaque stored continuity handle. This codec does
++//!   not verify its issuer or global uniqueness and never derives it from content.
++//!   Qualified referent resolution belongs to native graph/authority mechanisms.
+ //! - Tensor10D coordinates are explicit identity-bearing address/state under
+ //!   the declared profile, domain, and coordinate convention. Their fixed
+ //!   order is `[q, v, w, x, y, z, t, α, μ, σ]`, matching `Tensor10D`.
+@@ -47,16 +47,25 @@
+ /// Electromagnetic field data. This is a typed field kind, not a manifold or
+ /// container format of its own.
+ pub const FIELD_KIND_ELECTROMAGNETIC: u16 = 0x0100;
+-pub const BUILTIN_FIELD_KINDS: [u16; 5] = [
++/// Existing NRM1/FRM1 per-vertex surface frames, unitless FieldSidecar range.
++pub const FIELD_KIND_SURFACE_FRAMES: u16 = 0x0200;
++/// Existing MRP1 mixed-schema morph targets in a FieldSidecar range. unit_id=0:
++/// position deltas inherit mesh coordinates; normal/tangent deltas are unitless.
++pub const FIELD_KIND_MORPH_TARGETS: u16 = 0x0201;
++// Registry additions preserve MID2 layout. Older readers reject unsupported kinds
++// unless their explicit supported-extension allow-list admits these semantics.
++pub const BUILTIN_FIELD_KINDS: [u16; 7] = [
+     FIELD_KIND_SCALAR,
+     FIELD_KIND_VECTOR,
+     FIELD_KIND_TENSOR,
+     FIELD_KIND_SPECTRAL,
+     FIELD_KIND_ELECTROMAGNETIC,
++    FIELD_KIND_SURFACE_FRAMES,
++    FIELD_KIND_MORPH_TARGETS,
+ ];
+ 
+-/// Opaque stable continuity identity, globally unique under the trusted
+-/// issuing authority's contract. Its bytes are never interpreted as a digest.
++/// Opaque stored continuity identifier. Issuer and uniqueness are not verified
++/// by this codec. Its bytes are never interpreted as a digest.
+ #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+ pub struct StableEntityId(pub [u8; 16]);
+ 
+@@ -82,10 +91,9 @@
+ }
+ 
+ impl ManifoldIdentityV2 {
+-    /// Canonical entity resolution uses the stable entity handle only. Edits
+-    /// and replay frames for the same entity retain this handle even when the
+-    /// manifold address/state changes. Splits or merges create new handles and
+-    /// record lineage in an appropriate provenance section.
++    /// Compare stored handles only; equality does not establish universal
++    /// referent equivalence or issuer authority. Qualified resolution and
++    /// split/merge lineage remain graph/authority responsibilities.
+     pub fn resolves_same_entity(&self, other: &Self) -> bool {
+         self.entity_id == other.entity_id
+     }
+--- a/src/container_10d/morph_section.rs
++++ b/src/container_10d/morph_section.rs
+@@ -327,7 +327,8 @@
+         });
+     }
+ 
+-    for (index, slot) in out_deltas[..delta_count].iter_mut().enumerate() {
++    // Validate the entire payload before publishing any caller output.
++    for index in 0..delta_count {
+         let start = MORPH_SECTION_HEADER_SIZE + index * QUANTIZED_MORPH_DELTA_SIZE;
+         let d: QuantizedMorphDelta =
+             bytemuck::pod_read_unaligned(&payload[start..start + QUANTIZED_MORPH_DELTA_SIZE]);
+@@ -345,7 +346,10 @@
+                 vertex_count: header.vertex_count,
+             });
+         }
+-        *slot = d;
++    }
++    for (index, slot) in out_deltas[..delta_count].iter_mut().enumerate() {
++        let start = MORPH_SECTION_HEADER_SIZE + index * QUANTIZED_MORPH_DELTA_SIZE;
++        *slot = bytemuck::pod_read_unaligned(&payload[start..start + QUANTIZED_MORPH_DELTA_SIZE]);
+     }
+ 
+     Ok((header, delta_count))
+--- a/src/render/compile_10d.rs
++++ b/src/render/compile_10d.rs
+@@ -67,6 +67,8 @@
+     Mesh(MeshSectionError),
+     /// The optional vertex-normal field sidecar failed validation or encoding.
+     Normals(NormalSectionError),
++    /// Typed MID2 payload selection or codec admission failed.
++    TypedPayload(crate::container_10d::TypedPayloadError),
+     /// The container section table encode/decode failed.
+     Section(SectionTableError),
+     /// Encoding the provenance sidecar section failed.
+@@ -99,6 +101,7 @@
+             Self::Import(e) => write!(f, ".10d compile: source import: {e}"),
+             Self::Mesh(e) => write!(f, ".10d compile: mesh section: {e}"),
+             Self::Normals(e) => write!(f, ".10d compile: normal field: {e}"),
++            Self::TypedPayload(e) => write!(f, ".10d compile: {e}"),
+             Self::Section(e) => write!(f, ".10d compile: section table: {e:?}"),
+             Self::Provenance(e) => write!(f, ".10d compile: provenance section: {e}"),
+             Self::Nodes(e) => write!(f, ".10d compile: Tensor10DNodes section: {e}"),
+@@ -636,39 +639,17 @@
+     container_10d: &[u8],
+     expected_vertex_count: usize,
+ ) -> Result<Option<crate::container_10d::MeshFrameStreams>, Compile10dError> {
+-    let header =
+-        Container10dHeader::parse(container_10d).map_err(|_| Compile10dError::BadHeader)?;
+-    let descs = parse_section_table(container_10d, &header).map_err(Compile10dError::Section)?;
+-    for desc in descs {
+-        if desc.typ() == Some(SectionType::FieldSidecar) {
+-            let start = desc.byte_offset as usize;
+-            let end = start
+-                .checked_add(desc.byte_length as usize)
+-                .ok_or(Compile10dError::SectionOutOfBounds)?;
+-            let payload = container_10d
+-                .get(start..end)
+-                .ok_or(Compile10dError::SectionOutOfBounds)?;
+-            if !crate::container_10d::normal_section::is_normal_section(payload) {
+-                continue;
+-            }
+-            let frames = crate::container_10d::normal_section::decode_mesh_frames(payload)
+-                .map_err(Compile10dError::Normals)?;
+-            let count = frames
+-                .normals
+-                .as_ref()
+-                .map(Vec::len)
+-                .or_else(|| frames.tangents.as_ref().map(Vec::len))
+-                .unwrap_or(0);
+-            if count != expected_vertex_count {
+-                return Err(Compile10dError::NormalVertexCountMismatch {
+-                    expected: expected_vertex_count,
+-                    got: count,
+-                });
+-            }
+-            return Ok(Some(frames));
+-        }
+-    }
+-    Ok(None)
++    // Selection/codec admission lives in the focused shared SDK; this oversized
++    // legacy compiler retains only compatibility error projection (see SDK note).
++    crate::container_10d::read_container_mesh_frames(container_10d, expected_vertex_count)
++        .map_err(|error| match error {
++            crate::container_10d::TypedPayloadError::Header(_) => Compile10dError::BadHeader,
++            crate::container_10d::TypedPayloadError::Sections(e) => Compile10dError::Section(e),
++            crate::container_10d::TypedPayloadError::Frames(e) => Compile10dError::Normals(e),
++            crate::container_10d::TypedPayloadError::VertexCount { expected, got } =>
++                Compile10dError::NormalVertexCountMismatch { expected, got },
++            other => Compile10dError::TypedPayload(other),
++        })
+ }
+ 
+ /// Read Tensor10D nodes from a sealed `.10d` (first Tensor10DNodes section).
+--- a/src/render/portal/mod.rs
++++ b/src/render/portal/mod.rs
+@@ -1292,8 +1292,7 @@
+             .map_err(|e| JsValue::from_str(&format!("10d section table: {e}")))?;
+ 
+         let mut mesh = None;
+-        let mut authored_normals = None;
+-        let mut authored_tangents = None;
++
+         let mut provenance_mu: f32 = 0.0;
+         let mut has_attestation = false;
+ 
+@@ -1327,19 +1326,16 @@
+                         }
+                     }
+                 }
+-                container_10d::SectionType::FieldSidecar => {
+-                    if container_10d::is_normal_section(payload) {
+-                        let frames = container_10d::decode_mesh_frames(payload)
+-                            .map_err(|e| JsValue::from_str(&format!("10d frames decode: {e}")))?;
+-                        authored_normals = frames.normals;
+-                        authored_tangents = frames.tangents;
+-                    }
+-                }
+                 _ => {}
+             }
+         }
+ 
+         let mesh = mesh.ok_or_else(|| JsValue::from_str("10d: no mesh section"))?;
++        // Shared SDK owns legacy/MID2 selection; keep this oversized portal as glue.
++        let frames = container_10d::read_container_mesh_frames(&bytes_mut, mesh.vertex_count())
++            .map_err(|e| JsValue::from_str(&format!("10d frames decode: {e}")))?;
++        let (authored_normals, authored_tangents) = frames
++            .map(|frames| (frames.normals, frames.tangents)).unwrap_or((None, None));
+         if authored_normals
+             .as_ref()
+             .is_some_and(|normals: &Vec<[f32; 3]>| normals.len() != mesh.vertex_count())
+--- /dev/null
++++ b/src/container_10d/typed_payloads/mod.rs
+@@ -0,0 +1,5 @@
++//! Typed-field SDK over existing MID2 ranges and payload codecs.
++mod readers;
++mod resolver;
++pub use readers::{read_container_mesh_frames, read_container_morph_targets_into};
++pub use resolver::{TypedPayload, TypedPayloadError, TypedPayloadResolver};
+--- /dev/null
++++ b/src/container_10d/typed_payloads/readers.rs
+@@ -0,0 +1,95 @@
++//! Codec adapters over typed selection. Decoded surface streams retain the
++//! existing allocating API; payload selection and morph output are zero-heap.
++use super::{TypedPayloadError, TypedPayloadResolver};
++use crate::container_10d::{
++    MANIFOLD_IDENTITY_V2_MAX_FIELDS, MORPH_SECTION_HEADER_SIZE, MeshFrameStreams,
++    MorphSectionHeader, QuantizedMorphDelta, TypedFieldRecord, decode_mesh_frames,
++    decode_morph_section_into,
++};
++
++/// Decode the unique SurfaceFrames field or the legacy single frame payload.
++/// With MID2 present, absent SurfaceFrames means no frame stream: never guess.
++pub fn read_container_mesh_frames(
++    data: &[u8],
++    expected_vertices: usize,
++) -> Result<Option<MeshFrameStreams>, TypedPayloadError> {
++    let mut scratch = [TypedFieldRecord::default(); MANIFOLD_IDENTITY_V2_MAX_FIELDS];
++    let mut fields = [TypedFieldRecord::default(); MANIFOLD_IDENTITY_V2_MAX_FIELDS];
++    let resolver = TypedPayloadResolver::new(data, &[], &mut scratch, &mut fields)?;
++    let payload = if resolver.has_manifest() {
++        resolver.surface_frames()?.map(|p| p.bytes)
++    } else {
++        resolver.legacy_frames()
++    };
++    let Some(payload) = payload else {
++        return Ok(None);
++    };
++    // Both existing frame headers put vertex count at byte 8. Refuse mismatched
++    // counts before invoking the existing bounded allocating decoder.
++    if payload.len() < crate::container_10d::NORMAL_SECTION_HEADER_SIZE {
++        return Err(TypedPayloadError::Frames(
++            crate::container_10d::NormalSectionError::HeaderTooShort,
++        ));
++    }
++    if !crate::container_10d::is_normal_section(payload) {
++        return Err(TypedPayloadError::Frames(
++            crate::container_10d::NormalSectionError::BadMagic,
++        ));
++    }
++    let declared =
++        u32::from_le_bytes(payload[8..12].try_into().expect("checked frame header")) as usize;
++    if declared != expected_vertices {
++        return Err(TypedPayloadError::VertexCount {
++            expected: expected_vertices,
++            got: declared,
++        });
++    }
++    let frames = decode_mesh_frames(payload).map_err(TypedPayloadError::Frames)?;
++    let count = frames
++        .normals
++        .as_ref()
++        .map(Vec::len)
++        .or_else(|| frames.tangents.as_ref().map(Vec::len))
++        .unwrap_or(0);
++    if count != expected_vertices {
++        return Err(TypedPayloadError::VertexCount {
++            expected: expected_vertices,
++            got: count,
++        });
++    }
++    Ok(Some(frames))
++}
++
++/// Decode a MID2 MorphTargets field, or a recognized whole MRP1 sidecar when
++/// MID2 is absent. With MID2 present, never guess from an unrelated field.
++/// MRP1 validates every record before publishing any caller output.
++pub fn read_container_morph_targets_into(
++    data: &[u8],
++    expected_vertices: usize,
++    out_deltas: &mut [QuantizedMorphDelta],
++) -> Result<Option<(MorphSectionHeader, usize)>, TypedPayloadError> {
++    let mut scratch = [TypedFieldRecord::default(); MANIFOLD_IDENTITY_V2_MAX_FIELDS];
++    let mut fields = [TypedFieldRecord::default(); MANIFOLD_IDENTITY_V2_MAX_FIELDS];
++    let resolver = TypedPayloadResolver::new(data, &[], &mut scratch, &mut fields)?;
++    let payload = if resolver.has_manifest() {
++        resolver.morph_targets()?.map(|payload| payload.bytes)
++    } else {
++        resolver.legacy_morph_targets()
++    };
++    let Some(payload) = payload else {
++        return Ok(None);
++    };
++    if payload.len() >= MORPH_SECTION_HEADER_SIZE {
++        let header: MorphSectionHeader =
++            bytemuck::pod_read_unaligned(&payload[..MORPH_SECTION_HEADER_SIZE]);
++        if header.vertex_count as usize != expected_vertices {
++            return Err(TypedPayloadError::VertexCount {
++                expected: expected_vertices,
++                got: header.vertex_count as usize,
++            });
++        }
++    }
++    decode_morph_section_into(payload, out_deltas)
++        .map(Some)
++        .map_err(TypedPayloadError::Morph)
++}
+--- /dev/null
++++ b/tests/typed_field_payloads.rs
+@@ -0,0 +1,455 @@
++//! Public SDK regression: independent frame/morph/scientific payloads coexist.
++use qualia_core_db::container_10d::{field_section as science, *};
++use qualia_core_db::render::compile_10d::{Compile10dError, decode_10d_mesh_frames};
++
++fn identity() -> ManifoldIdentityV2 {
++    ManifoldIdentityV2 {
++        entity_id: StableEntityId([7; 16]),
++        profile_id: 1,
++        domain_id: 2,
++        coordinate_convention_id: 3,
++        coordinates: [0.0; 10],
++        external_digest: None,
++    }
++}
++fn delta(vertex_index: u32) -> QuantizedMorphDelta {
++    QuantizedMorphDelta {
++        pos_delta: [32767, 0, 0],
++        norm_delta: [0; 3],
++        target_index: 0,
++        tangent_oct_delta: [0; 2],
++        vertex_index,
++    }
++}
++fn chunks() -> [Vec<u8>; 3] {
++    let mut frames = vec![0; 256];
++    let n = encode_mesh_frames(
++        Some(&[[0.0, 0.0, 1.0]; 3]),
++        Some(&[[1.0, 0.0, 0.0, 1.0]; 3]),
++        &mut frames,
++    )
++    .unwrap();
++    frames.truncate(n);
++    let header = MorphSectionHeader {
++        magic: MAGIC_MRP1,
++        version: MORPH_SECTION_VERSION,
++        target_count: 1,
++        vertex_count: 3,
++        flags: FLAG_MORPH_SPARSE,
++        max_displacement: 1.0,
++        ontogenetic_bind_mask: 0,
++        reserved: [0; 8],
++    };
++    let mut morph = vec![0; 256];
++    let n = encode_morph_section(&header, &[delta(0), delta(2)], &mut morph).unwrap();
++    morph.truncate(n);
++    let mut raster = vec![0; 256];
++    let n = science::encode_field_section_with_rasters(
++        &[science::ContinuousRasterField {
++            name_hash: 41,
++            unit_hash: 42,
++            width: 2,
++            height: 1,
++            samples: &[2.5, 7.25],
++        }],
++        &mut raster,
++    )
++    .unwrap();
++    raster.truncate(n);
++    [frames, morph, raster]
++}
++fn records(chunks: &[Vec<u8>; 3], order: [usize; 3]) -> (Vec<u8>, Vec<TypedFieldRecord>) {
++    let mut payload = Vec::new();
++    let mut fields = vec![TypedFieldRecord::default(); 3];
++    for index in order {
++        fields[index] = TypedFieldRecord {
++            field_id: (index as u64 + 1) * 10,
++            kind: [
++                FIELD_KIND_SURFACE_FRAMES,
++                FIELD_KIND_MORPH_TARGETS,
++                FIELD_KIND_SCALAR,
++            ][index],
++            flags: 0,
++            unit_id: if index == 2 { 42 } else { 0 },
++            payload_section_id: SectionType::FieldSidecar as u32,
++            payload_offset: payload.len() as u64,
++            payload_length: chunks[index].len() as u64,
++        };
++        payload.extend_from_slice(&chunks[index]);
++    }
++    (payload, fields)
++}
++fn envelope(payload: &[u8], fields: &[TypedFieldRecord], extensions: &[u16]) -> Vec<u8> {
++    let section = SectionInput {
++        section_type: SectionType::FieldSidecar,
++        alignment_tier: AlignmentTier::Word,
++        stride: 0,
++        element_count: 0,
++        payload,
++    };
++    let mut manifest = [0; MANIFOLD_IDENTITY_V2_MAX_BYTES];
++    let mut sections = [section; 2];
++    let mut out = vec![0; 8192];
++    let n = encode_container_with_manifold_identity_extensions(
++        &Container10dHeader::proposed(),
++        &[section],
++        &identity(),
++        fields,
++        extensions,
++        &mut manifest,
++        &mut sections,
++        &mut out,
++    )
++    .unwrap();
++    out.truncate(n);
++    seal_whole_file_crc32c(&mut out);
++    out
++}
++fn fixture(order: [usize; 3]) -> Vec<u8> {
++    let (payload, fields) = records(&chunks(), order);
++    envelope(&payload, &fields, &[])
++}
++
++#[test]
++fn frames_morph_and_scientific_raster_coexist_in_either_payload_order() {
++    for order in [[0, 1, 2], [2, 1, 0]] {
++        let data = fixture(order);
++        let mut scratch = [TypedFieldRecord::default(); 3];
++        let mut fields = [TypedFieldRecord::default(); 3];
++        let reader = TypedPayloadResolver::new(&data, &[], &mut scratch, &mut fields).unwrap();
++        assert!(reader.has_manifest());
++        assert_eq!(reader.fields().len(), 3);
++        let frame_payload = reader.surface_frames().unwrap().unwrap();
++        assert_eq!(frame_payload.record.field_id, 10);
++        assert_eq!(
++            frame_payload.bytes.as_ptr(),
++            reader.field(10).unwrap().unwrap().bytes.as_ptr()
++        );
++        let frames = decode_mesh_frames(frame_payload.bytes).unwrap();
++        assert_eq!(frames.normals.unwrap(), vec![[0.0, 0.0, 1.0]; 3]);
++        assert_eq!(frames.tangents.unwrap(), vec![[1.0, 0.0, 0.0, 1.0]; 3]);
++        let decoded = decode_10d_mesh_frames(&data, 3).unwrap().unwrap();
++        assert_eq!(decoded.normals.unwrap(), vec![[0.0, 0.0, 1.0]; 3]);
++        let mut deltas = [delta(99); 2];
++        let (header, count) = read_container_morph_targets_into(&data, 3, &mut deltas)
++            .unwrap()
++            .unwrap();
++        assert_eq!(header.vertex_count, 3);
++        assert_eq!(count, 2);
++        assert_eq!(deltas, [delta(0), delta(2)]);
++        let science_payload = reader.field(30).unwrap().unwrap();
++        assert_eq!(science_payload.record.unit_id, 42);
++        let (_, descriptors) = science::decode_field_section(science_payload.bytes).unwrap();
++        let (grid, samples) =
++            science::decode_field_raster_samples(science_payload.bytes, &descriptors[0]).unwrap();
++        assert_eq!((grid.width, grid.height), (2, 1));
++        assert_eq!(samples, [2.5, 7.25]);
++    }
++}
++
++#[test]
++fn legacy_single_payload_survives_but_mid2_never_guesses_vector_normals() {
++    for tangents in [false, true] {
++        let mut frames = vec![0; 256];
++        let n = encode_mesh_frames(
++            Some(&[[0.0, 0.0, 1.0]; 3]),
++            tangents.then_some(&[[1.0, 0.0, 0.0, 1.0]; 3][..]),
++            &mut frames,
++        )
++        .unwrap();
++        frames.truncate(n);
++        let section = SectionInput {
++            section_type: SectionType::FieldSidecar,
++            alignment_tier: AlignmentTier::Word,
++            stride: 0,
++            element_count: 0,
++            payload: &frames,
++        };
++        let mut out = vec![0; 2048];
++        let n = encode_container(&Container10dHeader::legacy_v1(), &[section], &mut out).unwrap();
++        out.truncate(n);
++        let before = out.clone();
++        assert_eq!(
++            read_container_mesh_frames(&out, 3)
++                .unwrap()
++                .unwrap()
++                .normals
++                .unwrap(),
++            vec![[0.0, 0.0, 1.0]; 3]
++        );
++        assert_eq!(out, before);
++        let field = TypedFieldRecord {
++            field_id: 10,
++            kind: FIELD_KIND_VECTOR,
++            flags: 0,
++            unit_id: 0,
++            payload_section_id: 8,
++            payload_offset: 0,
++            payload_length: frames.len() as u64,
++        };
++        assert_eq!(
++            read_container_mesh_frames(&envelope(&frames, &[field], &[]), 3).unwrap(),
++            None
++        );
++    }
++}
++
++#[test]
++fn duplicate_frames_unknown_kind_and_bad_codec_fail_clearly() {
++    let (mut payload, mut fields) = records(&chunks(), [0, 1, 2]);
++    fields[1].kind = FIELD_KIND_SURFACE_FRAMES;
++    assert!(matches!(
++        read_container_mesh_frames(&envelope(&payload, &fields, &[]), 3),
++        Err(TypedPayloadError::AmbiguousKind {
++            kind: FIELD_KIND_SURFACE_FRAMES
++        })
++    ));
++    fields[1].kind = FIELD_KIND_MORPH_TARGETS;
++    fields[2].kind = 0x7f01; // Negative unsupported extension fixture, never production registry.
++    let data = envelope(&payload, &fields, &[0x7f01]);
++    assert!(matches!(
++        read_container_mesh_frames(&data, 3),
++        Err(TypedPayloadError::Manifest(
++            ManifoldContainerError::Manifest(ManifestV2Error::UnsupportedFieldKind(0x7f01))
++        ))
++    ));
++    fields[2].kind = FIELD_KIND_SCALAR;
++    payload[0] = b'!';
++    assert!(matches!(
++        read_container_mesh_frames(&envelope(&payload, &fields, &[]), 3),
++        Err(TypedPayloadError::Frames(NormalSectionError::BadMagic))
++    ));
++}
++
++#[test]
++fn counts_empty_declarations_wrong_binding_and_small_buffers_refuse_transactionally() {
++    let data = fixture([0, 1, 2]);
++    assert!(matches!(
++        decode_10d_mesh_frames(&data, 2),
++        Err(Compile10dError::NormalVertexCountMismatch {
++            expected: 2,
++            got: 3
++        })
++    ));
++    let mut sentinel = [delta(77); 2];
++    assert!(matches!(
++        read_container_morph_targets_into(&data, 2, &mut sentinel),
++        Err(TypedPayloadError::VertexCount { .. })
++    ));
++    assert_eq!(sentinel, [delta(77); 2]);
++    assert!(matches!(
++        read_container_morph_targets_into(&data, 3, &mut sentinel[..1]),
++        Err(TypedPayloadError::Morph(
++            MorphSectionError::BufferTooSmall { .. }
++        ))
++    ));
++    assert_eq!(sentinel, [delta(77); 2]);
++    let mut scratch = [TypedFieldRecord::default(); 3];
++    let mut out = [TypedFieldRecord {
++        field_id: 99,
++        ..TypedFieldRecord::default()
++    }; 1];
++    assert!(TypedPayloadResolver::new(&data, &[], &mut scratch, &mut out).is_err());
++    assert_eq!(out[0].field_id, 99);
++    let (payload, mut fields) = records(&chunks(), [0, 1, 2]);
++    fields[0].unit_id = 12;
++    assert!(matches!(
++        read_container_mesh_frames(&envelope(&payload, &fields, &[]), 3),
++        Err(TypedPayloadError::InvalidSemanticBinding { field_id: 10 })
++    ));
++    fields[0].unit_id = 0;
++    fields[0].payload_section_id = 0;
++    fields[0].payload_length = 0;
++    assert!(matches!(
++        read_container_mesh_frames(&envelope(&payload, &fields, &[]), 3),
++        Err(TypedPayloadError::InvalidSemanticBinding { field_id: 10 })
++    ));
++}
++
++#[test]
++fn malformed_later_morph_delta_leaves_all_output_unchanged() {
++    let mut encoded = chunks();
++    // Second delta's vertex_index is the final u32; reseal by encoding envelope.
++    let last = encoded[1].len() - 4;
++    encoded[1][last..].copy_from_slice(&99u32.to_le_bytes());
++    let (payload, fields) = records(&encoded, [2, 1, 0]);
++    let data = envelope(&payload, &fields, &[]);
++    let mut output = [delta(77); 2];
++    assert!(matches!(
++        read_container_morph_targets_into(&data, 3, &mut output),
++        Err(TypedPayloadError::Morph(
++            MorphSectionError::DeltaVertexOutOfRange { index: 1, .. }
++        ))
++    ));
++    assert_eq!(output, [delta(77); 2]);
++}
++
++#[test]
++fn invalid_ranges_preserve_manifest_output_and_writer_output() {
++    let (payload, mut fields) = records(&chunks(), [0, 1, 2]);
++    fields[0].payload_offset = payload.len() as u64;
++    let section = SectionInput {
++        section_type: SectionType::FieldSidecar,
++        alignment_tier: AlignmentTier::Word,
++        stride: 0,
++        element_count: 0,
++        payload: &payload,
++    };
++    let mut manifest = [0; MANIFOLD_IDENTITY_V2_MAX_BYTES];
++    let mut sections = [section; 2];
++    let mut out = [0xa5; 8192];
++    assert!(matches!(
++        encode_container_with_manifold_identity(
++            &Container10dHeader::proposed(),
++            &[section],
++            &identity(),
++            &fields,
++            &mut manifest,
++            &mut sections,
++            &mut out
++        ),
++        Err(ManifoldContainerError::PayloadRangeOutOfBounds { .. })
++    ));
++    assert!(out.iter().all(|b| *b == 0xa5));
++    // Encode manifest alone, then generic envelope, to exercise malformed read.
++    let n = encode_manifold_identity_v2(&identity(), &fields, &mut manifest).unwrap();
++    let invalid = SectionInput {
++        section_type: SectionType::ManifoldIdentityV2,
++        alignment_tier: AlignmentTier::Word,
++        stride: 0,
++        element_count: 0,
++        payload: &manifest[..n],
++    };
++    let mut data = vec![0; 8192];
++    let n = encode_container(
++        &Container10dHeader::proposed(),
++        &[section, invalid],
++        &mut data,
++    )
++    .unwrap();
++    data.truncate(n);
++    let mut scratch = [TypedFieldRecord::default(); 3];
++    let marker = TypedFieldRecord {
++        field_id: 99,
++        ..TypedFieldRecord::default()
++    };
++    let mut output = [marker; 3];
++    assert!(matches!(
++        TypedPayloadResolver::new(&data, &[], &mut scratch, &mut output),
++        Err(TypedPayloadError::Manifest(
++            ManifoldContainerError::PayloadRangeOutOfBounds { .. }
++        ))
++    ));
++    assert_eq!(output, [marker; 3]);
++}
++
++#[test]
++fn malformed_table_overlap_and_unaligned_input_fail_without_panicking() {
++    let data = fixture([0, 1, 2]);
++    let header = Container10dHeader::parse(&data).unwrap();
++    let table = header.section_table_offset as usize;
++    let mut scratch = [TypedFieldRecord::default(); 3];
++    let mut output = [TypedFieldRecord::default(); 3];
++    for offset in [0, table] {
++        let mut malformed = data.clone();
++        malformed[table + 4..table + 8].copy_from_slice(&(offset as u32).to_le_bytes());
++        malformed[table + 8..table + 12].copy_from_slice(&4u32.to_le_bytes());
++        let crc = crc32c(&malformed[offset..offset + 4]);
++        malformed[table + 20..table + 24].copy_from_slice(&crc.to_le_bytes());
++        seal_whole_file_crc32c(&mut malformed);
++        let header = Container10dHeader::parse(&malformed).unwrap();
++        assert!(matches!(
++            parse_section_table(&malformed, &header),
++            Err(SectionTableError::SectionOverlapsMetadata { index: 0 })
++        ));
++        assert!(matches!(
++            TypedPayloadResolver::new(&malformed, &[], &mut scratch, &mut output),
++            Err(TypedPayloadError::Sections(
++                SectionTableError::SectionOverlapsMetadata { index: 0 }
++            ))
++        ));
++    }
++    let mut unaligned = vec![0; data.len() + 1];
++    unaligned[1..].copy_from_slice(&data);
++    assert!(matches!(
++        parse_section_table(&unaligned[1..], &header),
++        Err(SectionTableError::UnalignedSectionTable)
++    ));
++    assert!(matches!(
++        TypedPayloadResolver::new(&unaligned[1..], &[], &mut scratch, &mut output),
++        Err(TypedPayloadError::Sections(
++            SectionTableError::UnalignedSectionTable
++        ))
++    ));
++}
++
++#[test]
++fn canonical_parser_preserves_a_valid_payload_before_a_later_table() {
++    let frames = chunks()[0].clone();
++    let mut header = Container10dHeader::legacy_v1();
++    header.section_table_offset = 160;
++    header.section_count = 1;
++    let mut data = vec![0; 160 + SECTION_DESCRIPTOR_SIZE];
++    data[..64].copy_from_slice(&header.encode_to_vec64());
++    data[64..64 + frames.len()].copy_from_slice(&frames);
++    let descriptor = SectionDescriptor {
++        section_type: SectionType::FieldSidecar as u8,
++        alignment_tier: AlignmentTier::Word as u8,
++        reserved16: 0,
++        byte_offset: 64,
++        byte_length: frames.len() as u32,
++        stride: 0,
++        element_count: 0,
++        crc32c: crc32c(&frames),
++    };
++    data[160..].copy_from_slice(bytemuck::bytes_of(&descriptor));
++    seal_whole_file_crc32c(&mut data);
++    let header = Container10dHeader::parse(&data).unwrap();
++    assert_eq!(parse_section_table(&data, &header).unwrap()[0], descriptor);
++    assert_eq!(
++        read_container_mesh_frames(&data, 3)
++            .unwrap()
++            .unwrap()
++            .normals
++            .unwrap(),
++        vec![[0.0, 0.0, 1.0]; 3]
++    );
++}
++
++#[test]
++fn legacy_whole_mrp1_is_supported_but_mid2_never_guesses_it() {
++    let morph = chunks()[1].clone();
++    let section = SectionInput {
++        section_type: SectionType::FieldSidecar,
++        alignment_tier: AlignmentTier::Word,
++        stride: 0,
++        element_count: 0,
++        payload: &morph,
++    };
++    let mut data = vec![0; 2048];
++    let n = encode_container(&Container10dHeader::legacy_v1(), &[section], &mut data).unwrap();
++    data.truncate(n);
++    let before = data.clone();
++    let mut out = [delta(77); 2];
++    assert_eq!(
++        read_container_morph_targets_into(&data, 3, &mut out)
++            .unwrap()
++            .unwrap()
++            .1,
++        2
++    );
++    assert_eq!(out, [delta(0), delta(2)]);
++    assert_eq!(data, before);
++    assert_eq!(read_container_mesh_frames(&data, 3).unwrap(), None);
++    let field = TypedFieldRecord {
++        field_id: 20,
++        kind: FIELD_KIND_TENSOR,
++        payload_section_id: 8,
++        payload_length: morph.len() as u64,
++        ..TypedFieldRecord::default()
++    };
++    assert_eq!(
++        read_container_morph_targets_into(&envelope(&morph, &[field], &[]), 3, &mut out).unwrap(),
++        None
++    );
++}
+--- /dev/null
++++ b/src/container_10d/typed_payloads/resolver.rs
+@@ -0,0 +1,175 @@
++//! Validated borrowed field selection; codec readers remain separate.
++use super::super::{
++    Container10dHeader, FIELD_KIND_MORPH_TARGETS, FIELD_KIND_SURFACE_FRAMES, HeaderParseError,
++    ManifoldContainerError, SectionDescriptor, SectionTableError, SectionType, TypedFieldRecord,
++    decode_container_manifold_identity, parse_section_table,
++};
++
++#[derive(Debug, Clone, PartialEq, Eq)]
++pub enum TypedPayloadError {
++    Header(HeaderParseError),
++    Sections(SectionTableError),
++    Manifest(ManifoldContainerError),
++    MissingPayload { field_id: u64 },
++    AmbiguousKind { kind: u16 },
++    InvalidSemanticBinding { field_id: u64 },
++    VertexCount { expected: usize, got: usize },
++    Frames(super::super::NormalSectionError),
++    Morph(super::super::MorphSectionError),
++}
++impl std::fmt::Display for TypedPayloadError {
++    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
++        write!(f, ".10d typed payload: {self:?}")
++    }
++}
++impl std::error::Error for TypedPayloadError {}
++
++/// A borrowed exact codec payload and its validated declaration. The record's
++/// identifiers remain qualified by their manifest; they do not establish authority.
++#[derive(Debug, Clone, Copy, PartialEq, Eq)]
++pub struct TypedPayload<'a> {
++    pub record: TypedFieldRecord,
++    pub bytes: &'a [u8],
++}
++
++/// Validated envelope view. Record storage belongs to the caller. Creating and
++/// selecting this view performs no heap allocation; codec decoding is separate.
++pub struct TypedPayloadResolver<'a, 'f> {
++    data: &'a [u8],
++    sections: &'a [SectionDescriptor],
++    fields: &'f [TypedFieldRecord],
++    has_manifest: bool,
++}
++impl<'a, 'f> TypedPayloadResolver<'a, 'f> {
++    /// All manifest kinds and ranges validate before out_fields changes. Scratch
++    /// may change on refusal. Existing envelope section CRC checks are retained;
++    /// whole-file sealing remains the enclosing asset admission owner's policy.
++    pub fn new(
++        data: &'a [u8],
++        supported_extension_kinds: &[u16],
++        field_scratch: &mut [TypedFieldRecord],
++        out_fields: &'f mut [TypedFieldRecord],
++    ) -> Result<Self, TypedPayloadError> {
++        let header = Container10dHeader::parse(data).map_err(TypedPayloadError::Header)?;
++        let sections = parse_section_table(data, &header).map_err(TypedPayloadError::Sections)?;
++        let has_manifest = sections
++            .iter()
++            .any(|s| s.typ() == Some(SectionType::ManifoldIdentityV2));
++        let count = if has_manifest {
++            decode_container_manifold_identity(
++                data,
++                &header,
++                supported_extension_kinds,
++                field_scratch,
++                out_fields,
++            )
++            .map_err(TypedPayloadError::Manifest)?
++            .1
++        } else {
++            0
++        };
++        Ok(Self {
++            data,
++            sections,
++            fields: &out_fields[..count],
++            has_manifest,
++        })
++    }
++
++    pub fn has_manifest(&self) -> bool {
++        self.has_manifest
++    }
++    pub fn fields(&self) -> &[TypedFieldRecord] {
++        self.fields
++    }
++
++    /// Select by stable field declaration identifier, independent of byte order.
++    pub fn field(&self, field_id: u64) -> Result<Option<TypedPayload<'a>>, TypedPayloadError> {
++        self.fields
++            .iter()
++            .find(|f| f.field_id == field_id)
++            .map(|record| self.payload(*record))
++            .transpose()
++    }
++
++    /// Unique registered presentation field. A generic Vector is never selected.
++    pub fn surface_frames(&self) -> Result<Option<TypedPayload<'a>>, TypedPayloadError> {
++        self.unique(FIELD_KIND_SURFACE_FRAMES)
++    }
++    /// Morph records use a mixed schema: position deltas inherit mesh coordinate
++    /// convention, while normal/tangent deltas are dimensionless. Their enclosing
++    /// declaration has unit_id=0; scientific field units remain independent.
++    pub fn morph_targets(&self) -> Result<Option<TypedPayload<'a>>, TypedPayloadError> {
++        self.unique(FIELD_KIND_MORPH_TARGETS)
++    }
++
++    fn unique(&self, kind: u16) -> Result<Option<TypedPayload<'a>>, TypedPayloadError> {
++        let mut found = self.fields.iter().filter(|f| f.kind == kind);
++        let Some(record) = found.next() else {
++            return Ok(None);
++        };
++        if found.next().is_some() {
++            return Err(TypedPayloadError::AmbiguousKind { kind });
++        }
++        if record.payload_section_id != SectionType::FieldSidecar as u32 || record.unit_id != 0 {
++            return Err(TypedPayloadError::InvalidSemanticBinding {
++                field_id: record.field_id,
++            });
++        }
++        self.payload(*record).map(Some)
++    }
++
++    fn payload(&self, record: TypedFieldRecord) -> Result<TypedPayload<'a>, TypedPayloadError> {
++        if record.payload_section_id == 0 || record.payload_length == 0 {
++            return Err(TypedPayloadError::MissingPayload {
++                field_id: record.field_id,
++            });
++        }
++        let section = self
++            .sections
++            .iter()
++            .find(|s| u32::from(s.section_type) == record.payload_section_id)
++            .ok_or(TypedPayloadError::MissingPayload {
++                field_id: record.field_id,
++            })?;
++        let start = u64::from(section.byte_offset).checked_add(record.payload_offset);
++        let range = start
++            .and_then(|start| {
++                record
++                    .payload_length
++                    .checked_add(start)
++                    .map(|end| (start, end))
++            })
++            .and_then(|(start, end)| {
++                Some((usize::try_from(start).ok()?, usize::try_from(end).ok()?))
++            });
++        let bytes = range
++            .and_then(|(start, end)| self.data.get(start..end))
++            .ok_or(TypedPayloadError::MissingPayload {
++                field_id: record.field_id,
++            })?;
++        Ok(TypedPayload { record, bytes })
++    }
++
++    fn legacy_sidecar(&self) -> Option<&'a [u8]> {
++        let section = self
++            .sections
++            .iter()
++            .find(|s| s.typ() == Some(SectionType::FieldSidecar))?;
++        let start = section.byte_offset as usize;
++        let payload = self
++            .data
++            .get(start..start.checked_add(section.byte_length as usize)?)?;
++        Some(payload)
++    }
++
++    pub(super) fn legacy_frames(&self) -> Option<&'a [u8]> {
++        self.legacy_sidecar()
++            .filter(|payload| super::super::is_normal_section(payload))
++    }
++
++    pub(super) fn legacy_morph_targets(&self) -> Option<&'a [u8]> {
++        self.legacy_sidecar()
++            .filter(|payload| payload.starts_with(&super::super::MAGIC_MRP1))
++    }
++}
+--- a/src/container_10d/section.rs
++++ b/src/container_10d/section.rs
+@@ -31,6 +31,9 @@
+ //! the canonical-order index sort, which uses a stack array — see
+ //! `sort_indices_stack`). [`parse_section_table`] returns a zero-copy
+ //! `&[SectionDescriptor]` view into the input bytes.
++
++#[path = "section/table_validation.rs"]
++mod table_validation;
+ 
+ use bytemuck::{Pod, Zeroable};
+ 
+@@ -315,6 +318,10 @@
+     /// The header's section-table pointer is inconsistent (offset/count
+     /// mismatch, offset below header, or count over the max).
+     BadSectionTablePointer { offset: u32, count: u32 },
++    /// Borrowed descriptor bytes are not aligned for the zero-copy table view.
++    UnalignedSectionTable,
++    /// A nonempty payload intersects the container header or section table.
++    SectionOverlapsMetadata { index: usize },
+     /// A descriptor's `reserved16` is non-zero.
+     NonZeroDescriptorReserved { index: usize },
+     /// A descriptor's `byte_offset` is misaligned relative to its tier.
+@@ -397,6 +404,8 @@
+                 f,
+                 "10d bad section-table pointer: offset={offset}, count={count}"
+             ),
++            Self::UnalignedSectionTable => write!(f, "10d section table is not aligned for borrowing"),
++            Self::SectionOverlapsMetadata { index } => write!(f, "10d section {index} overlaps header or section table"),
+             Self::NonZeroDescriptorReserved { index } => {
+                 write!(f, "10d non-zero reserved16 in descriptor {index}")
+             }
+@@ -672,15 +681,17 @@
+             need: table_end,
+         });
+     }
+-    // SAFETY: SectionDescriptor is repr(C) + Pod + size 24 with no padding;
+-    // the table slice is byte-aligned and fully within `data`.
+-    let descs: &[SectionDescriptor] = bytemuck::cast_slice(&data[table_start..table_end]);
++    // Return a clear error for unaligned borrowed bytes instead of panicking.
++    let descs = table_validation::borrow_table(&data[table_start..table_end])?;
+ 
+     // Per-descriptor validation + cross-descriptor overlap/alignment scan.
+     // We scan in table order (which is canonical = ascending section_type
+     // order for files we wrote; for files we didn't write, we sort the
+     // offset check by byte_offset to detect overlaps correctly).
+     for (i, d) in descs.iter().enumerate() {
++        if descs[..i].iter().any(|old| old.section_type == d.section_type) {
++            return Err(SectionTableError::DuplicateSectionType { section_type: d.section_type });
++        }
+         if d.reserved16 != 0 {
+             return Err(SectionTableError::NonZeroDescriptorReserved { index: i });
+         }
+@@ -733,6 +744,7 @@
+                 file_len: data.len(),
+             });
+         }
++        table_validation::metadata_range(d, i, table_start, table_end)?;
+         // Stride consistency.
+         if d.stride > 0 {
+             let expected = d.stride as usize * d.element_count as usize;
+@@ -784,38 +796,8 @@
+         }
+     }
+ 
+-    // Padding-between-sections is zero: scan the gaps. The gap before the
+-    // first section (between table_end and the first section's offset) and
+-    // between consecutive sections. Walk in offset order.
+-    let mut order_by_off: [usize; MAX_SECTION_COUNT as usize] =
+-        [0usize; MAX_SECTION_COUNT as usize];
+-    for i in 0..descs.len() {
+-        order_by_off[i] = i;
+-    }
+-    // Insertion sort by byte_offset.
+-    for i in 1..descs.len() {
+-        let mut j = i;
+-        while j > 0 && descs[order_by_off[j - 1]].byte_offset > descs[order_by_off[j]].byte_offset {
+-            order_by_off.swap(j - 1, j);
+-            j -= 1;
+-        }
+-    }
+-    let mut gap_start = table_end;
+-    for k in 0..descs.len() {
+-        let idx = order_by_off[k];
+-        let o = descs[idx].byte_offset as usize;
+-        for b in &data[gap_start..o] {
+-            if *b != 0 {
+-                return Err(SectionTableError::NonZeroPadding { at: gap_start });
+-            }
+-        }
+-        gap_start = o + descs[idx].byte_length as usize;
+-    }
+-    // Tail padding (after the last section to the end of the encoded region)
+-    // is not checked here — the caller may have a larger buffer. Only the
+-    // encoded region's padding matters, and that is covered by `total` from
+-    // the writer; a reader does not know `total` without the header CRC region
+-    // (P0.3). For P0.2, inter-section padding is the gate.
++    // Focused canonical validation also supports payloads before a later table.
++    table_validation::padding(data, descs, table_start, table_end)?;
+ 
+     Ok(descs)
+ }
+--- /dev/null
++++ b/src/container_10d/section/table_validation.rs
+@@ -0,0 +1,76 @@
++//! Zero-copy table preconditions and padding traversal for the canonical reader.
++use super::{HEADER_BYTE_SIZE, MAX_SECTION_COUNT, SectionDescriptor, SectionTableError};
++
++pub(super) fn borrow_table(bytes: &[u8]) -> Result<&[SectionDescriptor], SectionTableError> {
++    bytemuck::try_cast_slice(bytes).map_err(|_| SectionTableError::UnalignedSectionTable)
++}
++
++pub(super) fn metadata_range(
++    descriptor: &SectionDescriptor,
++    index: usize,
++    table_start: usize,
++    table_end: usize,
++) -> Result<(), SectionTableError> {
++    let start = descriptor.byte_offset as usize;
++    let len = descriptor.byte_length as usize;
++    // Empty sections occupy no bytes; legacy encoders may share their offset.
++    if len != 0 && (start < HEADER_BYTE_SIZE || (start < table_end && start + len > table_start)) {
++        return Err(SectionTableError::SectionOverlapsMetadata { index });
++    }
++    Ok(())
++}
++
++fn gap(data: &[u8], start: usize, end: usize) -> Result<(), SectionTableError> {
++    let bytes = data
++        .get(start..end)
++        .ok_or(SectionTableError::InputTooShort {
++            got: data.len(),
++            need: end,
++        })?;
++    if bytes.iter().any(|b| *b != 0) {
++        return Err(SectionTableError::NonZeroPadding { at: start });
++    }
++    Ok(())
++}
++
++/// The table need not immediately follow the header. Treat it as occupied
++/// metadata while traversing sorted payloads; do not slice backwards across it.
++pub(super) fn padding(
++    data: &[u8],
++    descriptors: &[SectionDescriptor],
++    table_start: usize,
++    table_end: usize,
++) -> Result<(), SectionTableError> {
++    let mut order = [0usize; MAX_SECTION_COUNT as usize];
++    for (index, slot) in order[..descriptors.len()].iter_mut().enumerate() {
++        *slot = index;
++    }
++    for index in 1..descriptors.len() {
++        let mut j = index;
++        while j > 0 && descriptors[order[j - 1]].byte_offset > descriptors[order[j]].byte_offset {
++            order.swap(j - 1, j);
++            j -= 1;
++        }
++    }
++    let mut cursor = HEADER_BYTE_SIZE;
++    let mut table_seen = false;
++    for &index in &order[..descriptors.len()] {
++        let section = descriptors[index];
++        if section.byte_length == 0 {
++            continue;
++        }
++        let offset = section.byte_offset as usize;
++        if !table_seen && table_start <= offset {
++            gap(data, cursor, table_start)?;
++            cursor = table_end;
++            table_seen = true;
++        }
++        gap(data, cursor, offset)?;
++        cursor = offset + section.byte_length as usize;
++    }
++    if !table_seen {
++        gap(data, cursor, table_start)?;
++    }
++    // Preserve the existing no-tail-padding-validation contract.
++    Ok(())
++}

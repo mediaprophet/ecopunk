@@ -1,0 +1,147 @@
+{
+  "job": "W3R1-BOTANY",
+  "agent": "/root/w3r1_botany",
+  "model": "gpt-6-sol",
+  "status": "staged_not_integrated",
+  "date": "2026-10-26",
+  "owned_files": [
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\controls.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "66067c75637108e83cd5723fa3f5ee4b47160a6d67d757fb05befe45e9fb47dd"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\mod.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "f516890a16d9e283c38e8436968d6f0af165c746f7881e712e00f8ed68e06a82"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\recipe.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "1f042c3df63e33a00a1b0bd2b7820b2b88b706ffe800d757bc16050c6a8303ee"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\source_edit.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "76a205d67fc623d18321b0af27f2ff76126dd8e22084de933dfeddea85bd4935"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\authoring\\botanical\\tests.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "5209bc64265875ab8693762081fd10a1c42a9e160ad5d3dec5ee7ddb2db632d4"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\botanical_graph_host.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "d605cce6e854da23aadd6ac85fcc5fd12bbbc1e1f4208c6da96fdccb79dd4827"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\poet\\native\\src\\graphical\\native_project_biosphere_round1_tests.rs",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "96f1b327775c40a66f08738d4becf12fd44493414354916b45636b99e051dc1e"
+    }
+  ],
+  "read_only_owners": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\computational_geometry\\space_colonization.rs",
+      "before_sha256": "5c26ddacd9f558f40d9fda16da5fe1b35a13609183bd7ab0bcd47e181bfcb2fe",
+      "after_sha256": "5c26ddacd9f558f40d9fda16da5fe1b35a13609183bd7ab0bcd47e181bfcb2fe"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\computational_geometry\\tree_skeleton_3d.rs",
+      "before_sha256": "9f5fa03b660cb064f19af95a4f5f5780ea41be021c04018e954a1690a86fd8f7",
+      "after_sha256": "9f5fa03b660cb064f19af95a4f5f5780ea41be021c04018e954a1690a86fd8f7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\computational_geometry\\sweep_extrusion.rs",
+      "before_sha256": "dac6ab22dc846f1b55bcec692c2d071f99ec92d677a9ef462fb4b5bdc532835f",
+      "after_sha256": "dac6ab22dc846f1b55bcec692c2d071f99ec92d677a9ef462fb4b5bdc532835f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\geometry\\wave27_host.rs",
+      "before_sha256": "202dadbda187b36e99ffffb7c37b34f1704c343c39560a096f2e149c085d0fc6",
+      "after_sha256": "202dadbda187b36e99ffffb7c37b34f1704c343c39560a096f2e149c085d0fc6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\geometry\\wave29_host.rs",
+      "before_sha256": "dd2183b1b6e685d31c968bd1add19f677518045596db1d6119dbf22ffeb347e8",
+      "after_sha256": "dd2183b1b6e685d31c968bd1add19f677518045596db1d6119dbf22ffeb347e8"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\geometry_host.rs",
+      "before_sha256": "552722c9ca9e4cf57fa8812b8f81687be067e1712dbf6d9fd6f3badfda4e29b6",
+      "after_sha256": "552722c9ca9e4cf57fa8812b8f81687be067e1712dbf6d9fd6f3badfda4e29b6"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion.rs",
+      "before_sha256": "b51f15d9440fa5c17426613cc18fa06fcbb765fde41a4b9b2d4923b71300ce12",
+      "after_sha256": "b51f15d9440fa5c17426613cc18fa06fcbb765fde41a4b9b2d4923b71300ce12"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "before_sha256": "534896e93841e3b49e2c3cac07029aa1de84802621f79f2b8c30374a60a06314",
+      "after_sha256": "534896e93841e3b49e2c3cac07029aa1de84802621f79f2b8c30374a60a06314"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "before_sha256": "ad279a53bf168b81da4f07f15cbf7d3aecdfae1f51d54e64f74d16b425ec0b3f",
+      "after_sha256": "ad279a53bf168b81da4f07f15cbf7d3aecdfae1f51d54e64f74d16b425ec0b3f"
+    }
+  ],
+  "api": [
+    "botanical::read_recipe(Option<&Value>, BotanicalLimits) -> Result<Option<BotanicalRecipe>, String>",
+    "botanical::edit_source(&Value, Option<&Value>, &BotanicalEdit, BotanicalLimits) -> Result<String, String>",
+    "botanical::validate_projection(&Value, Option<&BotanicalRecipe>, &BotanicalRecipe, BotanicalLimits) -> Result<(), String>",
+    "botanical_graph_host::evaluate(&BotanicalRecipe, BotanicalLimits) -> Result<BotanicalPreview, String>"
+  ],
+  "tests_source": [
+    "explicit_first_adoption_rebuilds_selected_geometry_and_keeps_unrelated_part",
+    "adopted_graph_replay_and_radius_edit_use_core_geometry",
+    "position_edit_preserves_other_keys_and_changes_sweep",
+    "cycles_budget_foreign_target_and_drift_are_refused",
+    "signed_botanical_native_intent_mcp_refusals_history_and_hmc_reopen",
+    "botanical_native_edit_requires_actual_core_grants"
+  ],
+  "tests_executed": false,
+  "build_executed": false,
+  "format_executed": "rustfmt --edition 2021 on staged Rust files",
+  "process_lease": "none",
+  "root_wiring": [
+    "register botanical and botanical_graph_host modules",
+    "add typed AuthoringEdit / current poet_botanical extraction / native panel and MCP mapping",
+    "enforce actor, grants, expected source, revision and host limits before edit_source",
+    "refuse active poet_source_layer/parameter baseline in this round",
+    "run serial Cargo and integrated source to preview/reopen/refusal tests"
+  ],
+  "open_ids": [
+    "BS-10A",
+    "BS-10B",
+    "BS-10C",
+    "BS-10E",
+    "TREE-01–13",
+    "IP-03 C1–C8",
+    "asset HOLD"
+  ],
+  "documentation_files": [
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\findings.md",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": "c1d0d0793c3eccfcd75480dba0ff618cac3b29e9304275b6df6826d9e1422428"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-BOTANY\\handoff.json",
+      "before_sha256": null,
+      "before_state": "absent",
+      "after_sha256": null,
+      "hash_note": "self-hash omitted to avoid recursive digest"
+    }
+  ]
+}

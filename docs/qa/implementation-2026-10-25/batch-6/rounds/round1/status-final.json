@@ -1,0 +1,137 @@
+{
+  "schema": "ecopunk.batch6-round1-final-status.v1",
+  "captured_utc": "2026-10-25T02:26:09Z",
+  "round": "round-1",
+  "status": "complete_scoped",
+  "scope": "Reference producer compile, saved source/HMC, fresh-process exact-source reopen, and four actual native inspection PNGs for the film-intent fixture.",
+  "source_pin": {
+    "path": "assets/reference/community-grounds-growing-station/master.vibe",
+    "revision": "0.2",
+    "bytes": 15690,
+    "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+  },
+  "producer": {
+    "profile": "film",
+    "fixture_only": true,
+    "source_cells": 5,
+    "parts": 199,
+    "materials": 9,
+    "material_ranges": 199,
+    "vertices": 239952,
+    "triangles": 79984,
+    "fresh_process_source_reopen": "passed",
+    "exact_regenerated_10d_bytes": "passed",
+    "native_render": "passed",
+    "checks": {
+      "build": {
+        "exit_code": 0,
+        "elapsed_seconds": 26.38,
+        "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log"
+      },
+      "reopen_render": {
+        "exit_code": 0,
+        "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log"
+      }
+    }
+  },
+  "outputs": [
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+      "bytes": 17571,
+      "sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "bytes": 5288192,
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "bytes": 5413279,
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/run.json",
+      "bytes": 1498,
+      "sha256": "121239ea85f3a4f1cf985c4ce6adf3f069b0a228e3d664cdbcebeb4c8b52148b"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/render-receipt.json",
+      "bytes": 6125,
+      "sha256": "09c848e16c5d95c427fe049ca5ce2b1b70ea739a669e1bbbe5c05e291be5cfe9"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/hero.png",
+      "bytes": 374766,
+      "sha256": "7b6de328407018785922d18d3ac2c5c258a225424eed0c58fe265c8843648ed4",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/opposite.png",
+      "bytes": 275338,
+      "sha256": "c1c91c7c3e80ecf0f598efad150da1cbd85ed2613b393d46e6679dae27e35efa",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/channel-closeup.png",
+      "bytes": 420805,
+      "sha256": "be8b5af69a7289423978580ce88211cb1b70967a46c1bc5c4631cd53cf4fe98d",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/cabinet-closeup.png",
+      "bytes": 217795,
+      "sha256": "e79268ed476274a340adb71e7c2e59ad1127ba9312be23926516251b12083a55",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    }
+  ],
+  "selected_checks": {
+    "vibe_catalog": "6 passed, 0 failed",
+    "native_poet": "42 passed, 0 failed; 76 filtered; 2.25 seconds",
+    "core_mesh_bounds": "4 passed, 0 failed through Poet native conformance target/Core dependency closure",
+    "nonduplicated_total": 52,
+    "counting_rule": "6 + 42 + 4; earlier 39/3 results are intermediate subsets and were not added again",
+    "logs": [
+      "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/catalog-tests.log",
+      "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/native-final-tests.log",
+      "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log"
+    ]
+  },
+  "visual_findings": {
+    "status": "Round 2 input only; no human acceptance",
+    "review": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/visual-triage.md",
+    "items": [
+      "Cabinet framing/occlusion limits inspection of service detail.",
+      "Rectangular exposed corners remain around circular lid collars.",
+      "Curved-surface highlights/material readability need refinement."
+    ],
+    "engine_gap_established": false
+  },
+  "later_rounds": {
+    "round2": "not_started",
+    "round3": "not_started",
+    "round4": "not_started"
+  },
+  "claim_boundary": {
+    "ip03_c1_c8_demonstrated": false,
+    "human_visual_acceptance": false,
+    "film_package": "incomplete; unassessed",
+    "open_world_game_package": "incomplete; unassessed",
+    "cartoon_package": "incomplete; unassessed",
+    "model_complete": false,
+    "open_claims": "193 catalogue plus 8 subject-specific, retained open in open-ids.json",
+    "plants_ports_full_graph_rights_domain_ux_game_demo": "unqualified",
+    "uv_unwrap": "not claimed; UV0 stream exists but source fallback UV may be zero",
+    "all_120_packets_open": true
+  },
+  "evidence_index": "docs/production/community-grounds-growing-station/evidence-index.json",
+  "open_ids": "docs/production/community-grounds-growing-station/open-ids.json"
+}

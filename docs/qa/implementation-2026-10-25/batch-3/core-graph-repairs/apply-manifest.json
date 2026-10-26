@@ -1,0 +1,66 @@
+{
+  "scope": "Native graph/lexicon/SERVICE/C2PA/CML contract repairs; no automatic publication or fabricated verification",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/q42/q42_lexicon.rs",
+      "original_sha256": "5CD40CC4F3D5ECD8961D7F50C12BFDA0A35B2512E71BD71BA81B881DDA39DFD9",
+      "candidate": "candidate/src/q42/q42_lexicon.rs",
+      "candidate_sha256": "CBDA12C32476D68D7859BE37B88B5C803A0F8FE35D6E80AAED3A505DD927D1A8"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/q42/q42_lexicon_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/q42/q42_lexicon_tests.rs",
+      "candidate_sha256": "6FA4167630C9ABA1ACB8B5C22B5FE83023A132FC56F398D2784BE48659B52E80"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/sparql_library/sparql_mm.rs",
+      "original_sha256": "BF468FF8FF337712A2EFE927F10FFAF8606AEB703A75A9556121DA9E2A9485E5",
+      "candidate": "candidate/src/sparql_library/sparql_mm.rs",
+      "candidate_sha256": "C2768A5D2B877882F1F39AE3F1FAD309570E2A757AB0E502C44508C776FCFF2B"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/sparql_library/sparql_grammar/pattern.rs",
+      "original_sha256": "8F7E9C8BAE0038D0290CF5E183619711D0F9F0820F27039CC54D80FC40FD232E",
+      "candidate": "candidate/src/sparql_library/sparql_grammar/pattern.rs",
+      "candidate_sha256": "84A9218459C74A239C89D44A4D1505ED5B2870CDB3D9586AFB563FF6755E2A4B"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/query/ingest.rs",
+      "original_sha256": "4049BBED657932F80A84703EB03F6F395963E27623D0252AE2176724F2E0C9F0",
+      "candidate": "candidate/src/query/ingest.rs",
+      "candidate_sha256": "7492EAA0E41AE7D88A9FEE5E04540468B2607497BC380BF6F161266984E75570"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "original_sha256": "640B167BDF1900197680D8AE79EB41595087D157AF9D230CD91E0FA395FB8524",
+      "candidate": "candidate/src/poet_host/invoke/studio_store.rs",
+      "candidate_sha256": "B0C1983267D27F9CCCEF3356A780A7EC2DC7A45F2568B0F06DEE82503F3AA250"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_cml/mod.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/poet_host/invoke/studio_cml/mod.rs",
+      "candidate_sha256": "71079101B443BE0F526BBAE449A7523AC5B4AF57758147FD20248EBB61E5ECE9"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_cml/parser.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/poet_host/invoke/studio_cml/parser.rs",
+      "candidate_sha256": "587BBD0ED7D0A6B04301C8703866CD113559ACCD23A3626378FFDE9E70789762"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_cml/writer.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/poet_host/invoke/studio_cml/writer.rs",
+      "candidate_sha256": "FB7E783AE839A0EDFAEEB25D109C64873235DE956B1B7AFEF5FDD7408B18066F"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_cml/tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/poet_host/invoke/studio_cml/tests.rs",
+      "candidate_sha256": "10D9FC2096B12B3C32572B308D9535714E26280534BA5DE479A44F930DBCD2FE"
+    }
+  ]
+}

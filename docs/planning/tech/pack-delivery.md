@@ -6,7 +6,7 @@ serves both; downloads are not a second engine.
 
 Driven by game-demo remediation R3 (findings F5/F10) — see
 [game-demo-remediation.md](game-demo-remediation.md); worker orchestration in
-[webizen-execution.md](webizen-execution.md). Distribution identity/addressing
+[webizen-execution.md](webizen-execution.md). Distribution identifiers/addressing
 rules live in [durability-and-distribution.md](durability-and-distribution.md);
 node roles in [network-nodes.md](network-nodes.md); artefact formats in
 [pipeline.md](pipeline.md).
@@ -53,12 +53,12 @@ Rules:
   committed trusted index/manifest and the fetched entries, emitting its own
   receipts — not fake whole-file verification. A raw range response carries no
   full-digest proof; CID proofs exist only on the specific partial-CAR path.
-- Identity is a trusted name + version bound to immutable digests — **not**
+- Identifiers are a trusted name + version bound to immutable digests — **not**
   HTTP aliases alone; policy gates apply for cache/egress restrictions
   (lane obligations travel with the bytes).
 - Deployed carriers must be checked per deployment for `Range`/`206`
   behaviour, exact `Content-Range`, total length, consistent
-  identity/encoding bytes, and the CORS-exposed headers the reader needs —
+  identifiers/encoding bytes, and the CORS-exposed headers the reader needs —
   support is an advertised, verified property of that host, not assumed.
 
 ## 3. Closures — what "downloaded" actually means
@@ -74,7 +74,7 @@ Three distinct states; none may borrow the status of another:
 An **offline closure** additionally requires: a compatible application shell +
 WASM binaries + Vibe modules/schema/action catalogs, the required ontology
 references, mesh+texture+rig/clip/material dependencies, and
-identity/licence/provenance/auth-policy metadata. **Saving the content pack
+identifiers/licence/provenance/auth-policy metadata. **Saving the content pack
 alone is not enough for browser offline startup** — if offline reload is
 claimed, the shell must be cached via the host/engine service as part of the
 closure. Install commit is atomic and separate from the scene GPU swap; save
@@ -82,7 +82,7 @@ migration applies only across compatible versions.
 
 ## 4. Proposed bounded acquisition sequence
 
-resolve identity + profile/deps → scoped authorization/admission → cache
+resolve identifiers + profile/deps → scoped authorization/admission → cache
 lookup → fetch missing extents → verify → stage durable output → publish
 completion **atomically** (only when the required verified closure is done)
 → decode/upload the selected working set → scene-generation-specific

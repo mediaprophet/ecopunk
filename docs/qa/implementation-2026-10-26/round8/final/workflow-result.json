@@ -1,0 +1,52 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "uv_atlas_paint_native_intents_resource_closure_review_and_reopen",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "workflow",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T14:29:25.760622+00:00",
+  "finished_utc": "2026-10-25T14:29:42.873935+00:00",
+  "elapsed_seconds": 17.125,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\workflow.log",
+  "log_sha256": "79787db3cb6c887ade0eda7ce87d36f30804f97f28873c9882a0695d087fc810",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\workflow-source-before.json",
+  "source_snapshot_sha256": "7fa9719e12675fcaac981fd4ea397c349133c49f1c6cba38c5fc979b3f5c58d4",
+  "recorded_local_source_files": 3253,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::native_project::tests::uv_detail_workflow_tests::uv_atlas_paint_native_intents_resource_closure_review_and_reopen"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

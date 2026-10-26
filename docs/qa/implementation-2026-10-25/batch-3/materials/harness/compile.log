@@ -1,0 +1,47 @@
+warning: fields `artifact_id`, `title`, `rebuild_supported`, and `latest_source` are never read
+  --> C:\github\poet\native\src\graphical\controller.rs:17:9
+   |
+16 | pub struct EditorSnapshot {
+   |            -------------- fields in this struct
+17 |     pub artifact_id: String,
+   |         ^^^^^^^^^^^
+18 |     pub title: String,
+   |         ^^^^^
+...
+23 |     pub rebuild_supported: bool,
+   |         ^^^^^^^^^^^^^^^^^
+24 |     pub latest_source: String,
+   |         ^^^^^^^^^^^^^
+   |
+   = note: `EditorSnapshot` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `message` is never read
+  --> C:\github\poet\native\src\graphical\controller.rs:30:9
+   |
+28 | pub struct EditorOutcome {
+   |            ------------- field in this struct
+29 |     pub snapshot: EditorSnapshot,
+30 |     pub message: String,
+   |         ^^^^^^^
+
+warning: methods `check` and `redo` are never used
+  --> C:\github\poet\native\src\graphical\controller.rs:55:8
+   |
+53 | pub trait EditorHost: Send {
+   |           ---------- methods in this trait
+54 |     fn snapshot(&self) -> Result<EditorSnapshot, String>;
+55 |     fn check(&self, source: &str) -> Result<String, String>;
+   |        ^^^^^
+...
+58 |     fn redo(&mut self, expected: SourceRef) -> Result<EditorSnapshot, String>;
+   |        ^^^^
+
+warning: function `render_hmc_unqualified` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\candidate\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: 4 warnings emitted
+

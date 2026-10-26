@@ -1,0 +1,6 @@
+{
+  "harness_sha256": "0b80a4271f6af4c85ac204d2b6b007ddf589cae08d6aadafd296febf18b18a52",
+  "backend": "dx12",
+  "exit_code": 0,
+  "command": "Current compiled native harness --ignored --exact graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::image_completed_tests::image_completed_workflow_offsets_without_masks_change_native_gpu --nocapture --test-threads=1; root serial, Cargo idle"
+}

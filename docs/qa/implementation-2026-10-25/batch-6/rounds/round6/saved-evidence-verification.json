@@ -1,0 +1,238 @@
+{
+  "status": "passed",
+  "kind": "read_only_final_reconciliation",
+  "distinct_installed_targets": 58,
+  "all_latest_installed_hashes_match": true,
+  "recorded_overrides": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\surface_host.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\compiler-signature\\applied-source.json",
+      "before": "92f4a2b03dfb15dfe2e0009841f27c466b51b5ec8b7aad30aa4dd594e4e7a9b6",
+      "after": "f057e53fc71023020143f7a88485a41521ac6b8accc55a053150972cba05947c"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\binding-frame\\applied-source.json",
+      "before": "a0c05d6f4dd601c40e413c65825a65b65c99d1d2a9cc83337207202dacbe3d7d",
+      "after": "f96328388eb439eb9af33fd993a159abc9f1ae5652a6b325413ea3558318cfd1"
+    },
+    {
+      "target": "C:/github/poet/native/Cargo.toml",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+      "before": "8b864254c62a8ce3384904af6495c7cb4ad375480f5743589b38d934956e1023",
+      "after": "1050d7d01eb350b38870d281ab0b68ed43166fb9a37c6f6b9da1c0fa60ffa6df"
+    }
+  ],
+  "commands": {
+    "check": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\check-result.json",
+      "receipt_sha256": "6d67802e298505a88e03bb17d067f9869c21a4b6873ce0d48259a66f52f17232",
+      "tests": 0,
+      "exit_code": 0
+    },
+    "authoring": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\authoring-result.json",
+      "receipt_sha256": "27daf590695bcebc54326954679ffd8eda8e2dc0d438c115dd90234d0cf5cfe7",
+      "tests": 24,
+      "exit_code": 0
+    },
+    "surfaces": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces-result.json",
+      "receipt_sha256": "d47d435b6b3e767036d7492432dc9796f5564e942c574ad9fbf380f859b82e1d",
+      "tests": 6,
+      "exit_code": 0
+    },
+    "wire": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\wire-result.json",
+      "receipt_sha256": "42c41c98c7669158b73bf359792c5092ea4c3516dc8a5269d97fa11cab3007b0",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "catalog": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\catalog-result.json",
+      "receipt_sha256": "db3dc74a4af81299b4db960a3a37d83dcfae982d6f5209d74e9a9c473d5ad4ca",
+      "tests": 6,
+      "exit_code": 0
+    },
+    "hostoptin": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\hostoptin-result.json",
+      "receipt_sha256": "519c6b00bb4c7f7d82d7775e6b337ba8b5edb7afa3a85e54f39f5e572046850d",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "workflow": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\workflow-result.json",
+      "receipt_sha256": "549b894a7c7f583c5a2f3bf415ddd69de44cd9ee7c2755972fcf567941973247",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "intents": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\intents-result.json",
+      "receipt_sha256": "b7d6df77521cf51674375f392f31f487fe8b1a741c4cd0a399cd942121e2b49e",
+      "tests": 5,
+      "exit_code": 0
+    },
+    "jobs": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\jobs-result.json",
+      "receipt_sha256": "36f5a574ee5167e01ee99c6cfc2d0809bd55e5a5fdcbd92cb8deba43d8fb1a42",
+      "tests": 13,
+      "exit_code": 0
+    },
+    "inspection": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\inspection-result.json",
+      "receipt_sha256": "b85c6ea20df347c4e824e816d78a771f29eb25e22577982f4b511aab8a7f86b0",
+      "tests": 6,
+      "exit_code": 0
+    },
+    "gpu": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-result.json",
+      "receipt_sha256": "4679124992b79b1c1de9d22c24bc339b5a8ad83a9d8b364197b511f80272cdbf",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "hmctextures": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\hmctextures-result.json",
+      "receipt_sha256": "15a10bd3f7b2f78e71e5da634c3a6b97ac53e18ebed60bf33e4f071585358fd9",
+      "tests": 6,
+      "exit_code": 0
+    },
+    "build": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\build-result.json",
+      "receipt_sha256": "0e30e276a0e7556e694c538f9f066c4b676f9e2f6b60e048892b7a791de2bb34",
+      "tests": 0,
+      "exit_code": 0
+    },
+    "wasm": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\wasm-result.json",
+      "receipt_sha256": "c63b80188aea50fe408ba70abfde758153f19d762b4a89741f490444b8b9d0e0",
+      "tests": 0,
+      "exit_code": 0
+    }
+  },
+  "selected_native_case_executions": 70,
+  "unique_selected_native_tests": 69,
+  "duplicated_inspection_job_case_count": 1,
+  "previous_rounds_not_added": true,
+  "final_local_source_pin_files": 3219,
+  "latest_local_source_hashes_match": true,
+  "failed_runs_retained": [
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\check-before-signature-repair-result.json",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\workflow-before-texture-union-result.json"
+  ],
+  "gpu_calibration": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\base_color-after.png",
+      "bytes": 1145,
+      "sha256": "26de46419b9d9c4f36d76c0356227c0c963f48c3ac898e64e9c368c139ebd6d0"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\base_color-before.png",
+      "bytes": 1205,
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\emissive-after.png",
+      "bytes": 1205,
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\emissive-before.png",
+      "bytes": 1205,
+      "sha256": "7ec96becd92cc03bc395d4568f3cdde9a8df751846cb776592f63490dae6dd53"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\metallic_roughness-after.png",
+      "bytes": 1193,
+      "sha256": "b3b327be678f2771006f7d8766cc391cccedcf503cf92f2a09e59e1d98c3e7c7"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\metallic_roughness-before.png",
+      "bytes": 1181,
+      "sha256": "06165e4bc60d99b97cb7e06c5e6e9fc4cada380c00802d980f18c546f39dd28e"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\normal-after.png",
+      "bytes": 1181,
+      "sha256": "c2b49709054f39a7e70ede778199eef854dbbc5aa09c5a0845996701c69a82a1"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\normal-before.png",
+      "bytes": 1205,
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\occlusion-after.png",
+      "bytes": 1085,
+      "sha256": "bfefdaf9d8892fe62cbe6225331401f9c90b2af55dbaea37392d50db218022db"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\occlusion-before.png",
+      "bytes": 1205,
+      "sha256": "e9e29bc6f097b31cbd7dd5a5b0f4711e95a3da70affec5286fee3f7d48492ded"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\stylized_ramp-after.png",
+      "bytes": 1181,
+      "sha256": "57f6e9a27197606516d2939e18de9905dc0ececd5e4e5688adfae9857502a5fc"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\stylized_ramp-before.png",
+      "bytes": 1211,
+      "sha256": "96e6a32e736378342963af2cf500976b5739408e0e1b12e97fea200d1ef3270d"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\uv-before.png",
+      "bytes": 5466,
+      "sha256": "c93cd8b65c378aae0957906cb68da7883dc31b3c1776052d2bfebaab86e064fd"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\gpu-calibration\\uv-offset.png",
+      "bytes": 5470,
+      "sha256": "06daa70634990c542bebf4292b312cc105efd07790c1554d76a9e095f9a0c82f"
+    }
+  ],
+  "native_map_pixel_changes": {
+    "base_color": "2304",
+    "normal": "2304",
+    "metallic_roughness": "2304",
+    "occlusion": "2304",
+    "emissive": "2304",
+    "stylized_ramp": "2304"
+  },
+  "native_uv_pixel_changes": 2304,
+  "native_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 327432788,
+    "sha256": "19925b6cb21dd800b249ecef2a6372a727d1f50395ff5ca2e5914915a139b145",
+    "launched": false
+  },
+  "sdk_wasm": "actual Core/geospatial/Portal compilation; runtime interoperability untested",
+  "preserved_regression_artifacts": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    }
+  ],
+  "reference_master_unchanged": true,
+  "foundation_gates": "FND-01\u201306 open",
+  "IP03": "C1\u2013C8 open",
+  "asset_production": "on_hold",
+  "gui_verification": "not_run",
+  "human_acceptance": false,
+  "model_claims": "193 catalogue plus eight subject-specific claims remain unassessed; all three target packages incomplete",
+  "builds_or_tests_executed_by_this_verifier": false
+}

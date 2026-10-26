@@ -1,0 +1,54 @@
+{
+  "scope": "Batch-3 strict thin authoring MCP protocol/stdio; existing engine-tools default preserved",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/Cargo.toml",
+      "original_sha256": "7D01D086DA46178FA5321E55BD3E3DDEDFACE57717A772239BB53C5F1AFDE864",
+      "candidate": "candidate/Cargo.toml",
+      "candidate_sha256": "F74A82441C71E772E43347901EC0EA25B177B5F4F04EF2858551923130C4C7AE"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/lib.rs",
+      "original_sha256": "4B5863C7BF57AB11EE44F8B4692F87D814223D7C23045838567D6730010AFE8A",
+      "candidate": "candidate/src/lib.rs",
+      "candidate_sha256": "159EBD57BEC536FA178E3CE792687C7C13661D4DAD9E0B108C3F1FC27022C604"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/authoring/codec.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/authoring/codec.rs",
+      "candidate_sha256": "565E90DF786BF3E036AFA4D03AD9F1EC547002BA3F84761786A3E7B6FCB2D7E1"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/authoring/mod.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/authoring/mod.rs",
+      "candidate_sha256": "0870046F4449E2491B260A6941C0A5F316F5389F61E15111DDA48E7DBBEEAC79"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/authoring/protocol.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/authoring/protocol.rs",
+      "candidate_sha256": "28CAA12DBE6C6A2FE4BD85EEF217A45E4AC1CB18A25A6F0D8695DF2E61232223"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/authoring/stdio.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/authoring/stdio.rs",
+      "candidate_sha256": "5EAF88767C46F93DE903D6D5B35705018C33198526A6BE180597C8DD868CF2F0"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/authoring/tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/authoring/tests.rs",
+      "candidate_sha256": "C768AE302225DD7C29273AF486E8168C7F58CB95273D7CF4E97FCDBA58717CFC"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/authoring/types.rs",
+      "original_sha256": null,
+      "candidate": "candidate/src/authoring/types.rs",
+      "candidate_sha256": "E5490BE398623951015D89ADFEC97F5B702F21594CEB72E52C0BA102832B6E5D"
+    }
+  ]
+}

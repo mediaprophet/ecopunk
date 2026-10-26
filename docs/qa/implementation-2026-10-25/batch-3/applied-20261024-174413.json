@@ -1,0 +1,155 @@
+{
+  "applied_utc": "2026-10-24T17:44:13.9208938Z",
+  "manifests": [
+    "mcp/apply-manifest.json",
+    "cooperative-gateway/apply-manifest.json",
+    "hmc/poet-apply-manifest.json",
+    "native-integration/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\Cargo.toml",
+      "sha256": "F74A82441C71E772E43347901EC0EA25B177B5F4F04EF2858551923130C4C7AE",
+      "original_sha256": "7D01D086DA46178FA5321E55BD3E3DDEDFACE57717A772239BB53C5F1AFDE864",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\Cargo.toml"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\lib.rs",
+      "sha256": "159EBD57BEC536FA178E3CE792687C7C13661D4DAD9E0B108C3F1FC27022C604",
+      "original_sha256": "4B5863C7BF57AB11EE44F8B4692F87D814223D7C23045838567D6730010AFE8A",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\lib.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\codec.rs",
+      "sha256": "565E90DF786BF3E036AFA4D03AD9F1EC547002BA3F84761786A3E7B6FCB2D7E1",
+      "original_sha256": null,
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\codec.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\mod.rs",
+      "sha256": "0870046F4449E2491B260A6941C0A5F316F5389F61E15111DDA48E7DBBEEAC79",
+      "original_sha256": null,
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\mod.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\protocol.rs",
+      "sha256": "28CAA12DBE6C6A2FE4BD85EEF217A45E4AC1CB18A25A6F0D8695DF2E61232223",
+      "original_sha256": null,
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\protocol.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\stdio.rs",
+      "sha256": "5EAF88767C46F93DE903D6D5B35705018C33198526A6BE180597C8DD868CF2F0",
+      "original_sha256": null,
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\stdio.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\tests.rs",
+      "sha256": "C768AE302225DD7C29273AF486E8168C7F58CB95273D7CF4E97FCDBA58717CFC",
+      "original_sha256": null,
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\tests.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\mcp\\candidate\\src\\authoring\\types.rs",
+      "sha256": "E5490BE398623951015D89ADFEC97F5B702F21594CEB72E52C0BA102832B6E5D",
+      "original_sha256": null,
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\types.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\candidate\\graphical\\cooperation\\mod.rs",
+      "sha256": "3AA295D488B4E5AE608C4FE108A1BE5BC6A3664B1253AF02608F7CFCE6E728EC",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\cooperative-gateway\\candidate\\graphical\\cooperation\\tests.rs",
+      "sha256": "8B04F9D70541FAE6BBB2E0C23236ACFD03A33C82F8A0339B6FE67894AA36588D",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\mod.rs",
+      "sha256": "C23AE5A4237FBA2255B4C22D712D4E023BBCB3401567172A45C16FFB484A8915",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\editor.rs",
+      "sha256": "CE1C9452FAE8546E61977CFED57AAAE851B81A8EA2385A9CAFE804E341C51E5C",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\tests.rs",
+      "sha256": "9330B9BB8B0FB2E88402C4541E2F778E704ADAE9593CF2865B62F03FD30ABDBD",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\tests.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\poet-candidate\\checkpoints\\restart_tests.rs",
+      "sha256": "861DC4D1711F8F2018DB66AF0BE0BC21991A7F8E36A6652848E0610D8B5A3FD6",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\controller.rs",
+      "sha256": "148c4280d1e064880903c8460e54d9ec57d934283d1a9d68eacb75226a9a44df",
+      "original_sha256": "d89b8b0ddaec83b9d55abf69f991c42d63ef3a0d12c9ed5e4aaf6ead095a38be",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\controller.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\jobs_tests.rs",
+      "sha256": "d3ae6ec5fbb2e8fd82e6636b31a9e523471f5f6b2edc22cc8fc9c2bd8a2a0233",
+      "original_sha256": "6135ddc755dafe9a920982ff6aa3d461d51b768547c860ec2f211bb336782302",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\execution.rs",
+      "sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c",
+      "original_sha256": "f6376ee17a642b381e3e1ef810693979746af009fcd471c789a4dea1de81a77c",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\execution.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\jobs.rs",
+      "sha256": "2a177862b7fe780c52dc692fb5987ced95565431e36a7b57670ed4d7bed9b907",
+      "original_sha256": "2cabc295cda3947ce78b7ea7fc58814d53d602ffab5f23e390b2a043f41e0886",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\ui.rs",
+      "sha256": "51698b3071503555c160accf6e8ee1ebf2de4d646eed6873fb88f36d4cdeb7c5",
+      "original_sha256": "943af368ec4ce7f84d6126643916c1705533b1c16516532cf904f3b8a99c7ebf",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\mod.rs",
+      "sha256": "4e68781d7ace0305f249d151997af1c55a7296e7ffbc96d1fa5b28378ba67286",
+      "original_sha256": "4342b7404ecdbae1681eb4e6ecb1efd75bea269fb3b1f81bbb7bd9197f4d83bf",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\lib.rs",
+      "sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\lib.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\main.rs",
+      "sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b",
+      "original_sha256": "3ff978758a247335e7f6b9a8dc93d3c3285bcbcc4c83e1e1a7fe0b9346f41a07",
+      "target": "C:\\github\\poet\\native\\src\\main.rs"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\Cargo.toml",
+      "sha256": "85dc3eb2073839f1ebbbef4f61aa113e8ddb50dd2a1019e1e643891269699326",
+      "original_sha256": "79b17618e4fc1df34b9c446248f9c68bce25a62cc81b410f672001021652e94d",
+      "target": "C:\\github\\poet\\native\\Cargo.toml"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\native-integration\\candidate\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "48bdb4f9e7ed24c18ece0d9ebf9308cf8e6f3a5d72b3d87be3dd5bb0687de66c",
+      "original_sha256": null,
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs"
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "task_mode": "documentation_revision_only",
+  "source_scope": "Focused tree/wallaby source-state-.10d-HMC-native consumer continuation; 12 source body files, 2 revisits and 10 additional detailed body reads. No repeated nine-root inventory.",
+  "tests_run": false,
+  "builds_run": false,
+  "cargo_run": false,
+  "git_run": false,
+  "gui_run": false,
+  "source_edits": false,
+  "files": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-sim/src/metamer_fspm.rs",
+      "read_ranges": [
+        [
+          1,
+          356
+        ]
+      ],
+      "symbols": [
+        "Metamer",
+        "ThermalPhenology",
+        "MetamerPlantGraph",
+        "update_thermal_time",
+        "solve_growth_cycle",
+        "test_pipe_model_basal_taper",
+        "test_fruit_loading_and_reaction_wood"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": true,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Array/index state; no stable organ identifier or serialization implementation in inspected file; metres/kg/GDD/MPa; growth and phenology assumptions stay declared.",
+      "file_line_count": 356,
+      "sha256": "e96e8cdbb2189e4f0c97a2bb49c164d27274dae8de942718b2a95c3062c06186"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-sim/src/leaf_biophysics.rs",
+      "read_ranges": [
+        [
+          1,
+          147
+        ],
+        [
+          332,
+          374
+        ]
+      ],
+      "symbols": [
+        "VeinEdge",
+        "LeafEconomicsProfile",
+        "LeafVascularSkeleton::new",
+        "test_leaf_murray_law_propagation",
+        "test_turgor_loss_wilting"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": true,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "State/profile declarations and example tests; middle solver bodies reused from earlier compute audit, not reread here; no persisted leaf identifiers or serialization in inspected declarations.",
+      "file_line_count": 374,
+      "sha256": "0d09a139cfff39f78cd060f77a2fb77d2476e86e3b645983db982b397659df8e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/skeletal_section/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          134
+        ]
+      ],
+      "symbols": [
+        "Counts::encoded_len",
+        "ClipRecord",
+        "SkeletalData",
+        "clip_view"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "SKL1 native codec types and count contract; joint/clip u64 IDs; rigid motor profile, at least one clip/track/key.",
+      "file_line_count": 134,
+      "sha256": "ffb869b632b3bf324f08fdc86e0e60c245b7606237b4a06e59e93b2e3549f46f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/skeletal_section/binary.rs",
+      "read_ranges": [
+        [
+          1,
+          309
+        ]
+      ],
+      "symbols": [
+        "SkeletalSection::parse",
+        "decode_into",
+        "encode_skeletal_section_into"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Little endian codec, vertex-count match, entire-payload validation call and caller buffers; validation.rs dependency not newly body reviewed.",
+      "file_line_count": 309,
+      "sha256": "8f665503f8e3509ab1aa1c67cbe7920a9723ddd3d7f82283d8cddb3c64d067d8"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/skeletal/player.rs",
+      "read_ranges": [
+        [
+          1,
+          225
+        ],
+        [
+          275,
+          482
+        ]
+      ],
+      "symbols": [
+        "SkeletalPlayer::from_section_with_budget",
+        "set_output_frame",
+        "set_joint_delta",
+        "select_clip",
+        "seek",
+        "advance_pose_only_with_mode",
+        "advance"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Existing rig playback and editable joint controls, cold resident buffers, one-second max dt, authored bind frame; explicit budget does not bypass aggregate 42 MiB admission guard; not anatomical validation.",
+      "file_line_count": 488,
+      "sha256": "289e3656722da0852229342ca2426cdb9c613d1a001f62f05b28f6a817cff78b"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/animated_upload.rs",
+      "read_ranges": [
+        [
+          1,
+          134
+        ]
+      ],
+      "symbols": [
+        "upload_rig_motor_palette_gpu",
+        "PortalGpu::write_mesh_animated_frames"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Existing palette and CPU-deformed frame uploads; frame route updates CPU geometry/draw/shadow bounds. Palette min-truncates at MAX_GPU_RIG_JOINTS, so host must refuse excess.",
+      "file_line_count": 134,
+      "sha256": "83e705c4f1732224e33578d866120e952cba4cc3b0886fd89c92102c5596ea69"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/skeletal_section/tests.rs",
+      "read_ranges": [
+        [
+          1,
+          162
+        ],
+        [
+          236,
+          374
+        ]
+      ],
+      "symbols": [
+        "Fixture",
+        "canonical_round_trip_drives_native_skinning",
+        "sealed_container_attachment_retains_mesh_and_validates_integrity",
+        "player_fixture",
+        "resident_playback_seek_does_not_accumulate_deformation_and_keeps_attachment",
+        "reduced_motion_uses_first_pose_and_bad_commands_do_not_replace_clip",
+        "resident_pose_normal_and_tangent_playback_allocates_no_heap"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Tests/examples source read only; no execution/pass asserted. Three-vertex/two-joint engineering oracle is not a wallaby.",
+      "file_line_count": 439,
+      "sha256": "9a8146a3987ef9c3cf0f1451f5f9a8a4979171f5160a76f1db15a65a0958b921"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/assembly/part_input.rs",
+      "read_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "symbols": [
+        "PART_FIELDS",
+        "preflight"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Borrowed static assembly fields exclude rig/skin/clip; UV atlas may duplicate vertices and needs explicit lineage.",
+      "file_line_count": 66,
+      "sha256": "02afc94433baa6085b019799e5f41cfcfcd7c1a2e7e5defee58056fa6a54e874"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/assembly/admission.rs",
+      "read_ranges": [
+        [
+          1,
+          235
+        ],
+        [
+          376,
+          450
+        ]
+      ],
+      "symbols": [
+        "geometry_counts",
+        "admit_assembly_with_materials (partial body)",
+        "validate_compiled"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Strict geometry streams; absent normals expand output vertices to triangle_count*3, risking skin/index mismatch; middle construction body not newly read.",
+      "file_line_count": 450,
+      "sha256": "24ddcac00db4276ba8adaaa8acb053488bdb53c7f790cc6ed361666a0ebda4b8"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/resources.rs",
+      "read_ranges": [
+        [
+          1,
+          317
+        ]
+      ],
+      "symbols": [
+        "CheckpointService::inventory",
+        "save_with_resource_edits",
+        "merge_retained_inputs",
+        "save_with_source_carrier"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Existing source/retained-resource guarded HMC lifecycle; use declared ResourceEdit and canonical codecs; no new package format required.",
+      "file_line_count": 317,
+      "sha256": "15cd15bd22cb3a379cbecaaf31546cce229106bbad246701157d08895babb568"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/payload.rs",
+      "read_ranges": [
+        [
+          1,
+          291
+        ]
+      ],
+      "symbols": [
+        "inspect",
+        "replace"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Bounded selected MAT4 editing deliberately holds dependent sections incl SKL1; use authored-source route or separately qualify preserving derivation, never drop rig.",
+      "file_line_count": 291,
+      "sha256": "4cfc3042b433444b888594ea04d8533a140bce626e0f5d30ba8fc70e1669ebe7"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/portal/scene_mesh.rs",
+      "read_ranges": [
+        [
+          120,
+          175
+        ],
+        [
+          275,
+          354
+        ]
+      ],
+      "symbols": [
+        "SceneMeshAccum::append_asset_10d (body portions)"
+      ],
+      "inspected_body": true,
+      "fresh_read_this_study": true,
+      "previously_body_reviewed": false,
+      "scope_status": "focused_body_read",
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Existing optional SKL1 admission and SkeletalPlayer actor creation with resident/actor bounds; neighboring frame-tick scene_animation module not body reviewed.",
+      "file_line_count": 529,
+      "sha256": "3ac2407910cb9d18555fddfd76fbcd158ed640e6547aada758b3c78bb4fda58f"
+    }
+  ],
+  "document_inputs": [
+    {
+      "path": "C:/github/ecopunk/docs/planning/biosphere-implementation-dispatch.md",
+      "read": "full text"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+      "read": "full text requested; tool aggregate output truncated after most contract, no full-body coverage claim"
+    }
+  ],
+  "reused_source_evidence": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/botany.rs",
+      "coverage": "../biosphere-integration-review/domain-logic-instruments.coverage.json",
+      "use": "Existing packers/evaluator and quantization; not freshly body read"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/skeletal/authoring.rs",
+      "coverage": "../biosphere-integration-review/compute-reuse.md",
+      "use": "weights_from_segments_into / remap_skin_weights_into prior inspected bodies; no fresh read"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport/renderer.rs",
+      "coverage": "../biosphere-integration-review/compute-reuse.md",
+      "use": "Static retained viewport upload prior read; no new body read"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/geometry_host.rs",
+      "coverage": "../biological-reference/execution.md",
+      "use": "Saved turtle qualification; no new tests or body read"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-sim/src/physics3d/continuum_bridge.rs",
+      "coverage": "../biosphere-integration-review/compute-reuse.md",
+      "use": "Existing metamer coupling; not new body read"
+    }
+  ],
+  "search_only_not_body_counted": [
+    "Core botanical quin packer caller searches in qualia-sim, Core poet_host and Poet native",
+    "Other render portal scene_animation, glb_skins_anims and glb_rigid_animation integration hits",
+    "Native authoring/package.rs function/caller discovery"
+  ],
+  "limitations": "Source presence/binding/source tests/prior executed evidence and product acceptance are separate; no whole species or phase closed."
+}

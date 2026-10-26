@@ -1,0 +1,14 @@
+   Compiling cudarc v0.19.8
+   Compiling libloading v0.9.0
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+   Compiling qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+error[E0583]: file not found for module `tests`
+   --> crates\qualia-core-db\src\container_10d\field_section\checked.rs:158:1
+    |
+158 | mod tests;
+    | ^^^^^^^^^^
+    |
+    = help: to create the module `tests`, create file "crates\qualia-core-db\src\container_10d\field_section\tests.rs" or "crates\qualia-core-db\src\container_10d\field_section\tests\mod.rs"
+    = note: if there is a `mod tests` elsewhere in the crate already, import it with `use crate::...` instead
+

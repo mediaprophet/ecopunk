@@ -1,0 +1,294 @@
+{
+  "review_date": "2026-10-26",
+  "scope": "Read-only bounded review of C:/github/poet-photocraft, poet-lightcraft, poet-vectorcraft, poet-soundcraft, poet-filmcraft and comparison to existing Ecopunk QualiaDB source audits.",
+  "source_pin_method": "SHA-256 of inspected source files at review time; no Git status/revision queried. Ranges are one-based inclusive. Hash pins identify bytes, not semantic completeness.",
+  "repository_license_declarations": [
+    {
+      "repository": "C:/github/poet-photocraft",
+      "manifest": "Cargo.toml",
+      "declared": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-MIT",
+        "LICENSE-APACHE",
+        "NOTICE"
+      ],
+      "manifest_sha256": "F8C5E618F713BB647209BCBD1E86E9ABFDD97D40D88499AE59D5D34817C1C30F"
+    },
+    {
+      "repository": "C:/github/poet-lightcraft",
+      "manifest": "Cargo.toml",
+      "declared": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-MIT",
+        "LICENSE-APACHE",
+        "NOTICE"
+      ],
+      "manifest_sha256": "6C7364635E36386A1925836570366A428B7C4C485100342B1BF075B806BB16E6"
+    },
+    {
+      "repository": "C:/github/poet-vectorcraft",
+      "manifest": "Cargo.toml",
+      "declared": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-MIT",
+        "LICENSE-APACHE",
+        "NOTICE"
+      ],
+      "manifest_sha256": "BE9EF2383E1CFDC6211EE742FE2DDF4414EA123F02E70256D6E76D250A3D918E"
+    },
+    {
+      "repository": "C:/github/poet-soundcraft",
+      "manifest": "Cargo.toml",
+      "declared": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-MIT",
+        "LICENSE-APACHE",
+        "NOTICE"
+      ],
+      "manifest_sha256": "0DB107AF66D278256CF30664995E7CD7A0DF1DAE6F4F29197058927E90EF026D"
+    },
+    {
+      "repository": "C:/github/poet-filmcraft",
+      "manifest": "Cargo.toml",
+      "declared": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-MIT",
+        "LICENSE-APACHE",
+        "NOTICE"
+      ],
+      "manifest_sha256": "D80819A5D1F26C4D2D61735F26963006C9508F204847348A7C48B7E680CEDC45"
+    }
+  ],
+  "body_file_limit": 16,
+  "implementation_body_files_read": 11,
+  "source_reads": [
+    {
+      "path": "C:/github/poet-photocraft/crates/ops/src/lib.rs",
+      "ranges": [
+        [
+          25,
+          115
+        ]
+      ],
+      "symbols": "HistoryState, History::new, record, undo/redo state",
+      "body_read": true,
+      "sha256": "ABF273426EE15EB03D53EBE0DB958D37ECBEBC9A29E6D02A5864B9D9CD658339"
+    },
+    {
+      "path": "C:/github/poet-photocraft/crates/engine/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "symbols": "Engine public module surface and shared command-dispatch contract",
+      "body_read": true,
+      "sha256": "DA34152A48C50422EC1B5EEED3EFDC7236141309D3A18BB9D93927121B6D2279"
+    },
+    {
+      "path": "C:/github/poet-photocraft/crates/compose/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "symbols": "Public compositor modules and exports",
+      "body_read": false,
+      "sha256": "BC7B2BB2BD0275D974C1F7879366B485FA2E27E6ED4D4EFBBA6F7666B03C1191"
+    },
+    {
+      "path": "C:/github/poet-lightcraft/crates/develop/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "symbols": "DevelopSettings serialization, merge and stable settings hash",
+      "body_read": true,
+      "sha256": "5912E268F1C7D1BE30A91AEFAC4B7615C58C10921C52527E60BB5C2A8068A30F"
+    },
+    {
+      "path": "C:/github/poet-lightcraft/crates/pipeline/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          110
+        ]
+      ],
+      "symbols": "CPU develop pipeline stage contract and public API",
+      "body_read": true,
+      "sha256": "78A7ED149FCB206B0D07B9B00472FF0BBC495544003A73E35365CCD60A1BC469"
+    },
+    {
+      "path": "C:/github/poet-lightcraft/crates/engine/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "symbols": "Engine public modules/command API",
+      "body_read": false,
+      "sha256": "15044A1D276F2A9D8F86B3AA0389F5F4980DC1A541231CE6A85E672740EE73DF"
+    },
+    {
+      "path": "C:/github/poet-vectorcraft/crates/three-d/src/lib.rs",
+      "ranges": [
+        [
+          35,
+          95
+        ]
+      ],
+      "symbols": "Revolve parameters and defaults; surface projection domain",
+      "body_read": true,
+      "sha256": "B5044CF2671E034378D649D2EE4E217764D0825CFD1200EB0197C174773A1B21"
+    },
+    {
+      "path": "C:/github/poet-vectorcraft/crates/doc/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "symbols": "Public vector document modules",
+      "body_read": false,
+      "sha256": "CF862D5350E9E6F1BF33802E6ACAC4D416FF10A2DD0965F50423375A180E2690"
+    },
+    {
+      "path": "C:/github/poet-vectorcraft/crates/engine/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "symbols": "Engine public modules and command registry surface",
+      "body_read": false,
+      "sha256": "F86160B2459ADFD8CC47A78D40D49AF86763A78394F83B49960AF11F75018CE7"
+    },
+    {
+      "path": "C:/github/poet-soundcraft/crates/automation/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ],
+      "symbols": "Backend, Headless, Remote control routing; headless transport limitation",
+      "body_read": true,
+      "sha256": "0F156F2828D881F3887534B85B4868AE3DDABB1FBD3781175F8306DC18F22A47"
+    },
+    {
+      "path": "C:/github/poet-soundcraft/crates/mix/src/lib.rs",
+      "ranges": [
+        [
+          548,
+          620
+        ]
+      ],
+      "symbols": "MixEngine::render block mixer and routing stages",
+      "body_read": true,
+      "sha256": "C4176DB67B3CB555A5D81E7675EBFCF8DAE2725C9617101DC26810BEF07FEBE6"
+    },
+    {
+      "path": "C:/github/poet-soundcraft/crates/engine/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "symbols": "Engine public command/catalog module surface",
+      "body_read": false,
+      "sha256": "7897B06C07E8BAB0CF1FB898F33E4ACCD0EA8D8BCDA517B3065B8F3B760E2546"
+    },
+    {
+      "path": "C:/github/poet-filmcraft/crates/edit/src/lib.rs",
+      "ranges": [
+        [
+          700,
+          760
+        ]
+      ],
+      "symbols": "Trim/ripple edit implementation and conflict checks",
+      "body_read": true,
+      "sha256": "C6019E4ED55108FB4FF2F7CAEF73B24F9A7901B79B9FB0F5DDEFDEAEEB6C2A5D"
+    },
+    {
+      "path": "C:/github/poet-filmcraft/crates/automation/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ],
+      "symbols": "MCP/bridge surface and PNG helper; architecture contract",
+      "body_read": true,
+      "sha256": "A5EC09AFFEE9F3C72AA212B2AF04EF00EC7A9F62B338A78902FB222BFF8222B1"
+    },
+    {
+      "path": "C:/github/poet-filmcraft/crates/export/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "symbols": "Export pipeline contract, progress/cancel and format availability declarations",
+      "body_read": true,
+      "sha256": "3A11ECD0D5845CF2DEAE68FB83F18FCD5549F3B35AE3D96E3248B2C1DA3CC747"
+    },
+    {
+      "path": "C:/github/poet-filmcraft/crates/render/src/lib.rs",
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "symbols": "Renderer modules and exports; rendered-media role",
+      "body_read": false,
+      "sha256": "65ED21E5F1C7C213955C2ECE280B08356D79F49F4C66C52D8EBA4459CF2F98C7"
+    },
+    {
+      "path": "C:/github/poet-vectorcraft/crates/metafile/src/emf.rs",
+      "ranges": [
+        1,
+        8
+      ],
+      "symbols": "EMF writer documentation and record types; confirms Enhanced Metafile format, not electromagnetic-frequency data",
+      "body_read": true,
+      "sha256": "0DCCD0929E47236D4E11E69970B347259484D6824BE4DB8B267005878863BF42"
+    }
+  ],
+  "broad_inventory": [
+    "Root Cargo.toml license fields and root LICENSE-MIT/LICENSE-APACHE/NOTICE presence for all five repositories.",
+    "Each repo docs/architecture.md (PhotoCraft, LightCraft, VectorCraft, SoundCraft, FilmCraft), public module/export patterns, app/crate filenames, command/MCP/automation and export/render references via rg; no exhaustive command bodies.",
+    "C:/github/ecopunk/docs/planning/tech/poet-craft-consolidation.md and docs/planning/tech/assets/production-toolchain-spec.md.",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/vision-audio-render.md and domain-logic-instruments.md as the current QualiaDB owner comparison inputs."
+  ],
+  "not_audited": [
+    "No individual command catalog fully enumerated; no complete UI or MCP tool bodies, codec inventory, transitive dependency/license audit, Git revision/status, binary, runtime, human review, or source-to-output acceptance.",
+    "No evidence that any of the five repositories are currently wired into native Poet; no app was launched and no runtime qualification performed.",
+    "QualiaDB implementation comparisons are citations to already-saved current audits, not a fresh nine-area code audit by this reviewer."
+  ],
+  "evidence_levels": {
+    "source_present": "selected source bodies/exports inspected",
+    "native_poet_wired": "not evidenced by this review",
+    "qualified": "not evidenced; no execution or human acceptance"
+  },
+  "source_pin_corrections": [
+    {
+      "path": "C:/github/poet-vectorcraft/crates/doc/src/lib.rs",
+      "range": "1-70",
+      "previous_recorded_sha256": "CF862D5350E9E6E6BF33802E6ACAC4D416FF10A2DD0965F50423375A180E2690",
+      "verified_sha256": "CF862D5350E9E6F1BF33802E6ACAC4D416FF10A2DD0965F50423375A180E2690",
+      "finding": "Pin transcription error in this coverage record; re-read current range and recomputed whole-file SHA-256. No evidence of source change was collected; no historical Git comparison was performed.",
+      "verified_date": "2026-10-26"
+    }
+  ]
+}

@@ -1,0 +1,938 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-26",
+  "scope": "Bounded fresh source audit of domains/modalities/semantic_instruments and selected public consumer/export seams; not exhaustive nine-location audit",
+  "tests_run": false,
+  "builds_run": false,
+  "git_run": false,
+  "source_mutations": false,
+  "coverage_method": "Top-level directory inventory and exports first, then targeted body reads. Search hits are discovery only and excluded from files unless body/declaration text was separately read. Ranges are one-based inclusive and clipped at EOF when captured.",
+  "reused_reviews": [
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-integration-review/compute-reuse.md",
+      "fresh_read": false,
+      "role": "Prior compute/sim/Poet review, not counted as fresh source coverage"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biological-reference/execution.md",
+      "fresh_read": false,
+      "role": "Previously read saved turtle execution evidence, not a new test run"
+    }
+  ],
+  "files": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "symbols": [
+        "public domain module exports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Top-level declaration inventory only",
+      "file_line_count": 12,
+      "sha256": "ef6a8568c2d6faf1878677400b78473b047e7428d7f5645c6ec2897d59f11444"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biological/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "symbols": [
+        "pub mod bioinformatics"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "No whole-biological-domain qualification",
+      "file_line_count": 7,
+      "sha256": "edc5758e2936e85dc7d77b061b1e104dc165ad839a8e19b9c5933bfc02643e59"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/physical/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "symbols": [
+        "pub mod thermodynamics"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "No whole-physical-domain qualification",
+      "file_line_count": 7,
+      "sha256": "440cdf3e0de7c50b68d338f2a368e7c1e476c03e5922f466369fbcbe6a4bf617"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geospatial/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "symbols": [
+        "environmental raster and geospatial exports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Other geospatial modules not body audited",
+      "file_line_count": 31,
+      "sha256": "67277e0228134af14c7ed158374604f5e845ddc519a015f514defb732a2de9ef"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          207
+        ]
+      ],
+      "symbols": [
+        "modality exports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Other modality implementations not body audited",
+      "file_line_count": 207,
+      "sha256": "c9e34e63c17061b6c06864193c4c76d848d4b5275cb5349bb57a5f94799c48ad"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "symbols": [
+        "module declarations/public reexports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Exports establish reachability, not execution or acceptance",
+      "file_line_count": 45,
+      "sha256": "2ff88c305b8d38c38bd1cde13e33e2c4769b64c061ca0e2c7e988be56775c42c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/execution/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "symbols": [
+        "module declarations/public reexports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Exports establish reachability, not execution or acceptance",
+      "file_line_count": 8,
+      "sha256": "f2c374c45d96f068bb3209f78a4d48830c7cd9e4a8e932e7f2e513803bc7c4b2"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "symbols": [
+        "module declarations/public reexports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Exports establish reachability, not execution or acceptance",
+      "file_line_count": 11,
+      "sha256": "c09db4e4cee42388e7f1dc01d92125ec742607336b79fc0fb33a7dd3533f0330"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/attestation/mod.rs",
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "symbols": [
+        "module declarations/public reexports"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Exports establish reachability, not execution or acceptance",
+      "file_line_count": 16,
+      "sha256": "68c63ea984d6447d8f4b029203395cc60c51b8f0f1ca6328f71d5a344e70523d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biological/bioinformatics.rs",
+      "read_ranges": [
+        [
+          121,
+          256
+        ],
+        [
+          330,
+          363
+        ]
+      ],
+      "symbols": [
+        "smith_waterman",
+        "traceback_local",
+        "empty_result",
+        "align_nucleotide",
+        "align_protein",
+        "align_sequences"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "O(m*n) heap tables; 50,000 individual lengths do not imply a safe pair byte/work budget; no species/taxon inference.",
+      "file_line_count": 1016,
+      "sha256": "015e76b9967e7f9b13e588eadf55f3150b5c70736d8ff84838dd8ed9e3b1d75c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/physical/thermodynamics.rs",
+      "read_ranges": [
+        [
+          1,
+          65
+        ]
+      ],
+      "symbols": [
+        "ThermodynamicSampler::new",
+        "metropolis_step",
+        "calculate_gibbs_free_energy"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Scalar eV/K Metropolis proposal acceptance; caller validates temperature/random/proposal units; not whole-organism physiology.",
+      "file_line_count": 243,
+      "sha256": "2d3d504f69be4cab4828556bda0d9550be741983faaf82b53fc5db66254730b9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geospatial/environmental_raster.rs",
+      "read_ranges": [
+        [
+          1,
+          116
+        ],
+        [
+          426,
+          545
+        ]
+      ],
+      "symbols": [
+        "EnvironmentalRasterLayer::new",
+        "sample_geo",
+        "sample_bilinear",
+        "compile_environmental_rasters_to_10d"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "2D FIEL compile does not pass bbox/cell_size; casts dimensions to u32; constructor assert; no data/CRS validation qualification.",
+      "file_line_count": 559,
+      "sha256": "fb08c05a9d66f3a147fa88bc73590f1a47ccb29a4fd573fac1dee9f0906632ed"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/botany.rs",
+      "read_ranges": [
+        [
+          1,
+          255
+        ]
+      ],
+      "symbols": [
+        "pack_botany_metamer_quin",
+        "pack_botany_turgor_quin",
+        "pack_botany_phenology_quin",
+        "evaluate_botanical_frame"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "State packing/decoding, opcode filtering, partial output before overflow; no growth integration or source authority checks.",
+      "file_line_count": 258,
+      "sha256": "6ce24390738877f242ad2244f0f0721f97c19a916e92f4f8cbee112c6fba2cab"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/hydrology.rs",
+      "read_ranges": [
+        [
+          140,
+          263
+        ]
+      ],
+      "symbols": [
+        "unpack_hydro_submersion_quin",
+        "unpack_hydro_wetness_quin",
+        "evaluate_hydrological_frame"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "State decoding, optional subject filter; not hydraulic solver, context/authority validation or complete environmental model.",
+      "file_line_count": 263,
+      "sha256": "1c62769ebbb1e10a80d443934ce4c7c3dbbd570f67f973ad313111dde97c1c82"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/graph_theory.rs",
+      "read_ranges": [
+        [
+          1,
+          230
+        ],
+        [
+          570,
+          667
+        ]
+      ],
+      "symbols": [
+        "BoundedQualiaGraph::from_quins",
+        "calculate_betweenness_centrality (partial body)",
+        "analyze_graph_topology_bounded",
+        "pagerank_bounded",
+        "find_subgraph_isomorphisms_bounded"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "4,096 facts/128 nodes; each subject-object interpreted as edge, predicates/context not filtered; private helpers not all read; not complete connectivity/biological validation.",
+      "file_line_count": 1518,
+      "sha256": "3507c97b1b1f7cd721bfac28dc5647b38b706d41a52f5b259ee4b5583cb2d2cb"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/blackboard.rs",
+      "read_ranges": [
+        [
+          1,
+          546
+        ]
+      ],
+      "symbols": [
+        "Constraint",
+        "Channel::write",
+        "check_constraints",
+        "SemanticBlackboard::write",
+        "check_all",
+        "BlackboardBus::write_outputs",
+        "propagate_constraints"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Vec/HashMap state allocations despite zero-heap comments; write before checks; MAX_CHANNELS not enforced by channel(); caller must handle errors/atomicity/clock and parity conventions.",
+      "file_line_count": 848,
+      "sha256": "978f66b8b3672c3266dce2d5502554d48ad7d902a434d164ad7655f6a92c4ab3"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/epistemic_ontology.rs",
+      "read_ranges": [
+        [
+          108,
+          178
+        ],
+        [
+          300,
+          389
+        ]
+      ],
+      "symbols": [
+        "compile_epistemic_stance_quin",
+        "synset_to_cili",
+        "is_epistemic_subsumed",
+        "evaluate_epistemic_stances"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Caller-buffered classification; known subsumption fallbacks are vocabulary policy, not fact verification or universal identifier equivalence.",
+      "file_line_count": 506,
+      "sha256": "cf847ae6d7e6bf55979869c0e7be205c6df7febbb8884e5a5cd046869decf642"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/inference_guard.rs",
+      "read_ranges": [
+        [
+          1,
+          214
+        ]
+      ],
+      "symbols": [
+        "evaluate_inference_guard"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "256 facts bound; norms/epistemic/trace counts not jointly capped here; caller owns Deny/Steer enforcement/rollback; WASM adapter is not native qualification.",
+      "file_line_count": 214,
+      "sha256": "5f2deb5184181e062114d40040f8c6553e24a00e29543f9031a79dc466da414f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/contract.rs",
+      "read_ranges": [
+        [
+          1,
+          170
+        ]
+      ],
+      "symbols": [
+        "formation_stage",
+        "is_binding_contract",
+        "incorporates_by_reference",
+        "terms_respect_limits",
+        "contract_state",
+        "performance_met"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Boolean/capacity arithmetic; nonzero reference hash not resolved agreement/adoption proof; no legal or payment acceptance.",
+      "file_line_count": 245,
+      "sha256": "dbedf99edf631215eb650c33c252dc2cd5045b43eb4b76af7c8b04ff5e6fb079"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/execution/runner.rs",
+      "read_ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "symbols": [
+        "preflight",
+        "run_entry",
+        "bind_receipt"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Labelled assess/recognise identity-transform demo; now unused; step count only zero check; caller-provided install/request binding needs qualification.",
+      "file_line_count": 239,
+      "sha256": "b25b075dcc7d06dc151b1dc5a8973c1d93d7c01779ad073c66adf82e546cd4be"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/execution/receipt.rs",
+      "read_ranges": [
+        [
+          1,
+          105
+        ]
+      ],
+      "symbols": [
+        "ExecutionReceipt::bind",
+        "ExecutionReceipt::id"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Digest commitments and parent ref; no independent human acceptance/payment/claim-truth attestation.",
+      "file_line_count": 105,
+      "sha256": "feb6f878beec9d2d99211bbf2aea3dab6fe5ff59da6871df7024e9794e4e9b6c"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/package.rs",
+      "read_ranges": [
+        [
+          1,
+          77
+        ],
+        [
+          112,
+          205
+        ]
+      ],
+      "symbols": [
+        "push_member",
+        "build_collectable",
+        "open_collectable"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "8 MiB bundle/2 MiB member/16 writer member bounds; open validates manifest+10D badge and visual entry; full payload digest/graph semantics not recomputed here.",
+      "file_line_count": 288,
+      "sha256": "191a286dba7ea1be6fc6a41fd183a37725ad658378a1f100662416fa177cf576"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/manifest.rs",
+      "read_ranges": [
+        [
+          1,
+          86
+        ]
+      ],
+      "symbols": [
+        "InstrumentManifest::validate"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "0.1.0-demo required fields, instrument/release distinction and seed notice check; no adopted terms/rights truth.",
+      "file_line_count": 86,
+      "sha256": "d0a82d823f4ef4f9bcf1487e5ebd061121e37ac3c6875f935089951f0e72cdc9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/manufacture.rs",
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "symbols": [
+        "inspect_for_publish",
+        "assert_can_publish"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Source presence and notice route; labelled field category-derived; N3 without Q42 reports loss, not automatically refusal; no review/adoption proof.",
+      "file_line_count": 83,
+      "sha256": "c7201664ecc398dfb38a3bde871f8544f4f17f251e2e76964484c78778a2fed6"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/resolver.rs",
+      "read_ranges": [
+        [
+          1,
+          165
+        ]
+      ],
+      "symbols": [
+        "plan_resolution",
+        "prepare_requirements",
+        "resolve_one",
+        "diagnose_required"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Local direct requirements, optional omission, required misses; deterministic lexicographic version/locator selection; no nested requirement expansion in inspected path.",
+      "file_line_count": 265,
+      "sha256": "b74abbdf75dd09ac8b9e644babea7dacd98c6f98ccebd7e74165cefa8021d577"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/dependency.rs",
+      "read_ranges": [
+        [
+          50,
+          103
+        ]
+      ],
+      "symbols": [
+        "DependencyLock::digest",
+        "version_matches",
+        "require_digest"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Prefix version matching, not full SemVer ranges; digest concatenates fields without explicit framing; exact pins preferred for new qualification.",
+      "file_line_count": 130,
+      "sha256": "41371808eb4b0f13d471643436a9d96422037c526d7250b53a1d551bab0a9959"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/resolve/registry.rs",
+      "read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "symbols": [
+        "LocalRegistry::install",
+        "lookup",
+        "uninstall",
+        "activate"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "In-memory map trusts supplied closed flag; same digest no-op; no adoption/persistent source recovery proof.",
+      "file_line_count": 179,
+      "sha256": "bb8eb8b746b74fb09aeb41bf52781c754914d5204af115549ef25b4c3f68594e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/catalogue.rs",
+      "read_ranges": [
+        [
+          70,
+          155
+        ]
+      ],
+      "symbols": [
+        "LocalCatalogue::publish",
+        "discover",
+        "download",
+        "verify_and_collect"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Byte digest checks; verify_and_collect constructs empty lock, so closed becomes true via is_empty; no actual declared dependency closure here.",
+      "file_line_count": 268,
+      "sha256": "9ce31284e9ae93b28316691fed9b77e858abc2cd6c5c96dece55c82dfc2b349e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/attestation/native.rs",
+      "read_ranges": [
+        [
+          1,
+          170
+        ]
+      ],
+      "symbols": [
+        "credential_from",
+        "issue_native",
+        "verify_native"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Delegates Ed25519 VC origin/integrity; caller issuer key and authority remain separate; signature is not truth/rights/payment.",
+      "file_line_count": 170,
+      "sha256": "6555dcce6c8a69f720b6842958118ac3e939835991aaae87cc70349ce43c25c9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/attestation/status.rs",
+      "read_ranges": [
+        [
+          1,
+          160
+        ]
+      ],
+      "symbols": [
+        "StatusRegistry::revoke",
+        "status",
+        "assert_rely"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "In-memory explicit revocation; caller must invoke status plus cryptographic verify and enforce reliance; no historical claim deletion.",
+      "file_line_count": 172,
+      "sha256": "791cceed1e3a0cdb2cc188749aa381ca53415a8833b6119a395133ff562b8d0e"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/semantic_instruments/rpl.rs",
+      "read_ranges": [
+        [
+          1,
+          200
+        ]
+      ],
+      "symbols": [
+        "evaluate_rpl",
+        "maybe_issue_award",
+        "path_cost (partial)"
+      ],
+      "scope_status": "targeted_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Caller-declared availability/equivalence and authorization; evaluator pass not issuance; helper/award engine not completely read.",
+      "file_line_count": 338,
+      "sha256": "cd613bf72edc555ce41eec3a540fe6567c03ba552265b3c8db7c685f2be7e800"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/semantic_instrument_bridge.rs",
+      "read_ranges": [
+        [
+          1,
+          52
+        ],
+        [
+          144,
+          233
+        ],
+        [
+          294,
+          325
+        ]
+      ],
+      "symbols": [
+        "resolve_bytes",
+        "instrument_inspect",
+        "install_helper",
+        "instrument_collect",
+        "instrument_activate",
+        "instrument_run",
+        "handle_semantic_instrument"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Shed consumer; reconstructed demo/reference metadata and sample-payload fallback; new local catalogue/registry per call; not production policy runner.",
+      "file_line_count": 349,
+      "sha256": "f713b3fbe6a31948dc4519d089090ca49bf602ea9180f1f1523cb041c5021e1d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/bio.rs",
+      "read_ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "symbols": [
+        "align",
+        "bio_compute (partial)"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Core Vibe consumer; pair byte/work preflight not established in read slice.",
+      "file_line_count": 271,
+      "sha256": "a53571067343c01c7400ffbc333fb7076b71b6571fd07718ca766deeb966b3b3"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/science/physics_workbench.rs",
+      "read_ranges": [
+        [
+          60,
+          100
+        ],
+        [
+          232,
+          262
+        ]
+      ],
+      "symbols": [
+        "metropolis",
+        "compute (partial)"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Bounded count/finite checks and seeded proposals; scalar workbench not organism model.",
+      "file_line_count": 324,
+      "sha256": "b6b1fbab076bb6bca75f887bb8b96a7356cde87f5923de4fd7338a65b7a87789"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/logic/legal_workbench.rs",
+      "read_ranges": [
+        [
+          209,
+          251
+        ]
+      ],
+      "symbols": [
+        "contract_eval"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Consumes booleans/capacity labels and nonzero reference; no real assent/authority verification.",
+      "file_line_count": 435,
+      "sha256": "8028a994a718a01865fec956ce67371215f93aeadad61fe91ed0165201fd036d"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/wasm_bridge/governance.rs",
+      "read_ranges": [
+        [
+          123,
+          184
+        ]
+      ],
+      "symbols": [
+        "evaluate_inference_guard_wasm"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "WASM binding allocates parsed arrays before guard; distinct from native no-JS execution.",
+      "file_line_count": 205,
+      "sha256": "3c11735f0dc8c0e5bfb308a157e74c622428beafd9f2251dbe58a38a81630d48"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/agent/dag_executor.rs",
+      "read_ranges": [
+        [
+          141,
+          301
+        ]
+      ],
+      "symbols": [
+        "execute_pipeline_with_policy (body portion)"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Actual blackboard consumer; ignores write/propagate errors, records constraint count post-write; success does not require zero hard violations.",
+      "file_line_count": 574,
+      "sha256": "e57c0629005b9eaadc5d041ae389cf07225cc725959f93e6d75a39aeef4fc916"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/shed_registry.rs",
+      "read_ranges": [
+        [
+          215,
+          237
+        ]
+      ],
+      "symbols": [
+        "toolchain_execute (dispatch portion)"
+      ],
+      "scope_status": "consumer_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Routes semantic instrument op to bridge; comment about settlement not execution proof.",
+      "file_line_count": 393,
+      "sha256": "785fc338cffcadce4466672a461f11f343d5c7a0cafe001fe8a6e3eba8a516e9"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs",
+      "read_ranges": [
+        [
+          132,
+          147
+        ],
+        [
+          280,
+          305
+        ],
+        [
+          672,
+          704
+        ]
+      ],
+      "symbols": [
+        "LEGAL_LOGIC_WORKBENCH dispatch",
+        "PHYS_WORKBENCH dispatch",
+        "BIO_ALIGN/BIO_WORKBENCH dispatch"
+      ],
+      "scope_status": "dispatch_body_read",
+      "inspected_body": true,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Selected match arms only; all other dispatch behavior unassessed.",
+      "file_line_count": 1394,
+      "sha256": "9862763cf1103c77c6ecc66eb489d7d0269e6d46edff549e38c0cbe76627f210"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/ids.rs",
+      "read_ranges": [
+        [
+          305,
+          313
+        ]
+      ],
+      "symbols": [
+        "PHYS_WORKBENCH",
+        "BIO_ALIGN",
+        "BIO_WORKBENCH"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Identifier declarations, not execution.",
+      "file_line_count": 3868,
+      "sha256": "bf3d2dafcaf3df233c88673ea25c4671be61fe9fe124ccece9704adf2bae2e2f"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/lib.rs",
+      "read_ranges": [
+        [
+          255,
+          265
+        ],
+        [
+          317,
+          328
+        ],
+        [
+          1972,
+          1980
+        ]
+      ],
+      "symbols": [
+        "pub mod modalities",
+        "pub mod semantic_instruments",
+        "pub mod domains"
+      ],
+      "scope_status": "exports_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Public root declaration slices only.",
+      "file_line_count": 1981,
+      "sha256": "acd78ff148293a1996569488a93bd46642b5600e059467832fba4b483fabd50b"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/planning/tech/semantic-agreements-and-compensation.md",
+      "read_ranges": [
+        [
+          1,
+          159
+        ]
+      ],
+      "symbols": [],
+      "scope_status": "prerequisite_read",
+      "inspected_body": false,
+      "fresh_read": true,
+      "tests_run": false,
+      "bounds_and_semantic_caveats": "Existing-work handoff; no fresh audit of license/HEF/semantic-tokens repositories.",
+      "file_line_count": 159,
+      "sha256": "5b3b9167c2a04f74f54babe4d343c2a527d3099b101fb106a5da6166e38c4d22"
+    }
+  ]
+}

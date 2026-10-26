@@ -1,0 +1,44 @@
+    Blocking waiting for file lock on build directory
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib) generated 1 warning
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0624]: associated function `validate_filename` is private
+   --> native\examples\growing_reference\package.rs:118:56
+    |
+118 |         poet_cli::graphical::package::ResourceLibrary::validate_filename(filename)?;
+    |                                                        ^^^^^^^^^^^^^^^^^ private associated function
+    |
+   ::: native\src\graphical\package\library.rs:33:5
+    |
+ 33 |     pub(crate) fn validate_filename(name: &str) -> Result<(), String> {
+    |     ----------------------------------------------------------------- private associated function defined here
+
+For more information about this error, try `rustc --explain E0624`.
+error: could not compile `poet-cli` (example "growing_reference") due to 1 previous error

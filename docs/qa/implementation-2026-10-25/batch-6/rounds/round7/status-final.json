@@ -1,0 +1,150 @@
+{
+  "round": "round7",
+  "status": "complete_scoped",
+  "as_of": "2026-10-26",
+  "source_application": {
+    "manifest_sha256": "87c893608a76cda2c1abb38bc6484a58a3ea63c0820d415a720282867b7f2605",
+    "manifest_entries": 58,
+    "latest_hashes": "all 58 match according to current supervisor receipt",
+    "review": "Freeze 2 UV/root integration and detail/resource source review handoffs are available; source-level blockers in assigned review scopes were addressed, while explicit limitations remain",
+    "mechanical_compiler_repair_review": {
+      "manifest_sha256": "8f2ed95e9b21be8d8f01dfbd5c04ba4004f1e7c37bc806ba00c73b8f3dedba4c",
+      "result": "approved mechanically; staged tuple field access .1 matches compiled_assets Vec<(key, CompiledAsset)> return type; assertions unchanged",
+      "status": "applied with verified receipt; check rerun passed",
+      "application_receipt": "repairs/tuple-repair/applied-source.json",
+      "repair_order": "repair-order.json"
+    }
+  },
+  "verification": {
+    "expected_selected_test_modes": 15,
+    "expected_check_build_wasm_modes": 3,
+    "tests": "PASSED: 103 case executions, 98 unique passing cases across all 15 selected test modes, with zero failures or ignored cases in final successful selections. Five repeated case executions are duplicates. Historical pre-repair authoring failure is repaired by a clean rerun and excluded from final counts.",
+    "historical_first_cargo_check": "FAILED: exit 101 after 672.984 seconds; test compilation failed on three tuple-field accesses. Retained in check-before-tuple-repair-result.json.",
+    "cargo_check_rerun": "PASSED: exit 0 after 77.781 seconds; cargo check --lib --tests completed",
+    "check_source_files_recorded": 3245,
+    "check_source_unchanged": true,
+    "check_source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+    "runtime_tests": {
+      "status": "PASSED; historical authoring failure repaired by passing rerun",
+      "fully_passing_modes": ["uvkernel", "image", "gpu", "authoring", "detail", "atlas", "integration", "surfaces", "wire", "workflow", "legacyworkflow", "hmctextures", "jobs", "intents", "inspection"],
+      "completed_passing_selections": 15,
+      "historical_failed_selections_repaired": 1,
+      "expected_selections": 15,
+      "unrun_selections": 0,
+      "authoring_rerun_pending": false,
+      "executions_in_fully_passing_selections": 103,
+      "unique_passed_cases": 98,
+      "duplicate_case_executions": 5,
+      "duplicate_breakdown": {
+        "inspection_repeats_jobs": 3,
+        "inspection_repeats_authoring": 1,
+        "inspection_repeats_integration": 1
+      },
+      "failures": 0,
+      "ignored": 0,
+      "source_files": 3245,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+      "latest_passing_source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+      "receipts": ["uvkernel-result.json", "image-result.json", "gpu-result.json", "authoring-result.json", "detail-result.json", "atlas-result.json", "integration-result.json", "surfaces-result.json", "wire-result.json", "workflow-result.json", "legacyworkflow-result.json", "hmctextures-result.json", "jobs-result.json", "intents-result.json", "inspection-result.json"],
+      "failed_selection_details": {
+        "mode": "authoring",
+        "historical_status": "repaired by clean passing authoring rerun; excluded from current failures and pass totals",
+        "test_results": [29, 1, 0],
+        "exit_code": 101,
+        "elapsed_seconds": 114.531,
+        "failure": "graphical::authoring::atlas_detail_tests::atlas_source_edits_restore_original_geometry_and_refuse_conflicting_projection_atomically",
+        "partial_passes_not_added_to_unique_fully_passing_count": 29,
+        "source_unchanged": true
+      }
+    },
+    "cpu_sequence": "All 15 selected test modes passed; native binary build passed; WASM compilation is currently active",
+    "uv_edit_preflight_repair": {
+      "manifest_sha256": "3622b3eb0ee7f459575a0a23c06eff2a8cf8bd90cd3048d50670e5bdd3dc4419",
+      "status": "source-reviewed, applied with verified receipt, and authoring rerun passed",
+      "application_receipt": "repairs/uv-edit-preflight/applied-source.json",
+      "repair_order": "repair-order.json",
+      "historical_pre_repair_receipt": "authoring-before-uv-edit-preflight-result.json"
+    },
+    "build": {
+      "status": "PASSED",
+      "receipt": "build-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 15.219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+      "log_sha256": "1b46739d7dd576100874a4d0f72d9717f442ebbaf6b6ed2a74609eb2ec1efa25"
+    },
+    "wasm_compile": {
+      "status": "PASSED",
+      "receipt": "wasm-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 148.562,
+      "source_files": 3245,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+      "log_sha256": "6d54611afb665b76dfcd8232470e93178435cf62be3da4e6eb641926fa105156",
+      "scope": "actual Core/geospatial/Portal compilation; runtime untested"
+    },
+    "gpu": {
+      "status": "PASSED",
+      "receipt": "gpu-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 22.812,
+      "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+      "source_unchanged": true,
+      "test_results": [1, 0, 0],
+      "paint_pixels_changed": 2304,
+      "procedural_pixels_changed": 2304,
+      "retained_calibration_pngs": 3,
+      "root_visual_observation": "three calibration images viewed with visible blue, red, and green results",
+      "qualification_boundary": "synthetic calibration evidence; no production assets or human acceptance"
+    },
+    "native_gui_and_human_acceptance": "UNTESTED"
+  },
+  "explicit_scope_limits": [
+    "Bounded harmonic disk UV atlas with explicit seam cuts and deterministic shelf packing; not automatic seam generation, conformal optimization, hole-bearing charts, or unrestricted topology completion.",
+    "Paint/procedural detail recipes have declared size, stroke, point, memory, output and pixel-visit budgets; these working limits are not quality ceilings or measured whole-workload performance.",
+    "Detail/source input retention explicitly refuses native-source entries carrying opaque metadata; FND-04 remains open.",
+    "The source-header metadata `Some` guard remains an explicit preserve-or-fail refusal, not a metadata-retention capability claim.",
+    "Build or WASM compilation will not prove native GUI usability, native/WASM runtime parity, or human contributor/reviewer acceptance."
+  ],
+  "production_and_program_status": {
+    "assets": "HOLD",
+    "source_bundle_and_all_model_assets": "HOLD",
+    "foundation_FND_01_to_06": "OPEN",
+    "IP_03_C1_to_C8": "OPEN",
+    "IP_03_C8_human_usable_controls_and_acceptance": "OPEN; native GUI/human acceptance remains untested",
+    "catalogue_claims_unassessed": 193,
+    "subject_specific_claims_unassessed": 8,
+    "film_target": "INCOMPLETE",
+    "open_world_game_target": "INCOMPLETE",
+    "cartoon_target": "INCOMPLETE"
+  },
+  "final_verification": {
+    "receipt": "saved-evidence-verification.json",
+    "sha256": "8bc67eb2f44167b303cfb06bbfa4414bca43ba770de94f27dbae5371c67c62b0",
+    "status": "passed",
+    "kind": "read_only_final_reconciliation",
+    "distinct_installed_targets": 58,
+    "all_latest_installed_hashes_match": true,
+    "successful_commands": 18,
+    "passing_case_executions": 103,
+    "unique_native_cases": 98,
+    "duplicate_executions": 5,
+    "local_source_pin_files": 3245,
+    "all_latest_local_source_hashes_match": true,
+    "historical_failed_runs_retained": 2,
+    "gpu_calibration_pngs": 3,
+    "native_pixel_changes": {"paint": 2304, "procedural": 2304},
+    "native_binary": {
+      "path": "target/debug/poet.exe",
+      "bytes": 330126260,
+      "sha256": "f52aee7e3ab531208ca0f71bcacc85f3d5dcf81bb3266ec638478605b155ef6a",
+      "launched": false
+    },
+    "reference_master_unchanged": true,
+    "scope": "software source/check/test/build and WASM compilation bookkeeping complete; this verifier itself ran no builds or tests"
+  },
+  "finalization": "complete_scoped: all authorized Round 7 software checks and the read-only evidence reconciliation are complete. This does not close FND-01–06 or IP-03 C1–C8, establish GUI/human acceptance, WASM runtime parity, or complete any model package."
+}

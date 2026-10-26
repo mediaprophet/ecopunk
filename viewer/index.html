@@ -294,7 +294,18 @@
       try { wasm.init_webgl2(canvas); } catch (_) {}
     }
 
-    const portal = new wasm.EcopunkPortal(canvas);
+    let portal;
+    try {
+      portal = new wasm.EcopunkPortal(canvas);
+    } catch (error) {
+      // Display the native/WASM constructor's admission error without replacing
+      // its decision or leaving the surface indefinitely marked as connecting.
+      document.getElementById('portal-tier-badge').textContent = 'Scene initialization failed';
+      const statusLine = document.getElementById('wasm-status-line');
+      statusLine.textContent = `Unable to start scene: ${String(error)}`;
+      statusLine.setAttribute('role', 'alert');
+      throw error;
+    }
     const tierNames = ['Tier 0 (CPU Fallback)', 'Tier 1 (QualiaPortal WebGL2)', 'Tier 2 (QualiaPortal WebGPU)'];
     document.getElementById('portal-tier-badge').textContent = tierNames[portal.tier()] || `Tier ${portal.tier()}`;
 

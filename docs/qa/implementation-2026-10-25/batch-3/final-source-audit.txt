@@ -1,0 +1,15 @@
+# Final batch 3 source audit
+
+Snapshot UTC: 2026-10-24T20:06:17Z
+Scope: source/receipt reconciliation and saved claims/catalogue metadata only. No builds/tests were run and the claims ledger was not changed.
+
+- Pointer: e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb; source snapshot hashes verified.
+- Latest-source map: 94 unique sources and 120 receipt transitions. Current source SHA mismatches: 0; receipt-SHA mismatches: 0; per-target latest receipt mismatches: 0.
+- All 12 applied receipt digests match the snapshot pins; all source records match their cited receipt and current target hashes.
+- Phase 2 receipt saved 27 QualiaDB targets; 25 remain the latest receipts in the current snapshot. Two targets have later receipt updates, each with a contiguous previous-hash link.
+- Constructor follow-up saved 3 QualiaDB files; all 3 are present with matching hashes in the latest source snapshot.
+- Etalon target paths in the source snapshot: 0. Saved core-failure triage attributes the relevant WGSL failures to consumer-generated unknown `enable` extension names (`wgpu_cooperative_matrix`, `wgpu_ray_query`) rejected by selected Naga validation. This supports consumer-side scope for those cases and does not claim Etalon readiness.
+- Actual claims ledger: 120 packets, all open; 37 milestone records exist. Starter template: 120 open packets and 0 milestone records.
+- Implementation plan v0.6 pin matches the current file: true. Catalogue SHA matches expected baseline: c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb.
+- `refresh-records.py` is present for parent-owned post-test ledger reconciliation; it was not run.
+- This audit does not claim current full-Core test closure; see the separate live test run.

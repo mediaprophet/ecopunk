@@ -1,0 +1,18 @@
+{
+  "scope": "Diagnostic checkpoint CLI headless factory",
+  "source_staged": true,
+  "rustfmt_exit_code": 0,
+  "tests_staged": 5,
+  "tests_executed": false,
+  "full_core_build_run": false,
+  "native_ui_or_gpu_run": false,
+  "remaining": [
+    "parent independent review and guarded apply",
+    "coherent actual native headless tests",
+    "fresh-process restart through factory",
+    "operator native UI acceptance",
+    "production authentication/cooperative bootstrap"
+  ],
+  "candidate_entry_sha256": "0CE65A2312DAE5E59963EA90DDA315DDCE0AB2A4BB12BD9D09CD96EA3057344E",
+  "final_comment_only_change": "Changed identity to authentication in the new factory comment; no code behavior changed; tests remain unrun"
+}

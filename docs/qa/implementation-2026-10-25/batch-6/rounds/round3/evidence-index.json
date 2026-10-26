@@ -1,0 +1,228 @@
+{
+  "schema": "ecopunk.batch6-round3-evidence-index.v1",
+  "captured_date": "2026-10-25",
+  "status": "complete_scoped",
+  "scope": "Round 3 applied SDK changes and currently recorded execution only. No gate, model, or delivery acceptance implied.",
+  "applied_sources": {
+    "core_geospatial_frame_preservation": {
+      "manifest": "applied-source.json",
+      "targets": 29,
+      "manifest_sha256": "8debd902718298dda3cc2fd726801a5b5cfe7c1ab254498f54a847a816097224",
+      "all_current_hashes_match_verified_after_sha256": true,
+      "job_manifests": {
+        "frames/manifest.json": "438d926ab1777775929fc83a1a7aa6e18bd3fa8fe48d1bed73d85dd7339f00b7",
+        "preservation/manifest.json": "016d9cc6341afe202a52a55fe6c6e33b57abf8baee3a4e41e36713765c32ce53"
+      }
+    },
+    "poet_inspection": {
+      "manifest": "poet-inspection/applied-source.json",
+      "targets": 15,
+      "manifest_sha256": "7d55f020d221f3ae962865905af6f6680d743b078403ee1b142c180cb4c2b20f",
+      "target_manifest": "poet-inspection/target-manifest.json",
+      "target_manifest_sha256": "06646bd4d4577ea6ea610120972a019521c54d87bbe3934cc34c29f81a136e6b",
+      "all_current_hashes_match_verified_after_sha256": true,
+      "frozen_manifest_status": "Original 15-target installation receipt retained as historical. Two sequential test-only jobs_tests.rs repairs are recorded separately; latest repair-2 hash is authoritative. Neither changes production implementation or authorization/persistence behavior.",
+      "latest_hash_overrides": [
+        {
+          "manifest": "poet-inspection/repair/applied-source.json",
+          "manifest_sha256": "864dd79cc7a2987de54e0a1cf03be0c9a8fa771c28932ac3be50357766f8d3ee",
+          "target": "C:/github/poet/native/src/graphical/jobs_tests.rs",
+          "before_sha256": "b4fa7f0b7957e54ef8fa50f5491e34455bb0bba211d31cdff5e65171c4628fa7",
+          "after_sha256": "b545bbd6ee47210e534c2503889d32c63ec404e0ab2e60be1ea0dfc36aacfe51",
+          "purpose": "Test-only use of supported rebuild lifecycle; no production visibility or implementation change.",
+          "current_hash_verified": true
+        },
+        {
+          "manifest": "poet-inspection/repair-2/applied-source.json",
+          "manifest_sha256": "aee88bdcb0797dfa6f1685436753a4aa25400d3cd795a0a280c3ecac9ce03a83",
+          "target": "C:/github/poet/native/src/graphical/jobs_tests.rs",
+          "before_sha256": "b545bbd6ee47210e534c2503889d32c63ec404e0ab2e60be1ea0dfc36aacfe51",
+          "after_sha256": "785a24fdf9d5c9e1f913a580813b528bea5ca9e5fe50edede2b2fabca5d2da4d",
+          "purpose": "Second test-only fixture correction; production authorization and persistence behavior unchanged.",
+          "current_hash_verified": true
+        }
+      ],
+      "inspection_surface": "Read-only typed M64 metadata inspection button in native Poet package controls; digest-bound package/resource/source checks, current ReadSource authorization and stale-result withholding described by frozen source.",
+      "qualification": "Six selected native inspection tests passed, plus one existing lifecycle test. GUI inspection/user workflow was not run; this does not demonstrate full authoring or IP-03 C1-C8 and does not close FND-05."
+    },
+    "combined_current_hash_check": {
+      "targets": 44,
+      "mismatches": 0,
+      "method": "Read-only SHA-256 comparison of each live target path against verified_after_sha256 in the two applied-source manifests, 2026-10-25."
+    }
+  },
+  "execution": {
+    "native_sdk_conformance": {
+      "result": "passed",
+      "target": "Windows x86_64 little-endian",
+      "command": "cargo test --manifest-path C:\\github\\ecopunk\\tools\\format-sdk-conformance\\Cargo.toml --locked --offline --target-dir C:\\github\\ecopunk\\target --tests",
+      "working_directory": "C:/github/ecopunk",
+      "started_utc": "2026-10-25T04:27:50.437630+00:00",
+      "finished_utc": "2026-10-25T04:41:56.439154+00:00",
+      "elapsed_seconds": 845.953,
+      "passed": 56,
+      "failed": 0,
+      "ignored": 0,
+      "log": "native-conformance.log",
+      "log_sha256": "3e01a1238694bb6174fa8c9f1276c99d714e84e837f5306f56bcc7a03a0c0d3b",
+      "source_snapshot": "native-source-before.json",
+      "source_snapshot_sha256": "b3528b4f4ada4089c1e49d1448b00ade4d3899a6896e76921241c7b6d9569b4d",
+      "source_unchanged": true,
+      "evidence_receipt": "native-result.json",
+      "receipt_sha256": "3ac31d8b559a20dfcfaa5b05708d22b781bb990692e0fd1e84a13068c23bcdb5",
+      "scope": "Existing 22 selected cases plus 34 added cases across M64/georaster, frame decode/consumers and opaque preservation. Does not qualify full format gates or Poet UI."
+    },
+    "poet_wasm_frontend_check": {
+      "result": "passed_compile_only",
+      "command": "cargo check --offline --locked --manifest-path C:/github/poet/Cargo.toml -p poet --lib --target wasm32-unknown-unknown --target-dir C:\\github\\ecopunk\\target",
+      "log": "wasm-conformance.log",
+      "log_sha256": "1464dce61043e6476737103fb28b28a8e4f9e40a6067915c21ddaaa7113dc3e6",
+      "source_snapshot_sha256": "b3528b4f4ada4089c1e49d1448b00ade4d3899a6896e76921241c7b6d9569b4d",
+      "source_unchanged": true,
+      "receipt": "wasm-result.json",
+      "receipt_sha256": "57508725f0f583e120dab88a47cf4de016c4c3f3620ed48ce4255a83f541f1a1",
+      "boundary": "Frontend/library compile only; this is not direct Core SDK qualification, WASM runtime execution, or round-trip interoperability."
+    },
+    "direct_core_geospatial_portal_wasm_check": {
+      "result": "passed_compile_only",
+      "command": "cargo check --manifest-path C:\\github\\ecopunk\\tools\\format-sdk-wasm-check\\Cargo.toml --locked --offline --target wasm32-unknown-unknown --target-dir C:\\github\\ecopunk\\target",
+      "log": "sdk-wasm.log",
+      "log_sha256": "532d721188b1c7a2e31992cb08ed98f8e43be9ef1cfb6fd7cffbb8d131685578",
+      "source_snapshot_sha256": "5e6d492446e7e66d6d59234f63a5add2f8b534ed9c94a724ced809e36e9fc37d",
+      "source_unchanged": true,
+      "receipt": "sdk-wasm-result.json",
+      "receipt_sha256": "f1566e7fb4fc4c639903007f32d12f66e75f52697fe9a2c3e1e83e065e26e0ac",
+      "boundary": "Direct Core/geospatial/Portal source compilation; not WASM runtime execution, browser binding parity, format round trips, or GUI. The log contains compiler warnings, not engine failures."
+    },
+    "poet_native_tests": {
+      "result": "selected_cases_passed",
+      "log": "poet-tests.log",
+      "current_log_observation": "Six new --lib inspection cases and one existing retirement lifecycle case passed, source unchanged. Regular native Poet binary build and final reconciliation also passed. Temporary-directory fixture failures were repaired only in test code with explicit workspace TEMP/TMP, serial focused cases and bounded fixture data.",
+      "first_attempt": {
+        "status": "interrupted_by_supervisor_before_tests",
+        "passed": false,
+        "reason": "Default Poet debug profile caused redundant dependency compilation; stopped before tests and retried using SDK debug=0/incremental=false profile.",
+        "log": "poet-tests-debug-profile-interrupted.log",
+        "log_sha256": "b8456076b40b89bd89479835f0c72a8331cf73f594e404196d0adfa0a8bffd39",
+        "receipt": "poet-tests-debug-profile-interruption.json",
+        "environment": "No test cases ran; not counted as a failure or pass."
+      },
+      "retry_environment": "CARGO_PROFILE_DEV_DEBUG=0; CARGO_PROFILE_TEST_DEBUG=0; CARGO_PROFILE_DEV_INCREMENTAL=false; CARGO_PROFILE_TEST_INCREMENTAL=false (per saved command receipts).",
+      "nonqualifying_attempts": [
+        {
+          "receipt": "poet-tests-binary-zero-tests-result.json",
+          "receipt_sha256": "d15a7ba294088a6cb5b78ed2b2f07e64f7a4f4703b282335255a8649248aeca3",
+          "log": "poet-tests-binary-zero-tests.log",
+          "log_sha256": "388ffb9020c857657c74bdaba4e8c9f5ddcdc23e1be5213b4f88bc48afc6e0c0",
+          "result": "exit 0 but zero selected tests; compiled --bin poet and is explicitly not passed. Correct test target is --lib."
+        },
+        {
+          "receipt": "poet-tests-private-lifecycle-result.json",
+          "receipt_sha256": "2e2894d2d1bf8b23830615d225d14ea81b2a88d29ce637695f7bb96b93430ddd",
+          "log": "poet-tests-private-lifecycle.log",
+          "log_sha256": "fa6f299b3a91e0e2572da2a9d7f53db3a6abaaa2b19e5ab7161ea3015fd78b9c",
+          "result": "exit 101 before tests: E0624 private retire() call in native/src/graphical/jobs_tests.rs:309. Awaiting test-only repair to use supported rebuild lifecycle; no production visibility change."
+        }
+      ],
+      "completed_selection": {
+        "command": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --lib --target-dir C:/github/ecopunk/target inspection -- --test-threads=1 --nocapture",
+        "passed": 6,
+        "failed": 0,
+        "ignored": 0,
+        "filtered": 118,
+        "receipt": "poet-tests-result.json",
+        "receipt_sha256": "33e1497d63b074bc6a2e5924df6abef43dc9d6e9ab7005a805501729e853f4ef",
+        "log": "poet-tests.log",
+        "log_sha256": "ea3f4f7211c1275b7455cd8d45c1cc440397fd0452bb01d712f052dcaef82a5e",
+        "source_snapshot_sha256": "7f0794b1f0132cb2ca265f9e9992fbd346204660718d0ca2d3842a0e23c41a3c",
+        "source_unchanged": true
+      },
+      "runtime_interruption": {
+        "receipt": "poet-tests-sandbox-temp-contention-result.json",
+        "diagnosis": "Initial test fixture hit default App sandbox temporary-path atomic-persist AccessDenied. A parallel late-result case waited; barrier admission may refuse before dispatch, so exact parallel cause is not proven.",
+        "remedy": "Rerun uses explicit workspace TEMP/TMP, serial focused cases and bounded fixture data; no production persistence or authorization behavior was weakened."
+      },
+      "lifecycle_case": {
+        "command": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --lib --target-dir C:/github/ecopunk/target actual_source_successor_and_retired_rebuild_epoch_publish_into_the_requesting_view -- --test-threads=1 --nocapture",
+        "passed": 1,
+        "failed": 0,
+        "ignored": 0,
+        "receipt": "poet-epoch-result.json",
+        "receipt_sha256": "861c88b82ab2344ff4d13ab0b0f9c75a0098d268810dd235dc72c7adedf84df6",
+        "log": "poet-epoch.log",
+        "log_sha256": "96952e85d117c3cc0f1b7213202324a982141082d8a8aa113d7a04ebf4a9c90c",
+        "source_unchanged": true
+      },
+      "regular_native_binary_build": {
+        "exit_code": 0,
+        "elapsed_seconds": 34.235,
+        "receipt": "poet-build-result.json",
+        "receipt_sha256": "082ffdfe63a59c4e697bc18a5bc3f577f8eee7ec003ea20cb6c1390a65687e5a",
+        "log": "poet-build.log",
+        "log_sha256": "03f032aa7c9ac967164e5f230b28b64dd021092e0060ccc7c92c14077fec6f42",
+        "source_unchanged": true,
+        "binary_sha256": "8b1eb230ce98876bf0704ec70a6739c7a0e1d8378e25db1ddbbc604d3915deef"
+      },
+      "unique_test_total": 63,
+      "final_reconciliation": {
+        "result": "passed",
+        "path": "final-verification.json",
+        "sha256": "a0d1efb58cc97fd93fec3f4742ae6d53552c7b7ed79892e59ae771ad5ca3431a",
+        "verifier": "verify_final_evidence.py",
+        "verifier_sha256": "3cce4acd8514731b59d3db743b7385c404fe69ec66e5e100d2c90ab442d732aa",
+        "checks": "44 latest target hashes, 63 unique tests including all six inspector case names, both WASM compile receipts, three asset hashes and unchanged master."
+      }
+    }
+  },
+  "assets_unchanged": [
+    {
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    }
+  ],
+  "runner_and_lock_pins": {
+    "tools/format-sdk-conformance/Cargo.toml": "9c8ea6200ad4e909bb7f7964b7eb48e812357b6f03ca67fd77aaac4568e01e9c",
+    "tools/format-sdk-conformance/Cargo.lock": "95ea8bb56aedf82ea338f951ae04ea6031df2d1aed0621ea0c4216241cf882ad",
+    "tools/format-sdk-wasm-check/Cargo.toml": "c23a9d497f63e3bf35f5f22d9eaae246cf422159cf87fa62f6a5c7692d4726d9",
+    "tools/format-sdk-wasm-check/Cargo.lock": "6ffb47aad34f02a36bbb42de5442692376a5ec89f46f826fb80647cdc194f32d"
+  },
+  "reviews_and_specs": {
+    "dispatch": "dispatch.md",
+    "frame_review": "frames/review-root.md",
+    "geospatial_review": "frames/review-geospatial.md",
+    "poet_inspection_review": "frames/review-poet-inspection.md",
+    "opaque_preservation_review": "preservation/review-root.md",
+    "opaque_policy": "preservation/spec-delta.md",
+    "native_standards_sources": "Core/geospatial standards documents among the 29 guarded applied targets; exact current hashes are in applied-source.json.",
+    "poet_contract": "poet-inspection/contract.md",
+    "poet_source_inspection": "poet-inspection/README.md"
+  },
+  "foundation_gates": {
+    "FND-01": "open: qualified identifier authority/mappings and lineage",
+    "FND-02": "open: geospatial selected implementation cases passed; broader datum/nodata/precision/format qualification remains",
+    "FND-03": "open: selected typed frame coexistence/consumer cases passed; broad compatibility and downstream qualification remain",
+    "FND-04": "open: selected opaque preservation and bounded cases passed; workload/precision/resource qualification remains",
+    "FND-05": "open: six selected native Poet inspection tests and one lifecycle test passed; regular native binary built. GUI verification was not run; contributor/reviewer author/edit/save/reopen IP-03 C1-C8 evidence remains absent.",
+    "FND-06": "open: WASM compile-only checks passed; runtime interoperability and representative benchmarks absent"
+  },
+  "claim_boundary": {
+    "asset_production": "none; assets held read-only",
+    "human_review_or_acceptance": false,
+    "gui_verification": "not run; no GUI launch or Computer Use",
+    "wasm_runtime_execution": false,
+    "ip03_c1_c8_accepted": false,
+    "foundation_gates_passed": [],
+    "model_package_complete": false
+  }
+}

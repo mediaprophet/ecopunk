@@ -1,0 +1,419 @@
+{
+  "schema": "ecopunk.round4.evidence-index.v1",
+  "captured_date": "2026-10-25",
+  "status": "complete_scoped",
+  "scope": "Completed bounded Round 4 source application, selected native qualification, regular native build, direct SDK WASM compilation, and read-only evidence reconciliation. Broader foundation and production acceptance remain open.",
+  "source_application": {
+    "targets": 70,
+    "counts_by_job": [
+      {
+        "job": "R4 canonical implementation contract",
+        "targets": 1
+      },
+      {
+        "job": "R4 canonical package review",
+        "targets": 29
+      },
+      {
+        "job": "R4 exact offline local-path dependency lock",
+        "targets": 1
+      },
+      {
+        "job": "R4 integrated native producer/review",
+        "targets": 39
+      }
+    ],
+    "install_manifest": "install-manifest.json",
+    "install_manifest_sha256": "9e971c34dd145dedbddce3314065a5ea6fd260a43ef39af9ed2b0e6ed526c4f0",
+    "applied_source": "applied-source.json",
+    "applied_source_sha256": "8a1de3d60d13525c8b66612ac44142a9de1735c962870c843251bcf7ad39ad65",
+    "hash_verification": "applied-source.json records verified_after_sha256 for each target; no independent target hash check was run by this evidence agent.",
+    "source_frozen": true,
+    "lock_delta": {
+      "target": "C:/github/poet/Cargo.lock",
+      "scope": "exact offline local-path dependency lock",
+      "claim": "all registry/git entries unchanged; only local geospatial package entry added",
+      "verified_by": "root source review"
+    }
+  },
+  "contract": {
+    "saved_qualiaDB_manual": "C:/github/qualiaDB/docs/manuals/standards/native-poet-package-review.md",
+    "sha256": "70c9cad2e60543fcb5fbadc6a01b5f605fc69decedc3fe10c0524ea41297374b",
+    "source_review_and_package_review_distinct": true
+  },
+  "implementation_boundary": {
+    "producer": "Native GRM3 creation/editing through HMC owner, authorization, jobs and Poet controls; synthetic resources only",
+    "package_review": "Explicit signed package grants and durable decisions bound to exact package/source/resource state",
+    "source_review_grants": "Existing native scoped source-review grants remain separate and confer no package-review authority",
+    "contributor_history": "Preserve originating contributors and prior recorded package contributors using their qualified identifiers, roles and provenance; matching strings do not establish referent equivalence.",
+    "synthetic_origin_source_cbor": "unverified; preserve status and original payload digest",
+    "unknown_selected_metadata": "fail closed for semantic edits; preserve unrelated bytes",
+    "publication_token": "native package publication token binds current byte/audit state and successor guards"
+  },
+  "planned_execution": {
+    "check_command_contract": "run_check.py mode check/public/producer/workflow/source-regression/inspect-regression/build/wasm; serial test modes; explicit debug=0 and incremental=false; uniquely owned workspace TEMP/TMP",
+    "minimums": {
+      "public_cases": 19,
+      "producer_cases": 9,
+      "root_real_HMC_package_workflow": 1,
+      "source_review_regression": 1,
+      "prior_inspection_regression": 6
+    },
+    "next_steps": []
+  },
+  "qualification": {
+    "FND01": "open",
+    "FND02": "open",
+    "FND03": "open",
+    "FND04": "open",
+    "FND05": "open",
+    "FND06": "open",
+    "IP03_C1_C8": "open",
+    "native_GUI": "not run",
+    "human_acceptance": false,
+    "production_assets": "ON_HOLD",
+    "os_credentials_or_real_admission": "not used",
+    "publication": "not performed"
+  },
+  "private_cases": {
+    "AUTHORED_UNRUN": 3,
+    "CI_gate": false,
+    "note": "Three private journal unit cases are authored but unrun; no pass is claimed."
+  },
+  "local_artifact_hashes": {
+    "install-manifest.json": "9e971c34dd145dedbddce3314065a5ea6fd260a43ef39af9ed2b0e6ed526c4f0",
+    "run_check.py": "a75f990d82ff607b1078cc30c92d3040d6ba6562c55536cefa7d288e5f6bb250",
+    "dispatch.md": "7f85c995e365a410c53151b793798c959fc0b77a71ad7a8f336a51037cf2e1e7",
+    "qualiaDB/native-poet-package-review.md": "70c9cad2e60543fcb5fbadc6a01b5f605fc69decedc3fe10c0524ea41297374b",
+    "check-source-before.json": "02f4ebea9130a5fb27d4dc2e523bc820be4af6fb425745e3b8d980a58461fb0c",
+    "applied-source.json": "8a1de3d60d13525c8b66612ac44142a9de1735c962870c843251bcf7ad39ad65",
+    "check_result_sha256": "fae5ff1a23727a04b1b422810fcba60b41be09824934dc8be702b8bff0e8d873",
+    "check_log_sha256": "183211772a2fbc3fc6e74f1bcbd8cb6ed2ccb6b35d4b3690bc26657e428841eb",
+    "producer_result_sha256": "6eebfb996cfc970fdb0db140a4b13bd28b58f282b48128dbc87e121eef76bb5a",
+    "producer_log_sha256": "fa60d865243b1c13aaecfc99d128acbcaeb67a02cade06e8d1ed013f9d903baf",
+    "public_initial_result_sha256": "c6f0481c94e213004a07998127821668f18134052257765631c2796458ed82a7",
+    "public_initial_log_sha256": "2db2e387b232dcaa254d4a71142133ea6528891a5b2257feb898b69bf3461f58",
+    "final_receipt_hashes": {
+      "repairs/history-fixture/applied-source.json": "140f0465ae8dc8bc8c5e85f43d3ac01436f5683e7889224e238bdcc839ce4331",
+      "workflow-result.json": "0c685240d7d8dfa1cca42256045f0745d74c393360e0ea3ed7b37a95119c2cd2",
+      "producer-result.json": "6eebfb996cfc970fdb0db140a4b13bd28b58f282b48128dbc87e121eef76bb5a",
+      "source-regression.log": "0791849a15095af7e425cb9313b7ed9f1a73fca74a342d6e99fd7300bc4d03af",
+      "build-result.json": "70304ddeebc6475cf2dfd92ed86ccd8414d2aff48408c80c3f1c6e72ac9abd96",
+      "workflow.log": "ee1f8d0c09922e346b271276e09a50dd85d4b4fb51d1ed59088351b6bcc6eb60",
+      "inspect-regression-result.json": "641771fc7acecb8baa689d4e4c63d1457e3ec7ce406f9a3f0c56ef67e4ee5e4a",
+      "inspect-regression.log": "a05cd55b3dacd35f3563a74d6a768fc57db071bfb3bf768f10bdb812115dddee",
+      "build.log": "1ba0b4757264a06a4c33ba6bd0acd34987516f28a9825dbef05e6f2382db7010",
+      "repairs/ui-keys/applied-source.json": "b97962013e620ad53d9c65d5a4afbcb92061ff42e0991b1f767fd66dc1bebd33",
+      "producer.log": "fa60d865243b1c13aaecfc99d128acbcaeb67a02cade06e8d1ed013f9d903baf",
+      "public-result.json": "f7141c17db4cc3ad4412571241c6fc66247e9f44b0406a25b37a87f82560b0e6",
+      "install-manifest.json": "9e971c34dd145dedbddce3314065a5ea6fd260a43ef39af9ed2b0e6ed526c4f0",
+      "repairs/ui-text/applied-source.json": "0b6bb753487f8be3e625b7e2bab9f05704fb0e2e678d7c18883ae301c43c14d4",
+      "applied-source.json": "8a1de3d60d13525c8b66612ac44142a9de1735c962870c843251bcf7ad39ad65",
+      "source-regression-result.json": "f8304547c32af400621a4681ee9c57a1c08d401734936a8f7da09f66bd2c10ce",
+      "public.log": "db0d792fe98edc3d7236a5eaa31e856f170d84b05a22a20cb0c168952001697e"
+    }
+  },
+  "references": {
+    "source_snapshot": "check-source-before.json",
+    "check_log": "check.log",
+    "check_result": "check-result.json",
+    "producer_result": "producer-result.json",
+    "workflow_result": "workflow-result.json",
+    "public_result": "public-result.json",
+    "source_regression_result": "source-regression-result.json",
+    "inspection_regression_result": "inspect-regression-result.json",
+    "native_build_result": "build-result.json",
+    "wasm_result": "wasm-result.json",
+    "initial_public_failure": "public-before-fixture-repair-result.json and public-before-fixture-repair.log (historical failure retained)",
+    "saved_evidence_verification": "saved-evidence-verification.json"
+  },
+  "own_agent_actions": {
+    "builds": 0,
+    "tests": 0,
+    "source_changes": 0,
+    "GUI_WASM_runtime_credentials": 0,
+    "status": "Reconciled actual receipts and applied-source overrides; no builds/tests/checks run by this evidence agent."
+  },
+  "active_execution": "none",
+  "compiler_check": {
+    "status": "passed_compile_only",
+    "receipt": "check-result.json",
+    "exit_code": 0,
+    "elapsed_seconds": 23.718,
+    "source_files": 3021,
+    "source_unchanged": true,
+    "snapshot_sha256": "03301e0c9d041d332fecec89ca38b43219f4ebe282f2474c0a75ae470476b4e8",
+    "receipt_sha256": "fae5ff1a23727a04b1b422810fcba60b41be09824934dc8be702b8bff0e8d873",
+    "log_sha256": "183211772a2fbc3fc6e74f1bcbd8cb6ed2ccb6b35d4b3690bc26657e428841eb",
+    "test_results": "none selected; compile/check only",
+    "warnings": "initial check had UI target-key placement warnings; after repair final check has no UI key warnings and only existing unused warnings"
+  },
+  "compiler_repair_history": {
+    "initial_check": "check-before-ui-key-repair-result.json",
+    "initial_elapsed_seconds": 206.891,
+    "initial_exit_code": 0,
+    "purpose": "retained history: compiler reported UI key-placement warnings",
+    "repair_manifest": "repairs/ui-keys/applied-source.json",
+    "repair_manifest_sha256": "b97962013e620ad53d9c65d5a4afbcb92061ff42e0991b1f767fd66dc1bebd33",
+    "repaired_file": "C:/github/poet/native/src/graphical/package_controls.rs",
+    "latest_hash": "c5dc2e4804dcfd29ac3a85ab4e736fe423bf3283393f0d2b07fbac6d352cb1da",
+    "distinct_target_count_unchanged": 70,
+    "latest_override_count": 1
+  },
+  "producer_execution": {
+    "status": "passed_selected_cases",
+    "expected": 9,
+    "passed": 9,
+    "failed": 0,
+    "ignored": 0,
+    "source_unchanged": true,
+    "source_snapshot_sha256": "03301e0c9d041d332fecec89ca38b43219f4ebe282f2474c0a75ae470476b4e8",
+    "receipt": "producer-result.json",
+    "receipt_sha256": "6eebfb996cfc970fdb0db140a4b13bd28b58f282b48128dbc87e121eef76bb5a",
+    "log": "producer.log",
+    "log_sha256": "fa60d865243b1c13aaecfc99d128acbcaeb67a02cade06e8d1ed013f9d903baf",
+    "passed_case_names": [
+      "graphical::checkpoints::georaster_edit::source::tests::georaster_source_declarations_remain_unverified_bounded_and_distinct",
+      "graphical::checkpoints::georaster_edit::tests::georaster_edit_cancellation_budgets_and_coordinates_fail_closed",
+      "graphical::checkpoints::georaster_edit::tests::georaster_edit_canonical_samples_metadata_and_padding_roundtrip",
+      "graphical::checkpoints::georaster_edit::tests::georaster_edit_legacy_corrupt_and_richer_payloads_refuse_loss",
+      "graphical::cooperation::tests::georaster_edit_tests::georaster_create_explicit_source_guarded_add_and_refusals_preserve_hmc",
+      "graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authority_stale_digests_source_and_cancel_leave_hmc_exact",
+      "graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authorized_save_and_fresh_process_reopen",
+      "graphical::cooperation::tests::georaster_edit_tests::georaster_jobs_dispatch_real_authorized_create_edit_and_withhold_revoked_results",
+      "graphical::cooperation::tests::georaster_edit_tests::metadata_tests::georaster_edit_refuses_selected_opaque_provided_unknown_and_observation_metadata"
+    ]
+  },
+  "public_initial_execution": {
+    "status": "failed_historical_fixture_only",
+    "exit_code": 101,
+    "native_cases": "11 passed, 1 failed",
+    "canonical_package_review_cases": "7 not executed because Cargo aborted",
+    "passed_case_names": [
+      "admin::package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants",
+      "history::package_review_missing_predecessor_stays_explicitly_scoped_and_unassessed",
+      "package_review_contribution_request_decision_and_reopen_keep_exact_lineage",
+      "package_review_old_signed_admission_bytes_remain_exact",
+      "package_review_revocation_and_unsafe_grant_successors_are_atomic",
+      "package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse",
+      "package_review_source_grants_file_mismatch_and_stale_generation_cannot_record",
+      "package_review_source_successor_and_revoked_membership_withhold_old_targets",
+      "publication::package_review_publication_expires_after_same_source_native_package_successor",
+      "source_history::package_review_unsaved_prior_source_contributor_is_excluded_after_source_successor",
+      "target_isolation::package_review_evidence_contains_only_the_exact_selected_target"
+    ],
+    "failure": "Historical signed-grant replacement fixture asserted predecessor wording while operation returned duplicate-grant reason. Root reviewed and applied a test-only fixture correction; successful public-result.json rerun passes 19 cases. Preserve the first failure, do not count it as a pass.",
+    "test_selection_ok": false,
+    "source_unchanged": true,
+    "source_snapshot_sha256": "03301e0c9d041d332fecec89ca38b43219f4ebe282f2474c0a75ae470476b4e8",
+    "receipt": "public-result.json",
+    "receipt_sha256": "c6f0481c94e213004a07998127821668f18134052257765631c2796458ed82a7",
+    "log": "public.log",
+    "log_sha256": "2db2e387b232dcaa254d4a71142133ea6528891a5b2257feb898b69bf3461f58",
+    "historical_receipt": "public-before-fixture-repair-result.json",
+    "historical_log": "public-before-fixture-repair.log"
+  },
+  "completed_execution": {
+    "status": "selected_native_cases_and_build_passed",
+    "case_count": 36,
+    "case_count_breakdown": {
+      "public": 19,
+      "producer": 9,
+      "real_HMC_workflow": 1,
+      "source_review_regression": 1,
+      "prior_inspection_regression": 6
+    },
+    "failed_selected_cases": 0,
+    "ignored_selected_cases": 0,
+    "results": [
+      {
+        "mode": "public",
+        "status": "passed_selected_cases",
+        "exit_code": 0,
+        "elapsed_seconds": 41.062,
+        "source_unchanged": true,
+        "source_file_count": 3021,
+        "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+        "test_results": [
+          [
+            12,
+            0,
+            0
+          ],
+          [
+            7,
+            0,
+            0
+          ]
+        ],
+        "receipt": "public-result.json",
+        "receipt_sha256": "f7141c17db4cc3ad4412571241c6fc66247e9f44b0406a25b37a87f82560b0e6",
+        "log": "public.log",
+        "log_sha256": "db0d792fe98edc3d7236a5eaa31e856f170d84b05a22a20cb0c168952001697e"
+      },
+      {
+        "mode": "producer",
+        "status": "passed_selected_cases",
+        "exit_code": 0,
+        "elapsed_seconds": 101.953,
+        "source_unchanged": true,
+        "source_file_count": 3021,
+        "source_snapshot_sha256": "03301e0c9d041d332fecec89ca38b43219f4ebe282f2474c0a75ae470476b4e8",
+        "test_results": [
+          [
+            9,
+            0,
+            0
+          ]
+        ],
+        "receipt": "producer-result.json",
+        "receipt_sha256": "6eebfb996cfc970fdb0db140a4b13bd28b58f282b48128dbc87e121eef76bb5a",
+        "log": "producer.log",
+        "log_sha256": "fa60d865243b1c13aaecfc99d128acbcaeb67a02cade06e8d1ed013f9d903baf"
+      },
+      {
+        "mode": "workflow",
+        "status": "passed_selected_cases",
+        "exit_code": 0,
+        "elapsed_seconds": 12.781,
+        "source_unchanged": true,
+        "source_file_count": 3021,
+        "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+        "test_results": [
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "receipt": "workflow-result.json",
+        "receipt_sha256": "0c685240d7d8dfa1cca42256045f0745d74c393360e0ea3ed7b37a95119c2cd2",
+        "log": "workflow.log",
+        "log_sha256": "ee1f8d0c09922e346b271276e09a50dd85d4b4fb51d1ed59088351b6bcc6eb60"
+      },
+      {
+        "mode": "source-regression",
+        "status": "passed_selected_cases",
+        "exit_code": 0,
+        "elapsed_seconds": 11.422,
+        "source_unchanged": true,
+        "source_file_count": 3021,
+        "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+        "test_results": [
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "receipt": "source-regression-result.json",
+        "receipt_sha256": "f8304547c32af400621a4681ee9c57a1c08d401734936a8f7da09f66bd2c10ce",
+        "log": "source-regression.log",
+        "log_sha256": "0791849a15095af7e425cb9313b7ed9f1a73fca74a342d6e99fd7300bc4d03af"
+      },
+      {
+        "mode": "inspect-regression",
+        "status": "passed_selected_cases",
+        "exit_code": 0,
+        "elapsed_seconds": 11.11,
+        "source_unchanged": true,
+        "source_file_count": 3021,
+        "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+        "test_results": [
+          [
+            6,
+            0,
+            0
+          ]
+        ],
+        "receipt": "inspect-regression-result.json",
+        "receipt_sha256": "641771fc7acecb8baa689d4e4c63d1457e3ec7ce406f9a3f0c56ef67e4ee5e4a",
+        "log": "inspect-regression.log",
+        "log_sha256": "a05cd55b3dacd35f3563a74d6a768fc57db071bfb3bf768f10bdb812115dddee"
+      },
+      {
+        "mode": "build",
+        "status": "passed_compile_only",
+        "exit_code": 0,
+        "elapsed_seconds": 49.313,
+        "source_unchanged": true,
+        "source_file_count": 3021,
+        "source_snapshot_sha256": "c3df828d15d5911c614d5d6e459ffd7afe54c43bb3b579955e2e237b63d91ff1",
+        "test_results": [],
+        "receipt": "build-result.json",
+        "receipt_sha256": "70304ddeebc6475cf2dfd92ed86ccd8414d2aff48408c80c3f1c6e72ac9abd96",
+        "log": "build.log",
+        "log_sha256": "1ba0b4757264a06a4c33ba6bd0acd34987516f28a9825dbef05e6f2382db7010"
+      }
+    ],
+    "initial_public_failure": "public-before-fixture-repair-result.json retained as historical failure: signed-grant replacement fixture asserted predecessor wording, actual duplicate-grant reason; repaired fixture tested on rerun; do not count failed run as a pass.",
+    "initial_public_failure_receipt_sha256": "6e1132e45adda9949957a7daed4516d7150b57d571c2163be6ca4823e5733d29",
+    "source_pins": {
+      "producer_pre_fixture_repair": "03301e0c9d041d332fecec89ca38b43219f4ebe282f2474c0a75ae470476b4e8",
+      "post_fixture_native_suites": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+      "final_build_after_UI_text_repair": "c3df828d15d5911c614d5d6e459ffd7afe54c43bb3b579955e2e237b63d91ff1",
+      "all_receipts_report_source_unchanged_per_their_pin": true
+    },
+    "wasm": {
+      "status": "passed_compile_only",
+      "receipt": "wasm-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 131.578,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "c3df828d15d5911c614d5d6e459ffd7afe54c43bb3b579955e2e237b63d91ff1",
+      "receipt_sha256": "2c4b61d683bc1b2e9b73ebcb43dbc5d8b405f202edef89469d3e669e3a1b5a71",
+      "log_sha256": "274faf7060308cc4c1340033725f644a25a60b47183c76d17362837ae315be8e",
+      "scope": "Actual QualiaDB Core/geospatial/Portal SDK compilation for wasm32; runtime interoperability untested"
+    }
+  },
+  "source_override_history": [
+    {
+      "repair": "ui-keys",
+      "manifest": "repairs/ui-keys/applied-source.json",
+      "receipt_sha256": "b97962013e620ad53d9c65d5a4afbcb92061ff42e0991b1f767fd66dc1bebd33",
+      "targets": 1,
+      "effect": "compiler target-key placement",
+      "applied_before_qualifying_commands": true
+    },
+    {
+      "repair": "history-fixture",
+      "manifest": "repairs/history-fixture/applied-source.json",
+      "receipt_sha256": "140f0465ae8dc8bc8c5e85f43d3ac01436f5683e7889224e238bdcc839ce4331",
+      "targets": 1,
+      "effect": "fixture expectation corrected to reflect actual duplicate-grant outcome",
+      "initial_failure_retained": true
+    },
+    {
+      "repair": "ui-text",
+      "manifest": "repairs/ui-text/applied-source.json",
+      "receipt_sha256": "0b6bb753487f8be3e625b7e2bab9f05704fb0e2e678d7c18883ae301c43c14d4",
+      "targets": 2,
+      "effect": "literal UI text/encoding only",
+      "applied_after_selected_tests": true,
+      "final_native_build_includes_repair": true
+    }
+  ],
+  "public_fixture_repair": {
+    "manifest": "repairs/history-fixture/applied-source.json",
+    "manifest_sha256": null,
+    "target": "C:/github/QualiaDB/crates/qualia-core-db/tests/native_package_review/history.rs",
+    "change_scope": "test fixture expectation only; actual duplicate-grant reason",
+    "rerun": "public-result.json passed 19/19"
+  },
+  "final_verification": {
+    "receipt": "saved-evidence-verification.json",
+    "sha256": "e7554a3cbf92b32d81b2d763389aa905e3564fa4a81818845a4a0d9ad6c8de52",
+    "status": "passed_read_only_reconciliation",
+    "distinct_installed_targets": 70,
+    "all_latest_installed_hashes_match": true,
+    "final_local_source_files": 3021,
+    "latest_local_source_hashes_match": true,
+    "unique_selected_native_tests": 36,
+    "initial_public_failure_retained": true,
+    "preserved_assets_unchanged": 3,
+    "native_binary_launched": false,
+    "FND": "01-06 open",
+    "IP03": "C1-C8 open"
+  },
+  "scoped_completion": "Bounded Round 4 evidence completed; no broader readiness, asset acceptance, or human/GUI qualification implied."
+}

@@ -38,7 +38,7 @@ concept scheme, agency, version) ingested as first-class vocabulary.
 
 | Concept | Binding | Notes |
 |---|---|---|
-| `qb:DataSet` / SDMX dataflow | `stat:DataSet` (subclass) | Identified by `{agencyId, dataflowId, version}` — the version is part of identity |
+| `qb:DataSet` / SDMX dataflow | `stat:DataSet` (subclass) | Identified by `{agencyId, dataflowId, version}` — the version is part of identifiers |
 | `qb:Observation` | `stat:Observation` | Value + dimension key + attributes + unit + vintage marker |
 | `qb:DataStructureDefinition` | `stat:DSD` | Dimension/measure/attribute declarations — ingested as vocabulary, not config |
 | SDMX codelists / concept schemes | `skos:ConceptScheme` + `xkos:` extensions | Codes are concepts in governed schemes (STAT-AX-8) |
@@ -54,7 +54,7 @@ concept scheme, agency, version) ingested as first-class vocabulary.
 | Axiom | Statement | Analogue it rejects |
 |---|---|---|
 | **STAT-AX-1 An observation is an event-context record** | Every observation carries (who measured, when, methodology version, instrument, release vintage). A number without lineage is a claim, not a statistic. | Bare KPI values; "the number" detached from its production |
-| **STAT-AX-2 Statistics are about populations** | Observations attach to populations/areas/cohorts — never to identified individuals. Microdata stays outside the corpus; aggregates only (SOC-AX-8; GOV-SOV-7 for the identity gate). | Person-attached stats; re-identification joins |
+| **STAT-AX-2 Statistics are about populations** | Observations attach to populations/areas/cohorts — never to identified individuals. Microdata stays outside the corpus; aggregates only (SOC-AX-8; GOV-SOV-7 for the identifiers gate). | Person-attached stats; re-identification joins |
 | **STAT-AX-3 Statistical geography is versioned infrastructure** | ASGS editions, electoral redistributions, postcode geographies are `Border` kind-family members (DOM-AX-3); **concordances between editions are lossy proposals** with documented error, never silent re-mapping. | Treating SA2@2016 = SA2@2021; geography as static lookup |
 | **STAT-AX-4 Vintages are first-class** | Revised series keep every released vintage; "as reported at date X" is a queryable state (real-time data). DOM-AX-2 validity intervals apply to *release state* as well as world state. | Latest-only databases that silently rewrite history |
 | **STAT-AX-5 Confidentiality marks are data** | Suppressed/perturbed/confidentialised cells are *statements* — the mark travels with the cell; a suppressed value is never back-filled as an observation. Modelled fills are flagged `modelled` with method provenance. | Missingness treated as absence; silent imputation |

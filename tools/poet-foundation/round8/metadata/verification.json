@@ -1,0 +1,147 @@
+{
+  "candidate": "round8-source-carrier-v2",
+  "manifest_sha256": "b0093cf6960bf2f151bd220d68d97f69d8469e851969de136822c48762a0d66d",
+  "cargo_or_runtime_executed": false,
+  "checks": [
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/authoring/package.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/checkpoints/editor.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/checkpoints/mod.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/checkpoints/resources.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/controller.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/cooperation/editor.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/editor_contract.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/entry.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/package/mod.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 1,
+      "rustfmt_output": "Diff in \\\\?\\C:\\github\\ecopunk\\tools\\poet-foundation\\round8\\metadata\\after\\poet\\native\\src\\graphical\\package\\mod.rs:52:\r\n         &self,\r\n         expected: SourceRef,\r\n         limits: qualia_core_db::poet_host::invoke::studio_store::checkpoint::CheckpointLimits,\r\n-    ) -> Result<Option<qualia_core_db::poet_host::invoke::studio_store::checkpoint::VerifiedSourceCarrier>, String> {\r\n+    ) -> Result<\r\n+        Option<qualia_core_db::poet_host::invoke::studio_store::checkpoint::VerifiedSourceCarrier>,\r\n+        String,\r\n+    > {\r\n         self.inner.retained_surface_carrier(expected, limits)\r\n     }\r\n     fn retained_surface_inputs("
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/session_host.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/shared_host.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/surfaces/resources.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/surfaces/source_carrier.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier_tests.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/carrier.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resource_tests.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    },
+    {
+      "repo": "qualiaDB",
+      "path": "crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resources.rs",
+      "frozen_hashes_valid": true,
+      "rustfmt_check_exit": 0,
+      "rustfmt_output": ""
+    }
+  ]
+}

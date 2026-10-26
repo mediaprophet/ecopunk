@@ -1,0 +1,139 @@
+{
+  "recorded_utc": "2026-10-24T10:54:11.5285312Z",
+  "source_state": "staged exact candidate; canonical sibling source not changed by worker",
+  "compiler": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "target": "x86_64-pc-windows-gnu",
+  "test_scope": "exact candidate Studio source modules and real canonical argument helper, linked to actual cached full-core and Vibe artifacts",
+  "artifact_scope": "cached core freshness against all current source not established; no current whole-core build claimed",
+  "artifacts": [
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib",
+      "sha256": "20032DBA8DD33E75CDBF44C1F2C2122B4718FE5E5D8C8EE12B4554AC37117F8D",
+      "bytes": 319176094
+    },
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libvibe-09a4340642d70c17.rlib",
+      "sha256": "0A379C07E0712B0AF75C5B99F658274A582DB3560822D16A7BA4CE19F1DF43AF",
+      "bytes": 12707354
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/native-3d/harness/journal-tests.exe",
+      "sha256": "5CF9150989497BC0DEB0504076B7E0F280FB4485D648D3A2C6137FE2222B4B33",
+      "bytes": 207687657
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/native-3d/harness/baseline-tests.exe",
+      "sha256": "E2A8AD2E3389AF8E817C221DB2358BB793AF85F9AEE8B70B2DEC735605826ECF",
+      "bytes": 207162354
+    }
+  ],
+  "candidate_mutations": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "original_sha256": "7CEBD4589473740329F4E394663547E69B220ADB15AF72B9ADA0F6E2DDFF8497",
+      "candidate": "candidate/studio_store.rs",
+      "candidate_sha256": "6D1F8E945B352550A9A810330F54DC2758127346B2ABDEC797F1461ECFB49664"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains.rs",
+      "original_sha256": "EB1C9BEC95513BE0CC388C89D178E0E416192EC115FE292491DB3C090D9D88D1",
+      "candidate": "candidate/studio_domains.rs",
+      "candidate_sha256": "F629A7C4885E814A723B33BC8711EF417BDD00CC64FECB4332570C1B765F2CAF"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_journal.rs",
+      "candidate_sha256": "AF24A575F039C7B87E6CB88693B264AED92141DDA3455F30EC4AA19AEB192DA8"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_journal_tests.rs",
+      "candidate_sha256": "DC8F48FA09ADD4B2D84A6B104EBA1D99706F6C2460CE645BFA97B2391185C8C8"
+    }
+  ],
+  "logs": [
+    {
+      "path": "candidate-compile.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "candidate-journal_tests.log",
+      "sha256": "10290E08772E0CE93BC9AC529F92F934D54966822A5E84913F10ACAAA78A8A48"
+    },
+    {
+      "path": "candidate-all-module-tests.log",
+      "sha256": "BAE9DA7C9ADC9EB49E8B5DA2C6B6EBF03105FBB3A95858C30CF234DD8C1A1476"
+    },
+    {
+      "path": "baseline-compile.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "baseline-regression.log",
+      "sha256": "86B33D249E884AC340B37D5503D5EB8788DE038819C1D1AE5FED8FC6D75C9961"
+    },
+    {
+      "path": "baseline-import.log",
+      "sha256": "925E04CE8A30EEFAED7E986E3A021AE7D38E7ABEAC0187B7014D41A1DECDDA3C"
+    }
+  ],
+  "checks": [
+    {
+      "command": "./run-checks.ps1",
+      "status": "passed",
+      "exit_code": 0,
+      "passed": 10,
+      "failed": 0,
+      "log": "candidate-journal_tests.log"
+    },
+    {
+      "command": "harness/journal-tests.exe --nocapture",
+      "status": "failed_preexisting_importer",
+      "exit_code": 101,
+      "passed": 16,
+      "failed": 1,
+      "log": "candidate-all-module-tests.log"
+    },
+    {
+      "command": "./run-checks.ps1 -Baseline -Filter regression",
+      "status": "expected_failure_reproduced_original_undo_defect",
+      "exit_code": 1,
+      "passed": 0,
+      "failed": 1,
+      "log": "baseline-regression.log"
+    },
+    {
+      "command": "harness/baseline-tests.exe test_import_cml_and_csv --nocapture",
+      "status": "preexisting_import_failure_reproduced",
+      "exit_code": 101,
+      "passed": 0,
+      "failed": 1,
+      "log": "baseline-import.log"
+    },
+    {
+      "command": "./verify-or-apply.ps1",
+      "status": "passed_no_writes",
+      "exit_code": 0
+    }
+  ],
+  "original_defect": "Undo left edited source intact and rewound its clock; final candidate restores source with monotonic revision",
+  "remaining_importer_defect": "StudioArtifact::import_format processes CML by lines; inline CML regression does not recover stroke. No importer fix included.",
+  "review_finding_fixed": "Prospective audit label bytes/entry count preflight for edit/undo/redo/configure; exact64-byte regression passed with no changes on refusal and pending redo preserved.",
+  "unrun": [
+    "whole current core build after apply",
+    "native graphical Poet/Aether operation",
+    "real production source-recipe binding",
+    "HMC/export/model production",
+    "contributor/reviewer authorization and review",
+    "durable recovery and all IP-03 C1-C8 acceptance"
+  ],
+  "notes": [
+    "Initial direct-rustc link omitted winapi import search paths. Retained run-checks.ps1 supplies cached winapi/DirectML/native libraries; final compile succeeded.",
+    "No declaration slices, placeholder geometry kernels, JS or separate authoring store used by the harness.",
+    "Generic Studio export/receipt placeholders remain unqualified. Existing parity fields were preserved, not extended or treated as semantic/export/review proof.",
+    "Retained source admission charge is not allocator/process peak measurement; trusted native callback transient allocations are not intercepted.",
+    "Final concurrent expected-revision regression: two native threads released by a shared barrier; exactly one distinct edit accepted, one stale refusal, rejected callback not executed, winning source/history and undo preserved. Local atomic primitive only."
+  ]
+}

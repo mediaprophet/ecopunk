@@ -1,0 +1,29 @@
+{
+  "scope": "733 Round 1–7 historical source/script/manifest snapshots",
+  "initial_helper": "tools/poet-foundation/round8/hygiene/prepare-relocation.ps1",
+  "attempts": [
+    {
+      "name": "initial",
+      "exit_code": 1,
+      "log": "relocation-initial.log",
+      "error": "Path-reference diagnosis changed after source removal; rolling back.",
+      "outcome": "Helper reported all original sources restored/hash verified and staged copies removed. Subsequent full preflight verified all 733 originals."
+    },
+    {
+      "name": "second",
+      "exit_code": 1,
+      "log": "relocation-second.log",
+      "error": "Path-reference diagnosis changed during copy; refusing source removal.",
+      "outcome": "Sources remained; helper reported staged copies removed. Subsequent full preflight verified all 733 originals."
+    },
+    {
+      "name": "deterministic-v2",
+      "exit_code": 0,
+      "helper": "tools/poet-foundation/round8/hygiene/prepare-relocation-v2.ps1",
+      "log": "relocation.log",
+      "outcome": "Two stable read-only reference scans before mutation; all copies verified; exact originals unlinked; matching final reference diagnosis and migration index saved."
+    }
+  ],
+  "diagnosis": "The original helper hashed unsorted ripgrep traversal output. Equivalent reference sets can arrive in different orders. V2 sorts path/line/text ordinally before hashing and checks two stable preflight scans. The supervisor's initial commentary attributing the first refusal solely to concurrent verifier creation was an inference; unstable ordering was subsequently found in source and corrected.",
+  "boundary": "Historical script records retained; no source loss or production-source relocation. No archived script was replayed."
+}

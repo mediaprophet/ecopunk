@@ -1,0 +1,40 @@
+diff --git "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.before-lambda" "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.after-lambda"
+index 6772576..b953707 100644
+--- "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.before-lambda"
++++ "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.after-lambda"
+@@ -140,12 +140,11 @@ pub(crate) fn edit_source(
+     parts: &Value,
+     parameters: Option<&Value>,
+     edit: &AuthoringEdit,
+-    revision: u64,
++    _revision: u64,
+ ) -> Result<String, String> {
+     let Value::List(parts) = parts else {
+         return Err("Missing mutable poet_parts".into());
+     };
+-    let function = format!("poet_edit_{revision}");
+     let (predicate, updates): (String, BTreeMap<&str, String>) = match edit {
+         AuthoringEdit::Parameter { key, value } => {
+             if !identifier(key) {
+@@ -277,19 +276,14 @@ pub(crate) fn edit_source(
+     for key in fields {
+         let expr = updates.get(key).cloned().unwrap_or_else(|| {
+             if key == "parent" {
+-                format!("poet_parent_{revision}(p)")
++                "if p.contains(\"parent\") { p.parent } else { null }".to_string()
+             } else {
+                 format!("p.{key}")
+             }
+         });
+         copied.push(format!("{key}:{expr}"));
+     }
+-    let parent = if has_parent {
+-        format!("fn poet_parent_{revision}(p:Record) {{ if p.contains(\"parent\") {{ return p.parent; }} return null; }}\n")
+-    } else {
+-        String::new()
+-    };
+-    let source = format!("{parent}fn {function}(p:Record) {{ if {predicate} {{ return {{{}}}; }} return p; }}\npoet_parts = poet_parts.map({function});\n({{parts:poet_parts}});",copied.join(","));
++    let source = format!("poet_parts = poet_parts.map(|p| if {predicate} {{ {{{}}} }} else {{ p }});\n({{parts:poet_parts}});", copied.join(","));
+     if source.len() > 8192 {
+         return Err("Authoring edit source exceeds host bound".into());
+     }

@@ -1,0 +1,42 @@
+{
+  "scope": "GLB native bind-rest/default-pose/nonlooping repair and exact BC7 all-mode precision regressions",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/assets/glb_skins_anims.rs",
+      "candidate": "candidate/src/render/assets/glb_skins_anims.rs",
+      "original_sha256": "8000D1319143DCCD691E267A77EAB880CB3A7A6E9AC5BC2A83C24486D110D9A1",
+      "candidate_sha256": "44B5648EC6D533B64C7B3844BA87F2FD072686000F42143AC84863F6E83EA245"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/assets/glb_rigid_skin.rs",
+      "candidate": "candidate/src/render/assets/glb_rigid_skin.rs",
+      "original_sha256": null,
+      "candidate_sha256": "C488C9DB38BFED7AD398948EBA07B32FDFC0C78B04D8584F82CF582D7D0FCEFF"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/assets/glb_rigid_animation.rs",
+      "candidate": "candidate/src/render/assets/glb_rigid_animation.rs",
+      "original_sha256": null,
+      "candidate_sha256": "D7747366181A6C04EE75E2CD6961CADE167BD731B5D0AE9CD067F95F78489260"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/assets/glb_rigid_tests.rs",
+      "candidate": "candidate/src/render/assets/glb_rigid_tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "EBD420D7A2317327862002A3A95CF36C74F665710A52C120803CD370477337DE"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/texture_transcode.rs",
+      "candidate": "candidate/src/render/texture_transcode.rs",
+      "original_sha256": "02FBDCB2BD1DFF0DCC71EA48B726C27535058D717D5804FB4F154F2C46BB7ACF",
+      "candidate_sha256": "7E8ADFD8230504ABE2D22CCC1077DFBF25A343C86D5116728FADD2A2D03506DC"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/texture_bc7_conformance_tests.rs",
+      "candidate": "candidate/src/render/texture_bc7_conformance_tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "3CF26A4C5C2434F011A33312C4953FD292DF484723CAC39AC19EE22A8BAB9415"
+    }
+  ]
+}

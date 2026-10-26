@@ -1,0 +1,25 @@
+{
+  "schema": "ecopunk-round1-source-repair/1",
+  "source": "C:\\github\\ecopunk\\assets\\reference\\community-grounds-growing-station\\master.vibe",
+  "before_sha256": "759b4fa479f228b5ccfb74cd8b49763144c39069d79130fa7bcbebfacd1f15c1",
+  "after_sha256": "5f5edda44959cd146026cd06eb67b0e61ab27de4a11f221cf7b175b0f877d4a3",
+  "changed_lines": [
+    51,
+    99,
+    102,
+    108,
+    109,
+    132,
+    133,
+    142,
+    162
+  ],
+  "change": "Add optional semicolon after each standalone if/for closing brace; lexical expression-path accounting resets at explicit statement boundary",
+  "grammar_evidence": [
+    "C:/github/qualiaDB/crates/vibe/src/parse/stmt.rs:8-21",
+    "C:/github/qualiaDB/crates/vibe/src/parse/mod.rs:221-226"
+  ],
+  "mapping_verification": "Removing exactly the nine added statement delimiter bytes reconstructs the before-source byte-for-byte. All expressions, IDs, part ordering, geometry definitions, loops, materials and transforms unchanged.",
+  "execution_verification": "Not run by agent; parent reruns existing producer executable against source in fresh output directory",
+  "scope": "No admission guard change; no human or model/package acceptance"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "poet-independent-source-review/1",
+  "reviewer": "native_viewport sub-agent",
+  "scope": "Source inspection of 12 source-layers targets plus root staged canonical submit/rebuild validation wiring; no builds or tests executed by reviewer.",
+  "manifest": "source-layers/manifest.json",
+  "manifest_sha256": "1078b783a0c6dd0114189c1a047760b96c5236b66617386d510a7f70cadc5e42",
+  "blocking_findings": [],
+  "resolved_during_review": [
+    "Worker replaced session-capturing map merge with pure functions receiving explicit generated-part/override parameters and literal-key noncapturing find predicates. Core Vibe eval/call.rs supports this find profile.",
+    "Reviewer identified generated-source allocation before final 60 KiB refusal. Worker added precharged source-fragment accounting, schema deduplication and per-record field cap; final budget test inspected."
+  ],
+  "checked": [
+    "Stable local keys are qualified by unchanged semantic_id; membership/base-field removal and unsupported fields refuse rather than silently disappear.",
+    "Material/TRS/parent/opaque override records are retained as exact Vibe values; geometry remains recipe-owned, with UV/atlas/detail/normals held when geometry correspondence changes.",
+    "Explicit legacy migration compares actual existing parts with evaluated recipe base and leaves accepted parts unchanged; existing lineage cannot be replaced through the migration intent.",
+    "Root staged controller.rs and execution.rs snapshot actual preceding session parts/base and invoke validate_result inside canonical SourceSession::submit_validated before source promotion, including each reconstruction cell.",
+    "Validation snapshot walks values iteratively and charges 64 MiB before cloning; generated source precharges a 60 KiB budget before format/join work.",
+    "Positive override, native host undo/rebuild, explicit migration, fresh-process HMC recovery, guard rejection, topology refusal and source-budget cases are supplied as executable tests."
+  ],
+  "remaining_qualification": "Staged source correctness is reviewed, not compiled/executed acceptance. Root must run relevant canonical Vibe/native host/HMC restart tests and reconcile any failure before applying or claiming the capability. Complete model/package and native cooperative authoring acceptance remain open."
+}

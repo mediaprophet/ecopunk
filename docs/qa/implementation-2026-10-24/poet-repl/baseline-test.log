@@ -1,0 +1,24 @@
+   Compiling poet-repl-run03-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 48.44s
+     Running unittests lib.rs (docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\deps\poet_repl_run03_check-bb8bfdb99c7b40c7.exe)
+
+running 1 test
+test repl::tests::failing_host_call_runs_once_in_each_mode ... FAILED
+
+failures:
+
+---- repl::tests::failing_host_call_runs_once_in_each_mode stdout ----
+
+thread 'repl::tests::failing_host_call_runs_once_in_each_mode' (28772) panicked at baseline.rs:145:13:
+assertion `left == right` failed: source: quin.statement(subject: 1, predicate: 2, object: 3, context: 4)
+  left: 2
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    repl::tests::failing_host_call_runs_once_in_each_mode
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.14s
+
+error: test failed, to rerun pass `--lib`

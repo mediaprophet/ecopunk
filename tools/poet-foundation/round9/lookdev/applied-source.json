@@ -1,0 +1,38 @@
+[
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport_provider_tests.rs",
+    "before_sha256": "c674a1a674623c0757bd3511e439b6e5abc6c20fadf2aca788be83fb6c763f39",
+    "after_sha256": "9a6a19b86c4a9c3ee623f6139ca39c08d3259ef162ded4bd5d97356dcfb269d0",
+    "after_lines": 340,
+    "live_matches_before": true,
+    "verified_after_sha256": "9a6a19b86c4a9c3ee623f6139ca39c08d3259ef162ded4bd5d97356dcfb269d0"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport_provider.rs",
+    "before_sha256": "9c526e6b774c3d3227620e3f78f33fcb0af5e3f3361bc6a4eca563561bc39e4c",
+    "after_sha256": "187b42d683694d3298aa9ed7da0ddd0e941fc30dbcad6009d02e058587aec5d6",
+    "after_lines": 284,
+    "live_matches_before": true,
+    "verified_after_sha256": "187b42d683694d3298aa9ed7da0ddd0e941fc30dbcad6009d02e058587aec5d6"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/mod.rs",
+    "before_sha256": "3ae92270ad982d605a4af5f52e16148e1fbb08270532dfd8149961d271016dd5",
+    "after_sha256": "e29b623df98ccad9a8a089f3492d37b580d8dbff49a23f5474605d5c1aefbbe6",
+    "after_lines": 152,
+    "live_matches_before": true,
+    "verified_after_sha256": "e29b623df98ccad9a8a089f3492d37b580d8dbff49a23f5474605d5c1aefbbe6"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/renderer.rs",
+    "before_sha256": "3ca06c6423a042270e0ef65a1398aab0354ca6ae1a1ac3fbd147f3790530e64f",
+    "after_sha256": "2f97ea57e6f23b7fa551c563d6dc359fb154d0a9ef16a09adaa9e914c40e0ded",
+    "after_lines": 482,
+    "live_matches_before": true,
+    "verified_after_sha256": "2f97ea57e6f23b7fa551c563d6dc359fb154d0a9ef16a09adaa9e914c40e0ded"
+  }
+]

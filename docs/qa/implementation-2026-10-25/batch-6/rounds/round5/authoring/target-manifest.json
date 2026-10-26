@@ -1,0 +1,98 @@
+{
+  "status": "staged-uncompiled-unexecuted",
+  "owner": "round5_authoring",
+  "sibling_write_performed": false,
+  "assets": "HOLD; no assets changed",
+  "review_merge_required": true,
+  "target_count": 8,
+  "targets": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "after_sha256": "6377a5178e649abcd0e7ee45f2342cc56c32eee2545ffdb4c7b42d8d0b978896",
+      "target_sha256_at_manifest": null,
+      "bytes": 8949,
+      "lines": 147
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\controls.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\before\\native\\src\\graphical\\authoring\\controls.rs",
+      "before_sha256": "25256d4fe0a9177ca516b46a9006cebf555235bc6701ff011711a39db293c980",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\controls.rs",
+      "after_sha256": "ad48525931e39b65f423cb2ba956c6b402e323da0dc519b795121b6f1add9a7e",
+      "target_sha256_at_manifest": "25256d4fe0a9177ca516b46a9006cebf555235bc6701ff011711a39db293c980",
+      "bytes": 11925,
+      "lines": 197
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\geometry_source.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\geometry_source.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\geometry_source.rs",
+      "after_sha256": "430f6090f6758d5a1b1ce61be7cd723eed3f07e9513fdf0e64eebdf5aa8d8e58",
+      "target_sha256_at_manifest": null,
+      "bytes": 1860,
+      "lines": 33
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\mod.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\before\\native\\src\\graphical\\authoring\\mod.rs",
+      "before_sha256": "1ece08ff3277ebd31db5174f98eda1ce2ba45d29044353655857f0323bd810ff",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\mod.rs",
+      "after_sha256": "46eb9548447b9164474615a3f09588ff357ee8b109be101309d8107acb840df5",
+      "target_sha256_at_manifest": "1ece08ff3277ebd31db5174f98eda1ce2ba45d29044353655857f0323bd810ff",
+      "bytes": 2272,
+      "lines": 76
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\source.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\before\\native\\src\\graphical\\authoring\\source.rs",
+      "before_sha256": "005919ff32f433c995988d74e39be50a3d34540084da1e0fb7a13a8ec933ac72",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\source.rs",
+      "after_sha256": "c9cc4669df00e061b2ffab71cde93ade4de0a94fd74be53744dc13f1927cf0a2",
+      "target_sha256_at_manifest": "005919ff32f433c995988d74e39be50a3d34540084da1e0fb7a13a8ec933ac72",
+      "bytes": 8387,
+      "lines": 203
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\structure_controls.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\structure_controls.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\structure_controls.rs",
+      "after_sha256": "777e459348ab0909e65589b3ebd851d620ad12000c4f9b0d997c1f5f6df0ea36",
+      "target_sha256_at_manifest": null,
+      "bytes": 7237,
+      "lines": 79
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\structure_tests.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\structure_tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\structure_tests.rs",
+      "after_sha256": "afb7e9130d81fc37b9817bace555a454f6279cc835223d41d7641a3a76cbf158",
+      "target_sha256_at_manifest": null,
+      "bytes": 16258,
+      "lines": 240
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\tests.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\tests.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\before\\native\\src\\graphical\\authoring\\tests.rs",
+      "before_sha256": "1ff221a90e712767e8839d3950e23d590779b5b9db23002691fc6f96348a43da",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\tests.rs",
+      "after_sha256": "89697f5331daecf87975c17855ed994fa598b2e560fd12093cdf33a5575dc25c",
+      "target_sha256_at_manifest": "1ff221a90e712767e8839d3950e23d590779b5b9db23002691fc6f96348a43da",
+      "bytes": 11904,
+      "lines": 280
+    }
+  ]
+}

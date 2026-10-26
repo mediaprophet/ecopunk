@@ -1,0 +1,11 @@
+{
+  "schema": "ecopunk-round1-alpha-repair/1",
+  "source": "C:\\github\\ecopunk\\assets\\reference\\community-grounds-growing-station\\master.vibe",
+  "before_sha256": "5f5edda44959cd146026cd06eb67b0e61ab27de4a11f221cf7b175b0f877d4a3",
+  "after_sha256": "a13b63ba90598ca87da0f2da291b0e0b87d04a433e0ab2ab551ae12599a75649",
+  "change": "cg_part parameter material:Record -> surface:Record; exactly two material:material RHS -> material:surface. Public record field material preserved.",
+  "mapping": "Exact inverse alpha rename reproduces previous source. All callers, geometry, part identifiers/order and transforms unchanged.",
+  "canonical_english_keyword_collisions_after": [],
+  "scan_scope": "All recipe let/for bindings and function parameter names; English keywords from canonical locale.rs. No locale declaration in recipe.",
+  "verification": "Static only; parent owns existing executable retry. No grammar or admission edits; no acceptance claim."
+}

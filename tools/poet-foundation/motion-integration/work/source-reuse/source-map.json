@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "purpose": "Source pins and destination mapping for the bounded EffectCraft-to-Poet motion-authoring assessment.",
+  "effectcraft_body_file_count": 3,
+  "effectcraft_body_file_limit": 8,
+  "effectcraft_sources": [
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/keyframe/src/lib.rs",
+      "sha256": "1B9A2F1CAF5B424588286000F1A0D958C29F3073D8BE18C861B48FC5277F7A6C",
+      "lines": 980,
+      "inspected_ranges": ["1-157", "208-224"],
+      "symbols": ["Interp", "Ease", "Keyframe", "KeyHalf", "KeyIcon", "ease_progress"],
+      "source_observation": "Serializes per-side interpolation and per-dimension ease parameters; derives left/right icon-half semantics; includes temporal interpolation math in the same crate module.",
+      "destination": "Poet native timeline/property inspector intent and view model; evaluate via existing qualified Poet/Qualia owner.",
+      "disposition": "Semantics reference only; no code copied. Do not transplant ease_progress as an alternate interpolation solver."
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/keyframe/src/value.rs",
+      "sha256": "E9B8CCBA88EA90C4E7886E9BA0A9B73A5B72D47A52E65A9D26444BB578ABC03E",
+      "lines": 479,
+      "inspected_ranges": ["285-365"],
+      "symbols": ["Value", "components", "dims", "with_components", "interpolates", "lerp", "coerce_json"],
+      "source_observation": "EffectCraft-specific tagged value model includes scalar/vector/color/bool/enum/path/text/layer/gradient/string, coercion and interpolation behavior.",
+      "destination": "Poet typed property/value owner.",
+      "disposition": "Reference only; do not copy type or lerp behavior without a separate typed-value/colour/geometry mapping."
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/time/src/lib.rs",
+      "sha256": "98C3F5591A0589FA4CCCA38DB1D90137E12C4882A18E3112CECFD352B22D2FB6",
+      "lines": 736,
+      "inspected_ranges": ["1-175", "220-245"],
+      "symbols": ["Tick", "TimeRange", "FrameRate", "snap_nearest"],
+      "source_observation": "EffectCraft media-time base, saturating conversions/arithmetic, half-open ranges, rational frame rates and snapping.",
+      "destination": "Poet/Qualia admitted time authority and native timeline adapter.",
+      "disposition": "Not copied. Keyframe.time is this EffectCraft Tick, so current keyframe serialization and evaluation are not independent of this crate."
+    }
+  ],
+  "effectcraft_manifests": [
+    {"path":"C:/github/storytold/effectcraft-main/crates/keyframe/Cargo.toml","sha256":"9C932CA3C785F76337A0AA5A228E00057F4C1D549DF959569C7275E3E912FEB5","declared":"workspace license = MIT OR Apache-2.0","direct_dependencies":["effectcraft-time","effectcraft-geom","effectcraft-color","serde","serde_json"]},
+    {"path":"C:/github/storytold/effectcraft-main/crates/time/Cargo.toml","sha256":"F60ED8272DEA9CD134A8D919CF25F01CE73AE9513AD70D0D68B3E7A80E83E8D3","declared":"workspace license = MIT OR Apache-2.0","direct_dependencies":["serde"]}
+  ],
+  "qualia_sources": [
+    {"path":"C:/github/QualiaDB/crates/vibe/src/animation/curves.rs","sha256":"33B29CA80C9E47A2EBB5C8E7086E20480279C885EBF1E6C684351CE27491F213","lines":390,"inspected_ranges":["1-145"],"finding":"Normalized named easing-curve enum/evaluator exists; it does not define authored tracks, per-key storage, or edit commands.","destination":"Existing Vibe animation curve operator."},
+    {"path":"C:/github/QualiaDB/crates/vibe/src/animation/families/timeline.rs","sha256":"41C6814AF0FEB2A9205A97225778BB85770BD85C9E01BCB92E773288925EBD50","lines":55,"inspected_ranges":["1-55"],"finding":"Three deterministic animation sample presets; no general authored multi-track document model.","destination":"Existing Vibe animation family; not an editor track owner."},
+    {"path":"C:/github/QualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs","sha256":"E04DC49F5E08216057BA56927EF1DCD98046179F658C17F46DD1F7E4E66CB84E","lines":18,"inspected_ranges":["1-18"],"finding":"Encoded-sample straight-RGBA8 source-over with clamped coverage; explicitly not linear-light or ICC-managed.","destination":"Existing QualiaDB image-source-over owner; unrelated to timeline/key interpolation."},
+    {"path":"C:/github/QualiaDB/crates/qualia-core-db/src/render/spectral_operator.rs","sha256":"838401DD08FAF50DF2C32056580A26DE7CC7BFED44EC32788DC46B1C29B9FC77","lines":365,"inspected_ranges":["1-180"],"finding":"Selected public API dispatches spectral colour, gamut, metamer and time-frequency surface operations; do not infer generic keyframe easing or ordinary alpha compositing from it.","destination":"Existing QualiaDB spectral rendering/audio owners."}
+  ],
+  "license_files": [
+    {"path":"C:/github/storytold/effectcraft-main/LICENSE-MIT","sha256":"7B6DB9A363688683FEACDF9B528F059637F2E5D2EDBACD8720FC9B26781C9ABE","copied_to":"notices/LICENSE-MIT","status":"selected declared MIT license option; preserve copyright text"},
+    {"path":"C:/github/storytold/effectcraft-main/NOTICE","sha256":"C7ECB79DB5A35E749C037773C9867D07F6FF598EDCE3D72BD443B4D00F24E0BE","copied_to":"notices/NOTICE","status":"preserve when reusing EffectCraft material; calls out trademarks and third-party attribution material"}
+  ],
+  "copy_status": "No EffectCraft implementation source copied. The notices are included as source-reuse review metadata only.",
+  "status_distinction": {
+    "source_present": "EffectCraft authored key, per-side ease, typed values and exact Tick semantics are source-present in the pinned files.",
+    "native_poet_wired": "Not established by this report; no Poet source changed.",
+    "qualified_execution": "Not performed or claimed."
+  }
+}

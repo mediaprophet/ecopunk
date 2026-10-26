@@ -1,0 +1,11 @@
+
+running 6 tests
+test poet_host::invoke::studio_store::checkpoint::tests::checkpoint_child ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::exact_source_schema_lineage_and_real_10d_roundtrip ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::stale_capture_and_activation_conflict_preserve_accepted_work ... ok
+test poet_host::invoke::studio_store::checkpoint::tests::tamper_truncation_schema_sequence_and_budget_fail_without_promotion ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.93s
+

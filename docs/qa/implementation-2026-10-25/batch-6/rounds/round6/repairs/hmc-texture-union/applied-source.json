@@ -1,0 +1,37 @@
+[
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+    "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+    "before_sha256": "adb13882736ba9a67f306fb73be8b873e0be8859c7d0bdfd2ab448a1be427856",
+    "after_sha256": "99b3d82870057b514820070b74c71ad6dd12efde4582f6203cfbfdf09dd80724",
+    "verified_after_sha256": "99b3d82870057b514820070b74c71ad6dd12efde4582f6203cfbfdf09dd80724"
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+    "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+    "before_sha256": "2f1d9eaeceb7bb2bbe45e5af0b2c26d3c503f500cb3db30feb19ee46e5c0fc05",
+    "after_sha256": "f9eda52c604b7940b5b2b1c088aff1c54680b744d2c7a366d69898f23eb2ee36",
+    "verified_after_sha256": "f9eda52c604b7940b5b2b1c088aff1c54680b744d2c7a366d69898f23eb2ee36"
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs",
+    "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs",
+    "before_sha256": null,
+    "after_sha256": "6990bc0230deb9abaf1fb3b8a1f0279673764dfcadc7b5d116ae770124753481",
+    "verified_after_sha256": "6990bc0230deb9abaf1fb3b8a1f0279673764dfcadc7b5d116ae770124753481"
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/tests/studio_hmc_texture_union.rs",
+    "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/tests/studio_hmc_texture_union.rs",
+    "before_sha256": null,
+    "after_sha256": "97b2ce4d85bbd183133b8a211dfb1b2bfa1126885a0c7698bd094fbe9db798fc",
+    "verified_after_sha256": "97b2ce4d85bbd183133b8a211dfb1b2bfa1126885a0c7698bd094fbe9db798fc"
+  },
+  {
+    "target": "C:/github/poet/native/Cargo.toml",
+    "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/poet/native/Cargo.toml",
+    "before_sha256": "8b864254c62a8ce3384904af6495c7cb4ad375480f5743589b38d934956e1023",
+    "after_sha256": "1050d7d01eb350b38870d281ab0b68ed43166fb9a37c6f6b9da1c0fa60ffa6df",
+    "verified_after_sha256": "1050d7d01eb350b38870d281ab0b68ed43166fb9a37c6f6b9da1c0fa60ffa6df"
+  }
+]

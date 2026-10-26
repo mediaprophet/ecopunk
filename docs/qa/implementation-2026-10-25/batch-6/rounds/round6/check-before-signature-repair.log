@@ -1,0 +1,77 @@
+    Checking vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+    Checking poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+    Checking webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    Checking qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+    Checking poet-cli v0.0.40 (C:\github\poet\native)
+warning: unused import: `preview::PreviewLimits`
+ --> native\src\graphical\surface_host.rs:2:24
+  |
+2 | use crate::graphical::{preview::PreviewLimits, surfaces::TextureResources};
+  |                        ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0061]: this function takes 6 arguments but 5 arguments were supplied
+   --> native\src\graphical\controller_tests.rs:118:21
+    |
+118 |       let candidate = execution::prepare(
+    |  _____________________^^^^^^^^^^^^^^^^^^-
+119 | |         accepted.source.clone(),
+120 | |         &host.host,
+121 | |         &host.factory_limits,
+122 | |         &host.rebuild_limits,
+123 | |         host.preview.as_ref(),
+124 | |     )
+    | |_____- argument #6 of type `std::option::Option<&surfaces::resources::TextureResources>` is missing
+    |
+note: function defined here
+   --> native\src\graphical\execution.rs:64:15
+    |
+ 64 | pub(super) fn prepare(
+    |               ^^^^^^^
+...
+ 70 |     resources: Option<&crate::graphical::surfaces::TextureResources>,
+    |     ----------------------------------------------------------------
+help: provide the argument
+    |
+118 |     let candidate = execution::prepare(
+...
+123 |         host.preview.as_ref(),
+124 ~         /* std::option::Option<&surfaces::resources::TextureResources> */,
+125 ~     )
+    |
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib) generated 2 warnings (run `cargo fix --lib -p poet-cli` to apply 1 suggestion)
+For more information about this error, try `rustc --explain E0061`.
+warning: `poet-cli` (lib test) generated 1 warning (1 duplicate)
+error: could not compile `poet-cli` (lib test) due to 1 previous error; 1 warning emitted
+warning: build failed, waiting for other jobs to finish...

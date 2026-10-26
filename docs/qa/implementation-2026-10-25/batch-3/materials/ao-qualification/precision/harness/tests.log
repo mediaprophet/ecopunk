@@ -1,0 +1,11 @@
+
+running 5 tests
+test depth::tests::ao_log_depth_keeps_background_and_native_camera_endpoints_distinct ... ok
+test depth::tests::ao_log_depth_preserves_subradius_bias_separation_at_reference_distance ... ok
+test depth::tests::ao_log_depth_resolves_near_object_detail_below_one_millimetre ... ok
+test actual_ao_mask_fixture_ray_has_correct_linear_diagnosis_and_log_precision ... ok
+actual_camera_oracle rear_depth=3.874034 front_depth=3.149179 original_codes=18,15 proposed_codes=10796,9698 old_depth_quantum=0.22888882
+test depth::tests::ao_log_depth_roundtrip_has_bounded_relative_error_through_fifteen_kilometres ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

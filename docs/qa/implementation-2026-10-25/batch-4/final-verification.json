@@ -1,0 +1,64 @@
+{
+  "checked_utc": "2026-10-24T21:46:38.935445+00:00",
+  "source_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-4\\source-snapshots\\130ad0c42d5e10e607f649ede387c1450b8d696495debaeb1d6f5ef51983ec9f.json",
+    "sha256": "130ad0c42d5e10e607f649ede387c1450b8d696495debaeb1d6f5ef51983ec9f"
+  },
+  "source_inputs_verified": 127,
+  "reviewed_inputs_verified": 51,
+  "receipts": [
+    {
+      "path": "core-final.json",
+      "sha256": "ead29ffd926d661cac99db52d1541f3d1b628c84f688c80e738e1347b7ded367",
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    {
+      "path": "native-final.json",
+      "sha256": "bf04fe2bbde162c530e6d7a1f3bfe88b6313dd61f34ba88574a6f7f73d48605e",
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    {
+      "path": "library-final.json",
+      "sha256": "85e20e7475b5f3379067cc1c609c61d9e01b16a5d6e6ee8bafc77075a029ad1d",
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    {
+      "path": "wasm-final.json",
+      "sha256": "dcc595f5c42228d49305d0fe5cc1a673e2e7e4300bebae924afb666ca446e250",
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    {
+      "path": "gpu-final.json",
+      "sha256": "5a75bcf70ef2bd4480b2a507419822d6368d2adb929b0a00246f1a554ad857ce",
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    {
+      "path": "native-check-corrected.json",
+      "sha256": "42e9537a026d6e2c4218f73bd6af55240e093577ee5ebcc58f41593cb4a11234",
+      "exit_code": 0,
+      "source_unchanged": true
+    }
+  ],
+  "cli_artifact": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet-batch4-130ad0c42d5e.exe",
+    "sha256": "90f9f267d917e5bb1b8d2be2f3c1b245dea6346a70cd25740c258095f99b58d9",
+    "bytes": 319854781,
+    "main_sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b",
+    "poet_rlib_sha256": "b2e7ad68f6d6e378b14bb374f663609a29cd57dd53cbaae0254b9134d3037aae",
+    "vibe_rlib_sha256": "0b1821db2038666811458715fa37c138e91863b6c3c1598bd7e76761b986daa0",
+    "actual_source_entry": "C:\\github\\poet\\native\\src\\main.rs",
+    "cargo_bin_build": false,
+    "running_user_executable_untouched": true,
+    "gui_launch_requested": false
+  },
+  "all_owned_commands_exited": true,
+  "live_builds": 0,
+  "production_packets_open": 120,
+  "starter_milestones": 0,
+  "human_acceptance_claimed": false
+}

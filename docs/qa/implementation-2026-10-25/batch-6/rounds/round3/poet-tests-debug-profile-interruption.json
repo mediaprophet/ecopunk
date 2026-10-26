@@ -1,0 +1,9 @@
+{
+  "status": "interrupted_by_supervisor",
+  "passed": false,
+  "reason": "Default Poet debug profile caused redundant dependency compilation; stopped before tests and retried with the SDK debug=0/incremental=false profile.",
+  "log": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\poet-tests-debug-profile-interrupted.log",
+  "log_sha256": "b8456076b40b89bd89479835f0c72a8331cf73f594e404196d0adfa0a8bffd39",
+  "interrupted_utc": "2026-10-25T04:55:26.347351+00:00",
+  "cost": "Partial local dependency compilation; per-task tokens/provider cost unavailable."
+}

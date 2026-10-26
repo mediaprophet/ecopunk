@@ -1,0 +1,52 @@
+{
+  "lane": "gpu-qualification-component",
+  "status": "staged-unrun",
+  "owner": "recovery worker, gpt-6-sol high; previous gpt-6.1-sol capacity interruption",
+  "contract": "tools/poet-foundation/texture-effects/GPU-QUALIFICATION.md",
+  "canonical_root": "C:/github/poet",
+  "files": [
+    {
+      "path": "native/src/graphical/authoring/texture_effect_component_tests.rs",
+      "canonical": "C:/github/poet/native/src/graphical/authoring/texture_effect_component_tests.rs",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/gpu-qualification/component/native/src/graphical/authoring/texture_effect_component_tests.rs",
+      "new_file": true,
+      "preimage_sha256": null,
+      "staged_sha256": "01DB0BA1166E85F923B6AF8C598FCCC7A4C0C823F1F6D88FADFAE08747913E8C"
+    }
+  ],
+  "module_registration_required": "Root registers a cfg(test) child module in native/src/graphical/authoring/detail_controls.rs; use super::* accesses DetailControls and its existing private helpers.",
+  "test_selector": "texture_effect_component_",
+  "tests_authored": 3,
+  "interaction_scope": [
+    "Real DetailControls is mounted in the existing Aether/Dioxus VirtualDom and its mutation stream is retained only to locate actual buttons and fields after each diff.",
+    "A test-only HtmlEventConverter dispatches concrete FormData and MouseData through Runtime::handle_event; no renderer, form-model replacement, JS DOM, native window or new dependency is introduced.",
+    "Load accepted version 1 paint, add ordered effects, switch to sepia, edit intensity, disable and reorder, then assert the Apply callback emits version 2 while retaining imported base, side, layers and strokes.",
+    "Invalid visible sepia, layer opacity and stroke size text is retained by the rendered component and blocks emission of old values.",
+    "Accepted source or context changes retain the local draft, disable Apply and block a forced event until explicit reload; reload takes the new accepted source."
+  ],
+  "source_inspection": [
+    {"path": "C:/github/poet/native/src/graphical/authoring/detail_controls.rs", "scope": "Full component source, including load, effects, invalid fields, Apply and existing helper tests", "sha256": "BE70AD2B39BA7EF633B3E269A49B08614D22E9F1F731741D8EBBF3B0F11551D7"},
+    {"path": "C:/github/rust-app-framework/packages/core/src/virtual_dom.rs", "scope": "VirtualDom new_with_props, mark_dirty, rebuild_to_vec, render_immediate_to_vec and public handle_event signatures", "sha256": "D5D6D56A67445FDE87873E3DE32F26FB945D1B8129AB453553DC857DCC81FBD4"},
+    {"path": "C:/github/rust-app-framework/packages/core/src/mutations.rs", "scope": "Mutation variants and retained stack contract", "sha256": "373765C9EA1B6CAD6832A0E3290A2C264685F03AD473E0C89ED9A030BC35D81D"},
+    {"path": "C:/github/rust-app-framework/packages/core/src/runtime.rs", "scope": "Runtime::handle_event and event target path", "sha256": "057E5D1DFA7D042B34B4003F7DB26DA35478E557DC9CCD14F0BFE81C08734FDE"},
+    {"path": "C:/github/rust-app-framework/packages/html/src/events/generated.rs", "scope": "with_html_event_groups and HtmlEventConverter trait signatures", "sha256": "792EA30A04EC6AA8F6FE694957F826E2DA9F327356DE56251F19317F03799EDA"},
+    {"path": "C:/github/rust-app-framework/packages/html/src/events/mod.rs", "scope": "PlatformEventData and global converter registration", "sha256": "F8EDC21FF42AC86D5810B539883AF2B84BD4EB2E0EE362BAAC8D212F9B114E6E"},
+    {"path": "C:/github/rust-app-framework/packages/html/src/events/form.rs", "scope": "FormData/HasFormData value and checked conversion", "sha256": "7D8F1305BD3DAF2E69EB0505D59613245529834D60EDE448BF3FCBC46BFB197F"},
+    {"path": "C:/github/rust-app-framework/packages/html/src/events/mouse.rs", "scope": "Narrow additional read of MouseData constructor and HasMouseData contract; serialized payload remains unavailable without html serialize", "sha256": "1B115891403461040EBC90219E5CE20C5ED9971FEF92BB61C4C25BFD77C21253"}
+  ],
+  "checks_executed": [
+    "Read-only source inspection and staged SHA-256.",
+    "rustfmt --edition 2021 on the staged new file: exit 0 (format/syntax only).",
+    "No Cargo, tests, build, native window, provider, production asset or human acceptance run by this worker."
+  ],
+  "integration_actions": [
+    "Root reviews the staged new file and confirms canonical destination has no preimage before installation.",
+    "Root registers #[cfg(test)] child module from detail_controls.rs and runs texture_effect_component_ tests in its serial native Cargo check window.",
+    "If a component interaction fails, root owns any demonstrated production-path fix and targeted rerun."
+  ],
+  "remaining": [
+    "Type checking and actual test results are pending root's serial Cargo execution.",
+    "This programmatic component gate cannot establish current-window layout, accessibility or human acceptance.",
+    "Asset production remains HOLD; no model or package completion is claimed."
+  ]
+}

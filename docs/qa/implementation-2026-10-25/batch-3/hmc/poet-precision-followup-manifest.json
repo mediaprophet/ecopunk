@@ -1,0 +1,12 @@
+{
+  "scope": "Test oracle separates exact raw master replay from native u16 AABB QuantizedMesh derivative error bound",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/restart_tests.rs",
+      "original_sha256": "861DC4D1711F8F2018DB66AF0BE0BC21991A7F8E36A6652848E0610D8B5A3FD6",
+      "candidate": "poet-precision-candidate/checkpoints/restart_tests.rs",
+      "candidate_sha256": "74FA2D305F44AA09BDED396891F4B6BE3AC4AB4676C3573BCFAC5278D624B3C1"
+    }
+  ]
+}

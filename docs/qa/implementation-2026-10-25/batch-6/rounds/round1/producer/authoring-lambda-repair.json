@@ -1,0 +1,18 @@
+{
+  "schema": "ecopunk-round1-authoring-lambda-repair/1",
+  "files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "before_sha256": "71bca64597ef0282475cfb5c124135f5e7a919496061268887724a47ca4f75d3",
+      "after_sha256": "005919ff32f433c995988d74e39be50a3d34540084da1e0fb7a13a8ec933ac72"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\tests.rs",
+      "before_sha256": "fb1b97a24cbea9081a92d1dbd3e5a5b3f77e9fc578a9fa18657bf5611f5d6e75",
+      "after_sha256": "1ff221a90e712767e8839d3950e23d590779b5b9db23002691fc6f96348a43da"
+    }
+  ],
+  "change": "Use existing noncapturing lambda with inline conditional updated-record/original-part. Inline optional-parent conditional preserves missing/null/explicit parent semantics. Remove named helper generation; keep API revision argument as _revision.",
+  "tests": "Regression parses, prepares and executes all three generated edits; checks source revisions, returned parts, integer parameters, expected transforms/materials, geometry identity and optional/explicit parents. Existing host stale/rebuild/HMC tests retained.",
+  "verification": "Saved only. Parent runs escalated focused native tests and build/retry. No canonical parser/checker/evaluator changes or guard increases."
+}

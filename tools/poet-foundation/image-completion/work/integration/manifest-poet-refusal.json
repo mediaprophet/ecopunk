@@ -1,0 +1,14 @@
+{
+  "scope": "Repair refusal fixture to explicitly prove native/MCP missing-resource holds and authorized rebuild before context reuse; previously passed positive workflow unchanged",
+  "positive_fixture_prefix_sha256": "de2b154d979df8fffabd5b2cbc6be7553db99b2cbfaa2378bbad87d5f1e4ced7",
+  "files": [
+    {
+      "repo": "poet",
+      "path": "native/src/graphical/native_project_image_completed_tests.rs",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\image-completion\\work\\integration\\poet\\native\\src\\graphical\\native_project_image_completed_tests.rs",
+      "destination": "C:\\github\\poet\\native\\src\\graphical\\native_project_image_completed_tests.rs",
+      "before": "23df94c11d96c6103b80cd609b34fa14c2ffc1fce29c076905dcd1e1684a65f0",
+      "after": "8ca3ad4b848cd306fda2d99df3f8c0bb4305b2fa2e0dcdeb6f1567bf7b0e13f7"
+    }
+  ]
+}

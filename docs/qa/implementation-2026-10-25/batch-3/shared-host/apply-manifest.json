@@ -1,0 +1,18 @@
+{
+  "scope": "Shared raw canonical editor/session between separately authorized UI and MCP",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/shared_host.rs",
+      "original_sha256": null,
+      "candidate": "candidate/graphical/shared_host.rs",
+      "candidate_sha256": "232C419395907A64BE0FC252D969DFC5E8982B7A34B26FC92EDB6653EF96C7F1"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/shared_host_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/graphical/shared_host_tests.rs",
+      "candidate_sha256": "DCA95488D7B110A65563FC6D174963326FF40E16B7960642AC672DAB8A01DBDA"
+    }
+  ]
+}

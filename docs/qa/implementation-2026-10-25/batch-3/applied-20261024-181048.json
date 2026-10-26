@@ -1,0 +1,33 @@
+{
+  "applied_utc": "2026-10-24T18:10:48.6688029Z",
+  "manifests": [
+    "shared-host/apply-manifest.json",
+    "shared-routing/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\shared-host\\candidate\\graphical\\shared_host.rs",
+      "sha256": "232C419395907A64BE0FC252D969DFC5E8982B7A34B26FC92EDB6653EF96C7F1",
+      "original_sha256": null
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\shared-host\\candidate\\graphical\\shared_host_tests.rs",
+      "sha256": "DCA95488D7B110A65563FC6D174963326FF40E16B7960642AC672DAB8A01DBDA",
+      "original_sha256": null
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\shared-routing\\candidate\\src\\graphical\\mod.rs",
+      "sha256": "5abb47c60ae98da60f335ee49ba846a7d64a02bee7d43285ba44332d624cccab",
+      "original_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\shared-routing\\candidate\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "fc138a69d841d1d7bc17773ae9ce3d85a6ce0e4f17aabdf6210a41e3c23f7144",
+      "original_sha256": "3a3f5300ae06515da0d0add5f7ccae5adeb5e8c2fc70d166e9c4deb2e7af890d"
+    }
+  ]
+}

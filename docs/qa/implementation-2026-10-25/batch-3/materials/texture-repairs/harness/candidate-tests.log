@@ -1,0 +1,16 @@
+
+running 11 tests
+test render::assets::glb_skins_anims::rigid_tests::authored_nonidentity_inverse_binds_remain_native_bind_data ... ok
+test render::assets::glb_skins_anims::rigid_tests::default_posed_skin_without_animation_stays_visible_as_authored ... ok
+test render::assets::glb_skins_anims::rigid_tests::malformed_weight_hierarchy_and_animation_ranges_are_rejected ... ok
+test render::assets::glb_skins_anims::rigid_tests::posed_gltf_preserves_inverse_bind_data_default_root_and_nonlooping_motion ... ok
+test render::assets::glb_skins_anims::rigid_tests::unordered_source_joint_indices_are_remapped_without_changing_deformation ... ok
+test render::assets::glb_skins_anims::rigid_tests::unsupported_interpolation_and_nonrigid_binds_fail_instead_of_silent_section_loss ... ok
+test render::texture_transcode::tests::bc7_all_modes_decode_deterministically_without_fallback ... ok
+test render::texture_transcode::tests::bc7_dual_index_selection_and_component_rotation_are_exact ... ok
+test render::texture_transcode::tests::bc7_mode6_four_bit_interpolation_and_fixup_are_exact ... ok
+test render::texture_transcode::tests::bc7_partition_zero_and_pbits_preserve_exact_subset_colors ... ok
+test render::texture_transcode::tests::etc2_eac_and_astc_4x4_void_extent_decode_correctly ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s
+

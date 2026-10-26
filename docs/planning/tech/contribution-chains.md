@@ -71,6 +71,19 @@ system's refusal to over-claim it*.
 
 ## 4. Obligation-cost wiring (the economics)
 
+Timothy's 24 October clarification requires origin/author/work/derivation and
+actual compensation records to survive institutional adoption. Keep people-led
+**civics**, government **civic** capacity and paid/unpaid status distinct. Use
+the existing project/commons pool for qualifying commercial cost recovery until
+discharge; an applicable human-rights no-charge use does not erase ancestry or
+credit an unpaid contribution as settled. See
+[REQ-CIVICS-001–005](high-grade-production-and-civics-experience.md).
+
+[AGR-01–11](semantic-agreements-and-compensation.md) map these chains to the
+existing framework/licence/instrument/token sources. Preserve separate work,
+claim, valuation, adopted terms, technical entitlement and verified settlement
+records through SDGs projects and master/derivative production.
+
 Each contribution kind is a `Contribution` record in the author chain
 (`projects.rs`); derivation edges (`wasDerivedFrom`) define the royalty tree:
 

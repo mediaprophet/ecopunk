@@ -1,0 +1,415 @@
+{
+  "round": "round7",
+  "as_of": "2026-10-26",
+  "status": "complete_scoped",
+  "source_state": {
+    "applied_source_receipt": "applied-source.json",
+    "install_manifest": "install-manifest.json",
+    "install_manifest_sha256": "87c893608a76cda2c1abb38bc6484a58a3ea63c0820d415a720282867b7f2605",
+    "manifest_entry_count": 58,
+    "latest_saved_hash_verification": "all 58 latest target hashes match; reported by supervisor",
+    "qualification_boundary": "saved source verification is not compilation, test execution, native GUI acceptance, human review, WASM runtime, or production acceptance"
+  },
+  "review_and_domain_sources": [
+    {
+      "path": "uv/HANDOFF.md",
+      "claim_scope": "UV atlas canonical operator and Poet adapter contract; staged domain code and tests were not applied/executed by that handoff",
+      "key_limits": ["bounded harmonic disk and explicit seam cuts only", "simple single-boundary charts; closed/hole/malformed charts refuse", "deterministic shelf pack may refuse feasible layouts", "no automatic seam selection or conformal optimum", "source metres before assembly TRS", "solver cancellation latency includes one chart solve"]
+    },
+    {
+      "path": "uv/review/root-integration-review.md",
+      "claim_scope": "Freeze 2 root integration source review; no blocking source finding remains in assigned UV/root integration scope",
+      "manifest_sha256": "87c893608a76cda2c1abb38bc6484a58a3ea63c0820d415a720282867b7f2605",
+      "key_limits": ["reviewed source pins are not compilation or test execution", "full execution and human acceptance remain open"]
+    },
+    {
+      "path": "detail/HANDOFF.md",
+      "claim_scope": "Editable texture/detail paint and procedural recipe contract; domain tests authored but unrun in handoff",
+      "key_limits": ["paint input exact extent with explicit sRGB interpretation", "no implicit resize, 3D painting, blend/mask support, path interpolation, or linear-light claim", "procedural outputs are colour/tangent-normal/ORM maps", "recipe witness grants no authority"]
+    },
+    {
+      "path": "detail/review/root-resources-review.md",
+      "claim_scope": "Freeze 2 source review for resource/dependency closure and selected inspection admission",
+      "manifest_sha256": "87c893608a76cda2c1abb38bc6484a58a3ea63c0820d415a720282867b7f2605",
+      "key_limits": ["source-entry metadata Some explicitly refuses preserve-or-fail; FND-04 remains open", "bounded budget estimates are not instrumented whole-workload measurements", "tests, GPU, workflow and human acceptance were unrun by reviewer"]
+    },
+    {
+      "path": "detail/retention-repair/HANDOFF.md",
+      "claim_scope": "Two-file compiler-input retention repair candidate; Rustfmt passed, not compiled or executed",
+      "key_limits": ["retains non-source ResourceData metadata exactly within bounded route", "native-source entry with metadata Some explicitly refuses", "root owns integrated workflow and consumer regressions"]
+    },
+    {
+      "path": "inventory/native-poet-uv-texture-detail-inventory.md",
+      "claim_scope": "Bounded Round 7 source inventory; source presence only"
+    }
+  ],
+  "run_check": {
+    "script": "run_check.py",
+    "modes_expected": ["authoring", "surfaces", "wire", "detail", "atlas", "integration", "uvkernel", "image", "workflow", "legacyworkflow", "jobs", "intents", "inspection", "hmctextures", "gpu", "check", "build", "wasm"],
+    "expected_test_selections": 15,
+    "expected_non_test_commands": 3,
+    "receipt_rule": "Count only actual per-mode *-result.json plus logs and recorded case names; no earlier-round passes count toward Round 7.",
+    "current_observation": "The first check failed on three test tuple-field errors; after the reviewed tuple repair was applied, the check rerun passed. All selected runtime test modes remain UNRUN; no passing test receipt exists yet.",
+    "check_failure": {
+      "result": "check-result.json",
+      "exit_code": 101,
+      "elapsed_seconds": 672.984,
+      "diagnosis": "compiled_assets returns Vec<(key, CompiledAsset)>; two root test files accessed .mesh or .texture_dependencies directly on the tuple",
+      "recorded_source_files": 3245,
+      "source_unchanged": true,
+      "earlier_retained_failure": "check-before-tuple-repair-result.json and matching source/log receipts"
+    },
+    "check_rerun": {
+      "result": "check-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 77.781,
+      "recorded_source_files": 3245,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+      "log_sha256": "58a9eaec01f9cd9833c844902d4964712a7937ccd73073c00e9f90254dc168a5",
+      "outcome": "cargo check --lib --tests passed after tuple repair; compile/check evidence only, no test body executed"
+    },
+    "completed_test_receipts": [
+      {
+        "mode": "uvkernel",
+        "result": "uvkernel-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 877.328,
+        "test_results": [10, 0, 0],
+        "case_count": 10,
+        "unique_cases": 10,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+        "log_sha256": "1fe6b61bc7a64a117d0e383000013a3618906f6a56bdf7614964b5c8f9aa5d87"
+      },
+      {
+        "mode": "image",
+        "result": "image-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 50.0,
+        "test_results": [4, 0, 0],
+        "case_count": 4,
+        "unique_cases": 4,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+        "log_sha256": "54b48155632506d881d55502e15c3179d9979edc6cf8b78c73e29f73cdca0623"
+      },
+      {
+        "mode": "gpu",
+        "result": "gpu-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 22.812,
+        "test_results": [1, 0, 0],
+        "case_count": 1,
+        "unique_cases": 1,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+        "log_sha256": "32aa9bee2254d3ea55931c4971a50307334a08a54ce3aae1689cb4a8ef9982ab",
+        "pixel_observations": {
+          "paint_pixels_changed": 2304,
+          "procedural_pixels_changed": 2304,
+          "retained_calibration_pngs": 3,
+          "root_visual_observation": "three calibration images viewed with visible blue, red, and green results",
+          "qualification_boundary": "synthetic calibration only; no production asset or human acceptance claim"
+        }
+      },
+      {
+        "mode": "authoring",
+        "result": "authoring-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 62.062,
+        "test_results": [30, 0, 0],
+        "case_count": 30,
+        "unique_cases": 30,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "ddec31ae8a0957b25078f783d3ca99e1afa6d8b9c310ad8c917119e19f7fabeb",
+        "repair_rerun": "The previously failing authoring case passed unchanged after the source-compatible UV edit preflight repair; no assertion weakening."
+      },
+      {
+        "mode": "detail",
+        "result": "detail-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 17.703,
+        "test_results": [6, 0, 0],
+        "case_count": 6,
+        "unique_cases": 6,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "f54f7e5359ce1edf1b1439e2da9b7752c41c8fb3ea9821d2250f3331d198df88"
+      },
+      {
+        "mode": "atlas",
+        "result": "atlas-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 16.625,
+        "test_results": [3, 0, 0],
+        "case_count": 3,
+        "unique_cases": 3,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "6713eae16b9c4627d73bffcaf1e6692b9300d37260e495e5c76259113c134e5f"
+      },
+      {
+        "mode": "integration",
+        "result": "integration-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 15.078,
+        "test_results": [4, 0, 0],
+        "case_count": 4,
+        "unique_cases": 4,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "df0a09b59f95b0b055471dc19a1153e3c2e8f43aa68510a5b0e3bb7355562a8a"
+      },
+      {
+        "mode": "surfaces",
+        "result": "surfaces-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 14.375,
+        "test_results": [6, 0, 0],
+        "case_count": 6,
+        "unique_cases": 6,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "7a28ccb7fdbfdde2b15abdf99eebf2b6a1886694c1c19b015aa02f7fc3ee2b07"
+      },
+      {
+        "mode": "wire",
+        "result": "wire-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 14.547,
+        "test_results": [1, 0, 0],
+        "case_count": 1,
+        "unique_cases": 1,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "2239c0772961a3a40e3978569decfbbb42063c3b1c129232199c1a4f5881af15"
+      },
+      {
+        "mode": "workflow",
+        "result": "workflow-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 18.438,
+        "test_results": [1, 0, 0],
+        "case_count": 1,
+        "unique_cases": 1,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "f8f933deed0d0e7476d88c4a18b9d56cf686bb179d7c32db4756dcd10e380320",
+        "observed_behavior": "Fresh native project import/bind/save retained original PNG metadata, derived maps, canonical UV01, and source through review/reopen as reported by supervisor."
+      },
+      {
+        "mode": "legacyworkflow",
+        "result": "legacyworkflow-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 18.125,
+        "test_results": [1, 0, 0],
+        "case_count": 1,
+        "unique_cases": 1,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "237c1baee5445e19468e402a3762da0268ce9fe2bd8985be07442cc4f670856d"
+      },
+      {
+        "mode": "hmctextures",
+        "result": "hmctextures-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 77.234,
+        "test_results": [6, 0, 0],
+        "case_count": 6,
+        "unique_cases": 6,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "6b9d8b17a981df5217ad6a204b1dec263dc64e90a50994ba545e5babc16e7a14"
+      },
+      {
+        "mode": "jobs",
+        "result": "jobs-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 14.531,
+        "test_results": [15, 0, 0],
+        "case_count": 15,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "1e260e25b852e62fcfa83d4cc753118e643d0c5c74c877166fc73a798b9fe339"
+      },
+      {
+        "mode": "intents",
+        "result": "intents-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 16.89,
+        "test_results": [5, 0, 0],
+        "case_count": 5,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "e9f4bab2e9a75dfe41b52569f0b5d440958031dd50153cf25af008939d668443"
+      },
+      {
+        "mode": "inspection",
+        "result": "inspection-result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 20.25,
+        "test_results": [10, 0, 0],
+        "case_count": 10,
+        "source_unchanged": true,
+        "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+        "log_sha256": "3a9bd72892b402452e96dff4de0cf6488aef6b715b57dc2611e3c4ae9b193eb9"
+      }
+    ],
+    "failed_test_receipts": [
+      {
+        "mode": "authoring",
+        "result": "authoring-result.json",
+        "exit_code": 101,
+        "elapsed_seconds": 114.531,
+        "test_results": [29, 1, 0],
+        "parsed_passed_case_names": 29,
+        "selection_passed": false,
+        "historical_status": "repaired by unchanged passing authoring-result.json; retain as historical failure, not current failure",
+        "failure": "graphical::authoring::atlas_detail_tests::atlas_source_edits_restore_original_geometry_and_refuse_conflicting_projection_atomically",
+        "source_unchanged": true,
+        "source_snapshot_sha256": "03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8",
+        "log_sha256": "d73a30d45d7cd0a9dfb58953574d26d24686df8119a41124f2302cc04a26f026",
+        "counting_rule": "The 29 passing cases belong to a failed pre-repair test selection and are excluded from passing counts. The same 30-case selection passed after repair with assertions unchanged."
+      }
+    ],
+    "completed_test_summary": {
+      "executions_in_fully_passing_selections": 103,
+      "unique_passed_cases": 98,
+      "failures": 0,
+      "ignored": 0,
+      "completed_test_selections": 15,
+      "historical_failed_test_selections": 1,
+      "historical_failed_selections_repaired": 1,
+      "unrun_test_selections": 0,
+      "authoring_rerun_pending": false,
+      "additional_partial_pass_executions_in_failed_selection": 29,
+      "source_unchanged_for_completed_test_receipts": true,
+      "duplicate_case_executions": 5,
+      "duplicate_breakdown": {
+        "inspection_repeats_jobs": 3,
+        "inspection_repeats_authoring": 1,
+        "inspection_repeats_integration": 1
+      }
+    },
+    "native_build": {
+      "result": "build-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 15.219,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+      "log_sha256": "1b46739d7dd576100874a4d0f72d9717f442ebbaf6b6ed2a74609eb2ec1efa25"
+    },
+    "wasm": {
+      "result": "wasm-result.json",
+      "exit_code": 0,
+      "elapsed_seconds": 148.562,
+      "recorded_source_files": 3245,
+      "source_unchanged": true,
+      "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+      "log_sha256": "6d54611afb665b76dfcd8232470e93178435cf62be3da4e6eb641926fa105156",
+      "scope": "actual Core/geospatial/Portal compilation; runtime untested"
+    },
+    "authoring_repair": {
+      "historical_pre_repair": "authoring-before-uv-edit-preflight-result.json and matching source/log receipt; preserved",
+      "staged_manifest": "repairs/uv-edit-preflight/install-manifest.json",
+      "manifest_sha256": "3622b3eb0ee7f459575a0a23c06eff2a8cf8bd90cd3048d50670e5bdd3dc4419",
+      "status": "source-reviewed, applied with verified receipt, and authoring rerun passed",
+      "application_receipt": "repairs/uv-edit-preflight/applied-source.json",
+      "repair_order": "repair-order.json",
+      "root_requested_compatibility": "source-compatible removal of atlas after an invalid UV projection without leaving an error session held"
+    },
+    "runner_state": {
+      "cpu_sequence": "All 15 selected test modes passed and native binary build passed; WASM compilation is currently active",
+      "wasm": "COMPILING; no completion receipt/result recorded yet",
+      "gpu": "PASSED against frozen pre-repair snapshot 03eaed8431add2f9c98ad902da92892b9bf4bc9040817e9545b691aabe497ce8; synthetic calibration only"
+    },
+    "final_verification": {
+      "receipt": "saved-evidence-verification.json",
+      "sha256": "8bc67eb2f44167b303cfb06bbfa4414bca43ba770de94f27dbae5371c67c62b0",
+      "status": "passed",
+      "kind": "read_only_final_reconciliation",
+      "distinct_installed_targets": 58,
+      "all_latest_installed_hashes_match": true,
+      "successful_commands": 18,
+      "passing_case_executions": 103,
+      "unique_native_cases": 98,
+      "duplicate_executions": 5,
+      "local_source_pin_files": 3245,
+      "all_latest_local_source_hashes_match": true,
+      "historical_failed_runs_retained": 2,
+      "gpu_calibration_pngs": 3,
+      "native_pixel_changes": {"paint": 2304, "procedural": 2304},
+      "native_binary_sha256": "f52aee7e3ab531208ca0f71bcacc85f3d5dcf81bb3266ec638478605b155ef6a",
+      "reference_master_unchanged": true
+    },
+    "mechanical_repair_review": {
+      "manifest": "repairs/tuple-repair/install-manifest.json",
+      "manifest_sha256": "8f2ed95e9b21be8d8f01dfbd5c04ba4004f1e7c37bc806ba00c73b8f3dedba4c",
+      "review": "Approved mechanically: the two staged files add .1 to access CompiledAsset, matching the actual trait return type; assertions and surrounding logic are unchanged.",
+      "repair_status": "applied with verified receipt; check rerun passed",
+      "application_receipt": "repairs/tuple-repair/applied-source.json",
+      "repair_order": "repair-order.json"
+    },
+    "targeted_case_overlap": "Report unique cases separately from execution count using actual passed_case_names; explicitly identify duplicates by test name."
+  },
+  "evidence_files": [
+    "applied-source.json",
+    "install-manifest.json",
+    "check-source-before.json",
+    "check.log",
+    "check-result.json",
+    "uvkernel-result.json",
+    "uvkernel.log",
+    "uvkernel-source-before.json",
+    "image-result.json",
+    "image.log",
+    "image-source-before.json",
+    "authoring-result.json",
+    "authoring.log",
+    "authoring-source-before.json",
+    "authoring-before-uv-edit-preflight-result.json",
+    "authoring-before-uv-edit-preflight-result.json",
+    "repairs/uv-edit-preflight/install-manifest.json",
+    "repairs/uv-edit-preflight/applied-source.json",
+    "gpu-result.json",
+    "gpu.log",
+    "gpu-source-before.json",
+    "gpu-calibration/atlas-painted.png",
+    "gpu-calibration/atlas-procedural.png",
+    "gpu-calibration/atlas-source-base.png",
+    "authoring-result.json",
+    "detail-result.json",
+    "atlas-result.json",
+    "integration-result.json",
+    "surfaces-result.json",
+    "wire-result.json",
+    "workflow-result.json",
+    "legacyworkflow-result.json",
+    "hmctextures-result.json",
+    "jobs-result.json",
+    "intents-result.json",
+    "inspection-result.json",
+    "build-result.json",
+    "wasm-result.json",
+    "wasm.log",
+    "wasm-source-before.json",
+    "saved-evidence-verification.json",
+    "repairs/tuple-repair/applied-source.json",
+    "check-before-tuple-repair-result.json",
+    "repairs/tuple-repair/install-manifest.json",
+    "repair-order.json",
+    "uv/review/root-integration-reviewed-pins.json",
+    "detail/review/root-resource-pins-freeze2.json",
+    "status-final.json"
+  ],
+  "not_evidence_of_completion": [
+    "staged test definitions",
+    "Rustfmt-only checks",
+    "Round 6 passing tests or GPU pixels",
+    "source presence or saved hash match",
+    "build success without native application use",
+    "WASM compilation without runtime interoperability"
+  ]
+}

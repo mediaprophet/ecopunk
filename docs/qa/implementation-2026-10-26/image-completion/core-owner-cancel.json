@@ -1,0 +1,20 @@
+{
+  "owner": "IMAGE-15",
+  "reason": "Known E0583 test-module path error; stop remaining failed compilation before repairing and rerunning",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/qualiaDB/Cargo.toml",
+    "-p",
+    "qualia-core-db",
+    "--lib",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:/github/ecopunk/target",
+    "--",
+    "--test-threads=1"
+  ],
+  "child_pid": 13540
+}

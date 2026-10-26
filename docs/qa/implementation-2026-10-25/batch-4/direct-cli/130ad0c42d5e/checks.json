@@ -1,0 +1,21 @@
+{
+  "exit_code": 0,
+  "help": true,
+  "diagnostic_check_no_evaluation_or_window": true,
+  "mcp_stdout_strict_jsonrpc": true,
+  "initialized_notification_silent": true,
+  "mcp_unbound_source_read_denied": true,
+  "mcp_advertised_tools": [
+    "poet_source_read",
+    "poet_source_check",
+    "poet_source_submit",
+    "poet_material_apply",
+    "poet_source_undo",
+    "poet_source_redo",
+    "poet_execution_rebuild"
+  ],
+  "production_authority_supplied": false,
+  "gui_launched": false,
+  "artifact_sha256": "90f9f267d917e5bb1b8d2be2f3c1b245dea6346a70cd25740c258095f99b58d9",
+  "checked_utc": "2026-10-24T21:42:08.201386+00:00"
+}

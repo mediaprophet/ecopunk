@@ -1,0 +1,19 @@
+{
+  "scope": "Narrow generated material source AST admission",
+  "candidate_sha256": "BFC640FDEA00FF1825BA37B509736932D4C19F69A8036271D8245A8E2985DE8B",
+  "compile_command": "rustc --edition=2021 --test docs/qa/implementation-2026-10-25/batch-3/native-integration/candidate/src/graphical/material_edit.rs --extern vibe=C:/github/ecopunk/target/debug/deps/libvibe-2937e95bb154f7f6.rlib -L dependency=C:/github/ecopunk/target/debug/deps -o docs/qa/implementation-2026-10-25/batch-3/authorisation/harness/material-edit-tests.exe",
+  "run_command": "docs/qa/implementation-2026-10-25/batch-3/authorisation/harness/material-edit-tests.exe --nocapture",
+  "compiled_exit_code": 0,
+  "test_exit_code": 0,
+  "passed": 4,
+  "failed": 0,
+  "cached_vibe_rlib": "C:/github/ecopunk/target/debug/deps/libvibe-2937e95bb154f7f6.rlib",
+  "cached_vibe_sha256": "A380D7ECA4976BF43B90619312C81AA0CE96F4730E0EBC63DF60F320210C7EA8",
+  "full_core_build_run": false,
+  "remaining": [
+    "parent controller override and module routing",
+    "independent review and guarded application",
+    "native end-to-end material/tool tests"
+  ],
+  "interpolation_preflight_rejection_tested": true
+}

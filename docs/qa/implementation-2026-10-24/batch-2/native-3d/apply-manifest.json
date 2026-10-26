@@ -1,0 +1,30 @@
+{
+  "scope": "RUN-06B staged source-safe Studio journal",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "original_sha256": "7CEBD4589473740329F4E394663547E69B220ADB15AF72B9ADA0F6E2DDFF8497",
+      "candidate": "candidate/studio_store.rs",
+      "candidate_sha256": "6D1F8E945B352550A9A810330F54DC2758127346B2ABDEC797F1461ECFB49664"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains.rs",
+      "original_sha256": "EB1C9BEC95513BE0CC388C89D178E0E416192EC115FE292491DB3C090D9D88D1",
+      "candidate": "candidate/studio_domains.rs",
+      "candidate_sha256": "F629A7C4885E814A723B33BC8711EF417BDD00CC64FECB4332570C1B765F2CAF"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_journal.rs",
+      "candidate_sha256": "AF24A575F039C7B87E6CB88693B264AED92141DDA3455F30EC4AA19AEB192DA8"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_journal_tests.rs",
+      "candidate_sha256": "DC8F48FA09ADD4B2D84A6B104EBA1D99706F6C2460CE645BFA97B2391185C8C8"
+    }
+  ]
+}

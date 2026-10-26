@@ -1,0 +1,961 @@
+{
+  "schema": "ecopunk-round8-relocation-reference-scan/2",
+  "scan": "read-only; rg --hidden --no-ignore; excludes .git, target and assigned hygiene artifacts; no execution or mutation",
+  "map_sha256": "d193fa59715d41b741cf0118095c3b0749d5e901de01f4b46e24f15418a4901a",
+  "map_entries": 733,
+  "rust_files_with_literal_path_or_include_directives": 0,
+  "exact_file_path_reference_lines": 154,
+  "exact_reference_files": [
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\geotiff.diff",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\m64-mod.diff",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\public-tests.diff",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-intervals.diff",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-mod.diff",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-validation.diff",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\install-manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\target-manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\install-manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\review\\source-pins.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\job-regression\\manifest.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+    "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json"
+  ],
+  "exact_file_references": [
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 6,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/poet/native/src/graphical/surfaces/uv_atlas_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 14,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/poet/native/src/graphical/surfaces/uv_atlas.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 22,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/manifest.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 30,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 38,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/packing.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 46,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 54,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/topology.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\target-manifest.json",
+      "line": 62,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/after/qualiaDB/crates/qualia-core-db/tests/uv_atlas_native.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 7,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/authoring/detail_controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 13,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 19,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/recipe.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 25,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/render.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 31,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 37,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 43,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\review\\detail-reviewed-pins.json",
+      "line": 49,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/qualiaDB/crates/qualia-core-db/tests/image_source_over.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\job-regression\\manifest.json",
+      "line": 6,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/job-regression/after/native/src/graphical/jobs_surface_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\job-regression\\manifest.json",
+      "line": 13,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/job-regression/after/native/src/graphical/jobs_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\uv\\job-regression\\manifest.json",
+      "line": 14,
+      "text": "      \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/uv/job-regression/before/native/src/graphical/jobs_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 3,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 7,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 11,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 15,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 19,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/surface_binding_controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 23,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/native_dispatch.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 27,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/poet_workspace/native_commands.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 31,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/jobs.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 35,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/job_actions.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 39,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/entry.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\review\\root-half-pins.json",
+      "line": 43,
+      "text": "    \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/native_entry/create.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 4,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/materials.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 10,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/assembly/admission.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 16,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/assembly/render.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 22,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/authoring/surface_controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 28,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/binding.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 34,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/draft.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 40,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 46,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/pixels.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 52,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/resources.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 58,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 64,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/uv.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\manifest.json",
+      "line": 70,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/wire.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\review\\source-pins.json",
+      "line": 8,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\review\\source-pins.json",
+      "line": 17,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\review\\source-pins.json",
+      "line": 26,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\review\\source-pins.json",
+      "line": 35,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/tests/studio_hmc_texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\review\\source-pins.json",
+      "line": 44,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/poet/native/Cargo.toml\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\manifest.json",
+      "line": 4,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\manifest.json",
+      "line": 10,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\manifest.json",
+      "line": 16,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\manifest.json",
+      "line": 22,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/tests/studio_hmc_texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\manifest.json",
+      "line": 28,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/poet/native/Cargo.toml\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\install-manifest.json",
+      "line": 4,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\install-manifest.json",
+      "line": 10,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\install-manifest.json",
+      "line": 16,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\install-manifest.json",
+      "line": 22,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/tests/studio_hmc_texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\install-manifest.json",
+      "line": 28,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/poet/native/Cargo.toml\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+      "line": 4,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+      "line": 11,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+      "line": 18,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+      "line": 25,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/crates/qualia-core-db/tests/studio_hmc_texture_union.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\repairs\\hmc-texture-union\\applied-source.json",
+      "line": 32,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/repairs/hmc-texture-union/after/poet/native/Cargo.toml\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 6,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/geometry_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 12,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/revolve_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 18,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/spatial_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 24,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/cad_controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 30,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/cad_recipe.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 36,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/cad_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 42,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/geometry_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 48,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/profile_controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 54,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/profile_recipe.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 60,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/native/src/graphical/authoring/profile_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 66,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/qualiaDB/crates/vibe/src/catalog/ids.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\target-manifest.json",
+      "line": 72,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/profiles/after/qualiaDB/crates/vibe/tests/poet_geometry_catalog.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 6,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/materials.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 13,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/assembly/admission.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 20,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/assembly/render.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 27,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/authoring/surface_controls.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 34,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/binding.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 41,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/draft.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 48,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 55,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/pixels.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 62,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/resources.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 69,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 76,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/uv.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\surface-source-pins.json",
+      "line": 83,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/wire.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 5,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/surface_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 9,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/checkpoints/surface_resources.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 13,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/editor_contract.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 17,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/controller.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 21,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/execution.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 25,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/controller.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 29,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/cooperation/editor.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 33,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/package/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 37,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/checkpoints/editor.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 41,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/session_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 45,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/shared_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 49,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/entry.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 55,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_common.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-initial.json",
+      "line": 59,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_resources.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 8,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/surface_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 12,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/checkpoints/surface_resources.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 16,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/editor_contract.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 20,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/controller.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 24,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/execution.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 28,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/authoring/controller.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 32,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/cooperation/editor.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 36,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/package/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 40,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/checkpoints/editor.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 44,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/session_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 48,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/shared_host.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 52,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/entry.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 56,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/native_project_surface_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 60,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/integration/after/native/src/graphical/native_entry/create.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 64,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_common.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 68,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_resources.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 72,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_controls.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 76,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/stage.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\profiles\\review\\root-resource-pins-final.json",
+      "line": 80,
+      "text": "      \"path\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/prepare_install.py\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-validation.diff",
+      "line": 1,
+      "text": "diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/new-file-empty b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/checked_reader/validation.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-validation.diff",
+      "line": 4,
+      "text": "+++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/checked_reader/validation.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-mod.diff",
+      "line": 1,
+      "text": "diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/new-file-empty b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/checked_reader/mod.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-mod.diff",
+      "line": 4,
+      "text": "+++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/checked_reader/mod.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-intervals.diff",
+      "line": 1,
+      "text": "diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/new-file-empty b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/checked_reader/intervals.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\reader-intervals.diff",
+      "line": 4,
+      "text": "+++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/checked_reader/intervals.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\public-tests.diff",
+      "line": 1,
+      "text": "diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/new-file-empty b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/m64_container_sdk.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\public-tests.diff",
+      "line": 4,
+      "text": "+++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/m64_container_sdk.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\m64-mod.diff",
+      "line": 1,
+      "text": "diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/m64-mod.rs b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/m64-mod.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\m64-mod.diff",
+      "line": 3,
+      "text": "--- a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/m64-mod.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\m64-mod.diff",
+      "line": 4,
+      "text": "+++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/m64-mod.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\geotiff.diff",
+      "line": 1,
+      "text": "diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/geotiff.rs b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/geotiff.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\geotiff.diff",
+      "line": 3,
+      "text": "--- a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/geotiff.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round2\\master\\diffs\\geotiff.diff",
+      "line": 4,
+      "text": "+++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/geotiff.rs"
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\target-manifest.json",
+      "line": 10,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/after/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\target-manifest.json",
+      "line": 11,
+      "text": "      \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/before/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\target-manifest.json",
+      "line": 19,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/after/native/src/graphical/authoring/structure_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\target-manifest.json",
+      "line": 20,
+      "text": "      \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/before/native/src/graphical/authoring/structure_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\install-manifest.json",
+      "line": 4,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/after/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\install-manifest.json",
+      "line": 5,
+      "text": "    \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/before/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\install-manifest.json",
+      "line": 13,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/after/native/src/graphical/authoring/structure_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\install-manifest.json",
+      "line": 14,
+      "text": "    \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/before/native/src/graphical/authoring/structure_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+      "line": 4,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/after/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+      "line": 5,
+      "text": "    \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/before/native/src/graphical/authoring/assembly_source.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+      "line": 14,
+      "text": "    \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/after/native/src/graphical/authoring/structure_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+      "line": 15,
+      "text": "    \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/repairs/authoring-runtime/before/native/src/graphical/authoring/structure_tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 8,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/core/container_10d/field_section.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 9,
+      "text": "      \"before\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/before/core/container_10d/field_section.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 17,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/core/container_10d/field_section/checked.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 26,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/core/container_10d/field_section/checked/tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 35,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/mod.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 44,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/payload.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 53,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/service.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 62,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/tests.rs\","
+    },
+    {
+      "path": "docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\manifest.json",
+      "line": 71,
+      "text": "      \"stage\": \"C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round5/typed/after/poet/native/src/graphical/checkpoints/typed_10d/tests/admission.rs\","
+    }
+  ],
+  "directory_reference_lines": 22,
+  "all_reference_lines": 176,
+  "markdown_exact_file_reference_lines": 0,
+  "active_markdown_review": {
+    "schema": "ecopunk-relocation-markdown-afterimage-review/1",
+    "result": "no safe edits applicable; no staged copies created",
+    "reviewed_files": [
+      {
+        "source_path": "assets/reference/community-grounds-growing-station/README.md",
+        "sha256": "72f614917bbfe3e1338d9d63c9d63ffb3a55020f6fe2e900a7532fd4df57e9e2",
+        "matched_lines": 1,
+        "disposition": "No afterimage change: every matched destination is a retained markdown/JSON evidence record, not one of the 733 moved source/script/manifest entries."
+      },
+      {
+        "source_path": "docs/production/community-grounds-growing-station/README.md",
+        "sha256": "fa2918b695a55dd3dc9584f7e67da1e744b94a515aabea90223b8788c564a9a5",
+        "matched_lines": 4,
+        "disposition": "No afterimage change: every matched destination is a retained markdown/JSON evidence record, not one of the 733 moved source/script/manifest entries."
+      },
+      {
+        "source_path": "docs/production/community-grounds-growing-station/inventories.md",
+        "sha256": "d0e137dfb015814e8259c2d2a500125d86f20dd208c8b27593da4baca508d238",
+        "matched_lines": 1,
+        "disposition": "No afterimage change: every matched destination is a retained markdown/JSON evidence record, not one of the 733 moved source/script/manifest entries."
+      },
+      {
+        "source_path": "docs/planning/implementation-plan.md",
+        "sha256": "750db934b90645e4cfd185a010036ffc72a2540074dee0b867565dbfd4858a92",
+        "matched_lines": 6,
+        "disposition": "No afterimage change: every matched destination is a retained markdown/JSON evidence record, not one of the 733 moved source/script/manifest entries."
+      },
+      {
+        "source_path": "docs/planning/tech/10d-container-evolution.md",
+        "sha256": "89960bb1c17882b20e6f626ec8555b0ffe442df51e3ac00975d7c0c4696a81d3",
+        "matched_lines": 2,
+        "disposition": "No afterimage change: every matched destination is a retained markdown/JSON evidence record, not one of the 733 moved source/script/manifest entries."
+      },
+      {
+        "source_path": "docs/planning/tech/format-sdk-foundation.md",
+        "sha256": "b9aa56564e638ea8965f2bc0a7e1da9cdd36866ab73f3eb3354419273bc4a782",
+        "matched_lines": 7,
+        "disposition": "No afterimage change: every matched destination is a retained markdown/JSON evidence record, not one of the 733 moved source/script/manifest entries."
+      }
+    ]
+  },
+  "executable_or_verifier_scripts": [
+    {
+      "path": "round1/verify-evidence.py",
+      "sha256": "caa85da3a6e25364b3f6243d604ccda5dd9282c4f1dc2e87684803c85af88f10",
+      "execution_class": "evidence verifier/stager may write files; preserve and inspect before replay",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round2/verify_saved_evidence.py",
+      "sha256": "7746258d3561b352240059fce9ecec8ccf1e08071c7678121c931f3e7a7b98b1",
+      "execution_class": "read-only-looking verifier; unexecuted in this scan",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round3/run_checks.py",
+      "sha256": "84a1f53d66fa24fa12fc21609d6ed9ed6916246b7fa031ac701b506319038bac",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round3/run_extra_check.py",
+      "sha256": "122e60a716f31b94b9520c35271501ad0b827455f7ac94ae886e80d5b3ff093c",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round3/verify_final_evidence.py",
+      "sha256": "3cce4acd8514731b59d3db743b7385c404fe69ec66e5e100d2c90ab442d732aa",
+      "execution_class": "read-only-looking verifier; unexecuted in this scan",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round4/run_check.py",
+      "sha256": "a75f990d82ff607b1078cc30c92d3040d6ba6562c55536cefa7d288e5f6bb250",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round4/verify_final_evidence.py",
+      "sha256": "4db4edab08145295e59cc2854dca04042634c58fe6ec95ad9e8ab9985d1a5e7d",
+      "execution_class": "read-only-looking verifier; unexecuted in this scan",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round5/run_check.py",
+      "sha256": "4e1eeb733eaaea427203f706933dcbbcc029faa021ad0cd6fc8743910ed19992",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round5/verify_final_evidence.py",
+      "sha256": "ecd1b6a433f7d03038192c67fd37de4ef6d78acb0796b8cf999f0c15e412f67b",
+      "execution_class": "read-only-looking verifier; unexecuted in this scan",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round6/run_check.py",
+      "sha256": "7337e600d51d85b2059936fb44f9ecc801ed65470202e652a3880f5a84a90b48",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round6/run_cpu_sequence.py",
+      "sha256": "8575fd700db60a0c94ad8dcfabcb6083d9ec44edc6529256a190045ba4470d3e",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round6/verify_final_evidence.py",
+      "sha256": "e4248431cacf4a0894f2553a0f8d98830f048a816a66b93b803873d6d687fdc0",
+      "execution_class": "read-only-looking verifier; unexecuted in this scan",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round7/run_check.py",
+      "sha256": "7a9da0add5cc8a73d7754f2b724f21ee0bb2313b772fccee49bc6740971e5d07",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round7/run_cpu_sequence.py",
+      "sha256": "71a0ee5e359d62ab6be497ad9950965e7ce845f5c4ae3fbe98139302a31bcdbb",
+      "execution_class": "executes external/native Cargo command; do not run as part of archive validation",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    },
+    {
+      "path": "round7/verify_final_evidence.py",
+      "sha256": "a0a9d5a47a925aaa90cce5ed28c3b80ea01dc3c8369adc5c29c9fc20b26c4e3d",
+      "execution_class": "read-only-looking verifier; unexecuted in this scan",
+      "path_basis": "file-relative roots; preserved path depth in proposed destination"
+    }
+  ],
+  "additional_qa_code_cohorts": [
+    {
+      "cohort": "implementation-2026-10-24",
+      "files": 363,
+      "bytes": 11820769
+    },
+    {
+      "cohort": "implementation-2026-10-25",
+      "files": 369,
+      "bytes": 4140060
+    }
+  ],
+  "caveats": [
+    "Direct execution of archived scripts is not supported: verifiers use evidence paths relative to HERE and manifests retain absolute original stage paths.",
+    "The read-only resolver uses the post-move migration-index.json to map original paths to archived bytes and verify the indexed digest; it does not execute content.",
+    "Static path scanning cannot discover every dynamically formed path.",
+    "Original manifests and receipts remain pinned and are not edited.",
+    "No relocation authorization is encoded by this report."
+  ]
+}

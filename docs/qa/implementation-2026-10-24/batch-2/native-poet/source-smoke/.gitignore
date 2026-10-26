@@ -1,0 +1,6 @@
+# Build artifacts remain in Ecopunk target; retain source, locks, PNG/RGBA evidence and logs.
+*.exe
+*.pdb
+*.rlib
+*.rmeta
+/metadata.json

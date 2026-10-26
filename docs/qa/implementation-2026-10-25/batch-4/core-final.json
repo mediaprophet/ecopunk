@@ -1,0 +1,29 @@
+{
+  "command": "cargo",
+  "arguments": [
+    "test",
+    "--offline",
+    "--locked",
+    "--manifest-path",
+    "C:/github/qualiaDB/Cargo.toml",
+    "-p",
+    "qualia-core-db",
+    "--lib",
+    "--no-default-features",
+    "--features",
+    "profile_target_1024,zk-culling,gpu-runtime,gpu-native-portable,gpu-native-dx12,wgsl-forge,privacy-he",
+    "--target-dir",
+    "C:/github/ecopunk/target",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "input_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-4\\source-snapshots\\130ad0c42d5e10e607f649ede387c1450b8d696495debaeb1d6f5ef51983ec9f.json",
+    "sha256": "130ad0c42d5e10e607f649ede387c1450b8d696495debaeb1d6f5ef51983ec9f"
+  },
+  "started_utc": "2026-10-24T21:28:11.2479049Z",
+  "finished_utc": "2026-10-24T21:39:37.5983683Z",
+  "source_changes_during_command": [],
+  "source_unchanged": true
+}

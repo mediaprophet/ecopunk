@@ -1,0 +1,117 @@
+{
+  "scope": "Current user authorizes bounded native Poet implementation; exact additive/update files only; no manifests/lockfiles/source moves/commits/assets.",
+  "files": [
+    {
+      "path": "native/src/graphical/authoring/mod.rs",
+      "sha256_before": "071e8a9c31c505cbc24ecc9899d7662c5bc10384acefe124db38b84902eabe27",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\mod.rs",
+      "sha256_after": "4a3c6ec81db38ca0e239c3cee2c80f127671b72713305110bb273e74c0376318",
+      "destination": "C:/github/poet/native/src/graphical/authoring/mod.rs"
+    },
+    {
+      "path": "native/src/graphical/authoring/source.rs",
+      "sha256_before": "252c40c7a384be249406cfe905b24d0559f7f022c276b528754d9898cf8679d2",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\source.rs",
+      "sha256_after": "534896e93841e3b49e2c3cac07029aa1de84802621f79f2b8c30374a60a06314",
+      "destination": "C:/github/poet/native/src/graphical/authoring/source.rs"
+    },
+    {
+      "path": "native/src/graphical/authoring/controller.rs",
+      "sha256_before": "5b8718011f32255d08ec0ff099482ac26714db96963cc299ccc0e8c29371b66f",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\controller.rs",
+      "sha256_after": "8102e2cc5c931481f0ae2533c4c54bfca08aee44312677cb8bde815a69505f52",
+      "destination": "C:/github/poet/native/src/graphical/authoring/controller.rs"
+    },
+    {
+      "path": "native/src/graphical/poet_workspace/native_commands.rs",
+      "sha256_before": "09d8e19076fcb0d6439fd4cd0301c07f7a8bd69194962a9bcb43f68b55848a28",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "sha256_after": "10b5cf9fb3e2ed50a62e348c9d7b59113c50d08e662b1f0ee55f0363a3e0fa20",
+      "destination": "C:/github/poet/native/src/graphical/poet_workspace/native_commands.rs"
+    },
+    {
+      "path": "native/src/graphical/native_dispatch.rs",
+      "sha256_before": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\native_dispatch.rs",
+      "sha256_after": "492532e99ece2df15c9cbd280d07034c9be8ce02bdd753a8a17c15a9237a3781",
+      "destination": "C:/github/poet/native/src/graphical/native_dispatch.rs"
+    },
+    {
+      "path": "native/src/graphical/authoring/controls.rs",
+      "sha256_before": "31e4cd6e4843e8decca94a3c45ce8ec72331811a48b3cb71699b695b0bc6d5fb",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\controls.rs",
+      "sha256_after": "34d7be3cc660adbd7f3161404a1a7000f8b06f102d2479a893adcffc8248618e",
+      "destination": "C:/github/poet/native/src/graphical/authoring/controls.rs"
+    },
+    {
+      "path": "native/src/graphical/mcp/mod.rs",
+      "sha256_before": "5ea132ef6eb28d7a5604a711ba49c099a49fe34fec697592d8f5ea19080238b7",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256_after": "e669dddf57310b9c54a28ebaca6e60b39d2ffa3776776b76d028e6b68110fe2e",
+      "destination": "C:/github/poet/native/src/graphical/mcp/mod.rs"
+    },
+    {
+      "path": "native/src/graphical/native_project_tests.rs",
+      "sha256_before": "9dd9156698b3ba5e701b5bb82c7c3b89c3a9302d4d65ebf2ff45e9259980356a",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\native_project_tests.rs",
+      "sha256_after": "6b5e6de2bafdae90584235ab5ef10172cd70c22f8f5110576bdebea19b58d204",
+      "destination": "C:/github/poet/native/src/graphical/native_project_tests.rs"
+    },
+    {
+      "path": "native/src/graphical/native_project_motion_tests.rs",
+      "sha256_before": "62eee7ca247512fbe6a68f95dae42ea3342e16ed5c210e20b5e702ec8595d2a4",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\native_project_motion_tests.rs",
+      "sha256_after": "83df5258570a9e4fa2957f4f921ea215f2837f0bbdc6f1a034897dbe8c00b879",
+      "destination": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs"
+    },
+    {
+      "path": "native/src/graphical/authoring/material_motion.rs",
+      "sha256_before": null,
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\material_motion.rs",
+      "sha256_after": "b51f15d9440fa5c17426613cc18fa06fcbb765fde41a4b9b2d4923b71300ce12",
+      "destination": "C:/github/poet/native/src/graphical/authoring/material_motion.rs"
+    },
+    {
+      "path": "native/src/graphical/authoring/material_motion_controls.rs",
+      "sha256_before": "2da7f9ffc599b8dfef018555171740105faa918a5495c50f236e99f865a2cf6b",
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\material_motion_controls.rs",
+      "sha256_after": "516fd07867211f3ea6cb0629c2e94ac0ccceaaf61fbd0e44eacd0d0f6e4851d8",
+      "destination": "C:/github/poet/native/src/graphical/authoring/material_motion_controls.rs"
+    },
+    {
+      "path": "native/src/graphical/authoring/material_motion_tests.rs",
+      "sha256_before": null,
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\authoring\\material_motion_tests.rs",
+      "sha256_after": "47404ef2dfaa7907a67d195fe70bbec2ed0c42a20c2807e9a1840b62884a641f",
+      "destination": "C:/github/poet/native/src/graphical/authoring/material_motion_tests.rs"
+    },
+    {
+      "path": "native/src/graphical/mcp/material_motion.rs",
+      "sha256_before": null,
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\src\\graphical\\mcp\\material_motion.rs",
+      "sha256_after": "1573f858739a22e23f609d1d22cd88b8677e232e88045cea7ebf5e75cf84b3cb",
+      "destination": "C:/github/poet/native/src/graphical/mcp/material_motion.rs"
+    },
+    {
+      "path": "native/docs/source-references/effectcraft/LICENSE-MIT",
+      "sha256_before": null,
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\docs\\source-references\\effectcraft\\LICENSE-MIT",
+      "sha256_after": "7b6db9a363688683feacdf9b528f059637f2e5d2edbacd8720fc9b26781c9abe",
+      "destination": "C:/github/poet/native/docs/source-references/effectcraft/LICENSE-MIT"
+    },
+    {
+      "path": "native/docs/source-references/effectcraft/NOTICE",
+      "sha256_before": null,
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\docs\\source-references\\effectcraft\\NOTICE",
+      "sha256_after": "c7ecb79db5a35e749c037773c9867d07f6ff598edce3d72bd443b4d00f24e0be",
+      "destination": "C:/github/poet/native/docs/source-references/effectcraft/NOTICE"
+    },
+    {
+      "path": "native/docs/source-references/effectcraft/README.md",
+      "sha256_before": null,
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\motion-integration\\work\\integration\\native\\docs\\source-references\\effectcraft\\README.md",
+      "sha256_after": "48a39f082c9a274fcf24ab4007edbc35ba038e2a4a81f93ef440fe4e48f7cd1b",
+      "destination": "C:/github/poet/native/docs/source-references/effectcraft/README.md"
+    }
+  ]
+}

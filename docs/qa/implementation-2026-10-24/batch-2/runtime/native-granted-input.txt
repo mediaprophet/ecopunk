@@ -1,0 +1,6 @@
+requires [ capability("pulse.publish") ]; effect fn send() { return pulse.publish("explicit", 1); }
+send();
+= send()
+pure fn invalid() { return send(); }
+1 + 2
+quit

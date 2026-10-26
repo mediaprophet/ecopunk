@@ -1,0 +1,40 @@
+{
+  "checked_utc": "2026-10-24T20:16:45.104648+00:00",
+  "source_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\source-snapshots\\e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb.json",
+    "sha256": "e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb"
+  },
+  "source_files_verified": 94,
+  "final_receipts": [
+    {
+      "path": "core-final-saved-tests.json",
+      "sha256": "d245c7e864dd8f6166615ff696885aafd35bf88e93a4bda9bcb9ee4aa00cdfa3",
+      "exit_code": 0
+    },
+    {
+      "path": "native-build/tests-saved-final.json",
+      "sha256": "06d23640710fd8cfc3b9587f62e2b30fcd038feae6e30b596aaef9230d11a399",
+      "exit_code": 0
+    },
+    {
+      "path": "native-build/material-pixels-final.json",
+      "sha256": "4466907cb43117cfa9b62195353ea708d0cc5df5203c7600d33455ca6e51dd89",
+      "exit_code": 0
+    },
+    {
+      "path": "native-build/library-saved-final.json",
+      "sha256": "bbf7d47da53eebfd884dfb934fd9a93673e3e06e61b50cf6588bd56486999355",
+      "exit_code": 0
+    },
+    {
+      "path": "native-build/wasm-saved-final.json",
+      "sha256": "4fb82b529ea3e98d9bce954b6444af4147dea9068044050e6314630fcf377f75",
+      "exit_code": 0
+    }
+  ],
+  "all_owned_commands_exited": true,
+  "live_builds": 0,
+  "production_packets_open": 120,
+  "starter_milestones": 0,
+  "human_acceptance_claimed": false
+}

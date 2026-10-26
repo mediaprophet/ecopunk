@@ -1,0 +1,17 @@
+{
+  "scope": "RUN-05A exact reviewed full-input parser and regression tests",
+  "mutations": [
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/parse/mod.rs",
+      "original_sha256": "89B666C571E52BBDE29267EA4EAF13CCA17577E07C7F66091398C3EF98E6D26B",
+      "candidate": "candidate/parse/mod.rs",
+      "candidate_sha256": "3A38527EAA49F0C1ED40EDA19F8523DCF5C64B2F58BFEC2C5671798A218B1F40"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/tests/cell_full_input.rs",
+      "original_sha256": null,
+      "candidate": "tests/cell_full_input.rs",
+      "candidate_sha256": "97F361CF2B2DED317C36870777190AFADCB3F6151AF1058905CCBA1E30BF24C6"
+    }
+  ]
+}

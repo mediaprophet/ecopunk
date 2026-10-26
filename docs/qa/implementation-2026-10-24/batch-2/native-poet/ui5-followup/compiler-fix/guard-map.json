@@ -1,0 +1,15 @@
+{
+  "status": "candidate-only; not applied",
+  "target": "C:/github/rust-app-framework/packages/native-dom/src/textarea_value.rs",
+  "original_sha256": "16287C4E793B33C5481159EF82946FFBBDD6197A45F74BA697175AE5FA0857BA",
+  "candidate_sha256": "5FF72BA5250EE0A0CD2DC94343B00B471F41B34BCFBF14B4FE82EC01B6B95F69",
+  "original_snapshot": "original-textarea_value.rs",
+  "candidate": "candidate-textarea_value.rs",
+  "source_unchanged_at_staging": true,
+  "changes": [
+    "Compare both textarea local names against blitz_dom::local_name!(\"textarea\") to resolve Atom AsRef ambiguity without changing the intended element match.",
+    "Use SplitString::to_string() in the test helper to produce its declared String result.",
+    "Remove the unused blitz_dom::Document test import."
+  ],
+  "application_guard": "Apply only if the target still hashes to original_sha256; otherwise stop and review the new source."
+}

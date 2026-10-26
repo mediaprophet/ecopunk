@@ -1,0 +1,168 @@
+    Blocking waiting for file lock on build directory
+   Compiling qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+   Compiling qualia-mcp v0.0.40 (C:\github\qualiaDB\crates\qualia-mcp)
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0061]: this function takes 5 arguments but 4 arguments were supplied
+   --> native\src\graphical\controller_tests.rs:118:21
+    |
+118 |       let candidate = execution::prepare(
+    |  _____________________^^^^^^^^^^^^^^^^^^-
+119 | |         accepted.source.clone(),
+120 | |         &host.host,
+121 | |         &host.factory_limits,
+122 | |         &host.rebuild_limits,
+123 | |     )
+    | |_____- argument #5 of type `&dyn controller::PreviewProvider` is missing
+    |
+note: function defined here
+   --> native\src\graphical\execution.rs:64:15
+    |
+ 64 | pub(super) fn prepare(
+    |               ^^^^^^^
+...
+ 69 |     validator: &dyn super::PreviewProvider,
+    |     --------------------------------------
+help: provide the argument
+    |
+118 |     let candidate = execution::prepare(
+...
+122 |         &host.rebuild_limits,
+123 ~         /* &dyn controller::PreviewProvider */,
+124 ~     )
+    |
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\ui.rs:84:9
+   |
+84 |     let mut save={
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\ui.rs:89:9
+   |
+89 |     let mut check = {
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:104:9
+    |
+104 |     let mut submit = {
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:122:9
+    |
+122 |     let mut undo = {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:137:9
+    |
+137 |     let mut redo = {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:152:9
+    |
+152 |     let mut refresh = {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:167:9
+    |
+167 |     let mut rebuild = {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+error[E0433]: cannot find module or crate `tempfile` in this scope
+  --> native\src\graphical\checkpoints\tests.rs:21:16
+   |
+21 |     let root = tempfile::tempdir().unwrap();
+   |                ^^^^^^^^ use of unresolved module or unlinked crate `tempfile`
+   |
+   = help: if you wanted to use a crate named `tempfile`, use `cargo add tempfile` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `tempfile` in this scope
+  --> native\src\graphical\checkpoints\tests.rs:47:16
+   |
+47 |     let root = tempfile::tempdir().unwrap();
+   |                ^^^^^^^^ use of unresolved module or unlinked crate `tempfile`
+   |
+   = help: if you wanted to use a crate named `tempfile`, use `cargo add tempfile` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `tempfile` in this scope
+  --> native\src\graphical\checkpoints\tests.rs:90:16
+   |
+90 |     let root = tempfile::tempdir().unwrap();
+   |                ^^^^^^^^ use of unresolved module or unlinked crate `tempfile`
+   |
+   = help: if you wanted to use a crate named `tempfile`, use `cargo add tempfile` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `tempfile` in this scope
+  --> native\src\graphical\checkpoints\resource_preservation_tests.rs:37:16
+   |
+37 |     let root = tempfile::tempdir().unwrap();
+   |                ^^^^^^^^ use of unresolved module or unlinked crate `tempfile`
+   |
+   = help: if you wanted to use a crate named `tempfile`, use `cargo add tempfile` to add it to your `Cargo.toml`
+
+error[E0433]: cannot find module or crate `tempfile` in this scope
+  --> native\src\graphical\checkpoints\resource_preservation_tests.rs:73:16
+   |
+73 |     let root = tempfile::tempdir().unwrap();
+   |                ^^^^^^^^ use of unresolved module or unlinked crate `tempfile`
+   |
+   = help: if you wanted to use a crate named `tempfile`, use `cargo add tempfile` to add it to your `Cargo.toml`
+
+Some errors have detailed explanations: E0061, E0433.
+For more information about an error, try `rustc --explain E0061`.
+warning: `poet-cli` (lib test) generated 7 warnings (7 duplicates)
+error: could not compile `poet-cli` (lib test) due to 6 previous errors; 7 warnings emitted
+warning: build failed, waiting for other jobs to finish...
+warning: `poet-cli` (lib) generated 8 warnings (run `cargo fix --lib -p poet-cli` to apply 7 suggestions)

@@ -1,0 +1,17 @@
+
+running 1 test
+test render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap ... FAILED
+
+failures:
+
+failures:
+    render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9757 filtered out; finished in 0.00s
+
+
+thread 'render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap' (11388) panicked at crates\qualia-core-db\src\render\gpu\indirect_cull.rs:869:9:
+assertion `left == right` failed
+  left: 1
+ right: 3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

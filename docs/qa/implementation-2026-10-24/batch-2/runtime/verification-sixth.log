@@ -1,0 +1,239 @@
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hnialzlyrd-0v2zz5c-working`
+
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-3ous0j4z2ctrl\s-hniam72cuv-19224pp-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\run05_sessions-3jyi2l2n5ir5f\s-hniam71x2w-0hq7y4t-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\conformance-07ozq0z3upmci\s-hniam735qv-1ryxsso-working`
+
+warning: `vibe` (bin "vibe") generated 1 warning
+warning: `vibe` (test "run05_sessions") generated 1 warning
+warning: `vibe` (test "conformance") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 25.29s
+     Running tests\conformance.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\conformance-a592fc6633775066.exe)
+
+running 184 tests
+test bc11_division_by_zero ... ok
+test all_phase_g_fixtures_on_disk_are_valid ... ok
+test bc12_logical_short_circuit ... ok
+test ad2_enum_payload_parses ... ok
+test bc10_encode_decode_execute ... ok
+test bc14_string_equality ... ok
+test ad3_enum_match_evaluates ... ok
+test bc1_cell_arithmetic ... ok
+test bc2_cell_float_math ... ok
+test ad1_enum_unit_parses ... ok
+test bc13_match_statement ... ok
+test ad4_enum_nested_parses ... ok
+test bc5_for_loop ... ok
+test bc4_while_loop ... ok
+test bc7_list_and_index ... ok
+test bc9_encode_decode_roundtrip ... ok
+test bc6_if_else ... ok
+test bc8_record_member ... ok
+test bc3_function_call ... ok
+test bc15_nested_functions ... ok
+test c1_css_keyframe_interpolation ... ok
+test c3_css_opacity_ratio ... ok
+test c2_reactive_color_hue_clamp ... ok
+test c5_css_easing_in_out ... ok
+test c4_css_transform_rotate_to_radians ... ok
+test c5_css_easing_in_quadratic ... ok
+test c4_css_transform_scale_non_negative ... ok
+test c6_css_color_blend_multiply ... ok
+test c6_css_color_blend_screen ... ok
+test c5_css_easing_linear ... ok
+test capability_resolve_is_pure_and_returns_a_record ... ok
+test cosmic2_celestial_parses ... ok
+test c6_css_color_blend_linear ... ok
+test cosmic3_fictional_parses ... ok
+test e1_emf_to_color_clamps_wavelength ... ok
+test cosmic1_transforms_parses ... ok
+test e2_emf_interference_clamps ... ok
+test e4_emf_attenuation_inverse_square ... ok
+test cosmic4_cosmology_parses ... ok
+test cosmic5_quantum_parses ... ok
+test e3_doppler_shift_positive ... ok
+test e5_spd_to_xyz_chromaticity ... ok
+test crypto1_hash_sign_parses ... ok
+test e5_spd_to_xyz_clamps_wavelength ... ok
+test e6_spectral_metamer_check ... ok
+test e6_spectral_blend_wavelengths ... ok
+test e7_gamut_map_clamp_rgb ... ok
+test e8_emf_inverse_square_zero_distance ... ok
+test f1_black_scholes_intrinsic ... ok
+test e7_gamut_map_srgb_roundtrip ... ok
+test e8_emf_inverse_square ... ok
+test f3_var_calc_clamps_confidence ... ok
+test f2_portfolio_opt_weighted_return ... ok
+test f4_options_greeks_delta_out_of_the_money ... ok
+test f4_options_greeks_delta_in_the_money ... ok
+test f6_risk_metrics_sharpe_ratio ... ok
+test g1_tick_hook_rejects_transitive_external ... ok
+test fixtures_on_disk_match_section_12_and_13 ... ok
+test g2_tick_time_effect_fn ... ok
+test g3_multi_hook_tick_and_pulse ... ok
+test f6_risk_metrics_max_drawdown ... ok
+test g4_reactive_cell_bounded_query ... ok
+test f5_bond_pricing_zero_yield ... ok
+test g5_import_math_clamp ... ok
+test geo1_convex_hull_cross_product ... ok
+test geo2_svg_path_distance ... ok
+test g6_clinic_deontic_threshold ... ok
+test geo3_field_viz_magnitude ... ok
+test geo4_svg_circle_area ... ok
+test geo6_triangle_area ... ok
+test geo5_cubic_bezier_endpoints ... ok
+test geo5_quadratic_bezier_midpoint ... ok
+test h2_pulse_filter_positive_only ... ok
+test h1_tick_counter_rejects_transitive_external ... ok
+test i1_checked_add_evaluates ... ok
+test h3_tick_time_rejects_transitive_external ... ok
+test i2_checked_overflow_produces_e600 ... ok
+test hook_dispatch_pulse_message_routes_to_function ... ok
+test i3_mixed_int_float_evaluates ... ok
+test import_without_alias_uses_namespace_name ... ok
+test import_alias_resolves_namespace ... ok
+test l1_deontic_permit_commits ... ok
+test language_version ... ok
+test import_non_vibe_path_rejected ... ok
+test import_invalid_path_rejected ... ok
+test hook_dispatch_unknown_path_returns_null ... ok
+test m1_mut_reassign_succeeds ... ok
+test m3_mut_in_block_succeeds ... ok
+test m2_immutable_reject_produces_e701 ... ok
+test n11_div_by_zero_physics_trapped ... ok
+test n10_negative_sqrt_fails ... ok
+test l3_contract_validate_commits ... ok
+test l2_deontic_forbid_commits_and_publishes ... ok
+test n13_negative_log_emf_fails ... ok
+test n12_negative_reynolds_parses ... ok
+test n18_opacity_above_one_parses ... ok
+test n14_uv_outside_visible_parses ... ok
+test n16_bezier_t_out_of_range_parses ... ok
+test n15_negative_radius_parses ... ok
+test n17_negative_scale_parses ... ok
+test n19_zero_dt_derivative_trapped ... ok
+test n22_negative_rate_constant_parses ... ok
+test n1_relational_lt_without_spaces ... ok
+test n21_commit_without_capability_rejected ... ok
+test n20_unauthorized_pulse_rejected ... ok
+test n4_external_in_pure_cell ... ok
+test n24_negative_volatility_parses ... ok
+test n23_below_absolute_zero_parses ... ok
+test n25_negative_yield_parses ... ok
+test n3_raw_quin_literal ... ok
+test n2_illegal_reifier_pipe ... ok
+test n4_unknown_math_fn_rejected_before_execution ... ok
+test n7_time_in_pure_cell_rejected ... ok
+test n5_commit_without_capability ... ok
+test n5_unbounded_while ... ok
+test n6_commit_without_capability ... ok
+test n8_tick_queries_graph_rejected ... ok
+test n9_non_vibe_import_rejected ... ok
+test n7_tick_must_not_query ... ok
+test n6_unbounded_while_rejected ... ok
+test p2_harmonic_oscillator_energy ... ok
+test p1_wave_propagation_clamps_amplitude ... ok
+test p11_logistic_growth_carrying ... ok
+test p10_quantum_transition ... ok
+test p3_projectile_range ... ok
+test p4_n_body_bounded_force ... ok
+test p10_quantum_energy_level ... ok
+test p11_logistic_growth_rate ... ok
+test p6_advection_diffusion_cfl ... ok
+test p5_heat_diffusion_thermal_diffusivity ... ok
+test p6_advection_diffusion_stability ... ok
+test p7_pendulum_period ... ok
+test p5_heat_diffusion_steady_state_mean ... ok
+test p7_pendulum_angular_frequency ... ok
+test p8_molecular_dynamics_force ... ok
+test qd2_multiple_fields_parses ... ok
+test qd1_field_with_unit_parses ... ok
+test quin_statement_seals_without_parity_field ... ok
+test qd3_material_with_props_parses ... ok
+test r3_time_cell_clamps_score ... ok
+test p8_molecular_dynamics_lennard_jones ... ok
+test p9_cfd_reynolds_number ... ok
+test qd4_field_material_law_parses ... ok
+test p9_cfd_is_laminar ... ok
+test r1_reactive_sum_counts_rows ... ok
+test r4_reactive_compose_sum ... ok
+test r2_reactive_threshold_caps_count ... ok
+test s1_smiles_validate_atom_count ... ok
+test s2_bio_alignment_score ... ok
+test r6_reactive_chain_zero_dt ... ok
+test s3_mol_weight_calculates ... ok
+test r6_reactive_chain_derive_rate ... ok
+test s4_molar_mass_calculation ... ok
+test r5_threshold_alert_check ... ok
+test section_12_1_cell_parses_and_evals ... ok
+test s4_moles_from_mass ... ok
+test t40_cyrillic_homoglyph_mixed_rejected ... ok
+test t40_bidi_control_rejected ... ok
+test s6_dna_gc_content ... ok
+test s5_reaction_kinetics_first_order ... ok
+test t40_japanese_hiragana_parses ... ok
+test section_12_3_bounded_query ... ok
+test s5_reaction_kinetics_half_life ... ok
+test t40_unicode_ident_arabic_parses ... ok
+test t40_pure_cyrillic_function_call_works ... ok
+test t40_korean_identifier_parses ... ok
+test t40_unicode_ident_cyrillic_parses_and_evaluates ... ok
+test t40_unicode_ident_cjk_parses_and_evaluates ... ok
+test time_unix_is_external_and_forbidden_in_pure_cell ... ok
+test t40_unicode_ident_greek_parses ... ok
+test t40_unicode_ident_latin_extended_parses ... ok
+test time_unix_runs_in_effect_fn ... ok
+test x1_emf_to_css_opacity ... ok
+test x2_physics_to_geometry_trajectory ... ok
+test x5_field_with_unit_accepted ... ok
+test x1_emf_to_css_wavelength_mapping ... ok
+test x5_field_missing_unit_rejected ... ok
+test x5_nonphysical_field_without_unit_accepted ... ok
+test x6_time_now_evaluates ... ok
+test x6_time_now_parses ... ok
+test x3_governance_to_pulse_severity ... ok
+test x4_financial_to_graph_risk_classification ... ok
+test zk1_threshold_range_parses ... ok
+test section_12_2_clinic_module_loads ... ok
+
+test result: ok. 184 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.95s
+
+     Running tests\run05_sessions.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_sessions-36a441478bf965a5.exe)
+
+running 29 tests
+test denied_native_cue_has_no_host_dispatch_and_explicit_grant_allows_one ... ok
+test admitted_external_callback_on_named_collection_runs_once ... ok
+test explicit_type_is_not_discarded_for_bounded_lists ... ok
+test copied_alias_keeps_original_external_lambda_effect ... ok
+test checked_candidates_are_bound_to_session_and_revision ... ok
+test early_return_cannot_promote_unexecuted_pure_callback_metadata ... ok
+test functions_keep_non_capturing_0_1_semantics ... ok
+test functions_imports_and_effect_context_survive_without_replay ... ok
+test effectful_native_host_seams_require_actual_grants ... ok
+test direct_chain_forward_and_recursive_external_calls_are_rejected ... ok
+test immutable_values_cannot_be_redeclared_via_patterns_blocks_or_bind ... ok
+test imported_alias_and_pipeline_do_not_hide_effects ... ok
+test inferred_recursive_cycle_effect_reaches_pure_caller ... ok
+test mutable_typed_binding_survives_and_immutable_assignment_is_denied ... ok
+test invalidated_unknown_alias_does_not_follow_later_reassignment ... ok
+test material_transaction_and_clock_cannot_gain_ambient_session_authority ... ok
+test pure_builtin_dispatch_precedes_same_named_user_function ... ok
+test pure_runtime_failure_does_not_install_function_or_mutated_values ... ok
+test recursive_and_failed_budget_diagnostics_are_bounded_and_preserved ... ok
+test namespace_shadowing_does_not_hide_collection_callback_effects ... ok
+test runtime_failure_keeps_external_outcome_and_last_accepted_local_state ... ok
+test session_limits_fail_without_dispatch ... ok
+test higher_order_indirect_callbacks_fail_closed ... ok
+test pure_named_forward_calls_recursion_and_lambda_are_allowed ... ok
+test session_function_recursion_has_a_qualified_stack_bound ... ok
+test requests_do_not_grant_authority_and_failed_candidates_do_not_promote ... ok
+test control_flow_and_bind_cannot_leave_stale_pure_callbacks ... ok
+test unknown_namespaced_bindings_and_effectful_budget_are_rejected ... ok
+test unknown_dynamic_targets_are_not_pure ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.74s
+

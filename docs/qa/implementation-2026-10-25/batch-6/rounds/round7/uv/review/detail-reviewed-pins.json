@@ -1,0 +1,55 @@
+{
+  "status": "source_review_only",
+  "manifest_sha256": "79744c2a1971080fab2c6fae21e824381c6b2872a2369f9462730de7e78ffcb1",
+  "targets": [
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/detail_controls.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/authoring/detail_controls.rs",
+      "observed_sha256": "80cdfc2f4b1120dd864faede2e0953ce09d7ae0b55e674ebf255f8f543f5dfb1",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/mod.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/mod.rs",
+      "observed_sha256": "b8f7628bb571844f051d39fda7b931d4eb22b7335094897334534783efff9187",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/recipe.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/recipe.rs",
+      "observed_sha256": "5b9429061eacc6f8e404d54c59eaa4b093020d6b89e0d304d25e65a358f77371",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/render.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/render.rs",
+      "observed_sha256": "48491aaaab748ca8eecb1d5598ee36e371c9daa6cca4dd4719defcc1a84f3fa6",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/detail/tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/native/src/graphical/surfaces/detail/tests.rs",
+      "observed_sha256": "011f47883694038a5e5788a29a1635dff6a89def5da24b8d55656539a020744c",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs",
+      "observed_sha256": "e04dc49f5e08216057ba56927ef1dcd98046179f658c17f46dd1f7e4e66cb84e",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+      "observed_sha256": "6d492b8db1e1a78e2f43bd95bc0a9fd2b7da9dcc054fca7eaeae8e789f0aab49",
+      "matches_manifest": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/tests/image_source_over.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round7/detail/after/qualiaDB/crates/qualia-core-db/tests/image_source_over.rs",
+      "observed_sha256": "557da96f96d11389e32f310012e40b88c4cd13295c0600b7859a5307d763c1a4",
+      "matches_manifest": true
+    }
+  ],
+  "commands": "Read-only source inspection, git diff --no-index preimage/candidate; no build or tests"
+}

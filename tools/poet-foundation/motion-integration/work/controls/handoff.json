@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "owner": "poet_motion_controls",
+  "status": "staged implementation; not canonically installed or runtime-qualified by this worker",
+  "requirements": ["POET-STU-001–009 material controls and source/preview continuity", "PA-02 native human controls", "PA-06/PA-12 property/key editing adaptation", "IP-03 native contributor/reviewer authoring remains a wider qualification requirement"],
+  "operation": "Human edits a bounded shared-material track and explicitly samples it through the same AuthoringEdit source-session route as agents.",
+  "owned_output": "tools/poet-foundation/motion-integration/work/controls/material_motion_controls.rs",
+  "owned_output_sha256": "2DA7F9FFC599B8DFEF018555171740105FAA918A5495C50F236E99F865A2CF6B",
+  "owned_output_lines": 419,
+  "canonical_destination": "C:/github/poet/native/src/graphical/authoring/material_motion_controls.rs",
+  "coordinator_integration": [
+    "Declare mod material_motion_controls in authoring/mod.rs.",
+    "Supply authoring::material_motion::{MaterialMotionDraft,MaterialMotionKey,MaterialMotionEdit,MotionInterpolation,MAX_KEYS,MAX_TIME_MS,MAX_TRACKS}, MaterialMotionDraft::validate()->Result<(),String>, AuthoringView.material_motion and AuthoringEdit::MaterialMotion{edit}.",
+    "Mount MaterialMotionControls{selected,inspected,fresh,onedit} after SurfaceControls in existing AuthoringControls; use an independent existing send(Action::AuthoringEdit{edit,expected:current_source},...,true) callback.",
+    "Keep existing parent busy fieldset, source revision/admission checks, local source-draft preservation and serial Cargo ownership.",
+    "Run the inline helper tests and appropriate existing integration checks; this worker has not run them."
+  ],
+  "bounds": {
+    "time": "integer milliseconds from 0 through 86400000",
+    "factors": "finite linear RGBA, roughness and metallic values from 0 through 1",
+    "keys": "at most 64; distinct increasing times; shared validator is authoritative",
+    "tracks": "8 per source; UI refuses creating a ninth, authoritative admission remains required",
+    "interpolation": ["Hold", "Linear", "CubicInOut"],
+    "sampling": "Explicit authored source/preview edit; no continuous playback, clock, simulation, expression evaluation or provider calls"
+  },
+  "interaction": [
+    "Explicit initial load and reload; no use_effect writes or automatic overwrite after source/part/material refresh.",
+    "Ready context matches inspected SourceRef, selected part and material identifier; stale context disables fields and actions while retaining local keys/text.",
+    "Visible dirty/stale messages and explicit reload wording; accepted-track sampling/removal is disabled with unsaved local key edits.",
+    "Ordered visible key inventory, selected key, explicit key-field replacement, add/update/remove, current accepted material capture, outgoing interpolation and explicit playhead.",
+    "Pending key-field changes must become an added/updated key before save; invalid/colliding edits leave the existing local draft intact.",
+    "Every source edit uses onedit only; status describes requests and never claims acceptance.",
+    "Native label/input/select/button controls with accessible names; keyboard/native renderer accessibility remains unexecuted qualification."
+  ],
+  "source_examples": [
+    {"path":"C:/github/poet/native/src/graphical/authoring/surface_controls.rs","sha256":"7DEC57882BA9E5538B0DDD4CA726788DBA0C7FEA9D39AF9684B8784976BEF32D","inspected":"1-314","used":"Native signal fields, explicit accepted load, SourceRef guard and onedit emission"},
+    {"path":"C:/github/poet/native/src/graphical/authoring/detail_controls.rs","sha256":"80CDFC2F4B1120DD864FAEDE2E0953CE09D7AE0B55E674EBF255F8F543F5DFB1","inspected":"1-265","used":"Retained local editable recipe and explicit current-context reload semantics"},
+    {"path":"C:/github/poet/native/src/graphical/authoring/controls.rs","sha256":"31E4CD6E4843E8DECCA94A3C45CE8EC72331811A48B3CB71699B695B0BC6D5FB","inspected":"1-345","used":"Existing source-bound native_dispatch/send path and parent busy gate"},
+    {"path":"C:/github/poet/native/src/graphical/authoring/mod.rs","sha256":"071E8A9C31C505CBC24ECC9899D7662C5BC10384ACEFE124DB38B84902EABE27","inspected":"1-168","used":"AuthoringView/PartView/AuthoringEdit seam; coordinator extends it"},
+    {"path":"C:/github/poet/native/src/graphical/authoring/source.rs","sha256":"252C40C7A384BE249406CFE905B24D0559F7F022C276B528754D9898CF8679D2","inspected":"1-145 and selected search matches at material admission","used":"Actual part/material projections and source-construction owner; no worker edits"},
+    {"path":"C:/github/poet/native/src/graphical/preview.rs","sha256":"1CA1B62E39375E808ACDDA34CF2E972D633A6285C22398FAF5F7834BF9FC668B","inspected":"1-110","used":"SourceRef is artifact plus opaque source/session incarnation/revision stamp"},
+    {"path":"C:/github/poet/native/src/graphical/authoring/tests.rs","sha256":"285E87FF7DB6FA3FE61757F60CD38AB2C5551B348D1D442BF9AF3069C8D2CC8C","inspected":"1-100","used":"NoPixels test source host fixture, not executed evidence"},
+    {"path":"C:/github/storytold/effectcraft-main/crates/ui-egui/src/panels/effect_controls.rs","sha256":"2784BA7BC2669067EF9F099B89094D1A8A9F06850B4327B987B1D1CC82B4EE62","inspected":"1-255 plus key/interpolation symbol search","used":"Reference property selection, explicit current-time keys and typed command interaction; no implementation copied"}
+  ],
+  "reuse_and_licensing": {
+    "decision": "New Poet native controls adapt the property/key editing interaction contract; no EffectCraft source code, app shell, egui, transport, serializer, time engine or numerical solver copied.",
+    "numerical_owner": "Shared staged MaterialMotionDraft validation and existing Vibe interpolation owner; this module performs UI parsing and ordered key mutation only.",
+    "notice_reference": "../source-reuse/notices/LICENSE-MIT and ../source-reuse/notices/NOTICE retained by prior source-reuse work; no branding copied.",
+    "prior_review": "../source-reuse/report.json and ../source-reuse/source-map.json reviewed; not a new nine-area QualiaDB semantic audit."
+  },
+  "verification": {
+    "rustfmt": "rustfmt --edition 2021 completed successfully on the staged module; this is syntax/formatting evidence, not macro expansion or compilation",
+    "handoff_json": "Parsed successfully with PowerShell ConvertFrom-Json",
+    "inline_test_source": ["key_moves_are_ordered_and_collision_refusal_retains_local_source", "invalid_field_updates_preserve_keys_and_uncommitted_text"],
+    "tests_executed": false,
+    "build_executed": false,
+    "gui_executed": false,
+    "provider_calls": false,
+    "human_acceptance": false,
+    "remaining": ["Coordinator installation and serial compilation", "Actual native keyboard/select/field rendering and interaction", "Human+agent shared source edits and admitted refusal evidence", "Save/reopen/undo and package persistence qualification supplied by integrated model/controller work", "Full product and model/package completion remains outside this bounded editor module"]
+  }
+}

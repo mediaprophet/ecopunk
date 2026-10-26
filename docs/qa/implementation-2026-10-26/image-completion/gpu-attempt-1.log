@@ -1,0 +1,125 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: variable does not need to be mutable
+   --> native\src\graphical\authoring\controls.rs:160:9
+    |
+160 |     let mut material_id = use_signal(|| 0u64);
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\native_project_motion_tests.rs:327:9
+    |
+327 |     let mut ui = project.connect(author.clone()).unwrap();
+    |         ----^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:76:5
+   |
+76 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:77:5
+   |
+77 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     ----^^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\viewport_controls.rs:201:9
+    |
+201 |     let mut viewport_state = use_signal(|| None::<ViewportState>);
+    |         ----^^^^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 6 warnings (run `cargo fix --lib -p poet-cli --tests` to apply 5 suggestions)
+    Finished `test` profile [unoptimized] target(s) in 4m 27s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 2 tests
+texture_effect_gpu gaussian_blur changed_pixels=93
+texture_effect_gpu sharpen changed_pixels=201
+texture_effect_gpu hue_rotate changed_pixels=300
+texture_effect_gpu emboss changed_pixels=300
+texture_effect_gpu multiply changed_pixels=300
+texture_effect_gpu screen changed_pixels=300
+texture_effect_gpu overlay changed_pixels=300
+texture_effect_gpu soft_light changed_pixels=300
+texture_effect_gpu hard_light changed_pixels=300
+texture_effect_gpu color_dodge changed_pixels=300
+texture_effect_gpu color_burn changed_pixels=300
+texture_effect_gpu difference changed_pixels=300
+texture_effect_gpu exclusion changed_pixels=300
+texture_effect_gpu rectangle signed offset changed_pixels=269
+texture_effect_gpu red resource mask changed_pixels=123
+texture_effect_gpu alpha resource mask changed_pixels=208
+image_completed_workflow_parent_child_passed
+test graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::image_completed_tests::image_completed_workflow_filters_blends_masks_hmc_and_fresh_process ... ok
+
+thread 'graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::image_completed_tests::image_completed_workflow_refusals_preserve_source_history' (35608) panicked at native\src\graphical\native_project_image_completed_tests.rs:646:5:
+shape/parameter refusal preserves current read context
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::image_completed_tests::image_completed_workflow_refusals_preserve_source_history ... FAILED
+
+failures:
+
+failures:
+    graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::image_completed_tests::image_completed_workflow_refusals_preserve_source_history
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 299 filtered out; finished in 291.66s
+
+error: test failed, to rerun pass `-p poet-cli --lib`

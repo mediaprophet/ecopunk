@@ -1,0 +1,224 @@
+{
+  "job": "W3R1-AUTH",
+  "status": "frozen-staged-candidate-awaiting-root-review-and-integration",
+  "frozen_at_utc": "2026-10-26T11:16:30.980166+00:00",
+  "agent": "/root/w3r1_auth",
+  "requested_role_model": "gpt-6.1-sol",
+  "requested_reasoning_effort": "high",
+  "actual_usage_and_cost": "unknown; no billing inference",
+  "candidate_root": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority",
+  "manifest_policy": "Root installs only exact listed candidates after matching before SHA256; new files require canonical absence. UTF-8 text, SHA256 over exact file bytes.",
+  "files": [
+    {
+      "relative_path": "concurrent_session_tests.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\concurrent_session_tests.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\concurrent_session_tests.rs",
+      "new_file": true,
+      "before_sha256": null,
+      "after_sha256": "4b68125d98dc37642c78bf34be8017146f911a34f4c49cf5458bffda38c36462",
+      "canonical_current_sha256": null,
+      "canonical_untouched": true,
+      "lines": 218
+    },
+    {
+      "relative_path": "enrollment/owner.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "new_file": false,
+      "before_sha256": "9188647665c6e51f17f03d8f27e230e31a1c651dc19ec16a5e389d49d7262edb",
+      "after_sha256": "7a25a887b3141614dae795a600c807be0fccc9a0438bc94c6c7d82f1c426dfe1",
+      "canonical_current_sha256": "9188647665c6e51f17f03d8f27e230e31a1c651dc19ec16a5e389d49d7262edb",
+      "canonical_untouched": true,
+      "lines": 385
+    },
+    {
+      "relative_path": "enrollment/package_review_admin.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+      "new_file": false,
+      "before_sha256": "b246e802cde9fbc0ca38a88935fee216c76a80207d0220f0d23bb9cccef99c93",
+      "after_sha256": "94916ea6d2c9655f6f12d980846cb1bf0ac7a76d8e7f30dd582972778836cfce",
+      "canonical_current_sha256": "b246e802cde9fbc0ca38a88935fee216c76a80207d0220f0d23bb9cccef99c93",
+      "canonical_untouched": true,
+      "lines": 114
+    },
+    {
+      "relative_path": "enrollment/tests.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\tests.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\tests.rs",
+      "new_file": false,
+      "before_sha256": "9112a104ef2f75551134378a661983b8a6b05e89acc34fcd2d2b63b456c7a2e4",
+      "after_sha256": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb",
+      "canonical_current_sha256": "9112a104ef2f75551134378a661983b8a6b05e89acc34fcd2d2b63b456c7a2e4",
+      "canonical_untouched": true,
+      "lines": 322
+    },
+    {
+      "relative_path": "mod.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "new_file": false,
+      "before_sha256": "37b117b3c06a9025beb9f6d053aa20c72ba84cb03ab2d44ee13f787a49c42b36",
+      "after_sha256": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373",
+      "canonical_current_sha256": "37b117b3c06a9025beb9f6d053aa20c72ba84cb03ab2d44ee13f787a49c42b36",
+      "canonical_untouched": true,
+      "lines": 417
+    },
+    {
+      "relative_path": "session.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "new_file": false,
+      "before_sha256": "465ed17b4c881c24ef5890bb158b665e986e238d54cd62c1147aaabbb0425a2e",
+      "after_sha256": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "canonical_current_sha256": "465ed17b4c881c24ef5890bb158b665e986e238d54cd62c1147aaabbb0425a2e",
+      "canonical_untouched": true,
+      "lines": 209
+    },
+    {
+      "relative_path": "session_lifecycle_tests.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_lifecycle_tests.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_lifecycle_tests.rs",
+      "new_file": true,
+      "before_sha256": null,
+      "after_sha256": "83e1fca996d9f061836eaa7587ee52cfe2525815f1fea1744c3e86c2cc2df60b",
+      "canonical_current_sha256": null,
+      "canonical_untouched": true,
+      "lines": 268
+    },
+    {
+      "relative_path": "session_state.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_state.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_state.rs",
+      "new_file": true,
+      "before_sha256": null,
+      "after_sha256": "d16462a893712a25bb5c4b910be6de631b438e76e158d6e8af8e0f5deb51dd59",
+      "canonical_current_sha256": null,
+      "canonical_untouched": true,
+      "lines": 64
+    },
+    {
+      "relative_path": "session_test_fixture.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_test_fixture.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_test_fixture.rs",
+      "new_file": true,
+      "before_sha256": null,
+      "after_sha256": "861c77ec9e7b0563f2c633d29cc92444698728e7b49dc040f0c6dc5a6b9c3de1",
+      "canonical_current_sha256": null,
+      "canonical_untouched": true,
+      "lines": 122
+    },
+    {
+      "relative_path": "tests.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+      "new_file": false,
+      "before_sha256": "22acd11c53d1fb7c8681f5fcb65b41053110c0ae5731df525eafa084c40ea2e4",
+      "after_sha256": "4e138e82e6b8d7be9500c90a5434c90e770c89a27d7233e99e24e74227c3187c",
+      "canonical_current_sha256": "22acd11c53d1fb7c8681f5fcb65b41053110c0ae5731df525eafa084c40ea2e4",
+      "canonical_untouched": true,
+      "lines": 393
+    },
+    {
+      "relative_path": "workflow_tests.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\qualiadb\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\workflow_tests.rs",
+      "canonical_path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\workflow_tests.rs",
+      "new_file": false,
+      "before_sha256": "fa6d2db972bdb3e3d0fcd4b9b7313671590d856d853444695462a74220a60c39",
+      "after_sha256": "c607a56f8abda192fd287d095fe69f27a07d4ef5eaaed1ecb7b30016906a1d76",
+      "canonical_current_sha256": "fa6d2db972bdb3e3d0fcd4b9b7313671590d856d853444695462a74220a60c39",
+      "canonical_untouched": true,
+      "lines": 104
+    }
+  ],
+  "inspected_scope_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\inspected-scope.json",
+  "public_api": {
+    "preserved": [
+      "NativeAuthority::open",
+      "open_retained",
+      "open_retained_current",
+      "begin_session",
+      "complete_session",
+      "disconnect",
+      "transact",
+      "transact_with_package",
+      "publication_is_current",
+      "package_publication_is_current"
+    ],
+    "added": [
+      "MAX_NATIVE_SESSIONS = 16",
+      "MAX_PENDING_SESSION_CHALLENGES = 32",
+      "cancel_session_challenge(&SessionChallenge) -> Result<(), String>",
+      "source_publication_is_current(&SessionHandle, u64, &DocumentRevision) -> bool"
+    ]
+  },
+  "compatibility": [
+    "Multiple pending proofs and independently authenticated sessions replace singleton behavior.",
+    "Login/logout/expiry no longer increment shared admission generation; opaque handle validity supplies per-session invalidation.",
+    "An exact invalid proof or capacity refusal consumes its matching challenge; foreign/tampered challenge fields do not consume unrelated proofs.",
+    "Signed adopted admission changes still clear ALL pending/live sessions and increment generation after durable journal success.",
+    "Document successors preserve authenticated handles, stale exact DocumentRevision/SourceRef/package contexts fail; authority-only publication guard intentionally remains authority-only.",
+    "Same subject may hold multiple independently revocable sessions."
+  ],
+  "bounds": {
+    "live_sessions": 16,
+    "pending_challenges": 32,
+    "requested_lifetime_seconds": [
+      1,
+      3600
+    ],
+    "expiry": "minimum of requested expiry, admitted subject expiry, project admission expiry",
+    "residency": "fixed Option arrays; each session owns existing fixed8-record QDNF GrantOwner and bounded admitted subject/authentication text; pending contains bounded admitted subject; no new data-dependent unbounded table",
+    "capacity": "explicit error; no live eviction; expired slots reclaimed on begin/complete"
+  },
+  "tests": {
+    "status": "NOT RUN",
+    "new_test_count": 10,
+    "new_test_files": [
+      "concurrent_session_tests.rs",
+      "session_lifecycle_tests.rs"
+    ],
+    "additional_new_test": "enrollment/tests.rs::concurrent_contributor_does_not_replace_steward_permission_or_audit_actor",
+    "modified_existing_tests": [
+      "tests.rs private expiry selectors now resolve matching table entry",
+      "workflow_tests.rs::requested_review_is_revision_bound_distinct_and_durable author remains readable after reviewer login",
+      "enrollment/tests.rs::fresh_process_child requires all process-local table slots empty"
+    ],
+    "executed_checks": [],
+    "formatting_only": "rustfmt --edition 2021 --config skip_children=true on staged Rust files completed before final helper extraction; not compilation, typechecking or test execution"
+  },
+  "shared_wiring_required": [
+    "Install all11 candidate files in native_authority subtree only.",
+    "Root: migrate native_project_workflow_tests.rs:214-215 singleton-invalidating assertions to coexistence and explicit disconnect/revocation denial.",
+    "Root: run focused Core native_authority tests under serial lease, then actual simultaneous Poet UI/MCP connection/source/save/review checks.",
+    "Existing NativeAuthorityOwner::new per handle + NativeProject::connect already share the canonical editor; retain exact SourceRef/current DocumentRevision and expected-file checks.",
+    "Optional source_publication_is_current is additive; authority-only AuthorisationStamp must remain combined with SourceRef freshness.",
+    "Operator SessionSlot remains one selected UI actor; multiple authenticated host sessions use independently connected existing owners."
+  ],
+  "remaining_ids": [
+    "W3R1-AUTH integrated source-test execution and independent source review",
+    "IP-03 C2/C4/C5/C7 actual native contributor/reviewer cooperation and recovery",
+    "IP-03 C1-C8 integrated usable native human acceptance",
+    "BS-10D/20D/E and required BS-30/50 integration owned outside this candidate"
+  ],
+  "asset_production": "HOLD",
+  "human_acceptance": "unassessed",
+  "model_completion": "No model assets changed or created; no model completion claim.",
+  "process_and_lease": {
+    "cargo_processes_started": 0,
+    "builds_started": 0,
+    "tests_started": 0,
+    "lease_acquired": false,
+    "running_owned_checks": [],
+    "canonical_writes": 0,
+    "providers": 0,
+    "commits": 0,
+    "publication": 0
+  },
+  "operational_notes": [
+    "Two initial default python.exe edit attempts failed to launch Windows Store alias before writes. Bundled Python was discovered and successful staged edits used its explicit path.",
+    "No assertions removed to satisfy checks; one obsolete singleton invalidation assertion now asserts preserved exact author principal.",
+    "No search result, hash, rustfmt parse or test source is presented as an executed Rust test."
+  ],
+  "next_action": "Root review exact preimages/candidate diff, install with sibling-repository boundary approval, run focused Core suite, then integrate and test simultaneous Poet owners."
+}

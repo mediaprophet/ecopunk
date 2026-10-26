@@ -28,7 +28,7 @@ integrated). Scaffold types exist in-tree; names are not evidence of wiring.
 | Scripting surface | **`poet_host/invoke/`** — capability invocation by domain: agent, audio, chat_graph, chemistry, clinical, cooperative, crypto, docs, econ, engineering, geometry, governance, graph, hypermedia, inference, logic, manifold, math, medical, ml, net, nlp, render, research, runtime, science, sheet, social, stats, vision |
 | Network | `net/` (peer fabric, dns, **acoustic_ble_mesh**, **qdnf/** — full decentralized fabric) · `p2p/` · `services/` (daemon, webtorrent seeder/routes, solid_ldp, swarm, poet APIs) |
 | Crypto/privacy | `crypto/` (sanctuary_*, fiduciary_crypto, verifiable_credential, zk_*, deontic_circuit, pq_kem_shim, network/key_provider) |
-| Identity/governance | `identity/` + `identity/credentials` · `did_qi/` · `governance/` + `governance/webizen` · `domain_licence/` · `entity_view/` · `foundation/` (crdt, frame_layout, fuzz_testing, telemetry) |
+| Identifiers/governance | `identity/` + `identity/credentials` · `did_qi/` · `governance/` + `governance/webizen` · `domain_licence/` · `entity_view/` · `foundation/` (crdt, frame_layout, fuzz_testing, telemetry) |
 | Media/NLP/content | `audio/` (DSP: stft/istft/cqt, hrtf, tf surfaces, sidecar link) · `nlp/` (16 modules) · `hypermedia*` · `text_span` · `semantic_instruments/` · `agent_runtime/` |
 | Inference | `inference/` (runtime: kv/paged/prefix/scheduler/receipt/graph_assist/prepared/budget/artifacts; gguf_sharder; qwen; moe; reranker; cuda_lane; conditioning*; ambient_orchestration; lab) · `gguf_bridge/` (incl. WASM WebGPU + wasm_cpu kernels + cuda_decode_plan) · `lora/` · `wasm_llm/` |
 
@@ -36,7 +36,7 @@ integrated). Scaffold types exist in-tree; names are not evidence of wiring.
 
 | Module | What it provides (verified from headers) | ecopunk use |
 |---|---|---|
-| `q42/asset_envelope` | `Q42AssetEnvelope` — governed envelope: `UpstreamRelease` identity, digests, formats, `RecordCounts`, parser/mapping `ToolchainVersions`, provenance, `LicencePolicy` (`LicenceClass`, `LicenceObligations`, `RedistributionClass`, `UseClass`), `AssetSensitivity`, `AssetRoutingLane`, `ChunkSpec` bounded chunk plans, `MAX_DERIVED_FROM` lineage, `SENTINEL_PASS_BUDGET_BYTES`. **Unknown licences fail closed; derived assets inherit the union of upstream obligations.** | **This is the GOV-LIC/GOV-PRV machine.** Our rights profiles map onto LicencePolicy; strictest-wins composition = "union of upstream obligations"; chunking solves large-dataset packaging |
+| `q42/asset_envelope` | `Q42AssetEnvelope` — governed envelope: `UpstreamRelease` identifiers, digests, formats, `RecordCounts`, parser/mapping `ToolchainVersions`, provenance, `LicencePolicy` (`LicenceClass`, `LicenceObligations`, `RedistributionClass`, `UseClass`), `AssetSensitivity`, `AssetRoutingLane`, `ChunkSpec` bounded chunk plans, `MAX_DERIVED_FROM` lineage, `SENTINEL_PASS_BUDGET_BYTES`. **Unknown licences fail closed; derived assets inherit the union of upstream obligations.** | **This is the GOV-LIC/GOV-PRV machine.** Our rights profiles map onto LicencePolicy; strictest-wins composition = "union of upstream obligations"; chunking solves large-dataset packaging |
 | `q42/source_catalogue` | Upstream source/connector **descriptors**; `AcquisitionStatus::{Unverified, Restricted}` — deliberately *no* `Redistributable` variant; redistribution only after a verified `LicencePolicy` on a governed envelope | **The data-source register's engine counterpart** — our australia.md register rows become these descriptors |
 | `q42/chebi_parse` / `chebi_map` / `chebi_query` | ChEBI TSV parse → quin mapping (`chebi:accession`, `hasName`, `hasParent`, `fromRelease`) → bounded in-memory query/export over `&[NQuin]` | **Compound/phytochemistry layer already partially exists**; the template for per-source parse→map→query subsystems (replicate for TERN, NSL…) |
 | `q42/asset_import` | Import `job`/`budgets`/`status` machinery | Pipeline S6 job orchestration |
@@ -81,7 +81,7 @@ a cost threshold, then use is freed globally**; integer arithmetic, zero-heap) �
 `capability_gap` (**RPL — Recognition of Prior Learning**: present-vs-lacking set
 difference; *experiential/traditional knowledge counts as held* when an
 authoritative `skos:closeMatch` links it) · `identity_fabric` (**"an identifier is
-not an identity"** — identity = computed fabric of anchors; k-of-n relational
+not identifiers"** — identifiers = computed fabric of anchors; k-of-n relational
 recovery survives key/device loss) · `carrier` (BLAKE3 content-addressed
 media↔graph binding, tamper-evident).
 
@@ -311,7 +311,7 @@ tensor), ilp_dispatcher, rpc, **webtorrent seeder/routes** (pack distribution),
 **solid_ldp** (+ `qualia-solid-bridge`: pod_store, ldp_translator, solid_proxy,
 oidc_micro_idp), `poet_*_api` surfaces, `swarm`.
 
-## 7. Identity, crypto, governance
+## 7. Identifiers, crypto, governance
 
 `did_qi` (method, document, mailbox_bind, utxo, vectors) · `identity/` + credentials ·
 `crypto/`: sanctuary_crypto/keychain/audit(+dag), fiduciary_crypto, verifiable_credential,

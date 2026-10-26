@@ -1,0 +1,16 @@
+
+running 2 tests
+baseline_BC7 mode=0 alpha_min=255 alpha_max=255 first_rgba=[0, 115, 0, 255]
+baseline_BC7 mode=1 alpha_min=255 alpha_max=255 first_rgba=[169, 0, 0, 255]
+baseline_BC7 mode=2 alpha_min=255 alpha_max=255 first_rgba=[173, 0, 0, 255]
+baseline_BC7 mode=3 alpha_min=255 alpha_max=255 first_rgba=[212, 0, 0, 255]
+baseline_BC7 mode=4 alpha_min=0 alpha_max=0 first_rgba=[82, 173, 123, 0]
+baseline_BC7 mode=5 alpha_min=0 alpha_max=0 first_rgba=[84, 251, 0, 0]
+baseline_BC7 mode=6 alpha_min=0 alpha_max=0 first_rgba=[168, 244, 0, 0]
+baseline_BC7 mode=7 alpha_min=0 alpha_max=0 first_rgba=[178, 0, 0, 0]
+test actual_bc7_arbitrary_payloads_legitimately_encode_fully_transparent_alpha_modes ... ok
+baseline_native_SKL1_blockers=authored_pose_vs_bind_rest,invented_loop_seam; silent_section_loss_reproduced=true
+test actual_importer_exposes_both_bind_and_loop_admission_failures ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

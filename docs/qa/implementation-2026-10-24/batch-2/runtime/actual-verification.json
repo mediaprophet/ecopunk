@@ -1,0 +1,252 @@
+{
+  "status": "actual canonical and Poet sources verified; timing gate remains failed",
+  "recorded_at": "2026-10-24T11:18:37.279536+00:00",
+  "source_targets_verified": 24,
+  "source_maps": {
+    "patch-map.json": "741c51314b8aff6899247690e1c5fc02a49d0a40cfc1fb57c97b49cc896adb0d",
+    "poet-patch-map.json": "61e1f173654fde85acc6b8d26b42334f200829ca70e3cf3618dbd81ca3d70e4e"
+  },
+  "first_unfiltered": {
+    "exit_code": 101,
+    "unit_passed": 972,
+    "unit_failed": 1,
+    "failed_test": "deontic_interrupt::tests::vc5_prohibition_breach_completes_under_1_microsecond",
+    "observed_best_ns": 1100,
+    "required_strictly_less_ns": 1000,
+    "log": "actual-vibe-full-first.log"
+  },
+  "passed_runs": {
+    "actual-vibe-functional.log": {
+      "exit_code": 0,
+      "passed": 1232,
+      "ignored": 0,
+      "filtered": 1,
+      "targets": [
+        {
+          "target": "Running unittests src\\lib.rs",
+          "status": "ok",
+          "passed": 972,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 1
+        },
+        {
+          "target": "Running unittests src\\bin\\vibe.rs",
+          "status": "ok",
+          "passed": 0,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\cell_full_input.rs",
+          "status": "ok",
+          "passed": 5,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\conformance.rs",
+          "status": "ok",
+          "passed": 184,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\graphics_backend_policy.rs",
+          "status": "ok",
+          "passed": 3,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\pages_samples.rs",
+          "status": "ok",
+          "passed": 6,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\sprint_b_fixtures.rs",
+          "status": "ok",
+          "passed": 3,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\vibe_bind_lambda.rs",
+          "status": "ok",
+          "passed": 8,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\vibe_catalog_surface.rs",
+          "status": "ok",
+          "passed": 24,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\vibe_features.rs",
+          "status": "ok",
+          "passed": 13,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running tests\\vibe_reactive_destructure.rs",
+          "status": "ok",
+          "passed": 14,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Doc-tests vibe",
+          "status": "ok",
+          "passed": 0,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        }
+      ]
+    },
+    "actual-session-tests.log": {
+      "exit_code": 0,
+      "passed": 45,
+      "ignored": 5,
+      "filtered": 0,
+      "targets": [
+        {
+          "target": "Running unittests lib.rs",
+          "status": "ok",
+          "passed": 45,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        },
+        {
+          "target": "Running ..\\harness\\boundary_tests.rs",
+          "status": "ok",
+          "passed": 0,
+          "failed": 0,
+          "ignored": 5,
+          "filtered": 0
+        },
+        {
+          "target": "Doc-tests ecopunk_actual_vibe_session_check",
+          "status": "ok",
+          "passed": 0,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        }
+      ]
+    },
+    "actual-poet-tests.log": {
+      "exit_code": 0,
+      "passed": 15,
+      "ignored": 0,
+      "filtered": 0,
+      "targets": [
+        {
+          "target": "Running unittests src\\main.rs",
+          "status": "ok",
+          "passed": 15,
+          "failed": 0,
+          "ignored": 0,
+          "filtered": 0
+        }
+      ]
+    }
+  },
+  "isolated_default_stack_boundary_cases": {
+    "actual-boundary_combined_calls_and_expression_path.log": {
+      "exit_code": 0,
+      "sha256": "82b60890cdedba389ad2cb59833eea9ad2d9d5d927ab15e75658fbace8515f2b"
+    },
+    "actual-boundary_combined_qualified_success.log": {
+      "exit_code": 0,
+      "sha256": "122cba72d89279732718a3c3ffec57a3f89197ca54b914d914c9c4fb16108f5b"
+    },
+    "actual-boundary_groups_16.log": {
+      "exit_code": 0,
+      "sha256": "5b9d3563840b0ebebbc57e6cc6b4816c6bdc87a6bb45d1013962e0a07ee9a997"
+    },
+    "actual-boundary_postfix_64_path_units.log": {
+      "exit_code": 0,
+      "sha256": "ffb01fb6bb8ac4cbf02176244d523e949ed5f44a9da2f5c10e8fda255e4ead2c"
+    },
+    "actual-boundary_unary_64_path_units.log": {
+      "exit_code": 0,
+      "sha256": "a0e44f3b89fe957e6a30cb64bec957036f46004655d7885d0dab900801665c42"
+    }
+  },
+  "native_build": {
+    "exit_code": 0,
+    "binary": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\poet-repl\\harness\\target\\debug\\poet.exe",
+    "sha256": "857a8512ee4f9df78d0db52bbf07a244c9c127b6652ee7d620c0fea4054178c6"
+  },
+  "native_transcripts": {
+    "default_exit_code": 0,
+    "explicit_grant_exit_code": 0
+  },
+  "wasm": {
+    "target": "wasm32-unknown-unknown",
+    "command_exit_code": 0,
+    "scope": "actual Vibe library compile/check only; no browser/runtime conformance claim"
+  },
+  "log_and_input_hashes": {
+    "actual-vibe-full-first.log": "83314c029b123c43eff9ae73923680b5f1f3c49ccd8a05d4ff2ee2bc864dde20",
+    "actual-vibe-functional.log": "528f7e7eb234e204ad3ca1284b0f334efff6a3fb4acdcadafa9e1a5734d3a2e2",
+    "actual-session-tests.log": "c3635a56479f62e5e23b2a8fb4db5ff7fd6457d7fda7546d59cff27b029da8f8",
+    "actual-poet-tests.log": "df4c6ba9171c2b8a0d5a86c0b89dc69927a7fe6b5d1a8f3564070c1e3f579a65",
+    "actual-poet-build.log": "d4b149b89761d53dfaf5738f64be8a310b750081d2def956aa51555245bf90ee",
+    "actual-vibe-wasm-check.log": "7547abd8edec445a48bf3bb8a5ca564bad30582060354824ebde1ca01a76ca0d",
+    "actual-native-default-session.log": "e06cbd912af37d96f8f52f45f4a18fdd8d3128f9d4ac1569adfd0906cb06e7ab",
+    "actual-native-granted-session.log": "ef76ea01ed1f835c6796e2aa815dc498287bab217dffb6a1937d46b77e12c8bf",
+    "actual-source-verification.json": "9db5ffe14bb733c7b676ca9fcd1820053c88f11bd7d2199d689c67984403d28c",
+    "actual-boundary-stack-environment.log": "b93fbda43b83161e9e86a7d3b1c1ae0d11165429394a7064656bc8657c74fe60",
+    "native-default-input.txt": "f654b74eb48c93c0a2c56e73a5b092a5f9ec6ad9794fb480b71ff0267ee10357",
+    "native-granted-input.txt": "2ed16859333cd646ac7d278eb39a65c1b07f5a243c2a55a6d6407b7d965775d9",
+    "actual-harness/Cargo.toml": "e13afc013e6e0b270a55c73378b4ed9fa50e6d2a5279382247eb9fad163f8f68",
+    "actual-harness/Cargo.lock": "207528d5e78406c8887961460499bfc58fa4a9c1ff78d6a0a46f662e121c0f84",
+    "actual-harness/lib.rs": "846c5817b687129e764104e17c3ee8a45ea60b245c1eca8766d46c1925de4ff6",
+    "actual-harness/poet_adapter.rs": "9308e5535c205e24ae4606a9b177b42685013f78e646a03bf0b30c18b12314ee",
+    "actual-boundary_combined_calls_and_expression_path.log": "82b60890cdedba389ad2cb59833eea9ad2d9d5d927ab15e75658fbace8515f2b",
+    "actual-boundary_combined_qualified_success.log": "122cba72d89279732718a3c3ffec57a3f89197ca54b914d914c9c4fb16108f5b",
+    "actual-boundary_groups_16.log": "5b9d3563840b0ebebbc57e6cc6b4816c6bdc87a6bb45d1013962e0a07ee9a997",
+    "actual-boundary_postfix_64_path_units.log": "ffb01fb6bb8ac4cbf02176244d523e949ed5f44a9da2f5c10e8fda255e4ead2c",
+    "actual-boundary_unary_64_path_units.log": "a0e44f3b89fe957e6a30cb64bec957036f46004655d7885d0dab900801665c42"
+  },
+  "source_changes_during_verification": false,
+  "counts_are_per_run_not_summed": true,
+  "cli_compatibility": {
+    "language": "vibe-0.1",
+    "host_abi": "vibe-host-0.1",
+    "legacy_api": "eval_line(line, host, Env) retained",
+    "persistent_entry": "eval_session_line uses canonical SourceSession; interactive run_repl_with_grants uses it",
+    "default_grants": [],
+    "explicit_local_profile": "poet repl --grant pulse.publish",
+    "authority": "trusted local host profile only; source requests do not grant and external project/provider authority is not implied"
+  },
+  "active_commands_at_handoff": [],
+  "limits": [
+    "single original timing gate failed and is explicitly filtered only in functional rerun",
+    "bounded additive 0.1 sessions; no 0.2 release or complete type/language qualification",
+    "8user calls,64total expression-evaluation depth,16delimiter groups/64syntax path units",
+    "interpolation, replacement/nested-global/top-level-return sessions remain held as documented",
+    "no process/allocator isolation claim; host effects require actual host reconciliation",
+    "native CLI and library evidence do not satisfy graphical Poet/Craft cooperation/IP-03 C1-C8",
+    "durable project checkpoints, jobs and model/high-grade output acceptance remain open"
+  ]
+}

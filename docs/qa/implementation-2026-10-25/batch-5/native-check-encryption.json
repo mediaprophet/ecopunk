@@ -1,0 +1,26 @@
+{
+  "command": "cargo",
+  "arguments": [
+    "check",
+    "--offline",
+    "--locked",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--tests",
+    "--features",
+    "native-graphical",
+    "--target-dir",
+    "C:/github/ecopunk/target"
+  ],
+  "exit_code": 0,
+  "input_snapshot": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-5\\source-snapshots\\c09fdeeb0297b2b19ef09e0d30b70fa673e9826e62a412e96f8d2a59a0d592ee.json",
+    "sha256": "c09fdeeb0297b2b19ef09e0d30b70fa673e9826e62a412e96f8d2a59a0d592ee"
+  },
+  "started_utc": "2026-10-24T22:27:54.3059408Z",
+  "finished_utc": "2026-10-24T22:30:19.4206351Z",
+  "source_changes_during_command": [],
+  "source_unchanged": true
+}

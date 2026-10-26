@@ -1,0 +1,69 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 6m 07s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 14 tests
+test graphical::authoring::structure_tests::assembly_mutations_refuse_cycles_missing_parents_and_nonleaf_removal_without_execution ... ok
+test graphical::authoring::structure_tests::authoring_inventory_and_recipes_refuse_duplicates_injection_and_nonfinite_arguments ... ok
+test graphical::authoring::structure_tests::bounded_geometry_recipes_add_and_replace_through_actual_grants_and_one_dispatch ... 
+thread 'graphical::authoring::structure_tests::bounded_geometry_recipes_add_and_replace_through_actual_grants_and_one_dispatch' (18956) panicked at native\src\graphical\authoring\structure_tests.rs:117:98:
+called `Result::unwrap()` on an `Err` value: "SubmissionError { diagnostic: Diagnostic { code: E100, span: Span { start: 119, end: 395 }, message: \"lambda captures `capability`; vibe-0.1 lambdas are non-capturing\", suggested_fix: None, evidential: None }, execution_attempted: true, host_reconciliation_required: true, active_revision: 1 }"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test graphical::authoring::structure_tests::field_preserving_edits_keep_distinct_extension_schemas_and_refuse_unsafe_names ... ok
+test graphical::authoring::structure_tests::geometry_edits_refuse_denied_effect_and_exhausted_work_without_advancing_source ... ok
+test graphical::authoring::structure_tests::parameter_rebuild_retains_unsigned_precision_and_unknown_untouched_values ... ok
+test graphical::authoring::structure_tests::reparent_detach_and_remove_leaf_preserve_local_trs_and_unrelated_values ... ok
+test graphical::authoring::structure_tests::shared_material_delta_matches_unsigned_and_mixed_identifiers_without_losing_extensions ... ok
+test graphical::authoring::structure_tests::shared_material_edit_groups_256_parts_without_source_or_expression_depth_growth ... 
+thread 'graphical::authoring::structure_tests::shared_material_edit_groups_256_parts_without_source_or_expression_depth_growth' (22808) panicked at native\src\graphical\authoring\structure_tests.rs:200:58:
+called `Result::unwrap()` on an `Err` value: SubmissionError { diagnostic: Diagnostic { code: E001, span: Span { start: 2, end: 5 }, message: "expected expression", suggested_fix: None, evidential: None }, execution_attempted: false, host_reconciliation_required: false, active_revision: 0 }
+FAILED
+test graphical::authoring::structure_tests::structural_source_revisions_keep_stale_guard_undo_and_rebuild_lineage ... ok
+test graphical::authoring::structure_tests::unique_material_preserves_complete_material_and_only_selected_assignment ... ok
+test graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph ... ok
+test graphical::authoring::tests::every_generated_edit_is_a_canonical_program_with_a_record_result ... ok
+test graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety ... ok
+
+failures:
+
+failures:
+    graphical::authoring::structure_tests::bounded_geometry_recipes_add_and_replace_through_actual_grants_and_one_dispatch
+    graphical::authoring::structure_tests::shared_material_edit_groups_256_parts_without_source_or_expression_depth_growth
+
+test result: FAILED. 12 passed; 2 failed; 0 ignored; 0 measured; 140 filtered out; finished in 1.70s
+
+error: test failed, to rerun pass `-p poet-cli --lib`

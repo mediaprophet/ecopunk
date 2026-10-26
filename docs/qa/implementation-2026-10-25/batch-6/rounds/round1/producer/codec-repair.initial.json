@@ -1,0 +1,11 @@
+{
+  "schema": "ecopunk-round1-codec-bounds-repair/1",
+  "source": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\mesh_section.rs",
+  "before_sha256": "c610bc86fbd652a23917703122ebb798181d0df056cac7ca258da68b8829c8ac",
+  "after_sha256": "a7b7c5ee9a09311931e88f6b393554a88c4ecf1a66dceec349d4983e2813a797",
+  "tests": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\mesh_section_bounds.rs",
+  "tests_sha256": "94b90233cfcbab03f0520279fff1a717e72447ae18d75afa836f00b262c86344",
+  "compatibility": "Decode-only ULP correction: exact q0/q65535 endpoints and f64 interpolation from actual header min/max. Existing container bytes/encoder/allocation class and consumer exact bounds unchanged. New InvalidBounds{axis} rejects previously accepted nonfinite/reversed dequantization frames; public error enum gains that variant. Decoded interior coordinates may change by f32 rounding ULP relative to old arithmetic.",
+  "tests_scope": "Public encode/decode tests: exhaustive65536q measured006 frame, asymmetricnegative/crosszero/zerospan including signed endpoints, largefiniteoverflow frame and sampled interiorq, malformed bounds/reserved/flags/count/truncation rejection. Tests isolate decoder samples; largefinite encoder behavior remains unchanged.",
+  "verification": "Sources saved only. Parent owns serial integration Cargo test/build and native relink/reopen006. No acceptance claim."
+}

@@ -1,0 +1,342 @@
+{
+  "schema": "ecopunk.batch-evidence-rounds.v1",
+  "batch": "6",
+  "date": "2026-10-25",
+  "scope": "Affordable evidence bookkeeping for IP-03 C1-C8 and first reference-production progress; not full-suite parity or completion.",
+  "estimates": {
+    "basis": "Evidence passes/roles only; duration, provider cost, usage and percentages are unknown.",
+    "roles": [
+      "Rust implementation role, appropriately capable for bounded source changes",
+      "Independent reviewer role",
+      "Affordable evidence operator for capture and bookkeeping",
+      "Root-owned serial checks"
+    ],
+    "parallel_check_policy": "Do not overlap shared Cargo/build/check execution."
+  },
+  "guardrails": {
+    "poet_ui_ux_baseline_preserved": true,
+    "internal_libraries": [
+      "poet-geometry",
+      "poet-spatial-authoring"
+    ],
+    "craft_product_brand_or_replacement": false,
+    "human_acceptance_claimed": false,
+    "model_completion_claimed": false,
+    "all_120_packets_open": true
+  },
+  "rounds": [
+    {
+      "id": "round-1",
+      "status": "complete_scoped",
+      "estimate": "1 evidence pass; duration unknown",
+      "objective": "Compile and execute the film-intent reference producer, save the source/HMC, fresh-process reopen with exact source-to-.10d regeneration, and retain actual native inspection PNGs.",
+      "known_evidence": {
+        "reference_assets": "assets/reference/community-grounds-growing-station/",
+        "dossier": "docs/production/community-grounds-growing-station/",
+        "dossier_state": "193 catalogue plus 8 expanded claims; all unassessed",
+        "ui_ux_inventory": "30 pending items; inventory is not exhaustive",
+        "native_integration_typecheck": "pass",
+        "native_library_build": "pass; exit code 0",
+        "reference_example_build": "corrected build passed; exit code 0",
+        "superseded_build_failure": "Earlier reference-build.log recorded E0624 at package.rs:118 because ResourceLibrary.validate_filename was private.",
+        "producer_attempt_001": "E400 syntax path guard; execution did not produce PNG/HMC evidence.",
+        "recipe_9_source_repair": {
+          "change": "Corrected optional-loop/if semicolon separators.",
+          "evidence": "docs/qa/implementation-2026-10-25/batch-6/poet-refactor/source-repair.json",
+          "current_source_sha256": "5f5edda44959cd146026cd06eb67b0e61ab27de4a11f221cf7b175b0f877d4a3"
+        },
+        "producer_attempt_002": "E001 at span 332..340: expected expression at requires; execution attempted=false.",
+        "producer_attempt_003": "E300 before execution: missing capability(ComputationalGeometry.profile_sweep) at first effect helper; execution attempted=false.",
+        "producer_attempts_001_to_005": "All failed. Attempt 004 failed during execution with E600 numeric operator on non-number and host reconciliation required; attempt 005 failed before execution with E001 unexpected tokens after cell expression.",
+        "catalog_tests": "Root executed integration tests: 6 passed, 0 failed.",
+        "native_authoring_tests": "Root check exited 0: 3 passed, 0 failed.",
+        "native_integration_tests": "Root check exited 0: 39 passed, 0 failed; includes original portable Poet model tests and is not 39 production acceptance cases.",
+        "bounded_source_review": "No blocking issue found in inspected immediate reference path; review did not execute runtime/HMC/PNG or establish visual acceptance.",
+        "catalog_rebuild": "Completed; superseded by the later authoring-correction rebuild.",
+        "authoring_correction": "Final correction history retained; earlier patches remain preserved in source history.",
+        "authoring_rebuild": "Passed; exit code 0 in 42.36 seconds.",
+        "round1_attempt_006_outputs": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-006.json",
+        "decoded_bounds_cause": "Recorded probe found 16 Z vertices decoding one f32 ULP above the stored maximum; see producer/decoded-bounds-probe.json.",
+        "codec_repair": "Core decoder correction saved and independently reviewed; see producer/codec-repair.json and review/mesh-codec-review.md.",
+        "codec_tests": "Root executed exactly four public Core mesh-bound tests via the Poet native conformance target and same Core dependency closure: 4 passed, 0 failed, 5m48s. This is not full Core-suite or all-platform qualification.",
+        "codec_corrected_rebuild": "Reference producer rebuilt successfully after the Core correction; exit code 0 in 26.38 seconds.",
+        "canonical_core_test_target": "Root added public Core test as native Cargo test target; backup retained at docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/native-Cargo.toml.before-codec-test.",
+        "incremental_source_delta_002": "Four-file source/executable hash manifest after authoring correction; supplements the earlier 261-file snapshot.",
+        "incremental_source_delta_003": "Six-file Core source/test, Poet native target manifest, corrected executable, and companion/index hash snapshot; supplements the earlier manifests.",
+        "excluded_stale_evidence": "9,855-core pass is from batch 5 and predates current modeling code.",
+        "final_status": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-final.json",
+        "reference_master_pin": {
+          "path": "assets/reference/community-grounds-growing-station/master.vibe",
+          "bytes": 15690,
+          "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+        },
+        "final_reference_run": {
+          "profile": "film",
+          "fixture_only": true,
+          "source_cells": 5,
+          "parts": 199,
+          "materials": 9,
+          "material_ranges": 199,
+          "vertices": 239952,
+          "triangles": 79984,
+          "fresh_process_source_reopen": "passed",
+          "exact_source_regenerated_10d": "passed",
+          "native_render": "passed",
+          "build_exit_code": 0,
+          "build_seconds": 26.38,
+          "reopen_render_exit_code": 0,
+          "reopen_render_log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log"
+        },
+        "native_reference_pngs": [
+          "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/hero.png",
+          "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/opposite.png",
+          "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/channel-closeup.png",
+          "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/cabinet-closeup.png"
+        ],
+        "selected_nonduplicated_checks": {
+          "vibe_catalog": "6 passed, 0 failed",
+          "native_selected": "42 passed, 0 failed, 76 filtered, 2.25s",
+          "core_mesh_bounds": "4 passed, 0 failed via Poet native conformance target/Core dependency closure",
+          "total": 52,
+          "rule": "6 + 42 + 4. Earlier 39/3 runs are intermediate subsets, not additional tests."
+        },
+        "visual_triage": {
+          "status": "Round 2 input only; not human acceptance",
+          "findings": [
+            "Cabinet framing/occlusion limits inspection of service details.",
+            "Rectangular exposed corners around circular lid collars.",
+            "Curved-surface highlights and material readability need refinement."
+          ],
+          "engine_gap_established": false,
+          "reference": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/visual-triage.md"
+        },
+        "source_input_manifest": "Earlier 261-file source/input manifest and deltas 002/003 remain preserved; no source pin was rewritten.",
+        "hmc": {
+          "status": "saved and freshly reopened; exact-source .10d regeneration and native rendering passed",
+          "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+          "bytes": 5413279,
+          "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040"
+        },
+        "logs": [
+          "docs/qa/implementation-2026-10-25/batch-6/poet-baseline-check.log",
+          "docs/qa/implementation-2026-10-25/batch-6/poet-library-build.log",
+          "docs/qa/implementation-2026-10-25/batch-6/reference-build.log",
+          "docs/qa/implementation-2026-10-25/batch-6/reference-build-corrected.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-001.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-002.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-003.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/catalog-tests.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-catalog.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/authoring-tests-lambda.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/native-integration-tests.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-authoring.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-004.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-005.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/produce-film-006.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/producer/decoded-bounds-probe.json",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/producer/codec-repair.json",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/mesh-codec-review.md",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/source-review.md",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/source-manifest.json",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/source-delta-002.json",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/source-delta-003.json",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/producer/authoring-lambda-repair.json",
+          "C:/github/qualiaDB/docs/manuals/standards/10d-container-format.md",
+          "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/DIRECTORY_INDEX.md",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/native-final-tests.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/visual-triage.md",
+          "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-final.json",
+          "docs/production/community-grounds-growing-station/evidence-index.json",
+          "docs/production/community-grounds-growing-station/open-ids.json"
+        ],
+        "producer_attempt_006_initial_precodec": "Authoring succeeded with 199 identified parts; accepted source, .10d and HMC saved. Fresh-process exact-source regeneration check passed, then decoded assembly bounds failed before rendering. No PNG produced.",
+        "producer_attempt_006_reopen_retry": "Passed: root fresh-process reopen/render exited 0 against the saved HMC; exact source regeneration passed and four native PNGs were retained. See reopen-render-codec.log and status-final.json.",
+        "codec_reopen_render_retry": "Passed; exit code 0. Fresh-process exact-source reopen and rendering completed; four PNGs retained.",
+        "round1_attempt_006_initial_output_status": "199 parts; accepted source 17,571 bytes; compiled .10d 5,288,192 bytes; HMC 5,413,279 bytes. Fresh-process exact-source verification passed; decoded assembly-bounds check failed; render did not occur; no PNG.",
+        "round1_attempt_006_initial_status_record": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-006.json; retained as the pre-codec failed-render event.",
+        "final_status_record": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/status-final.json"
+      },
+      "exit_evidence_required": [
+        "Reference producer build exits 0 with recorded command/log.",
+        "Fresh-process HMC source reopen and exact regenerated .10d bytes pass.",
+        "Four actual native PNGs retained with source/output and receipt digests."
+      ],
+      "claim_boundary": "Round 1 is complete only for its scoped compile/save/reopen/render objective. Visual review is technical/agent triage only; no human acceptance. All 193 catalogue rows, 8 subject-specific claims, three package profiles, IP-03 C1-C8, model completion and all 120 production packets remain open."
+    },
+    {
+      "id": "round-2",
+      "status": "complete_scoped",
+      "estimate": "Observed build 19m59s; selected test binaries 2.25s total. Provider usage/cost and calendar estimate are unknown.",
+      "objective": "Apply bounded M64/Core-geospatial and .10d typed-field SDK changes and run selected native conformance. This scoped completion does not include full Native Poet operator/contributor workflow, asset visual review, WASM/benchmark qualification, or production readiness.",
+      "evidence_observed": [
+        "The approved hash-pinned 17-file Core/geospatial install (six M64 and eleven .10d typed-SDK files) is in rounds/round2/applied-source.json; current after_sha256 values were rechecked read-only and 17/17 match. Installer source snapshot SHA-256: 3931f35738e1ac71eb4c02690498a98c755b0ca3fa35530bf911221afeaec4bc. Earlier six-file automatic-review rejection remains historical; later exact-target approval resolved it.",
+        "Command: cargo test --manifest-path tools/format-sdk-conformance/Cargo.toml --locked --offline --target-dir target. Native Win64 little-endian exit 0. The runner compiled actual Core and geospatial and invoked canonical Core SDK tests plus six existing native-consumer cases; no replacement codec.",
+        "Results: format_sdk_consumers 6/6; m64_container_sdk 7/7; typed_field_payloads 9/9. Total 22 passed, 0 failed, 0 ignored. M64 allocation counter measured zero allocations for its successful fixture only.",
+        "Exact output/log and all runner, Cargo.lock, source, receipt, canonical SDK document and preserved baseline path/hash/byte details are indexed in rounds/round2/evidence-index.json; summary and open gate dispositions are in rounds/round2/status-final.json.",
+        "Talbingo M64 and Round 1 .10d/HMC baselines remain at their recorded hashes. No production asset was generated or changed."
+      ],
+      "scope_note": "Only the foundation implementation and selected native conformance subtask is complete_scoped. All FND-01Ã¢â‚¬â€œ06 gates remain OPEN with partial evidence; no human/model acceptance or IP-03 C1-C8 completion is claimed. The 199-part fixture and earlier 52 Round 1 checks remain historical/regression evidence. Round 3 and Round 4 estimates must be revisited under the foundation-first order.",
+      "applied_source_receipt": "round2/applied-source.json",
+      "applied_source_snapshot_sha256": "3931f35738e1ac71eb4c02690498a98c755b0ca3fa35530bf911221afeaec4bc",
+      "evidence_plan": "round2/evidence/round2-plan.md",
+      "baseline_manifest": "round2/evidence/baseline-manifest.json",
+      "status_record": "round2/status-final.json",
+      "evidence_index": "round2/evidence-index.json",
+      "conformance_log": "round2/native-conformance.log",
+      "foundation_gates_all_open": true
+    },
+    {
+      "id": "round-3",
+      "status": "complete_scoped",
+      "estimate": "Observed checks recorded; remaining round counts require re-estimation from open gates.",
+      "objective": "Demonstrate software contribution/review revisions, fresh-process HMC reopen, and reviewed game-demo derivative handoff.",
+      "exit_evidence_required": [
+        "Distinct authorized contributor and reviewer contexts with recorded revision/review outcomes",
+        "Fresh-process HMC reopen bound to actual source and output identifiers",
+        "Explicitly reviewed derivative loaded by game-demo with lineage evidence"
+      ],
+      "scope": "Foundation continuation: opt-in GRM3 georaster, bounded frames, opaque retention and native Poet read-only inspector; full readiness remains open.",
+      "known_evidence": {
+        "status": "docs/qa/implementation-2026-10-25/batch-6/rounds/round3/status-final.json",
+        "progress": "docs/qa/implementation-2026-10-25/batch-6/rounds/round3/progress.md",
+        "unique_native_tests": 63,
+        "wasm_checks": "frontend and actual SDK/Portal compiled; runtime untested",
+        "native_binary": "built; GUI not verified",
+        "foundation_gates": "all six open",
+        "assets": "production on hold"
+      }
+    },
+    {
+      "id": "round-4",
+      "status": "complete_scoped",
+      "estimate": "Actual selected native cases and command durations recorded; remaining foundation rounds require re-estimation.",
+      "objective": "Native developmental GRM3 create/edit, exact saved-HMC contributor/reviewer records, explicit steward grants, durable reopen and successor-safe publication; reconcile all open readiness cases.",
+      "exit_evidence_required": [
+        "Per-case C1Ã¢â‚¬â€œC8 open disposition and partial evidence in progress report",
+        "All latest saved target hashes and actual selected cases reconciled",
+        "Initial failed public fixture run retained with strict repair and successful rerun",
+        "No human/model acceptance and remaining foundation work disclosed"
+      ],
+      "scope": "Bounded foundation implementation and executed software-actor workflows; no native GUI/human or production acceptance.",
+      "known_evidence": {
+        "progress": "round4/progress.md",
+        "status": "round4/status-final.json",
+        "evidence": "round4/evidence-index.json",
+        "reconciliation": "round4/saved-evidence-verification.json",
+        "saved_targets": 70,
+        "unique_selected_native_tests": 36,
+        "native_build": "passed; not launched",
+        "sdk_wasm": "actual Core/geospatial/Portal compilation passed; runtime untested",
+        "foundation_gates": "FND-01Ã¢â‚¬â€œ06 open",
+        "IP03": "C1Ã¢â‚¬â€œC8 open",
+        "assets": "production on hold"
+      }
+    },
+    {
+      "id": "round-5",
+      "status": "complete_scoped",
+      "estimate": "Observed command durations in receipts; no reliable remaining total round/cost estimate.",
+      "objective": "Source-preserving native geometry/material/assembly authoring and typed .10d inspection/editing through canonical owners, original Poet intents and durable HMC/package review.",
+      "scope": "Selected foundation implementation and software-actor workflows; no GUI/human/WASM runtime or production acceptance.",
+      "known_evidence": {
+        "progress": "round5/progress.md",
+        "status": "round5/status-final.json",
+        "evidence": "round5/evidence-index.json",
+        "reconciliation": "round5/saved-evidence-verification.json",
+        "saved_targets": 37,
+        "unique_selected_native_tests": 49,
+        "native_case_executions": 50,
+        "native_binary": "built; not launched",
+        "sdk_wasm": "actual Core/geospatial/Portal compilation passed; runtime untested",
+        "foundation_gates": "FND-01Ã¢â‚¬â€œ06 open",
+        "IP03": "C1Ã¢â‚¬â€œC8 open",
+        "assets": "production on hold"
+      },
+      "exit_evidence_required": [
+        "Latest saved-source hash and actual selected-case reconciliation",
+        "Initial authoring and workflow failures preserved, repaired and rerun",
+        "Explicit remaining FND/C1Ã¢â‚¬â€œC8 disposition and incomplete model/package disclosure"
+      ]
+    },
+    {
+      "id": "round-6",
+      "status": "complete_scoped",
+      "estimate": "Observed command durations retained; no reliable remaining round/cost estimate.",
+      "objective": "Native profile/CAD editing, UV and visual material/map authoring, bounded HMC resource binding and canonical texture-union preservation through contribution/review/reopen.",
+      "scope": "Selected implementation and synthetic CPU/GPU/software-actor checks; asset production remains on hold.",
+      "known_evidence": {
+        "progress": "round6/progress.md",
+        "status": "round6/status-final.json",
+        "evidence": "round6/evidence-index.json",
+        "reconciliation": "round6/saved-evidence-verification.json",
+        "saved_targets": 58,
+        "unique_selected_native_tests": 69,
+        "native_case_executions": 70,
+        "native_gpu": "six map roles plus UV changed actual pixels; 14 diagnostic PNGs",
+        "native_binary": "built; not launched",
+        "sdk_wasm": "actual Core/geospatial/Portal compilation passed; runtime untested",
+        "foundation_gates": "FND-01â€“06 open",
+        "IP03": "C1â€“C8 open",
+        "assets": "production on hold"
+      },
+      "exit_evidence_required": [
+        "Latest saved-source and actual case reconciliation passed",
+        "Original compile and textured-workflow failures retained; repairs verified",
+        "Full foundation/cooperative gate disposition remains open; no model/human acceptance"
+      ]
+    },
+    {
+      "id": "round-7",
+      "status": "complete_scoped",
+      "completed_local_date": "2026-10-26",
+      "estimate": "Observed command durations retained; no reliable remaining round/cost estimate.",
+      "objective": "Native explicit-seam UV unwrap/atlas, layered paint/procedural detail, canonical image correction and exact HMC input preservation through contributor/reviewer save/reopen.",
+      "scope": "Selected native CPU/GPU/software-actor qualification; no production assets, GUI/human or runtime WASM acceptance.",
+      "known_evidence": {
+        "progress": "round7/progress.md",
+        "status": "round7/status-final.json",
+        "evidence": "round7/evidence-index.json",
+        "reconciliation": "round7/saved-evidence-verification.json",
+        "saved_targets": 58,
+        "unique_selected_native_tests": 98,
+        "native_case_executions": 103,
+        "duplicate_executions": 5,
+        "successful_commands": 18,
+        "native_gpu": "paint and procedural each changed2304pixels;3calibrationPNGs",
+        "native_binary": "built; not launched",
+        "sdk_wasm": "actual Core/geospatial/Portal compilation passed; runtime untested",
+        "foundation_gates": "FND-01–06 open",
+        "IP03": "C1–C8 open",
+        "assets": "production on hold"
+      },
+      "exit_evidence_required": [
+        "Latest saved-source/actual-case/unchanged-artifact reconciliation passed",
+        "Compiler fixture and UV edit recovery failures retained; reviewed repairs passed reruns",
+        "Explicit foundation/cooperative gate disposition and incomplete model/package disclosure"
+      ]
+    },
+    {
+      "id": "contingency-a",
+      "status": "not_started",
+      "estimate": "1 focused pass if needed; duration unknown",
+      "objective": "Repair and recheck one bounded blocker exposed by evidence."
+    },
+    {
+      "id": "contingency-b",
+      "status": "not_started",
+      "estimate": "1 focused pass if needed; duration unknown",
+      "objective": "Repair and recheck a second distinct blocker or failed evidence capture if needed."
+    }
+  ],
+  "programme_state": {
+    "c1_c8_demonstrated": false,
+    "human_acceptance": false,
+    "model_package_complete": false,
+    "all_120_packets_open": true
+  }
+}

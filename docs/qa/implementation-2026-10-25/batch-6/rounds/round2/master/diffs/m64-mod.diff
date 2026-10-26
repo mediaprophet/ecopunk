@@ -1,0 +1,20 @@
+diff --git a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/m64-mod.rs b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/m64-mod.rs
+index 45afc14..614ef23 100644
+--- a/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/before/m64-mod.rs
++++ b/C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round2/master/sdk-staging/m64-mod.rs
+@@ -8,6 +8,7 @@
+ 
+ pub mod banked_lut;
+ pub mod chunk_directory;
++pub mod checked_reader;
+ pub mod holo_record;
+ pub mod layout;
+ pub mod lut_entry;
+@@ -19,6 +20,7 @@ mod tests;
+ 
+ pub use banked_lut::*;
+ pub use chunk_directory::*;
++pub use checked_reader::{M64Chunk, M64PayloadInterval, M64ReadError, M64ReadLimits, M64Reader, M64Verification};
+ pub use holo_record::*;
+ pub use layout::*;
+ pub use lut_entry::*;

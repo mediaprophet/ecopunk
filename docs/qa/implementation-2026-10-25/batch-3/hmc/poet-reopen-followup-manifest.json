@@ -1,0 +1,24 @@
+{
+  "scope": "Fresh-source native cooperative authorisation gate for checkpoint reopen; exact followup from actual applied files",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/mod.rs",
+      "original_sha256": "C23AE5A4237FBA2255B4C22D712D4E023BBCB3401567172A45C16FFB484A8915",
+      "candidate": "poet-reopen-candidate/checkpoints/mod.rs",
+      "candidate_sha256": "8946DB5F5530464EE2F0BDE7475C2D5BFF264FBA6664E7EF44E66FBDA2A6BB1A"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/authorised_reopen.rs",
+      "original_sha256": null,
+      "candidate": "poet-reopen-candidate/checkpoints/authorised_reopen.rs",
+      "candidate_sha256": "039BB7D14759319436931674E93D268A14F792C4A4D6CDDAA6A36628E89F2B10"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/authorised_reopen_tests.rs",
+      "original_sha256": null,
+      "candidate": "poet-reopen-candidate/checkpoints/authorised_reopen_tests.rs",
+      "candidate_sha256": "37AA7852459E7DA34BA0A94AF5859C19A8E2AAF2B5FEB1AC6B8A0FEA66330D92"
+    }
+  ]
+}

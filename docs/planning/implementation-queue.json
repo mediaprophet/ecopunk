@@ -1,0 +1,2885 @@
+{
+  "format": "ecopunk-dependency-ordered-agent-queue",
+  "version": "2026-10-26.5",
+  "status": "All 120 broad ECO packets remain open. User-authorised bounded implementation is active under biosphere-authoring-round1.md; the live subjob register and executed QA evidence qualify selected increments, not whole ECO completion.",
+  "ordering": "Topological dependencies first; eligible tasks sorted by governing phase, priority then packet ID. A suggested model/role is not a worker assignment or acceptance.",
+  "role_contract": {
+    "path": "implementation-agent-roles.json",
+    "sha256": "70d0023330d084a2c6b1afa5becb612ff736b704d2e87136da9d52af429160a3"
+  },
+  "backlog": {
+    "path": "tech/ecopunk-production-backlog.md",
+    "sha256": "a426ad1d3182e2502be83851d883209cd4c37c4cefeff8bf67b597e3e3a683ae"
+  },
+  "jobs": [
+    {
+      "id": "ECO-001",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Reconcile current requirements and superseded plans. Record Aether, separate Chora, developed Etalon, Webizen launcher, single Poet/Craft, full HMC and native/WASM targets; produce a versioned baseline and explicit unresolved decisions. VIBE-01 also baselines the proposed source-evaluated 0.2 language/REPL role, existing 0.1 contracts and explicit migration decisions.",
+      "engine_packets": [
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-01",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-002",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-001"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Allocate existing graph/state, framework, host, graphics, authoring and cooperative/agreement owners. Reconcile license, Humanitarian Equity Framework, semantic-tokens-xec and QualiaDB instruments/project/finance/QDNF APIs. Distinguish people-led civics, government capacity, authorship, funding and authority; preserve Chora's boundary and originating contributions. AGR-01/02.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [
+        "AGR-01",
+        "AGR-02"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-003",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-001"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Capture source revisions/dirty state, manifests/locks/features, artifact hashes and deployment origins, including licence/framework/token/instrument sources. Preserve user changes and historical passes. Distinguish current local, Git and deployed artifacts, draft/adopted terms and real versus example/fixture receipts. AGR-01.",
+      "engine_packets": [
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-01",
+        "VIBE-01",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-004",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-001"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Select high-grade reference subjects/place and a bounded civics case related to dev.civics.au, with intended game-demo use and Webizen workflow. Declare master quality separately from consumer native/WASM/device budgets, full scope, native services and offline expectations.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-005",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-001"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Define accepted high-grade master references and observable criteria for species, things, places, film, game and cartoon. Specify derivative preservation/loss thresholds and intended shots; the community-grounds image informs composition, not factual taxonomy or engineering. Current demo fixtures cannot set the quality ceiling.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-006",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-003"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Establish reproducible native capture and diagnostic fixtures: artifact/HMC IDs, camera, units, viewport, backend/device/driver, requested/enabled features, light/exposure/colour settings and actual results. Preserve browser evidence as its own target.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-009",
+      "phase": "IP-00",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-003"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Build operation/backend evidence records and explain each quality/rights/compensation blocker by expected/observed result, actual artifact, verified/unknown cause, owner and remedy. Reconcile existing instrument/QDNF code; effort-minute plus capital-cent scores, URI lists, demos or queued events cannot certify monetary valuation, agreement or payment. AGR-01–06. VIBE-01/03 map actual parser/checker/evaluator/VM/host descriptor coverage and evidence; inventory is not a language conformance pass.",
+      "engine_packets": [
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-01",
+        "AGR-02",
+        "AGR-03",
+        "AGR-04",
+        "AGR-05",
+        "AGR-06",
+        "VIBE-01",
+        "VIBE-03",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-007",
+      "phase": "IP-00",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-002"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Census every model/species/part/variant/scene/site and linked source contribution. Distinguish graph entries from produced models; retain author/origin/derivation, rights, paid/unpaid/self-funded or unknown status, compensation-pool references, targets and dispositions. Institutional adoption cannot erase earlier people-led work.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-008",
+      "phase": "IP-00",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-007"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Create subject dossiers from the 193-base catalogue and added REQ-QUAL/REQ-CIVICS cases; expand parts/profiles/clips/behaviours/scenarios plus applicable contribution, commercial-use, human-rights no-charge and discharge cases. Unknown inventories remain unassessed; empty arrays do not establish zero obligations.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-010",
+      "phase": "IP-00",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-005",
+        "ECO-007"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Assign actual owners/reviewers and bounded milestones, dependency/resources and acceptance. Keep model labour, upstream work and tool gaps visible; derive estimates from scoped work and throughput instead of invented dates.",
+      "engine_packets": [],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-011",
+      "phase": "IP-01",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-003"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Resolve the actual Etalon/wgpu/Naga family across Ecopunk, QualiaDB, Aether, Webizen, Chora and Craft consumers. Compare Git/local/registry sources, compatibility facade versions and features; report duplicates and incompatible device/type boundaries.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-02",
+        "VIBE-03",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-013",
+      "phase": "IP-01",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-011",
+        "ECO-006"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Trace the actual native frame from application and HMC through scene/material/shader/pass/resource APIs into Etalon submission/presentation. Record dormant, bypassed and active capabilities; a dependency declaration alone cannot close this task.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-014",
+      "phase": "IP-01",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-013"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify required adapter/device/shader features and safe failures for the reference scene. Reuse existing validations; separate declared support from enabled/executed support. Keep HAL safety/validation contracts and unsupported-backend results truthful.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-015",
+      "phase": "IP-01",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-013"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify engine/UI device, queue, surface, texture/buffer ownership and interop. Evidence must cover completion fences, leases, teardown, device loss and prevention of use-after-free; equal crate versions do not prove shared-device compatibility.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-012",
+      "phase": "IP-01",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-011"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Reconcile Etalon's 299 resolved TODOs and nine historically resolved gaps with current revision/evidence. Preserve valid passes, isolate changed/unsupported scopes, and avoid reimporting old bug lists as current defects.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-016",
+      "phase": "IP-01",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-015"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Verify bounded allocations, staging/upload reuse, synchronization and job/queue budgets on the actual hot path. Report measured scope and overflows; do not generalize a zero-allocation kernel claim to the entire application.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-017",
+      "phase": "IP-01",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-014",
+        "ECO-015"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Inventory scene hierarchy/instancing/culling/LOD/animation/deferred/volumetric/foliage/water routes against existing requirements. Enable and qualify the needed existing paths; extend only a demonstrated missing shared capability.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-018",
+      "phase": "IP-01",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-013"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Reconcile native/browser limits, error scopes, shader compiler/version, worker transport and feature differences with Etalon's existing implementations. Remove duplicate work only after evidence; qualify required target behaviour and honest degradation. VIBE-02/03 add exact language/profile/catalog versions, typed native/WASM operation coverage, grants and explicit unsupported behavior.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-02",
+        "VIBE-03",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "bounded canonical/session/journal/native-mount implementation under RUN-05/06/07; full packet acceptance open; see batch-2 evidence",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-021",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-002"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Ratify HMC family descriptors and shared public APIs against existing codecs. Resolve QBDL/ZIP compatibility, roots/parts/extensions and versions without inventing a private codec; specify corrupt/missing/cyclic/incompatible cases. VIBE-09 retains script source/dialect/imports/catalog and optional AST/bytecode cache versions in the shared package contract.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "DOM-AX-7",
+        "G88",
+        "VIBE-09",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-022",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-021"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Define complete available species corpus inclusion, source/revision inventory, interpretation closure, conflicts/uncertainty, rights and reconciliation. All relevant held knowledge belongs in the identified full HMC, including knowledge unused by graphics.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-023",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-021"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Ratify design/type versus manufactured instance, BOM/as-built parts, ports/connections, operation/capacity/observations, installation and maintenance/history. Keep people/social authority distinct from owned manufactured components.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-024",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-022",
+        "ECO-023"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Support several identifiers for each topic/subject/entity/agent/actor, with scheme/source/authority, scope, provenance, validity and qualified mappings. Keep local record, part, master/derivative/release, agreement/instrument and allocation references distinct. Preserve state, source contribution and policy lineage without a global-one-identifier assumption. DOM-AX-7; G88; AGR-02/09/11; FUND-01.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-02",
+        "AGR-09",
+        "AGR-11",
+        "FUND-01",
+        "DOM-AX-7",
+        "G88"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-025",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-024"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify native high-grade source/HMC compilation and licence/instrument profile import/authoring against existing codecs/generators. Preserve source/operator, rights and derivation lineage; bind exact reviewed/adopted terms instead of activating repository drafts. Retain explicit conversion loss and no required JS/V8 exporter. AGR-04/09.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-04",
+        "AGR-09"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-026",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-024",
+        "ECO-007"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Reconcile all existing manifest/resource hashes, lengths, file counts and rebuild instructions. Replace the absent build-entry reference with the actual qualified workflow; preserve original evidence and identify changed assets explicitly.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-027",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-025"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Make the reference runtime load the reviewed HMC/representation instead of regenerating unrelated scene/lab stand-ins. Prove exact resource identifiers in the frame, and eliminate untracked divergence among stored/native/browser routes.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-028",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-027"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify root admission, verified dependency plans, bounded decode/residency and unload; distinguish complete distributed graph/resource contents from the resident working set. Missing resources and degraded depictions must remain visible.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-09",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-051",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-005",
+        "ECO-014"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Define calibrated neutral-light and intended-scene fixtures with shared camera/exposure/colour configuration. Isolate tone map, bloom, ambient/direct light and texture fallback causes; record actual native/browser differences before choosing fixes.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-052",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-051",
+        "ECO-027"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Replace modulo texture-role assignment and category-wide material reuse with semantic surface bindings. Verify colour/normal/roughness/metal/occlusion/opacity/emission roles, spaces, mip semantics and part IDs against the loaded resources.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-053",
+      "phase": "IP-02",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-051",
+        "ECO-052"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Surface upload/material/shader/exposure errors and resource residency/defer/fallback receipts. Deliberately missing/wrong-role resources must be diagnosable; never describe a neutral fallback as a fully textured surface.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-029",
+      "phase": "IP-02",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-025"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Demonstrate native offline HMC graph inspection/query and picking using the subject's scoped identifier set and source-qualified alternate/historical mappings. Preserve unknown/disputed mappings and distinguish names, referents, parts, releases and byte digests. Show multiple identifiers resolving as asserted without automatic equivalence or authority inference. DOM-AX-7; G88.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [
+        "DOM-AX-7",
+        "G88"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-030",
+      "phase": "IP-02",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-028",
+        "ECO-029"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify native master-to-delivery derivation, incremental per-root updates, base-bound reduced exports, checkpoint/reopen, state migration and rollback. Record exact inputs/operators/settings/versions/output IDs and preservation criteria; stale/corrupt/incompatible changes retain the prior admitted subject and masters.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-054",
+      "phase": "IP-02",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-053"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify colour transfer, linear/spectral interpretation, normal/tangent orientation, map packing and output transforms at agreed tolerances. Preserve semantic/spectral data; compare matched settings and expose unsupported profiles.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-055",
+      "phase": "IP-02",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-053"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify existing direct/environment lighting, shadows/bias, AO/contact and reflections on real surfaces and scale. Fix demonstrated faults; spectral/clustered/deferred source existence alone is not active-frame evidence.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-031",
+      "phase": "IP-03",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-002",
+        "ECO-011"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Pin and qualify the controlled Aether source/features for the intended native path. Distinguish Blitz/Vello native from Wry/webview; no `desktop` feature or browser frame substitutes for native no-JS/V8 evidence.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-041",
+      "phase": "IP-03",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-007"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Recover current/historical Poet UX, source and working host baselines, including agreement/licence builders, semantic-instrument bay, contribution/compensation views and funding controls. Preserve useful behaviour and lineage; distinguish live records/actions from static signing progress, sample prices and demo/reference state. AGR-08.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-08"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-032",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-031",
+        "ECO-014"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Integrate real UI and specialised content with shared layout/input/scaling/accessibility and GPU ownership. Exercise resize, focus, device/surface loss and teardown; document unresolved native renderer features.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-033",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-031"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Recover useful Desktop/OS-shell services and implement the intended launcher: real app discovery/launch/focus, document/session restore, truthful health, tray/close/quit and owned versus external service lifetime.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-034",
+      "phase": "IP-03",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-033",
+        "ECO-021"
+      ],
+      "primary_role": "language_runtime",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Ratify revision-aware native project/document/command/job/role/review contracts and actual agreement/instrument entry points. Use existing cooperative records and one state owner; demonstrate shared brief/context, authorized contributor access, conflict resolution and recovery in IP-03 C1/C2/C5/C7. Bind policy and funding authority without a private replacement engine. VIBE-03/04/05/07 define persistent functions/modules, safe REPL mode selection, typed effects/jobs, revision-aware commands and durable recovery through the existing host.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-02",
+        "AGR-05",
+        "AGR-07",
+        "AGR-11",
+        "FUND-01",
+        "FUND-02",
+        "DOM-AX-7",
+        "G88",
+        "VIBE-03",
+        "VIBE-04",
+        "VIBE-05",
+        "VIBE-07",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "RUN-09 source integration and resource-preserving HMC editing; final source-bound checks, controller-backed project adoption, real contributor/reviewer acceptance, semantic complete embodiments and all production outcomes remain open; see batch-4 evidence",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-042",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-041"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Expand the static manifest list into complete file/dependency/feature/build/assets/notices/history disposition maps. Account for duplicate build-tool names and workspace inheritance; identify every reusable engine and UI behaviour to port.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-043",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-042"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Stage a coherent namespaced `C:/github/craft` library workspace additively, retaining provenance/rollback. Reconcile consumers and actual builds when allocated; eleven copied apps or moved folders alone do not close consolidation.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-044",
+      "phase": "IP-03",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-043",
+        "ECO-034"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Connect actual native editing, source/context/parts, jobs, undo/checkpoint and project/instrument handoffs through public Vibe/Qualia APIs. Distinct authorized sessions must contribute/review the same identified source with retained history, conflict/cancellation safety, source round-trip and measured conversion loss. Required IP-03 C1–C7 cases cannot be satisfied by an API inventory. VIBE-04–07/09 qualify persistent multiline source evaluation, genuine async jobs and safe live revision edits without per-script Rust/Cargo/JS builds.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-02",
+        "AGR-03",
+        "AGR-04",
+        "AGR-05",
+        "AGR-11",
+        "FUND-01",
+        "DOM-AX-7",
+        "G88",
+        "VIBE-04",
+        "VIBE-05",
+        "VIBE-06",
+        "VIBE-07",
+        "VIBE-09",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "RUN-09 source integration and resource-preserving HMC editing; final source-bound checks, controller-backed project adoption, real contributor/reviewer acceptance, semantic complete embodiments and all production outcomes remain open; see batch-4 evidence",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-045",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-044"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Deliver usable graphical native Poet with real domain controls, viewport, tool chest, source/selection/inspector/timeline and accessible input. Port/recover required Craft and original Poet behavior. Pass IP-03 C3/C8 on the defined reference authoring work; unsupported required operators, CLI-only access, placeholder forms and separate app launching leave readiness open. VIBE-04/06/10 require source/REPL and graphical controls to share native reactive state, diagnostics, input and incremental preview.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-04",
+        "VIBE-06",
+        "VIBE-10",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "RUN-08 scoped native policy/MCP/source-HMC/material/render integration; production native authentication, complete resource retention, contributor/reviewer and high-grade acceptance remain open; see batch-3 evidence",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-046",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-045"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify organic modeling: curves/branches, surface/volume editing, remesh/retopology, UVs, subdivision/detail, foliage/groom needs, source/operator history and undo/reopen. Record missing kernel versus missing UI binding separately.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-047",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-045"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify parametric solids/surfaces and assemblies, dimensional/constraint editing, part/joint IDs, BOM/ports and accurate export. CADCraft drafting/3D faces and VectorCraft revolve preview do not establish this result.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-048",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-046"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify rig/skeleton/morph/skin authoring, constraints/IK, timeline/curves, contact/root motion, state/behaviour editing and preview. Retain editable sources, units/time and graph/component correspondence.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-049",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-048",
+        "ECO-029"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Integrate raster/RAW/vector/material/audio/film/document and agreement/instrument/contribution/compensation surfaces backed by real native records. Include provider allocation/period/residual controls with actual authority and state. Qualify editing, playback, colour/time, review and output handoffs; optional providers/tokens/transfers are separately allocated. AGR-04/07/08/11; FUND-04/05.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-04",
+        "AGR-07",
+        "AGR-08",
+        "AGR-11",
+        "FUND-04",
+        "FUND-05"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-050",
+      "phase": "IP-03",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-047",
+        "ECO-049"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Demonstrate IP-03 C1–C8: actual authorized contributor/reviewer contexts jointly author, revise, undo, checkpoint/reopen, review and reproduce the defined organism/assembly/place source-to-HMC result through native Poet/Craft. Verify conflict/restart/error handling and attribution. If required operations or cooperative usability fail, the stack is not ready for this production scope; finish the named ENG blocker. VIBE-05–07/10 include a live function/material/behaviour edit, invalid submission, conflict, late job and restart; retain exact source/HMC evidence with no per-script host rebuild.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-05",
+        "VIBE-06",
+        "VIBE-07",
+        "VIBE-10",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "RUN-09 source integration and resource-preserving HMC editing; final source-bound checks, controller-backed project adoption, real contributor/reviewer acceptance, semantic complete embodiments and all production outcomes remain open; see batch-4 evidence",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-061",
+      "phase": "IP-04",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-005",
+        "ECO-022"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Select identified tree/understorey and animal reference species; assemble diagnostic references, scale/anatomy/lifecycle/repertoire inventory and rights. Unknowns/conflicts remain explicit; species labels cannot stand in for modeled diagnostic traits.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-071",
+      "phase": "IP-04",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-005",
+        "ECO-023"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Census vehicles, trailers, structures, tools and infrastructure from actual scope and reference scenes. Select vehicle and workshop/site-system reference assemblies; record engineered versus illustrative design, dimensions, provenance and operating assumptions.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-081",
+      "phase": "IP-04",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-048"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Inventory every applicable clip/action, state, transition, contact, lifecycle stage, interaction and variant/rig/profile compatibility. Define observable movement/behaviour scenarios including abort/interruption/failure; unknown repertoire remains open.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-056",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-053"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify leaf geometry or cards, two-sided normals/transmission, alpha coverage/mips, shadows and wind attachment. Check silhouettes and stability over distance; support the chosen representation before expanding foliage production.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-057",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-055",
+        "ECO-056"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Author native-editable bark/leaf/wood, fur/skin/eye, cloth, rock/soil, paint/metal/rubber/glass and water materials at target distances. Preserve real references/derivation; greater texture resolution cannot replace distinct surface response.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-058",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-057"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify shallow/deep response, shoreline wetness, ordering/depth, reflections/refraction and motion in native scenes. Allocate additional fluid/optical capability only where the approved visual/physical target requires it.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-059",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-054",
+        "ECO-057"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify high-grade master rendering and required film shading/groom/displacement/transparency, sampling/passes and designed cartoon treatment. Keep master fidelity independent of delivery resolution/device budget; specify missing operations explicitly. A film editor or merely high-poly mesh cannot establish the render path.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-060",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-051",
+        "ECO-059"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Review matched neutral and scene turntables/closeups plus moving light/camera on actual runtime outputs. Resolve clipping, washed-out detail, seams, aliasing and inconsistent surfaces; bind approval to settings/artifacts and target.",
+      "engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-062",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-061",
+        "ECO-046"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Build the hero tree's root flare/taper/unions, branching/twigs, crown gaps, characteristic asymmetry and species-specific leaf-bearing structure. Retain editable/procedural sources; remove near-view opaque crown substitutes and misplaced oversized leaves.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-063",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-062",
+        "ECO-052"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Finish leaves, bark/wood, reproductive organs, tissue transitions and per-part surfaces/UVs. Review unlabelled silhouette and neutral-light trunk/leaf/flower/fruit closeups at each approved scale.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-065",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-061",
+        "ECO-046"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Build the hero animal's coherent skull/muzzle/ears, trunk/pelvis/limb/feet/tail anatomy, deformation topology and part hierarchy. Confirm scale and unlabelled species recognition; generic capsules remain blockouts until reviewed.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-066",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-065",
+        "ECO-063"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Finish coat/groom/eyes/nose/claws and coherent skin/muscle/bone/organ depictions appropriate to the species. Validate alignment, diagnostic differences and tissue surfaces; exploded views must start from a coherent intact body.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-067",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-061",
+        "ECO-048"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Produce declared organ/tissue/cellular/molecular or other supported scale representations with evidence, units and epistemic status. Do not claim cell/organ fidelity from a differently sized primitive or label.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-068",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-063",
+        "ECO-067"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Link whole/part/scale representations and graph annotations, accurate cuts/explodes and compatible LODs. Picking/labels highlight the actual identified structure and preserve state across representation changes.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-072",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-071",
+        "ECO-047"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Produce editable vehicle/trailer assemblies with correct proportions, bevels, glazing/interior as scoped, wheels/tyres/suspension, lights, doors and service parts. Separate material/part IDs and review contact, articulation and closeups.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-073",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-071",
+        "ECO-047"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Produce workshop/building/site assemblies with structure/envelope/openings, joints, accessible spaces, interiors and services at required detail. Preserve dimensions/BOM/as-built distinctions and editable source, not only an exterior shell.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-074",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-072",
+        "ECO-073"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Define ports, installation, constraints, utilities, storage and resource/energy/material flows between assemblies. Test incompatible connections, capacities, insufficient inputs and stale observations without conflating graph assertions with working simulation.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-076",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-005",
+        "ECO-046"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Author reference people with credible proportions, hands/feet/face, clothing/equipment and appropriate representation rights. Keep human identifiers/authority distinct from owned scene props and use approved reference/provenance.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-077",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-076"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Finish face/skin/eyes/hair/cloth/equipment materials, deformation sources and required film/game/cartoon depictions. Review silhouette, expression and closeup deformation with explicit target/style criteria.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-079",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-072",
+        "ECO-073"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Derive game LODs/collision/occluders and other film/cartoon depictions from accepted high-grade assemblies or approved shared sources, preserving semantic parts/ports/function. Record source/output identifiers, measured loss, scale/topology/UV criteria and intended-shot visual review. Keep masters editable and unchanged by reduction.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-082",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-081",
+        "ECO-065"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Author skin/morph/constraints and full scoped animal repertoire: breathing/idle, locomotion/speeds/turns, feeding, resting, grooming, reproduction/parental/defensive actions as applicable. Validate balance, foot/tail contact, secondary motion and transitions.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-083",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-081",
+        "ECO-062"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Author supported wind/branch/leaf response, growth/phenology, flowering/fruit/seed and damage/recovery states. Separate scientifically evidenced dynamics from illustrative motion; preserve attachment, tissue/part continuity and time units.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-084",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-081",
+        "ECO-074"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Author human locomotion/handling/tool-use, vehicle steering/suspension/doors and machine operation appropriate to scope. Validate reach/grips, sit/stand/enter/exit, contacts and interruption across required rigs/profiles.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-085",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-082",
+        "ECO-083",
+        "ECO-084"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Implement shared governed state/action orchestration with sensed conditions, ecological/social/functional interactions and lawful authority. Distinguish canned clip presentation from behaviour decisions and authoritative simulated state.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-086",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-085",
+        "ECO-015"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify existing world transforms, collision, ground contact, root motion, IK and relevant dynamics on real models. Replace per-frame monolithic rebuilds with supported instances/updates; extend solver APIs only for demonstrated requirements.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-087",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-085",
+        "ECO-048"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Inventory and author calls, environmental/operating sounds, foley, event timing, loops, variations and rights. Qualify editable sources and audible playback; headless transport success alone cannot prove an audio engine.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-088",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-086"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify required vehicle/ground/water/plant/system coupling, loads, constraints and resource flows with units/bounds. Keep observation, prediction and illustrative effects distinct; document unsupported realism rather than inventing telemetry.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-089",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-088"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify positional audio, emitter/listener movement, attenuation/occlusion, mixing and audiovisual timing through existing capabilities. Include missing-device, cancellation and reduced-sensory/accessibility behaviour.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-090",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-087",
+        "ECO-089"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Review every expanded required action/transition/interaction/profile case in continuous runtime sequences. Reject sliding, interpenetration, stale bounds/normals, broken contacts and ungrounded sound; record human/domain review and exact remaining cases.",
+      "engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-064",
+      "phase": "IP-04",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-063"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Produce evidenced age/season/health/growth/reproductive variants, shrubs/grass/sedges, litter/deadwood and species-specific diversity. Changes must affect meaningful structure and habitat use, not just palette/modulo archetype choice.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-069",
+      "phase": "IP-04",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-022",
+        "ECO-061"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Apply equivalent dossiers to every scoped flora/fauna/funga/microbial subject and knowledge partition. Preserve full available corpus/provenance, non-visual facts and relations; record explicit production backlog and missing evidence by entity.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-070",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-064",
+        "ECO-066",
+        "ECO-068",
+        "ECO-069"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Verify declared reference species masters and their film/game/cartoon forms for diagnostic truth, form/material/motion quality, uncertainty and full graph/resources. Compare derivative preservation with the accepted source; record scientific and visual review separately. Counts, labels and illustrative images cannot close these cases.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-075",
+      "phase": "IP-04",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-073"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Produce scoped solar/storage/charging, water filtration, hydroponics/reed beds, nursery, maker/repair/library equipment and other scene things. Each gets its own design/instance/part/operation dossier and all required quality profiles.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-078",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-074",
+        "ECO-075"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Specify operation, failure, damage, repair, replaceable parts, maintenance, wear and history for things/systems. Preserve design versus observed instance state and govern resource changes; decorative animation does not prove operation.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-080",
+      "phase": "IP-04",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-074",
+        "ECO-077",
+        "ECO-078",
+        "ECO-079"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Review complete reference artefact/human dossiers across declared targets with credible assembly, materials, articulation and scope-appropriate functional evidence. Record unavailable/incomplete cases rather than approving by screenshot alone.",
+      "engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-101",
+      "phase": "IP-05",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-006",
+        "ECO-051"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Set per-target budgets for startup/decode/upload/first present, interaction and steady frame-time distribution, memory/allocations/streaming and power where relevant. Record device/display/settings and distinguish measurements from targets.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-102",
+      "phase": "IP-05",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-101",
+        "ECO-090"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Measure active scene instance, skin/morph, culling, LOD, draw and update paths with reviewed content. Optimize identified bottlenecks, not proxy counts; include populated scenes and camera movement.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-103",
+      "phase": "IP-05",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-101",
+        "ECO-030"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify graph/resource working sets, async decode/upload, prefetch, eviction, bounded queues and cancellation during traversal. Verify HMC integrity/rights and complete-package identifiers survive partial residency.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-104",
+      "phase": "IP-05",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-102"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify reproducible master-to-device LOD/texture/rig and selected representation derivations using measured error plus required semantic/functional preservation. Compare silhouettes, materials, wind/motion, picks and scenario clues in intended shots; preserve master sources and report targets whose budgets cannot meet acceptance.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-105",
+      "phase": "IP-05",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-103"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Stress corrupt/missing inputs, device/resource loss, out-of-budget load, suspend/resume and long sessions. Retain admitted content/work, release resources and expose useful failures; no fabricated readiness or completion.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-106",
+      "phase": "IP-05",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-032",
+        "ECO-105"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify supported native backends/hardware/display scales with the actual Aether/Etalon/Qualia path and dependency profile. Record unsupported hardware and scoped fallback limitations without introducing a required JS/V8 substitute.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-091",
+      "phase": "IP-06",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-005",
+        "ECO-027"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Unify physical units, coordinate/geospatial frames, per-site origin, camera/movement and actor scale. Verify distances and bounds end to end; remove unexplained scale multipliers and inconsistent normalisation.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-092",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-091"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Author a high-grade place master from identified terrain/hydro/routes/structures/ecology references, or declare an illustrative/fictional composition. Qualify recognisable distinguishing features and scale before deriving consumer resources; a generic analytic valley and regional label cannot satisfy a real-place case.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-093",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-092"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Compose foreground/middle/backdrop, paths, shore transitions, rocks, ground materials, litter and understorey with ecological placement. Review density, silhouette rhythm, grounding and subject visibility at walk and overview distances.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-094",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-092",
+        "ECO-071"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Compose the high-grade place and people-led civics case: baseline problem, needs/resources, possible responses/tradeoffs/opportunities and observable consequences. Distinguish government civic roles and actual paid/unpaid contributions. Where cooperative use is in scope, demonstrate bounded commercial cost recovery and permitted human-rights no-charge treatment through existing policies.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-095",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-070",
+        "ECO-080"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Populate the place with identified high-grade subjects and approved delivery representations, ecologically and functionally appropriate placement and meaningful variants. Verify scale/material/behaviour continuity and scenario readability; graph catalogue size cannot establish rendered diversity or coherent place identifiers.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-096",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-091",
+        "ECO-068"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Fit camera/composition to whole tree, stem, leaf, reproductive organ and microscopic views. Provide truthful cuts/explodes, scale bars and anchored highlights; preserve subject identifiers and avoid clipping beneath UI.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-097",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-091",
+        "ECO-066"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Present coherent intact animal first, with readable deliberate tissue layers/sections and species-specific anatomy. Fit each state to the viewport and distinguish illustrated anatomy from validated scientific structure.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-098",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-096",
+        "ECO-097"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Make Poet/viewer content prominent with collapsible responsive controls, keyboard/focus, readable labels, reduced motion and accessible selection. World/lab state must switch cleanly; labels must resolve to visible identified structures.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-099",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-098",
+        "ECO-044"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Route selection, cuts/sliders, camera and transforms through shared commands/state and incremental jobs. Avoid full world/mesh generation for a highlight or orbit; qualify cancellation/stale results and measured interactive responsiveness. VIBE-05/06 qualify bounded script scheduling, clocked updates, safe reload and host jobs rather than duplicate JS state or per-interaction builds.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-05",
+        "VIBE-06",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-100",
+      "phase": "IP-06",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-093",
+        "ECO-094",
+        "ECO-095",
+        "ECO-099",
+        "ECO-090"
+      ],
+      "primary_role": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Review high-grade place/master views and actual game-demo derivatives across overview/walk/closeup/lab and supported viewports. Users must recognise subjects/context, inspect linked knowledge, understand the bounded civics case and reach Poet editing/scenario alternatives with preserved identifiers. Bind visual/domain/UX acceptance to actual artifacts.",
+      "engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-035",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-031"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Inventory Chora consumers, selected feature/dependency/notice closure and historical canvas references. Preserve its separate repository/workspace and prevent Qualia/Webizen dependency or implementation imports into the engine.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-036",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-035"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Specify and qualify generic embedding/C ABI plus external host adapters, runtime topology, event loop/render/input/resource lifetime and update compatibility. Resolve actual JS-profile requirements; do not count engine branding as native workflow proof.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-037",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-033",
+        "ECO-034"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Supply harmonised native/WASM Poet semantics and authoritative document identifiers. Mount the recovered editor and demonstrate continuity from place/subject knowledge inspection to editable high-grade source and checkpointed output. Placeholder stages or separate Craft launches cannot establish the integrated experience. VIBE-08 qualifies one authored language/state contract across native and required WASM profiles.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-08",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-038",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-037"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Implement and qualify native-provider discovery, version compatibility, scoped origin/app/session grants and typed jobs/data handles. Required unavailable operations stay held with a useful explanation; unaffected WASM-local work remains usable.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-08",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-039",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-036",
+        "ECO-038"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Exercise provider absence/revocation, disconnect/reconnect, cancellation, restart and ownership handoff. Preserve work, reconcile revisions and prevent duplicate effects or false commits.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-107",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-038",
+        "ECO-106"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify supported browser/WASM-local/native-assisted modes with exact artifact, binding, origin/isolation, worker/transport, adapter and native provider requirements. A native capture cannot prove browser behaviour.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-108",
+      "phase": "IP-07",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-107",
+        "ECO-089"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Exercise provider loss/revocation, tab/window closure, cancellation, service restart, reconnect and audio/device interruptions with pending edits/jobs. Verify state reconciliation and no duplicate side effects or leaked work.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-040",
+      "phase": "IP-07",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-039",
+        "ECO-032"
+      ],
+      "primary_role": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify controlled framework/host/app upgrades with source provenance, version/schema matrix, migration and rollback. Retain useful services and data while delivering the reviewed launcher and editor experience.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "VIBE-08",
+        "VIBE-11",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-111",
+      "phase": "IP-08",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-008",
+        "ECO-030"
+      ],
+      "primary_role": "cooperative_records",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Implement authoritative native claim/evidence/review and project/finance/QDNF linkage. Retain unit-qualified valuation, contribution/pool IDs, operative agreements/instruments, provider allocations, periods, receipts, no-charge/waiver/discharge and residual states separately. Reuse capped owners and history; exported JSON/instructions do not enforce runtime accounting. AGR-03/05/06/11; FUND-02/03.",
+      "engine_packets": [
+        "ENG-09",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-03",
+        "AGR-05",
+        "AGR-06",
+        "AGR-11",
+        "FUND-02",
+        "FUND-03"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-112",
+      "phase": "IP-08",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-111"
+      ],
+      "primary_role": "cooperative_records",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Enforce deliverable/case/authority/evidence coverage and native unit-safe agreement/compensation/credit rules. Qualify commercial/human-rights, partial/final/zero-cost/gifted, cap/duplicate/reversal, funded drawdown/no-overdraft, period rollover, residual return/delegation and malformed/stale/token/unsupported-rail cases. No false adoption, assent, payment or human review. AGR-03/05–07/11; FUND-02–06. VIBE-11 adds exact language/profile requirement and case claims; docs, fixture counts or version constants cannot certify operational completion.",
+      "engine_packets": [
+        "ENG-09",
+        "ENG-12",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-03",
+        "AGR-05",
+        "AGR-06",
+        "AGR-07",
+        "AGR-11",
+        "FUND-02",
+        "FUND-03",
+        "FUND-04",
+        "FUND-05",
+        "FUND-06",
+        "VIBE-11",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-113",
+      "phase": "IP-08",
+      "priority": "P0",
+      "dependencies": [
+        "ECO-112"
+      ],
+      "primary_role": "cooperative_records",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Bind package/task release checks to content IDs and external receipts without circular hashes. Qualify native admission and actual agreement/credit/obligation/settlement evidence, preserving private source records and prior claims. Missing/invalid cases return incomplete; fixtures and in-process results cannot certify external transfers. AGR-05/06/09/11; FUND-03/04.",
+      "engine_packets": [
+        "ENG-09",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-05",
+        "AGR-06",
+        "AGR-09",
+        "AGR-11",
+        "FUND-03",
+        "FUND-04"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-019",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-013"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Map graph/tensor/forge/EMF and other compute extensions to actual Ecopunk uses and ownership. Connect required operations with correct outputs/bounds; keep unrelated inference/research work outside the visual milestone's critical path.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-020",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-012",
+        "ECO-014",
+        "ECO-018"
+      ],
+      "primary_role": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "acceptance": "Define property-specific correctness/performance comparisons for claimed advantages. Name workload, comparator revision, hardware, settings and limitations; publish a scoped capability matrix. Do not require universal superiority before content production.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-109",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-104",
+        "ECO-105"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify crowded habitats, large assemblies/corpora, concurrent editing/jobs and long-duration traversal. Preserve reference visual/scientific criteria while meeting declared budgets; record capacity limits and controlled degradation.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-110",
+      "phase": "IP-09",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-108",
+        "ECO-109"
+      ],
+      "primary_role": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Produce a target/version evidence matrix of correctness, visual quality, latency/resource budgets and recovery. Link regressions to content/path/dependency changes and retain valid prior results; avoid repeated broad tests without cause.",
+      "engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-114",
+      "phase": "IP-09",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-050",
+        "ECO-060",
+        "ECO-070",
+        "ECO-080",
+        "ECO-090",
+        "ECO-100",
+        "ECO-110",
+        "ECO-113"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Review selected high-grade reference subjects/place and required derivatives against all expanded catalogue and added master/lineage/place/scenario/experience cases. Film/game/cartoon, full knowledge/sources, motion/media and operational scope must pass independently; list every remaining ID and actual consumer-use evidence.",
+      "engine_packets": [
+        "ENG-11",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-115",
+      "phase": "IP-09",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-114"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Prepare native high-grade masters and reviewed derivatives with complete HMCs, editable sources, notices, attribution, operative terms and contribution/pool/allocation lineage as applicable. Preserve exact master/output/runtime IDs and source rights. Bind actual adopted agreements and verified events; reduced exports declare coverage. AGR-09/11.",
+      "engine_packets": [
+        "ENG-11",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-09",
+        "AGR-11"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-116",
+      "phase": "IP-09",
+      "priority": "P1",
+      "dependencies": [
+        "ECO-115",
+        "ECO-040"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Qualify actual game-demo civics use and Webizen/Poet native/WASM continuity, including relevant instrument/project funding/period/usage/residual cases and recovery. Record local/assisted operation and real provider/rail status; unavailable live settlement cannot be relabelled completed. Publication and real financial actions remain separately allocated. AGR-08–11; FUND-06. VIBE-08/11 preserve explicit native/WASM language semantics, grants, source/live-edit/job state and disconnect/rejoin evidence.",
+      "engine_packets": [
+        "ENG-11",
+        "ENG-12",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-08",
+        "AGR-09",
+        "AGR-10",
+        "AGR-11",
+        "FUND-06",
+        "VIBE-08",
+        "VIBE-11",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-117",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-115"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Turn accepted families and native workflows into reproducible authoring recipes and review examples. Expand the model/species/thing census in bounded batches; every item retains its full dossier and three profiles.",
+      "engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-118",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-117",
+        "ECO-116"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Automate repetitive native source/derive/validate/review preparation through qualified Vibe/Poet/Craft interfaces. Preserve artist control, provenance and human judgments; procedural generation alone cannot auto-approve output quality.",
+      "engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-119",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-118"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Define change-impact/requalification for graph/models/tools, agreements/instruments, valuation policy, period/allocation grants and settlement events. Preserve originating contributions, unused provider funds, legitimate outstanding costs, discharged ancestors and auditable corrections through restart, policy, derivative/adoption and provider changes. AGR-06/09/11; FUND-03/04.",
+      "engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-06",
+        "AGR-09",
+        "AGR-11",
+        "FUND-03",
+        "FUND-04"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    },
+    {
+      "id": "ECO-120",
+      "phase": "IP-09",
+      "priority": "P2",
+      "dependencies": [
+        "ECO-119"
+      ],
+      "primary_role": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "acceptance": "Review scoped master/derivative/platform and civics/Webizen outcomes with preserved authorship and paid/unpaid history. Demonstrate a useful SDGs-work agreement/instrument case, fair valuation, bounded commercial/no-charge treatment and provider-directed funded allocations/period residuals. Report exact passed/open scope; do not certify exploitation eradicated or payments made from source/fixtures alone. AGR-10/11; FUND-06. VIBE-11 requires explicit compatible source migration and actually qualified language/profile release evidence; optional bytecode work cannot block unrelated first-output cases.",
+      "engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12",
+        "ENG-13"
+      ],
+      "detailed_requirement_refs": [
+        "AGR-10",
+        "AGR-11",
+        "FUND-06",
+        "VIBE-11",
+        "G89"
+      ],
+      "packet_status": "open",
+      "dispatch_status": "queued; requires a bounded disjoint file/command assignment and supervisor dependency check",
+      "human_acceptance": "required where the referenced contract says so; never inferred from agent output"
+    }
+  ],
+  "observed_blockers": [
+    {
+      "id": "RUN05-FULL-INPUT",
+      "status": "reviewed bounded source repair applied; target verification recorded separately; broader acceptance open",
+      "owner_role": "language_runtime",
+      "priority": "P0",
+      "requirement_refs": [
+        "VIBE-02",
+        "VBC-004"
+      ],
+      "source": "C:/github/qualiaDB/crates/vibe/src/parse/mod.rs",
+      "evidence": "../qa/implementation-2026-10-24/batch-2/README.md",
+      "required_result": "Reject trailing nontrivia tokens after optional cell semicolon through the canonical parser."
+    },
+    {
+      "id": "RUN05-TRANSITIVE-EFFECTS",
+      "status": "reviewed bounded source repair applied; target verification recorded separately; broader acceptance open",
+      "owner_role": "language_runtime",
+      "priority": "P0",
+      "requirement_refs": [
+        "VIBE-03",
+        "VBC-011"
+      ],
+      "source": "C:/github/qualiaDB/crates/vibe/src/check.rs",
+      "evidence": "../qa/implementation-2026-10-24/batch-2/README.md",
+      "required_result": "Canonical transitive function/import/alias effect analysis and runtime/session agreement; no app-local checker or granting by declaration."
+    },
+    {
+      "id": "RUN05-CHECKED-SESSION",
+      "status": "reviewed bounded source repair applied; target verification recorded separately; broader acceptance open",
+      "owner_role": "language_runtime",
+      "priority": "P0",
+      "requirement_refs": [
+        "VIBE-04",
+        "VBC-019"
+      ],
+      "source": "C:/github/qualiaDB/crates/vibe/src/check.rs",
+      "evidence": "../qa/implementation-2026-10-24/batch-2/README.md",
+      "required_result": "Retain typed/mutable/function/import/effect/capability/revision context across checked submissions; preserve immutable restrictions and failure-safe activation."
+    }
+  ],
+  "bounded_execution_refs": [
+    "../qa/implementation-2026-10-24/README.md",
+    "../qa/implementation-2026-10-24/poet-repl/applied-receipt.json",
+    "../qa/implementation-2026-10-24/texture-build.receipt.json",
+    "../qa/implementation-2026-10-24/asset-audit.receipt.json",
+    "../qa/implementation-2026-10-24/batch-2/README.md",
+    "../qa/implementation-2026-10-25/batch-3/README.md",
+    "../qa/implementation-2026-10-25/batch-4/README.md",
+    "../qa/implementation-2026-10-25/batch-5/README.md"
+  ],
+  "prior_pin_records": [
+    {
+      "replaced_on": "2026-10-26",
+      "recorded_values": {
+        "role_contract": "9d75e295e7e2746a56e770a891166b00bda23ef81e87598abb816b7bcb4960a4",
+        "backlog": "5e46bafb76ff411d1495c33c2de7a37f3cb8932625f29d1f174f9210a2566163"
+      },
+      "reason": "Documentation reconciliation; previous recorded pins retained as history, not asserted to match current source."
+    }
+  ],
+  "current_instruction": {
+    "mode": "research_documentation_revision",
+    "governing_plan": "implementation-plan.md",
+    "current_handoff": "delivery-revision-and-agent-handoff.md",
+    "bounded_job_register": "biosphere-work-packets.json",
+    "new_implementation_dispatch": "inactive pending resumed implementation direction and concrete ownership/contracts/check plan"
+  },
+  "backlog_pin_history": [
+    {
+      "sha256": "4ed52db3ff9bf231a3e0ba467791d739a8cf696d15755b6009ff3474b44c2c64",
+      "superseded_on": "2026-10-26",
+      "reason": "Full Poet scope cross-reference added; original 120 packets and acceptance retained."
+    }
+  ],
+  "active_dispatch": "biosphere-authoring-round1.md",
+  "active_subjobs": "biosphere-work-packets.json",
+  "human_principal_agent_authority": "tech/human-principal-agent-authority.md"
+}

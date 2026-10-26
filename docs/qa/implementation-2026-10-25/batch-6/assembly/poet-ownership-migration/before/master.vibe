@@ -1,0 +1,171 @@
+// Original synthetic manufactured concept. Metres; local parent-relative TRS.
+// No real installation, verified flow/capacity, plants or human acceptance claimed.
+// Editable master: change poet_parameters, then rebuild poet_parts explicitly.
+requires [capability("capability.invoke"), capability("Craft.profile_sweep"), capability("ComputationalGeometry.torus"), capability("ComputationalGeometry.uv_sphere")];
+
+pure fn cg_surface(id:i64, r:f64, g:f64, b:f64, metal:f64, rough:f64) -> Record {
+    return {id:id, colour_space:"linear", base_color:[r,g,b,1.0], emissive:[0.0,0.0,0.0], metallic:metal, roughness:rough, specular:1.0, alpha_cutoff:0.5, opacity_mode:"Opaque", double_sided:false};
+}
+pure fn cg_part(id:string, sid:i64, parent:string, geometry:Record, material:Record, t:List, r:List, s:List) -> Record {
+    if parent == "" { return {id:id,semantic_id:sid,parent:null,geometry:geometry,material:material,translation:t,rotation:r,scale:s}; }
+    return {id:id,semantic_id:sid,parent:parent,geometry:geometry,material:material,translation:t,rotation:r,scale:s};
+}
+effect fn cg_round(w:f64,h:f64,r:f64,length:f64,detail:i64) -> Record {
+    return capability.invoke("Craft.profile_sweep",{profile:{kind:"rounded_rectangle",width:w,height:h,radius:r,segments:detail},length:length,caps:true});
+}
+effect fn cg_circle(radius:f64,length:f64,detail:i64,caps:bool) -> Record {
+    return capability.invoke("Craft.profile_sweep",{profile:{kind:"circle",radius:radius,segments:detail},length:length,caps:caps});
+}
+effect fn cg_pipe(radius:f64,axis:List,detail:i64) -> Record {
+    return capability.invoke("Craft.profile_sweep",{profile:{kind:"circle",radius:radius,segments:detail},axis:axis,caps:false});
+}
+effect fn cg_ring(radius:f64,tube:f64,major:i64,minor:i64) -> Record {
+    return capability.invoke("ComputationalGeometry.torus",{major_radius:radius,minor_radius:tube,major_segments:major,minor_segments:minor});
+}
+effect fn cg_gusset(detail:i64) -> Record {
+    return capability.invoke("Craft.profile_sweep",{profile:{kind:"polyline",segments:1,points:[[0.0,0.014],[0.014,0.0],[0.148,0.0],[0.154,0.008],[0.008,0.154],[0.0,0.148]]},length:0.006,caps:true});
+}
+
+effect fn poet_rebuild_parts(p:Record) -> List<Record> {
+    let pi=3.141592653589793;
+    let q=1.5707963267948966;
+    let zero=[0.0,0.0,0.0];
+    let one=[1.0,1.0,1.0];
+    let mut frame=cg_surface(9001,0.24,0.105,0.035,0.10,0.32);
+    let mut grow=cg_surface(9002,0.72,0.79,0.69,0.0,0.38);
+    let rubber=cg_surface(9003,0.016,0.027,0.022,0.0,0.72);
+    let mut steel=cg_surface(9004,0.52,0.57,0.54,0.96,0.23);
+    let mut cabinet=cg_surface(9005,0.035,0.12,0.085,0.12,0.30);
+    let mut waterline=cg_surface(9006,0.035,0.12,0.17,0.05,0.28);
+    let mut control=cg_surface(9007,0.82,0.255,0.035,0.05,0.30);
+    let label=cg_surface(9008,0.67,0.72,0.60,0.0,0.52);
+    let shadow=cg_surface(9009,0.008,0.014,0.012,0.0,0.86);
+    if p.style_mode == 1 {
+        frame=cg_surface(9001,0.48,0.14,0.025,0.0,0.76);
+        grow=cg_surface(9002,0.70,0.88,0.55,0.0,0.82);
+        steel=cg_surface(9004,0.35,0.46,0.49,0.0,0.70);
+        cabinet=cg_surface(9005,0.025,0.22,0.14,0.0,0.80);
+        waterline=cg_surface(9006,0.025,0.24,0.36,0.0,0.75);
+        control=cg_surface(9007,0.94,0.32,0.025,0.0,0.76);
+    }
+
+    // Geometry is authored once per distinct section and reused by identified parts.
+    let g_width=cg_round(0.065,0.065,0.009,p.width,p.detail_segments);
+    let g_root=capability.invoke("Craft.profile_sweep",{profile:{kind:"rounded_rectangle",width:0.065,height:0.065,radius:0.009,segments:p.detail_segments},axis:[[-p.width/2.0,0.14,-p.depth/2.0+0.08],[p.width/2.0,0.14,-p.depth/2.0+0.08]],caps:true});
+    let g_depth=cg_round(0.055,0.055,0.007,p.depth-0.16,p.detail_segments);
+    let g_post=cg_round(0.065,0.065,0.009,p.height-0.14,p.detail_segments);
+    let g_brace=cg_pipe(0.018,[[0.0,0.20,-0.73],[0.0,1.48,0.73]],p.detail_segments);
+    let g_brace_back=cg_pipe(0.018,[[0.0,0.20,0.73],[0.0,1.48,-0.73]],p.detail_segments);
+    let g_foot=cg_circle(0.066,0.018,p.ring_segments,true);
+    let g_foot_stem=cg_circle(0.014,0.10,p.detail_segments,true);
+    let g_gusset=cg_gusset(p.detail_segments);
+    let g_bolt=cg_circle(0.009,0.008,8,true);
+    let g_channel=capability.invoke("Craft.profile_sweep",{profile:{kind:"open_channel",width:p.channel_width,height:p.channel_height,wall:p.channel_wall,corner_radius:0.022,segments:p.detail_segments},length:p.channel_length,caps:true});
+    let edge_width=(p.channel_width-0.11)/2.0;
+    let g_lid_edge=cg_round(edge_width,0.009,0.004,p.channel_length,p.detail_segments);
+    let g_lid_bay=cg_round(0.11,0.009,0.004,p.channel_length/6.0-0.085,p.detail_segments);
+    let g_lid_end=cg_round(0.11,0.009,0.004,p.channel_length/12.0-0.0425,p.detail_segments);
+    let g_endcap=cg_round(p.channel_width+0.006,p.channel_height+0.006,0.022,0.009,p.detail_segments);
+    let g_collar=cg_ring(0.041,0.006,p.ring_segments,p.tube_segments);
+    let g_coupling=cg_circle(0.024,0.052,p.detail_segments,false);
+    let g_valve=cg_circle(0.021,0.055,p.detail_segments,true);
+    let g_lever=cg_round(0.075,0.012,0.005,0.022,p.detail_segments);
+    let g_feed=cg_circle(0.017,1.29,p.ring_segments,false);
+    let g_return=cg_circle(0.026,1.33,p.ring_segments,false);
+    let g_panel_side=cg_round(0.008,p.cabinet_height,0.003,p.cabinet_depth,p.detail_segments);
+    let g_panel_front=cg_round(p.cabinet_width,0.008,0.003,p.cabinet_height,p.detail_segments);
+    let g_panel_top=cg_round(p.cabinet_width,0.012,0.005,p.cabinet_depth,p.detail_segments);
+    let g_door=cg_round(p.cabinet_width-0.028,0.010,0.004,p.cabinet_height-0.030,p.detail_segments);
+    let g_seal=cg_round(p.cabinet_width-0.018,0.005,0.002,p.cabinet_height-0.018,p.detail_segments);
+    let g_handle=cg_pipe(0.009,[[-0.075,0.0,0.0],[-0.075,0.0,-0.016],[-0.064,0.0,-0.029],[0.064,0.0,-0.029],[0.075,0.0,-0.016],[0.075,0.0,0.0]],p.detail_segments);
+    let g_hinge=cg_circle(0.012,0.058,p.detail_segments,true);
+    let g_pump=cg_round(0.18,0.135,0.035,0.24,p.detail_segments);
+    let g_grille=cg_round(0.32,0.007,0.003,0.012,p.detail_segments);
+    let g_plaque=cg_round(0.25,0.005,0.002,0.095,p.detail_segments);
+
+    let mut out=[];
+    // One identified chassis root carries all local groups when moved in Poet.
+    out=out.push(cg_part("station",110000,"",g_root,frame,zero,zero,one));
+    // The chamfered datum plate fixes the engineering frame at the front-left rail.
+    out=out.push(cg_part("frame/datum",110001,"station",g_gusset,frame,[-p.width/2.0,0.14,-p.depth/2.0+0.08],zero,one));
+    // All following coordinates are in the datum's engineering frame.
+    let datum="frame/datum";
+    for end in [{k:"left",sid:10,x:0.10},{k:"right",sid:30,x:p.width-0.10}] {
+        for side in [{k:"front",sid:1,z:0.0},{k:"rear",sid:2,z:p.depth-0.16}] {
+            out=out.push(cg_part("frame/"+end.k+"/post-"+side.k,110000+end.sid+side.sid,datum,g_post,frame,[end.x,0.0,side.z],[-q,0.0,0.0],one));
+            out=out.push(cg_part("frame/"+end.k+"/foot-"+side.k,110100+end.sid+side.sid,datum,g_foot,rubber,[end.x,-0.125,side.z],[-q,0.0,0.0],one));
+            out=out.push(cg_part("frame/"+end.k+"/adjuster-"+side.k,110200+end.sid+side.sid,datum,g_foot_stem,steel,[end.x,-0.11,side.z],[-q,0.0,0.0],one));
+        }
+        for level in [{k:"low",sid:1,y:p.lower_level-0.225},{k:"mid",sid:2,y:p.lower_level+p.level_step-0.225},{k:"high",sid:3,y:p.lower_level+2.0*p.level_step-0.225}] {
+            out=out.push(cg_part("frame/"+end.k+"/support-"+level.k,110300+end.sid+level.sid,datum,g_depth,frame,[end.x,level.y,0.0],zero,one));
+        }
+        out=out.push(cg_part("frame/"+end.k+"/cross-brace-a",110400+end.sid,datum,g_brace,steel,[end.x,-0.14,0.73],zero,one));
+        out=out.push(cg_part("frame/"+end.k+"/cross-brace-b",110401+end.sid,datum,g_brace_back,steel,[end.x,-0.14,0.73],zero,one));
+        for corner in [{k:"front",sid:1,z:0.03},{k:"rear",sid:2,z:p.depth-0.19}] {
+            out=out.push(cg_part("frame/"+end.k+"/gusset-"+corner.k,110500+end.sid+corner.sid,datum,g_gusset,frame,[end.x-0.036,0.10,corner.z],[0.0,q,0.0],one));
+            out=out.push(cg_part("frame/"+end.k+"/bolt-"+corner.k,110600+end.sid+corner.sid,datum,g_bolt,steel,[end.x-0.044,0.145,corner.z+0.045],[0.0,q,0.0],one));
+        }
+    }
+    out=out.push(cg_part("frame/rear-base",110700,datum,g_width,frame,[0.0,0.0,p.depth-0.16],[0.0,q,0.0],one));
+    out=out.push(cg_part("frame/front-header",110701,datum,g_width,frame,[0.0,p.height-0.20,0.0],[0.0,q,0.0],one));
+    out=out.push(cg_part("frame/rear-header",110702,datum,g_width,frame,[0.0,p.height-0.20,p.depth-0.16],[0.0,q,0.0],one));
+
+    let rows=[{k:"front-low",sid:120000,y:p.lower_level,z:-0.66,sign:-1.0},{k:"front-mid",sid:121000,y:p.lower_level+p.level_step,z:-0.40,sign:-1.0},{k:"front-high",sid:122000,y:p.lower_level+2.0*p.level_step,z:-0.14,sign:-1.0},{k:"rear-low",sid:123000,y:p.lower_level,z:0.66,sign:1.0},{k:"rear-mid",sid:124000,y:p.lower_level+p.level_step,z:0.40,sign:1.0},{k:"rear-high",sid:125000,y:p.lower_level+2.0*p.level_step,z:0.14,sign:1.0}];
+    let holes=[{k:"a",sid:1,t:0.0833333333333333},{k:"b",sid:2,t:0.25},{k:"c",sid:3,t:0.416666666666667},{k:"d",sid:4,t:0.583333333333333},{k:"e",sid:5,t:0.75},{k:"f",sid:6,t:0.916666666666667}];
+    for row in rows {
+        let key="grow/"+row.k;
+        // Datum root origin is world(-width/2,.14,-depth/2+.08).
+        out=out.push(cg_part(key,row.sid,datum,g_channel,grow,[(p.width-p.channel_length)/2.0,row.y-0.14,row.z+p.depth/2.0-0.08],[0.0,q,0.0],one));
+        out=out.push(cg_part(key+"/lid-edge-left",row.sid+10,key,g_lid_edge,grow,[-p.channel_width/2.0+edge_width/2.0,p.channel_height/2.0+0.005,0.0],zero,one));
+        out=out.push(cg_part(key+"/lid-edge-right",row.sid+11,key,g_lid_edge,grow,[p.channel_width/2.0-edge_width/2.0,p.channel_height/2.0+0.005,0.0],zero,one));
+        out=out.push(cg_part(key+"/lid-end-in",row.sid+12,key,g_lid_end,grow,[0.0,p.channel_height/2.0+0.005,0.0],zero,one));
+        out=out.push(cg_part(key+"/lid-end-out",row.sid+13,key,g_lid_end,grow,[0.0,p.channel_height/2.0+0.005,p.channel_length-(p.channel_length/12.0-0.0425)],zero,one));
+        out=out.push(cg_part(key+"/endcap-in",row.sid+14,key,g_endcap,grow,[0.0,0.0,-0.009],zero,one));
+        out=out.push(cg_part(key+"/endcap-out",row.sid+15,key,g_endcap,grow,[0.0,0.0,p.channel_length],zero,one));
+        out=out.push(cg_part(key+"/coupling-in",row.sid+16,key,g_coupling,waterline,[0.0,-0.014,-0.052],zero,one));
+        out=out.push(cg_part(key+"/coupling-out",row.sid+17,key,g_coupling,waterline,[0.0,-0.014,p.channel_length+0.009],zero,one));
+        for hole in holes {
+            out=out.push(cg_part(key+"/netpot-collar-"+hole.k,row.sid+40+hole.sid,key,g_collar,rubber,[0.0,p.channel_height/2.0+0.014,p.channel_length*hole.t],zero,one));
+            if hole.sid < 6 {
+                out=out.push(cg_part(key+"/lid-bay-"+hole.k,row.sid+60+hole.sid,key,g_lid_bay,grow,[0.0,p.channel_height/2.0+0.005,p.channel_length*hole.t+0.0425],zero,one));
+            }
+        }
+        let feed_axis=[[0.0,0.0,0.0],[0.035,0.0,0.004*row.sign],[0.070,0.0,0.018*row.sign],[0.100,0.0,0.045*row.sign],[0.12,0.0,0.080*row.sign],[0.12,0.0,row.z]];
+        let return_axis=[[0.0,0.0,row.z],[-0.025,0.0,row.z-0.015*row.sign],[-0.045,0.0,row.z-0.040*row.sign],[-0.052,0.0,row.z-0.075*row.sign],[-0.052,0.0,0.0]];
+        let feed_branch=cg_pipe(0.011,feed_axis,p.ring_segments);
+        let return_branch=cg_pipe(0.016,return_axis,p.ring_segments);
+        out=out.push(cg_part("services/feed-"+row.k,130000+row.sid-120000,datum,feed_branch,waterline,[0.06,row.y-0.154,p.depth/2.0-0.08],zero,one));
+        out=out.push(cg_part("services/return-"+row.k,130100+row.sid-120000,datum,return_branch,waterline,[p.width-0.11,row.y-0.154,p.depth/2.0-0.08],zero,one));
+        out=out.push(cg_part("services/valve-"+row.k,130200+row.sid-120000,datum,g_valve,steel,[0.18,row.y-0.154,p.depth/2.0-0.08+0.10*row.sign],zero,one));
+        out=out.push(cg_part("services/lever-"+row.k,130300+row.sid-120000,datum,g_lever,control,[0.18,row.y-0.125,p.depth/2.0-0.08+0.12*row.sign],zero,one));
+    }
+    out=out.push(cg_part("services/feed-trunk",136000,datum,g_feed,waterline,[0.06,0.25,p.depth/2.0-0.08],[-q,0.0,0.0],one));
+    out=out.push(cg_part("services/return-trunk",136001,datum,g_return,waterline,[p.width-0.162,0.21,p.depth/2.0-0.08],[-q,0.0,0.0],one));
+
+    let cx=p.width/2.0;
+    let cz=p.depth/2.0-0.08-p.cabinet_depth/2.0;
+    out=out.push(cg_part("cabinet/left",140000,datum,g_panel_side,cabinet,[cx-p.cabinet_width/2.0,p.cabinet_height/2.0-0.065,cz],zero,one));
+    out=out.push(cg_part("cabinet/right",140001,datum,g_panel_side,cabinet,[cx+p.cabinet_width/2.0,p.cabinet_height/2.0-0.065,cz],zero,one));
+    out=out.push(cg_part("cabinet/floor",140002,datum,g_panel_top,cabinet,[cx,-0.065,cz],zero,one));
+    out=out.push(cg_part("cabinet/top",140003,datum,g_panel_top,cabinet,[cx,p.cabinet_height-0.065,cz],zero,one));
+    out=out.push(cg_part("cabinet/back",140004,datum,g_panel_front,cabinet,[cx,-0.065,cz+p.cabinet_depth],[-q,0.0,0.0],one));
+    out=out.push(cg_part("cabinet/door-seal",140005,datum,g_seal,shadow,[cx,-0.056,cz-0.010],[-q,0.0,0.0],one));
+    out=out.push(cg_part("cabinet/front-hatch",140006,datum,g_door,cabinet,[cx,-0.050,cz-0.016],[-q,0.0,0.0],one));
+    out=out.push(cg_part("cabinet/pull-handle",140007,datum,g_handle,steel,[cx,p.cabinet_height-0.17,cz-0.025],zero,one));
+    out=out.push(cg_part("cabinet/hinge-lower",140008,datum,g_hinge,steel,[cx-p.cabinet_width/2.0+0.014,0.02,cz-0.025],[-q,0.0,0.0],one));
+    out=out.push(cg_part("cabinet/hinge-upper",140009,datum,g_hinge,steel,[cx-p.cabinet_width/2.0+0.014,p.cabinet_height-0.18,cz-0.025],[-q,0.0,0.0],one));
+    out=out.push(cg_part("cabinet/pump-body",140010,datum,g_pump,waterline,[cx-0.03,0.04,cz+0.12],zero,one));
+    out=out.push(cg_part("cabinet/service-plaque",140011,datum,g_plaque,label,[cx,p.cabinet_height-0.255,cz-0.028],[-q,0.0,0.0],one));
+    for slot in [{k:"a",sid:1,y:0.025},{k:"b",sid:2,y:0.050},{k:"c",sid:3,y:0.075},{k:"d",sid:4,y:0.100}] {
+        out=out.push(cg_part("cabinet/vent-"+slot.k,140020+slot.sid,datum,g_grille,shadow,[cx,slot.y,cz-0.031],zero,one));
+    }
+    let pump_feed=cg_pipe(0.014,[[0.0,0.0,0.0],[-0.08,0.0,0.0],[-0.13,0.01,0.0],[-0.16,0.04,0.0],[-0.17,0.09,0.0],[-p.width/2.0+0.06,0.09,0.0]],p.ring_segments);
+    let sump_return=cg_pipe(0.024,[[0.0,0.0,0.0],[0.08,0.0,0.0],[0.12,0.012,0.0],[0.15,0.04,0.0],[p.width/2.0-0.162,0.04,0.0]],p.ring_segments);
+    out=out.push(cg_part("services/pump-discharge",141000,datum,pump_feed,waterline,[cx,0.16,p.depth/2.0-0.08],zero,one));
+    out=out.push(cg_part("services/sump-return",141001,datum,sump_return,waterline,[cx,0.17,p.depth/2.0-0.08],zero,one));
+    return out;
+}
+
+let mut poet_parameters={width:2.60,depth:1.65,height:1.72,channel_length:2.24,channel_width:0.18,channel_height:0.115,channel_wall:0.006,lower_level:0.64,level_step:0.40,cabinet_width:0.64,cabinet_height:0.48,cabinet_depth:0.66,detail_segments:16,ring_segments:48,tube_segments:12,style_mode:0};
+let mut poet_parts=poet_rebuild_parts(poet_parameters);
+({parts:poet_parts});

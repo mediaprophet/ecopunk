@@ -1,0 +1,201 @@
+{
+  "checks": {
+    "accepted_source_sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5",
+    "compiled_sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+    "fixture_only": true,
+    "hmc_sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+    "materials": 9,
+    "parts": 199,
+    "performed_checks": [
+      "fresh process canonical HMC source reopen under fresh signed reviewer challenge",
+      "current exact target and explicit distinct reviewer grant",
+      "master/preset/source SHA256 witnesses match HMC",
+      "accepted-source reconstruction produces exact packaged .10d bytes",
+      "native .10d integrity, normals, UV and material-range decode",
+      "stable semantic IDs cover every authored part and package range",
+      "source/execution/authority publication guards current"
+    ],
+    "principal": "software-fixture-reviewer",
+    "principal_kind": "SoftwareAgent",
+    "quality_status": "unassessed; no master, human, whole-HMC or consumer acceptance",
+    "ranges": 199,
+    "source_cells": 5,
+    "source_target": {
+      "author_subject": "software-fixture-author",
+      "document_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900:document",
+      "project_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900",
+      "revision": 6,
+      "source_digest": [
+        39,
+        35,
+        198,
+        51,
+        242,
+        210,
+        54,
+        23,
+        5,
+        172,
+        174,
+        60,
+        94,
+        162,
+        94,
+        21,
+        213,
+        39,
+        255,
+        109,
+        37,
+        239,
+        111,
+        83,
+        111,
+        201,
+        201,
+        53,
+        117,
+        239,
+        171,
+        59
+      ],
+      "source_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900:source"
+    },
+    "triangles": 79984,
+    "vertices": 239952
+  },
+  "image_scope": "1024 inspection views; not a master quality ceiling",
+  "images": [
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "camera": {
+        "distance": 4.5,
+        "pitch": 0.3199999928474426,
+        "target": [
+          0.0,
+          0.8799999952316284,
+          0.0
+        ],
+        "yaw": 0.6499999761581421
+      },
+      "exposure_ev": 0.0,
+      "file": "images/hero.png",
+      "floor_geometry": "none",
+      "height": 1024,
+      "native_pipeline": "PortalGpu offscreen/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "905f50b405437c5343e4c4a94a42bdb699b08f4cd3e74b7bb31b5fff35ffc491",
+      "screen_space_ao": true,
+      "sha256": "7b6de328407018785922d18d3ac2c5c258a225424eed0c58fe265c8843648ed4",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1024
+    },
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "camera": {
+        "distance": 4.5,
+        "pitch": 0.3199999928474426,
+        "target": [
+          0.0,
+          0.8799999952316284,
+          0.0
+        ],
+        "yaw": 3.791592597961426
+      },
+      "exposure_ev": 0.0,
+      "file": "images/opposite.png",
+      "floor_geometry": "none",
+      "height": 1024,
+      "native_pipeline": "PortalGpu offscreen/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "c251d6bf59be4b3fc705a02a8511d1426b32da7ae38836299d97435c76103ab6",
+      "screen_space_ao": true,
+      "sha256": "c1c91c7c3e80ecf0f598efad150da1cbd85ed2613b393d46e6679dae27e35efa",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1024
+    },
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "camera": {
+        "distance": 1.649999976158142,
+        "pitch": 0.6200000047683716,
+        "target": [
+          0.0,
+          1.4600000381469727,
+          -0.14000000059604645
+        ],
+        "yaw": 0.44999998807907104
+      },
+      "exposure_ev": 0.0,
+      "file": "images/channel-closeup.png",
+      "floor_geometry": "none",
+      "height": 1024,
+      "native_pipeline": "PortalGpu offscreen/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "23e7cdf5873bb2db7dbc4ce5e84a1b20fbc9d35bcd69c6704929398ff689f201",
+      "screen_space_ao": true,
+      "sha256": "be8b5af69a7289423978580ce88211cb1b70967a46c1bc5c4631cd53cf4fe98d",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1024
+    },
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "camera": {
+        "distance": 1.399999976158142,
+        "pitch": 0.1599999964237213,
+        "target": [
+          0.0,
+          0.36000001430511475,
+          -0.30000001192092896
+        ],
+        "yaw": 0.3499999940395355
+      },
+      "exposure_ev": 0.0,
+      "file": "images/cabinet-closeup.png",
+      "floor_geometry": "none",
+      "height": 1024,
+      "native_pipeline": "PortalGpu offscreen/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "17fff834d68143a1bf8f45175bdea595e1caf45522424aa587d07761cdf2dd01",
+      "screen_space_ao": true,
+      "sha256": "e79268ed476274a340adb71e7c2e59ad1127ba9312be23926516251b12083a55",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1024
+    }
+  ],
+  "lighting": "explicit synthetic constant prefiltered neutral probe plus native sun/AO/shadows; no photographic environment",
+  "render_source": "decoded .10d resource from reopened HMC; not regenerated mesh",
+  "review_status": "pending"
+}

@@ -1,0 +1,12 @@
+{
+  "date_utc": "2026-10-26T09:41:22.815882+00:00",
+  "scope": "Return existing GpuUnavailable when the optional dynamically loaded CUDA driver is absent; preserve existing hardware tests/oracles; no CUDA hardware qualification",
+  "completed": true,
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\execute\\cuda.rs",
+      "before": "f18925ec197fb0d97a25bd74d271f532746217dc44860ee53ee6209ca8ba569b",
+      "after": "3bc2437caf522e5ead453efc3dbc32c175dcd56478c4c928dddac01f63ff83e1"
+    }
+  ]
+}

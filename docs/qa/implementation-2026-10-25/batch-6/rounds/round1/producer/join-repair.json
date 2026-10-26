@@ -1,0 +1,244 @@
+{
+  "schema": "ecopunk-round1-string-join-repair/1",
+  "source": "C:\\github\\ecopunk\\assets\\reference\\community-grounds-growing-station\\master.vibe",
+  "before_sha256": "a13b63ba90598ca87da0f2da291b0e0b87d04a433e0ab2ab551ae12599a75649",
+  "after_sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63",
+  "chain_count": 24,
+  "mapping": [
+    {
+      "before": "\"frame/\"+end.k+\"/post-\"+side.k",
+      "after": "[\"frame/\",end.k,\"/post-\",side.k].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/post-\"",
+        "side.k"
+      ],
+      "line": 96
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/foot-\"+side.k",
+      "after": "[\"frame/\",end.k,\"/foot-\",side.k].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/foot-\"",
+        "side.k"
+      ],
+      "line": 97
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/adjuster-\"+side.k",
+      "after": "[\"frame/\",end.k,\"/adjuster-\",side.k].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/adjuster-\"",
+        "side.k"
+      ],
+      "line": 98
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/support-\"+level.k",
+      "after": "[\"frame/\",end.k,\"/support-\",level.k].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/support-\"",
+        "level.k"
+      ],
+      "line": 101
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/cross-brace-a\"",
+      "after": "[\"frame/\",end.k,\"/cross-brace-a\"].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/cross-brace-a\""
+      ],
+      "line": 103
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/cross-brace-b\"",
+      "after": "[\"frame/\",end.k,\"/cross-brace-b\"].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/cross-brace-b\""
+      ],
+      "line": 104
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/gusset-\"+corner.k",
+      "after": "[\"frame/\",end.k,\"/gusset-\",corner.k].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/gusset-\"",
+        "corner.k"
+      ],
+      "line": 106
+    },
+    {
+      "before": "\"frame/\"+end.k+\"/bolt-\"+corner.k",
+      "after": "[\"frame/\",end.k,\"/bolt-\",corner.k].join(\"\")",
+      "segments": [
+        "\"frame/\"",
+        "end.k",
+        "\"/bolt-\"",
+        "corner.k"
+      ],
+      "line": 107
+    },
+    {
+      "before": "\"grow/\"+row.k",
+      "after": "[\"grow/\",row.k].join(\"\")",
+      "segments": [
+        "\"grow/\"",
+        "row.k"
+      ],
+      "line": 117
+    },
+    {
+      "before": "key+\"/lid-edge-left\"",
+      "after": "[key,\"/lid-edge-left\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/lid-edge-left\""
+      ],
+      "line": 120
+    },
+    {
+      "before": "key+\"/lid-edge-right\"",
+      "after": "[key,\"/lid-edge-right\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/lid-edge-right\""
+      ],
+      "line": 121
+    },
+    {
+      "before": "key+\"/lid-end-in\"",
+      "after": "[key,\"/lid-end-in\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/lid-end-in\""
+      ],
+      "line": 122
+    },
+    {
+      "before": "key+\"/lid-end-out\"",
+      "after": "[key,\"/lid-end-out\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/lid-end-out\""
+      ],
+      "line": 123
+    },
+    {
+      "before": "key+\"/endcap-in\"",
+      "after": "[key,\"/endcap-in\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/endcap-in\""
+      ],
+      "line": 124
+    },
+    {
+      "before": "key+\"/endcap-out\"",
+      "after": "[key,\"/endcap-out\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/endcap-out\""
+      ],
+      "line": 125
+    },
+    {
+      "before": "key+\"/coupling-in\"",
+      "after": "[key,\"/coupling-in\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/coupling-in\""
+      ],
+      "line": 126
+    },
+    {
+      "before": "key+\"/coupling-out\"",
+      "after": "[key,\"/coupling-out\"].join(\"\")",
+      "segments": [
+        "key",
+        "\"/coupling-out\""
+      ],
+      "line": 127
+    },
+    {
+      "before": "key+\"/netpot-collar-\"+hole.k",
+      "after": "[key,\"/netpot-collar-\",hole.k].join(\"\")",
+      "segments": [
+        "key",
+        "\"/netpot-collar-\"",
+        "hole.k"
+      ],
+      "line": 129
+    },
+    {
+      "before": "key+\"/lid-bay-\"+hole.k",
+      "after": "[key,\"/lid-bay-\",hole.k].join(\"\")",
+      "segments": [
+        "key",
+        "\"/lid-bay-\"",
+        "hole.k"
+      ],
+      "line": 131
+    },
+    {
+      "before": "\"services/feed-\"+row.k",
+      "after": "[\"services/feed-\",row.k].join(\"\")",
+      "segments": [
+        "\"services/feed-\"",
+        "row.k"
+      ],
+      "line": 138
+    },
+    {
+      "before": "\"services/return-\"+row.k",
+      "after": "[\"services/return-\",row.k].join(\"\")",
+      "segments": [
+        "\"services/return-\"",
+        "row.k"
+      ],
+      "line": 139
+    },
+    {
+      "before": "\"services/valve-\"+row.k",
+      "after": "[\"services/valve-\",row.k].join(\"\")",
+      "segments": [
+        "\"services/valve-\"",
+        "row.k"
+      ],
+      "line": 140
+    },
+    {
+      "before": "\"services/lever-\"+row.k",
+      "after": "[\"services/lever-\",row.k].join(\"\")",
+      "segments": [
+        "\"services/lever-\"",
+        "row.k"
+      ],
+      "line": 141
+    },
+    {
+      "before": "\"cabinet/vent-\"+slot.k",
+      "after": "[\"cabinet/vent-\",slot.k].join(\"\")",
+      "segments": [
+        "\"cabinet/vent-\"",
+        "slot.k"
+      ],
+      "line": 161
+    }
+  ],
+  "semantic_basis": "Pinned Vibe 0.1 list.join(\"\") concatenates ordered string segments (eval/call.rs:355-374); plus is numeric. Source-session interpolation remains unsupported and untouched.",
+  "mapping_verification": "Exact inverse of these 24 mappings reconstructs previous source. No numeric addition/subtraction, geometry, loops, TRS, material or segment/order changed; identifier strings retain intended spelling.",
+  "verification": "Static source-only edit. No core changes or build/runtime executed by agent. Parent owns existing executable retry."
+}

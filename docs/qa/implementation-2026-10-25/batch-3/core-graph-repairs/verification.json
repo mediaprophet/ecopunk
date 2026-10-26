@@ -1,0 +1,88 @@
+{
+  "scope": "Focused source harness results for five separately diagnosed core failures",
+  "executed_utc": "2026-10-24T19:23:13.6857045Z",
+  "cargo_build": false,
+  "worker_wrote_siblings": false,
+  "actual_cached_core": "C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib",
+  "harness": "harness/lib.rs",
+  "harness_binary_sha256": "7D8288C677C9FE82EAE71B74F7F8C6E19809FBE796F2EDA20791F5F9A3A284F7",
+  "native_xml_library": [
+    "quick-xml-0.41.0"
+  ],
+  "passed": 11,
+  "failed": 0,
+  "original_failures": [
+    {
+      "name": "query::ingest::tests::turtle_with_empty_prefix_names_ingests",
+      "classification": "unresolved",
+      "log_header_line": 10263,
+      "source_location": "crates\\qualia-core-db\\src\\query\\ingest.rs:1198:9",
+      "exact_failure_output": "thread 'query::ingest::tests::turtle_with_empty_prefix_names_ingests' (24064) panicked at crates\\qualia-core-db\\src\\query\\ingest.rs:1198:9:\r\nassertion failed: report.flags & crate::q42_volume::FLAG_PERMISSIVE_COMMONS != 0",
+      "assessment": "Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.",
+      "next_action": "Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed."
+    },
+    {
+      "name": "services::daemon_query::tests::sparql_local_service_executes_inner",
+      "classification": "unresolved",
+      "log_header_line": 10290,
+      "source_location": "crates\\qualia-core-db\\src\\services\\daemon_query.rs:343:67",
+      "exact_failure_output": "thread 'services::daemon_query::tests::sparql_local_service_executes_inner' (14712) panicked at crates\\qualia-core-db\\src\\services\\daemon_query.rs:343:67:\r\nservice query: ParseError(\"SPARQL SERVICE federation to remote endpoint DID 0x85af0579e90f48de is not wired to local executor (fails closed; use FederatedQueryHandler with configured endpoint URL)\")",
+      "assessment": "Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.",
+      "next_action": "Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed."
+    },
+    {
+      "name": "services::solid_ldp::export_q42::tests::q42_export_writes_turtle_and_manifest",
+      "classification": "unresolved",
+      "log_header_line": 10295,
+      "source_location": "crates\\qualia-core-db\\src\\services\\solid_ldp\\export_q42.rs:172:9",
+      "exact_failure_output": "Solid leave/migrate: Exported 1 record(s); omitted 0 sanctuary/restricted; classified redacted 0. → C:\\github\\ecopunk\\target\\qa-tmp\\.tmpDEOYnB\\solid-out\r\n\r\nthread 'services::solid_ldp::export_q42::tests::q42_export_writes_turtle_and_manifest' (12784) panicked at crates\\qualia-core-db\\src\\services\\solid_ldp\\export_q42.rs:172:9:\r\nassertion failed: ttl.contains(\"https://example.org/Alice\")",
+      "assessment": "Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.",
+      "next_action": "Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed."
+    },
+    {
+      "name": "sparql_library::sparql_mm::tests::c2pa_never_claims_verified_from_field_presence",
+      "classification": "unresolved",
+      "log_header_line": 10301,
+      "source_location": "crates\\qualia-core-db\\src\\sparql_library\\sparql_mm.rs:1148:9",
+      "exact_failure_output": "thread 'sparql_library::sparql_mm::tests::c2pa_never_claims_verified_from_field_presence' (4052) panicked at crates\\qualia-core-db\\src\\sparql_library\\sparql_mm.rs:1148:9:\r\nassertion `left == right` failed\r\n  left: IntegrityChecked\r\n right: ParsedOnly",
+      "assessment": "Observed canonical failure. No matching unmodified full-suite baseline was run; unchanged test source alone does not establish preexisting failure.",
+      "next_action": "Owning subsystem should reconcile the exact failing assertion/unsupported contract under this selected native profile, with a bounded focused case and an original-source baseline where needed."
+    },
+    {
+      "name": "vibe_host::invoke::studio_store::tests::test_import_cml_and_csv",
+      "classification": "known_prior_cml_failure",
+      "log_header_line": 10328,
+      "source_location": "crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs:452:9",
+      "exact_failure_output": "thread 'vibe_host::invoke::studio_store::tests::test_import_cml_and_csv' (14600) panicked at crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs:452:9:\r\nassertion `left == right` failed\r\n  left: None\r\n right: Some(\"#000\")",
+      "assessment": "Exact None versus Some(\"#000\") mismatch was already observed in hmc/first-test-failures.log. Current checkpoint changes add serde/routing/retained-state validation; importer body is preserved. This is a prior observed failure, not a claim that all 43 failures predate this work.",
+      "next_action": "Studio format owner should repair the line-oriented CML importer/test contract separately; preserve current accepted source semantics."
+    }
+  ],
+  "mechanisms": [
+    "Exact candidate lexicon adapter reads actual v4 volume using native lookup_owned; unchanged actual SolidExporter consumes that adapter and preserves explicit sanctuary refusal.",
+    "Exact candidate SERVICE grammar feeds actual current parser/planner/executor. Only exact reserved local:graph maps to existing native local sentinel.",
+    "Exact candidate SPARQL-MM graph accessor retains metadata but refuses to synthesize cryptographic tiers from graph claims.",
+    "Exact candidate CML adapter uses quick-xml and actual StudioArtifact; compact XML, open-node association, escaped roundtrip and detached error paths execute.",
+    "Current real native Rio ingest executes actual Turtle and Q42 codecs; test proves full URI/literal retention with default publication unmarked."
+  ],
+  "limitations": [
+    "Whole current core was not rebuilt here. Parent owns guarded application and coherent full-crate tests.",
+    "The CML adapter mechanism executes against actual cached StudioArtifact; modified StudioArtifact::import_format/export_format dispatch wiring is source-reviewed but not executed in this narrow harness.",
+    "Query ingest production is unchanged; only its invalid implicit-publication expectation and added source assertions change.",
+    "No real C2PA signature/hash/trust verification is performed by this graph accessor; higher-tier integration remains separate work.",
+    "No model/package/native human cooperation completion follows from these repairs."
+  ],
+  "earlier_compatibility_probe": "Initial 11-case run linked cached quick-xml 0.36.2; retained separately. Final compile/tests.log use selected native quick-xml 0.41.0 and pass all 11 cases.",
+  "selected_xml_rlib": "C:/github/ecopunk/target/debug/deps/libquick_xml-22d41287daaf3771.rlib",
+  "selected_xml_rlib_sha256": "5AACBC909202AFB361F9B74F880FD3BCE73969322A12C90EAAE599B772196897",
+  "candidate_manifest_sha256": "9B6E3D2EE7077D784E5CAC903796E0E72C4CE0DAD91FF37E653D256112C90DEA",
+  "exact_candidate_test_results": [
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.02s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.00s",
+    "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.00s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.10s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.07s"
+  ]
+}

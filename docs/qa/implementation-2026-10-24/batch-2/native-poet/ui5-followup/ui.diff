@@ -1,0 +1,55 @@
+diff --git a/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/original/native/src/graphical/ui.rs b/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/candidate/native/src/graphical/ui.rs
+index b8bee75..b3a1796 100644
+--- a/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/original/native/src/graphical/ui.rs
++++ b/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/candidate/native/src/graphical/ui.rs
+@@ -171,23 +171,23 @@ pub(super) fn NativeStudio(
+         }
+     };
+     rsx! {
+-        div { style: "height:100vh;background:#111820;color:#e8eef4;display:flex;font-family:sans-serif;",
+-            aside { style: "width:160px;padding:18px;background:#18232e;",
++        div { style: "height:100vh;box-sizing:border-box;overflow:auto;background:#111820;color:#e8eef4;display:flex;font-family:sans-serif;",
++            aside { style: "width:160px;flex-shrink:0;box-sizing:border-box;padding:18px;background:#18232e;",
+                 h2 { "Poet" }
+                 p { "Tool-Chest" }
+                 strong { "Studio" }
+                 p { "Manifold · source and scene" }
+             }
+-            main { style: "flex:1;padding:20px;display:flex;flex-direction:column;gap:14px;",
++            main { style: "flex:1;min-width:0;min-height:0;box-sizing:border-box;padding:16px;display:flex;flex-direction:column;gap:10px;",
+                 header {
+-                    h1 { "{current.title}" }
+-                    p { "{current.artifact_id} · source revision {current.source_revision} · Vibe session {current.session_revision}" }
++                    h1 { style: "margin:0 0 8px;font-size:24px;", "{current.title}" }
++                    p { style: "margin:0;", "{current.artifact_id} · source revision {current.source_revision} · Vibe session {current.session_revision}" }
+                 }
+-                div { style: "display:flex;gap:12px;flex:1;",
+-                    section { style: "flex:1;display:flex;flex-direction:column;gap:10px;",
+-                        h2 { "Vibe source draft" }
+-                        textarea { value: "{draft}", disabled: busy(),
+-                            style: "height:490px;width:100%;background:#081018;color:#e8eef4;padding:12px;font-family:monospace;font-size:15px;",
++                div { style: "display:flex;gap:12px;flex:1;min-width:0;min-height:0;align-items:flex-start;",
++                    section { style: "flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px;",
++                        h2 { style: "margin:0;font-size:20px;", "Vibe source draft" }
++                        textarea { value: "{draft}", disabled: busy(), aria_label: "Vibe source draft",
++                            style: "height:calc(100vh - 360px);min-height:220px;max-height:560px;width:100%;min-width:0;box-sizing:border-box;background:#081018;color:#e8eef4;padding:12px;font-family:monospace;font-size:15px;",
+                             oninput: move |event| draft.set(event.value()),
+                         }
+                         div { style: "display:flex;gap:10px;flex-wrap:wrap;",
+@@ -210,12 +210,12 @@ pub(super) fn NativeStudio(
+                         }
+                         p { "{status}" }
+                     }
+-                    section { style: "width:512px;display:flex;flex-direction:column;gap:10px;",
+-                        h2 { "Manifold preview" }
++                    section { style: "width:512px;max-width:45%;min-width:0;flex-shrink:0;display:flex;flex-direction:column;gap:8px;",
++                        h2 { style: "margin:0;font-size:20px;", "Manifold preview" }
+                         if let Some(uri) = image() {
+-                            img { src: "{uri}", width: "512", height: "512", alt: "Native engine preview bound to the displayed source revision" }
++                            img { src: "{uri}", width: "512", height: "512", style: "display:block;width:100%;max-width:512px;height:auto;", alt: "Native engine preview bound to the displayed source revision" }
+                         } else {
+-                            div { style: "width:512px;height:512px;background:#060c12;padding:18px;",
++                            div { style: "width:100%;max-width:512px;aspect-ratio:1;box-sizing:border-box;background:#060c12;padding:18px;",
+                                 "No current rendered frame. Submit an admitted geometry source command."
+                             }
+                         }

@@ -1,0 +1,51 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "scope": "round9-source-layer-native-fixture-and-envelope-admission-repair",
+  "status": "staged-not-applied-not-executed",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/assembly/admission.rs",
+      "before_sha256": "93cbba4613fcd308878a5bba44dfa3762fe062a90bb17e9c0ed73ac6afe013ff",
+      "after_sha256": "24ddcac00db4276ba8adaaa8acb053488bdb53c7f790cc6ed361666a0ebda4b8",
+      "after_lines": 450
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layer_tests.rs",
+      "before_sha256": "5ddb6c74fb480f84b4e9a838a4dc6cace1257cc71276c17d6c4b6b6375814dd0",
+      "after_sha256": "6e9b154e4eceb76d42a5dee8da00a85f8b62666fa5aa7c7e24043e006c18180e",
+      "after_lines": 399
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layers/envelope.rs",
+      "before_sha256": null,
+      "after_sha256": "2f4748520a94305f69aec3b79e43c802031fbae8900b18f8c920cc468c258be7",
+      "after_lines": 74
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layers/mod.rs",
+      "before_sha256": "8d758abd645649bc4b52eaf8b1cd73d04493502ce922ffa338c2ecd940b51a6d",
+      "after_sha256": "837d54deae22f4e88a13ed566e31d1ecd72787c021f732087d98c1c12b8fad49",
+      "after_lines": 232
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source_layers/restart_tests.rs",
+      "before_sha256": "f6a5996e3e6309ee966095dee754e0ccf220e07c4108833bfb7cd1249d3835b5",
+      "after_sha256": "38cd3c8973a5875f8c82ab08e1a35f2ce31dc0067df566422146426cd9a9a688",
+      "after_lines": 132
+    }
+  ],
+  "boundary": "Raw SourceSession preserves opaque part extensions; native host/HMC tests use admissible renderer part records. Unknown root/part render fields remain refused except recognized inert _poet_source_layer metadata.",
+  "dependency": "Canonical submit/rebuild actual validate_result must precede normal assembly admission. Standalone rendering checks metadata schema and shape only; never establishes source-layer relation correctness. No full assembly clone or per-gesture conversion.",
+  "checks": {
+    "tests": "not run by worker",
+    "rustfmt": "passed",
+    "cargo": "not run",
+    "sibling_writes": "none",
+    "assets": "unchanged"
+  }
+}

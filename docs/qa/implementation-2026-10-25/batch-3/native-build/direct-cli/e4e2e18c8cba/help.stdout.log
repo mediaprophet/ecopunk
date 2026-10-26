@@ -1,0 +1,9 @@
+Poet CLI toolchain for VibeScript (vvibe-0.1)
+
+Usage:
+  poet repl [--grant <capability>]...  Interactive REPL; default grants: none
+  poet format <file>  Format a .vibe file
+  poet lint <file>    Run static analysis checks on a .vibe file
+  poet eval <file>    Evaluate a .vibe file and print result
+  poet help           Show this help message
+  poet studio --diagnostic-new-source [--grant <capability>]...  Native Aether Studio

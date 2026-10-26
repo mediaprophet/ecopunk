@@ -1,0 +1,55 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::surfaces::integration_tests::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "surfaces",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T14:29:09.201271+00:00",
+  "finished_utc": "2026-10-25T14:29:22.197845+00:00",
+  "elapsed_seconds": 12.984,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surfaces.log",
+  "log_sha256": "4a817c7744aa5310e70558e83c097b389f6ab5b621a799531db67be2782c9e26",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surfaces-source-before.json",
+  "source_snapshot_sha256": "7fa9719e12675fcaac981fd4ea397c349133c49f1c6cba38c5fc979b3f5c58d4",
+  "recorded_local_source_files": 3253,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      4,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::surfaces::integration_tests::merge_preserves_exact_unknown_metadata_and_rejects_rehashed_corruption_or_flags",
+    "graphical::surfaces::integration_tests::original_authored_map_remains_a_dependency_after_procedural_override_and_can_be_restored",
+    "graphical::surfaces::integration_tests::selected_decode_obeys_remaining_combined_inspection_budget_before_output_allocation",
+    "graphical::surfaces::integration_tests::source_header_metadata_refuses_snapshot_only_compilation_instead_of_disappearing"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

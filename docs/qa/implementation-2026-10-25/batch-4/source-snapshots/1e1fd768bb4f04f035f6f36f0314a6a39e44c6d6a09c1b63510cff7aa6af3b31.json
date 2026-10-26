@@ -1,0 +1,462 @@
+{
+  "captured_utc": "2026-10-24T21:08:22.995329+00:00",
+  "scope": "Batch4 changed-source and prior94-source reconciliation; not every dependency source",
+  "sources": [
+    {
+      "path": "C:\\github\\poet\\Cargo.lock",
+      "sha256": "8e9a829c42cb9f9828dd605d3e2edafdf2daff76a1d4db8fbabffa6f05b2721b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\Cargo.toml",
+      "sha256": "84d8411bef114e0ed47851110ae98b18cc1b98bd770fcec7f60d69fa48987387"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\format.rs",
+      "sha256": "e4dc5979f576c72984ace5d673ef559c465a913b3ca8309272a941e02ebb3668"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen.rs",
+      "sha256": "039bb7d14759319436931674e93d268a14f792c4a4d6cddaa6a36628e89f2b10"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen_tests.rs",
+      "sha256": "37aa7852459e7da34ba0a94af5859c19a8e2aaf2b5feb1ac6b8a0fea66330d92"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "sha256": "3241fcf5b88417560128f79d5275352034089d170c9816d7dd17a2aea3bff24d"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "sha256": "ce5cb92c3d136a1950a39aa49890f8d9af4ad25cea1940c4506d39a67cab07bf"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resource_preservation_tests.rs",
+      "sha256": "d565a3f4f59c8b7ad3da4348dee9c926f9f411c4fb471c69f081538510bd1174"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resources.rs",
+      "sha256": "1174b9fe1003f5e316bf9c3d3881cbc546ed0dbbf4cb61ae727bf3df915329b1"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+      "sha256": "cdf9258e104d1fde36b342ab60cb195d053ca0d655fa5ba8e06b4f4a642fe03d"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\tests.rs",
+      "sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "sha256": "b3ed1fd1b219959bf7e0123056fadeed9c0c2b95550c87126a248dc7ba5acf0e"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\controller_tests.rs",
+      "sha256": "08e3bb40ed37d99b7b7f4cee91f322620b105c62e8685f87d4ba44d451435fea"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mcp_tests.rs",
+      "sha256": "b3e821c32780a954650878face38b2558224cbad5bbb7296122b98289cd8c6e7"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs",
+      "sha256": "29cbb7c60c162446c15418ae7de7fb78f43fd6b900c259dd4e3a2b6eccf4e377"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\native_owner.rs",
+      "sha256": "7c44eac259d80b61b9986d5afe6b63ac9dd83ce78e1840574dcd06a5377588bd"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "sha256": "a63719925e44e0e4678ffe5ca0babe02aa981a8c185c3faeaed89f89fa5e7567"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+      "sha256": "0ce65a2312dae5e59963ea90dda315ddce0ab2a4bb12bd9d09cd96ea3057344e"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\entry_tests.rs",
+      "sha256": "521c7b9beb4bd0f236d6dde9feb85e1e98bce25a5ee6a5af54c401fa5eb2cded"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\execution.rs",
+      "sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\geometry_host.rs",
+      "sha256": "752f1df74e7538a40eb6859a713932b5ad00706b8bffb02a1e87aa746e7535a2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "sha256": "ac72892f64e4ac597f423ac56db9c75680ef3aa8f219129728d92fd286822879"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "sha256": "74d59415fa142de82405059ccfa31ed8b8a017c54bd3dec5efb2ca16a7880dfd"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\material_admission_tests.rs",
+      "sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\material_controls.rs",
+      "sha256": "10e4b40ffba77c400006222301f21728ebfc5e85fbb3aa0a3a782c04bc2909a1"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\material_edit.rs",
+      "sha256": "bfc640fdea00ff1825ba37b509736932d4c19f69a8036271d8245a8e2985de8b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\material_pixels.rs",
+      "sha256": "cb33759e756de382d0723f67026da7ab95372b403fa26af7fac735d69fd6a712"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\materials.rs",
+      "sha256": "6cc0d0c31781ad0e57260945d2a80400034a0370662b39d8dc349d3101736a71"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\materials_tests.rs",
+      "sha256": "50b1c2d8ed391e3f1425034b1c2e95d2e1de59b421a84536cf834d2bc963d424"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "e4f0947250444e216bcac25f4c1fb1380d1519a07ea3517aeddbf6c26441da21"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\resources.rs",
+      "sha256": "2d84254285caba9f9e7432103bde97e75105c332402d7410680c9fd027d7383e"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "sha256": "58ffcd60f45f57d1dcb9208a15c9ddaffc2dd4fa98f1dfcc35cb60eadcbc69ad"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+      "sha256": "c0b520120c08fda9562b1bedc9337d1779e04eba75cf8529d07ae94e4516dea3"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\library.rs",
+      "sha256": "34e9b3a64e6782b07f9640754b2b8b59e8f8e6c62297a8fc6f552b3451a03df9"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+      "sha256": "a2d3d0bfcf783ce0492867832d2615f3871e01fcfdcc09f217d82ec113a752c5"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+      "sha256": "29072a512595816b8226ef69c30c1623331f6a8769cb48d9c6bfb30ad43a7371"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\preview.rs",
+      "sha256": "8550db02e716038648e108ea026dbdc4b7fe83c7df5b640e814c492fb2ef5036"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+      "sha256": "392339fff1d0c47c28a951dc162b5d4ff0042004dd9fb6dca6e9e40d2a9b9177"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\shared_host_tests.rs",
+      "sha256": "24ec5003765d0cec18f5c4c80427052f3bf3b01f62a79e9dc46d2bf4963d4e1b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "sha256": "ddc3a0d872f6555f1ef94f29ad6d2421e3334645e4c308e5f4c4d00967b8d7f4"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\lib.rs",
+      "sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\lint.rs",
+      "sha256": "57f46f7f51c102cf20916af5e0f256b0d54051cdc328e1d3207ddfc863e15bf0"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\main.rs",
+      "sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\repl.rs",
+      "sha256": "be6917851e6ee58c8bf46340addeaef7d9e55e8f41a608d52f3983358b40b3cf"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\Cargo.lock",
+      "sha256": "2682ff48a1c27dff10e6e26c9b412e113186cf3e70a2e09671bf188885bf4a61"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+      "sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\tests.rs",
+      "sha256": "4f15669384f5d5cbc0ee2d9f52ea0a7aa19f6cac219aa4ead7b9b5a20f7a5a48"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\types.rs",
+      "sha256": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\lib.rs",
+      "sha256": "780de522d539c36cbc63537fe69bd7acc09cfd9c4c08d47391b6b87ab2f117f2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\codec.rs",
+      "sha256": "adb13882736ba9a67f306fb73be8b873e0be8859c7d0bdfd2ab448a1be427856"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\graph.rs",
+      "sha256": "26493051de8b213de566fd4e85f7f5683f6f5af249291d29988a42045bdf5afb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+      "sha256": "61f882b93c0bb0ad4108e41609cd7b6b092393d8421b82d93f9980531667fb47"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+      "sha256": "e18ba20055663be00d237e7b876798253ce4d6617ef8ad612b833b929f204106"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resource_tests.rs",
+      "sha256": "cbf55c6f1523d51bac8d92e76918782133e83f8a4afe5f359440f3993540d8f8"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resources.rs",
+      "sha256": "b481d3482f5dfc43853b5dbb662f968d7dc6a952308132ee3ecdf155a1681a73"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\snapshot.rs",
+      "sha256": "2c6ace6b8987674ac459a78c598212f5d80443bded8bd11d56a044d6e9695711"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\tests.rs",
+      "sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\mod.rs",
+      "sha256": "71079101b443be0f526bbae449a7523ac5b4af57758147fd20248ebb61e5ece9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\parser.rs",
+      "sha256": "587bbd0ed7d0a6b04301c8703866cd113559accd23a3626378ffde9e70789762"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\tests.rs",
+      "sha256": "10d9fc2096b12b3c32572b308d9535714e26280534ba5de479a44f930dbcd2fe"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\writer.rs",
+      "sha256": "fb7e783ae839a0edfaeeb25d109c64873235de956b1b7afef5fdd7408b18066f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_journal.rs",
+      "sha256": "a4dc6e759937baa9b795fe72a126d5739aa55f483b97ad934656b8d3474ee9ea"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+      "sha256": "217255aafc89dd8e245d70ce611101afaebfc8facd91ce221b4e052153a217e4"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "sha256": "b0c1983267d27f9cccef3356a780a7ec2dc7a45f2568b0f06dee82503f3aa250"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\wgsl_forge_seam.rs",
+      "sha256": "c316f38014c87c475e85c60e903dd88eabef770d749ff0d273a476c165c076a5"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\mod.rs",
+      "sha256": "0851ccecb74c05a6fdc11acf83c0424da384ae5c69a0b8722e50446548206f3e"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+      "sha256": "386db8123d5748b7edc535fa15f24d95b77b43ff4be56842c9a606260cf07706"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\journal.rs",
+      "sha256": "17f9e47d07b9ccdf21d6722a7150529dff95d847fb05754472d9896f99981d10"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "sha256": "8ef13c61d3eac9869f08c7217326b388fbc5912471968af17b9fef568001a6eb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "sha256": "9deb6bbe0e1a7f1da89f9e4cc6f8dd1dbc780ec94629417673a42a85ab11f7c9"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+      "sha256": "ea74edf5ce2396b5af6410f0284999e331ee3ae58272735cc823528beec756b2"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\host.rs",
+      "sha256": "9dc617ced4d39b16f56175d871f152a5619a840d744ed67289950cf22c8a72e7"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\mod.rs",
+      "sha256": "59e18a520825394d9dff9c377fb4259b001a107a229d3dc977ee20594aed7994"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\tests.rs",
+      "sha256": "c4f86e047fbc3cebe9af55636422b1dc1086067a83590a60574b87181e645e74"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\q42\\q42_lexicon.rs",
+      "sha256": "cbda12c32476d68d7859be37b88b5c803a0f8fe35d6e80aaed3a505dd927d1a8"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\q42\\q42_lexicon_tests.rs",
+      "sha256": "6fa4167630c9aba1acb8b5c22b5fe83023a132fc56f398d2784be48659b52e80"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\query\\ingest.rs",
+      "sha256": "7492eaa0e41ae7d88a9fee5e04540468b2607497bc380bf6f161266984e75570"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_animation.rs",
+      "sha256": "d7747366181a6c04ee75e2cd6961cade167bd731b5d0ae9cd067f95f78489260"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_skin.rs",
+      "sha256": "c488c9db38bfed7ad398948eba07b32fdfc0c78b04d8584f82cf582d7d0fceff"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_tests.rs",
+      "sha256": "ebd420d7a2317327862002a3a95cf36c74f665710a52c120803cd370477337de"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_skins_anims.rs",
+      "sha256": "44b5648ec6d533b64c7b3844ba87f2fd072686000f42143ac84863f6e83ea245"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao.rs",
+      "sha256": "e84e2c4654a0df6c6819d82fa1cdb27f9a50dadf03e9b7ff201e02cf850b0377"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_depth.rs",
+      "sha256": "5fdb50528e2c984fb3a3cf3b90bbe31aca1092e23e23910b8239ff0a0c9443df"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_math.rs",
+      "sha256": "594470eaae0617ac7532bfaead74d777002ebe71dca5846228267e642a7cbb31"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\indirect_cull.rs",
+      "sha256": "5e27960b5dc4b45c6330049f081b189ef6eeca792a7dafc7ea2e96163cb474e1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_pixel_tests.rs",
+      "sha256": "e6756f86f9d9fe63233e6cfc5b4dd2b6277720306fb06b54bf230d4767143125"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_textures.rs",
+      "sha256": "76543ace716254e0a439c7d0efa39897352a4080427bb068e05f53f4b1553dbe"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\texture_bc7_conformance_tests.rs",
+      "sha256": "3cf26a4c5c2434f011a33312c4953fd292df484723cac39ac19ee22a8bab9415"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\texture_transcode.rs",
+      "sha256": "7e8adfd8230504abe2d22ccc1077dfbf25a343c86d5116728fadd2a2d03506dc"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\ao_generate.wgsl",
+      "sha256": "388a5036b85d5e8d0dec66b9135bfc44cbf441e79cdddca70d87fc621c0af25d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\ao_prepass.wgsl",
+      "sha256": "59ea9f959f443054ca7d17a388ae21a9ebf8dd831c564e14d744f0c879dbd966"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\mesh.wgsl",
+      "sha256": "d05e587b5d75eb59d2ca49ca76673fecece66dead486498e35f75487b9f4484b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\sparql_library\\sparql_grammar\\pattern.rs",
+      "sha256": "84a9218459c74a239c89d44a4d1505ed5b2870cdb3d9586afb563ff6755e2a4b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\sparql_library\\sparql_mm.rs",
+      "sha256": "c2768a5d2b877882f1f39ae3f1fad309570e2a757ab0e502c44508c776fcff2b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\properties.rs",
+      "sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\tests.rs",
+      "sha256": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\types.rs",
+      "sha256": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\engineering_analysis\\tests.rs",
+      "sha256": "1b8bc711d578b0f67ae66a11dbb89c15577bf670662eac5bf2a0e757284551c3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\financial_modeling\\tests.rs",
+      "sha256": "e2384938586c35f655fbdffa17d0bf71af5558aed6bb4e7b9d9592f3c3f37498"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\coopmat.rs",
+      "sha256": "112dab536827249b1bb50a80e28b841e87724196b41c067b7b1ea4f08d7d8dc3"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\wgsl.rs",
+      "sha256": "4ae5dc725616927c31a0fa57182f4af14ba481ebffb6f1405c008cbd22f1e56b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\oracle\\evaluate.rs",
+      "sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\Cargo.toml",
+      "sha256": "f74a82441c71e772e43347901ec0ea25b177b5f4f04ef2858551923130c4c7ae"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\codec.rs",
+      "sha256": "565e90df786bf3e036afa4d03ad9f1ec547002ba3f84761786a3e7b6fcb2d7e1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\mod.rs",
+      "sha256": "0870046f4449e2491b260a6941c0a5f316f5389f61e15111dda48e7dbbeeac79"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\protocol.rs",
+      "sha256": "28caa12dbe6c6a2fe4bd85eef217a45e4ac1cb18a25a6f0d8695df2e61232223"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\stdio.rs",
+      "sha256": "5eaf88767c46f93de903d6d5b35705018c33198526a6be180597c8dd868cf2f0"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\tests.rs",
+      "sha256": "c768ae302225dd7c29273af486e8168c7f58cb95273d7cf4e97fcdba58717cfc"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\types.rs",
+      "sha256": "e5490be398623951015d89adfec97f5b702f21594ceb72e52c0ba102832b6e5d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\lib.rs",
+      "sha256": "159ebd57bec536fa178e3ce792687c7c13661d4dad9e0b108c3f1fc27022c604"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+      "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\validation_tests.rs",
+      "sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe"
+    }
+  ]
+}

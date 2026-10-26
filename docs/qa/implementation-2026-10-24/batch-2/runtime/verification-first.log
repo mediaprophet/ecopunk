@@ -1,0 +1,19 @@
+     Locking 7 packages to latest compatible versions
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling unicode-xid v0.2.6
+   Compiling syn v3.0.9
+   Compiling bytemuck_derive v1.12.1
+   Compiling bytemuck v1.25.2
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+error[E0761]: file for module `check` found at both "src\check.rs" and "src\check\mod.rs"
+  --> src\lib.rs:23:1
+   |
+23 | mod check;
+   | ^^^^^^^^^^
+   |
+   = help: delete or rename one of them to remove the ambiguity
+
+For more information about this error, try `rustc --explain E0761`.
+error: could not compile `vibe` (lib) due to 1 previous error

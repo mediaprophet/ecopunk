@@ -1,0 +1,5 @@
+{
+  "command": "cargo test -p poet-cli --features native-graphical --lib image_completed_workflow -- --ignored --nocapture --test-threads=1 (serial, locked, offline)",
+  "backend": "dx12",
+  "exit_code": 101
+}

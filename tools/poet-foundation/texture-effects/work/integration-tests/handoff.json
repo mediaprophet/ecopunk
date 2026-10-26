@@ -1,0 +1,116 @@
+{
+  "lane": "integration-tests",
+  "contract": "tools/poet-foundation/texture-effects/CONTRACT.md",
+  "status": "staged-unrun",
+  "canonical_root": "C:/github/poet",
+  "files": [
+    {
+      "new_file": true,
+      "path": "native/src/graphical/native_project_texture_effect_tests.rs",
+      "preimage_sha256": null,
+      "canonical": "C:/github/poet/native/src/graphical/native_project_texture_effect_tests.rs",
+      "staged_sha256": "7D18E2A52F5214F1328F63685FA4F6E719ECDE5774FEE191E12120B63119B1CF",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/integration-tests/native/src/graphical/native_project_texture_effect_tests.rs"
+    }
+  ],
+  "source_pins": [
+    {
+      "sha256": "6B5E6DE2BAFDAE90584235AB5EF10172CD70C22F8F5110576BDEBEA19B58D204",
+      "path": "C:/github/poet/native/src/graphical/native_project_tests.rs"
+    },
+    {
+      "sha256": "83DF5258570A9E4FA2957F4F921EA215F2837F0BBDC6F1A034897DBE8C00B879",
+      "path": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs"
+    },
+    {
+      "sha256": "8A0BB9FD1DD23E48000BAD9B1DC1EFCEA98E05AEF840481AB571A00F254974D0",
+      "path": "C:/github/poet/native/src/graphical/native_project_uv_detail_tests.rs"
+    },
+    {
+      "sha256": "5B9429061EACC6F8E404D54C59EAA4B093020D6B89E0D304D25E65A358F77371",
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/recipe.rs"
+    },
+    {
+      "sha256": "48491AAAAB748CA8EECB1D5598EE36E371C9DAA6CCA4DD4719DEFCC1A84F3FA6",
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/render.rs"
+    },
+    {
+      "sha256": "011F47883694038A5E5788A29A1635DFF6A89DEF5DA24B8D55656539A020744C",
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/tests.rs"
+    },
+    {
+      "sha256": "8A14B6926F2AB2255F29B7592ECA14A8C1EE7DC80EDBA1119CBF5AB3E3A11BDB",
+      "path": "C:/github/poet/native/src/graphical/surfaces/inspection.rs"
+    },
+    {
+      "sha256": "9AE542256AD66D7FC457C8F43BFE73D9EDE96D63FCED0D0B402BCB9CEE0A7BEF",
+      "path": "C:/github/poet/native/src/graphical/surfaces/resolution.rs"
+    },
+    {
+      "sha256": "A19E00626297DE875979E6C64D910B59306C3CDE19C89237AC667C9F0FAAB2D5",
+      "path": "C:/github/poet/native/src/graphical/surfaces/resources.rs"
+    },
+    {
+      "sha256": "80EB3996F462BC288C2A3C6909B346200D3D6BE9A82303C13E847B8D4D481A50",
+      "path": "C:/github/poet/native/src/graphical/authoring/package.rs"
+    },
+    {
+      "sha256": "15CD15BD22CB3A379CBECAAF31546CCE229106BBAD246701157D08895BABB568",
+      "path": "C:/github/poet/native/src/graphical/checkpoints/resources.rs"
+    },
+    {
+      "sha256": "99FBBD923B9410266CA7B3FC4DAC3E8FB1F55E2D4D571739AC416DDC39F7F8D3",
+      "path": "C:/github/poet/native/src/graphical/controller.rs"
+    },
+    {
+      "sha256": "B269B0B605B78B8C2FF609A0176C01A215E704935DC46C92F0CFFD7D07B10D8F",
+      "path": "C:/github/poet/native/src/graphical/editor_contract.rs"
+    },
+    {
+      "sha256": "E669DDDF57310B9C54A28EBACA6E60B39D2FFA3776776B76D028E6B68110FE2E",
+      "path": "C:/github/poet/native/src/graphical/mcp/mod.rs"
+    },
+    {
+      "sha256": "6C4BA1C4FE50908A988D8F256810F2B26CC0B46CE66DEBE51BF80A8CB408E0A4",
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs"
+    },
+    {
+      "sha256": "0EF359A349FE622D7C6C7B8246CA6201E89E18C0C7D8F540E0B37487BAB296AD",
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/resources.rs"
+    }
+  ],
+  "tests_authored": 2,
+  "test_selector": "signed_texture_effect",
+  "checks_executed": [
+    "Read-only existing implementation and staged source inspection; hashes; canonical new-file absence check. No Cargo, formatter, builds, tests, GUI, providers or assets executed."
+  ],
+  "coverage": [
+    "Signed native_dispatch AuthoringEdit::TextureDetail and matching admitted MCP effects edit/inspect share actual accepted source and immutable base digest",
+    "Actual inspect_surface resolved output digest; canonical HMC PNG decode proves exact per-channel inversion of painted baseline while retaining alpha and disabled effect parameters",
+    "Undo/redo/rebuild preserves recipes, deterministic derived digests and exact source cells",
+    "Compile with distinct fresh asset keys, explicit package bind/rebuild, plain source save, exact original/generated resource+metadata equality and exact source/history persistence",
+    "Fresh child executable begins with no process-local source, opens retained authority, authenticates afresh, restores HMC, explicitly rebinds/rebuilds, repeats history and inspects/resaves exact retained resources",
+    "Stale, unknown fields/kinds, disabled invalid intensity, oversized effects, native unsupported version, observer and separately reauthenticated revoked author refusal preserve exact artifact/stamp/history; malformed preflight context reuse and valid-shaped missing-target context consumption"
+  ],
+  "interfaces": [
+    "Root registers child module under native_project_tests.rs using #[path = \"native_project_texture_effect_tests.rs\"]",
+    "MCP inspect lowercase hex base_sha256/output_sha256 and serde DetailRecipe detail; artifact_id/source_revision/session_revision/part_id/material_id match frozen contract",
+    "SurfaceInspection.texture_sha256: Option<[u8;32]> is supplied by root with actual resolved digest",
+    "No simultaneous-authority claim: observer login retires author handles, author reauth precedes admission revocation"
+  ],
+  "assumptions": [
+    "Software fixture uses actual assembly admission and canonical CPU selected texture inspection; no GPU preview exists",
+    "8x8 PNGs are synthetic calibration inputs generated only if root executes tests",
+    "Baseline and final compiled keys differ to preserve prior HMC compiled resources instead of colliding with retained entries",
+    "Current native authority and HMC APIs remain as inspected; all test code is unexecuted pending root serial lease"
+  ],
+  "evidence_opt_in": "Root may set POET_TEXTURE_EFFECT_EVIDENCE_DIR to an existing QA directory. After assertions parent retains actual canonical encoded original.png/effects.png and identifiers/digests-only witness.json; successful fresh child retains reopened.png. No production or human/GPU acceptance.",
+  "commands_not_run": [
+    "cargo test -p poet-cli --features native-graphical --bin poet signed_texture_effect -- --nocapture --test-threads=1",
+    "cargo test -p poet-cli --features native-graphical --bin poet texture_effect -- --nocapture --test-threads=1"
+  ],
+  "unresolved": [
+    "Root must review/apply/register and run focused tests under its serial lease; no executed result yet",
+    "Broader IP-03 C1-C8, current-window native human usability, GPU rendering, biological/production quality and complete model packages remain outside this test scope"
+  ]
+}

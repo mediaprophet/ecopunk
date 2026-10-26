@@ -1,0 +1,13 @@
+{
+  "scope": "Exact unchanged canonical core binary isolated native alpha-mask AO receiver-depth qualification",
+  "binary": "C:/github/ecopunk/target/debug/deps/qualia_core_db-8d00805b5856dfc8.exe",
+  "binary_sha256": "F63CF804EA02C2B994AD6A64F15D4F7A5C008DD17A50687734B3583CD38A099A",
+  "command": "qualia_core_db-8d00805b5856dfc8.exe --exact render::gpu::material_pixel_tests::native_mask_hole_preserves_receiver_depth_in_ao_prepass --nocapture --test-threads=1",
+  "require_gpu_tests": "1",
+  "started_utc": "2026-10-24T18:18:15.5706810Z",
+  "finished_utc": "2026-10-24T18:18:39.8925497Z",
+  "exit_code": 101,
+  "computer_use": false,
+  "core_rebuild": false,
+  "full_suite_waiver": false
+}

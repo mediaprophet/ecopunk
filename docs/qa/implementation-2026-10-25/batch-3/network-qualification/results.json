@@ -1,0 +1,157 @@
+{
+  "scope": "Inspected localhost-only native transport cases, same compiled core executable, outside the socket-restricted command sandbox",
+  "captured_utc": "2026-10-24T19:18:12.927389+00:00",
+  "binary": "C:\\github\\ecopunk\\target\\debug\\deps\\qualia_core_db-8d00805b5856dfc8.exe",
+  "binary_sha256": "bcaf257ccafc2a51247208d97e574681dc02f43e64dc358fdc665573e65094b0",
+  "tests": [
+    {
+      "name": "net::peer::fabric::connect::tests::local_bound_udp_delivers_and_admits_session",
+      "exit_code": 0,
+      "duration_seconds": 0.329,
+      "log": "01.log",
+      "log_sha256": "c7c9f22b622452a23107a41b9a66b80cae637840a6120cc1940f6c4e08a7f5e4"
+    },
+    {
+      "name": "net::peer::fabric::lease_protocol::tests::two_local_peers_exchange_under_cscp_lease",
+      "exit_code": 0,
+      "duration_seconds": 0.25,
+      "log": "02.log",
+      "log_sha256": "e84cda83266c6fab7d0b807437face1f129bc0c85d198473a0e906d1fca1adaf"
+    },
+    {
+      "name": "net::peer::fabric::relay::tests::lease_expiry_stops_forward",
+      "exit_code": 0,
+      "duration_seconds": 0.234,
+      "log": "03.log",
+      "log_sha256": "000aca6c904b7e0789c6cfe26e6729164b4e5fe2858600a26108d608c9b9d672"
+    },
+    {
+      "name": "p2p::connectivity::cscp_h2::tests::cscp_control_then_qsession_on_local_tls_h2",
+      "exit_code": 0,
+      "duration_seconds": 0.953,
+      "log": "04.log",
+      "log_sha256": "0eaf6a7725e43089fb1c5f842d8d50c66d8d5eca2e9728c41da45897d87e1c2b"
+    },
+    {
+      "name": "p2p::connectivity::cscp_h2::tests::unknown_critical_capsule_rejected",
+      "exit_code": 0,
+      "duration_seconds": 0.344,
+      "log": "05.log",
+      "log_sha256": "ca192f0f5ab2f26bf3bba772477d11125a042353573308695990535d4f96f430"
+    },
+    {
+      "name": "p2p::connectivity::cscp_h2::tests::wrong_connect_protocol_rejected",
+      "exit_code": 0,
+      "duration_seconds": 0.5,
+      "log": "06.log",
+      "log_sha256": "533352641f3bd5eee4f625c5239ea5f62fd716e1941ca65e2ed65a7629cec69b"
+    },
+    {
+      "name": "p2p::connectivity::cscp_wss::tests::cscp_control_then_qsession_on_local_tls_wss",
+      "exit_code": 0,
+      "duration_seconds": 1.0,
+      "log": "07.log",
+      "log_sha256": "bc3e81e0fb2087057676c733bfa44ffe4869a945ed767a7d92823f5ae5a50006"
+    },
+    {
+      "name": "p2p::connectivity::establish::tests::local_production_path_requires_qsession",
+      "exit_code": 0,
+      "duration_seconds": 3.344,
+      "log": "08.log",
+      "log_sha256": "acba50f5ae5f0c641dfaf13ed0ce36fbcbb3a05b20c38821cbc05a19d1ed9fb9"
+    },
+    {
+      "name": "p2p::connectivity::ice_udp::tests::binding_check_required_before_nominate",
+      "exit_code": 0,
+      "duration_seconds": 0.203,
+      "log": "09.log",
+      "log_sha256": "305241d1a5589fd6b97b7ed4e6a153eb9c813578558f0881b57fff49dc324b0d"
+    },
+    {
+      "name": "p2p::connectivity::turn_local::tests::allocate_then_send_reaches_peer",
+      "exit_code": 0,
+      "duration_seconds": 2.672,
+      "log": "10.log",
+      "log_sha256": "9f8334696e5b3e98c504eb889b8e3c5b58375f76af4fec7006b316b233c5c241"
+    },
+    {
+      "name": "p2p::connectivity::two_process::tests::two_process_authenticated_wss",
+      "exit_code": 0,
+      "duration_seconds": 0.375,
+      "log": "11.log",
+      "log_sha256": "d895768a6c5b3376e7f0bc4f1cefaf5a3950411701b4149c48da4d1cd08e904c"
+    },
+    {
+      "name": "p2p::connectivity::wss::tests::loopback_ws_datagram",
+      "exit_code": 0,
+      "duration_seconds": 0.203,
+      "log": "12.log",
+      "log_sha256": "c83fa862941bbb60e7cf794f25b212a25914042f1b0a609853dd6fc655060c1d"
+    },
+    {
+      "name": "p2p::connectivity::wss_tls::tests::tls_wss_verifies_cert_and_carries_256",
+      "exit_code": 0,
+      "duration_seconds": 0.203,
+      "log": "13.log",
+      "log_sha256": "528e8cece1b974d25c2a07b2e06f757e920ab6baa5068d71a364ddaf4f0d03f1"
+    },
+    {
+      "name": "p2p::mesh_service::tests::two_services_peer_and_deliver_over_channels",
+      "exit_code": 0,
+      "duration_seconds": 3.906,
+      "log": "14.log",
+      "log_sha256": "be2f587408a2b9551867cb4de159c856363cd07d85daa1f1306fb8b73f3aff02"
+    },
+    {
+      "name": "p2p::social_qdnf::tests::chat_and_qdnf_demux_on_the_same_tunnel",
+      "exit_code": 0,
+      "duration_seconds": 0.25,
+      "log": "15.log",
+      "log_sha256": "61754c308bf486885aa06eee60495bbf83a62ed08cd1d42e920b3459d143f5e9"
+    },
+    {
+      "name": "p2p::social_qdnf::tests::fragmented_handshake_over_wireguard_overlay",
+      "exit_code": 0,
+      "duration_seconds": 0.75,
+      "log": "16.log",
+      "log_sha256": "20c5236e90404f697598e9001c191278361f4c33a26b985f574ab3973bac784d"
+    },
+    {
+      "name": "p2p::social_qdnf::tests::two_meshes_exchange_a_qframe_over_wireguard",
+      "exit_code": 0,
+      "duration_seconds": 0.297,
+      "log": "17.log",
+      "log_sha256": "7f9a111ea29ac0559d38b0737e3c006de32c67b43ba33a334675fef2a308f496"
+    },
+    {
+      "name": "p2p::social_webnet::tests::two_meshes_exchange_an_application_datagram",
+      "exit_code": 0,
+      "duration_seconds": 0.328,
+      "log": "18.log",
+      "log_sha256": "32a447f593feaa76e9536aff6f423e44f13cc810760f9da2357fd105fcf21b91"
+    },
+    {
+      "name": "p2p::social_webnet::tests::two_meshes_peer_and_exchange_by_id",
+      "exit_code": 0,
+      "duration_seconds": 0.406,
+      "log": "19.log",
+      "log_sha256": "9639f87ee8deb4051029710b9764100191090dbf168927c6d245f723f37c2228"
+    },
+    {
+      "name": "p2p::wireguard_runtime::tests::endpoint_is_learned_from_authenticated_source",
+      "exit_code": 0,
+      "duration_seconds": 0.578,
+      "log": "20.log",
+      "log_sha256": "841570aa0730db609935d1780abdcb2a77a0e556ec6e7a070ae75dd80c0182f2"
+    },
+    {
+      "name": "p2p::wireguard_runtime::tests::two_tunnels_handshake_and_carry_data_over_udp",
+      "exit_code": 0,
+      "duration_seconds": 0.329,
+      "log": "21.log",
+      "log_sha256": "fd4862e33dd60ff90cc4553578d49fc46bf0676dc9d920b07efb43bbc479fe8e"
+    }
+  ],
+  "passed": 21,
+  "failed": 0
+}

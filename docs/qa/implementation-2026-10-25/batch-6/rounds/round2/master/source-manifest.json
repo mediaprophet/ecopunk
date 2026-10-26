@@ -1,0 +1,62 @@
+[
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/mod.rs",
+    "before": "before/m64-mod.rs",
+    "after": "sdk-staging/m64-mod.rs",
+    "before_sha256": "a61743883b310ce3814147f3218bf7aed291aea488034d9434ea5fe237113623",
+    "after_sha256": "c8ed4d49dd997a5bc6953a7ed92f77a8b2024190dbaf73a975afe14e79343e08",
+    "diff": "diffs/m64-mod.diff",
+    "diff_sha256": "41176af5ad9cf80facc3ecfa7d1ec9c455a579f7206b598935cb4a809a645fa0",
+    "lines": 29
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs",
+    "before": "before/geotiff.rs",
+    "after": "sdk-staging/geotiff.rs",
+    "before_sha256": "19a4006b3bc3bfcfea1c379fff8cb79f1a3f3fdd495b9f8f4ef1dfaa1e440bd1",
+    "after_sha256": "c21fffa0283234e42f7c8785bddda19b875c809b728d52c9da6d6912d55fad76",
+    "diff": "diffs/geotiff.diff",
+    "diff_sha256": "b41304101c2cd71b8ac4814aad197eaa6d93ec7477d6422346d6f7d35c47209f",
+    "lines": 780
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/mod.rs",
+    "before": "before/new-file-empty",
+    "after": "sdk-staging/checked_reader/mod.rs",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "after_sha256": "6e3ffe3603577c200db3c8fbd3e336b175baa5efa257374247f1535c3bde85dc",
+    "diff": "diffs/reader-mod.diff",
+    "diff_sha256": "efa08412b14a73e7eb5caab2dcf7c63fc893b15f9f12927ec2f87f07f710a9ac",
+    "lines": 139
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/intervals.rs",
+    "before": "before/new-file-empty",
+    "after": "sdk-staging/checked_reader/intervals.rs",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "after_sha256": "767876d697c7b45d3ed714cfb9421cea0af5d190bd925cd67c9aee76ef4c3dd5",
+    "diff": "diffs/reader-intervals.diff",
+    "diff_sha256": "09d4cb282e69b0a674bca392cf63492a13e59cf8840628432780ee616f2d7926",
+    "lines": 28
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/validation.rs",
+    "before": "before/new-file-empty",
+    "after": "sdk-staging/checked_reader/validation.rs",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "after_sha256": "8477d7eb60c0c3ab77189c6e245058122afdfdf72d90735838d8bed262f02cbd",
+    "diff": "diffs/reader-validation.diff",
+    "diff_sha256": "eb2ebe7cef277547c476d13bbe0d70a071ecde8d9eaab574d20f3d43763ee9a8",
+    "lines": 106
+  },
+  {
+    "target": "C:/github/qualiaDB/crates/qualia-core-db/tests/m64_container_sdk.rs",
+    "before": "before/new-file-empty",
+    "after": "sdk-staging/m64_container_sdk.rs",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "after_sha256": "1d0daa68b1502a9c74244522b4e8b46490c502befcbfb41f2be9e21174a4c707",
+    "diff": "diffs/public-tests.diff",
+    "diff_sha256": "9fb0c266c44e94d81c8ba9d0779e118898249518681e5df0d098f4cef7752628",
+    "lines": 240
+  }
+]

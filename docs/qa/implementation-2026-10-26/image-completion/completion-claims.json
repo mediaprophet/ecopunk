@@ -1,0 +1,1170 @@
+{
+  "scope": "Fifteen selected software image functionality cases; no model/package completion",
+  "profile": "Core bounded encoded RGBA8; Poet opaque square sRGB base, side8..1024, raw red/alpha HMC masks; Paint v3 new features with pinned v1/v2 compatibility",
+  "verification": "verification.json",
+  "claims": [
+    {
+      "id": "PA-03-FILTER-GAUSSIAN-BLUR",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-gaussian_blur-gpu.png",
+          "sha256": "b2c41aba038b71a45895bbdda9329f3282215d688efc274b440ef5a9fbcdf03a"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Pinned impulse/step fixture spreads as expected.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Zero radius or declared identity is byte-identical.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Transparent/partial alpha follows explicit policy without fringes.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Invalid/nonfinite parameters and oversized work refuse before mutation; bytes unchanged.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "e4d2f4d534c5101853886fb669d9251970b30bed7475ecf65b0b8fe87c98a3ac"
+    },
+    {
+      "id": "PA-03-FILTER-SHARPEN",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-sharpen-gpu.png",
+          "sha256": "f03fe54d5d13fe70c0ac4329f32d9207411886c2047ef37a0aa1d5152c92b457"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Pinned edge fixture increases local contrast per oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Zero amount is byte-identical.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Alpha follows declared preserve/transform rule.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Invalid values/dimensions refuse before mutation; bytes unchanged.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "84ac8dd2db23f4b2192d7c4e7e6402ec17bd70269470a85bbc83729410b3e245"
+    },
+    {
+      "id": "PA-03-FILTER-HUE-ROTATE",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-hue_rotate-gpu.png",
+          "sha256": "d3abaf843e566c77ecc65e9704abe5e7b14d70637fb64c80b82767556f3a61f3"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Saturated reference colors match pinned rotated oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Zero degrees returns exact original bytes.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Alpha unchanged.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Nonfinite/out-of-contract angle refuses before mutation; bytes unchanged.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "1576400ecb93b762b15335c81f5cbef9f8d7935cd02aedd2cc537fae7588832c"
+    },
+    {
+      "id": "PA-03-FILTER-EMBOSS",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+          "sha256": "d5304fe88d8404c5c6792602baac05a53028c3a8a5e16efb33bcdc7676d8d1ff"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-emboss-gpu.png",
+          "sha256": "533a674cc4c90172e6d198635b70073c704e141adadf958db9d3c0c73c512804"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Directional edge fixture matches oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Zero strength returns exact input.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Alpha follows explicit rule.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Invalid parameters/dimensions refuse before mutation; bytes unchanged.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "3143ddd2602ef03f5aba6fe788677203445d4f00d64384b22bcb33a85ba3045a"
+    },
+    {
+      "id": "PA-03-COMPOSITE-MULTIPLY",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-multiply-gpu.png",
+          "sha256": "6e6c14dfe5eb7267a892bfd06ba163f736a0408f87eb42e0154b8bffddde81ab"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Opaque color pair matches multiply oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent source and opaque identity cases match contract.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial source/destination matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely without partial output.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "88d863cfb01ba8fd4335b7e4158fe7e779e0bb6495b9ea440e55230e7c4dabb6"
+    },
+    {
+      "id": "PA-03-COMPOSITE-SCREEN",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-screen-gpu.png",
+          "sha256": "e7359ffec038442b3b55d496ff2d583d6d9f9969d889ce4da6fc8a16af10d416"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Opaque pair matches screen oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent source, black identity and white saturation cases match the explicit contract.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "e4331a77bed76ce391cb7814d4e061790ed2f8a789b85700a319805a82e45d92"
+    },
+    {
+      "id": "PA-03-COMPOSITE-OVERLAY",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-overlay-gpu.png",
+          "sha256": "191090e82f3d385ded92e8361f05bb1474150abd88a98160282244a665c252d1"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Dark/light base fixtures exercise both branches against oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent/neutral identity cases match contract.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "8f549103e56b3a0799a43965bb479eea4b31defb51f3d34cca64ff5178893fe2"
+    },
+    {
+      "id": "PA-03-COMPOSITE-SOFTLIGHT",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-soft_light-gpu.png",
+          "sha256": "b6788b596220647df76623585d1e9772ff39666dd515b32eaccdbe50c9b3633e"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Midtone fixture covers both branches against oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent/neutral identity cases match contract.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "a2c907d04aefeeada7c60135bf5b50d73b8dc44294c9bb8c26b4143c668f3420"
+    },
+    {
+      "id": "PA-03-COMPOSITE-HARDLIGHT",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-hard_light-gpu.png",
+          "sha256": "746576c7d2f9f446e3c893f272b02b0550d1944f717bcad48ceeb0b4b6856ba9"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Source-threshold and light/dark fixtures match oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent/neutral identity cases match contract.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "335741a46ea4085ccffb9f5110f5c2bdf4d2270e50717985d7264467b84ca34e"
+    },
+    {
+      "id": "PA-03-COMPOSITE-COLOR-DODGE",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-color_dodge-gpu.png",
+          "sha256": "c36c9db449570bf1cf43fd05a31dfd711f201e3fe4032e5d26884afa63d1f350"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Channel oracle covers denominator edge case.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent/black cases follow declared identities.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "9c5fc928ce0be59d13431380222d6e57f9edc53d63d4c80e0bbd489346090069"
+    },
+    {
+      "id": "PA-03-COMPOSITE-COLOR-BURN",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-color_burn-gpu.png",
+          "sha256": "9a402b4379d18e1dfc5d6f76004f694aca8821d4aaa2e882b66c19dfc3cbccee"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Channel oracle covers denominator edge case.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Transparent/white cases follow declared identities.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "a371c127945cacc41e2554fc531cf04d3f2d116d09e9a8a5a2d05e96e589860e"
+    },
+    {
+      "id": "PA-03-COMPOSITE-DIFFERENCE",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-difference-gpu.png",
+          "sha256": "14fb88e316580e58ec587d5a737b30412432dc695598bfa12241b9c452606bed"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Unequal channel pair matches difference oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Equal opaque channels yield black.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "fe1834e0be59441dc5a418b31b4ddd2d6054209eeb68f342892a05a03b16d44e"
+    },
+    {
+      "id": "PA-03-COMPOSITE-EXCLUSION",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-exclusion-gpu.png",
+          "sha256": "e4ea5cb009fcd5a52bc2ac9438eef4bb39093c46b8bf74752a5e19e9902bf981"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Nontrivial channel pair matches exclusion oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Black interaction identities match contract.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial alpha matches pinned equation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Malformed dimensions/storage refuse safely.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      },
+      "rendered_output_sha256": "82f94a9807436a56ee7d5f5fce977390436f14604a23fc0b1625d9f9667a9b0e"
+    },
+    {
+      "id": "PA-03-COMPOSITE-MASK",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-attempt-1/image-mask-red-gpu.png",
+          "sha256": "64d1a4d1836d3eab0904d44d04d2d47b1bdf51423898e5e59b593c24cd4786e8"
+        },
+        {
+          "path": "gpu-attempt-1/image-mask-alpha-gpu.png",
+          "sha256": "959d1ebd983d8ce5207bdaaed1eca53c68deb14253f053dd0e0ec8ae764d0e87"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Zero/half/full mask coverages match oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "All-255 mask is byte-identical to no mask.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Partial mask combines once with source alpha and layer opacity.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Wrong-length mask refuses safely before output mutation.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      }
+    },
+    {
+      "id": "PA-03-COMPOSITE-OFFSET",
+      "applicability": "required",
+      "status": "implemented_and_engineering_verified",
+      "result": "passed within declared native encoded-RGBA8 image profile",
+      "source": [
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+          "sha256": "fc984b4e4868e6f08ce61dc2512b95ec5cbe82d098c6e16df5ebc5caa6d4973a"
+        },
+        {
+          "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_composite.rs",
+          "sha256": "ee2170db389066b9435257a1928e28f17732a4fc2c6df26acede842a1076d5b2"
+        }
+      ],
+      "poet_callers": [
+        "native/src/graphical/surfaces/detail/render.rs",
+        "native/src/graphical/authoring/detail_controls.rs",
+        "native/src/graphical/mcp/texture_effects.rs"
+      ],
+      "source_receipt": "saved-source-integrity.json",
+      "evidence": [
+        "core-acceptance-final.log",
+        "poet-library-attempt-2.log",
+        "gpu-attempt-1.log",
+        "gpu-refusal-final.log",
+        "gpu-offset-only-final.log",
+        "gpu-attempt-1/image-child-recovered.json"
+      ],
+      "gpu_images": [
+        {
+          "path": "gpu-offset-only-final/image-offset-positive-gpu.png",
+          "sha256": "5f3427467abdf282aca2dba9e5f8acdd295dadc7924f3a3b30edad585fb662af"
+        },
+        {
+          "path": "gpu-offset-only-final/image-offset-negative-gpu.png",
+          "sha256": "6fae6c3ca09a3c26f1bcdeca14426b12038797f3e36a72b0aaa89f75492f7162"
+        },
+        {
+          "path": "gpu-offset-only-final/image-offset-original-only-gpu.png",
+          "sha256": "916da56fa41e9afa962bb12fe97e658c4f5f8b0ed326682a3558ee4e54ca8385"
+        }
+      ],
+      "native_window_human_acceptance": "UNASSESSED",
+      "acceptance_claims": {
+        "positive": {
+          "requirement": "Positive and negative one-pixel translations land at expected coordinates.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "identity": {
+          "requirement": "Zero offset is byte-identical to current same-size output.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "alpha": {
+          "requirement": "Clipping/overlap follows source-over oracle.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        },
+        "bounds": {
+          "requirement": "Extreme signed offsets and mismatched sizes clip/refuse without overflow or panic.",
+          "status": "passed",
+          "evidence": [
+            "core-acceptance-final.log",
+            "verification.json"
+          ],
+          "scope": "Fixed known-vector, identity, alpha, bounds and source review cases; not exhaustive proof for every possible input"
+        }
+      }
+    }
+  ],
+  "asset_targets": {
+    "film": "HOLD / not produced",
+    "open_world_game": "HOLD / not produced",
+    "cartoon": "HOLD / not produced"
+  },
+  "remaining_foundation_gates": [
+    "Native-window/human usability and domain acceptance",
+    "Larger and transparent/HDR production profiles beyond current admitted Paint profile",
+    "Legacy untrusted constructor/mask allocation API hardening PA-03-API-ALLOCATION-HARDENING",
+    "Peer delivery reliability observation: one earlier timeout, isolated and later full run passed; cause unconfirmed",
+    "CUDA hardware qualification unavailable; guarded optional-backend handling is not CUDA execution evidence",
+    "All other original IP-03 C1-C8 and model-dossier obligations remain governed by the consolidated plan"
+  ]
+}

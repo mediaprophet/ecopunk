@@ -1,0 +1,74 @@
+     Locking 8 packages to latest compatible versions
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\incremental\vibe-07himappbpetp\s-hnib74vmg9-01ufp4p-working`
+
+warning: `vibe` (lib) generated 1 warning
+   Compiling ecopunk-actual-vibe-session-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\actual-harness)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 14s
+     Running unittests lib.rs (docs/qa/implementation-2026-10-24/poet-repl/harness/target\debug\deps\ecopunk_actual_vibe_session_check-ca4e588cda45b7ea.exe)
+
+running 45 tests
+test repl::tests::authorized_effectful_program_is_not_checked_as_a_pure_cell ... ok
+test repl::tests::explicit_cell_does_not_fall_back_to_program ... ok
+test repl::tests::failed_program_keeps_effects_without_replaying_them ... ok
+test poet_adapter::cli_grants_are_explicit_repeatable_and_never_inferred ... ok
+test poet_adapter::native_poet_entry_retains_mutable_and_function_context ... ok
+test repl::tests::program_check_failure_does_not_dispatch ... ok
+test repl::tests::bare_condition_preserves_vibe_0_1_truthiness ... ok
+test poet_adapter::native_poet_entry_cannot_self_grant_or_replace_immutable_value ... ok
+test repl::tests::repl_eval_simple_math ... ok
+test repl::tests::failing_host_call_runs_once_in_each_mode ... ok
+test repl::tests::repl_maintains_env_bindings ... ok
+test repl::tests::declarations_survive_later_submissions ... ok
+test tests::canonical_session_preserves_complete_host_error_without_retry_or_rollback_claim ... ok
+test repl::tests::malformed_program_does_not_execute_a_valid_prefix ... ok
+test tests::denied_native_cue_has_no_host_dispatch_and_explicit_grant_allows_one ... ok
+test tests::checked_candidates_are_bound_to_session_and_revision ... ok
+test tests::copied_alias_keeps_original_external_lambda_effect ... ok
+test tests::explicit_type_is_not_discarded_for_bounded_lists ... ok
+test tests::admitted_external_callback_on_named_collection_runs_once ... ok
+test tests::functions_imports_and_effect_context_survive_without_replay ... ok
+test tests::direct_chain_forward_and_recursive_external_calls_are_rejected ... ok
+test tests::immutable_values_cannot_be_redeclared_via_patterns_blocks_or_bind ... ok
+test tests::imported_alias_and_pipeline_do_not_hide_effects ... ok
+test tests::functions_keep_non_capturing_0_1_semantics ... ok
+test tests::material_transaction_and_clock_cannot_gain_ambient_session_authority ... ok
+test tests::mutable_typed_binding_survives_and_immutable_assignment_is_denied ... ok
+test tests::early_return_cannot_promote_unexecuted_pure_callback_metadata ... ok
+test tests::inferred_recursive_cycle_effect_reaches_pure_caller ... ok
+test tests::pure_named_forward_calls_recursion_and_lambda_are_allowed ... ok
+test tests::invalidated_unknown_alias_does_not_follow_later_reassignment ... ok
+test tests::effectful_native_host_seams_require_actual_grants ... ok
+test tests::pure_runtime_failure_does_not_install_function_or_mutated_values ... ok
+test tests::pure_builtin_dispatch_precedes_same_named_user_function ... ok
+test tests::runtime_failure_keeps_external_outcome_and_last_accepted_local_state ... ok
+test tests::session_function_recursion_has_a_qualified_stack_bound ... ok
+test tests::source_session_guards_actual_parser_ingress_before_execution ... ok
+test tests::session_limits_fail_without_dispatch ... ok
+test tests::namespace_shadowing_does_not_hide_collection_callback_effects ... ok
+test tests::recursive_and_failed_budget_diagnostics_are_bounded_and_preserved ... ok
+test tests::source_mode_detection_handles_leading_bom_and_retains_original_bytes ... ok
+test tests::unknown_dynamic_targets_are_not_pure ... ok
+test tests::higher_order_indirect_callbacks_fail_closed ... ok
+test tests::unknown_namespaced_bindings_and_effectful_budget_are_rejected ... ok
+test tests::requests_do_not_grant_authority_and_failed_candidates_do_not_promote ... ok
+test tests::control_flow_and_bind_cannot_leave_stale_pure_callbacks ... ok
+
+test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.93s
+
+     Running ..\harness\boundary_tests.rs (docs/qa/implementation-2026-10-24/poet-repl/harness/target\debug\deps\actual_boundary-9451863094df6f3d.exe)
+
+running 5 tests
+test boundary_combined_calls_and_expression_path ... ignored, run alone in isolated process with default stack
+test boundary_combined_qualified_success ... ignored, run alone in isolated process with default stack
+test boundary_groups_16 ... ignored, run alone in isolated process with default stack
+test boundary_postfix_64_path_units ... ignored, run alone in isolated process with default stack
+test boundary_unary_64_path_units ... ignored, run alone in isolated process with default stack
+
+test result: ok. 0 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests ecopunk_actual_vibe_session_check
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

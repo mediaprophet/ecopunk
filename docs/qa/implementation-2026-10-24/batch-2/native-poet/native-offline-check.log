@@ -1,0 +1,15 @@
+error: failed to select a version for `icu_segmenter`.
+    ... required by package `stylo v0.22.0`
+    ... which satisfies dependency `style = "^0.22.0"` of package `blitz-dom v0.3.0-beta.4`
+    ... which satisfies dependency `blitz-dom = "=0.3.0-beta.4"` of package `dioxus-native v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native)`
+    ... which satisfies path dependency `dioxus-native` of package `poet-aether-native-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-poet\harness)`
+versions that meet the requirements `>=1.5, <=2` are: 2.1.2
+
+all possible versions conflict with previously selected packages
+
+  previously selected package `icu_segmenter v2.3.0`
+    ... which satisfies dependency `icu_segmenter = "^2.3"` of package `blitz-dom v0.3.0-beta.4`
+    ... which satisfies dependency `blitz-dom = "=0.3.0-beta.4"` of package `dioxus-native v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native)`
+    ... which satisfies path dependency `dioxus-native` of package `poet-aether-native-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-poet\harness)`
+
+failed to select a version for `icu_segmenter` which could resolve this conflict

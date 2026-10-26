@@ -1,0 +1,37 @@
+diff --git a/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/original/aether/packages/native-dom/src/mutation_writer.rs b/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/candidate/aether/packages/native-dom/src/mutation_writer.rs
+index 6a25507..6bedea5 100644
+--- a/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/original/aether/packages/native-dom/src/mutation_writer.rs
++++ b/docs/qa/implementation-2026-10-24/batch-2/native-poet/ui5-followup/candidate/aether/packages/native-dom/src/mutation_writer.rs
+@@ -7,6 +7,9 @@ use blitz_traits::events::DomEventKind;
+ use dioxus_core::{BorrowedAttributeValue, ElementId, WriteMutations};
+ use std::str::FromStr as _;
+ 
++#[path = "textarea_value.rs"]
++mod textarea_value;
++
+ pub(crate) trait RealDom {
+     type NodeId: Copy;
+ 
+@@ -320,7 +323,9 @@ impl RealDom for BlitzBackend<'_> {
+ 
+     fn deep_clone(&mut self, node: NodeId) -> NodeId {
+         trace!("clone node:{node}");
+-        self.docm.deep_clone_node(node)
++        let cloned = self.docm.deep_clone_node(node);
++        textarea_value::rehydrate_clone(self.docm.doc, cloned);
++        cloned
+     }
+ 
+     fn nth_child(&mut self, parent: NodeId, index: usize) -> NodeId {
+@@ -515,6 +520,11 @@ fn set_attribute_inner(
+             } else if local_name == "dangerous_inner_html" {
+                 docm.set_inner_html(node_id, value);
+             } else {
++                if local_name == "value" {
++                    if let Some(node) = docm.doc.get_node_mut(node_id) {
++                        textarea_value::seed_editor(node, value, false);
++                    }
++                }
+                 docm.set_attribute(node_id, name, value);
+             }
+         }

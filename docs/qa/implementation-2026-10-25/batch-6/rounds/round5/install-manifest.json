@@ -1,0 +1,261 @@
+[
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\assembly_source.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\assembly_source.rs",
+    "before_sha256": null,
+    "after_sha256": "6377a5178e649abcd0e7ee45f2342cc56c32eee2545ffdb4c7b42d8d0b978896"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\controls.rs",
+    "before_sha256": "25256d4fe0a9177ca516b46a9006cebf555235bc6701ff011711a39db293c980",
+    "after_sha256": "ad48525931e39b65f423cb2ba956c6b402e323da0dc519b795121b6f1add9a7e"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\geometry_source.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\geometry_source.rs",
+    "before_sha256": null,
+    "after_sha256": "430f6090f6758d5a1b1ce61be7cd723eed3f07e9513fdf0e64eebdf5aa8d8e58"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\mod.rs",
+    "before_sha256": "1ece08ff3277ebd31db5174f98eda1ce2ba45d29044353655857f0323bd810ff",
+    "after_sha256": "46eb9548447b9164474615a3f09588ff357ee8b109be101309d8107acb840df5"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\source.rs",
+    "before_sha256": "005919ff32f433c995988d74e39be50a3d34540084da1e0fb7a13a8ec933ac72",
+    "after_sha256": "c9cc4669df00e061b2ffab71cde93ade4de0a94fd74be53744dc13f1927cf0a2"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\structure_controls.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\structure_controls.rs",
+    "before_sha256": null,
+    "after_sha256": "777e459348ab0909e65589b3ebd851d620ad12000c4f9b0d997c1f5f6df0ea36"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\structure_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\structure_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "afb7e9130d81fc37b9817bace555a454f6279cc835223d41d7641a3a76cbf158"
+  },
+  {
+    "job": "authoring",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring\\after\\native\\src\\graphical\\authoring\\tests.rs",
+    "before_sha256": "1ff221a90e712767e8839d3950e23d590779b5b9db23002691fc6f96348a43da",
+    "after_sha256": "89697f5331daecf87975c17855ed994fa598b2e560fd12093cdf33a5575dc25c"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\field_section.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\core\\container_10d\\field_section.rs",
+    "before_sha256": "a3c5f19c8b0a23d8cd5d88e8ed379028ce6ef5c8ba213fff8450f7a447642426",
+    "after_sha256": "a3a71e2e4e0ee383823c0773fb082cf75761216c61f79ecae72f1e30c695c9d3"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\field_section\\checked.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\core\\container_10d\\field_section\\checked.rs",
+    "before_sha256": null,
+    "after_sha256": "bc01c79cd60410b3955aaaa2ae31ae4c92cbcdac0c5b0f10add7b0a66fa75690"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\field_section\\checked\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\core\\container_10d\\field_section\\checked\\tests.rs",
+    "before_sha256": null,
+    "after_sha256": "f14ae4aac9a94429474a8cbcc4b8beec598238bd7868f63b808c37245d1ad71a"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\mod.rs",
+    "before_sha256": null,
+    "after_sha256": "2094af3031f76e0c34e9fe1f3f555c47b3465bef0cfd19804f387716bd0234d7"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\payload.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\payload.rs",
+    "before_sha256": null,
+    "after_sha256": "4cfc3042b433444b888594ea04d8533a140bce626e0f5d30ba8fc70e1669ebe7"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\service.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\service.rs",
+    "before_sha256": null,
+    "after_sha256": "3335d736b670497133399359f14196610aeea857b812a0d9f910433ff9320b6d"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\tests.rs",
+    "before_sha256": null,
+    "after_sha256": "32cdc3d68ab7168c51aabbc25d8ebed3a1de1f5a3c3be708a6b4ae102a82840f"
+  },
+  {
+    "job": "typed",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\tests\\admission.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed\\after\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\tests\\admission.rs",
+    "before_sha256": null,
+    "after_sha256": "390d1ddc556abe3b0b287e696b9b2e0f1a853206e0b20f32b52c80d3c385f92b"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\editor_contract.rs",
+    "before_sha256": "de0942314a178f1ef2d642e0e6ae32cc62a7cb8f5652021132a36216163e305b",
+    "after_sha256": "19ce98b89e23735d35140ead782af522dd89808cb106b507a0704e13179229c9"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\checkpoints\\editor.rs",
+    "before_sha256": "cab14d471224d8ac74cbdb813a0a9fe40611e46fbb9a2046b289f960a120db79",
+    "after_sha256": "9b3c1b66c2ae078d61d7fe526dc8ef76a9d92a0508825a9f8e1002e50e6d84fa"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\cooperation\\editor.rs",
+    "before_sha256": "296ceed97dce6a6090ee8a26aacaa24ed0733b114bd2ab164b056f2297a741f8",
+    "after_sha256": "d0bf74cc7b78c184e45d092594dcbc13199f02d70db3a6f434eccf7df28ebd24"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\package\\mod.rs",
+    "before_sha256": "70faaf99d10003d7e02c0c1c49ad01464f943779155c8b10ff964b47c2201322",
+    "after_sha256": "76d1c318c76b8216b4d1fd6c96854b467c9a73bd7c10d4a108be146ae2b7d626"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\shared_host.rs",
+    "before_sha256": "be3759c744f592e3a4014f2b7e85f3d37d48555f191aeb5509d12a9a9704f131",
+    "after_sha256": "fdd72ac96154883e61f9f883794fc7593efb9b9a50a51ce1c226cf77b4950790"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\session_host.rs",
+    "before_sha256": "a4061198bc473be18ceb8f6fcac783df18d57842511391990fb2fda7a0805181",
+    "after_sha256": "0f56636c47ce5c40efc6cf21d3c1d9884d2e5ab5a440181e58ea1feaeff36a39"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\checkpoints\\mod.rs",
+    "before_sha256": "a73a307174cc10dfe8428733ab2831f5851e1914add545a71bd112885b81a2ed",
+    "after_sha256": "14a105ad555c39ce4638e4963d91368fc3a1b7f20fa461b91bd483a55fce66ff"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\jobs.rs",
+    "before_sha256": "2d9cd6dc2d39976d8cb2b8067bdbe0ef9db57e80f88cdb4efceb552528eac1e5",
+    "after_sha256": "911fb274aa7a41ef0a1e5690b16d914377f69db6e927d2b02d3a3a9e5b8c589d"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\job_actions.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\job_actions.rs",
+    "before_sha256": "c85d503c8a5f492728067fcb958b18cbf698b0cbce72153ac84ed1ab7ddba294",
+    "after_sha256": "a978cc2f48c03a9cd3574621f1aeb141f4fe6cbaaaed0d0b9362b63f9e6d1747"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\jobs_tests.rs",
+    "before_sha256": "121ede13fea55d21f732de071132586b89017d59da8728ce07d9158c91f3cb0f",
+    "after_sha256": "7dbd6343e19c1f4e451238eaf146c66a5a805ca3eda5f6147b70375648d3c83c"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\native_dispatch.rs",
+    "before_sha256": "0bcd59f760826eaa71b11f6b962e8ef7daaf4f57366e3b488d844aefb52adcff",
+    "after_sha256": "97e8ba9eb1a53dfdcbfd9c8bf3a9ff9cc0b36eda0b704de370a2ff287a900964"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+    "before_sha256": null,
+    "after_sha256": "89833149003a65b3ce3760acf7cdad79219f86963aff236bf8281608a0147fea"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\intents.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\poet_workspace\\intents.rs",
+    "before_sha256": "5ec60f67ead32e47ef9252fe9b45dc7155c5b5b2bd69d22e7e76af498ce6a5cd",
+    "after_sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\package_controls.rs",
+    "before_sha256": "0f88b62d2c7c0b17934ac56f1a2217b83ef511b6b3941eac737ae13f052f99e6",
+    "after_sha256": "fc1c30c0d9883742378bc0e719a09a420813708515916c5158d4d00ec46c8340"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_typed_10d_view.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\package_typed_10d_view.rs",
+    "before_sha256": null,
+    "after_sha256": "a3cc96e1e0e3911f41d283d289debfc49fe5dd1b275b6f1bd70b19216c110e95"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_spatial_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\native_project_spatial_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "1e4ef573b7542555867378a25c8633e86ef0e735a4697e3ddc09f8ac0e2c9c31"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\native_project_tests.rs",
+    "before_sha256": "8dcaec0cbfb7c574b65fde33e36f39a177695c1dd4d448dcfc7767e5b7c15b6a",
+    "after_sha256": "a364db08d5e1a5c8b426bef858dadd6948cf4e20a208a34845650c592f22effd"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\Cargo.toml",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\Cargo.toml",
+    "before_sha256": "cd5d1125344f2289f9bb7181310203123fe600db3fe7da634dabfd615a06a4f9",
+    "after_sha256": "854b54739e0edb72197da58a86bb3ec1fd49d69b4038c4b9af0ec75bd217ad9f"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\tests\\foundation_fiel.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\tests\\foundation_fiel.rs",
+    "before_sha256": null,
+    "after_sha256": "fadafc5bff9bc257458a6eac2f25e00a186a375dbf0627783e5140690ff1d59c"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controller.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\authoring\\controller.rs",
+    "before_sha256": "0125f13a06583edee7d4e2cb97848503a9741368e1e7a6c726cb422ea70af708",
+    "after_sha256": "00ca57a90e260a64059ec8827ce7f9b49f240778a81cd91f3800bbe3e97e5cd9"
+  },
+  {
+    "job": "integration",
+    "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\package.rs",
+    "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\integration\\after\\native\\src\\graphical\\authoring\\package.rs",
+    "before_sha256": "f4bb173e141f6237d142ef0285b831d48a75664a51015df56ff6c39e28e716e9",
+    "after_sha256": "e3bd3058ee1513a950737eea2ac766403e01baf4d8f011d332ea4193c8f0f659"
+  }
+]

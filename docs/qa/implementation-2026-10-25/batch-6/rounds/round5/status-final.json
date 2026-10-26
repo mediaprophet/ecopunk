@@ -1,0 +1,191 @@
+{
+  "schema": "ecopunk.round5.status.v1",
+  "status": "complete_scoped",
+  "target_count": 37,
+  "latest_target_hashes": "verified matching",
+  "source_pin_files": 3036,
+  "source_pins_match": true,
+  "verification_record": {
+    "path": "saved-evidence-verification.json",
+    "sha256": "091EF2D861D3CF6C410BA4D4AF3BD7C7F348008D6C904D794E779257785468B8",
+    "status": "passed",
+    "read_only_reconciliation": true
+  },
+  "checks": [
+    {
+      "name": "check",
+      "receipt": "check-result.json",
+      "receipt_sha256": "06CAD54D3C3C28788C1A7DB7B2564A15466B03118464F15EDC56E688B376A927",
+      "exit_code": 0,
+      "elapsed_seconds": 214.875,
+      "test_results": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "authoring",
+      "receipt": "authoring-result.json",
+      "receipt_sha256": "712562F4BB2B7798CC51BF0E767490F6262A4A76C381015484672A8A28D837A8",
+      "exit_code": 0,
+      "elapsed_seconds": 50.469,
+      "test_results": [
+        [
+          14,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "typed",
+      "receipt": "typed-result.json",
+      "receipt_sha256": "0852B16B126A00DBC20918113B18BD6B3EBAE07F4437CC564590193DB5C95C33",
+      "exit_code": 0,
+      "elapsed_seconds": 15.156,
+      "test_results": [
+        [
+          8,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "fiel",
+      "receipt": "fiel-result.json",
+      "receipt_sha256": "8D6CB08F004C82309C9B8AC28D7876F4C4B5DE6828EB1C322A9A832271FF978F",
+      "exit_code": 0,
+      "elapsed_seconds": 59.141,
+      "test_results": [
+        [
+          3,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "workflow",
+      "receipt": "workflow-result.json",
+      "receipt_sha256": "29C3C90B1106F4E6553B07EB096F35A98C593CD9646BBCE9E5B7686AB3A95E89",
+      "exit_code": 0,
+      "elapsed_seconds": 49.579,
+      "test_results": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "intents",
+      "receipt": "intents-result.json",
+      "receipt_sha256": "74B75F294159B7D31EB7A82192200E402D9850A3C35D8F10C369D1F3A1805452",
+      "exit_code": 0,
+      "elapsed_seconds": 16.015,
+      "test_results": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "jobs",
+      "receipt": "jobs-result.json",
+      "receipt_sha256": "F27D7753B34A273AFE22D46C71D39F97656CDDCC528AEEFF3998295EB65C9E98",
+      "exit_code": 0,
+      "elapsed_seconds": 12.157,
+      "test_results": [
+        [
+          13,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "inspection",
+      "receipt": "inspection-result.json",
+      "receipt_sha256": "D0B99D03051883AAB462AE1E88DEA6F63675A852A9677C4F4AA98CBF6DA990FB",
+      "exit_code": 0,
+      "elapsed_seconds": 16.281,
+      "test_results": [
+        [
+          6,
+          0,
+          0
+        ]
+      ],
+      "source_unchanged": true
+    },
+    {
+      "name": "build",
+      "receipt": "build-result.json",
+      "receipt_sha256": "6C4BC633CEA07CB87835F6FA5237701BF85FA0D91E78B2EB5206B8ABBA260298",
+      "exit_code": 0,
+      "elapsed_seconds": 51.39,
+      "test_results": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "wasm",
+      "receipt": "wasm-result.json",
+      "receipt_sha256": "8AF89F86CE4A3D2F35655EE085A8A107B45CAC652597EB0613FAD936752213C6",
+      "exit_code": 0,
+      "elapsed_seconds": 148.187,
+      "test_results": [],
+      "source_unchanged": true
+    }
+  ],
+  "selected_native": {
+    "test_executions": 50,
+    "unique_cases": 49,
+    "overlap": 1,
+    "case_results": "authoring 14/0/0, typed 8/0/0, canonical public FIEL 3/0/0, workflow 1/0/0, intents 5/0/0, jobs 13/0/0, inspection 6/0/0",
+    "all_unique_selected_cases_passed": true
+  },
+  "initial_failures_preserved": [
+    {
+      "receipt": "authoring-before-runtime-repair-result.json",
+      "receipt_sha256": "D43F52CE2B09E9857E38A09D38BE2589ED539973FF36FFC2743FC24A6473BC7D",
+      "exit_code": 101,
+      "elapsed_seconds": 379.391,
+      "test_results": [],
+      "log": "authoring-before-runtime-repair.log",
+      "log_sha256": "95787a2bbaf55b9a66198e6ee4f548a901f39951fbedfad29525799213e683c8",
+      "retained": true
+    },
+    {
+      "receipt": "workflow-before-selection-repair-result.json",
+      "receipt_sha256": "C9DB1A98186657F3A5FB177A224213991F573A4D0F364EC3B43399B22E6BBE37",
+      "exit_code": 101,
+      "elapsed_seconds": 12.687,
+      "test_results": [],
+      "log": "workflow-before-selection-repair.log",
+      "log_sha256": "945f5fc5d4ff6b6454e10a7ce72e26fbfe3b07ea81d927e66a20849f2f714b03",
+      "retained": true
+    }
+  ],
+  "repair_receipts": [
+    "repairs/authoring-runtime/applied-source.json",
+    "repairs/workflow-selection/applied-source.json"
+  ],
+  "native_build_exit": 0,
+  "actual_Core_geospatial_Portal_WASM_compile_exit": 0,
+  "WASM_runtime_interoperability": "not run",
+  "FND_01_to_06": "open",
+  "IP_03_C1_to_C8": "open",
+  "assets": "HOLD",
+  "reference_master_unchanged": true,
+  "GUI_verification": "not run",
+  "human_acceptance": "none claimed",
+  "model_completion": "not assessed; model target packages incomplete"
+}

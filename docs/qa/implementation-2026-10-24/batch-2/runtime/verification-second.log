@@ -1,0 +1,75 @@
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 14s
+     Running tests\run05_sessions.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_sessions-36a441478bf965a5.exe)
+
+running 24 tests
+test copied_alias_keeps_original_external_lambda_effect ... ok
+test functions_imports_and_effect_context_survive_without_replay ... FAILED
+test functions_keep_non_capturing_0_1_semantics ... ok
+test admitted_external_callback_on_named_collection_runs_once ... FAILED
+test direct_chain_forward_and_recursive_external_calls_are_rejected ... FAILED
+test checked_candidates_are_bound_to_session_and_revision ... ok
+test explicit_type_is_not_discarded_for_bounded_lists ... ok
+test imported_alias_and_pipeline_do_not_hide_effects ... FAILED
+test inferred_recursive_cycle_effect_reaches_pure_caller ... FAILED
+test control_flow_and_bind_cannot_leave_stale_pure_callbacks ... ok
+test immutable_values_cannot_be_redeclared_via_patterns_blocks_or_bind ... ok
+test material_transaction_and_clock_cannot_gain_ambient_session_authority ... ok
+test mutable_typed_binding_survives_and_immutable_assignment_is_denied ... ok
+test pure_builtin_dispatch_precedes_same_named_user_function ... FAILED
+test invalidated_unknown_alias_does_not_follow_later_reassignment ... ok
+test session_limits_fail_without_dispatch ... ok
+test pure_runtime_failure_does_not_install_function_or_mutated_values ... ok
+test namespace_shadowing_does_not_hide_collection_callback_effects ... ok
+test runtime_failure_keeps_external_outcome_and_last_accepted_local_state ... ok
+test requests_do_not_grant_authority_and_failed_candidates_do_not_promote ... ok
+test unknown_dynamic_targets_are_not_pure ... ok
+test pure_named_forward_calls_recursion_and_lambda_are_allowed ... ok
+test unknown_namespaced_bindings_and_effectful_budget_are_rejected ... ok
+test higher_order_indirect_callbacks_fail_closed ... ok
+
+failures:
+
+---- functions_imports_and_effect_context_survive_without_replay stdout ----
+
+thread 'functions_imports_and_effect_context_survive_without_replay' (7816) panicked at tests\run05_sessions.rs:14:10:
+import "math" as m; requires [ capability("pulse.publish") ]; pure fn double(x: i64) { return x * 2; } external fn send() { return pulse.publish("later", 1); } pulse.publish("once", 1);: SubmissionError { diagnostic: Diagnostic { code: E001, span: Span { start: 2, end: 8 }, message: "expected expression", suggested_fix: None, evidential: None }, execution_attempted: false, host_reconciliation_required: false, active_revision: 0 }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- admitted_external_callback_on_named_collection_runs_once stdout ----
+
+thread 'admitted_external_callback_on_named_collection_runs_once' (11448) panicked at tests\run05_sessions.rs:14:10:
+requires [ capability("pulse.publish") ]; let xs = [1]; let f = |x| pulse.publish("ok", x); xs.map(f);: SubmissionError { diagnostic: Diagnostic { code: E100, span: Span { start: 64, end: 90 }, message: "lambda captures `pulse`; vibe-0.1 lambdas are non-capturing", suggested_fix: None, evidential: None }, execution_attempted: true, host_reconciliation_required: true, active_revision: 0 }
+
+---- direct_chain_forward_and_recursive_external_calls_are_rejected stdout ----
+
+thread 'direct_chain_forward_and_recursive_external_calls_are_rejected' (27168) panicked at tests\run05_sessions.rs:8:54:
+valid source fixture: Diagnostic { code: E001, span: Span { start: 84, end: 86 }, message: "expected ';' after expression", suggested_fix: None, evidential: None }
+
+---- imported_alias_and_pipeline_do_not_hide_effects stdout ----
+
+thread 'imported_alias_and_pipeline_do_not_hide_effects' (8448) panicked at tests\run05_sessions.rs:8:54:
+valid source fixture: Diagnostic { code: E001, span: Span { start: 51, end: 53 }, message: "expected ';' after expression", suggested_fix: None, evidential: None }
+
+---- inferred_recursive_cycle_effect_reaches_pure_caller stdout ----
+
+thread 'inferred_recursive_cycle_effect_reaches_pure_caller' (29684) panicked at tests\run05_sessions.rs:8:54:
+valid source fixture: Diagnostic { code: E001, span: Span { start: 81, end: 83 }, message: "expected ';' after expression", suggested_fix: None, evidential: None }
+
+---- pure_builtin_dispatch_precedes_same_named_user_function stdout ----
+
+thread 'pure_builtin_dispatch_precedes_same_named_user_function' (21712) panicked at tests\run05_sessions.rs:5:42:
+valid source fixture: Diagnostic { code: E001, span: Span { start: 9, end: 11 }, message: "expected ';' after expression", suggested_fix: None, evidential: None }
+
+
+failures:
+    admitted_external_callback_on_named_collection_runs_once
+    direct_chain_forward_and_recursive_external_calls_are_rejected
+    functions_imports_and_effect_context_survive_without_replay
+    imported_alias_and_pipeline_do_not_hide_effects
+    inferred_recursive_cycle_effect_reaches_pure_caller
+    pure_builtin_dispatch_precedes_same_named_user_function
+
+test result: FAILED. 18 passed; 6 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.92s
+
+error: test failed, to rerun pass `--test run05_sessions`

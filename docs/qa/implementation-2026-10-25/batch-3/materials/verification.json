@@ -1,0 +1,72 @@
+{
+  "scope": "Focused staged materials proof against actual cached engine rlibs; not coherent native product acceptance",
+  "applied": false,
+  "focused_material_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "original_gpu_test": {
+    "emissive": "not reached",
+    "roughness_changed_pixels": 211,
+    "passed": 0,
+    "failed": 1,
+    "metallic_changed_pixels": 0,
+    "base_color_changed_pixels": 295
+  },
+  "renderer_correction": "staged, unqualified until parent rebuild",
+  "native_controls_compile": "unrun; parent coherent native source build required",
+  "computer_use": false,
+  "whole_phase_ready": false,
+  "evidence_pins": [
+    {
+      "path": "harness/tests.rs",
+      "sha256": "1BAF40C2D95833748BAED89D62C4287C39024454880CD157B7803509284AA399"
+    },
+    {
+      "path": "harness/material-tests.exe",
+      "sha256": "1AC9A785BF95D92B49F5B153BED7927CDEEC95D24B81B79B0747F29CC4FE5B3C"
+    },
+    {
+      "path": "harness/tests.log",
+      "sha256": "7A94CB26813CFF333BEE6B5D6462CEEFDC418E875CF14222FB13640AA331A801"
+    },
+    {
+      "path": "harness/renderer-original-failed-pixels.log",
+      "sha256": "3C8ECA0E6E3BC2F61F67A741C564FFC0544E9A761FD5E4221093BB5038275544"
+    },
+    {
+      "path": "candidate/graphical/materials.rs",
+      "sha256": "6CC0D0C31781AD0E57260945D2A80400034A0370662B39D8DC349D3101736A71"
+    },
+    {
+      "path": "candidate/graphical/materials_tests.rs",
+      "sha256": "50B1C2D8ED391E3F1425034B1C2E95D2E1DE59B421A84536CF834D2BC963D424"
+    },
+    {
+      "path": "candidate/graphical/material_pixels.rs",
+      "sha256": "CB33759E756DE382D0723F67026DA7AB95372B403FA26AF7FAC735D69FD6A712"
+    }
+  ],
+  "dependency_pins": [
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libvibe-2937e95bb154f7f6.rlib",
+      "sha256": "A380D7ECA4976BF43B90619312C81AA0CE96F4730E0EBC63DF60F320210C7EA8"
+    },
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib",
+      "sha256": "5D72CF9F5EF649A2D2F59BB71642EF71833D782E9365B7E0A3810B685C84CD0D"
+    },
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libwebizen_render-3a3c5aa8a032b8b0.rlib",
+      "sha256": "FADE063D371C736F6C10D3E9856CB64AEB8A38A274B890C22DD46F02B30054DD"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/controller.rs",
+      "sha256": "D89B8B0DDAEC83B9D55ABF69F991C42D63EF3A0D12C9ED5E4AAF6EAD095A38BE"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/geometry_host.rs",
+      "sha256": "752F1DF74E7538A40EB6859A713932B5AD00706B8BFFB02A1E87AA746E7535A2"
+    }
+  ]
+}

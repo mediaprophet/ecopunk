@@ -1,0 +1,22 @@
+
+running 17 tests
+test completed_composition::alpha_interpolation_and_transparent_backdrop ... ok
+test completed_composition::dodge_burn_endpoint_rules ... ok
+test completed_composition::every_blend_mode_has_independent_partial_alpha_and_transparent_backdrop_vectors ... ok
+test completed_composition::malformed_hidden_layers_and_all_budget_failures_leave_output_intact ... ok
+test completed_composition::mask_coverage_and_opacity_are_applied_once ... ok
+test completed_composition::opaque_known_color_vectors_for_each_non_normal_mode ... ok
+test completed_composition::output_size_refusal_and_legacy_normal_rounding ... ok
+test completed_composition::signed_offsets_clip_in_layer_coordinates ... ok
+test completed_filters::emboss_uses_signed_central_gradient_and_clamped_edges ... ok
+test completed_filters::gaussian_and_sharpen_tiny_images_and_exact_identities ... ok
+test completed_filters::gaussian_impulse_is_symmetric_conservative_and_alpha_aware ... ok
+test completed_filters::hue_and_emboss_order_is_observably_noncommuting ... ok
+test completed_filters::hue_uses_svg_matrix_and_preserves_achromatics_alpha_and_turn_identity ... ok
+test completed_filters::preflight_refuses_invalid_inputs_without_changing_output ... ok
+test completed_filters::sharpen_preserves_alpha_and_increases_opaque_impulse_contrast ... ok
+test image_completed_kernels_use_no_heap_with_caller_buffers ... ok
+test image_completed_legacy_entry_points_produce_real_outputs ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

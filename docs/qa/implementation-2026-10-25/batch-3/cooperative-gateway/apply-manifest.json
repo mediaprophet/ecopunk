@@ -1,0 +1,18 @@
+{
+  "scope": "Native trusted-owner UI/MCP authorization wrapper; constructor injection only; parent routing/dependencies required",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation/mod.rs",
+      "candidate": "candidate/graphical/cooperation/mod.rs",
+      "original_sha256": null,
+      "candidate_sha256": "3AA295D488B4E5AE608C4FE108A1BE5BC6A3664B1253AF02608F7CFCE6E728EC"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation/tests.rs",
+      "candidate": "candidate/graphical/cooperation/tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "8B04F9D70541FAE6BBB2E0C23236ACFD03A33C82F8A0339B6FE67894AA36588D"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "status": "passed",
+  "kind": "read_only_final_reconciliation",
+  "distinct_installed_targets": 70,
+  "all_latest_installed_hashes_match": true,
+  "recorded_overrides": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+      "receipt": "repairs/ui-keys/applied-source.json",
+      "before": "70e9bf07baec778fcb12a1d6e8c2732e815785047b5ef5a45a900d130e774d17",
+      "after": "c5dc2e4804dcfd29ac3a85ab4e736fe423bf3283393f0d2b07fbac6d352cb1da"
+    },
+    {
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\tests\\native_package_review\\history.rs",
+      "receipt": "repairs/history-fixture/applied-source.json",
+      "before": "e68e6d456d61b4b9160968927e9050b210f16b6df42e8f15e651b6e670f42f34",
+      "after": "873eb220a2ad0915b363aeaefe2f3f349da371bf001d9aff6de7616203e73ee8"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+      "receipt": "repairs/ui-text/applied-source.json",
+      "before": "c5dc2e4804dcfd29ac3a85ab4e736fe423bf3283393f0d2b07fbac6d352cb1da",
+      "after": "0f88b62d2c7c0b17934ac56f1a2217b83ef511b6b3941eac737ae13f052f99e6"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_review_controls.rs",
+      "receipt": "repairs/ui-text/applied-source.json",
+      "before": "542644152e6c16139cc611c0650c738f8ef2b3a03da7764e4be65d124a13d858",
+      "after": "2415a4c017d6326b0de195f1ceed7e01673a7032fec56da0cb95a35fea1e4d11"
+    }
+  ],
+  "commands": {
+    "check": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\check-result.json",
+      "receipt_sha256": "fae5ff1a23727a04b1b422810fcba60b41be09824934dc8be702b8bff0e8d873",
+      "tests": 0,
+      "exit_code": 0
+    },
+    "public": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\public-result.json",
+      "receipt_sha256": "f7141c17db4cc3ad4412571241c6fc66247e9f44b0406a25b37a87f82560b0e6",
+      "tests": 19,
+      "exit_code": 0
+    },
+    "producer": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer-result.json",
+      "receipt_sha256": "6eebfb996cfc970fdb0db140a4b13bd28b58f282b48128dbc87e121eef76bb5a",
+      "tests": 9,
+      "exit_code": 0
+    },
+    "workflow": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\workflow-result.json",
+      "receipt_sha256": "0c685240d7d8dfa1cca42256045f0745d74c393360e0ea3ed7b37a95119c2cd2",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "source-regression": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\source-regression-result.json",
+      "receipt_sha256": "f8304547c32af400621a4681ee9c57a1c08d401734936a8f7da09f66bd2c10ce",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "inspect-regression": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\inspect-regression-result.json",
+      "receipt_sha256": "641771fc7acecb8baa689d4e4c63d1457e3ec7ce406f9a3f0c56ef67e4ee5e4a",
+      "tests": 6,
+      "exit_code": 0
+    },
+    "build": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\build-result.json",
+      "receipt_sha256": "70304ddeebc6475cf2dfd92ed86ccd8414d2aff48408c80c3f1c6e72ac9abd96",
+      "tests": 0,
+      "exit_code": 0
+    },
+    "wasm": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\wasm-result.json",
+      "receipt_sha256": "2c4b61d683bc1b2e9b73ebcb43dbc5d8b405f202edef89469d3e669e3a1b5a71",
+      "tests": 0,
+      "exit_code": 0
+    }
+  },
+  "unique_selected_native_tests": 36,
+  "new_scope_cases": 29,
+  "retained_regression_cases": 7,
+  "earlier_63_not_added": true,
+  "initial_public_failure_retained": true,
+  "source_changes_since_earlier_checks": "recorded test fixture and UI text overrides only; UI key repair predates qualifying commands",
+  "final_local_source_pin_files": 3021,
+  "latest_local_source_hashes_match": true,
+  "native_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 323641556,
+    "sha256": "4aa9300c7c9e0abe43c7a107de2bd8677de5a0dac64a81e4dac51451db28759e",
+    "launched": false
+  },
+  "sdk_wasm": "actual Core/geospatial/Portal compiled; runtime interoperability untested",
+  "preserved_regression_artifacts": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    }
+  ],
+  "reference_master_unchanged": true,
+  "private_journal_tests_authored_unrun": 3,
+  "foundation_gates": "FND-01–06 open",
+  "IP03": "C1–C8 open",
+  "asset_production": "on_hold",
+  "gui_verification": "not_run",
+  "human_acceptance": false,
+  "model_claims": "193 catalogue plus 8 subject-specific claims remain unassessed; all three target packages incomplete",
+  "builds_or_tests_executed_by_this_verifier": false
+}

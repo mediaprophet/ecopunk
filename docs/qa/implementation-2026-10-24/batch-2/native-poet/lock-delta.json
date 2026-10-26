@@ -1,0 +1,122 @@
+{
+  "scope": "Resolved full Poet workspace version-set changes for preexisting package names; additions include optional native dependencies",
+  "original_lock": "031CAAAAE3CCD491296517E9FB51890A37BDF39303765BD5C74FA21876514911",
+  "resolved_lock": "F1C6D2DDFD33EC813815B3CEBDEA120B90AFC97CBBDC764742D64EC0D6C1B627",
+  "changed": [
+    {
+      "package": "base64",
+      "before": "0.22.1",
+      "after": "0.22.1,0.23.1"
+    },
+    {
+      "package": "cc",
+      "before": "1.6.0",
+      "after": "1.8.0"
+    },
+    {
+      "package": "getrandom",
+      "before": "0.4.3",
+      "after": "0.2.17,0.3.4,0.4.3"
+    },
+    {
+      "package": "js-sys",
+      "before": "0.3.102",
+      "after": "0.3.106"
+    },
+    {
+      "package": "libc",
+      "before": "0.2.190",
+      "after": "0.2.191"
+    },
+    {
+      "package": "minicov",
+      "before": "0.3.9",
+      "after": "0.3.8"
+    },
+    {
+      "package": "r-efi",
+      "before": "6.0.0",
+      "after": "5.3.0,6.0.0"
+    },
+    {
+      "package": "serde_json",
+      "before": "1.0.151",
+      "after": "1.0.154"
+    },
+    {
+      "package": "syn",
+      "before": "2.0.119,3.0.6",
+      "after": "1.0.109,2.0.119,3.0.9"
+    },
+    {
+      "package": "unicode-ident",
+      "before": "1.0.26",
+      "after": "1.0.27"
+    },
+    {
+      "package": "uuid",
+      "before": "1.27.0",
+      "after": "1.28.0"
+    },
+    {
+      "package": "wasm-bindgen",
+      "before": "0.2.125",
+      "after": "0.2.129"
+    },
+    {
+      "package": "wasm-bindgen-futures",
+      "before": "0.4.75",
+      "after": "0.4.79"
+    },
+    {
+      "package": "wasm-bindgen-macro",
+      "before": "0.2.125",
+      "after": "0.2.129"
+    },
+    {
+      "package": "wasm-bindgen-macro-support",
+      "before": "0.2.125",
+      "after": "0.2.129"
+    },
+    {
+      "package": "wasm-bindgen-shared",
+      "before": "0.2.125",
+      "after": "0.2.129"
+    },
+    {
+      "package": "wasm-bindgen-test",
+      "before": "0.3.75",
+      "after": "0.3.79"
+    },
+    {
+      "package": "wasm-bindgen-test-macro",
+      "before": "0.3.75",
+      "after": "0.3.79"
+    },
+    {
+      "package": "wasm-bindgen-test-shared",
+      "before": "0.2.125",
+      "after": "0.2.129"
+    },
+    {
+      "package": "web-sys",
+      "before": "0.3.102",
+      "after": "0.3.106"
+    },
+    {
+      "package": "windows-sys",
+      "before": "0.61.2",
+      "after": "0.45.0,0.52.0,0.59.0,0.61.2"
+    },
+    {
+      "package": "zerocopy",
+      "before": "0.8.59",
+      "after": "0.8.63"
+    },
+    {
+      "package": "zerocopy-derive",
+      "before": "0.8.59",
+      "after": "0.8.63"
+    }
+  ]
+}

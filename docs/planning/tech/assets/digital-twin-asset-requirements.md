@@ -1,6 +1,7 @@
 # Interactive digital-twin assets — per-asset requirements
 
-**Status:** proposed specification v0.1, for authoring, engine planning and UAT.
+**Status:** proposed specification v0.2, updated 2026-10-24 for native execution,
+complete species HMC embodiments and made-world structure.
 **Owner of scope:** Timothy. This specification is not an implementation or
 engine-conformance claim. QualiaDB changes are requirements for Timothy to
 allocate upstream; this work does not authorise engine edits.
@@ -9,9 +10,16 @@ Companions: [style and scale](style-and-scale.md), [media types](media-types.md)
 [development modes](../development-modes.md), [10D semantics](../tensor-10d.md),
 and [engine requirements](../engine-requirements.md#gap-12--interactive-digital-twin-assets).
 
+Governing companions: [architecture](../../architecture.md),
+[HMC embodiment package](asset-package-spec.md),
+[species embodiment](species-embodiment-spec.md), and [made world](../../made-world.md).
+The intended authoring/package/runtime workflow MUST function without JavaScript,
+Node.js or V8. Historical browser-profile clauses below describe compatibility
+evidence only; they cannot substitute for native conformance or authorize a JS path.
+
 ## 1. Purpose and conformance
 
-An asset must be more than a renderable mesh. Its identity, ontology, physical
+An asset must be more than a renderable mesh. Its identifiers, ontology, physical
 model, variants, lifecycle, interactions and observable behaviour must form
 one inspectable, versioned construct. High-resolution authoring must support
 lower-capability devices without silently changing the entity or its rules.
@@ -46,19 +54,19 @@ establish appearance quality or scientific correctness.
 | Authored/synthetic instance | A particular simulation entity with explicit assumptions and seed; not a measured real object. |
 | Captured specimen/object | A particular captured subject at a time/place, with capture provenance and rights. |
 | Operational digital twin | A particular referent with a declared model, observations/calibration and synchronization contract. |
-| Component | A leaf, branch, wheel, bone or other part with its own identity and parent relations. |
-| Assembly/aggregate | A complete logical object made of components, potentially packaged in HMC. |
+| Component | A leaf, branch, wheel, bone or other part with its own identifiers and parent relations. |
+| Assembly/aggregate | A complete logical object made of components; complete distributed embodiments use HMC. |
 
 A visually realistic model is not automatically an operational digital twin.
 A genus/family model MUST NOT be relabelled as a verified species model.
 Style, physical scale, visual resolution, life stage and simulation fidelity
 are separate axes, not interchangeable interpretations of "quality".
 
-## 2. Identity and minimum descriptor
+## 2. Identifiers and minimum descriptor
 
 | ID | Requirement | Acceptance/evidence |
 |---|---|---|
-| DTA-ID-01 | MUST distinguish stable entity identity, asset-definition/version identity, physical-instance identity, component identity, state revision and payload digest. | Edits, LOD switches and animation preserve entity continuity; hashes are not substituted for entity IDs. |
+| DTA-ID-01 | MUST distinguish stable entity identifiers, asset-definition/version identifiers, physical-instance identifiers, component identifiers, state revision and payload digest. | Edits, LOD switches and animation preserve entity continuity; hashes are not substituted for entity IDs. |
 | DTA-ID-02 | MUST identify referent kind, family, root object and component/assembly role. | A branch preview is labelled as a branch, not a whole tree. |
 | DTA-ID-03 | MUST declare versioned formats, required engine/language/profile versions and compatibility range. | Unsupported formats/profiles diagnose rather than partially load as success. |
 | DTA-ID-04 | MUST retain display names, language, descriptions, source authors/custodians, creation/capture dates and provenance. | Inspector can distinguish labels from authoritative identifiers. |
@@ -66,7 +74,7 @@ are separate axes, not interchangeable interpretations of "quality".
 | DTA-ID-06 | MUST expose a feature/applicability record covering all requirement families below. | Omitted, unknown, unsupported and not-applicable features remain distinguishable. |
 | DTA-ID-07 | MUST retain lineage for derivatives, replacement, split/merge and component creation/retirement. | A damaged/split object can be traced back without rewriting its history. |
 
-Minimum descriptor groups: identity/referent; ontology; provenance/rights;
+Minimum descriptor groups: identifiers/referent; ontology; provenance/rights;
 geometry/materials; assembly; fidelity/device profiles; physics; rig/clips;
 behaviour/affordances; lifecycle/damage; mutable state; observations; dependency
 closure; validation/UAT evidence. These are conceptual groups, not a claim
@@ -79,6 +87,14 @@ To prevent scale inversions (such as a marsupial rendered larger than a 4WD vehi
 1. **1:1 SI Metric Authoring & Runtime Invariant (`1.0 unit = 1.0 m`):**
    - All whole-organism, vehicle, building, and terrain assets MUST be authored and sealed into `.10d` in **1:1 SI metres** (`+X` East/Right, `+Y` Up, `-Z` North/Forward, pivot at basal ground contact `y = 0.0 m`).
    - Micro-scale dissection and histological study assets (Scale 2–4 organs/tissues) MUST declare their exact metric unit multiplier in `DTA-ID-05` (`qudt:Millimeter` or `qudt:Micrometer`) so the engine transforms them into the metric world frame without ambiguity.
+   - **Scientific-frame clarification, 2026-10-26:** acquired anatomy, microscopy,
+     sampled volumes and isolated scientific components retain their original
+     calibrated axes, spacing, orientation and reference frame. Store an explicit
+     unit/frame transform into a presentation or world frame; do not rewrite
+     source coordinates, impose a ground-contact pivot, or silently normalize
+     dimensions. The whole-organism/terrain placement convention above is not a
+     medical-image registration convention. Apply BSA-01 and BSA-EDU-02 in the
+     [biosphere/anatomy programme](../biosphere-earth-and-anatomy-capabilities.md).
    - Multi-asset world and sector scenes MUST execute with `QualiaPortal::set_preserve_authored_frame(true)` (`G70`); automatic orbit-box normalization (`[-0.85, +0.85]`) is restricted strictly to isolated single-component UAT inspection when explicitly disclosed (`DTA-UAT-05`).
 2. **Unified Species Trait Binding (`AusTraits` / `AFD` / `AVONET` $\to$ `.q42` $\to$ `.10d` Bounds & Physics Mass):**
    - Living assets (`bio:DarwinianTaxon`) MUST derive their authored bounding box (`AABB`), allometric growth stages (`DTA-LIFE-01..03`), tissue density, and `qualia-sim` rigid/articulated body mass (`DTA-PHY-02`) from QUDT-typed `.q42` trait statements (e.g. `entities/taxa/<slug>/traits.json` compiled into `.q42` NQuins).
@@ -100,7 +116,7 @@ To prevent scale inversions (such as a marsupial rendered larger than a 4WD vehi
 
 | ID | Requirement | Acceptance/evidence |
 |---|---|---|
-| DTA-SEM-01 | MUST provide inspectable RDF/Quin statements, graph/context identity and embedded term resolution linked to the asset's stable IDs. | Queries return the intended entity and component, not a guessed name match. |
+| DTA-SEM-01 | MUST provide inspectable RDF/Quin statements, graph/context identifiers and embedded term resolution linked to the asset's stable IDs. | Queries return the intended entity and component, not a guessed name match. |
 | DTA-SEM-02 | Living assets MUST declare authoritative taxon identifiers, source/version, rank, identification confidence and nomenclatural ambiguity. | Species, genus and family precision is visible; unknown taxa remain data-only. |
 | DTA-SEM-03 | MUST distinguish taxon concepts, individual organisms, materials, functional roles and rendered representations. | Destruction of one tree does not destroy its taxon concept; bark is not mistaken for the whole organism. |
 | DTA-SEM-04 | MUST link part/whole, depicts/represents, habitat/locality, material composition and other applicable relations. | Component selection resolves the parent and the applicable material/taxon facts. |
@@ -116,12 +132,15 @@ Domain vocabularies and mappings requiring ratification remain explicit work.
 
 ## 4. Complete objects, components and HMC packaging
 
-A simple component/model may be a standalone `.10d`. The distributable package
-for a complete object or asset family with multiple payloads or model/behaviour
-variants MUST be an **HMC container**. Its `.10d` entries are model/component
-payloads, not replacements for the overall package. HMC carries the applicable
-Q42 semantics, models, materials/textures, rigs/clips, sounds, Vibe behaviour
-definitions, variant manifest and other dependencies as one versioned release.
+A simple component/model may be a standalone `.10d` authoring/interchange
+artifact. A **complete species embodiment MUST be HMC**, even when only one
+graphical representation currently exists. The HMC contains the full available
+species graph corpus at its declared revision and its associated sources,
+models, materials, rigs/clips, media, Vibe/rule definitions and dependencies.
+See [species-embodiment-spec.md](species-embodiment-spec.md) for completeness.
+Complete made-world objects/families similarly use HMC under the
+[shared package contract](asset-package-spec.md). A `.10d` mesh or per-mesh
+semantic section is not a replacement for the overall embodiment.
 
 For example, a species family may package male and female models and applicable
 behaviour sets, juvenile/adult stages and their LODs, sharing compatible common
@@ -139,9 +158,9 @@ and inspection of packaged variants through the qualified engine/Vibe path.
 |---|---|---|
 | DTA-PKG-01 | MUST declare one or more selectable logical root objects and their component/resource membership. | The consumer can distinguish container, root object, instance and leaf payload. |
 | DTA-PKG-02 | MUST provide stable child IDs, local transforms, attachment points and parent frame/unit conventions. | Full-object assembly preserves relative sizes and applies each transform exactly once. |
-| DTA-PKG-03 | MUST declare exact dependency references, types, versions and integrity digests; resources may be shared without losing role/identity. | Only the selected root's dependency closure is required; missing resources identify the affected component. |
+| DTA-PKG-03 | MUST declare exact dependency references, types, versions and integrity digests; resources may be shared without losing role/identifiers. | Only the selected root's dependency closure is required; missing resources identify the affected component. |
 | DTA-PKG-04 | MUST declare variant groups and compatibility between sex/phenotype or reproductive form where applicable, LOD, material, rig, life stage, behaviour and damage state. | The loader cannot combine incompatible models/rigs/behaviour sets or mix different package revisions. |
-| DTA-PKG-05 | MUST declare format/codec version and verified index/manifest identity; the `.hmc` suffix alone is not a format contract. | The engine reader rejects unsupported variants; no ad hoc JS container parser is introduced. |
+| DTA-PKG-05 | MUST declare format/codec version and verified index/manifest identifiers; the `.hmc` suffix alone is not a format contract. | The engine reader rejects unsupported variants; no ad hoc JS container parser is introduced. |
 | DTA-PKG-06 | MUST verify selected payloads before use, including `.10d` sections, referenced media and semantic data. | Entry digests plus appropriate format checks run before material/behaviour execution. |
 | DTA-PKG-07 | MUST support bounded, deterministic traversal; detect cycles, duplicate/conflicting IDs, missing children and invalid ranges/transforms. | Malformed assemblies fail with a precise dependency path and do not recurse without bounds. |
 | DTA-PKG-08 | MUST distinguish required/optional resources and admit or replace a complete root transactionally. | Failure retains the prior admitted object; omitted optional features are disclosed. |
@@ -149,6 +168,8 @@ and inspection of packaged variants through the qualified engine/Vibe path.
 | DTA-PKG-10 | MUST keep published resources immutable and mutable instance/session state separate. | Preview edits or simulation never rewrite the source HMC; journals bind to the correct base/package. |
 | DTA-PKG-11 | Multi-model/behaviour asset families MUST distribute a versioned HMC package with explicit variant IDs, membership, shared dependencies and per-variant overrides. | Male/female or other applicable variants are discoverable within the same family release without ambiguous naming or duplicated authority. |
 | DTA-PKG-12 | MUST declare supported, unavailable, unknown and inapplicable variant combinations and their qualification evidence. | Missing female/juvenile/LOD/behaviour combinations are disclosed, not synthesized or silently substituted. |
+| DTA-PKG-13 | Species HMC releases MUST contain all available species-relevant graph data in the identified corpus revision, with source/partition coverage, interpretation closure, rights and reconciliation evidence. | Complete content is distinguished from a selected resident working set or explicitly incomplete derivative; graph content is not reduced to a demo's visual needs. |
+| DTA-PKG-14 | HMC inspection, graph query, dependency planning, root admission and variant selection MUST be accessible through the native stack without JavaScript/V8. | A native consumer retrieves knowledge and resources from the same embodiment independently of a game or browser controller. |
 
 Current scene-index/asset-table mechanisms may be reused if their contracts
 fit. The upstream owner must ratify root/member schema and APIs; this spec does
@@ -181,9 +202,9 @@ high-resolution source or as scientific validation.
 | DTA-LOD-02 | MUST separate geometry, texture, rig/animation, collision, sensor and simulation fidelity levels. | A mesh reduction does not implicitly lower logical state accuracy or change taxonomy. |
 | DTA-LOD-03 | MUST declare each level's detail/error envelope and intended viewing scale/distance. | Silhouette, critical features, material roles and semantic picks meet the declared level's acceptance criteria. |
 | DTA-LOD-04 | MUST select using qualified capabilities and resource budgets, not device-name guesses. | Report selected level, reason, actual backend and unsupported features. |
-| DTA-LOD-05 | MUST preserve identity, pose/state, attachment continuity and interaction mapping across swaps. | Picking and persistent references still address the same object/component after a level change. |
+| DTA-LOD-05 | MUST preserve identifiers, pose/state, attachment continuity and interaction mapping across swaps. | Picking and persistent references still address the same object/component after a level change. |
 | DTA-LOD-06 | MUST provide stable transitions/hysteresis and an admitted fallback or explicit refusal. | Boundary oscillation does not produce flicker, missing parts or unbounded reloads. |
-| DTA-LOD-07 | MUST support instancing/culling/batched updates where applicable without merging away per-instance identity. | Large populations retain distinct state and picking, with measured bounded residency. |
+| DTA-LOD-07 | MUST support instancing/culling/batched updates where applicable without merging away per-instance identifiers. | Large populations retain distinct state and picking, with measured bounded residency. |
 | DTA-LOD-08 | MUST record native, standard-web, mobile, desktop, AR/VR and offline/linear-output coverage actually claimed. | A profile declaration is not a deployment receipt; low-detail rendering does not silently suspend authoritative life/behaviour updates. |
 
 No universal triangle count, FPS or texture size is prescribed here. Budgets
@@ -202,11 +223,11 @@ Style differences and molecule-to-biome scale changes are not LOD switches.
 | DTA-PHY-06 | MUST declare environment coupling: gravity, wind, fluid/buoyancy, water/soil, light, heat, pressure and terrain as applicable. | Unknown environmental inputs have a stated policy; defaults are not hidden measurements. |
 | DTA-PHY-07 | MUST declare conserved/accounted quantities and accepted numerical tolerances for the model. | Mass/energy/material transfer is tracked or its approximation explicitly disclosed. |
 | DTA-PHY-08 | MUST define time integration, timestep, solver/version, boundary conditions and admissible parameter ranges. | Reproducible fixtures test stability and reject invalid/unit-incompatible inputs. |
-| DTA-PHY-09 | MUST keep physical state and the corresponding rendered/sonic response linked by identity and revision. | A deformation or material failure updates contacts, bounds, sound and appearance where claimed; visual-only effects remain labelled. |
+| DTA-PHY-09 | MUST keep physical state and the corresponding rendered/sonic response linked by identifiers and revision. | A deformation or material failure updates contacts, bounds, sound and appearance where claimed; visual-only effects remain labelled. |
 
 Preserve Qualia's existing material/facet and 10D field conventions. Typed
 physical quantities are not permission to invent new tensor axes or repurpose
-identity, time, provenance or spectral lanes.
+identifiers, time, provenance or spectral lanes.
 
 ## 8. Animation, articulation and action presentation
 
@@ -256,7 +277,7 @@ fracture, material loss, biological injury or repair is physically modelled.
 Sex/phenotype is not inferred from a display name, model appearance or behaviour.
 Sex and gender are not interchangeable metadata. Individual traits remain
 separate from selectable family templates: an LOD/style change cannot change
-an individual's sex or identity. Biological transitions occur only where a
+an individual's sex or identifiers. Biological transitions occur only where a
 qualified taxon-specific lifecycle model explicitly permits them. Comparing
 family variants in UAT is not a mutation of a measured individual's state.
 
@@ -271,7 +292,7 @@ family variants in UAT is not a mutation of a measured individual's state.
 | DTA-BHV-05 | Mechanical/constructed objects MUST declare applicable operation, controls, energy/material flows, capacities, failure and maintenance. | A turning pump visual is not evidence of pumped volume or consumed energy. |
 | DTA-BHV-06 | MUST distinguish observed behaviour, modelled policy, internal-state hypotheses and stochastic assumptions. | An inferred intention is not displayed as an observed fact. |
 | DTA-BHV-07 | MUST define deterministic scheduling, seeded randomness, triggers, priorities and cancellation. | The same admitted event tape and seed reproduce the declared outcome. |
-| DTA-BHV-08 | MUST separate authoritative Vibe/engine policy from animation and browser controls. | JS transports input/results only; missing Vibe functionality becomes an upstream requirement. |
+| DTA-BHV-08 | MUST separate authoritative Vibe/engine policy from presentation controls and retain native ownership of state/actions. | The intended workflow requires no JS/V8 transport or controller; missing Vibe/engine functionality becomes an upstream requirement. |
 | DTA-BHV-09 | MUST respect rights/capability/physical constraints and isolated proposal/what-if boundaries. | Denied actions have explanations and do not mutate state or coerce acceptance. |
 | DTA-BHV-10 | MAY use learned/local-agent proposals with explicit model/version, budgets and review/admission. | A model is not the root of authority; ungrounded proposals do not silently become asset facts. |
 | DTA-BHV-11 | MUST declare shared and variant-specific behaviour/animation/physiology where evidenced, including applicable sex, reproductive condition, life stage and context. | Differences are authored and sourced, not assumed stereotypes; incompatible mating, feeding, care or other action sets are refused or explicitly qualified. |
@@ -283,11 +304,11 @@ family variants in UAT is not a mutation of a measured individual's state.
 | ID | Requirement | Acceptance/evidence |
 |---|---|---|
 | DTA-STATE-01 | MUST separate immutable definition/package data, instance state, authored rules and observations. | Simulation or review cannot overwrite the source asset or another session. |
-| DTA-STATE-02 | MUST version state transitions and their causality, actors, time, rule versions and base identities. | Events resolve to the intended asset/instance and admitted dependency versions. |
+| DTA-STATE-02 | MUST version state transitions and their causality, actors, time, rule versions and base identifiers. | Events resolve to the intended asset/instance and admitted dependency versions. |
 | DTA-STATE-03 | MUST reuse existing Q42 mutable-session/journal machinery where applicable, rather than introduce an unrelated game-state implementation. | `.q42j` existence is acknowledged; the selected host/storage path is independently qualified. |
 | DTA-STATE-04 | MUST support atomic transactions, checkpoint/export/reload and failure recovery within declared durability semantics. | Torn writes, corrupt commits and wrong-base/package journals do not silently recover as valid state. |
 | DTA-STATE-05 | MUST support reset/seek/replay and explicit branch/what-if execution for UAT. | Sandbox branches cannot pollute the admitted real/session state. |
-| DTA-STATE-06 | MUST declare synchronization/conflict rules, including a single authoritative writer or qualified distributed ownership. | Duplicate action application and stale snapshots cannot create contradictory identities/state. |
+| DTA-STATE-06 | MUST declare synchronization/conflict rules, including a single authoritative writer or qualified distributed ownership. | Duplicate action application and stale snapshots cannot create contradictory identifiers/state. |
 | DTA-STATE-07 | MUST report in-memory, exported, OPFS-persisted and restart-recovered status separately. | Exported bytes or a successful in-memory replay do not claim browser durability. |
 | DTA-STATE-08 | MUST preserve state through permitted LOD/style/rig presentation changes. | A device downgrade or clip interruption cannot reset age, damage, hunger or maintenance history. |
 
@@ -311,7 +332,7 @@ family variants in UAT is not a mutation of a measured individual's state.
 | DTA-MEDIA-01 | MUST declare applicable sound/call/operating-noise resources and their semantic/action association. | Sound events resolve to the correct emitter, state and timing. |
 | DTA-MEDIA-02 | MUST declare source media, spectral/response data if claimed, spatialization and device projection. | A synthetic loop is not labelled a field recording or measured acoustic response. |
 | DTA-MEDIA-03 | MUST provide textual descriptions, discoverable controls, keyboard access and reduced-motion/audio alternatives. | Essential state and affordances are not communicated only by colour, sound or motion. |
-| DTA-MEDIA-04 | SHOULD support inspection annotations, labels, cutaways and accessible views across scale/LOD. | Annotations follow component identity rather than fragile mesh indices. |
+| DTA-MEDIA-04 | SHOULD support inspection annotations, labels, cutaways and accessible views across scale/LOD. | Annotations follow component identifiers rather than fragile mesh indices. |
 | DTA-MEDIA-05 | MUST bound media decoding/residency and synchronize it with the selected object/profile. | Package switching releases old media and does not leave hidden emitters running. |
 | DTA-RIGHTS-01 | MUST declare licence, attribution, derivative obligations, custody and sensitivity per resource and package. | Aggregate admission respects all applicable obligations, not just the root's label. |
 | DTA-RIGHTS-02 | MUST retain captured/authored/procedural/AI-assisted provenance, source tools/versions, transformations and human review. | Generated or modified material is not passed off as captured evidence. |
@@ -332,12 +353,13 @@ family variants in UAT is not a mutation of a measured individual's state.
 | DTA-AUTH-06 | MUST be reproducible from declared toolchain, data, parameters and seeds; volatile metadata is separately identified. | Repeated equivalent authoring inputs produce matching content or a declared, evidenced reason for differences. |
 | DTA-AUTH-07 | MUST produce linked semantic, dimensional, integrity, compatibility and authoring validation reports. | Each result names its scope/version and failed requirement IDs. |
 | DTA-AUTH-08 | MUST support cancellation and owned bounded scratch/artifact retention. | Success, failure and cancellation do not fill disk or destroy unrelated user work. |
+| DTA-AUTH-09 | MUST use the qualified native authoring capabilities needed for the complete construct, with versioned cross-tool identifiers/units/material/rig/graph handoffs. | [TOOL-01–12](production-toolchain-spec.md) qualify the actual production chain; installed app names or a generated image do not prove editable high-quality 3D capability. |
 | DTA-RUN-01 | MUST declare CPU/GPU/decoded-media/transfer budgets and limits on joints, components, fragments, behaviours and instance counts. | Admission occurs before excessive allocation; aggregate budgets are distinct from per-object budgets. |
 | DTA-RUN-02 | MUST conform to applicable Qualia Sentinel, 48-byte Quin, caller-buffered hot-path and deterministic execution contracts. | Real allocation/budget evidence qualifies the relevant kernels; no blanket construction exemption. |
 | DTA-RUN-03 | MUST avoid per-frame graph-text parsing, unrelated recompilation and redundant deformation/upload. | Dirty-span and affected-component receipts identify actual work. |
 | DTA-RUN-04 | MUST define cancellation, stale-load prevention, unload/disposal, cache expiry and device-loss recovery. | Failed replacements preserve the prior admitted view/state without hidden resource growth. |
 | DTA-RUN-05 | MUST declare and qualify each native/browser/device feature profile and safe degradation path. | Backend/profile selection is actual evidence, not user-agent inference. |
-| DTA-RUN-06 | MUST report measured cold/warm load, residency, action/animation cost and recovery for claimed targets. | Measurements retain workload/device/artifact identity; kernel timings are not extrapolated to full-game performance. |
+| DTA-RUN-06 | MUST report measured cold/warm load, residency, action/animation cost and recovery for claimed targets. | Measurements retain workload/device/artifact identifiers; kernel timings are not extrapolated to full-game performance. |
 
 ## 16. Required asset-review app capabilities
 
@@ -350,8 +372,8 @@ browser-side reimplementation.
 |---|---|---|
 | DTA-UAT-01 | MUST load a standalone `.10d` or an HMC package, list logical roots and distinguish complete-object/component modes. | The reviewer can preview a whole banksia/vehicle and drill into a branch/wheel without loading the game. |
 | DTA-UAT-02 | MUST inspect verified package manifest/index, dependency closure, sizes/versions/digests and admission failures through engine APIs. | Corrupt/missing nested resources identify the exact failure; no custom JS HMC parser. |
-| DTA-UAT-03 | MUST show actual pack-decoded RDF/lexicon, identity, physics, units, provenance and rights alongside authored-source comparisons. | Source-preview and extracted-data panels cannot be mistaken for each other. |
-| DTA-UAT-04 | MUST expose LOD/style/device profile selection, actual selection reason and fidelity/resource limits. | Forced profile tests retain semantic/state identity and expose unsupported features. |
+| DTA-UAT-03 | MUST show actual pack-decoded RDF/lexicon, identifiers, physics, units, provenance and rights alongside authored-source comparisons. | Source-preview and extracted-data panels cannot be mistaken for each other. |
+| DTA-UAT-04 | MUST expose LOD/style/device profile selection, actual selection reason and fidelity/resource limits. | Forced profile tests retain semantic/state identifiers and expose unsupported features. |
 | DTA-UAT-05 | MUST support stable inspection cameras, physical scale references, component isolation and applicable cutaway/debug views. | Viewport normalization is disclosed; scale, pivots and attachment relationships remain inspectable. |
 | DTA-UAT-06 | MUST discover/play/scrub/pause/reset applicable clips and inspect rig/contact/semantic mappings. | Animation tests demonstrate the declared object rather than a generic unrelated animation. |
 | DTA-UAT-07 | MUST exercise applicable damage/destruction/repair transitions in an isolated, resettable session. | Event, fragment/component lineage, physics/appearance and replay results are visible. |
@@ -361,10 +383,11 @@ browser-side reimplementation.
 | DTA-UAT-11 | MUST retain screenshots/video/engine receipts and human notes as distinct evidence. | A presented-frame receipt or passing assertion does not approve appearance automatically. |
 | DTA-UAT-12 | MUST support negative qualification: corruption, unit mismatch, unsupported version/profile, denied capability, cycles, missing LOD/clip/resource, wrong journal base, exhaustion and stale loads. | Failures are explained, leave admitted state intact and never trigger "accept or revert" coercion. |
 | DTA-UAT-13 | MUST discover and preview packaged model/behaviour variants, including male/female forms where applicable, and test compatible stage/rig/LOD/action combinations. | The same HMC family can be inspected variant-by-variant, with shared resources, exact selection provenance and rejected unsupported combinations; no other variant is loaded implicitly. |
+| DTA-UAT-14 | Every completion claim MUST disposition all per-model deliverables and their applicable expanded part/profile/variant/clip/transition/behaviour/scenario cases, with exact artifact/evidence and required review references. | Follow [model-completion-claims.md](model-completion-claims.md) and its [193-row starter catalogue](model-production-template/README.md). Missing, stale, failed, blocked, self-waived or unassessed work prevents complete status; film, open-world game and cartoon representations are required. |
 
 ## 17. Family applicability and representative qualification fixtures
 
-All families must satisfy identity, semantic scope, provenance/rights,
+All families must satisfy identifiers, semantic scope, provenance/rights,
 package/dependency declaration, visual-profile declaration and inspection.
 The table identifies additional applicable areas; it does not replace the
 per-asset applicability record.
@@ -373,12 +396,12 @@ per-asset applicability record.
 |---|---|---|
 | Plant/tree | Root/branch/leaf/flower components; growth/phenology; water/nutrients/light; wind response; damage/regrowth/death; accrual. | One complete species-qualified tree HMC, leaf/branch inspection, seedling-to-mature states, wind and a recorded branch-loss event. |
 | Animal | Morphology/rig; locomotion/contact; feeding/metabolism; social behaviour; life stages, injury/death; sensory/audio. | One identified animal with walk/rest/eat and a bounded two-actor social scenario, plus stage/LOD continuity. |
-| Human/avatar | Articulation/contacts; accessible action presentation; consent/privacy; relevant social/activity affordances; clearly qualified identity/state. | Tool/contact task with an authored action, interruption and permission denial; no invented psychological facts. |
+| Human/avatar | Articulation/contacts; accessible action presentation; consent/privacy; relevant social/activity affordances; clearly qualified identifiers/state. | Tool/contact task with an authored action, interruption and permission denial; no invented psychological facts. |
 | Vehicle/machine | Hierarchical assemblies, joints, controls, energy/thermal/fluid flows, functional failure/repair and operating sounds. | One HMC vehicle/pump assembly with moving parts, typed consumption, a component failure and a resource-constrained repair. |
 | Building/infrastructure | Assemblies/interiors; load/contact; doors/services; weathering; structural/functional damage and maintenance. | Complete workshop structure with operable door/service, component isolation and declared structural model. |
-| Rock/material/terrain | Provenance/geology/material identity; physical bounds/contact; applicable fracture/erosion/water/thermal response. | A cited material/body or terrain tile with a qualified contact/damage/erosion fixture; life stages marked inapplicable. |
+| Rock/material/terrain | Provenance/geology/material identifiers; physical bounds/contact; applicable fracture/erosion/water/thermal response. | A cited material/body or terrain tile with a qualified contact/damage/erosion fixture; life stages marked inapplicable. |
 | Molecular/cellular/scientific | Typed quantities, scale/time conventions, scientific model validity, fields/reactions where qualified. | A declared species/reaction or cellular model with dimensions, uncertainty and model-vs-observation boundaries. |
-| Symbolic/schematic | Semantic identity, explanatory content, accessibility and explicitly limited physical/animation claims. | A diagram/marker linked to the same entity; no implied full-physics fidelity. |
+| Symbolic/schematic | Semantic identifiers, explanatory content, accessibility and explicitly limited physical/animation claims. | A diagram/marker linked to the same entity; no implied full-physics fidelity. |
 
 Fixtures must be selected and approved for their intended use. A complete
 object preview must not be silently reduced to the first component that loads.
@@ -391,10 +414,10 @@ For an asset release:
 1. Scope, family, referent and applicability are explicit; required features
    are implemented and qualified or the release remains a labelled prototype.
 2. The editable source and component/variant graphs are retained, with rights
-   and stable identity distinct from content hashes and manifold coordinates.
+   and stable identifiers distinct from content hashes and manifold coordinates.
 3. Formats/dependencies/semantics and dimensions pass their qualified engine
-   gates at the declared versions. Whole-object HMC admission is demonstrated
-   if that is the packaging form.
+   gates at the declared versions. Complete embodiments demonstrate whole-object
+   HMC admission and graph completeness through the native workflow.
 4. Device/LOD, animation, physics, life/damage/behaviour and replay cases pass
    for the applicable profile; limitations and failed cases remain recorded.
 5. Human appearance/species-fidelity acceptance and the scientific validation

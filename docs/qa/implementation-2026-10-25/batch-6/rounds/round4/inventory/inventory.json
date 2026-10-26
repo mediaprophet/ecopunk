@@ -1,0 +1,33 @@
+{
+  "schema": "ecopunk.round4-native-inventory.v1",
+  "captured_date": "2026-10-25",
+  "mode": "read_only_inventory",
+  "fnd01_fnd06": "open",
+  "assets": "ON_HOLD",
+  "round3_history": {
+    "unique_test_count": 63,
+    "count_is_historical_not_new_pass": true,
+    "native_gui_review": "not run",
+    "wasm": "compile-only"
+  },
+  "baseline": {
+    "file": "source-baseline.json",
+    "round3_targets": 44,
+    "current_hash_matches": 44,
+    "mismatches": 0
+  },
+  "api_findings": {
+    "source_auth_owner": "Poet cooperation::AuthorityOwner / NativeAuthorityOwner / with_authorized; QualiaDB authoring::AuthoringAction::ReviewDecision",
+    "package_write_audit": "QualiaDB PackageWriteIntent / PackageWriteEvidence / NativeAuthority::package_write_evidence; does not grant review or HMC acceptance",
+    "package_persistence": "Poet CheckpointService::save_with_resource_edits and PackageWritePolicy; digest-bound working-copy/release handling",
+    "hmc_reopen": "CheckpointService::prepare_reopen + activate; owner guard, source binding and fresh disk digest recheck",
+    "typed_resource_inspection": "ResourceInspectionRequest / CheckpointService::inspect_resource; read-only, inventory-bound",
+    "review_grant_type": "qualia_cooperative_core::authoring::ReviewGrant (project/document/reviewer/admission/validity/revocation)",
+    "native_existing_scoped_steward_grant_route": true,
+    "native_route": "LaunchAction::GrantReview -> native_entry::actions::grant_review -> enrollment_permission + authority_signer + admitted/unrevoked subject + configured document scope + grant_enrollment_review; validity capped by reviewer and snapshot expiry.",
+    "revoke": "LaunchAction::Revoke calls revoke_enrollment; current UI describes enrollment revocation, not grant-only revocation."
+  },
+  "required_next_action": "Implement canonical package review bound to exact HMC/package digest and full resource inventory, using separate reviewer authority and durable package-decision evidence. Existing source-review grant route is already present; grant-only revocation is a separate scoped question.",
+  "checks_run": false,
+  "asset_pins": "asset-pins-round2.json"
+}

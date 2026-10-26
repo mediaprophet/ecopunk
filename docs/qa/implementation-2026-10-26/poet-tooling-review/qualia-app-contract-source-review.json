@@ -1,0 +1,63 @@
+{
+  "time_utc": "2026-10-26T01:46:52.063812+00:00",
+  "scope": "Root focused source review; canonical shared contract exists, not proof of native/domain implementation or complete validation.",
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\lib.rs",
+      "sha256": "237c50a22c5de3c39b57917044e0f0e090e2869659829b247e443514263e555a",
+      "read_ranges": [
+        [
+          1,
+          59
+        ]
+      ],
+      "inspection_kind": "module exports and serializer bodies",
+      "execution": "not run"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\adapter.rs",
+      "sha256": "70c2046033459e44ab380766133a2666489ae894fb8a55d3af4e45e959814677",
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "inspection_kind": "AppAdapter trait methods and default bodies",
+      "execution": "not run"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\descriptor.rs",
+      "sha256": "88fc70de4c2480babe49cee57acc064c15fb7fa12101a4823aa2e7ae91f7b369",
+      "read_ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "inspection_kind": "descriptor/availability types and validate body",
+      "execution": "not run"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\request.rs",
+      "sha256": "2537a5ad2c771151b112a2b2712d8e8af76e7bf30d6e451a5a2665a096a344fc",
+      "read_ranges": [
+        [
+          1,
+          128
+        ]
+      ],
+      "inspection_kind": "request/receipt/session/surface/job data declarations",
+      "execution": "not run"
+    }
+  ],
+  "findings": [
+    "Reuse existing AppAdapter/CommandDescriptor/CommandRequest/Receipt/Surface/Job/context contracts after compatibility review; no new parallel DTO crate.",
+    "Default open returns revision0, availability is Available, inspect is Null, snapshot empty, restore/cancel/close can return success without domain behavior. Adapter conformance must prove actual supported operations.",
+    "CommandReceipt is an auditable serialized record type; this declaration does not itself sign or verify cryptographic authority.",
+    "Current native/wasm Poet Cargo manifests had no qualia-app-contract name match in bounded direct manifest search; transitive/other adapters not fully traced. Reconcile existing shared IntentBus types rather than presume direct wire compatibility."
+  ],
+  "builds": false,
+  "tests": false,
+  "source_changes": false
+}

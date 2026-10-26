@@ -1,0 +1,36 @@
+{
+  "lane": "session-gpu",
+  "date": "2026-10-26",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "high",
+  "recovery": "The earlier gpt-6.1-sol worker returned a capacity error and no work. Root's first installed candidate executed all parent GPU effect/order/history assertions, then the fresh child could not open the authority journal because parent admission/session values remained live. This revised candidate scopes all parent authority/session/snapshot/worker values to drop before child process creation.",
+  "scope": "One ignored signed NativeProject retained GPU qualification test. Synthetic 8x8 source texture, 64px GPU readbacks, native TextureDetail dispatch, admitted MCP effect edit, effect state/order/history, HMC resource closure and fresh-process GPU reopen.",
+  "staged_source": "native/src/graphical/native_project_texture_effect_gpu_tests.rs",
+  "intended_poet_path": "native/src/graphical/native_project_texture_effect_gpu_tests.rs",
+  "staged_sha256": "608485792b914af038933a55ebafebef354816fbde43802a134b50026d0ca076",
+  "installed_attempt_1_preimage_sha256": "d340bbbe911ace607ee5ab680ec9ee538a8f45941ab9defdc5d19d8c5f746a8d",
+  "parent_registration": {
+    "path": "native/src/graphical/native_project_texture_effect_tests.rs",
+    "original_pre_registration_sha256": "abddde692ca30aa9fd2ebc5bb199e2edce8de27d36fa9757d3c2f9288f85a6fd",
+    "currently_installed_sha256": "812f6a09ecdbd2103af4caeb763f394f227db263716db31fe59d815fb4c3745e",
+    "instruction": "Root already registered #[path = \"native_project_texture_effect_gpu_tests.rs\"] mod gpu_tests; under the existing texture effect test module. No parent edit is proposed by this recovery."
+  },
+  "source_pins": [
+    "C:/github/poet/native/src/graphical/native_project_texture_effect_tests.rs: signed fixture/input/recipe/digest helpers and CPU HMC assertions",
+    "C:/github/poet/native/src/graphical/native_project_tests.rs: signed fixture and test module ancestry",
+    "C:/github/poet/native/src/graphical/controller_viewport.rs: source/session/epoch publication of viewport frame",
+    "C:/github/poet/native/src/graphical/viewport_provider.rs: InteractivePreviewProvider retained scene and GPU path",
+    "C:/github/poet/native/src/graphical/viewport/renderer.rs: retained PortalGpu owner and readback",
+    "C:/github/poet/native/src/graphical/mcp/texture_effects.rs: admitted existing Paint recipe effects edit",
+    "C:/github/poet/native/src/graphical/surfaces/detail_pixels.rs: prior ignored atlas/detail native GPU path, no effect steps"
+  ],
+  "verification_performed": [
+    "rustfmt --edition 2021 staged source: exit 0; parse/format only",
+    "Root's first installed GPU run: exit 101; parent grayscale/invert/sepia/order/disable/remove/history and deterministic frame assertions passed; fresh child failed authority journal lock at new file line 143. Preserved log: docs/qa/implementation-2026-10-26/poet-texture-effects/gpu-qualification/retained-gpu-attempt-1.log"
+  ],
+  "verification_not_performed": "No Cargo, test, native window, provider, asset export, sibling edit, or commit by this worker after the attempt-1 failure. Coordinator owns serial attempt-2 checks and runtime evidence.",
+  "requested_serial_test": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --lib graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::texture_effect_gpu_native_dispatch_mcp_history_hmc_fresh_process -- --ignored --exact --nocapture --test-threads=1",
+  "selector_note": "Coordinator should verify the full module-qualified selector after registration. The test internally launches that exact full name with --ignored and demands a child marker.",
+  "evidence": "Optional POET_TEXTURE_EFFECT_GPU_EVIDENCE_DIR must designate an existing caller-selected directory. Parent/child create_new fixed PNG names and a bounded witness, so earlier evidence cannot be overwritten.",
+  "limitations": "The attempt-1 positive parent GPU assertions are recorded; fresh-process recovery remains unverified pending serial attempt 2. Device/backend identity is unavailable through the inspected public Poet provider API. Current-window, human, domain and production acceptance remain open; asset production remains HOLD."
+}

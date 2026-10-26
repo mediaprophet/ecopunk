@@ -1,0 +1,55 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::draft_buffer::tests::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "draft",
+  "attempt": "inspector-final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:48:43.547972+00:00",
+  "finished_utc": "2026-10-25T22:48:52.852499+00:00",
+  "elapsed_seconds": 9.297,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\draft.log",
+  "log_sha256": "e76b03976bb14d5b4345bdbc1e10f9722b588f4cc90f5a6b97ddb3cb9d486e17",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\draft-source-before.json",
+  "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9",
+  "recorded_local_source_files": 3279,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      4,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::draft_buffer::tests::pending_completion_preserves_typing_and_detects_edit_then_undo",
+    "graphical::draft_buffer::tests::pending_success_adopts_text_only_for_unchanged_private_draft",
+    "graphical::draft_buffer::tests::returning_reviewer_explicitly_adopts_current_source_without_changing_shared_state",
+    "graphical::draft_buffer::tests::standalone_completion_and_buffer_context_fail_closed"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

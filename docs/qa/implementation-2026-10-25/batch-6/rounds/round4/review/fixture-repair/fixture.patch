@@ -1,0 +1,61 @@
+--- a/crates/qualia-core-db/tests/native_package_review/history.rs
++++ b/crates/qualia-core-db/tests/native_package_review/history.rs
+@@ -116,17 +116,53 @@
+     let permission = owner.enrollment_permission(&a).unwrap();
+     let mut new_grant = grant;
+     new_grant.id = "urn:fixture:new-aliased-grant".into();
++    // A second declared release alias keeps the saved bytes/source identical,
++    // while avoiding duplicate exact-target/reviewer scope in the signed body.
++    // That structural duplicate would refuse before testing ancestor exclusion.
++    new_grant.target.package_id = "urn:fixture:second-alias-same-successor".into();
++    assert_ne!(new_grant.target.package_id, successor.package_id);
++    assert_eq!(new_grant.target.package_digest, successor.package_digest);
++    assert_eq!(new_grant.target.source, successor.source);
++    assert_eq!(
++        new_grant.target.producer_subject,
++        successor.producer_subject
++    );
+     assert!(owner
+         .grant_package_review(&permission, new_grant.clone(), &signer)
+         .unwrap_err()
+         .contains("predecessor"));
+-    let mut replacement = owner.enrollment_snapshot().unwrap().snapshot;
++    let retained = owner.enrollment_snapshot().unwrap().snapshot;
++    let mut replacement = retained.clone();
+     replacement.sequence += 1;
+     replacement.package_reviews.push(new_grant);
+-    assert!(owner
+-        .replace_admission(signer.sign_admission(replacement).unwrap())
+-        .unwrap_err()
+-        .contains("predecessor"));
++    assert_eq!(
++        &replacement.package_reviews[..retained.package_reviews.len()],
++        retained.package_reviews.as_slice(),
++        "every old signed scope must remain unchanged"
++    );
++    let signed = signer.sign_admission(replacement).unwrap();
++    // Prove the signed body passes ordinary signature/project/subject/grant
++    // shape admission without the original owner's contributor history.
++    let structural_root = tempfile::tempdir().unwrap();
++    let structural_owner = NativeAuthority::open(
++        structural_root.path(),
++        TrustedProject {
++            project_id: signed.snapshot.project.id.clone(),
++            issuer_identifier: signed.snapshot.issuer_identifier.clone(),
++            public_key: signer.public_key(),
++        },
++        signed.clone(),
++        successor.source.clone(),
++        1024 * 1024,
++        256,
++    )
++    .expect("replacement must pass signature and ordinary scope-shape admission");
++    drop(structural_owner);
++    let error = owner.replace_admission(signed).unwrap_err();
++    assert!(
++        error.contains("predecessor"),
++        "expected ancestor denial after valid structural admission: {error}"
++    );
+ }
+ 
+ #[test]

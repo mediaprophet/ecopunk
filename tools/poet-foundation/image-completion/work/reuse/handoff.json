@@ -1,0 +1,51 @@
+{
+  "task": "bounded_image_operation_reuse_and_notice_trace",
+  "date": "2026-10-26",
+  "status": "complete_bounded_trace",
+  "report": "tools/poet-foundation/image-completion/work/reuse/report.md",
+  "inventory": "tools/poet-foundation/texture-effects/work/deferred-functionality.json",
+  "inventory_item_count": 15,
+  "inspected_repository": "C:/github/qualiaDB",
+  "inspected_scope": [
+    "crates/qualia-core-db/src/specialized_libs/computer_vision/cv/filter/gaussian_blur_u8.rs",
+    "crates/qualia-core-db/src/specialized_libs/computer_vision/cv/filter/mod.rs",
+    "crates/qualia-core-db/src/specialized_libs/computer_vision/cv/mod.rs",
+    "crates/qualia-core-db/src/specialized_libs/computer_vision/cv/buffer/gray_view.rs",
+    "crates/qualia-core-db/src/poet_host/invoke/vision/cv.rs",
+    "crates/qualia-core-db/Cargo.toml",
+    "crates/qualia-core-db/LICENSE",
+    "targeted symbol searches in specialized_libs/computer_vision/cv and hypermedia_authoring"
+  ],
+  "existing_candidates": [
+    {
+      "operation": "fixed_3x3_gaussian_gray8",
+      "symbol": "qualia_core_db::specialized_libs::computer_vision::gaussian_blur_u8",
+      "signature": "gaussian_blur_u8(src: GrayView<'_>, out: &mut [u8]) -> Result<(), CvError>",
+      "source": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/cv/filter/gaussian_blur_u8.rs",
+      "sha256": "7A128E9D8B96F40DC06671D33734929F5A2C19B6442628ADE0A35ADF59A88FF9",
+      "semantics": {
+        "input_output": "Gray8; caller provides output bytes",
+        "kernel": "fixed separable-equivalent 3x3 weights [1,2,1;2,4,2;1,2,1]",
+        "edge": "clamp coordinates to edge",
+        "rounding": "integer sum divided by 16 (floor)",
+        "alpha": "not represented",
+        "color_space": "single grayscale byte channel; no RGBA/color-space semantics"
+      },
+      "public_path": "re-exported by cv/filter/mod.rs, cv/mod.rs, and computer_vision module",
+      "host_caller": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/vision/cv.rs::gaussian_blur; allocates output and invokes the kernel",
+      "reuse_decision": "not an exact replacement for ImageFilterOp::GaussianBlur sigma-parametric RGBA8; possible only for an explicitly grayscale operation with matching fixed kernel semantics"
+    }
+  ],
+  "exact_parametric_rgba8_operators_found_in_inspected_scope": [],
+  "bounded_search_conclusion": "No exact parametric RGBA8 operators for Gaussian blur, sharpen, hue rotate, or emboss were found in the inspected CV and hypermedia_authoring trees. This does not establish repository-wide absence.",
+  "notice": {
+    "package_manifest": "C:/github/qualiaDB/crates/qualia-core-db/Cargo.toml",
+    "license_file": "C:/github/qualiaDB/crates/qualia-core-db/LICENSE",
+    "license_file_sha256": "0AB3C88349C20A896BEB3BB5FC9A2F1087B41A5CA32B961C09CCE5457C8E12E6",
+    "notice_text_identifies": "CC BY-NC-ND 4.0 International",
+    "handling": "No source copied. Preserve actual notice if a later authorized use redistributes literal source; legal review is outside this technical trace."
+  },
+  "source_edit": false,
+  "tests_or_builds_run": false,
+  "assets_created": false
+}

@@ -1,0 +1,70 @@
+{
+  "status": "staged-only-uncompiled-unexecuted",
+  "changed_target_count": 7,
+  "prior_candidate": "frozen-20-target-manifest.json",
+  "targets": [
+    {
+      "relative": "native/src/graphical/checkpoints/georaster_edit/mod.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\semantic-repair\\before\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+      "before_sha256": "4c98e49e3a89e376c09d80b2f225a3931b48e00b02decaa0bac60d0eeead18e1",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+      "after_sha256": "3ab56d6d4c49b0f1f0647d6b097088d958277914b0230de95d1f370bdd71a521",
+      "lines": 223
+    },
+    {
+      "relative": "native/src/graphical/checkpoints/georaster_edit/producer.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\semantic-repair\\before\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+      "before_sha256": "ccf7f54851317ef3deef879b21c761e436bc3424aa8a6254cbd210a11459f920",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+      "after_sha256": "d30bf0ca276bda7bc8d041b58e14802a93aaeb4330abe2a705dc143d7974874b",
+      "lines": 165
+    },
+    {
+      "relative": "native/src/graphical/checkpoints/georaster_edit/source.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\semantic-repair\\before\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+      "before_sha256": "ff6e1cec86a21e1dda7cc8cb5dd761e7ffb41279f50d661081b67a26d12d75e7",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+      "after_sha256": "0fe448cda647975bbae4f886e4260704b39a4faa53e123dad533cd4a250d06a6",
+      "lines": 182
+    },
+    {
+      "relative": "native/src/graphical/cooperation/georaster_edit_support.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\semantic-repair\\before\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+      "before_sha256": "c1034f82b230fbdb56f9b5bb9cc0f476a4a3ad7d4e6cb6441d3812452fd4dd1f",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+      "after_sha256": "f0a5206ad5ff65baec3f118d35e47a0b0d4c7d2155da89759c4ee07bc98bccc1",
+      "lines": 250
+    },
+    {
+      "relative": "native/src/graphical/cooperation/georaster_edit_tests.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\semantic-repair\\before\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+      "before_sha256": "cff1203b2806ab6a19299cf5a315eb89259055a37613146b81ab1a4fec2b8e81",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+      "after_sha256": "b8991755527dacae64ccd5e760da5ee34ff533dc7a315c4b06f1b50762294b67",
+      "lines": 474
+    },
+    {
+      "relative": "native/src/graphical/package_georaster_edit_view.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_edit_view.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\semantic-repair\\before\\native\\src\\graphical\\package_georaster_edit_view.rs",
+      "before_sha256": "4d85d07a2652933a818c6f427f0624e96ed3e39b6605d0337b1e1f3fcfdaeb9e",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\package_georaster_edit_view.rs",
+      "after_sha256": "78c83da52b954b2f2c9c323c7ca0f8468b633b563756f3f228da81f7be39ea11",
+      "lines": 100
+    },
+    {
+      "relative": "native/src/graphical/cooperation/georaster_metadata_tests.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_metadata_tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\georaster_metadata_tests.rs",
+      "after_sha256": "365857640ff8dca6ea0f8efefe15a363aff4b5e08efef10bb3047af6c9b71c09",
+      "lines": 83
+    }
+  ]
+}

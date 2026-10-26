@@ -1,0 +1,154 @@
+{
+  "observed_utc": "2026-10-24T10:23:56.307227Z",
+  "canonical_engine_root": "C:/github/qualiaDB",
+  "source_evidence": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/authoring.rs",
+      "sha256": "DC21C66E628C7BF8AD2A4F58741DEC9676F3A1D39BBF071593D04421C57531CC",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/surface_authoring.rs",
+      "sha256": "148D3CA2F1586EC2C3F4C9B7815316B09A0AF6EE0D761484C903F41ED7BA88D0",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/skeletal/authoring.rs",
+      "sha256": "0D0193C2617B9A396FFD345E5221FC867EF64CC326918FBB3070E5E172339736",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/authoring.rs",
+      "sha256": "B2D89CD4F673BEE8AAAA3540790051BFD1ED69E172D69826389C1DBB6F3AE9CF",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/authoring_loft.rs",
+      "sha256": "9E4DE430BAF3CC5F50F561A4439E07E005133665AB9871534CFF6877F746400B",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/parametric_cad.rs",
+      "sha256": "2AE56C3F9A7F7E5549F72740C41734F0CB519CCE3530E0BF1F4B2EADCC740943",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/surface_mesh_processing.rs",
+      "sha256": "577966C47E4C21006CB242B74AA8446B0AAE5C778EC5F4459DDE4CF28D1F7F45",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/nary_csg.rs",
+      "sha256": "9A046A5D247F9C4B3F0EB8EE1BE3AD5C73D14D791B0DDC38BCB737EF0C465C00",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/world3d.rs",
+      "sha256": "A4C9D1BEC27E1AC51F908EA11AB8FC032DA8BC817CEDD2A3819B917E55A0AA88",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/mod.rs",
+      "sha256": "9742F649FF723CFD553B613951227C7DFD817550FD2E916C524BA01060F9C05B",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave27_host.rs",
+      "sha256": "202DADBDA187B36E99FFFFB7C37B34F1704C343C39560A096F2E149C085D0FC6",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave28_host.rs",
+      "sha256": "02A21F40D8621C1C96D06DC41762B5D6A859978D3D8E2C50EE0F0A33CEF989FA",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/geometry/wave29_host.rs",
+      "sha256": "DD2183B1B6E685D31C968BD1ADD19F677518045596DB1D6119DBF22FFEB347E8",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/manifold/project.rs",
+      "sha256": "A5229DB37F0B70CC83A927007551D168A13677411DC9A07ED87AE625EAA2A63D",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "sha256": "7CEBD4589473740329F4E394663547E69B220ADB15AF72B9ADA0F6E2DDFF8497",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains.rs",
+      "sha256": "EB1C9BEC95513BE0CC388C89D178E0E416192EC115FE292491DB3C090D9D88D1",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/args.rs",
+      "sha256": "33C77E71AB1FD838C1872EC51C21016A8E0A716A08A1E97CC36C18B85ADA8BB7",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/compile_10d.rs",
+      "sha256": "1253597E43F686E6D29F0CF02975C0E485560BF2A8437085073D4B8AB611831E",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/asset_package.rs",
+      "sha256": "6EA098D2F3B32498AF54CF0790EEABF236EB6E233FBF928B5749742FB9A6CA60",
+      "evidence": "source inspected; not a product acceptance claim"
+    },
+    {
+      "path": "C:/github/poet/native/Cargo.toml",
+      "sha256": "D123D8F401345041C0222C6228A0C6BCB7BDDDA67A79C6ABEBAAF385E1A77A45",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/poet/native/src/main.rs",
+      "sha256": "6E800CC9B549366307C15613C962BDF81AD8E10F098C5AFF076ECD2B4D867986",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/manifolds/studio.rs",
+      "sha256": "CA6F53FD839324E5E2FFFEBC5A8666F64598D28DAC61978549C5DA46BD2D92C1",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/core/intent_bus.rs",
+      "sha256": "59C55D4FF0B4FA7411423D76B01BF5EBEDB61F19CBAC5DF21ECFC4BA4B615D19",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/rust-app-framework/AGENTS.md",
+      "sha256": "25DCB5044FA0D4ECA44121C6B7C7B523A28D6FC2642F982C507F171D63606721",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/rust-app-framework/notes/architecture/06-RENDERERS.md",
+      "sha256": "6ED631562F5BC0D24C538AFB8C551998EB07502B81AB1F64A28E376D5CC75555",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/qualiaDB/AGENTS.md",
+      "sha256": "89F13F6DC42D41947827E16B59A73816D0FBD3C2489EBAFC4110AAD9877CB900",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/qualiaDB/LICENSE",
+      "sha256": "0AB3C88349C20A896BEB3BB5FC9A2F1087B41A5CA32B961C09CCE5457C8E12E6",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/ecopunk/AGENTS.md",
+      "sha256": "3DFDE0A3CBAC0482825DD437EA4726F534B403E12F309F8EB9F583D520A3D786",
+      "evidence": "source/instructions inspected"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/render/scene_graph.rs",
+      "sha256": "5B43661EF1B4C995241CC244D1AF4ED3142EB095F02BD360F72F671C5312D22E",
+      "evidence": "source inspected: planning records distinguished from actual IK kernels"
+    }
+  ],
+  "cached_execution_is_separate_from_current_source_build": true,
+  "source_changed_by_this_worker": false,
+  "boundary": "Chora and all sibling code unmodified; staged exact candidate only"
+}

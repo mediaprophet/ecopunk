@@ -1,0 +1,55 @@
+{
+  "mode": "wire",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::surfaces::wire::tests::",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T12:54:09.781024+00:00",
+  "finished_utc": "2026-10-25T12:54:24.316717+00:00",
+  "elapsed_seconds": 14.547,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\wire.log",
+  "log_sha256": "2239c0772961a3a40e3978569decfbbb42063c3b1c129232199c1a4f5881af15",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\wire-source-before.json",
+  "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+  "recorded_local_source_files": 3245,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 1,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::surfaces::wire::tests::strict_native_intent_roundtrip_refuses_unknown_nested_and_role_mismatch"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round7-pdf4ix70",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

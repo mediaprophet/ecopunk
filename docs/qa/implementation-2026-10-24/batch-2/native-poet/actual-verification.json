@@ -1,0 +1,95 @@
+{
+  "recorded_utc": "2026-10-24T16:12:02.5844043Z",
+  "scope": "Actual applied Poet workspace native-feature tests/build and WASM library type check",
+  "source_receipt": "source-smoke/input-freeze.json",
+  "source_receipt_sha256": "361ac1b448b5db494529e957fb23bccf25e88c9aac9e28f1e4767ac11c07348a",
+  "lock_sha256": "f1c6d2ddfd33ec813815b3cebdea120b90afc97cbbdc764742d64ec0d6c1b627",
+  "native_tests": {
+    "first_invocation_reason": "Stylo build script could not execute WindowsApps Python launcher",
+    "elapsed": "9m 34s",
+    "exit_code": 0,
+    "new_graphical": 21,
+    "passed": 36,
+    "serial": true,
+    "first_invocation_exit_code": 101,
+    "existing_cli": 15,
+    "correction": "PYTHON3 explicitly set to existing bundled Python3.12.14; source/lock unchanged"
+  },
+  "regular_build": {
+    "elapsed": "35.84s",
+    "binary_sha256": "839a0ed5f57e26afb5fd31cce5440956a3b17367dc7d6df6039f813ff0d20de5",
+    "exit_code": 0,
+    "binary": "C:/github/ecopunk/target/debug/poet.exe"
+  },
+  "actual_entry": {
+    "granted_prepare_exit_code": 0,
+    "no_gpu_in_prepare": true,
+    "empty_grants_prepare_exit_code": 1
+  },
+  "wasm_library_check": {
+    "elapsed": "2m 11s",
+    "qualification": "Rust library check, not browser execution, persistent-session parity or full app acceptance",
+    "target": "wasm32-unknown-unknown",
+    "exit_code": 0
+  },
+  "window": {
+    "ui_accessibility_descendants": false,
+    "app": "process:C:/github/ecopunk/target/debug/poet.exe",
+    "initial_approval_timeout_resolved": true,
+    "app_access_user_authorized": true,
+    "keyboard_alt_f4_exit_code": 0,
+    "partial_workflow_verified": true,
+    "session_revision_observed": 1,
+    "complete_workflow_verified": false,
+    "status": "Initial native window: Check and actual GPU frame displayed; ordinary key worked; paste, initial paint, accessibility and narrow layout failed and require UI5",
+    "source_revision_observed": 2,
+    "title": "Poet · Studio",
+    "ui5_fix_applied_pending_tests": true
+  },
+  "evidence": [
+    {
+      "path": "actual-native-tests.log",
+      "sha256": "5be91c32b730a9498230883a5da0d9a468cbc216be6702c090c2ce8a3c4eec7e"
+    },
+    {
+      "path": "actual-native-tests-python.log",
+      "sha256": "47c5ada1dbb1bf61d9b44a5bae99a284f144150e8d660f960073826f69c27835"
+    },
+    {
+      "path": "actual-native-build.log",
+      "sha256": "2d191b5a127c0f42468fd4d748c620b0d671e8465ded6162594d5d0d2e55624f"
+    },
+    {
+      "path": "actual-entry-granted.log",
+      "sha256": "f4ea98b7e3e1c80a7972b72588ef1f5739711f497ff7c07350711d26cffe72fd"
+    },
+    {
+      "path": "actual-entry-denied.log",
+      "sha256": "1af48b2af1cd10840ea2833c8ad0d4bda636f3bd1dcaf27b9f1768cccbc18b35"
+    },
+    {
+      "path": "actual-poet-wasm-check.log",
+      "sha256": "da087d9f51fe4996e9e4daec35bffd5170e69baeb49ae08683c455995f6c99da"
+    }
+  ],
+  "human_acceptance_claimed": false,
+  "model_or_hmc_complete": false,
+  "remaining": [
+    "UI5 actual Aether tests and native tests/build/window rerun",
+    "Authenticated project/contributor/reviewer admission and durable recovery",
+    "Material source authoring and verified editable-source HMC delivery",
+    "Exceptional film/game/cartoon master and game-demo acceptance"
+  ],
+  "initial_integrated_receipt": {
+    "path": "../integrated-sources.json",
+    "sha256": "e50bc38d74d54122aeaba9086dd50ad49772d72d44b67dafc42b266f6a8c0f1b",
+    "note": "Historical current pointer advanced with UI5; immutable same-46-source pins retained in source-smoke/input-freeze.json"
+  },
+  "headless_source_frame": {
+    "ui_verification": false,
+    "changed_pixels": 6927,
+    "sha256": "3ef6c995d2144a8f2d839f09cccc32999d4dd4d3e3fb6da1626bc85fb3b0b875",
+    "receipt": "source-smoke/verification.json",
+    "actual_frames": 3
+  }
+}

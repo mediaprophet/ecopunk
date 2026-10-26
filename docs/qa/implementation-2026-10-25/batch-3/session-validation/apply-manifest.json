@@ -1,0 +1,17 @@
+{
+  "scope": "Pre-promotion canonical Vibe output validation",
+  "mutations": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+      "candidate": "candidate/mod.rs",
+      "original_sha256": "ff2567e1e585a40fcf560677cb286005b1f512f96ee39a673d5ddd675698f544",
+      "candidate_sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\validation_tests.rs",
+      "candidate": "candidate/validation_tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe"
+    }
+  ]
+}

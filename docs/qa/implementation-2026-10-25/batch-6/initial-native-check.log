@@ -1,0 +1,129 @@
+     Locking 2 packages to latest compatible versions
+      Adding cadcraft-geom v0.4.0 (C:\github\craft\crates\geom)
+      Adding craft-authoring v0.4.0 (C:\github\craft\crates\authoring)
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+    Checking cadcraft-geom v0.4.0 (C:\github\craft\crates\geom)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+    Checking craft-authoring v0.4.0 (C:\github\craft\crates\authoring)
+    Checking webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    Checking poet-cli v0.0.40 (C:\github\poet\native)
+error[E0433]: cannot find `assembly` in `super`
+  --> native\src\graphical\editor_contract.rs:59:19
+   |
+59 |         if super::assembly::is_assembly(value) {
+   |                   ^^^^^^^^ could not find `assembly` in `super`
+   |
+help: consider importing this module
+   |
+ 2 + use crate::graphical::assembly;
+   |
+help: if you import `assembly`, refer to it directly
+   |
+59 -         if super::assembly::is_assembly(value) {
+59 +         if assembly::is_assembly(value) {
+   |
+
+error[E0433]: cannot find `assembly` in `super`
+  --> native\src\graphical\editor_contract.rs:60:27
+   |
+60 |             return super::assembly::admit_assembly(value, self.limits).map(|_| ());
+   |                           ^^^^^^^^ could not find `assembly` in `super`
+   |
+help: consider importing this module
+   |
+ 2 + use crate::graphical::assembly;
+   |
+help: if you import `assembly`, refer to it directly
+   |
+60 -             return super::assembly::admit_assembly(value, self.limits).map(|_| ());
+60 +             return assembly::admit_assembly(value, self.limits).map(|_| ());
+   |
+
+error[E0433]: cannot find `assembly` in `super`
+  --> native\src\graphical\editor_contract.rs:83:19
+   |
+83 |         if super::assembly::is_assembly(value) {
+   |                   ^^^^^^^^ could not find `assembly` in `super`
+   |
+help: consider importing this module
+   |
+ 2 + use crate::graphical::assembly;
+   |
+help: if you import `assembly`, refer to it directly
+   |
+83 -         if super::assembly::is_assembly(value) {
+83 +         if assembly::is_assembly(value) {
+   |
+
+error[E0433]: cannot find `assembly` in `super`
+  --> native\src\graphical\editor_contract.rs:84:35
+   |
+84 |             let assembly = super::assembly::admit_assembly(value, self.limits)?;
+   |                                   ^^^^^^^^ could not find `assembly` in `super`
+   |
+help: consider importing this module
+   |
+ 2 + use crate::graphical::assembly;
+   |
+help: if you import `assembly`, refer to it directly
+   |
+84 -             let assembly = super::assembly::admit_assembly(value, self.limits)?;
+84 +             let assembly = assembly::admit_assembly(value, self.limits)?;
+   |
+
+error[E0433]: cannot find `assembly` in `super`
+  --> native\src\graphical\editor_contract.rs:85:27
+   |
+85 |             return super::assembly::render_assembly(source, &assembly, self.camera, self.limits);
+   |                           ^^^^^^^^ could not find `assembly` in `super`
+   |
+help: consider importing this module
+   |
+ 2 + use crate::graphical::assembly;
+   |
+help: if you import `assembly`, refer to it directly
+   |
+85 -             return super::assembly::render_assembly(source, &assembly, self.camera, self.limits);
+85 +             return assembly::render_assembly(source, &assembly, self.camera, self.limits);
+   |
+
+error[E0061]: this function takes 4 arguments but 3 arguments were supplied
+  --> native\src\graphical\assembly\compile.rs:24:5
+   |
+24 |     attach_material_section(&geometry, &assembly.materials, &assembly.ranges)
+   |     ^^^^^^^^^^^^^^^^^^^^^^^-------------------------------------------------- argument #4 of type `u32` is missing
+   |
+note: function defined here
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\container_10d\material_container.rs:47:8
+   |
+47 | pub fn attach_material_section(
+   |        ^^^^^^^^^^^^^^^^^^^^^^^
+help: provide the argument
+   |
+24 |     attach_material_section(&geometry, &assembly.materials, &assembly.ranges, /* u32 */)
+   |                                                                             +++++++++++
+
+Some errors have detailed explanations: E0061, E0433.
+For more information about an error, try `rustc --explain E0061`.
+error: could not compile `poet-cli` (lib) due to 6 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `poet-cli` (lib test) due to 6 previous errors

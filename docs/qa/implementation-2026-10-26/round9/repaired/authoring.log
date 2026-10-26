@@ -1,0 +1,90 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0382]: borrow of moved value: `current.members`
+   --> native\src\graphical\native_entry\ui.rs:141:45
+    |
+ 60 | /     rsx! {
+ 61 | |         div{style:"height:100vh;overflow:auto;background:#111820;color:#e8eef4;font-family:sans-serif;",
+ 62 | |             header{style:"padding:18px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #465463;",
+ 63 | |                 h1{style:"margin:0;","Poet · Cooperative Project"}
+...   |
+141 | |                         if let Some(member)=current.members.iter().find(|member|&member.subject==subject){
+    | |                                             ^^^^^^^^^^^^^^^ value borrowed here after move
+...   |
+157 | |     }
+    | |_____- `current.members` moved due to this method call
+    |
+note: `into_iter` takes ownership of the receiver `self`, which moves `current.members`
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\iter\traits\collect.rs:312:17
+    = note: move occurs because `current.members` has type `Vec<native_entry::types::MemberView>`, which does not implement the `Copy` trait
+    = note: borrow occurs due to deref coercion to `[native_entry::types::MemberView]`
+help: you can `clone` the value and consume it, but this might not be your desired behavior
+    |
+157 |     }.clone()
+    |      ++++++++
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:76:5
+   |
+76 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:77:5
+   |
+77 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     ----^^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\viewport_controls.rs:201:9
+    |
+201 |     let mut viewport_state = use_signal(|| None::<ViewportState>);
+    |         ----^^^^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+For more information about this error, try `rustc --explain E0382`.
+warning: `poet-cli` (lib test) generated 3 warnings
+error: could not compile `poet-cli` (lib test) due to 1 previous error; 3 warnings emitted

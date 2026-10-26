@@ -1,0 +1,774 @@
+{
+  "schema": "ecopunk-effectcraft-engine-review-v1",
+  "date": "2026-10-26",
+  "owner": "/root/poet_full_authoring",
+  "assigned_by": "/root",
+  "authority": "Documentation/research only; source repo read-only; only named report pair writable",
+  "source_root": "C:/github/storytold/effectcraft-main",
+  "source_pin_kind": "whole-file SHA256 of current filesystem; no Git operation/clean revision claim",
+  "write_boundary": [
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.md",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.coverage.json"
+  ],
+  "new_implementation_body_budget": 14,
+  "new_implementation_body_count": 14,
+  "source_reads": [
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/lib.rs",
+      "sha256": "fa814054621730fefc85a89ec60416ce76253a6c979ef5631b8ec31ea1905881",
+      "ranges_1_based": [
+        {
+          "start": 99,
+          "end": 155
+        },
+        {
+          "start": 160,
+          "end": 220
+        },
+        {
+          "start": 568,
+          "end": 592
+        },
+        {
+          "start": 641,
+          "end": 765
+        },
+        {
+          "start": 778,
+          "end": 788
+        },
+        {
+          "start": 848,
+          "end": 886
+        },
+        {
+          "start": 1158,
+          "end": 1172
+        },
+        {
+          "start": 1184,
+          "end": 1194
+        },
+        {
+          "start": 1242,
+          "end": 1315
+        }
+      ],
+      "symbols": [
+        "Services/FsServices",
+        "Session default selected fields",
+        "Session::execute/execute_checked/execute_for_script/edit/edit_inner/bump/undo/redo",
+        "Session::renderer/render/render_rgba8/render_rgba8_alpha/replace_project"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Canonical domain edit/history/revision promotion, command guards and selected rendering/source replacement; default native files, optional expr/accel/export; not principal authority or durable history proof"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/mod.rs",
+      "sha256": "9471eee15e8fef8a6af199b8f0481a82fab0c9bc9bb08c43af1902e7a0843f99",
+      "ranges_1_based": [
+        {
+          "start": 101,
+          "end": 194
+        },
+        {
+          "start": 258,
+          "end": 272
+        },
+        {
+          "start": 344,
+          "end": 387
+        }
+      ],
+      "symbols": [
+        "CommandSpec/cmd/query",
+        "command_specs/find",
+        "params_schema/check_params"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Registry/menu/shortcut/run owner; prose-derived descriptions not strict value schemas; top-level key check only"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/comp.rs",
+      "sha256": "ca9033150c8bbba0fb7890c72e673ec5fe2a261ef80f28db64ffd31539acffec",
+      "ranges_1_based": [
+        {
+          "start": 11,
+          "end": 40
+        },
+        {
+          "start": 100,
+          "end": 152
+        },
+        {
+          "start": 275,
+          "end": 288
+        }
+      ],
+      "symbols": [
+        "rate_p/check_rate/apply_settings excerpt",
+        "new_comp/settings/open",
+        "specs comp.new registration"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Actual composition creation and context-return path through Session::edit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/layer.rs",
+      "sha256": "763d963a298d95bbeee3d7bac78a676aa0e2dd99af340aab569c8792a171cc75",
+      "ranges_1_based": [
+        {
+          "start": 70,
+          "end": 130
+        },
+        {
+          "start": 1710,
+          "end": 1710
+        }
+      ],
+      "symbols": [
+        "insert_layer_at/solids_folder/new_solid_like/pixel_aspect_p/new_solid/new_adjustment",
+        "specs layer.newSolid registry row"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Solid item/source layer created through existing builder/edit; selection updated; registry row inspected"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/effect.rs",
+      "sha256": "d884cfb3060e48e9912beba78a056d4567b0dda026a2860e54f89225294b34fb",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 113
+        },
+        {
+          "start": 714,
+          "end": 714
+        }
+      ],
+      "symbols": [
+        "plugins_list/plugins_load",
+        "apply",
+        "specs effect.apply registry row"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Actual effect group/UID/instance path edits; optional host loader, direct folder listing and service byte access; not plugin sandbox audit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/prop.rs",
+      "sha256": "79886cb60d05597ba3efb62cb21fd179df98c3ba46c86d1e14bad754d9fd9ca8",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 80
+        },
+        {
+          "start": 140,
+          "end": 181
+        },
+        {
+          "start": 307,
+          "end": 337
+        },
+        {
+          "start": 421,
+          "end": 471
+        },
+        {
+          "start": 531,
+          "end": 555
+        },
+        {
+          "start": 1305,
+          "end": 1320
+        }
+      ],
+      "symbols": [
+        "prop_ref/with_prop/key_time",
+        "set_selected excerpt/set/add_key",
+        "specs prop.set/prop.addKey"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Leaf property resolution, typed value/key edit, layer/comp time validation and caller dispatch; broad property operations outside excerpts unassessed"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/file.rs",
+      "sha256": "d4263f71dae58461b36db456c44c384468834d5fe9b4ee3df23df9b250cce562",
+      "ranges_1_based": [
+        {
+          "start": 43,
+          "end": 121
+        },
+        {
+          "start": 734,
+          "end": 756
+        }
+      ],
+      "symbols": [
+        "open/file_text/save_to/save/save_as/increment_save",
+        "specs file.open/save/saveAs"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Actual load/repaired-state replacement and checked file save route; newer-version field-loss warning; not full import/path or XML audit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/project/src/lib.rs",
+      "sha256": "d06e317adb47355658595505a65087d3e0c481b61beb07b1e1becd93eb480450",
+      "ranges_1_based": [
+        {
+          "start": 1421,
+          "end": 1445
+        },
+        {
+          "start": 1600,
+          "end": 1662
+        }
+      ],
+      "symbols": [
+        "Project selected fields/default excerpt",
+        "to_file_json/to_file_json_with_view/to_json/to_json_compact/from_json/from_json_repaired"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Project+view file serialization with schema/representability checks and repair parser; project does not include Session history"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/host/src/lib.rs",
+      "sha256": "e2ab318337b0149b9d39368dc8c803df51f9a00fe22827631ed251d59463051e",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 103
+        }
+      ],
+      "symbols": [
+        "MediaImporter::probe",
+        "FileExporter::formats/export/export_async",
+        "session"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Fully wired host unconditionally installs Boa expr/script; exporter bridges selected engine job to export crate and maps cancellation"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/automation/src/backend.rs",
+      "sha256": "c33b495e3d16f038fefed3098bdcd2727d18e3b10fb8a02c7f4f9d777f48378b",
+      "ranges_1_based": [
+        {
+          "start": 1,
+          "end": 142
+        }
+      ],
+      "symbols": [
+        "Backend headless/bridge/confine/session/exec/run/control/render/render_with"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Actual agent -> same domain Session or app bridge; optional confinement defaults None; PNG-producing caller"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/automation/src/tools.rs",
+      "sha256": "db73d53420b1f0ede72b210649a09e6c81a108532cf2ce761aff0a79d6f493e6",
+      "ranges_1_based": [
+        {
+          "start": 111,
+          "end": 123
+        },
+        {
+          "start": 197,
+          "end": 203
+        },
+        {
+          "start": 347,
+          "end": 442
+        },
+        {
+          "start": 572,
+          "end": 572
+        },
+        {
+          "start": 663,
+          "end": 663
+        },
+        {
+          "start": 728,
+          "end": 728
+        },
+        {
+          "start": 747,
+          "end": 747
+        },
+        {
+          "start": 756,
+          "end": 756
+        }
+      ],
+      "symbols": [
+        "run/execute_command",
+        "add_keyframe/render_frame/open_project/save_project/history excerpts",
+        "tool catalogue name locations"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Concrete MCP command/key/render/file tool handlers; multi-key loop can commit earlier commands; render optional path writes directly"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/render/src/lib.rs",
+      "sha256": "c32095c9662a06c595d342021280c8f3a2e3a39f8ef9942f875db280b6d2482c",
+      "ranges_1_based": [
+        {
+          "start": 406,
+          "end": 442
+        },
+        {
+          "start": 498,
+          "end": 516
+        },
+        {
+          "start": 942,
+          "end": 1277
+        },
+        {
+          "start": 1489,
+          "end": 1519
+        },
+        {
+          "start": 1882,
+          "end": 1908
+        },
+        {
+          "start": 2205,
+          "end": 2228
+        }
+      ],
+      "symbols": [
+        "Accelerator selected methods/CpuFx FxTarget impl",
+        "Renderer::comp_frame/comp_frame_cpu/draw_comp/effect_params/apply_effects/apply_effects_timed/effect_space_stack/run_effect_stack",
+        "source solid and nested-comp excerpt/content_buf_timed/draw_layer",
+        "run_effects_on/run_layer_effects_on"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Actual source pixels and ordered effect CPU/GPU dispatch, cache/compose callers; selected accelerator fallback defaults; effect kernels and 3D implementation not audited"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/export/src/lib.rs",
+      "sha256": "6c0b57f9eaf81067f050fbf953f0eada25d19fa1ed017000e74a80753f6534fc",
+      "ranges_1_based": [
+        {
+          "start": 76,
+          "end": 111
+        },
+        {
+          "start": 166,
+          "end": 235
+        },
+        {
+          "start": 255,
+          "end": 290
+        }
+      ],
+      "symbols": [
+        "Job/JobOptions",
+        "export/export_async/export_with/State::advance/batch_size",
+        "sequence"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Real export format dispatch, batch progress false -> Cancelled, requested cleanup and selected image sequence writer; pipeline/codec/output cleanup internals unassessed"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/config.rs",
+      "sha256": "2237a60344ac27c86da0ca49525517c388ffb42b5fcfbb21d0d0b35c44c7a260",
+      "ranges_1_based": [
+        {
+          "start": 180,
+          "end": 212
+        }
+      ],
+      "symbols": [
+        "create_temp tail",
+        "atomic_write/atomic_write_with"
+      ],
+      "classification": "selected implementation/caller body excerpts; source inspected, not executed",
+      "finding": "Temp create-new tail, file write+sync then rename, temp cleanup on failed write/rename; not a platform durability/hostile filesystem execution proof"
+    }
+  ],
+  "api_callsite_discovery_only": [
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/effects/src/lib.rs",
+      "sha256": "1ad8e09d631c572b7dcfcc1c8b5477bfacacc015b0d2bbf89842215c21e98cd4",
+      "located_lines_1_based": [
+        3,
+        917,
+        1280
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Gaussian effect id and apply API located only; no selected kernel body review"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/render_queue.rs",
+      "sha256": "6f5691798d8819341604a8604967a37eb6e6ae397d6dc47a1d0de5899f7e1f40",
+      "located_lines_1_based": [
+        60,
+        61,
+        76,
+        134,
+        135,
+        253,
+        286,
+        287,
+        297,
+        312,
+        439,
+        446,
+        548,
+        551
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Exporter/cancel call sites and API excerpts only; no complete queue worker audit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/commands/render_queue.rs",
+      "sha256": "d95be97eb22f50aaaf010ed36c34081b17378e2f9f3c6cb3bad15a886ffa9eae",
+      "located_lines_1_based": [
+        681,
+        791,
+        809,
+        1048
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Queue dispatch/exporter and render command registry call-site locations only"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/automation/src/server.rs",
+      "sha256": "31a1d49c5c7e83f2827514756c21e122da384a0b6572a40b367d287d0ff4dcc9",
+      "located_lines_1_based": [
+        132,
+        184,
+        270
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "MCP tools/call, run_long and tools::run dispatch location only"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/automation/src/long_job.rs",
+      "sha256": "212bdfe98b40be769def095914b87b58103236ee375fd9c09690e31a3aea91e7",
+      "located_lines_1_based": [
+        6,
+        74,
+        76,
+        82,
+        136,
+        137,
+        139,
+        168,
+        170
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "MCP cancellation comments/API/call-site snippets only; not complete acknowledgement/lifecycle audit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/expr/src/runtime.rs",
+      "sha256": "928788c0039a7544458c9ecace2655c8164b9defc9156acf18523ff69b99e640",
+      "located_lines_1_based": [
+        23,
+        238,
+        239,
+        240,
+        250,
+        300
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Expression timeout/loop/recursion/prelude/evaluate call locations only; Boa body/policy not audited"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/script/src/lib.rs",
+      "sha256": "9c43b96419c24c6fc600f63323565ef99e9da1319a15ca7e223567780168df32",
+      "located_lines_1_based": [
+        33,
+        48
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Script file/network gate documentation only"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/script/src/runtime.rs",
+      "sha256": "f0368c98cea69e3c5c22b507afebc66aa56c0fd3edaeb41ea2ca20c8d8320bc4",
+      "located_lines_1_based": [
+        14,
+        129,
+        225,
+        346,
+        348,
+        364,
+        368,
+        372,
+        380,
+        391,
+        396
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Prelude and file-gate locations only; not complete sandbox/policy body audit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/plugin/src/lib.rs",
+      "sha256": "557b122232e30e744fc04c1731d77fcc2e81507f22f871fc0ca628a15337da1e",
+      "located_lines_1_based": [
+        1,
+        21
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Plugin ABI/fuel documentation excerpts only; wasmi runtime/containment unassessed"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/render/src/eval.rs",
+      "sha256": "a1915e7d3735eb25135cd788aa1fbdc19d81d8b1464060b30a46cafc219cd88d",
+      "located_lines_1_based": [
+        11,
+        13,
+        15,
+        27,
+        38,
+        46,
+        64,
+        65,
+        66
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "Optional expression host API/evaluation hook locations only; unsupported projects must be held, not silently static"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/history.rs",
+      "sha256": "a725b978d29b126e66975f39b14eace2e866c4b6fa4d6984ff56964b85b2d5e4",
+      "located_lines_1_based": [
+        27,
+        50,
+        74,
+        193,
+        201,
+        211,
+        233,
+        258,
+        263,
+        273,
+        283
+      ],
+      "classification": "API/comments/call-site or symbol discovery only; not counted as semantic body audit",
+      "note": "History owner/API discovery; Session record/undo/redo callers are body-read elsewhere, internal branch implementation not audited"
+    }
+  ],
+  "manifest_document_pins": [
+    {
+      "path": "C:/github/storytold/effectcraft-main/AGENTS.md",
+      "sha256": "4e31a1e4a7c24f29e885fbec58a65e88ac9610bd9d06492272deed2f81c49992",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/CLAUDE.md",
+      "sha256": "252a111560e07767e5fd528e3c5218720c95402746df7834c460fa2597f36b89",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/Cargo.toml",
+      "sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/Cargo.lock",
+      "sha256": "bc9d49460dbedc71358d4a51d1b6494b7ad793384570f2cc03dea2a68a585d41",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/.cargo/config.toml",
+      "sha256": "716b49c90c25aeeebc4b0359b111a62927d166a1d7f02c4fe83b89d55fb74887",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/docs/architecture.md",
+      "sha256": "d6286054452e79d2a675dee90ec93ab243e3f54e22f0f85854426d7151dc28af",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/docs/agents.md",
+      "sha256": "3db44d78edaf5f5d2f39b301e5f916de9575a08713b89622c8fe693b3140d8fe",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/docs/gaps.md",
+      "sha256": "c4012d4a0197b21510452f2da8a9dba73f7d90b55d0316c2b03148ab056fd6c9",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/docs/mcp.md",
+      "sha256": "c6bf4f858041ec2641376e44414a5310e1e6e1da155427fa3fb7406bbbbbae2f",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/Cargo.toml",
+      "sha256": "c57ae2f4dca2a038769a4d850e01f14f6fa0349dbdb6c0b793b3c5b169bbd593",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/render/Cargo.toml",
+      "sha256": "fc0427e43ce6c0d5241cc57b2361fec10655e51343909b99cd7069094d91243b",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/expr/Cargo.toml",
+      "sha256": "4ec1fb92a0388b0b666b4587f018ad619b5db6461c703aba7985aad01e115a02",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/script/Cargo.toml",
+      "sha256": "43ad7743e71071a509a23bfcb56916085b2c5b0654fb482b25240ae011d486d5",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/host/Cargo.toml",
+      "sha256": "49102722275ab4e1b94b0d4012ea291981bcfef454c4b073dd4c9c40e0bcc98c",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/gpu/Cargo.toml",
+      "sha256": "ca0b8d00a8e24004496c399a3e3bb137c03ca59d178c445aaed32cb5722fa390",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/plugin/Cargo.toml",
+      "sha256": "9950a37bd5429117626d0c9f8b4b741fa956d07c9818e8a681305b321345b51a",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/automation/Cargo.toml",
+      "sha256": "766f05da72f70a4622800269b24da8d5126aa5885ac5c55066d14361103ea11f",
+      "classification": "governing document or selected manifest/lock/document excerpts; no dependency resolution or execution"
+    }
+  ],
+  "unexecuted_test_locations": [
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/tests_key_time.rs",
+      "sha256": "0fc88dc0ddd1c7cb767f1b7fc7064a5fb10560d81771a6f9f12aace8ef3d788b",
+      "test_locations": [
+        "comp_key_times_on_an_offset_layer_read_at_the_intended_time_and_undo:24",
+        "stretched_and_reversed_keys_use_the_comp_frame_grid_for_both_bases:67",
+        "invalid_key_time_arguments_leave_properties_and_history_unchanged:98",
+        "excessive_stretch_or_start_conversions_fail_without_clamping_keys:129"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": null
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/tests_history.rs",
+      "sha256": "a3f5686914d72e9ff2b5e1a6d9998ba65f1177b2d985815bc206cb5cf6b0838b",
+      "test_locations": [
+        "undo_then_new_step_keeps_a_branch:29",
+        "modified_mark_follows_undo_and_no_op_edits_record_nothing:142",
+        "a_session_restored_with_unsaved_changes_stays_modified:184"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": null
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/project/src/tests.rs",
+      "sha256": "6ef7d2b6d44745cb73fb0cb5d63e1e55a67dbad323a40ef158ea777cc2ee6016",
+      "test_locations": [
+        "animate_and_roundtrip_json:52",
+        "project_files_name_their_version_and_always_read_back:158",
+        "project_files_refuse_newer_schemas:178",
+        "saved_files_reopen_in_pretty_and_compact_form:190",
+        "project_files_remember_the_open_comps:197"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": null
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/automation/src/tests.rs",
+      "sha256": "7766bf7cb6c77d17679da92587c3b84fa66e08c3fc87e3bbc3ab0a623f109da4",
+      "test_locations": [
+        "headless_workflow:127",
+        "autosave_is_durable_before_reply_and_queries_do_not_rotate:293",
+        "autosave_errors_preserve_tool_success_retry_and_fail_shutdown:319",
+        "render_progress_and_cancel:1150"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": null
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/tests_fuzz_open.rs",
+      "sha256": "3e75938c487fef805f4e01b67a47ed2907dffbb7a37a48b7fbd75a4d10ddfaaf",
+      "test_locations": [
+        "fuzz_file_open_never_crashes:309"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": null
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/tests_settings.rs",
+      "sha256": "87eacaf464d7b2bdfe25fa5d25dc86678be9c8fad7585c9c718fbf304d3b8cca",
+      "test_locations": [
+        "atomic_write_survives_a_crash_mid_write:850"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": "Other atomic-write call locations at597/614/633 located, not semantic test audit"
+    },
+    {
+      "path": "C:/github/storytold/effectcraft-main/crates/engine/src/tests_effects.rs",
+      "sha256": "830617e1f9b80bfb98fb93452362874bdb7a2221e01fa548ccb6264167dea0a0",
+      "test_locations": [
+        "copy_paste_effects_between_layers_with_undo:55",
+        "invalid_effect_paste_timing_leaves_every_target_and_history_unchanged:243",
+        "effect_paste_keeps_exact_ntsc_frame_offsets:275"
+      ],
+      "classification": "test names/call sites discovered; bodies not semantically audited or executed",
+      "note": null
+    }
+  ],
+  "selected_routes": [
+    "MCP or native control command -> Session::execute_checked/execute -> composition/solid/effect/property keys -> cloned project/history/revision -> real frame dispatcher -> checked project file writer/reopen",
+    "Engine Exporter call site -> host::FileExporter -> export::Job -> selected image-sequence producer/progress/cancel marker; full queue/MCP/pipeline lifecycle not audited"
+  ],
+  "runtime_findings": {
+    "fully_wired_host": "unconditionally installs Boa expressions and scripting; do not import wholesale into native Poet",
+    "lower_engine": "optional expr/accel/exporter defaults; selected non-scripted profile still needs qualification and expression-bearing project hold",
+    "lock_pins": [
+      "boa_engine0.22.0 crates.io",
+      "wasmi2.0.0 crates.io",
+      "wgpu30.0.1 crates.io"
+    ],
+    "native_gpu": "No Etalon resolution established; use existing Accelerator/PortalGpu owner review, not blanket replacement",
+    "authority": "Availability and optional confinement are not native principal authorization/revision/adoption checks",
+    "cancel": "Body verified callback false -> ExportError::Cancelled and FileExporter marker; cleanup requested, internals not read; MCP lifecycle comments/call sites only",
+    "recovery": "Project+SavedView serialization does not serialize Session history; replace_project clears it",
+    "unsafe": "workspace source declares forbid; not a dependency/runtime safety audit"
+  },
+  "coordinator_existing_ecosystem_refs": [
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/qualia-app-contract-source-review.json",
+    "C:/github/ecopunk/docs/planning/tech/poet-comprehensive-authoring-review.md"
+  ],
+  "execution": {
+    "new_builds": 0,
+    "new_tests": 0,
+    "new_exports": 0,
+    "gui_launches": 0,
+    "provider_calls": 0,
+    "source_moves": 0,
+    "sibling_edits": 0,
+    "git_operations": 0,
+    "local_effectcraft_execution_receipts": "none established",
+    "human_acceptance": "none",
+    "counts_are_usability_or_parity_evidence": false
+  },
+  "process_handoff": {
+    "command": "none live",
+    "pid": "none",
+    "session": "none",
+    "cwd": "C:/github/ecopunk",
+    "state": "read-only inspection commands exited; no background process created",
+    "next": "Review selected effect/evaluator/job/cleanup bodies and versioned domain/native-source binding before separately activated implementation"
+  },
+  "remaining": [
+    "selected effect kernel and evaluator semantics",
+    "queue worker/pipeline output cleanup/MCP long-call semantics",
+    "complete dependency/license/feature/native/WASM closure",
+    "native strict descriptor/selection/source/domain revision/auth adapter",
+    "lossless history/resource/source checkpoint integration",
+    "complete UI/accessibility/human+agent workflow acceptance",
+    "comprehensive Poet/PC/TOOL/PA and model acceptance remain open"
+  ]
+}

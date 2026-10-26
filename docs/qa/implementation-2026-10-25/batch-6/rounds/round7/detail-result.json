@@ -1,0 +1,60 @@
+{
+  "mode": "detail",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::surfaces::detail::tests::",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T12:52:48.194568+00:00",
+  "finished_utc": "2026-10-25T12:53:05.898475+00:00",
+  "elapsed_seconds": 17.703,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\detail.log",
+  "log_sha256": "f54f7e5359ce1edf1b1439e2da9b7752c41c8fb3ea9821d2250f3331d198df88",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round7\\detail-source-before.json",
+  "source_snapshot_sha256": "f72972d1f3786f62f5906ef05996683c8a6bb945b4fb007cf1efd9e53e2c9998",
+  "recorded_local_source_files": 3245,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 6,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      6,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::surfaces::detail::tests::imported_base_only_recipe_still_charges_pixel_work_before_render",
+    "graphical::surfaces::detail::tests::input_digest_extent_transfer_alpha_and_resource_budgets_refuse",
+    "graphical::surfaces::detail::tests::opaque_import_layer_edit_visibility_and_replay_change_real_encoded_pixels",
+    "graphical::surfaces::detail::tests::paint_layer_and_stroke_order_are_editable_source_not_cached_pixels",
+    "graphical::surfaces::detail::tests::procedural_canonical_detail_generates_colour_normal_orm_and_distinct_relief",
+    "graphical::surfaces::detail::tests::source_recipe_round_trips_pinned_vibe_and_strict_unknown_fields_refuse"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round7-se7vba0k",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

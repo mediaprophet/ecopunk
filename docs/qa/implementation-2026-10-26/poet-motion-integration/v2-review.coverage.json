@@ -1,0 +1,39 @@
+{
+  "schema": "ecopunk-document-review-coverage/v1",
+  "encoding": "UTF-8",
+  "task": "Bounded delta review of Biosphere algorithms Specifications v2 for Poet motion/reference authoring",
+  "scope": "Compare selected v2 additions/reconciliation with the pinned 547-line original and existing BR-01–16 correction review. No source implementation or empirical audit.",
+  "sources": [
+    {
+      "path": "docs/planning/tech/Biosphere algorithms Specifications v2.md",
+      "line_count": 736,
+      "sha256": "986da7a1c23319a272481a78e5161b5b68d11d6aa5adb291771b92550dbf5d07",
+      "read_ranges": ["397-438", "553-604", "612-635", "637-684", "650-666", "685-695"],
+      "purpose": "New inside-out constituency section, PU0-PU5 causal/process section, reconciliation and BR/work-packet register. No full-document read claimed."
+    },
+    {
+      "path": "docs/Biosphere algorithms Specifications.md",
+      "line_count": 547,
+      "sha256": "883fe0ecf692d6a9b6d55870ef28c729df125fc550e5f506e20343176d5c5afc",
+      "read_ranges": ["12-26", "244-269", "330-341", "352-355", "377-395", "423-424", "509-516"],
+      "purpose": "Pinned original text retained/qualified by v2; inspected only at relevant conflict and comparison passages."
+    },
+    {
+      "path": "docs/planning/tech/biosphere-algorithms-specification-review.md",
+      "line_count": 138,
+      "sha256": "5210931f9249b63b113485e53dc772fb27303dcf3efac013c8e6177a247824d3",
+      "read_ranges": ["46-83"],
+      "purpose": "Existing BR-01–16 corrections and mapped owners; reused without rerunning source/science audits."
+    }
+  ],
+  "actions_not_performed": [
+    "No source code or new source bodies inspected.",
+    "No scientific literature or empirical claims verified.",
+    "No builds, tests, GUI work, provider calls, or implementation.",
+    "No new ABI, schema, runtime gate, or medical/physical capability asserted."
+  ],
+  "output": {
+    "report": "docs/qa/implementation-2026-10-26/poet-motion-integration/v2-review.md",
+    "coverage": "docs/qa/implementation-2026-10-26/poet-motion-integration/v2-review.coverage.json"
+  }
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\codec.rs",
+    "before": "b97100348aa8715137338ec160f0a89b338c93a5c80c44738aa8571488fca64e",
+    "after": "adb13882736ba9a67f306fb73be8b873e0be8859c7d0bdfd2ab448a1be427856",
+    "status": "changed",
+    "lines": 268
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\dependencies.rs",
+    "before": null,
+    "after": "4e2adc69af3b3f0d5263ef7261fe5334e30eda51fec7500f51662daef288a359",
+    "status": "added",
+    "lines": 144
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\graph.rs",
+    "before": "e8d8d37b166c30c1847d23c8f7c8a4ac9e35f40ad71548c8656ea4dcc5a52b7c",
+    "after": "26493051de8b213de566fd4e85f7f5683f6f5af249291d29988a42045bdf5afb",
+    "status": "changed",
+    "lines": 61
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+    "before": "278cb79636944d2be5dad6658eac5314d0431ee62bee6d72cf835e1980524f62",
+    "after": "2f1d9eaeceb7bb2bbe45e5af0b2c26d3c503f500cb3db30feb19ee46e5c0fc05",
+    "status": "changed",
+    "lines": 22
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+    "before": "80e101f33424ca897dc339b7291e88ac3824744d69ff73dbf185f76127fbf985",
+    "after": "e18ba20055663be00d237e7b876798253ce4d6617ef8ad612b833b929f204106",
+    "status": "changed",
+    "lines": 149
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resource_tests.rs",
+    "before": null,
+    "after": "0efbf92506501bd5f1d2a95ca61410c63275f5d2f053cef79c393f926e1d5c22",
+    "status": "added",
+    "lines": 476
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resources.rs",
+    "before": null,
+    "after": "8e64f39f7e18b619366a7565833ff7f981f37317f85da1053980761246bc7f16",
+    "status": "added",
+    "lines": 278
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\snapshot.rs",
+    "before": "82d939659701abde684e99ab79e8666a381e98e8fe6d6e350cafd62be5bf3c20",
+    "after": "2c6ace6b8987674ac459a78c598212f5d80443bded8bd11d56a044d6e9695711",
+    "status": "changed",
+    "lines": 164
+  },
+  {
+    "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\tests.rs",
+    "before": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+    "after": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+    "status": "preserved",
+    "lines": 273
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen_tests.rs",
+    "before": "37aa7852459e7da34ba0a94af5859c19a8e2aaf2b5feb1ac6b8a0fea66330d92",
+    "after": "37aa7852459e7da34ba0a94af5859c19a8e2aaf2b5feb1ac6b8a0fea66330d92",
+    "status": "preserved",
+    "lines": 127
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen.rs",
+    "before": "039bb7d14759319436931674e93d268a14f792c4a4d6cddaa6a36628e89f2b10",
+    "after": "039bb7d14759319436931674e93d268a14f792c4a4d6cddaa6a36628e89f2b10",
+    "status": "preserved",
+    "lines": 122
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+    "before": "ce1c9452fae8546e61977cfed57aaae851b81a8ea2385a9cafe804e341c51e5c",
+    "after": "2d7e36c42a648199c63a614a6c2812f451615097314a540830cbab0cd4e03f26",
+    "status": "changed",
+    "lines": 121
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+    "before": "6c62fc8b435835301b41c80ce65330fc4756370824d9e384999597a017cd842d",
+    "after": "ce5cb92c3d136a1950a39aa49890f8d9af4ad25cea1940c4506d39a67cab07bf",
+    "status": "changed",
+    "lines": 234
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resource_preservation_tests.rs",
+    "before": "5caa776ebe2247b75d0f61d767f9a2b16e25bfe85324bbdbebf5d88e05510d7c",
+    "after": "d565a3f4f59c8b7ad3da4348dee9c926f9f411c4fb471c69f081538510bd1174",
+    "status": "changed",
+    "lines": 356
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resources.rs",
+    "before": null,
+    "after": "2e9db0ddb1267ea7a832a6678abdf610d9c74790c5373a43443e8bd3286201f6",
+    "status": "added",
+    "lines": 214
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_resources.rs",
+    "before": null,
+    "after": "ea2165ca41ddde3efdbda634b451c441246aa1cd075833e27890d77d3757c57e",
+    "status": "added",
+    "lines": 82
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+    "before": "74fa2d305f44aa09bded396891f4b6be3ac4ab4676c3573bcfac5278d624b3c1",
+    "after": "49a8adbf756c036813df5ceb7d4b09747b38a2798f983aed45edf5e6e60ee002",
+    "status": "changed",
+    "lines": 449
+  },
+  {
+    "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\tests.rs",
+    "before": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+    "after": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+    "status": "preserved",
+    "lines": 109
+  }
+]

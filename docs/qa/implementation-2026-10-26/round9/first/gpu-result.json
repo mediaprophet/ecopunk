@@ -1,0 +1,54 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "r9_native_gpu",
+    "--",
+    "--ignored",
+    "--test-threads=1"
+  ],
+  "mode": "gpu",
+  "attempt": "first",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:05:21.268216+00:00",
+  "finished_utc": "2026-10-25T22:05:38.695198+00:00",
+  "elapsed_seconds": 17.422,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\first\\gpu.log",
+  "log_sha256": "3b8f0cfa72c3b7db45201b0385ad3c4ae794082b4913f729dd4fd369345c405c",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\first\\gpu-source-before.json",
+  "source_snapshot_sha256": "b89b6c30a13a31b127dc1b9491d4351e807777e242ce0d2a4875e79d7652e71b",
+  "recorded_local_source_files": 3274,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      2,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::viewport::tests::r9_native_gpu_retains_device_scene_and_picks_visible_part",
+    "graphical::viewport_provider::tests::r9_native_gpu_provider_automatic_preview_and_raw_parts_gestures_share_device_upload"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

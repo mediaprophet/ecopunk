@@ -8,7 +8,7 @@ represented, indexed, and joined across ecopunk's containers (`.q42` / `.m64` /
 bound to each other.
 
 Grounded in: [map-layers.md](map-layers.md) (the *governed-layer* model —
-identity, licence, provenance, families; this doc is the *substrate* beneath
+identifiers, licence, provenance, families; this doc is the *substrate* beneath
 it), [../data-sources/australia.md](../data-sources/australia.md) (source
 register), [../domain-model.md](../domain-model.md) §5 (spatio-temporal engine
 fit), [ontology-stack.md](ontology-stack.md) (GeoSPARQL/LOD position),
@@ -26,15 +26,15 @@ ontologies). That observation is correct but incomplete in a useful way:
 **"raster vs vector vs graph" are serialisations, not ontologies.** Underneath,
 spatial claims exist in three distinct modes:
 
-| Mode | What is being claimed | What has identity | Canonical question | Natural home |
+| Mode | What is being claimed | What has identifiers | Canonical question | Natural home |
 |---|---|---|---|---|
-| **Field** | "quantity `v` holds at position `p` for all `p` in a domain" | the *field* as a whole; cells have no identity | "what is the value here?" | dense arrays: `.m64` chunks, `.10d` FIEL, GPU textures |
+| **Field** | "quantity `v` holds at position `p` for all `p` in a domain" | the *field* as a whole; cells have no identifiers | "what is the value here?" | dense arrays: `.m64` chunks, `.10d` FIEL, GPU textures |
 | **Feature** | "entity `X` exists and occupies geometry `G`" | the *thing*; geometry is one attribute among many | "what is here / what contains this?" | `.q42` NQuins — `geo:Feature` + `geo:hasGeometry`/`geo:asWKT` |
 | **Event** | "agent/instrument `O` observed result `R` at `p`, time `t`" | the *act of observation*; position and time are attributes | "what was seen where, when, by whom?" | `.q42` NQuins — `sosa:Observation` / DwC + point index |
 
 A DEM cell is not a thing; a road's centreline is not a table of heights; an
 occurrence record is not a point-cloud sample. Each mode has a *different*
-identity model, and the identity model is what decides the representation —
+identifiers model, and the identifiers model is what decides the representation —
 not the file format it arrived in.
 
 Plus a fourth thing that is neither field, feature, nor event:
@@ -50,11 +50,11 @@ stack:
 > provenance-bearing artefact.**
 
 A `.m64` DEM tile or a GPU geology texture is a *compiled derivative* of an
-ingestion act — its identity, coverage footprint, licence union, transform
+ingestion act — its identifiers, coverage footprint, licence union, transform
 chain, and temporal scope live in quins. Conversely the graph never tries to
 *be* the raster: 48-byte NQuins describe fields and address them; they do not
 hold per-cell values. Pixels for eyes, quins for truth — and every byte of
-payload reachable from a governed identity.
+payload reachable from a governed identifiers.
 
 ## 2. The geodetic frame (what a coordinate *means*)
 
@@ -92,7 +92,7 @@ Everything in `map-layers.md` §2 lands on this substrate. Columns:
 | Satellite imagery / radiometry | field | DEA products (WOFS, fractional cover, landcover), GIBS | WMS/WMTS + STAC + NetCDF | texture array (display) + `.10d` FIEL/`HyperspectralCube` (analysis) | tile matrix + Hilbert | Two products, two fates — §3.1 |
 | **Surface geology** | feature (+ field drape) | GSNSW Seamless Geology, GA | WMS tiles + **WFS unit polygons w/ attributes** | vector quins (`env:GeologicUnit` via GeoSPARQL) + texture-array drape + strata-column LUT classes | DGGS + quadtree | Task 3.2. The semantic payload is the *vector*, not the pixels — §3.2 |
 | Subsurface strata / regolith | field | GSNSW horizons, ANSIS soil landscapes | WFS + ANSIS RDF (AGLDWG soil ontology exists) | `.m64` Mode 0x02 `M64StrataColumnRecord` 6-layer stack + LUT indices | Hilbert | Unit-code → `BankedConstituentLut` mapping is the compile step |
-| Hydrography | feature | Geofabric (AHGF: streams, catchments, aquifers), BOM AWRA | WFS/GeoJSON | vector quins → corridor splines + strata `surface_fluid_*` fields | DGGS + quadtree | Task 3.3. Creeks are both *features* (identity: this watercourse) and *field drivers* (flow depth/velocity in strata columns) |
+| Hydrography | feature | Geofabric (AHGF: streams, catchments, aquifers), BOM AWRA | WFS/GeoJSON | vector quins → corridor splines + strata `surface_fluid_*` fields | DGGS + quadtree | Task 3.3. Creeks are both *features* (identifiers: this watercourse) and *field drivers* (flow depth/velocity in strata columns) |
 | Transport corridors | feature | state roads, fire trails, OSM | WFS/GeoJSON | vector quins → Hermite spline conformer → heightfield modification | DGGS | Task 3.3. Corridor impressions are *derived edits* — provenance-linked, never baked into source terrain |
 | Boundaries (all kinds) | feature | IBRA v7, NVIS, CAPAD, NNTT, AIATSIS, cadastre | WFS/SHP/GeoJSON | vector quins, DOM-AX-3 kind-family, validity intervals | quadtree | §3.3 — temporal versioning is structural |
 | Occurrences | event | ALA/BioNet/WildNet | REST/DwC-A/OData | point quins + (x,y,t) quadtree; generalised per sensitivity | quadtree + DGGS | §3.4 — the SNES 1 km model operates at index resolution |
@@ -191,7 +191,7 @@ The two planes must answer each other at query time without heap traversal of
 RDF in hot loops. Three mechanisms do the binding:
 
 1. **Manifest quins per artefact.** Every `.m64` file, `.10d` section, and
-   texture-array layer emits a manifest entry at compile time: identity
+   texture-array layer emits a manifest entry at compile time: identifiers
    (`eco:SpatialAsset/<id>`), `prov:wasDerivedFrom` the source snapshot +
    query, coverage footprint (WKT bbox or polygon), SRID + epoch, licence
    union, validity/observation interval, Hilbert index range, and the chunk

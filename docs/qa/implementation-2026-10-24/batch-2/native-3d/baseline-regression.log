@@ -1,0 +1,17 @@
+
+running 1 test
+
+thread 'regression::undo_restores_source_and_advances_revision' (25352) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-3d\harness\lib.rs:34:9:
+assertion `left == right` failed
+  left: "Edited source"
+ right: "Original source"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test regression::undo_restores_source_and_advances_revision ... FAILED
+
+failures:
+
+failures:
+    regression::undo_restores_source_and_advances_revision
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.02s
+

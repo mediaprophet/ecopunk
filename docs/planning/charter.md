@@ -1,7 +1,7 @@
 # ecopunk — Project Charter
 
-**Status:** draft v0.2 · **Date:** 2026-10-12 · **v0.2:** scope widened — ecopunk is the
-umbrella; biosphere and sociosphere are sibling domain layers (biocultural framing)
+**Status:** draft v0.4 · **Date:** 2026-10-24 · **v0.4:** high-grade master production,
+downstream civics use and the tooling-to-Webizen experience loop made explicit.
 
 ---
 
@@ -11,6 +11,43 @@ umbrella; biosphere and sociosphere are sibling domain layers (biocultural frami
 resources — plus the interfaces to model, explore, present, and teach with them — as
 first-class citizens of the **QualiaDB** ecosystem.
 
+**Production direction:** Ecopunk creates high-grade reusable masters of species,
+things and places, with complete knowledge/resource embodiments and editable
+sources. Deliberately reduced, reviewed versions serve `C:/github/game-demo`,
+which relates to dev.civics.au and illustrates social problems, solutions and
+opportunities through gamified spatial experience. The current consumer's
+quality or device budget cannot become the master-production ceiling.
+
+Advancing native authoring and dependency capabilities must improve the delivered
+content and Webizen Desktop's integrated spatial, knowledge and creative
+experience. Recognisable places, credible flora/fauna and understandable systems
+are essential to that purpose. See the governing
+[high-grade/civics-experience contract](tech/high-grade-production-and-civics-experience.md).
+
+The software is also an applied development programme for QualiaDB and its
+custom dependency stack. Authoring, package construction, queries, simulation
+and presentation must work through that native stack without requiring
+JavaScript, Node.js or V8. Missing capability generates an upstream requirement
+and qualification case. See the governing [architecture](architecture.md).
+
+Aether, the controlled Dioxus fork at `C:/github/rust-app-framework`, underpins the
+Webizen Desktop **native launcher/host** and harmonised application versions.
+Poet remains the unified authoring interface. Supported WASM versions share
+application semantics and use native services where the operation requires
+them; target-specific dependencies and availability must be explicit. See the
+[environment/framework contract](tech/webizen-environment-framework.md).
+
+Chora, the Servo-derived engine at `C:/github/chora`, remains a separate code
+base with its own licensing/provenance boundary. Integration follows the
+[Chora contract](tech/chora-engine-boundary.md), using generic interfaces and
+host-owned adapters without merging engine implementation into the other projects.
+
+**Etalon**, `C:/github/etalon`, is the developed wgpu fork and a continuing
+development home for the GPU stack. Assess its actual local implementations
+and consumer evidence rather than assuming upstream wgpu's capability limits.
+The [production backlog](tech/ecopunk-production-backlog.md) connects that work
+to native authoring, complete HMCs and reviewed visual/functional output.
+
 Scope is **biocultural**, not merely biological: the project models the *biosphere*
 (flora, fauna, funga, micro-organisms, ecosystems, biomes — molecule to planet) **and** the
 *sociosphere* (peoples, communities, institutions, languages, custodianship, standing,
@@ -19,7 +56,11 @@ totemic species, custodianship, phenological calendars — rather than merged in
 or split into separate projects. Earth-system context layers (climate, landforms, soils,
 waters) provide the substrate both domains stand on. See
 [sociosphere.md](sociosphere.md) for the sociosphere axiom family and
-[domain-model.md](domain-model.md) (planned) for the layer structure.
+[domain-model.md](domain-model.md) for the layer structure. The **made world**
+adds explicit designs, manufactured objects, vehicles, structures and functional
+systems alongside natural entities and the sociosphere; see [made-world.md](made-world.md).
+Living organisms and people retain their own identifiers and authority when
+interacting with or being depicted beside made-world artefacts.
 
 ## 2. Relationship to QualiaDB
 
@@ -42,6 +83,7 @@ ecopunk and QualiaDB share a creator and co-evolve:
 | **Datasets** | Biosphere data acquired from online sources, normalized, licensed, provenanced, and compiled into `.q42` volumes |
 | **Ontologies** | A biosphere vocabulary stack aligned to Darwin Core / ENVO / NCBITaxon / Wikidata, plus an `eco:` bridging vocabulary for cross-scale relations |
 | **Asset packages** | 3D (and other media) assets in multiple styles — photoreal/scientific through stylized to cartoon/game — organized into microscopic and macroscopic collections |
+| **Embodiments** | Complete species HMC releases containing the available graph corpus and associated resources; made-world HMC families containing design, assembly, operation and representation resources. Consumers select what they need from the same embodiment. |
 | **Interfaces** | QApp interface families: exploration/atlas, encyclopedic, modelling/workbench, presentation/storytelling |
 | **Models** | Cross-dataset analytical products: species×climate envelopes, food webs, trait matrices, scale-joined entity profiles |
 | **Specifications** | The planning corpus itself — reusable by sibling projects powered by QualiaDB |
@@ -116,7 +158,7 @@ ecopunk and QualiaDB share a creator and co-evolve:
 | Clinical/biomedical application | Covered by WellFair; ecopunk is environmental/organismal |
 | Full Earth-system simulation | We model *information about* the biosphere; coupled simulation is an F4-tier engine concern |
 | Authoritative taxonomic judgement | We aggregate and align backbones; we do not publish novel taxonomy |
-| General-purpose encyclopedia | Biosphere scope only; Wikidata/Wikipedia remain upstream references |
+| Unbounded encyclopedia of every topic | Scope follows the declared natural, made and social domain contracts; external sources remain attributed references |
 
 ## 6. Sibling context
 

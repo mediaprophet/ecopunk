@@ -1,0 +1,26 @@
+[
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/authoring/source_layers/mod.rs",
+    "before_sha256": "837d54deae22f4e88a13ed566e31d1ecd72787c021f732087d98c1c12b8fad49",
+    "after_sha256": "b67c1ae2750c50e4e0813342882856d366319293435be0580bf58990de5f752c",
+    "after_lines": 176,
+    "verified_after_sha256": "b67c1ae2750c50e4e0813342882856d366319293435be0580bf58990de5f752c"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/authoring/source_layers/snapshot_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "5cab0e3638b2e85a2732f7c359f846460eb98a6af9998f2e362ee924727d6bbd",
+    "after_lines": 66,
+    "verified_after_sha256": "5cab0e3638b2e85a2732f7c359f846460eb98a6af9998f2e362ee924727d6bbd"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/authoring/source_layers/snapshot.rs",
+    "before_sha256": null,
+    "after_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+    "after_lines": 111,
+    "verified_after_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b"
+  }
+]

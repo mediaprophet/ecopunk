@@ -1,0 +1,18 @@
+{
+  "scope": "Explicit local diagnostic checkpoint CLI factory; no production authentication",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/entry.rs",
+      "original_sha256": "477C87F9AEC2733D867497951A2634DD396738D2EBAAEBE6A03D8A6238166395",
+      "candidate": "candidate/graphical/entry.rs",
+      "candidate_sha256": "0CE65A2312DAE5E59963EA90DDA315DDCE0AB2A4BB12BD9D09CD96EA3057344E"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/entry_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/graphical/entry_tests.rs",
+      "candidate_sha256": "521C7B9BEB4BD0F236D6DDE9FEB85E1E98BCE25A5EE6A5AF54C401FA5EB2CDED"
+    }
+  ]
+}

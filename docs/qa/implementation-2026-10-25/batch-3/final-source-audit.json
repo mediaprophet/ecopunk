@@ -1,0 +1,1286 @@
+{
+  "audit_kind": "read-only final source reconciliation snapshot",
+  "snapshot_utc": "2026-10-24T20:06:17Z",
+  "scope": "latest batch-3 applied source snapshot, receipt checksums, current target hashes, packet and catalogue records",
+  "source_pointer": {
+    "path": "docs/qa/implementation-2026-10-25/batch-3/latest-source-snapshot.json",
+    "sha256": "5bcddee53b263641facb8d0004be724500eb24370631bf5e92a8a701c503e44f",
+    "points_to": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\source-snapshots\\e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb.json",
+    "expected_snapshot_sha256": "e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb",
+    "actual_snapshot_sha256": "e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb",
+    "matches": true,
+    "captured_utc": "2026-10-25T06:56:59.809707+11:00",
+    "snapshot_status": "Exact batch-3 applied source chain verified; execution evidence remains separate"
+  },
+  "source_reconciliation": {
+    "source_count": 94,
+    "transition_count": 120,
+    "unique_source_paths": 94,
+    "current_source_hash_mismatches": 0,
+    "receipt_candidate_mismatches": 0,
+    "latest_per_target_mismatches": 0,
+    "receipt_digest_mismatches": 0,
+    "duplicate_source_paths": 0,
+    "all_reconciled": true,
+    "sources_by_latest_receipt": [
+      {
+        "receipt": "applied-20261024-173122.json",
+        "latest_source_count": 22
+      },
+      {
+        "receipt": "applied-20261024-174413.json",
+        "latest_source_count": 13
+      },
+      {
+        "receipt": "applied-20261024-174932.json",
+        "latest_source_count": 1
+      },
+      {
+        "receipt": "applied-20261024-175759.json",
+        "latest_source_count": 9
+      },
+      {
+        "receipt": "applied-20261024-180046.json",
+        "latest_source_count": 2
+      },
+      {
+        "receipt": "applied-20261024-181048.json",
+        "latest_source_count": 3
+      },
+      {
+        "receipt": "applied-20261024-181601.json",
+        "latest_source_count": 4
+      },
+      {
+        "receipt": "applied-20261024-183528.json",
+        "latest_source_count": 10
+      },
+      {
+        "receipt": "applied-20261024-184522.json",
+        "latest_source_count": 1
+      },
+      {
+        "receipt": "applied-20261024-194432.json",
+        "latest_source_count": 25
+      },
+      {
+        "receipt": "applied-20261024-195551.json",
+        "latest_source_count": 3
+      },
+      {
+        "receipt": "applied-20261024-195659.json",
+        "latest_source_count": 1
+      }
+    ],
+    "receipt_digests": [
+      {
+        "path": "applied-20261024-174932.json",
+        "sha256": "4a3da024e09196b9257de4a44989020e6960eadd3305c7c4ee1f3e1009bfbe68",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-180046.json",
+        "sha256": "510d245834acc8e4f9282026fa2c47c2135961a62a5eb3989e2353c82c3cf300",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-183528.json",
+        "sha256": "506b3b9e597bfa3a63bc26d63f663a8b9736059a91adede134a36093e15a1bae",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-174413.json",
+        "sha256": "6309da95efc58f30a002723894bf6149f60fc5a31ecb86a38769d76d86ae356f",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-184522.json",
+        "sha256": "629a68e3d545bbb0db140dad333eb648ba321852d7299d393ea42decc36dc663",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-195659.json",
+        "sha256": "6b94513c1caffcde8efd979f96791c89b6002440a70d99f878870fc59f370a4a",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-175759.json",
+        "sha256": "14e9a30c1ab6eba803194ebddcff46ea98b872f2625cdf83d5c14fd78b0b12dd",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-181601.json",
+        "sha256": "5375959f481d223f60b180ded24b34aa63b50bdcabf6cc46123aba33f682449c",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-181048.json",
+        "sha256": "5fe4c3317027f6912206e71cf0569443767bc1ffb37f964df0ebc566c83544e9",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-195551.json",
+        "sha256": "2092b77a73e34ceef5a79c88f7753e88d7284f842d3466cbade235b703677cb3",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-194432.json",
+        "sha256": "e40a865ac15253ffae89d68bd221eec62525618c703c9597e51b74d97a44bf93",
+        "matches_snapshot_digest": true
+      },
+      {
+        "path": "applied-20261024-173122.json",
+        "sha256": "86eace7709dfd3304ed2da3bcbfc18b8698998cd773942603535efe3cc02152f",
+        "matches_snapshot_digest": true
+      }
+    ],
+    "source_hashes": [
+      {
+        "path": "C:\\github\\poet\\native\\Cargo.toml",
+        "sha256": "84d8411bef114e0ed47851110ae98b18cc1b98bd770fcec7f60d69fa48987387",
+        "actual_sha256": "84d8411bef114e0ed47851110ae98b18cc1b98bd770fcec7f60d69fa48987387",
+        "receipt": "applied-20261024-181601.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen.rs",
+        "sha256": "039bb7d14759319436931674e93d268a14f792c4a4d6cddaa6a36628e89f2b10",
+        "actual_sha256": "039bb7d14759319436931674e93d268a14f792c4a4d6cddaa6a36628e89f2b10",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen_tests.rs",
+        "sha256": "37aa7852459e7da34ba0a94af5859c19a8e2aaf2b5feb1ac6b8a0fea66330d92",
+        "actual_sha256": "37aa7852459e7da34ba0a94af5859c19a8e2aaf2b5feb1ac6b8a0fea66330d92",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+        "sha256": "ce1c9452fae8546e61977cfed57aaae851b81a8ea2385a9cafe804e341c51e5c",
+        "actual_sha256": "ce1c9452fae8546e61977cfed57aaae851b81a8ea2385a9cafe804e341c51e5c",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+        "sha256": "6c62fc8b435835301b41c80ce65330fc4756370824d9e384999597a017cd842d",
+        "actual_sha256": "6c62fc8b435835301b41c80ce65330fc4756370824d9e384999597a017cd842d",
+        "receipt": "applied-20261024-180046.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 3
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resource_preservation_tests.rs",
+        "sha256": "5caa776ebe2247b75d0f61d767f9a2b16e25bfe85324bbdbebf5d88e05510d7c",
+        "actual_sha256": "5caa776ebe2247b75d0f61d767f9a2b16e25bfe85324bbdbebf5d88e05510d7c",
+        "receipt": "applied-20261024-180046.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+        "sha256": "74fa2d305f44aa09bded396891f4b6be3ac4ab4676c3573bcfac5278d624b3c1",
+        "actual_sha256": "74fa2d305f44aa09bded396891f4b6be3ac4ab4676c3573bcfac5278d624b3c1",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\tests.rs",
+        "sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+        "actual_sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+        "sha256": "09c62140b8b1fd7231e338940e57325494c96c4d6837834a7855434273552768",
+        "actual_sha256": "09c62140b8b1fd7231e338940e57325494c96c4d6837834a7855434273552768",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 3
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\controller_tests.rs",
+        "sha256": "08e3bb40ed37d99b7b7f4cee91f322620b105c62e8685f87d4ba44d451435fea",
+        "actual_sha256": "08e3bb40ed37d99b7b7f4cee91f322620b105c62e8685f87d4ba44d451435fea",
+        "receipt": "applied-20261024-181601.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mcp_tests.rs",
+        "sha256": "b3e821c32780a954650878face38b2558224cbad5bbb7296122b98289cd8c6e7",
+        "actual_sha256": "b3e821c32780a954650878face38b2558224cbad5bbb7296122b98289cd8c6e7",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs",
+        "sha256": "ba1acbf12e37ded48123281ee7f7b3407b2ba9b76c2ccc77cbe77b8301aff443",
+        "actual_sha256": "ba1acbf12e37ded48123281ee7f7b3407b2ba9b76c2ccc77cbe77b8301aff443",
+        "receipt": "applied-20261024-181601.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 3
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+        "sha256": "a63719925e44e0e4678ffe5ca0babe02aa981a8c185c3faeaed89f89fa5e7567",
+        "actual_sha256": "a63719925e44e0e4678ffe5ca0babe02aa981a8c185c3faeaed89f89fa5e7567",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+        "sha256": "0ce65a2312dae5e59963ea90dda315ddce0ab2a4bb12bd9d09cd96ea3057344e",
+        "actual_sha256": "0ce65a2312dae5e59963ea90dda315ddce0ab2a4bb12bd9d09cd96ea3057344e",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\entry_tests.rs",
+        "sha256": "521c7b9beb4bd0f236d6dde9feb85e1e98bce25a5ee6a5af54c401fa5eb2cded",
+        "actual_sha256": "521c7b9beb4bd0f236d6dde9feb85e1e98bce25a5ee6a5af54c401fa5eb2cded",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\execution.rs",
+        "sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c",
+        "actual_sha256": "070e5927672206cb23e7f888cc82aa00f05db9a1318c037404481507e911db9c",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+        "sha256": "b84a3239504e9db4998870e939ed2ba2514bb3ac47b1c3e25ba6a85ba2059d9b",
+        "actual_sha256": "b84a3239504e9db4998870e939ed2ba2514bb3ac47b1c3e25ba6a85ba2059d9b",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+        "sha256": "25bf796e78d0b401e3fa09819ea5d1a0e22ba1612705b0381cfa967248240877",
+        "actual_sha256": "25bf796e78d0b401e3fa09819ea5d1a0e22ba1612705b0381cfa967248240877",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\material_admission_tests.rs",
+        "sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2",
+        "actual_sha256": "f6aa46988964ca233eaa11ab36b944e75ea54e2051c08be130272443474126c2",
+        "receipt": "applied-20261024-174932.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\material_controls.rs",
+        "sha256": "10e4b40ffba77c400006222301f21728ebfc5e85fbb3aa0a3a782c04bc2909a1",
+        "actual_sha256": "10e4b40ffba77c400006222301f21728ebfc5e85fbb3aa0a3a782c04bc2909a1",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\material_edit.rs",
+        "sha256": "bfc640fdea00ff1825ba37b509736932d4c19f69a8036271d8245a8e2985de8b",
+        "actual_sha256": "bfc640fdea00ff1825ba37b509736932d4c19f69a8036271d8245a8e2985de8b",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\material_pixels.rs",
+        "sha256": "cb33759e756de382d0723f67026da7ab95372b403fa26af7fac735d69fd6a712",
+        "actual_sha256": "cb33759e756de382d0723f67026da7ab95372b403fa26af7fac735d69fd6a712",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\materials.rs",
+        "sha256": "6cc0d0c31781ad0e57260945d2a80400034a0370662b39d8dc349d3101736a71",
+        "actual_sha256": "6cc0d0c31781ad0e57260945d2a80400034a0370662b39d8dc349d3101736a71",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\materials_tests.rs",
+        "sha256": "50b1c2d8ed391e3f1425034b1c2e95d2e1de59b421a84536cf834d2bc963d424",
+        "actual_sha256": "50b1c2d8ed391e3f1425034b1c2e95d2e1de59b421a84536cf834d2bc963d424",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+        "sha256": "fc138a69d841d1d7bc17773ae9ce3d85a6ce0e4f17aabdf6210a41e3c23f7144",
+        "actual_sha256": "fc138a69d841d1d7bc17773ae9ce3d85a6ce0e4f17aabdf6210a41e3c23f7144",
+        "receipt": "applied-20261024-181048.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 3
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+        "sha256": "5abb47c60ae98da60f335ee49ba846a7d64a02bee7d43285ba44332d624cccab",
+        "actual_sha256": "5abb47c60ae98da60f335ee49ba846a7d64a02bee7d43285ba44332d624cccab",
+        "receipt": "applied-20261024-181048.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 4
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\preview.rs",
+        "sha256": "8550db02e716038648e108ea026dbdc4b7fe83c7df5b640e814c492fb2ef5036",
+        "actual_sha256": "8550db02e716038648e108ea026dbdc4b7fe83c7df5b640e814c492fb2ef5036",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+        "sha256": "232c419395907a64be0fc252d969dfc5e8982b7a34b26fc92edb6653ef96c7f1",
+        "actual_sha256": "232c419395907a64be0fc252d969dfc5e8982b7a34b26fc92edb6653ef96c7f1",
+        "receipt": "applied-20261024-181048.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\shared_host_tests.rs",
+        "sha256": "24ec5003765d0cec18f5c4c80427052f3bf3b01f62a79e9dc46d2bf4963d4e1b",
+        "actual_sha256": "24ec5003765d0cec18f5c4c80427052f3bf3b01f62a79e9dc46d2bf4963d4e1b",
+        "receipt": "applied-20261024-181601.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+        "sha256": "32522daef80c6322c965553ab9a69d672026d77e12d03f86ece6b1a36acb83c7",
+        "actual_sha256": "32522daef80c6322c965553ab9a69d672026d77e12d03f86ece6b1a36acb83c7",
+        "receipt": "applied-20261024-175759.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 3
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\lib.rs",
+        "sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540",
+        "actual_sha256": "550b60bec530be147e967f87fa7ba316ae80ac962b386aaf88368f2f3307d540",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\poet\\native\\src\\main.rs",
+        "sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b",
+        "actual_sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+        "sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4",
+        "actual_sha256": "cb2c39cc3952474a5431000f25828808976966ffedb0bf778d96b45df521b2b4",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+        "sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+        "actual_sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+        "sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6",
+        "actual_sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\tests.rs",
+        "sha256": "4f15669384f5d5cbc0ee2d9f52ea0a7aa19f6cac219aa4ead7b9b5a20f7a5a48",
+        "actual_sha256": "4f15669384f5d5cbc0ee2d9f52ea0a7aa19f6cac219aa4ead7b9b5a20f7a5a48",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\types.rs",
+        "sha256": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+        "actual_sha256": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\lib.rs",
+        "sha256": "780de522d539c36cbc63537fe69bd7acc09cfd9c4c08d47391b6b87ab2f117f2",
+        "actual_sha256": "780de522d539c36cbc63537fe69bd7acc09cfd9c4c08d47391b6b87ab2f117f2",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\codec.rs",
+        "sha256": "b97100348aa8715137338ec160f0a89b338c93a5c80c44738aa8571488fca64e",
+        "actual_sha256": "b97100348aa8715137338ec160f0a89b338c93a5c80c44738aa8571488fca64e",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\graph.rs",
+        "sha256": "e8d8d37b166c30c1847d23c8f7c8a4ac9e35f40ad71548c8656ea4dcc5a52b7c",
+        "actual_sha256": "e8d8d37b166c30c1847d23c8f7c8a4ac9e35f40ad71548c8656ea4dcc5a52b7c",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+        "sha256": "278cb79636944d2be5dad6658eac5314d0431ee62bee6d72cf835e1980524f62",
+        "actual_sha256": "278cb79636944d2be5dad6658eac5314d0431ee62bee6d72cf835e1980524f62",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+        "sha256": "80e101f33424ca897dc339b7291e88ac3824744d69ff73dbf185f76127fbf985",
+        "actual_sha256": "80e101f33424ca897dc339b7291e88ac3824744d69ff73dbf185f76127fbf985",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\snapshot.rs",
+        "sha256": "82d939659701abde684e99ab79e8666a381e98e8fe6d6e350cafd62be5bf3c20",
+        "actual_sha256": "82d939659701abde684e99ab79e8666a381e98e8fe6d6e350cafd62be5bf3c20",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\tests.rs",
+        "sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+        "actual_sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\mod.rs",
+        "sha256": "71079101b443be0f526bbae449a7523ac5b4af57758147fd20248ebb61e5ece9",
+        "actual_sha256": "71079101b443be0f526bbae449a7523ac5b4af57758147fd20248ebb61e5ece9",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\parser.rs",
+        "sha256": "587bbd0ed7d0a6b04301c8703866cd113559accd23a3626378ffde9e70789762",
+        "actual_sha256": "587bbd0ed7d0a6b04301c8703866cd113559accd23a3626378ffde9e70789762",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\tests.rs",
+        "sha256": "10d9fc2096b12b3c32572b308d9535714e26280534ba5de479a44f930dbcd2fe",
+        "actual_sha256": "10d9fc2096b12b3c32572b308d9535714e26280534ba5de479a44f930dbcd2fe",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_cml\\writer.rs",
+        "sha256": "fb7e783ae839a0edfaeeb25d109c64873235de956b1b7afef5fdd7408b18066f",
+        "actual_sha256": "fb7e783ae839a0edfaeeb25d109c64873235de956b1b7afef5fdd7408b18066f",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_journal.rs",
+        "sha256": "a4dc6e759937baa9b795fe72a126d5739aa55f483b97ad934656b8d3474ee9ea",
+        "actual_sha256": "a4dc6e759937baa9b795fe72a126d5739aa55f483b97ad934656b8d3474ee9ea",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+        "sha256": "217255aafc89dd8e245d70ce611101afaebfc8facd91ce221b4e052153a217e4",
+        "actual_sha256": "217255aafc89dd8e245d70ce611101afaebfc8facd91ce221b4e052153a217e4",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+        "sha256": "b0c1983267d27f9cccef3356a780a7ec2dc7a45f2568b0f06dee82503f3aa250",
+        "actual_sha256": "b0c1983267d27f9cccef3356a780a7ec2dc7a45f2568b0f06dee82503f3aa250",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\wgsl_forge_seam.rs",
+        "sha256": "c316f38014c87c475e85c60e903dd88eabef770d749ff0d273a476c165c076a5",
+        "actual_sha256": "c316f38014c87c475e85c60e903dd88eabef770d749ff0d273a476c165c076a5",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\mod.rs",
+        "sha256": "e4faa1390464c2589f1570fcba3f1d9d829fcc9578bf6a831ca849d1d25b43c8",
+        "actual_sha256": "e4faa1390464c2589f1570fcba3f1d9d829fcc9578bf6a831ca849d1d25b43c8",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\host.rs",
+        "sha256": "9dc617ced4d39b16f56175d871f152a5619a840d744ed67289950cf22c8a72e7",
+        "actual_sha256": "9dc617ced4d39b16f56175d871f152a5619a840d744ed67289950cf22c8a72e7",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\mod.rs",
+        "sha256": "59e18a520825394d9dff9c377fb4259b001a107a229d3dc977ee20594aed7994",
+        "actual_sha256": "59e18a520825394d9dff9c377fb4259b001a107a229d3dc977ee20594aed7994",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\scoped_effects\\tests.rs",
+        "sha256": "c4f86e047fbc3cebe9af55636422b1dc1086067a83590a60574b87181e645e74",
+        "actual_sha256": "c4f86e047fbc3cebe9af55636422b1dc1086067a83590a60574b87181e645e74",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\q42_lexicon.rs",
+        "sha256": "cbda12c32476d68d7859be37b88b5c803a0f8fe35d6e80aaed3a505dd927d1a8",
+        "actual_sha256": "cbda12c32476d68d7859be37b88b5c803a0f8fe35d6e80aaed3a505dd927d1a8",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\q42\\q42_lexicon_tests.rs",
+        "sha256": "6fa4167630c9aba1acb8b5c22b5fe83023a132fc56f398d2784be48659b52e80",
+        "actual_sha256": "6fa4167630c9aba1acb8b5c22b5fe83023a132fc56f398d2784be48659b52e80",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\query\\ingest.rs",
+        "sha256": "7492eaa0e41ae7d88a9fee5e04540468b2607497bc380bf6f161266984e75570",
+        "actual_sha256": "7492eaa0e41ae7d88a9fee5e04540468b2607497bc380bf6f161266984e75570",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_animation.rs",
+        "sha256": "d7747366181a6c04ee75e2cd6961cade167bd731b5d0ae9cd067f95f78489260",
+        "actual_sha256": "d7747366181a6c04ee75e2cd6961cade167bd731b5d0ae9cd067f95f78489260",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_skin.rs",
+        "sha256": "c488c9db38bfed7ad398948eba07b32fdfc0c78b04d8584f82cf582d7d0fceff",
+        "actual_sha256": "c488c9db38bfed7ad398948eba07b32fdfc0c78b04d8584f82cf582d7d0fceff",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_rigid_tests.rs",
+        "sha256": "ebd420d7a2317327862002a3a95cf36c74f665710a52c120803cd370477337de",
+        "actual_sha256": "ebd420d7a2317327862002a3a95cf36c74f665710a52c120803cd370477337de",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\assets\\glb_skins_anims.rs",
+        "sha256": "44b5648ec6d533b64c7b3844ba87f2fd072686000f42143ac84863f6e83ea245",
+        "actual_sha256": "44b5648ec6d533b64c7b3844ba87f2fd072686000f42143ac84863f6e83ea245",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao.rs",
+        "sha256": "e84e2c4654a0df6c6819d82fa1cdb27f9a50dadf03e9b7ff201e02cf850b0377",
+        "actual_sha256": "e84e2c4654a0df6c6819d82fa1cdb27f9a50dadf03e9b7ff201e02cf850b0377",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_depth.rs",
+        "sha256": "5fdb50528e2c984fb3a3cf3b90bbe31aca1092e23e23910b8239ff0a0c9443df",
+        "actual_sha256": "5fdb50528e2c984fb3a3cf3b90bbe31aca1092e23e23910b8239ff0a0c9443df",
+        "receipt": "applied-20261024-184522.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_math.rs",
+        "sha256": "594470eaae0617ac7532bfaead74d777002ebe71dca5846228267e642a7cbb31",
+        "actual_sha256": "594470eaae0617ac7532bfaead74d777002ebe71dca5846228267e642a7cbb31",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\indirect_cull.rs",
+        "sha256": "5e27960b5dc4b45c6330049f081b189ef6eeca792a7dafc7ea2e96163cb474e1",
+        "actual_sha256": "5e27960b5dc4b45c6330049f081b189ef6eeca792a7dafc7ea2e96163cb474e1",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_pixel_tests.rs",
+        "sha256": "e6756f86f9d9fe63233e6cfc5b4dd2b6277720306fb06b54bf230d4767143125",
+        "actual_sha256": "e6756f86f9d9fe63233e6cfc5b4dd2b6277720306fb06b54bf230d4767143125",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_textures.rs",
+        "sha256": "76543ace716254e0a439c7d0efa39897352a4080427bb068e05f53f4b1553dbe",
+        "actual_sha256": "76543ace716254e0a439c7d0efa39897352a4080427bb068e05f53f4b1553dbe",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\texture_bc7_conformance_tests.rs",
+        "sha256": "3cf26a4c5c2434f011a33312c4953fd292df484723cac39ac19ee22a8bab9415",
+        "actual_sha256": "3cf26a4c5c2434f011a33312c4953fd292df484723cac39ac19ee22a8bab9415",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\texture_transcode.rs",
+        "sha256": "7e8adfd8230504abe2d22ccc1077dfbf25a343c86d5116728fadd2a2d03506dc",
+        "actual_sha256": "7e8adfd8230504abe2d22ccc1077dfbf25a343c86d5116728fadd2a2d03506dc",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\ao_generate.wgsl",
+        "sha256": "388a5036b85d5e8d0dec66b9135bfc44cbf441e79cdddca70d87fc621c0af25d",
+        "actual_sha256": "388a5036b85d5e8d0dec66b9135bfc44cbf441e79cdddca70d87fc621c0af25d",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\ao_prepass.wgsl",
+        "sha256": "59ea9f959f443054ca7d17a388ae21a9ebf8dd831c564e14d744f0c879dbd966",
+        "actual_sha256": "59ea9f959f443054ca7d17a388ae21a9ebf8dd831c564e14d744f0c879dbd966",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\mesh.wgsl",
+        "sha256": "d05e587b5d75eb59d2ca49ca76673fecece66dead486498e35f75487b9f4484b",
+        "actual_sha256": "d05e587b5d75eb59d2ca49ca76673fecece66dead486498e35f75487b9f4484b",
+        "receipt": "applied-20261024-183528.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\sparql_library\\sparql_grammar\\pattern.rs",
+        "sha256": "84a9218459c74a239c89d44a4d1505ed5b2870cdb3d9586afb563ff6755e2a4b",
+        "actual_sha256": "84a9218459c74a239c89d44a4d1505ed5b2870cdb3d9586afb563ff6755e2a4b",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\sparql_library\\sparql_mm.rs",
+        "sha256": "c2768a5d2b877882f1f39ae3f1fad309570e2a757ab0e502c44508c776fcff2b",
+        "actual_sha256": "c2768a5d2b877882f1f39ae3f1fad309570e2a757ab0e502c44508c776fcff2b",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\properties.rs",
+        "sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+        "actual_sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+        "receipt": "applied-20261024-195551.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\tests.rs",
+        "sha256": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28",
+        "actual_sha256": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28",
+        "receipt": "applied-20261024-195551.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\types.rs",
+        "sha256": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006",
+        "actual_sha256": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006",
+        "receipt": "applied-20261024-195551.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\engineering_analysis\\tests.rs",
+        "sha256": "1b8bc711d578b0f67ae66a11dbb89c15577bf670662eac5bf2a0e757284551c3",
+        "actual_sha256": "1b8bc711d578b0f67ae66a11dbb89c15577bf670662eac5bf2a0e757284551c3",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\financial_modeling\\tests.rs",
+        "sha256": "e2384938586c35f655fbdffa17d0bf71af5558aed6bb4e7b9d9592f3c3f37498",
+        "actual_sha256": "e2384938586c35f655fbdffa17d0bf71af5558aed6bb4e7b9d9592f3c3f37498",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\coopmat.rs",
+        "sha256": "112dab536827249b1bb50a80e28b841e87724196b41c067b7b1ea4f08d7d8dc3",
+        "actual_sha256": "112dab536827249b1bb50a80e28b841e87724196b41c067b7b1ea4f08d7d8dc3",
+        "receipt": "applied-20261024-195659.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\wgsl.rs",
+        "sha256": "4ae5dc725616927c31a0fa57182f4af14ba481ebffb6f1405c008cbd22f1e56b",
+        "actual_sha256": "4ae5dc725616927c31a0fa57182f4af14ba481ebffb6f1405c008cbd22f1e56b",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\oracle\\evaluate.rs",
+        "sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d",
+        "actual_sha256": "558b193306b96578d0773c5f697929ea6e0d46a0186b42199519a94c8401882d",
+        "receipt": "applied-20261024-194432.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\Cargo.toml",
+        "sha256": "f74a82441c71e772e43347901ec0ea25b177b5f4f04ef2858551923130c4c7ae",
+        "actual_sha256": "f74a82441c71e772e43347901ec0ea25b177b5f4f04ef2858551923130c4c7ae",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\codec.rs",
+        "sha256": "565e90df786bf3e036afa4d03ad9f1ec547002ba3f84761786a3e7b6fcb2d7e1",
+        "actual_sha256": "565e90df786bf3e036afa4d03ad9f1ec547002ba3f84761786a3e7b6fcb2d7e1",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\mod.rs",
+        "sha256": "0870046f4449e2491b260a6941c0a5f316f5389f61e15111dda48e7dbbeeac79",
+        "actual_sha256": "0870046f4449e2491b260a6941c0a5f316f5389f61e15111dda48e7dbbeeac79",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\protocol.rs",
+        "sha256": "28caa12dbe6c6a2fe4bd85eef217a45e4ac1cb18a25a6f0d8695df2e61232223",
+        "actual_sha256": "28caa12dbe6c6a2fe4bd85eef217a45e4ac1cb18a25a6f0d8695df2e61232223",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\stdio.rs",
+        "sha256": "5eaf88767c46f93de903d6d5b35705018c33198526a6be180597c8dd868cf2f0",
+        "actual_sha256": "5eaf88767c46f93de903d6d5b35705018c33198526a6be180597c8dd868cf2f0",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\tests.rs",
+        "sha256": "c768ae302225dd7c29273af486e8168c7f58cb95273d7cf4e97fcdba58717cfc",
+        "actual_sha256": "c768ae302225dd7c29273af486e8168c7f58cb95273d7cf4e97fcdba58717cfc",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\authoring\\types.rs",
+        "sha256": "e5490be398623951015d89adfec97f5b702f21594ceb72e52c0ba102832b6e5d",
+        "actual_sha256": "e5490be398623951015d89adfec97f5b702f21594ceb72e52c0ba102832b6e5d",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-mcp\\src\\lib.rs",
+        "sha256": "159ebd57bec536fa178e3ce792687c7c13661d4dad9e0b108c3f1fc27022c604",
+        "actual_sha256": "159ebd57bec536fa178e3ce792687c7c13661d4dad9e0b108c3f1fc27022c604",
+        "receipt": "applied-20261024-174413.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+        "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+        "actual_sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\validation_tests.rs",
+        "sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe",
+        "actual_sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe",
+        "receipt": "applied-20261024-173122.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      }
+    ]
+  },
+  "phase2_and_constructor_saves": {
+    "phase2_receipt": "applied-20261024-194432.json",
+    "phase2_mutation_count": 27,
+    "phase2_targets_in_QualiaDB": 27,
+    "all_phase2_targets_QualiaDB": true,
+    "phase2_latest_unmodified_in_current_snapshot": 25,
+    "phase2_targets_updated_by_later_receipt": [
+      {
+        "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\properties.rs",
+        "phase2_sha256": "4e1e0b0afe6142d725805e6dfb20da3e72297f0c928e184005c0677d97c538e4",
+        "later_receipt": "applied-20261024-195551.json",
+        "later_sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+        "later_original_sha256": "4e1e0b0afe6142d725805e6dfb20da3e72297f0c928e184005c0677d97c538e4",
+        "chain_contiguous": true
+      },
+      {
+        "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\wgsl_forge\\emit\\coopmat.rs",
+        "phase2_sha256": "e14e7bec9bd82a5fa187b728082c1ec8bee1cc98baf09b9d7e50e9115d11f245",
+        "later_receipt": "applied-20261024-195659.json",
+        "later_sha256": "112dab536827249b1bb50a80e28b841e87724196b41c067b7b1ea4f08d7d8dc3",
+        "later_original_sha256": "e14e7bec9bd82a5fa187b728082c1ec8bee1cc98baf09b9d7e50e9115d11f245",
+        "chain_contiguous": true
+      }
+    ],
+    "later_update_chains_contiguous": true,
+    "constructor_receipt": "applied-20261024-195551.json",
+    "constructor_mutation_count": 3,
+    "constructor_targets_in_QualiaDB": 3,
+    "all_constructor_targets_QualiaDB": true,
+    "constructor_targets_in_current_snapshot": 3,
+    "constructor_source_hashes": [
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\properties.rs",
+        "sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+        "actual_sha256": "0d754cecfd12628a8ed9b4ab3455bd6c182ba4685960ab7592639d6c278d9cdf",
+        "receipt": "applied-20261024-195551.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 2
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\tests.rs",
+        "sha256": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28",
+        "actual_sha256": "72acff7fa590b0dcf1ecadd8393dea2e2f405200c42f9245a7d8a17a986c2c28",
+        "receipt": "applied-20261024-195551.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\specialized_libs\\chemistry_modeling\\types.rs",
+        "sha256": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006",
+        "actual_sha256": "e872288fbf3825abe2cd44d61724adf1980fa08888e4559ccbae98da2b952006",
+        "receipt": "applied-20261024-195551.json",
+        "exists": true,
+        "current_sha_matches": true,
+        "receipt_candidate_matches": true,
+        "latest_per_target_matches": true,
+        "transition_count": 1
+      }
+    ],
+    "etalon_target_count": 0,
+    "etalon_note": "No Etalon source path occurs in the latest applied source snapshot; this audit makes no Etalon implementation-completion claim.",
+    "consumer_extension_scope": {
+      "triage_path": "docs/qa/implementation-2026-10-25/batch-3/core-failure-triage.json",
+      "triage_sha256": "a22ec5c35b31a88a5ddc0c0c672f926011c262fdd3f3914a86d4d8d44b4cc62a",
+      "assessment": "Saved triage records selected Naga rejecting unknown WGSL enable-extension names in generated wgsl_forge consumers (wgpu_cooperative_matrix and wgpu_ray_query). No Etalon source path is in the applied snapshot; this is bounded consumer-side evidence, not an Etalon readiness or universal capability claim."
+    }
+  },
+  "claims_and_plan": {
+    "actual_ledger": "docs/planning/tech/ecopunk-production-claims.json",
+    "actual_ledger_sha256": "4f39289c06262cc5af895d43e4bcab8eff93e40c31e3118b46ef98a69f79b6a9",
+    "actual_packet_count": 120,
+    "actual_packet_status_counts": [
+      {
+        "status": "open",
+        "count": 120
+      }
+    ],
+    "all_actual_packets_open": true,
+    "actual_milestone_result_count": 37.0,
+    "starter_template": "docs/planning/tech/ecopunk-production-claims.template.json",
+    "starter_template_packet_count": 120,
+    "starter_template_all_open": true,
+    "starter_template_milestone_result_count": 0.0,
+    "plan_path": "docs/planning/implementation-plan.md",
+    "plan_file_version": "0.6",
+    "plan_sha256": "62303e796003c13779f04f041ac0047bea641fde02428e3a4670f084b88e65e2",
+    "ledger_plan_version": "0.6",
+    "ledger_plan_sha256": "62303e796003c13779f04f041ac0047bea641fde02428e3a4670f084b88e65e2",
+    "ledger_plan_pin_matches": true,
+    "catalogue_path": "docs/planning/tech/assets/model-production-template/deliverables.json",
+    "catalogue_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+    "expected_catalogue_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+    "catalogue_matches": true
+  },
+  "ledger_refresh_script": {
+    "path": "docs/qa/implementation-2026-10-25/batch-3/refresh-records.py",
+    "exists": true,
+    "sha256": "ab2f70e516d5b68eb19368c67cfda527b11723ae2975668d206b22e38123c271",
+    "executed_by_this_audit": false,
+    "note": "Present for parent-owned post-test refresh; actual ledger was not edited."
+  },
+  "test_status": {
+    "tests_run_by_audit": false,
+    "build_or_test_claimed": false,
+    "note": "This source reconciliation does not close current full-Core test execution or acceptance."
+  }
+}

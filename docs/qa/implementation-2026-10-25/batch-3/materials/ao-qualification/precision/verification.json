@@ -1,0 +1,70 @@
+{
+  "scope": "Staged CPU precision and actual cached Naga source validation only; no applied/core/GPU qualification",
+  "cpu_precision_tests": {
+    "failed": 0,
+    "passed": 5
+  },
+  "shader_validation": {
+    "shaders": [
+      "AO_PREPASS",
+      "AO_GENERATE",
+      "MESH"
+    ],
+    "passed": 1,
+    "failed": 0
+  },
+  "original_exact_gpu_test": {
+    "exit_code": 101,
+    "hole": 18,
+    "passed": 0,
+    "solid": 15,
+    "failed": 1
+  },
+  "actual_camera_cpu_oracle": {
+    "proposed_codes": [
+      10796,
+      9698
+    ],
+    "front_depth": 3.149179,
+    "rear_depth": 3.874034,
+    "old_depth_quantum": 0.22888882,
+    "original_codes": [
+      18,
+      15
+    ]
+  },
+  "gpu_after_fix": "unrun; parent coherent rebuild required",
+  "full_suite_waiver": false,
+  "public_depth_migration": false,
+  "internal_semantic_format_change": true,
+  "source_pins": [
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/render/camera.rs",
+      "sha256": "E9BD5786011C646120C762248AA81C482847ECE908B6CBC13A78A61E868D5917"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/mod.rs",
+      "sha256": "7418EF2C562BFC1365AA845516283E1394EB7E9B36E3A06DF235723207101627"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/portal_gpu/init.rs",
+      "sha256": "FE447581C8341A9BAE6012380E66141EDFA1F947C0B52A12C2C7577AD79E6488"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/portal_gpu/lighting_passes.rs",
+      "sha256": "60E0A96DE1AA72D7F3149019D9924766165FB4770334CC1A93BA26D8ADBBC78A"
+    },
+    {
+      "path": "C:/github/QualiaDB/crates/qualia-core-db/src/shaders/viewport/mod.rs",
+      "sha256": "E1454ED423863E103F7E23F2F3F1993BFC44734F7760F24DAC8D12AD61658919"
+    },
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libqualia_core_db.rlib",
+      "sha256": "7DE89F622F65F8D235BA9733AEFD9B227403888979566BE2505E18B44A8B5AD1"
+    },
+    {
+      "path": "C:/github/ecopunk/target/debug/deps/libnaga-fadf9d5a3653b151.rlib",
+      "sha256": "034F9CB3E8937A4F823CE0FE8FE837EB2184E99F2D91F79D04185F73C26FD23F"
+    }
+  ]
+}

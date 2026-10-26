@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "owner": "biosphere_science_review",
+  "assigned_by": "coordinating agent /root for Timothy's documentation review",
+  "scope": "Scientific claims review only; normative source prose remains an unadopted proposal",
+  "outputs": [
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-specification-review/scientific-claims.md",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-specification-review/scientific-claims.coverage.json"
+  ],
+  "inputs": [
+    {"path":"C:/github/ecopunk/docs/Biosphere algorithms Specifications.md","sha256":"883FE0ECF692D6A9B6D55870EF28C729DF125FC550E5F506E20343176D5C5AFC","physical_lines":547,"context_read_ranges":[[1,547]],"focused_scientific_ranges":[[32,121],[220,242],[330,355],[375,423],[425,499]],"qualification":"Whole-document context read, selected scientific-claim assessment; no claim of exhaustive factual or bibliography audit"},
+    {"path":"C:/github/ecopunk/AGENTS.md","sha256":"E08FBD9C0915A34178EB385588FFE872C1163C2793260A1EB966D464F3A39F06","read_ranges":[[1,220]]},
+    {"path":"C:/github/ecopunk/docs/planning/delivery-revision-and-agent-handoff.md","sha256":"C659D531429859C2BB840A038F57014CC4F773B7AC0B95AFE77957DFA97952B0","read_ranges":[[1,226]]}
+  ],
+  "findings": [
+    {"id":"SCI-01","lines":[[36,48],[96,96],[102,112],[120,120],[477,477]],"status":"representation-versus-evidence correction","topic":"Scenario branches, empirical truth, quantum state and time semantics"},
+    {"id":"SCI-02","lines":[[54,62],[109,121]],"status":"conditional-model scope correction","topic":"Configurable local boundary conditions and optional cosmology/frontier research"},
+    {"id":"SCI-03","lines":[[40,42],[61,61],[88,88],[135,135],[465,465]],"sources":["S8","S9"],"status":"units-and-observability correction","topic":"EM versus sound; SWIR versus thermal; nonunique RGB spectral reconstruction"},
+    {"id":"SCI-04","lines":[[66,71],[92,92],[100,102]],"sources":["S1"],"status":"measured-phenomena and disputed-functional-extrapolation separation","topic":"Photosynthetic excitons/coherence/efficiency"},
+    {"id":"SCI-05","lines":[[72,75],[93,93],[104,105]],"sources":["S2"],"status":"measured-effect with conditional model","topic":"Enzymatic tunnelling and non-universal isotope effects"},
+    {"id":"SCI-06","lines":[[76,79],[94,94],[103,103]],"sources":["S3"],"status":"measured in vitro component; organism-general coupling unvalidated","topic":"Cryptochrome radical pairs"},
+    {"id":"SCI-07","lines":[[80,81],[95,95],[230,230]],"sources":["S4"],"status":"debated hypothesis; retain research model","topic":"Vibrational olfaction and gustation extrapolation"},
+    {"id":"SCI-08","lines":[[82,83],[96,96]],"sources":["S5","C3"],"status":"measured mispairs distinct from mutation/evolution causal claim","topic":"DNA/RNA tautomerism and proton-transfer models"},
+    {"id":"SCI-09","lines":[[84,86],[97,97],[104,104]],"sources":["S6","C2"],"status":"bounded optical result; in-vivo functions and synaptic agency unvalidated in this review","topic":"Tryptophan superradiance and synaptic tunnelling"},
+    {"id":"SCI-10","lines":[[87,88],[98,98]],"sources":["S7"],"status":"measured emission; coherence/squeezing/diagnosis not established","topic":"Biophotons"},
+    {"id":"SCI-11","lines":[[112,112],[227,242],[427,427],[448,448],[457,457],[473,499]],"status":"evidence-chain and model-applicability correction","topic":"Residual search, cached results, ontology/AI grounding and biomedical data"},
+    {"id":"SCI-12","lines":[[330,341],[349,349],[380,380],[393,393],[419,421]],"status":"algebraic/model-scope flags; further domain review needed","topic":"P50 formula, conditional morphology/rig/gait/fungal assumptions"}
+  ],
+  "external_sources": [
+    {"id":"S1","authors":"Duan et al.","year":2017,"title":"Nature does not rely on long-lived electronic quantum coherence for photosynthetic energy transfer","publication":"PNAS 114:8493-8498","doi":"10.1073/pnas.1702261114","urls":["https://pmc.ncbi.nlm.nih.gov/articles/PMC5559008/"],"retrieval":"full-text opening; abstract/significance/introductory discussion"},
+    {"id":"S2","authors":"Glickman and Klinman","year":1995,"title":"Nature of rate-limiting steps in the soybean lipoxygenase-1 reaction","publication":"Biochemistry 34:14077-14092","doi":"10.1021/bi00043a013","urls":["https://pubmed.ncbi.nlm.nih.gov/7578005/"],"retrieval":"search-retrieved primary abstract/metadata; direct opens returned no body"},
+    {"id":"S3","authors":"Xu et al.","year":2021,"title":"Magnetic sensitivity of cryptochrome 4 from a migratory songbird","publication":"Nature 594:535-540","doi":"10.1038/s41586-021-03618-9","urls":["https://pubmed.ncbi.nlm.nih.gov/34163056/","https://www.nature.com/articles/s41586-021-03618-9"],"retrieval":"search-retrieved primary abstract/metadata; Nature authentication redirect prevented full text"},
+    {"id":"S4","authors":"Block et al.","year":2015,"title":"Implausibility of the vibrational theory of olfaction","publication":"PNAS 112:E2766-E2774","doi":"10.1073/pnas.1503054112","urls":["https://pmc.ncbi.nlm.nih.gov/articles/PMC4450420/"],"retrieval":"full-text opening; abstract/significance and receptor-study discussion"},
+    {"id":"S5","authors":"Kimsey et al.","year":2015,"title":"Visualizing transient Watson-Crick-like mispairs in DNA and RNA duplexes","publication":"Nature 519:315-320","doi":"10.1038/nature14227","urls":["https://pubmed.ncbi.nlm.nih.gov/25762137/","https://pmc.ncbi.nlm.nih.gov/articles/PMC4547696/"],"retrieval":"search-retrieved abstract/metadata/figure descriptions; direct PMC browser verification prevented full text"},
+    {"id":"S6","authors":"Babcock et al.","year":2024,"title":"Ultraviolet superradiance from mega-networks of tryptophan in biological architectures","publication":"Journal of Physical Chemistry B; author preprint submitted 2023-02-03","doi":"10.1021/acs.jpcb.3c07936","urls":["https://arxiv.org/abs/2302.01469"],"retrieval":"author abstract and linked published DOI; no full-methods review"},
+    {"id":"S7","authors":"Kobayashi, Kikuchi and Okamura","year":2009,"title":"Imaging of Ultraweak Spontaneous Photon Emission from Human Body Displaying Diurnal Rhythm","publication":"PLoS ONE 4:e6256","doi":"10.1371/journal.pone.0006256","urls":["https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006256"],"retrieval":"full-text opening; abstract/subject/acquisition description"},
+    {"id":"S8","authors":"Jakob and Hanika","year":2019,"title":"A Low-Dimensional Function Space for Efficient Spectral Upsampling","publication":"Computer Graphics Forum 38(2)","doi":"10.1111/cgf.13626","urls":["https://rgl.epfl.ch/publications/Jakob2019Spectral","https://jo.dreggn.org/home/2019_sigmoid.pdf"],"retrieval":"publication-page abstract and search-retrieved paper introduction; PDF open too large"},
+    {"id":"S9","authors":"USGS","title":"What are the band designations for the Landsat satellites?","publication":"authoritative instrument wavelength table","urls":["https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites"],"retrieval":"search-retrieved table; SWIR/thermal distinction only"},
+    {"id":"C1","title":"Quantum biology revisited","year":2020,"urls":["https://pmc.ncbi.nlm.nih.gov/articles/PMC7124948/"],"retrieval":"citation-identity check; review not used as primary experiment","finding":"original lines 66/100 mislabel link as Lambert et al. 2013"},
+    {"id":"C2","authors":"Adams and Petruccione","year":2019,"title":"Quantum effects in the brain: A review","urls":["https://arxiv.org/abs/1910.08423"],"retrieval":"abstract and metadata only","finding":"secondary review of proposed mechanisms; not primary 2024 superradiance result"},
+    {"id":"C3","authors":"Hossien Hossieni","year":2025,"title":"Mutation in DNA: A quantum mechanical non-adiabatic model","doi":"10.1016/j.chemphys.2025.113074","urls":["https://arxiv.org/abs/2512.23094"],"retrieval":"abstract and metadata only; submitted 2025-12-28","finding":"proposed analytical A-T model; not empirical evolution validation"}
+  ],
+  "query_scope": ["ambient FMO functional coherence", "CRY4 in-vitro sensitivity", "olfactory receptor isotope experiments", "transient DNA/RNA mispairs", "lipoxygenase kinetic isotope effects", "tryptophan superradiance", "human ultraweak photon emission", "RGB spectral upsampling ill-posedness", "Landsat SWIR/thermal bands", "three supplied citation identity checks"],
+  "access_date":"2026-10-26",
+  "excluded": ["systematic bibliography review", "Google linked-document audit", "new engine-body semantic audit", "fresh runtime verification", "clinical validation", "species master acceptance"],
+  "evidence_status": {"documentation_review":"completed within stated scope","scientific_consensus_review":"not performed","implementation_audit":"not performed by this worker","compiled":"not run","executed_model_validation":"not run","domain_review":"pending","human_acceptance":"not asserted","species_completion":"not assessed"},
+  "process": {"continuing_command":"none","pid":"none","session":"none","state":"inspection commands completed; no continuing process"},
+  "next_action":"Coordinator integrates bounded corrections; preserve optional frontier research and complete authored-master obligations. Case-specific calibration/domain validation remains separate. No implementation activated."
+}

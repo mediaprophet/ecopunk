@@ -1,0 +1,244 @@
+{
+  "captured_utc": "2026-10-25T14:43:37.395411+00:00",
+  "installed_distinct_targets": 34,
+  "application_receipts": [
+    {
+      "group": "edit-safety",
+      "manifest_sha256": "e0ab2c83564e27c583d07b7c5c7f7656d2662cdcf90dd5e88073552105fe6813",
+      "receipt_sha256": "f3be5433a99b633c0dd95f0b2c98f5a9a3df9d08c493d49f0fb6356c72fd5bc5",
+      "writes": 8
+    },
+    {
+      "group": "ui",
+      "manifest_sha256": "b7553dcef27bf74236cd658c0541c81929704d1eebf473312695605b66882b96",
+      "receipt_sha256": "296eeb294501ee2df6e7e8ef76b124b560260bb640afe805fd4402e6814f959d",
+      "writes": 3
+    },
+    {
+      "group": "edit-safety-repair",
+      "manifest_sha256": "2fb1d681020087b7cd46c42403b50eccf96be52a13c03f6ae513b8fed63f0adb",
+      "receipt_sha256": "632ad4dab78096545bf6775ad3acbee824d11c6ed936313f2342b7a001691cf5",
+      "writes": 2
+    },
+    {
+      "group": "metadata",
+      "manifest_sha256": "b0093cf6960bf2f151bd220d68d97f69d8469e851969de136822c48762a0d66d",
+      "receipt_sha256": "d63def3dd2ec2de1ce34b53c8a67a362fd147d9f4b22eb25007a7322d385b692",
+      "writes": 20
+    },
+    {
+      "group": "carrier-tests",
+      "manifest_sha256": "60f5af41599263a8f8ff4714b14661f125c2a008b0684d5dc3939528477bf7cc",
+      "receipt_sha256": "01aa6c0fbad14208fb70e476a2a70803276da4c6eaea3247d4b896c2720db04f",
+      "writes": 2
+    },
+    {
+      "group": "carrier-restart",
+      "manifest_sha256": "1a265cab00d90d53b60692c27cd3f03237fb7b0e73387bf05f0fcc9b4cb663f2",
+      "receipt_sha256": "00dbc12e89f733c4c2d52ffa93ef45780454fc5810370e29a41f9305b9cc5d39",
+      "writes": 2
+    },
+    {
+      "group": "preview-error",
+      "manifest_sha256": "26904434e3e99c0b2b75ff6f4c48d0f96759c26615d82cbfc0370c70816a87f1",
+      "receipt_sha256": "3225ac7934a0495268df35581e38160b7c04ac904d610b2c48a810fb44b1b4fe",
+      "writes": 2
+    }
+  ],
+  "all_current_installed_hashes_match": true,
+  "preserved_assets": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/master.vibe",
+      "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+    }
+  ],
+  "successful_commands": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\authoring-result.json",
+      "mode": "authoring",
+      "passed": 39,
+      "cases": 39
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\build-result.json",
+      "mode": "build",
+      "passed": 0,
+      "cases": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\carrier-result.json",
+      "mode": "carrier",
+      "passed": 5,
+      "cases": 5
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\checkpoints-result.json",
+      "mode": "checkpoints",
+      "passed": 27,
+      "cases": 27
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\draft-result.json",
+      "mode": "draft",
+      "passed": 4,
+      "cases": 4
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surface-inputs-result.json",
+      "mode": "surface-inputs",
+      "passed": 6,
+      "cases": 6
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surfaces-result.json",
+      "mode": "surfaces",
+      "passed": 4,
+      "cases": 4
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\wasm-result.json",
+      "mode": "wasm",
+      "passed": 0,
+      "cases": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\workflow-result.json",
+      "mode": "workflow",
+      "passed": 1,
+      "cases": 1
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\initial\\carrier-result.json",
+      "mode": "carrier",
+      "passed": 3,
+      "cases": 3
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\build-result.json",
+      "mode": "build",
+      "passed": 0,
+      "cases": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\draft-result.json",
+      "mode": "draft",
+      "passed": 4,
+      "cases": 4
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\jobs-result.json",
+      "mode": "jobs",
+      "passed": 15,
+      "cases": 15
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\repaired\\authoring-result.json",
+      "mode": "authoring",
+      "passed": 39,
+      "cases": 39
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\repaired\\draft-result.json",
+      "mode": "draft",
+      "passed": 4,
+      "cases": 4
+    }
+  ],
+  "attempts": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\authoring-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\build-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\carrier-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\checkpoints-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\draft-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surface-inputs-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surfaces-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\wasm-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\workflow-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\initial\\authoring-result.json",
+      "exit_code": 101
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\initial\\carrier-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\build-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\draft-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\preview-repaired\\jobs-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\repaired\\authoring-result.json",
+      "exit_code": 0
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\repaired\\draft-result.json",
+      "exit_code": 0
+    }
+  ],
+  "successful_case_executions": 151,
+  "distinct_case_names": 101,
+  "archived_files_verified": 733,
+  "archive_index_sha256": "b6eb94f08ab1fd50dd9816e33d7cbd03c03b4a4fe99f64e4834c7ab8bd23b530",
+  "historical_reference_diagnosis_unchanged": true,
+  "report_links_checked": 42,
+  "foundation_gates": "FND-01\u201306 and IP-03 C1\u2013C8 remain open; asset production HOLD",
+  "boundary": "No GUI/human acceptance, production asset or universal format-quality claim.",
+  "native_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 330337827,
+    "sha256": "75aada8b830a49dd03ca4765ba73c1dc4f0b9652d39b3457fb8930cab106de4e"
+  }
+}

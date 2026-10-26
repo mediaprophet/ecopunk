@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "kind": "read_only_final_reconciliation",
+  "distinct_installed_targets": 37,
+  "all_latest_installed_hashes_match": true,
+  "recorded_overrides": [
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/assembly_source.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+      "before": "6377a5178e649abcd0e7ee45f2342cc56c32eee2545ffdb4c7b42d8d0b978896",
+      "after": "531d9d3474ac5336564cb31e38f8f5415a4e42c94041cf787fc412bdd8f88ebb"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/structure_tests.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\authoring-runtime\\applied-source.json",
+      "before": "afb7e9130d81fc37b9817bace555a454f6279cc835223d41d7641a3a76cbf158",
+      "after": "ca400b6c75de59790bc2e5977e613daac2611c70f4a839a6359e80e4dbea178c"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\native_project_spatial_tests.rs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\repairs\\workflow-selection\\applied-source.json",
+      "before": "1e4ef573b7542555867378a25c8633e86ef0e735a4697e3ddc09f8ac0e2c9c31",
+      "after": "b510181d619d5555888ef36ca00ea350ee03f557e3724e5e0e38b4d308c06034"
+    }
+  ],
+  "commands": {
+    "check": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\check-result.json",
+      "receipt_sha256": "06cad54d3c3c28788c1a7db7b2564a15466b03118464f15edc56e688b376a927",
+      "tests": 0,
+      "exit_code": 0
+    },
+    "authoring": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring-result.json",
+      "receipt_sha256": "712562f4bb2b7798cc51bf0e767490f6262a4a76c381015484672a8a28d837a8",
+      "tests": 14,
+      "exit_code": 0
+    },
+    "typed": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed-result.json",
+      "receipt_sha256": "0852b16b126a00dbc20918113b18bd6b3ebae07f4437cc564590193db5c95c33",
+      "tests": 8,
+      "exit_code": 0
+    },
+    "fiel": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\fiel-result.json",
+      "receipt_sha256": "8d6cb08f004c82309c9b8ac28d7876f4c4b5de6828eb1c322a9a832271ff978f",
+      "tests": 3,
+      "exit_code": 0
+    },
+    "workflow": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\workflow-result.json",
+      "receipt_sha256": "29c3c90b1106f4e6553b07eb096f35a98c593cd9646bbce9e5b7686ab3a95e89",
+      "tests": 1,
+      "exit_code": 0
+    },
+    "intents": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\intents-result.json",
+      "receipt_sha256": "74b75f294159b7d31eb7a82192200e402d9850a3c35d8f10c369d1f3a1805452",
+      "tests": 5,
+      "exit_code": 0
+    },
+    "jobs": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\jobs-result.json",
+      "receipt_sha256": "f27d7753b34a273afe22d46c71d39f97656cddcc528aeeff3998295eb65c9e98",
+      "tests": 13,
+      "exit_code": 0
+    },
+    "inspection": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\inspection-result.json",
+      "receipt_sha256": "d0b99d03051883aab462ae1e88dea6f63675a852a9677c4f4aa98cbf6da990fb",
+      "tests": 6,
+      "exit_code": 0
+    },
+    "build": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\build-result.json",
+      "receipt_sha256": "6c4bc633cea07cb87835f6fa5237701bf85fa0d91e78b2eb5206b8abba260298",
+      "tests": 0,
+      "exit_code": 0
+    },
+    "wasm": {
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\wasm-result.json",
+      "receipt_sha256": "8af89f86ce4a3d2f35655ee085a8a107b45cac652597eb0613fad936752213c6",
+      "tests": 0,
+      "exit_code": 0
+    }
+  },
+  "selected_native_case_executions": 50,
+  "unique_selected_native_tests": 49,
+  "duplicated_inspection_job_case_count": 1,
+  "previous_rounds_not_added": true,
+  "final_local_source_pin_files": 3036,
+  "latest_local_source_hashes_match": true,
+  "failed_runs_retained": [
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring-before-runtime-repair-result.json",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\workflow-before-selection-repair-result.json"
+  ],
+  "native_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 324750128,
+    "sha256": "ba40f2c90dc209314f0bd6fa19be6be9bd85390029104016501d5702e16d62df",
+    "launched": false
+  },
+  "sdk_wasm": "actual Core/geospatial/Portal compilation; runtime interoperability untested",
+  "preserved_regression_artifacts": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    }
+  ],
+  "reference_master_unchanged": true,
+  "foundation_gates": "FND-01\u201306 open",
+  "IP03": "C1\u2013C8 open",
+  "asset_production": "on_hold",
+  "gui_verification": "not_run",
+  "human_acceptance": false,
+  "model_claims": "193 catalogue plus eight subject-specific claims remain unassessed; all three target packages incomplete",
+  "builds_or_tests_executed_by_this_verifier": false
+}

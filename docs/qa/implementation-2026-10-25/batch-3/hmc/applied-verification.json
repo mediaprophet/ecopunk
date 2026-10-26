@@ -1,0 +1,60 @@
+{
+  "inspected_utc": "2026-10-24T17:35:38.1128770Z",
+  "worker_wrote_siblings": false,
+  "targets": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "expected_sha256": "640B167BDF1900197680D8AE79EB41595087D157AF9D230CD91E0FA395FB8524",
+      "actual_sha256": "640B167BDF1900197680D8AE79EB41595087D157AF9D230CD91E0FA395FB8524",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal.rs",
+      "expected_sha256": "A4DC6E759937BAA9B795FE72A126D5739AA55F483B97AD934656B8D3474EE9EA",
+      "actual_sha256": "A4DC6E759937BAA9B795FE72A126D5739AA55F483B97AD934656B8D3474EE9EA",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_stamped.rs",
+      "expected_sha256": "217255AAFC89DD8E245D70CE611101AFAEBFC8FACD91CE221B4E052153A217E4",
+      "actual_sha256": "217255AAFC89DD8E245D70CE611101AFAEBFC8FACD91CE221B4E052153A217E4",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+      "expected_sha256": "278CB79636944D2BE5DAD6658EAC5314D0431EE62BEE6D72CF835E1980524F62",
+      "actual_sha256": "278CB79636944D2BE5DAD6658EAC5314D0431EE62BEE6D72CF835E1980524F62",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/snapshot.rs",
+      "expected_sha256": "82D939659701ABDE684E99AB79E8666A381E98E8FE6D6E350CAFD62BE5BF3C20",
+      "actual_sha256": "82D939659701ABDE684E99AB79E8666A381E98E8FE6D6E350CAFD62BE5BF3C20",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+      "expected_sha256": "B97100348AA8715137338EC160F0A89B338C93A5C80C44738AA8571488FCA64E",
+      "actual_sha256": "B97100348AA8715137338EC160F0A89B338C93A5C80C44738AA8571488FCA64E",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/graph.rs",
+      "expected_sha256": "E8D8D37B166C30C1847D23C8F7C8A4AC9E35F40AD71548C8656EA4DCC5A52B7C",
+      "actual_sha256": "E8D8D37B166C30C1847D23C8F7C8A4AC9E35F40AD71548C8656EA4DCC5A52B7C",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "expected_sha256": "80E101F33424CA897DC339B7291E88AC3824744D69FF73DBF185F76127FBF985",
+      "actual_sha256": "80E101F33424CA897DC339B7291E88AC3824744D69FF73DBF185F76127FBF985",
+      "matches_candidate": true
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/tests.rs",
+      "expected_sha256": "E48298FCAA7037974843ABFA4C8F75276C720D5177A017083F29A1D9645A12A2",
+      "actual_sha256": "E48298FCAA7037974843ABFA4C8F75276C720D5177A017083F29A1D9645A12A2",
+      "matches_candidate": true
+    }
+  ]
+}

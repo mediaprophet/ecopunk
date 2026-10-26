@@ -1,0 +1,62 @@
+{
+  "mode": "typed",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::checkpoints::typed_10d::",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T08:31:54.308120+00:00",
+  "finished_utc": "2026-10-25T08:32:09.469159+00:00",
+  "elapsed_seconds": 15.156,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed.log",
+  "log_sha256": "3ea2f51856da3e09428acbb83b53e5cfc2fcc46701f1f109370522139f86b9b9",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\typed-source-before.json",
+  "source_snapshot_sha256": "ab907b9e404c853b7bb251367f32da857499b060f07491d3ccde6dcd0e512dbf",
+  "recorded_local_source_files": 3036,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 8,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      8,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::checkpoints::typed_10d::tests::admission::typed_10d_legacy_mat3_inspects_without_silent_upgrade_and_external_hint_holds_edit",
+    "graphical::checkpoints::typed_10d::tests::admission::typed_10d_no_sidecar_material_mesh_and_empty_declarations_refuse_without_hmc_mutation",
+    "graphical::checkpoints::typed_10d::tests::admission::typed_10d_rejects_malformed_science_overlapping_bindings_and_unknown_metadata",
+    "graphical::checkpoints::typed_10d::tests::admission::typed_10d_unknown_extensions_and_mismatched_scientific_kinds_refuse",
+    "graphical::checkpoints::typed_10d::tests::typed_10d_corrupt_limits_cancel_and_nonfinite_refuse_without_mutating_input",
+    "graphical::checkpoints::typed_10d::tests::typed_10d_hmc_save_reopen_retains_unknown_resource_and_changes_selected_material",
+    "graphical::checkpoints::typed_10d::tests::typed_10d_material_delta_preserves_frames_science_geometry_and_every_unrelated_byte",
+    "graphical::checkpoints::typed_10d::tests::typed_10d_stale_source_package_resource_and_opaque_metadata_leave_hmc_unchanged"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round5-o6tsd635",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

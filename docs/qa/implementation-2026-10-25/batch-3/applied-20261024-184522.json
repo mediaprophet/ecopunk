@@ -1,0 +1,14 @@
+{
+  "applied_utc": "2026-10-24T18:45:22.7374656Z",
+  "manifests": [
+    "materials/ao-qualification/precision/test-visibility/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "original_sha256": "767A8C7C8F8EEABEC9457FE6C001B701D14EE747C9C037F2C124D42838F5FA08",
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\ao-qualification\\precision\\test-visibility\\ao_depth.rs",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\ao_depth.rs",
+      "sha256": "5FDB50528E2C984FB3A3CF3B90BBE31ACA1092E23E23910B8239FF0A0C9443DF"
+    }
+  ]
+}

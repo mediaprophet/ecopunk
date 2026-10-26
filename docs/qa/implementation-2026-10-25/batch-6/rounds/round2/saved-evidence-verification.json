@@ -1,0 +1,114 @@
+{
+  "status": "passed",
+  "kind": "read_only_evidence_reconciliation",
+  "installed_implementation_and_test_files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\section\\table_validation.rs",
+      "current_sha256": "96f6585e9af1a0e7fa22108093162d45cb9413d10da7064852f40941be37b7bb",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\resolver.rs",
+      "current_sha256": "74af35954a905dd2086cc9618301c7ffebd59160823d026f4bf6220f23eaca47",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/mod.rs",
+      "current_sha256": "6e3ffe3603577c200db3c8fbd3e336b175baa5efa257374247f1535c3bde85dc",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/intervals.rs",
+      "current_sha256": "767876d697c7b45d3ed714cfb9421cea0af5d190bd925cd67c9aee76ef4c3dd5",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/validation.rs",
+      "current_sha256": "8477d7eb60c0c3ab77189c6e245058122afdfdf72d90735838d8bed262f02cbd",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/tests/m64_container_sdk.rs",
+      "current_sha256": "1d0daa68b1502a9c74244522b4e8b46490c502befcbfb41f2be9e21174a4c707",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\typed_field_payloads.rs",
+      "current_sha256": "3f914ebda4ca4fa8f7bfc17d633c6a864cfee4322929d2000f04811ea6f8e458",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\readers.rs",
+      "current_sha256": "ac29d080bfd4cc52d643afc6faa97ee4adc86f5acaee3a6468b10afc91a329fe",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\typed_payloads\\mod.rs",
+      "current_sha256": "02b0f3d4b7368ef53ed9d3e6e535bf78d694f3762f2075db46000d304a2abfea",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\portal\\mod.rs",
+      "current_sha256": "29e10e77c158f0bcdb47e813f9cbeb3761f6eac3d51835bcac0ce1465351210b",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\morph_section.rs",
+      "current_sha256": "394eaceffb842b3c7a4aaf0a778b09d551cc503d208b88d382e6c435e0dcb070",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\section.rs",
+      "current_sha256": "2416394e69ac1646f3ec77a4904983806bb190dce82e15e650dcd1bb222e067e",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\manifold_identity_v2.rs",
+      "current_sha256": "9c8147b541ee6d8cd99589458ab8e6116e1e8f96e558c7ed27b1227d34e76647",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\mod.rs",
+      "current_sha256": "d97c2aa0c76a489880a3bbcbf12742cb0e82f6f07bda46aa127933dbec41b1f9",
+      "post_test_documentation_change": true
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs",
+      "current_sha256": "c21fffa0283234e42f7c8785bddda19b875c809b728d52c9da6d6912d55fad76",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\compile_10d.rs",
+      "current_sha256": "d61eb4c387f8f60f94278e9397216a72dbd051af9b99c00285568e50c498a121",
+      "post_test_documentation_change": false
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/mod.rs",
+      "current_sha256": "c8ed4d49dd997a5bc6953a7ed92f77a8b2024190dbaf73a975afe14e79343e08",
+      "post_test_documentation_change": false
+    }
+  ],
+  "post_test_documentation_prefixes_verified": 2,
+  "implementation_bytes_unchanged_after_test": true,
+  "canonical_spec_files_verified": 2,
+  "unchanged_assets_verified": 3,
+  "native_test_results": [
+    [
+      6,
+      0,
+      0
+    ],
+    [
+      7,
+      0,
+      0
+    ],
+    [
+      9,
+      0,
+      0
+    ]
+  ],
+  "all_six_foundation_gates": "open",
+  "builds_or_tests_executed_by_this_script": false
+}

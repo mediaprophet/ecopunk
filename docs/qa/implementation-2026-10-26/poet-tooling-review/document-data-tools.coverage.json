@@ -1,0 +1,63 @@
+{
+  "schema": "ecopunk-poet-document-data-tools-review-v1",
+  "date": "2026-10-26",
+  "encoding": "UTF-8",
+  "scope": "Read-only bounded source review. Initial 18 representative source files (three per repository) plus five additional operation-body files (WordCraft, PdfCraft, GridCraft, DeckCraft, ArtCraft); CADCraft constraint operation bodies were already directly inspected in the initial set. Six operation-body files total, one per repository. Plus license headers and named governing documents. No build/test/Cargo/Git/GUI/provider execution. Hashes are SHA-256 of inspected files as present at review time.",
+  "report": "document-data-tools.md",
+  "reviewed_source_files": [
+    {"path":"C:/github/poet-wordcraft/README.md","lines":"17-109 feature and agent overview; keyword scan","sha256":"0837EA96632E62DE30F90C97AE78CC5E22B5D77DEDCBB462ADF088B310F4D25D"},
+    {"path":"C:/github/poet-wordcraft/crates/doc/src/lib.rs","lines":"13-46 exports and core types; declaration scan through 282","sha256":"EEE999FE47E5A4BA93E1BB040AB37ED18C7886E6FC0B645EF696F3FAEF54480A"},
+    {"path":"C:/github/poet-wordcraft/crates/mcp/src/lib.rs","lines":"1-64 complete","sha256":"1242D18F56CEA252DD7B1B4A5C16183E6B01E8703D63152D1E3444F761084A2D"},
+    {"path":"C:/github/poet-wordcraft/crates/engine/src/session.rs","lines":"650-744 command dispatch, history snapshot and failure restoration","sha256":"49CD5EE14586EBF42ECD0E01D699CDC7953376981C7573112B35CA463F6BCCA0","operation_body":true},
+    {"path":"C:/github/poet-pdfcraft/README.md","lines":"55-67, 77-104, 116-260 selected feature claims","sha256":"2AB551189ECBCCE431C792BFBAD8B90F7F8E284D7602EE97B031C835CCE64691"},
+    {"path":"C:/github/poet-pdfcraft/crates/engine/src/lib.rs","lines":"15-99 exports and public API surface","sha256":"B303949764FC907413C2E37814B01FE80C85AC817A7844D181B59D5186C963F4"},
+    {"path":"C:/github/poet-pdfcraft/crates/engine/src/commands.rs","lines":"16-112 metadata declarations; 354-385 lookup/enabled/labels","sha256":"68BD282CA95E48110251377A4A2E4C2279EEA3CAC4ADDBED30585399A15D84FD"},
+    {"path":"C:/github/poet-pdfcraft/crates/engine/src/actions.rs","lines":"149-220 action-step dispatch, apply, and save result","sha256":"44A14601ACD58DBF2122E51D2BFE8E721812386519F5635577BDF1A45D4F5100","operation_body":true},
+    {"path":"C:/github/poet-gridcraft/README.md","lines":"23-26, 42-43, 55 onward selected feature/agent claims","sha256":"46FB8C4A05A65D95DF8963C99885202958A8D9CFFFC1481E3E0F89ACA3F96FA4"},
+    {"path":"C:/github/poet-gridcraft/crates/model/src/lib.rs","lines":"1-29 complete","sha256":"56C9B492FB8FA6ED5F03368D320C8098FBEDEAE606D7E173B60B21D4F0B9FE8D"},
+    {"path":"C:/github/poet-gridcraft/crates/functions/src/lib.rs","lines":"15-220 registry and API declarations","sha256":"F891E3A1BBC4547518958BA0930D2C0EE04442753BA26E33DC6829C6B1079694"},
+    {"path":"C:/github/poet-gridcraft/crates/engine/src/cmd/edit.rs","lines":"193-240 cell.set handler","sha256":"01077E180839B3DC1CA20A9B3B4A56FBEF8FCEB3FB64CC033891F555C5C7172E","operation_body":true},
+    {"path":"C:/github/poet-deckcraft/README.md","lines":"46-80 selected product and MCP claims","sha256":"BF6795BD3D3F2FEEE94CA9EDD563D6438C1CB0F202A0C1398AB890357F69FE3C"},
+    {"path":"C:/github/poet-deckcraft/crates/model/src/lib.rs","lines":"10-30 exports; declarations through 621","sha256":"3315F1F8571480F012111B81D716817FEAC725055C04EEDD42EE8A1EBB0EAA2D"},
+    {"path":"C:/github/poet-deckcraft/crates/mcp/src/lib.rs","lines":"18-37 complete","sha256":"D6CC773FE9BCA121038B6466AD51DBB2B9CE28A9332F0E61C2124D0BFB9CE47B"},
+    {"path":"C:/github/poet-deckcraft/crates/mcp/src/headless.rs","lines":"69-159 command/session adapter and headless UI/API routing","sha256":"781F9A2B205A4563207B8FEBCC23697391C2F464C53AB664A9255702ACEE67D6","operation_body":true},
+    {"path":"C:/github/poet-artcraft/README.md","lines":"28-125 selected creation/provider claims","sha256":"933462209CEB7309DEFC4EC7DF50B110AE17D26D9AB2FF38E241D1081D7045A1"},
+    {"path":"C:/github/poet-artcraft/artcraft-native/src/pages/mod.rs","lines":"1-6 complete","sha256":"EB94217678FDF5E84D01E278FF0FA6F6241639B8740225D8D9B9264A62DABCDC"},
+    {"path":"C:/github/poet-artcraft/artcraft-native/src/app.rs","lines":"4-32 imports; 71-818 app type/dispatch declaration scan","sha256":"BE835F9DB7F3DD2ECFD42747AA186D3130ECBBC5E68DA1452CE5168948485D0A"},
+    {"path":"C:/github/poet-artcraft/artcraft-native/src/pages/create_image.rs","lines":"189-211 generation gates/request; 254-263 enqueue result handling","sha256":"08DE74CC4E967AD656ED1F85491C07F223C034F177A58DE1E1DB1B030EA6A3A5","operation_body":true},
+    {"path":"C:/github/poet-cadcraft/README.md","lines":"24-28, 58-115 selected product/agent claims","sha256":"320F5527C59725B4B7CDDA62BCE2A9A2019CEC64339DAE96A662CC6D5F0A60A9"},
+    {"path":"C:/github/poet-cadcraft/crates/constraints/src/lib.rs","lines":"20-123 exports/API; 344-433 solving/validation; 507-601 parameters/glyphs","sha256":"39D102B742B153879253ACBBA513A8F85A24B144772FD3D6F52CF303E71362BD","operation_body":true},
+    {"path":"C:/github/poet-cadcraft/crates/mcp/src/lib.rs","lines":"1-19 complete","sha256":"56FE44785352FCD44D9FD0497AC467030E02EC7E86C251D7E080194FCEE4FB1B"}
+  ],
+  "license_evidence": [
+    "C:/github/poet-wordcraft/LICENSE-MIT (first 3 lines) and ATTRIBUTION.md (policy excerpt)",
+    "C:/github/poet-pdfcraft/LICENSE-MIT (first 3 lines), Cargo.toml workspace.package (first 10 lines), ATTRIBUTION.md/TOML excerpts",
+    "C:/github/poet-gridcraft/LICENSE-MIT (first 3 lines) and ATTRIBUTION.md (policy excerpt)",
+    "C:/github/poet-deckcraft/LICENSE-MIT (first 3 lines), Cargo.toml workspace.package.license = MIT OR Apache-2.0 (lines 1-10), ATTRIBUTION excerpt",
+    "C:/github/poet-artcraft/LICENSE-MIT (first 3 lines)",
+    "C:/github/poet-cadcraft/LICENSE-MIT (first 3 lines) and ATTRIBUTION.md (policy excerpt)"
+  ],
+  "governing_documents": [
+    "C:/github/ecopunk/docs/planning/tech/poet-craft-consolidation.md (full read)",
+    "C:/github/ecopunk/docs/planning/tech/assets/production-toolchain-spec.md (read through section 2 and inspected relevant scope statements)",
+    "C:/github/ecopunk/docs/planning/tech/craft-consolidation/source-inventory.json (header/scope and initial entries; static inventory only)",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/biosphere-capability-review.json (keyword search only)"
+  ],
+  "not_examined": [
+    "Complete source trees, full function bodies beyond listed ranges, source history and dirty state",
+    "Full command/menu/gesture/shortcut/context/dialog/accessibility inventories and parity docs",
+    "Per-repository Cargo graphs, transitive dependencies, build scripts, generated inputs, vendored code, complete license/asset provenance",
+    "PDF MCP/agent interface; GridCraft MCP/CLI implementation; full ArtCraft provider/API-client call and authorization path",
+    "QualiaDB semantic owner implementation in domains, modalities, solvers, specialized_libs, wgsl_forge, qualia-vision, qualia-audio, webizen-render, semantic_instruments, and qualia-sim; nine-root reports only keyword-searched",
+    "Poet current native UI/host command contract, actual user runs, agent runs, acceptance, runtime integration, and model-production qualification"
+  ],
+  "execution_evidence": "None reviewed or produced. Public declarations, README claims, license texts and static source bodies are not execution proof.",
+  "operation_body_files": [
+    "C:/github/poet-wordcraft/crates/engine/src/session.rs",
+    "C:/github/poet-pdfcraft/crates/engine/src/actions.rs",
+    "C:/github/poet-gridcraft/crates/engine/src/cmd/edit.rs",
+    "C:/github/poet-deckcraft/crates/mcp/src/headless.rs",
+    "C:/github/poet-artcraft/artcraft-native/src/pages/create_image.rs",
+    "C:/github/poet-cadcraft/crates/constraints/src/lib.rs (already in initial source set; solve/add/set_parameter bodies inspected)"
+  ]
+}

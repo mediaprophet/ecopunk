@@ -1,0 +1,7 @@
+{
+  "source": "C:\\github\\poet\\native\\src\\graphical\\authoring\\tests.rs",
+  "before_sha256": "8c32864d02bc4f6389c353dfd305aac26f95d080bfec7b5f52d53ad1b3d4de17",
+  "after_sha256": "fb1b97a24cbea9081a92d1dbd3e5a5b3f77e9fc578a9fa18657bf5611f5d6e75",
+  "correction": "Use public crate-root vibe::Item, vibe::Stmt and vibe::ExprKind reexports in regression assertions; no Core API change",
+  "verification": "Static correction only. Parent owns Cargo retry; prior compile error log retained."
+}

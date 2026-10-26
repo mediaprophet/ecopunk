@@ -1,0 +1,149 @@
+{
+  "document_kind": "bounded_static_language_expansion_review",
+  "captured_at_utc": "2026-10-26T15:13:42.060486+00:00",
+  "source_changed_during_review": true,
+  "git_clean_or_frozen_revision_established": false,
+  "runtime_tests_run": false,
+  "builds": 0,
+  "native_launches": 0,
+  "asset_production": "hold",
+  "source_edits": false,
+  "workers": "Two bounded lower-cost readers and one stronger runtime reader; coordinator checked selected findings. Not whole-crate or cross-domain semantic coverage.",
+  "sources": [
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/lib.rs",
+      "sha256": "85bab28010b8167f6a3c81bafdea1b7465c1fc7b78c810aad817440b046aa63e",
+      "bytes": 6654,
+      "inspection_scope": "Selected version/module/export declarations; discovery scope."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/ast.rs",
+      "sha256": "94e8933fea27b5463450f0114e5cf52aec381bd9a8c753c1e3bb0537fea4c5f6",
+      "bytes": 13438,
+      "inspection_scope": "Worker-selected declaration/function/type/pattern AST structures."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/types.rs",
+      "sha256": "5fa65160abac8166767c590f3a5c026275c3b45c7e3c66fcedf9122779331c2e",
+      "bytes": 5168,
+      "inspection_scope": "Type and Type::from_ast; generic built-ins and numeric aliases."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/value.rs",
+      "sha256": "bfda461b4c00ca5c97244798da92df6846af966c2594d53617f227ddb96e51f3",
+      "bytes": 48861,
+      "inspection_scope": "Selected value, handle, lambda, Option/Result, time and Receipt declarations."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/expr.rs",
+      "sha256": "c80548f15e84159e14a4cdcef87349ddd8b93f9a3faabfe9b661cbb9c8b89bca",
+      "bytes": 24496,
+      "inspection_scope": "Coordinator checked string length/index, None, lambda and changed Await arm."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/call.rs",
+      "sha256": "a861be4044deb48326c44c8fea4d2e021330a521db6a32c27c17f73d2c6be411",
+      "bytes": 21144,
+      "inspection_scope": "Coordinator checked len; worker reviewed lambda/callback paths."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/effects.rs",
+      "sha256": "f975f4cdafd669716100e9ebbb1ebe87e69336f6c04dc13166c37e276c42a4dc",
+      "bytes": 2339,
+      "inspection_scope": "Effect ordering/join, binding_effect and capability_for classification bodies."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/bind/dispatch.rs",
+      "sha256": "d76491a687d497a32092d0624b8586016e5adb8cdd11273d8da6fd2c3f6ad4af",
+      "bytes": 30250,
+      "inspection_scope": "Dispatch chain through stdlib and graph/receipt arms."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/bytecode/compiler.rs",
+      "sha256": "3d2d42c43aff36776838102e0f4b21366dfef1c2b6f07a5617ecac7c45a71e36",
+      "bytes": 43493,
+      "inspection_scope": "Worker checked await and transaction compilation; no execution."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/session/mod.rs",
+      "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+      "bytes": 8442,
+      "inspection_scope": "Selected persistent-source-session/candidate/revision APIs; worker checked promotion."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/session/prepare.rs",
+      "sha256": "363592b189d15efdc9dc941f747ccd8aa0531a35f6bbeeed2faf36b32188e6e3",
+      "bytes": 10099,
+      "inspection_scope": "Worker-selected declaration/submission preparation paths."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/module_system.rs",
+      "sha256": "3e351d4bf8bbd0f49fed364cb92295b201e5d70d328e84c700291fb8646bdc73",
+      "bytes": 20466,
+      "inspection_scope": "Selected metadata/catalog/resolver and dependency declarations."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/capability_schema.rs",
+      "sha256": "4a80977499ef9e67462b71dd98c78d80195757c16dbab92be5f2611615fc0d4e",
+      "bytes": 29192,
+      "inspection_scope": "SchemaEntry and all_schemas declaration."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/task_scheduler.rs",
+      "sha256": "c6bac078d645c74865f9d3d95b26372c0b09c4d0e0f3bdab4d6b4d7a1a4f89ba",
+      "bytes": 19410,
+      "inspection_scope": "Coordinator reviewed numeric-ID extraction, spawn/cancel, timeout, payload execution and await bodies after source changed."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/mod.rs",
+      "sha256": "57c2f1cbcc7b50889c1d4b4da9ddfe1f98111337ee046dd0c12a7d140b74a3e4",
+      "bytes": 2896,
+      "inspection_scope": "Library declarations/dispatch chain."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/num_and_autodiff/mod.rs",
+      "sha256": "163f55a2813781631992877e047ec1e3fd63cb904e8a45427c68628cb81aba4b",
+      "bytes": 3952,
+      "inspection_scope": "Operation families/dispatch; discovery scope."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/num_and_autodiff/decimal.rs",
+      "sha256": "6627b258ed4ef03bbced693abcd4d27548eddd3f56e5bef22defe279a387187c",
+      "bytes": 15053,
+      "inspection_scope": "Dec representation, parse and saturating add/sub/mul selected bodies."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/text_and_collections/mod.rs",
+      "sha256": "bc7a99375ed67b5af451f04773f3453c2501f6d30e797dce867780be597d4d2a",
+      "bytes": 4640,
+      "inspection_scope": "Operation families; discovery scope."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/text_and_collections/grapheme_str.rs",
+      "sha256": "1d8a15ad4db59c802c3e4f435ad6e6f9f59c87858a027b29bc1ab1ef0af21526",
+      "bytes": 10338,
+      "inspection_scope": "split_graphemes and selected helpers; no Unicode conformance execution."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/topology_and_manifold/effects_and_systems.rs",
+      "sha256": "c37086bc612f1d46c3310cd8585ff1d9135ea64355c38b027f6a956333125b5a",
+      "bytes": 20608,
+      "inspection_scope": "Effects, hashes/resolve, original/changed task delegation, provenance/ZK and budget/memory/continuation/channel selected bodies."
+    }
+  ],
+  "checks": {
+    "proposal_ids": 44,
+    "word_count": 9016,
+    "encoding": "UTF-8 without BOM, LF",
+    "local_links_verified_across_review_documents": 16
+  },
+  "review": "docs/planning/tech/vibescript-language-expansion-recommendations.md",
+  "supersession": "Earlier direct-await/record-only task findings are historical; new scheduler routing and selected concerns are documented.",
+  "review_sha256": "be7edcd6b58301d71b848df953f4d6f8e3b485098ea73b3c9d5f900691705010",
+  "independent_document_review": {
+    "kind": "agent_scoped_review_not_human_acceptance",
+    "agent": "vibe_language_surface_review",
+    "scope": "Internal consistency, absence overclaims, broad coverage and conflicts with proposed0.2",
+    "result": "No material issue reported; Option<Null> applicability clarification incorporated."
+  }
+}

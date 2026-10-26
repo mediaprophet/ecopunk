@@ -1,0 +1,22 @@
+{
+  "status": "bounded_RUN10_final_source_checks_passed",
+  "snapshot_sha256": "2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc",
+  "required_receipts": {
+    "checkpoint": "passed",
+    "fresh_process": "passed",
+    "core": "passed",
+    "native": "passed",
+    "library": "passed",
+    "wasm": "passed"
+  },
+  "optional_receipts": {
+    "gpu": "passed",
+    "cli": "passed"
+  },
+  "queue_packets_open": 120,
+  "ledger_packets_open": 120,
+  "template_blank": true,
+  "human_acceptance_claimed": false,
+  "model_completion_claimed": false,
+  "production_ready_claimed": false
+}

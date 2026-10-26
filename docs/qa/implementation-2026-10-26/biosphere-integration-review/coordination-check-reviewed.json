@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "scope": "Coordination smoke test only; not engine build/test or operating-system containment evidence",
+  "cargo_invoked": false,
+  "engine_evidence": false,
+  "separate_contender_process": true,
+  "contender_exit_code": 75,
+  "script_sha256": "6b38cc90bb69c6a9fb4ef22d71b1e70a22fca039e325f41b6356081a90d75ce3",
+  "time_utc": "2026-10-26T00:31:31.192174+00:00",
+  "command": [
+    "C:\\Users\\tim_h\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "tools\\poet-foundation\\biosphere-shared\\serial_check.py",
+    "--self-test"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"coordination smoke test only\",\n  \"cargo_invoked\": false,\n  \"engine_evidence\": false,\n  \"separate_contender_process\": true,\n  \"contender_exit_code\": 75\n}\n",
+  "stderr": ""
+}

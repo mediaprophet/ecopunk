@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "date": "2026-10-26",
+  "owner": "biosphere_science_review reassigned as native integration-test engineer",
+  "assigned_by": "/root",
+  "authority": "Coordinator reports user's resumed implementation authorization; bounded staged tests only",
+  "staged_source": "C:/github/ecopunk/tools/poet-foundation/motion-integration/work/integration-tests/native_project_motion_tests.rs",
+  "destination": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs",
+  "module_parent": "native_project_tests.rs; coordinator adds #[path] child module",
+  "status": "staged session-lifecycle fixture correction; coordinator rerun required; no worker Cargo execution",
+  "dependencies": [
+    "authoring::material_motion frozen Draft/Key/Edit/Interpolation types with serde serialization",
+    "AuthoringEdit::MaterialMotion and AuthoringView.material_motion",
+    "NativeIntentBus/native_dispatch material-motion route",
+    "poet_material_motion_inspect and poet_material_motion_edit MCP tools"
+  ],
+  "reused_fixtures": [
+    "native_project_tests.rs::signed/login/fixture/config; real cryptography and software-actor admission",
+    "native_project_surface_tests.rs::assembly_source and NoPixels admission/worker/native_dispatch pattern",
+    "native_project_workflow_tests.rs::retained-current NativeAuthority journal and actual login",
+    "checkpoints::restart_tests current_exe child recovery pattern; no artifact eviction"
+  ],
+  "tests": [
+    {
+      "name": "signed_material_motion_ui_mcp_history_and_hmc_reopen",
+      "coverage": "signed native source admission; native_dispatch Set two keys; MCP inspect same recipe; MCP Sample midpoint observed by UI host; consumed context; undo held/rebuild endpoint and redo exact source; HMC exact source/history/digest; drop and child-process real HMC activation, explicit rebuild and repeated history round trip",
+      "child_gate": "POET_MATERIAL_MOTION_CASE_ROOT points at parent-owned temporary case directory; child returns before spawning; exact test name comes from Rust test thread name; fixture metadata contains identifiers/source cells only, no secret export"
+    },
+    {
+      "name": "signed_material_motion_rejects_stale_observer_revoked_and_malformed_edits",
+      "coverage": "old connection context; unknown outer/nested fields; invalid roughness returns invalid_arguments while inspect context remains usable; valid-shaped missing-material request reaches native host and consumes context on refusal; real signed Observer denied both host and MCP mutations; currently revoked author denied; whole artifact/stamp unchanged after refusals"
+    }
+  ],
+  "session_lifecycle_repair": {
+    "cause": "Fixture logged in author then observer before opening author project. NativeAuthority intentionally stores only one active Session; the second successful signed login revoked the first grant and installed the observer handle. Existing author handle was therefore foreign/unavailable as designed.",
+    "source_pins": [
+      {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/session.rs","sha256":"465ED17B4C881C24EF5890BB158B665E986E238D54CD62C1147AAABBB0425A2E","inspected_ranges":[[1,152]],"key_ranges":[[102,130]]},
+      {"path":"C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/mod.rs","sha256":"37B117B3C06A9025BEB9F6D053AA20C72BA84CB03AB2D44EE13F787A49C42B36","inspected_ranges":[[145,240]],"searched_symbol":"State.session: Option<Session> at physical line 83","key_ranges":[[166,194],[213,218]]}
+    ],
+    "change": "Author login/open/edits first; observer signs in at observer-denial phase. Old author host/MCP are asserted denied after handoff. Fresh signed author login and fresh frontends then isolate the current admission-revocation assertions. All stale, observer, malformed and revoked-state preservation checks retained; no authentication implementation changed.",
+    "carried_coordinator_corrections": ["Option returned by get_artifact_stamped uses is_none for fresh-child absence", "unused EditorSnapshot import removed"]
+  },
+  "validation": {
+    "cargo":"not run by worker; coordinator alone runs serial checks",
+    "prior_coordinator_log":"C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-motion-integration/check-attempt-2.log",
+    "prior_log_sha256":"514E6974A5A5223FE318A075B9247FD3FF894FD5B15EF192B7C8532B37021F2D",
+    "prior_coordinator_result":"exit 101; 12 passed and 1 failed. Positive signed UI/MCP/history/HMC fresh-process test passed. Negative test failed at project open due fixture login order before reaching its assertions.",
+    "corrected_negative_test":"not yet rerun; prior positive pass is preserved evidence, not proof the corrected negative test passed",
+    "gui":"not run", "gpu_pixels":"not produced", "provider":"none", "human_acceptance":"not asserted",
+    "fresh_process":"positive test including child HMC activation passed in coordinator attempt 2; scope is software fixture recovery only"
+  },
+  "process": {"running_commands":"none", "pid":"none", "session":"none"},
+  "remaining": "Coordinator reviews the small fixture-order correction, installs staged test changes and reruns the relevant serial filter, preserving exit/stdout/stderr. No production asset/model completion or human/domain acceptance claimed."
+}

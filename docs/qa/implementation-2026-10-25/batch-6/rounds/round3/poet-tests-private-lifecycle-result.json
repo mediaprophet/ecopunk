@@ -1,0 +1,38 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--lib",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "inspection"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "exit_code": 101,
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "started_utc": "2026-10-25T05:06:25.560485+00:00",
+  "finished_utc": "2026-10-25T05:06:59.973920+00:00",
+  "elapsed_seconds": 34.422,
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\poet-tests-private-lifecycle-source.json",
+  "source_snapshot_sha256": "5e6d492446e7e66d6d59234f63a5add2f8b534ed9c94a724ced809e36e9fc37d",
+  "recorded_local_source_files": 2965,
+  "source_changes": [],
+  "source_unchanged": true,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\poet-tests-private-lifecycle.log",
+  "log_sha256": "fa6f299b3a91e0e2572da2a9d7f53db3a6abaaa2b19e5ab7161ea3015fd78b9c",
+  "boundary": "Recorded local Core/geospatial/Poet source and manifests/locks; not every transitive dependency source. Compilation is not runtime WASM, GUI, human review or readiness acceptance."
+}

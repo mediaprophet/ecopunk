@@ -1,0 +1,21 @@
+{
+  "status": "RUN09 evidence refreshed; all 120 packets remain open and starter template remains blank",
+  "plan_version": "0.6",
+  "plan_sha256": "62303e796003c13779f04f041ac0047bea641fde02428e3a4670f084b88e65e2",
+  "receipts": {
+    "core": "passed",
+    "native": "passed",
+    "wasm": "passed",
+    "library": "passed",
+    "gpu": "passed"
+  },
+  "auth_hmc": "bounded_applied_final_source_checks_passed",
+  "targets": "bounded_applied_final_source_checks_passed",
+  "gpu": "passed",
+  "direct_cli": "passed",
+  "live_builds": 0,
+  "packets_open": 120,
+  "template_blank": true,
+  "reviewed_inputs": 51,
+  "review_mismatches": 0
+}

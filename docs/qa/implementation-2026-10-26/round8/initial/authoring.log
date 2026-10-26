@@ -1,0 +1,85 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0277]: `controller::contract::EditorOutcome` doesn't implement `Debug`
+   --> native\src\graphical\authoring\parameter_safety_tests.rs:238:10
+    |
+238 |         .unwrap_err();
+    |          ^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `Debug` is not implemented for `controller::contract::EditorOutcome`
+   --> native\src\graphical\editor_contract.rs:36:1
+    |
+ 36 | pub struct EditorOutcome {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: add `#[derive(Debug)]` to `controller::contract::EditorOutcome` or manually `impl Debug for controller::contract::EditorOutcome`
+note: required by a bound in `std::result::Result::<T, E>::unwrap_err`
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\result.rs:1324:4
+
+error[E0277]: `controller::contract::EditorOutcome` doesn't implement `Debug`
+   --> native\src\graphical\authoring\parameter_safety_tests.rs:352:14
+    |
+352 |             .unwrap_err()
+    |              ^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `Debug` is not implemented for `controller::contract::EditorOutcome`
+   --> native\src\graphical\editor_contract.rs:36:1
+    |
+ 36 | pub struct EditorOutcome {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: add `#[derive(Debug)]` to `controller::contract::EditorOutcome` or manually `impl Debug for controller::contract::EditorOutcome`
+note: required by a bound in `std::result::Result::<T, E>::unwrap_err`
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\result.rs:1324:4
+
+error[E0277]: `controller::contract::EditorOutcome` doesn't implement `Debug`
+   --> native\src\graphical\authoring\tests.rs:190:10
+    |
+190 |         .unwrap_err()
+    |          ^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `Debug` is not implemented for `controller::contract::EditorOutcome`
+   --> native\src\graphical\editor_contract.rs:36:1
+    |
+ 36 | pub struct EditorOutcome {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: add `#[derive(Debug)]` to `controller::contract::EditorOutcome` or manually `impl Debug for controller::contract::EditorOutcome`
+note: required by a bound in `std::result::Result::<T, E>::unwrap_err`
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\result.rs:1324:4
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `poet-cli` (lib test) due to 3 previous errors

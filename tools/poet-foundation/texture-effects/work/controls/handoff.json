@@ -1,0 +1,66 @@
+{
+  "lane": "controls",
+  "contract": "tools/poet-foundation/texture-effects/CONTRACT.md",
+  "status": "staged-unrun",
+  "canonical_root": "C:/github/poet",
+  "files": [
+    {
+      "path": "native/src/graphical/authoring/detail_controls.rs",
+      "canonical": "C:/github/poet/native/src/graphical/authoring/detail_controls.rs",
+      "staged": "C:/github/ecopunk/tools/poet-foundation/texture-effects/work/controls/native/src/graphical/authoring/detail_controls.rs",
+      "preimage_sha256": "80CDFC2F4B1120DD864FAEDE2E0953CE09D7AE0B55E674EBF255F8F543F5DFB1",
+      "staged_sha256": "BE70AD2B39BA7EF633B3E269A49B08614D22E9F1F731741D8EBBF3B0F11551D7",
+      "new_file": false
+    }
+  ],
+  "module_registration_required": false,
+  "behavior": [
+    "Existing DetailControls local recipe remains the draft owner and AuthoringEdit::TextureDetail remains the submit path",
+    "Add/change/enable/reorder/remove up to eight ordered grayscale/invert/sepia steps; Add explicitly promotes Paint version 2",
+    "Base digest/side/layers/strokes retained by effect mutations; removal never downgrades Paint version",
+    "Raw opacity and sepia strings survive invalid input and reorder; Apply reparses including disabled sepia and refuses invalid text",
+    "Existing stroke/procedural controls preserved; invalid visible numeric forms refuse stale values; Apply uses current valid procedural fields",
+    "Source/selection/context changes retain local form and disable Apply/Start until explicit reload; existing parent send unsubmitted source guard unchanged",
+    "Origin start fields differing from loaded paint refuse applying the old base/side; explicit Start required",
+    "No second source owner, provider, renderer, transport, manifest or module added"
+  ],
+  "checks_executed": [
+    "Read-only source inspection, canonical/staged diff and SHA-256",
+    "rustfmt --edition 2021 on staged detail_controls.rs (exit 0); Rust syntax/format only, no type checking",
+    "No Cargo, build, tests, GUI, assets or provider execution"
+  ],
+  "tests_authored": 7,
+  "test_selector": "texture_effect_controls",
+  "source_inspection": [
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/detail_controls.rs",
+      "scope": "Full preimage detail controls",
+      "sha256": "80CDFC2F4B1120DD864FAEDE2E0953CE09D7AE0B55E674EBF255F8F543F5DFB1"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/recipe.rs",
+      "scope": "Public recipe types and validation through budget plan lines 1-280, read only",
+      "sha256": "5B9429061EACC6F8E404D54C59EAA4B093020D6B89E0D304D25E65A358F77371"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/surface_tools.rs",
+      "scope": "Full selected context token and DetailControls host binding",
+      "sha256": "D53851432275ACA7378B4F1AB0B07263513C1EAC956625AA6CD5377988C11AA7"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/controls.rs",
+      "scope": "send guard/capture/completion around lines 57-130 only",
+      "sha256": "34D7BE3CC660ADBD7F3161404A1A7000F8B06F102D2479A893ADCFFC8248618E"
+    }
+  ],
+  "integration_actions": [
+    "Root reviews exact preimage and applies full staged control file",
+    "Root integrates domain frozen API before serial Cargo checks",
+    "Root executes focused texture_effect_controls tests and native type/build checks"
+  ],
+  "unresolved": [
+    "No type/test/UI execution evidence yet; rustfmt does not expand Dioxus macros",
+    "Helper tests assert draft/guard behavior, not rendered human interaction",
+    "Native GPU/window/human acceptance remains unassessed; no model/package completion claimed"
+  ]
+}

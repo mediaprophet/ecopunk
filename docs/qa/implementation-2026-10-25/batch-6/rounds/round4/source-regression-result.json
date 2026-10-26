@@ -1,0 +1,55 @@
+{
+  "mode": "source-regression",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "cooperative_operator_service_binds_edit_save_request_review_revoke_and_reopen",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T07:39:56.876750+00:00",
+  "finished_utc": "2026-10-25T07:40:08.302503+00:00",
+  "elapsed_seconds": 11.422,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\source-regression.log",
+  "log_sha256": "0791849a15095af7e425cb9313b7ed9f1a73fca74a342d6e99fd7300bc4d03af",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\source-regression-source-before.json",
+  "source_snapshot_sha256": "1d475663c3cfc426290716591b8879bff5e1fd779d25a06c8dd1cb4ac9a49ec7",
+  "recorded_local_source_files": 3021,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 1,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::native_project::tests::workflow_tests::cooperative_operator_service_binds_edit_save_request_review_revoke_and_reopen"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round4-ir_n9c_w",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

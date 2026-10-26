@@ -1,0 +1,23 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/mod.rs",
+      "before_sha256": "dba20def02850c42fdfc1d7f5ff0bee933a17bd11f90aeaba5ddc68ecc8f8a75",
+      "after_sha256": "73af36fae40448f0ba9135d980cbae9fbca01984f6c66d0b00b3b09600bb1671"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/viewport_contract.rs",
+      "before_sha256": "0781d8e332133e8dcef28dbaf4677eec2735dc04bfe483daed3f69d8b0972e9e",
+      "after_sha256": "60589ef2f8d876e1cd1a7162cf502e3daca38aeb9f2eb169210460a91dcc3207"
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/reference_authoring_tests.rs",
+      "before_sha256": "6205afd5e69997991dc855ab0e544aa29a79cfb18434a68fc47b4dc95a97ba72",
+      "after_sha256": "be970b46fbee0b7db7dd687ed6918f26834b6232698bace26937a8aa1e0e1ab2"
+    }
+  ]
+}

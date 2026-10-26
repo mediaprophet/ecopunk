@@ -1,0 +1,96 @@
+{
+  "scope": "RUN07A actual Poet optional native Aether geometry source editor; source candidate, not runtime acceptance",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/Cargo.toml",
+      "original_sha256": "DCCB5BA5353CEFEFD9E8CF6CC3BC736B9DD6EABAA9E59825B066598D977BE385",
+      "candidate": "candidate/Cargo.toml",
+      "candidate_sha256": "C8EDB5C740BBBC1B1D8F105399E5C0199AEBFE89B48C9CE9BA5FD7FFC13023A9"
+    },
+    {
+      "target": "C:/github/poet/Cargo.lock",
+      "original_sha256": "031CAAAAE3CCD491296517E9FB51890A37BDF39303765BD5C74FA21876514911",
+      "candidate": "candidate/Cargo.lock",
+      "candidate_sha256": "F1C6D2DDFD33EC813815B3CEBDEA120B90AFC97CBBDC764742D64EC0D6C1B627"
+    },
+    {
+      "target": "C:/github/poet/native/Cargo.toml",
+      "original_sha256": "D123D8F401345041C0222C6228A0C6BCB7BDDDA67A79C6ABEBAAF385E1A77A45",
+      "candidate": "candidate/native/Cargo.toml",
+      "candidate_sha256": "26B7717720FBFF54139B4E761E4DDF6F1C0C5D2E8FB11722E087B04B1281E27B"
+    },
+    {
+      "target": "C:/github/poet/native/src/main.rs",
+      "original_sha256": "F3099E3450213FDC5A290B48DE7589ED4D00EBEB93A7DBD093B6AD68FD90C1A6",
+      "candidate": "candidate/native/src/main.rs",
+      "candidate_sha256": "3FF978758A247335E7F6B9A8DC93D3C3285BCBCC4C83E1E1A7FE0B9346F41A07"
+    },
+    {
+      "target": "C:/github/poet/wasm/Cargo.toml",
+      "original_sha256": "AD077BF043F9943BE0049D7C3C20EDCCFA927A1A88E0FA0D1FD22BF8DA3B4758",
+      "candidate": "candidate/wasm/Cargo.toml",
+      "candidate_sha256": "685DEDE3DCEA97AE1504CC4EC7CB7D216BE2A08601454E579DD899790EFCCFD8"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/controller.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/controller.rs",
+      "candidate_sha256": "D89B8B0DDAEC83B9D55ABF69F991C42D63EF3A0D12C9ED5E4AAF6EAD095A38BE"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/controller_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/controller_tests.rs",
+      "candidate_sha256": "2944F3704A4B1D67C74920BEEA91C73A25ED66ACB2904FE48ED9C053E2946F42"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/execution.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/execution.rs",
+      "candidate_sha256": "F6376EE17A642B381E3E1EF810693979746AF009FCD471C789A4DEA1DE81A77C"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/entry.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/entry.rs",
+      "candidate_sha256": "4A0A7B0D50282951B9197A73DC1537E5066862E82068E228487BBB258C6C5D52"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/geometry_host.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/geometry_host.rs",
+      "candidate_sha256": "752F1DF74E7538A40EB6859A713932B5AD00706B8BFFB02A1E87AA746E7535A2"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/preview.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/preview.rs",
+      "candidate_sha256": "7624C78E1BDAE9C97D0C5AAA82DF9079BD63B333F7077551451D29A3C84FB1F1"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/mod.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/mod.rs",
+      "candidate_sha256": "577AD23770A7EE49DA94025BC7B203B093DB367B6A66DB811C31309F56777765"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/jobs.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/jobs.rs",
+      "candidate_sha256": "2CABC295CDA3947CE78B7EA7FC58814D53D602FFAB5F23E390B2A043F41E0886"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/jobs_tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/jobs_tests.rs",
+      "candidate_sha256": "6135DDC755DAFE9A920982FF6AA3D461D51B768547C860EC2F211BB336782302"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/ui.rs",
+      "original_sha256": null,
+      "candidate": "candidate/native/src/graphical/ui.rs",
+      "candidate_sha256": "B2BB9D0E2F070F99BDBFFEC642661C9AA58ABA229A6FB9565E1ED1A05ADFC81C"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "captured_at_utc": "2026-10-26T11:34:23.755954+00:00",
+  "status": "read-only source audit; no execution",
+  "scope": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "inspected_ranges": "1-23",
+      "purpose": "explicit directly-authenticated scope; adapter required",
+      "sha256_at_audit": "6844b8bc5a790a685e585f2c5ab47d68fa2d8796e577e83b2b78ec230d00f9e4",
+      "file_lines": 23
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\types.rs",
+      "inspected_ranges": "1-145",
+      "purpose": "actor kind, principal/view/request fields",
+      "sha256_at_audit": "9788d844d87055db4e1cfa1d71ffea4d4f0c9bae08ffdd49ebb950357abea68f",
+      "file_lines": 159
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+      "inspected_ranges": "1-204 (prior full body read, revisited targeted search)",
+      "purpose": "current actor/member/action/review policy",
+      "sha256_at_audit": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+      "file_lines": 202
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "inspected_ranges": "1-80 (prior full source read)",
+      "purpose": "actor audit fields and acceptance limit",
+      "sha256_at_audit": "a441cd012402e403f132daea7b311585fdd59424814b8f1e27270325adb579df",
+      "file_lines": 273
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\projects.rs",
+      "inspected_ranges": "1-113; search around contribution API declarations",
+      "purpose": "project role/membership, contribution is distinct",
+      "sha256_at_audit": "518181fa5f780df20fc7eccf026367842c40fb1d783cba7e75ca583dc437780b",
+      "file_lines": 627
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\agency_delegation.rs",
+      "inspected_ranges": "1-308; source test bodies335-~530",
+      "purpose": "record, ABAC implementation and test oracles",
+      "sha256_at_audit": "51bb3e5a15faa4336e8e007aeaa99eb43880927b98a16a5f37f3cd06bbc33d93",
+      "file_lines": 524
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authority_type.rs",
+      "inspected_ranges": "1-160",
+      "purpose": "supported agency design/facets, not proof",
+      "sha256_at_audit": "2c3f19c1d5cc238abb657a6da8845a390ca1bce7ad18e855df04da74f2ae1a6c",
+      "file_lines": 268
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\provenance.rs",
+      "inspected_ranges": "1-165,186-213; public API symbol search",
+      "purpose": "typed agent/reliance/judgement provenance",
+      "sha256_at_audit": "0c9715efca928dbd4a3472047275d696b8b280c0ab4a4d77f2cc16ddd6b8c330",
+      "file_lines": 526
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\delegation.rs",
+      "inspected_ranges": "all",
+      "purpose": "task delegation carrier and convenience predicates",
+      "sha256_at_audit": "c61fb26f3c04c7148d275d964504f2c1ecc014eabbce56252cbc6957b844e121",
+      "file_lines": 80
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+      "inspected_ranges": "all previously reviewed; current field/symbol scan",
+      "purpose": "signed project actor admission",
+      "sha256_at_audit": "c95e5e19664668a26d5531643d5aa235f3dca2753bbb861320a40dc2574454e7",
+      "file_lines": 207
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "inspected_ranges": "all current/previous pass",
+      "purpose": "key proof, private binding, per-session grant",
+      "sha256_at_audit": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "file_lines": 209
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "inspected_ranges": "all previous pass;150-310 revisited",
+      "purpose": "current native view/transaction owner",
+      "sha256_at_audit": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373",
+      "file_lines": 417
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "inspected_ranges": "all previous pass;198-242 revisited",
+      "purpose": "human-verification evidence reference and steward adoption",
+      "sha256_at_audit": "77e8e82b6eeb5ab7959bd3a173254bad570dd9c720bed7d12475be89aea36aab",
+      "file_lines": 392
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\tests.rs",
+      "inspected_ranges": "all previous pass;99-137 revisited",
+      "purpose": "refusal of human claim without explicit evidence",
+      "sha256_at_audit": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb",
+      "file_lines": 322
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\modalities\\delegation.rs",
+      "inspected_ranges": "1-260 and source tests286-EOF from earlier output",
+      "purpose": "graph cascade, attenuation, temporal/region helpers",
+      "sha256_at_audit": "3b801ffcb3beb8736dda5411ba438c8082583b5b2102d9b6683c22dcd098c11a",
+      "file_lines": 454
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\foundation\\crdt.rs",
+      "inspected_ranges": "1-155",
+      "purpose": "DelegatedAccess and verify_delegation actual body",
+      "sha256_at_audit": "186002f094213908f615da41b077549678f7f535ada7c7dd60b91429310e1a6d",
+      "file_lines": 217
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\governance\\coord_seams.rs",
+      "inspected_ranges": "1-111",
+      "purpose": "registered delegation caller and root/time handling",
+      "sha256_at_audit": "899a583fa6d5da16d385200ecbfa61a90ed7c67185b27b0bd53dac6f568d5259",
+      "file_lines": 257
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\entity_view\\rights_filter.rs",
+      "inspected_ranges": "1-105",
+      "purpose": "structural visibility caller of CRDT helper",
+      "sha256_at_audit": "c7186c1669350718c879dd9087f6661e9b2d41770a3ed7ebce89fe976ab7d0b3",
+      "file_lines": 305
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\digest_bind.rs",
+      "inspected_ranges": "all",
+      "purpose": "scope/purpose/operation carrier",
+      "sha256_at_audit": "3d3063255e57080f832bc9407a78e3da620e9ae648b1209d05172eecfd9804b1",
+      "file_lines": 99
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner.rs",
+      "inspected_ranges": "all earlier pass;140-187 revisited",
+      "purpose": "installed record fields vs consumption checks",
+      "sha256_at_audit": "1bd4f33f33c8348caf5ef35617a677f7c321b53a30feecdf27efa924cae26110",
+      "file_lines": 326
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\permit.rs",
+      "inspected_ranges": "1-158",
+      "purpose": "native permit freshness/credential comparisons",
+      "sha256_at_audit": "6727030b04a899e5191d35314e1841ce09fc49b67d74e714ed8106754efd5935",
+      "file_lines": 194
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\policy.rs",
+      "inspected_ranges": "63-130",
+      "purpose": "independent facts and temporal carrier",
+      "sha256_at_audit": "e39e53977df3a31f07c7353fe28c35278e85b9c7a56b7e9b9616c354e90a955a",
+      "file_lines": 333
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\contracts\\evaluate.rs",
+      "inspected_ranges": "1-88",
+      "purpose": "contract generation/freshness evaluator boundary",
+      "sha256_at_audit": "a7e2f4396fba7a0096d82b085dbf117b6c8d1ddfa7837bccc991d11c116f2360",
+      "file_lines": 231
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\cooperative\\permits.rs",
+      "inspected_ranges": "1-58",
+      "purpose": "source-facing pure ABAC diagnostic",
+      "sha256_at_audit": "552b2b8082bec1c20f55a58dde9f975f9b0f975fed446962f5e1236c9e2c16d0",
+      "file_lines": 123
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\wellfair\\api\\agency.rs",
+      "inspected_ranges": "all",
+      "purpose": "agency record persistence, updates, evaluator actual caller",
+      "sha256_at_audit": "4e1a93e2e7d4e136172181d4c3fbb956e21f1b557906fb36f5b6ba36a341f1c1",
+      "file_lines": 234
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\wellfair\\api\\host_core.rs",
+      "inspected_ranges": "275-413",
+      "purpose": "policy guarded submit and signed vault path",
+      "sha256_at_audit": "ad871840cc87a35d83bb9d339a6d59f493cad5936bd6ac7d1ff6a817049fb7e6",
+      "file_lines": 730
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\wellfair\\api\\guardianship.rs",
+      "inspected_ranges": "19-187",
+      "purpose": "proxy escrow/co-sign call path, not whole signer audit",
+      "sha256_at_audit": "03a95518f5587ef83cc6246d7d88c0d286536a3345a3e6ae1c4bb4358a28d0cd",
+      "file_lines": 314
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-client-core\\src\\job_router.rs",
+      "inspected_ranges": "1-180",
+      "purpose": "explicit placement-policy-only authority separation",
+      "sha256_at_audit": "c89d3213206e7ef3a28c4faf14d4963dd09b647eb3255fe181e51cdbdda0e3cf",
+      "file_lines": 595
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\domain_licence\\model.rs",
+      "inspected_ranges": "128-195",
+      "purpose": "domain steward delegation shape",
+      "sha256_at_audit": "1d0b7b0ae6d1aecaaff409b434d3cc3f996ccd4175bebb3202daa704ddad3ee0",
+      "file_lines": 238
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\domain_licence\\verify.rs",
+      "inspected_ranges": "81-191,315-364",
+      "purpose": "shape/domain/signature/pinned issuer/capability checks",
+      "sha256_at_audit": "7747bad1fa8ce30f105a297004f7424b406bad8a0dc6a01ca0164eb104d901d0",
+      "file_lines": 410
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments\\mod.rs",
+      "inspected_ranges": "1-78",
+      "purpose": "native owners public reexports",
+      "sha256_at_audit": "2ff88c305b8d38c38bd1cde13e33e2c4769b64c061ca0e2c7e988be56775c42c",
+      "file_lines": 45
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments\\attestation\\native.rs",
+      "inspected_ranges": "1-122",
+      "purpose": "origin proof adapter, not assent",
+      "sha256_at_audit": "6555dcce6c8a69f720b6842958118ac3e939835991aaae87cc70349ce43c25c9",
+      "file_lines": 170
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\semantic_instruments\\attestation\\w3c.rs",
+      "inspected_ranges": "1-58",
+      "purpose": "ML-DSA VC proof adapter boundary",
+      "sha256_at_audit": "f3aeffe21c6ecbd580439f923d886ebfb406797c908a4b7fccf363d8cd0bd76d",
+      "file_lines": 244
+    }
+  ],
+  "search_only": "Repository-wide TaskDelegation/is_effect_allowed/is_command_allowed search found only qualia-app-contract definitions/reexports; this does not prove external consumers absent. Broader source name searches are discovery only."
+}

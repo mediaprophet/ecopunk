@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\github\\ecopunk\\target\\debug\\deps\\poet_cli-ee42a411ff2af8d2.exe",
+    "--ignored",
+    "--exact",
+    "graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::image_completed_tests::image_completed_workflow_refusals_preserve_source_history",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "harness_sha256": "1cab65868405df10b7c7a151893ea6c7495471aac0ab64733baeae270846c97a",
+  "compiled_by": "native-final-build-attempt-2.log",
+  "execution": "root serial; Cargo idle",
+  "backend": "dx12"
+}

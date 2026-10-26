@@ -1,0 +1,56 @@
+{
+  "schema": "ecopunk.batch6-round1-source-delta.v1",
+  "delta": "003",
+  "captured_utc": "2026-10-25T02:17:20Z",
+  "purpose": "Incremental source and rebuilt executable snapshot for the Core mesh-bound correction and native reopen attempt; supplements, and does not rewrite, earlier manifests.",
+  "prior_manifests": [
+    "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/source-manifest.json",
+    "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/evidence/source-delta-002.json"
+  ],
+  "execution_evidence": {
+    "core_test_log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log",
+    "reopen_render_log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+    "reference_build_log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log",
+    "scope_note": "Four public Core mesh-bound tests passed through Poet native conformance's Core dependency closure; this is not a full Core suite or all-platform qualification. Reopen/render outcome remains pending."
+  },
+  "file_count": 6,
+  "files": [
+    {
+      "scope": "core_mesh_section_source",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\mesh_section.rs",
+      "bytes": 25616,
+      "sha256": "a7b7c5ee9a09311931e88f6b393554a88c4ecf1a66dceec349d4983e2813a797"
+    },
+    {
+      "scope": "core_public_mesh_bounds_tests",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\tests\\mesh_section_bounds.rs",
+      "bytes": 4818,
+      "sha256": "b13138544ee5b33cf6ff201110508c84a014181f793a89a7353614c2e560de09"
+    },
+    {
+      "scope": "poet_native_test_target_manifest",
+      "path": "C:\\github\\poet\\native\\Cargo.toml",
+      "bytes": 2231,
+      "sha256": "f5e3d41b1de37eb92fcd392a5b43485f7e1a88d67621059faab60ff8dac70133"
+    },
+    {
+      "scope": "rebuilt_reference_producer_executable",
+      "path": "C:\\github\\ecopunk\\target\\debug\\examples\\growing_reference.exe",
+      "bytes": 321378562,
+      "sha256": "9d02c23f7088dfd52599cedaca3bb32221efc8a36e17983d77b8bb98a318b485"
+    },
+    {
+      "scope": "core_numeric_companion_document",
+      "path": "C:\\github\\qualiaDB\\docs\\manuals\\standards\\10d-container-format.md",
+      "bytes": 6859,
+      "sha256": "8c2268980c3ab0a7ba7ec2a8d252471606341cab10f69dd4209d9eb39801ff50"
+    },
+    {
+      "scope": "core_container_directory_index",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\DIRECTORY_INDEX.md",
+      "bytes": 1930,
+      "sha256": "d023d3b6265b0ab55bfadb7a6911de0922a50bc8fae72c1fa4f47f27037e0a1e"
+    }
+  ],
+  "claim_boundary": "Source and executable hashes plus the reported four-test result do not establish render/PNG success, visual or human acceptance, all-platform behavior, encoder precision, or model/package completion."
+}

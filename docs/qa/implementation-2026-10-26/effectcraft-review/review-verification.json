@@ -1,0 +1,1084 @@
+{
+  "date_utc": "2026-10-26T02:33:21.064004+00:00",
+  "scope": "Documentation, static manifest and source-pin consistency only. No builds/tests/engine execution/GUI/provider invocation/refactoring occurred.",
+  "result": "passed",
+  "checks": [
+    {
+      "check": "recorded_source_pins",
+      "passed": true,
+      "detail": {
+        "pin_records": 130,
+        "unique_files": 114,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "numeric_read_ranges",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "static_manifest_counts",
+      "passed": true,
+      "detail": {
+        "manifests": 38,
+        "packages": 37,
+        "lock_packages": 691,
+        "edges": 351,
+        "kinds": {
+          "path": 164,
+          "git": 28,
+          "version": 159
+        },
+        "workspace_inherited": 320,
+        "film_workspace_specs": 16,
+        "film_consumer_edges": 21
+      }
+    },
+    {
+      "check": "ui_inventory_preserved_and_extended",
+      "passed": true,
+      "detail": {
+        "source_roots": 12,
+        "original_pending_rows": 30,
+        "additional_pending_rows": 8
+      }
+    },
+    {
+      "check": "effect_source_pointers_exist",
+      "passed": true,
+      "detail": "Actual pinned UI/registry source paths exist."
+    },
+    {
+      "check": "historical_manifest_snapshot_preserved",
+      "passed": true,
+      "detail": "Eleven-root/324 snapshot retained; additional 38-manifest inventory separate."
+    },
+    {
+      "check": "jobs_no_false_dispatch_or_activation",
+      "passed": true,
+      "detail": "Six biosphere/twelve authoring research jobs; disjoint outputs; implementation inactive; no current Cargo grant."
+    },
+    {
+      "check": "authoring_job_inputs_exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "original_backlog_and_pins_preserved",
+      "passed": true,
+      "detail": "120 ECO packets remain open; backlog/role pins match."
+    },
+    {
+      "check": "relative_markdown_links",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "json_utf8_line_endings",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "source_pins": [
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+      "expected_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "actual_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+      "expected_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "actual_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\intents.rs",
+      "expected_sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "actual_sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\adapter.rs",
+      "expected_sha256": "70c2046033459e44ab380766133a2666489ae894fb8a55d3af4e45e959814677",
+      "actual_sha256": "70c2046033459e44ab380766133a2666489ae894fb8a55d3af4e45e959814677",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "expected_sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "actual_sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source_layers\\snapshot.rs",
+      "expected_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+      "actual_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\webizen-desktop\\src\\commands\\vibe_host.rs",
+      "expected_sha256": "e9c66db217c86f10a67806e70fad7b40b205d5d20586253ab1023c7d1371cdff",
+      "actual_sha256": "e9c66db217c86f10a67806e70fad7b40b205d5d20586253ab1023c7d1371cdff",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+      "expected_sha256": "3fb258b5f95fc7be87e25c875edec27159445369017c4f680da227f24bd02145",
+      "actual_sha256": "3fb258b5f95fc7be87e25c875edec27159445369017c4f680da227f24bd02145",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "expected_sha256": "9dd9156698b3ba5e701b5bb82c7c3b89c3a9302d4d65ebf2ff45e9259980356a",
+      "actual_sha256": "9dd9156698b3ba5e701b5bb82c7c3b89c3a9302d4d65ebf2ff45e9259980356a",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\tests.rs",
+      "expected_sha256": "61521fd80aa151c9673f575d9863fb9e8936e834455b6c2d60d0370481284574",
+      "actual_sha256": "61521fd80aa151c9673f575d9863fb9e8936e834455b6c2d60d0370481284574",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\docs\\poet\\00_ARCHITECTURE_OVERVIEW.md",
+      "expected_sha256": "8de1b82d466c1b81e0c1090c938d1204fe24770ace690f885c660c67beba6e22",
+      "actual_sha256": "8de1b82d466c1b81e0c1090c938d1204fe24770ace690f885c660c67beba6e22",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\docs\\poet\\03_STUDIO_CREATIVE_SPEC.md",
+      "expected_sha256": "47ffdf55d6140bd0c59e0a60c719e5e487db3eee347e9f49fd6bfd864fe8eff8",
+      "actual_sha256": "47ffdf55d6140bd0c59e0a60c719e5e487db3eee347e9f49fd6bfd864fe8eff8",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\docs\\work-in-progress\\ONE_POET_PRODUCT_CUT_WIP.md",
+      "expected_sha256": "5b15b0e85ad611639ab814551f5ee8f2067c415ef931e1164bdef59328e5d5a6",
+      "actual_sha256": "5b15b0e85ad611639ab814551f5ee8f2067c415ef931e1164bdef59328e5d5a6",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\docs\\work-in-progress\\POET_UPDATED_IMPLEMENTATION_PLAN_2026-09-05.md",
+      "expected_sha256": "2fa9f9139960effa8f4a02a5caf7d119ae110c8fdfd4c85acdcecd5288011f46",
+      "actual_sha256": "2fa9f9139960effa8f4a02a5caf7d119ae110c8fdfd4c85acdcecd5288011f46",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\docs\\manuals\\adr\\0012-construct-is-the-distributable-composition.md",
+      "expected_sha256": "35c8381eb46eb02f46d33f1187c462c8b7e7123767f874b08210dd9fe8af1c4a",
+      "actual_sha256": "35c8381eb46eb02f46d33f1187c462c8b7e7123767f874b08210dd9fe8af1c4a",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\docs\\manuals\\standards\\poet-motion-contract.md",
+      "expected_sha256": "cc1452fc4ab6e77b6bf61dbf6619ef4a7e9bbffb4fac30b27f76e55283d795fd",
+      "actual_sha256": "cc1452fc4ab6e77b6bf61dbf6619ef4a7e9bbffb4fac30b27f76e55283d795fd",
+      "matched": true
+    },
+    {
+      "coverage": "ecosystem-examples.coverage.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "expected_sha256": "2647158b18d8a0783f2ee8011ca0304c1d7b8369052ac5e4a936892d266b9a0f",
+      "actual_sha256": "2647158b18d8a0783f2ee8011ca0304c1d7b8369052ac5e4a936892d266b9a0f",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\lib.rs",
+      "expected_sha256": "fa814054621730fefc85a89ec60416ce76253a6c979ef5631b8ec31ea1905881",
+      "actual_sha256": "fa814054621730fefc85a89ec60416ce76253a6c979ef5631b8ec31ea1905881",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\mod.rs",
+      "expected_sha256": "9471eee15e8fef8a6af199b8f0481a82fab0c9bc9bb08c43af1902e7a0843f99",
+      "actual_sha256": "9471eee15e8fef8a6af199b8f0481a82fab0c9bc9bb08c43af1902e7a0843f99",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\comp.rs",
+      "expected_sha256": "ca9033150c8bbba0fb7890c72e673ec5fe2a261ef80f28db64ffd31539acffec",
+      "actual_sha256": "ca9033150c8bbba0fb7890c72e673ec5fe2a261ef80f28db64ffd31539acffec",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\layer.rs",
+      "expected_sha256": "763d963a298d95bbeee3d7bac78a676aa0e2dd99af340aab569c8792a171cc75",
+      "actual_sha256": "763d963a298d95bbeee3d7bac78a676aa0e2dd99af340aab569c8792a171cc75",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\effect.rs",
+      "expected_sha256": "d884cfb3060e48e9912beba78a056d4567b0dda026a2860e54f89225294b34fb",
+      "actual_sha256": "d884cfb3060e48e9912beba78a056d4567b0dda026a2860e54f89225294b34fb",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\prop.rs",
+      "expected_sha256": "79886cb60d05597ba3efb62cb21fd179df98c3ba46c86d1e14bad754d9fd9ca8",
+      "actual_sha256": "79886cb60d05597ba3efb62cb21fd179df98c3ba46c86d1e14bad754d9fd9ca8",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\file.rs",
+      "expected_sha256": "d4263f71dae58461b36db456c44c384468834d5fe9b4ee3df23df9b250cce562",
+      "actual_sha256": "d4263f71dae58461b36db456c44c384468834d5fe9b4ee3df23df9b250cce562",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\project\\src\\lib.rs",
+      "expected_sha256": "d06e317adb47355658595505a65087d3e0c481b61beb07b1e1becd93eb480450",
+      "actual_sha256": "d06e317adb47355658595505a65087d3e0c481b61beb07b1e1becd93eb480450",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\host\\src\\lib.rs",
+      "expected_sha256": "e2ab318337b0149b9d39368dc8c803df51f9a00fe22827631ed251d59463051e",
+      "actual_sha256": "e2ab318337b0149b9d39368dc8c803df51f9a00fe22827631ed251d59463051e",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\src\\backend.rs",
+      "expected_sha256": "c33b495e3d16f038fefed3098bdcd2727d18e3b10fb8a02c7f4f9d777f48378b",
+      "actual_sha256": "c33b495e3d16f038fefed3098bdcd2727d18e3b10fb8a02c7f4f9d777f48378b",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\src\\tools.rs",
+      "expected_sha256": "db73d53420b1f0ede72b210649a09e6c81a108532cf2ce761aff0a79d6f493e6",
+      "actual_sha256": "db73d53420b1f0ede72b210649a09e6c81a108532cf2ce761aff0a79d6f493e6",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\render\\src\\lib.rs",
+      "expected_sha256": "c32095c9662a06c595d342021280c8f3a2e3a39f8ef9942f875db280b6d2482c",
+      "actual_sha256": "c32095c9662a06c595d342021280c8f3a2e3a39f8ef9942f875db280b6d2482c",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\export\\src\\lib.rs",
+      "expected_sha256": "6c0b57f9eaf81067f050fbf953f0eada25d19fa1ed017000e74a80753f6534fc",
+      "actual_sha256": "6c0b57f9eaf81067f050fbf953f0eada25d19fa1ed017000e74a80753f6534fc",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\config.rs",
+      "expected_sha256": "2237a60344ac27c86da0ca49525517c388ffb42b5fcfbb21d0d0b35c44c7a260",
+      "actual_sha256": "2237a60344ac27c86da0ca49525517c388ffb42b5fcfbb21d0d0b35c44c7a260",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\effects\\src\\lib.rs",
+      "expected_sha256": "1ad8e09d631c572b7dcfcc1c8b5477bfacacc015b0d2bbf89842215c21e98cd4",
+      "actual_sha256": "1ad8e09d631c572b7dcfcc1c8b5477bfacacc015b0d2bbf89842215c21e98cd4",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\render_queue.rs",
+      "expected_sha256": "6f5691798d8819341604a8604967a37eb6e6ae397d6dc47a1d0de5899f7e1f40",
+      "actual_sha256": "6f5691798d8819341604a8604967a37eb6e6ae397d6dc47a1d0de5899f7e1f40",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\render_queue.rs",
+      "expected_sha256": "d95be97eb22f50aaaf010ed36c34081b17378e2f9f3c6cb3bad15a886ffa9eae",
+      "actual_sha256": "d95be97eb22f50aaaf010ed36c34081b17378e2f9f3c6cb3bad15a886ffa9eae",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\src\\server.rs",
+      "expected_sha256": "31a1d49c5c7e83f2827514756c21e122da384a0b6572a40b367d287d0ff4dcc9",
+      "actual_sha256": "31a1d49c5c7e83f2827514756c21e122da384a0b6572a40b367d287d0ff4dcc9",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\src\\long_job.rs",
+      "expected_sha256": "212bdfe98b40be769def095914b87b58103236ee375fd9c09690e31a3aea91e7",
+      "actual_sha256": "212bdfe98b40be769def095914b87b58103236ee375fd9c09690e31a3aea91e7",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\expr\\src\\runtime.rs",
+      "expected_sha256": "928788c0039a7544458c9ecace2655c8164b9defc9156acf18523ff69b99e640",
+      "actual_sha256": "928788c0039a7544458c9ecace2655c8164b9defc9156acf18523ff69b99e640",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\script\\src\\lib.rs",
+      "expected_sha256": "9c43b96419c24c6fc600f63323565ef99e9da1319a15ca7e223567780168df32",
+      "actual_sha256": "9c43b96419c24c6fc600f63323565ef99e9da1319a15ca7e223567780168df32",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\script\\src\\runtime.rs",
+      "expected_sha256": "f0368c98cea69e3c5c22b507afebc66aa56c0fd3edaeb41ea2ca20c8d8320bc4",
+      "actual_sha256": "f0368c98cea69e3c5c22b507afebc66aa56c0fd3edaeb41ea2ca20c8d8320bc4",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\plugin\\src\\lib.rs",
+      "expected_sha256": "557b122232e30e744fc04c1731d77fcc2e81507f22f871fc0ca628a15337da1e",
+      "actual_sha256": "557b122232e30e744fc04c1731d77fcc2e81507f22f871fc0ca628a15337da1e",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\render\\src\\eval.rs",
+      "expected_sha256": "a1915e7d3735eb25135cd788aa1fbdc19d81d8b1464060b30a46cafc219cd88d",
+      "actual_sha256": "a1915e7d3735eb25135cd788aa1fbdc19d81d8b1464060b30a46cafc219cd88d",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\history.rs",
+      "expected_sha256": "a725b978d29b126e66975f39b14eace2e866c4b6fa4d6984ff56964b85b2d5e4",
+      "actual_sha256": "a725b978d29b126e66975f39b14eace2e866c4b6fa4d6984ff56964b85b2d5e4",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\AGENTS.md",
+      "expected_sha256": "4e31a1e4a7c24f29e885fbec58a65e88ac9610bd9d06492272deed2f81c49992",
+      "actual_sha256": "4e31a1e4a7c24f29e885fbec58a65e88ac9610bd9d06492272deed2f81c49992",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\CLAUDE.md",
+      "expected_sha256": "252a111560e07767e5fd528e3c5218720c95402746df7834c460fa2597f36b89",
+      "actual_sha256": "252a111560e07767e5fd528e3c5218720c95402746df7834c460fa2597f36b89",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\Cargo.toml",
+      "expected_sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "actual_sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\Cargo.lock",
+      "expected_sha256": "bc9d49460dbedc71358d4a51d1b6494b7ad793384570f2cc03dea2a68a585d41",
+      "actual_sha256": "bc9d49460dbedc71358d4a51d1b6494b7ad793384570f2cc03dea2a68a585d41",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\.cargo\\config.toml",
+      "expected_sha256": "716b49c90c25aeeebc4b0359b111a62927d166a1d7f02c4fe83b89d55fb74887",
+      "actual_sha256": "716b49c90c25aeeebc4b0359b111a62927d166a1d7f02c4fe83b89d55fb74887",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\architecture.md",
+      "expected_sha256": "d6286054452e79d2a675dee90ec93ab243e3f54e22f0f85854426d7151dc28af",
+      "actual_sha256": "d6286054452e79d2a675dee90ec93ab243e3f54e22f0f85854426d7151dc28af",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\agents.md",
+      "expected_sha256": "3db44d78edaf5f5d2f39b301e5f916de9575a08713b89622c8fe693b3140d8fe",
+      "actual_sha256": "3db44d78edaf5f5d2f39b301e5f916de9575a08713b89622c8fe693b3140d8fe",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\gaps.md",
+      "expected_sha256": "c4012d4a0197b21510452f2da8a9dba73f7d90b55d0316c2b03148ab056fd6c9",
+      "actual_sha256": "c4012d4a0197b21510452f2da8a9dba73f7d90b55d0316c2b03148ab056fd6c9",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\mcp.md",
+      "expected_sha256": "c6bf4f858041ec2641376e44414a5310e1e6e1da155427fa3fb7406bbbbbae2f",
+      "actual_sha256": "c6bf4f858041ec2641376e44414a5310e1e6e1da155427fa3fb7406bbbbbae2f",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\Cargo.toml",
+      "expected_sha256": "c57ae2f4dca2a038769a4d850e01f14f6fa0349dbdb6c0b793b3c5b169bbd593",
+      "actual_sha256": "c57ae2f4dca2a038769a4d850e01f14f6fa0349dbdb6c0b793b3c5b169bbd593",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\render\\Cargo.toml",
+      "expected_sha256": "fc0427e43ce6c0d5241cc57b2361fec10655e51343909b99cd7069094d91243b",
+      "actual_sha256": "fc0427e43ce6c0d5241cc57b2361fec10655e51343909b99cd7069094d91243b",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\expr\\Cargo.toml",
+      "expected_sha256": "4ec1fb92a0388b0b666b4587f018ad619b5db6461c703aba7985aad01e115a02",
+      "actual_sha256": "4ec1fb92a0388b0b666b4587f018ad619b5db6461c703aba7985aad01e115a02",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\script\\Cargo.toml",
+      "expected_sha256": "43ad7743e71071a509a23bfcb56916085b2c5b0654fb482b25240ae011d486d5",
+      "actual_sha256": "43ad7743e71071a509a23bfcb56916085b2c5b0654fb482b25240ae011d486d5",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\host\\Cargo.toml",
+      "expected_sha256": "49102722275ab4e1b94b0d4012ea291981bcfef454c4b073dd4c9c40e0bcc98c",
+      "actual_sha256": "49102722275ab4e1b94b0d4012ea291981bcfef454c4b073dd4c9c40e0bcc98c",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\gpu\\Cargo.toml",
+      "expected_sha256": "ca0b8d00a8e24004496c399a3e3bb137c03ca59d178c445aaed32cb5722fa390",
+      "actual_sha256": "ca0b8d00a8e24004496c399a3e3bb137c03ca59d178c445aaed32cb5722fa390",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\plugin\\Cargo.toml",
+      "expected_sha256": "9950a37bd5429117626d0c9f8b4b741fa956d07c9818e8a681305b321345b51a",
+      "actual_sha256": "9950a37bd5429117626d0c9f8b4b741fa956d07c9818e8a681305b321345b51a",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\Cargo.toml",
+      "expected_sha256": "766f05da72f70a4622800269b24da8d5126aa5885ac5c55066d14361103ea11f",
+      "actual_sha256": "766f05da72f70a4622800269b24da8d5126aa5885ac5c55066d14361103ea11f",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\tests_key_time.rs",
+      "expected_sha256": "0fc88dc0ddd1c7cb767f1b7fc7064a5fb10560d81771a6f9f12aace8ef3d788b",
+      "actual_sha256": "0fc88dc0ddd1c7cb767f1b7fc7064a5fb10560d81771a6f9f12aace8ef3d788b",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\tests_history.rs",
+      "expected_sha256": "a3f5686914d72e9ff2b5e1a6d9998ba65f1177b2d985815bc206cb5cf6b0838b",
+      "actual_sha256": "a3f5686914d72e9ff2b5e1a6d9998ba65f1177b2d985815bc206cb5cf6b0838b",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\project\\src\\tests.rs",
+      "expected_sha256": "6ef7d2b6d44745cb73fb0cb5d63e1e55a67dbad323a40ef158ea777cc2ee6016",
+      "actual_sha256": "6ef7d2b6d44745cb73fb0cb5d63e1e55a67dbad323a40ef158ea777cc2ee6016",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\src\\tests.rs",
+      "expected_sha256": "7766bf7cb6c77d17679da92587c3b84fa66e08c3fc87e3bbc3ab0a623f109da4",
+      "actual_sha256": "7766bf7cb6c77d17679da92587c3b84fa66e08c3fc87e3bbc3ab0a623f109da4",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\tests_fuzz_open.rs",
+      "expected_sha256": "3e75938c487fef805f4e01b67a47ed2907dffbb7a37a48b7fbd75a4d10ddfaaf",
+      "actual_sha256": "3e75938c487fef805f4e01b67a47ed2907dffbb7a37a48b7fbd75a4d10ddfaaf",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\tests_settings.rs",
+      "expected_sha256": "87eacaf464d7b2bdfe25fa5d25dc86678be9c8fad7585c9c718fbf304d3b8cca",
+      "actual_sha256": "87eacaf464d7b2bdfe25fa5d25dc86678be9c8fad7585c9c718fbf304d3b8cca",
+      "matched": true
+    },
+    {
+      "coverage": "engine-authoring.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\tests_effects.rs",
+      "expected_sha256": "830617e1f9b80bfb98fb93452362874bdb7a2221e01fa548ccb6264167dea0a0",
+      "actual_sha256": "830617e1f9b80bfb98fb93452362874bdb7a2221e01fa548ccb6264167dea0a0",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\apps\\effectcraft\\Cargo.toml",
+      "expected_sha256": "a277a0e04ff5c764dcbbdd788d9aff59c3735fa385d9cfc44b1808e294345f05",
+      "actual_sha256": "a277a0e04ff5c764dcbbdd788d9aff59c3735fa385d9cfc44b1808e294345f05",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\apps\\effectcraft-cli\\Cargo.toml",
+      "expected_sha256": "f173302979b301a196137b9a43f06767bd617d1ba40442787304fe40b32d26f5",
+      "actual_sha256": "f173302979b301a196137b9a43f06767bd617d1ba40442787304fe40b32d26f5",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\apps\\effectcraft-web\\Cargo.toml",
+      "expected_sha256": "61189106972c5ef152e9b5b1ba92c16c8ccd50e36ed37c4015265c9877582c00",
+      "actual_sha256": "61189106972c5ef152e9b5b1ba92c16c8ccd50e36ed37c4015265c9877582c00",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\Cargo.toml",
+      "expected_sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "actual_sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\automation\\Cargo.toml",
+      "expected_sha256": "766f05da72f70a4622800269b24da8d5126aa5885ac5c55066d14361103ea11f",
+      "actual_sha256": "766f05da72f70a4622800269b24da8d5126aa5885ac5c55066d14361103ea11f",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\av1enc\\Cargo.toml",
+      "expected_sha256": "d91f48803aa70738c126878cb356b376bcb3e66d4a07df22d8848141af45bd62",
+      "actual_sha256": "d91f48803aa70738c126878cb356b376bcb3e66d4a07df22d8848141af45bd62",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\color\\Cargo.toml",
+      "expected_sha256": "57b655e43dd9f6d2ab06a8e59d1348f101cd900a68e85ab8ab109f68e4dc3558",
+      "actual_sha256": "57b655e43dd9f6d2ab06a8e59d1348f101cd900a68e85ab8ab109f68e4dc3558",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\effects\\Cargo.toml",
+      "expected_sha256": "d3514dd17308ce9862be2b0123b5df9664de135534364aa531bc7a9f980ab0c5",
+      "actual_sha256": "d3514dd17308ce9862be2b0123b5df9664de135534364aa531bc7a9f980ab0c5",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\Cargo.toml",
+      "expected_sha256": "c57ae2f4dca2a038769a4d850e01f14f6fa0349dbdb6c0b793b3c5b169bbd593",
+      "actual_sha256": "c57ae2f4dca2a038769a4d850e01f14f6fa0349dbdb6c0b793b3c5b169bbd593",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\export\\Cargo.toml",
+      "expected_sha256": "867d9d955b52d8838bf4af8b8a42235768f8433bb00239889d8cde7246343bd4",
+      "actual_sha256": "867d9d955b52d8838bf4af8b8a42235768f8433bb00239889d8cde7246343bd4",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\expr\\Cargo.toml",
+      "expected_sha256": "4ec1fb92a0388b0b666b4587f018ad619b5db6461c703aba7985aad01e115a02",
+      "actual_sha256": "4ec1fb92a0388b0b666b4587f018ad619b5db6461c703aba7985aad01e115a02",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\geom\\Cargo.toml",
+      "expected_sha256": "3883a7be7c7832d71cc4f90d8c7360e3f9f6716e77e8e68d7729f0ccccf8eef3",
+      "actual_sha256": "3883a7be7c7832d71cc4f90d8c7360e3f9f6716e77e8e68d7729f0ccccf8eef3",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\gpu\\Cargo.toml",
+      "expected_sha256": "ca0b8d00a8e24004496c399a3e3bb137c03ca59d178c445aaed32cb5722fa390",
+      "actual_sha256": "ca0b8d00a8e24004496c399a3e3bb137c03ca59d178c445aaed32cb5722fa390",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\hevcenc\\Cargo.toml",
+      "expected_sha256": "ced9cb404a1dc00a303d20e62a72e98e91c9a191dd6014625016ab74b5441198",
+      "actual_sha256": "ced9cb404a1dc00a303d20e62a72e98e91c9a191dd6014625016ab74b5441198",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\host\\Cargo.toml",
+      "expected_sha256": "49102722275ab4e1b94b0d4012ea291981bcfef454c4b073dd4c9c40e0bcc98c",
+      "actual_sha256": "49102722275ab4e1b94b0d4012ea291981bcfef454c4b073dd4c9c40e0bcc98c",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\interchange\\Cargo.toml",
+      "expected_sha256": "0a9a01da4bbb1342c47e8a818f1725ef7b981e149bd1853abe246afb9d7b44a1",
+      "actual_sha256": "0a9a01da4bbb1342c47e8a818f1725ef7b981e149bd1853abe246afb9d7b44a1",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\keyframe\\Cargo.toml",
+      "expected_sha256": "9c932ca3c785f76337a0aa5a228e00057f4c1d549df959569c7275e3e912feb5",
+      "actual_sha256": "9c932ca3c785f76337a0aa5a228e00057f4c1d549df959569c7275e3e912feb5",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\lottie\\Cargo.toml",
+      "expected_sha256": "1453d1f9218979e1321262c070c191db3d015457f37a76cb878a2e357b3395db",
+      "actual_sha256": "1453d1f9218979e1321262c070c191db3d015457f37a76cb878a2e357b3395db",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\media\\Cargo.toml",
+      "expected_sha256": "44c8e55dae6c8c5d2d10a5b527e54824596b1fa9877e5c7f8e7ff2c538a08243",
+      "actual_sha256": "44c8e55dae6c8c5d2d10a5b527e54824596b1fa9877e5c7f8e7ff2c538a08243",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\model\\Cargo.toml",
+      "expected_sha256": "663b79f8c37f34162546a0387b66f49626db1a7c7c284f2202ea856dffa7a313",
+      "actual_sha256": "663b79f8c37f34162546a0387b66f49626db1a7c7c284f2202ea856dffa7a313",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\opusenc\\Cargo.toml",
+      "expected_sha256": "c52ca7594cecf20d26f62e167f2f6e5190a6cb9b0f6530170f0c475cace7d676",
+      "actual_sha256": "c52ca7594cecf20d26f62e167f2f6e5190a6cb9b0f6530170f0c475cace7d676",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\path\\Cargo.toml",
+      "expected_sha256": "712edf9c2c2a08dfa31c900cd73065ccb3b12dfb0fd24228461819a4ff0cb652",
+      "actual_sha256": "712edf9c2c2a08dfa31c900cd73065ccb3b12dfb0fd24228461819a4ff0cb652",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\pdf\\Cargo.toml",
+      "expected_sha256": "4357282cec350386e766f1f4efbb89cd1e6e45b24c08ecccc93b67b7cbd9dd5a",
+      "actual_sha256": "4357282cec350386e766f1f4efbb89cd1e6e45b24c08ecccc93b67b7cbd9dd5a",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\plugin\\Cargo.toml",
+      "expected_sha256": "9950a37bd5429117626d0c9f8b4b741fa956d07c9818e8a681305b321345b51a",
+      "actual_sha256": "9950a37bd5429117626d0c9f8b4b741fa956d07c9818e8a681305b321345b51a",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\project\\Cargo.toml",
+      "expected_sha256": "dfa7e0f0636211809826f65798b8502a6723177e7bc9f7cc6ef4b617a97cb2ae",
+      "actual_sha256": "dfa7e0f0636211809826f65798b8502a6723177e7bc9f7cc6ef4b617a97cb2ae",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\psd\\Cargo.toml",
+      "expected_sha256": "1bb51f1a2e4a7a3341c4c9f6adad5b509a4872d0d983a7669fdacc9ad0ba9f1f",
+      "actual_sha256": "1bb51f1a2e4a7a3341c4c9f6adad5b509a4872d0d983a7669fdacc9ad0ba9f1f",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\raster\\Cargo.toml",
+      "expected_sha256": "1113dc965863a1a1fd63c4bc03a0dbf9d8437e5bcb56cc9ed778e9247788946f",
+      "actual_sha256": "1113dc965863a1a1fd63c4bc03a0dbf9d8437e5bcb56cc9ed778e9247788946f",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\render\\Cargo.toml",
+      "expected_sha256": "fc0427e43ce6c0d5241cc57b2361fec10655e51343909b99cd7069094d91243b",
+      "actual_sha256": "fc0427e43ce6c0d5241cc57b2361fec10655e51343909b99cd7069094d91243b",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\script\\Cargo.toml",
+      "expected_sha256": "43ad7743e71071a509a23bfcb56916085b2c5b0654fb482b25240ae011d486d5",
+      "actual_sha256": "43ad7743e71071a509a23bfcb56916085b2c5b0654fb482b25240ae011d486d5",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\segment\\Cargo.toml",
+      "expected_sha256": "9aff93c0790b042b79187afd24434b8106017d11ca0ab288d695f6b504c67c45",
+      "actual_sha256": "9aff93c0790b042b79187afd24434b8106017d11ca0ab288d695f6b504c67c45",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\svg\\Cargo.toml",
+      "expected_sha256": "0abb645db094211e6076d16daa8764daf12331015825fabdc276694ad0075d8a",
+      "actual_sha256": "0abb645db094211e6076d16daa8764daf12331015825fabdc276694ad0075d8a",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\text\\Cargo.toml",
+      "expected_sha256": "2fdb6f878dc1fa1db788922b254df4d763d516174c31119633550407493bbb1d",
+      "actual_sha256": "2fdb6f878dc1fa1db788922b254df4d763d516174c31119633550407493bbb1d",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\time\\Cargo.toml",
+      "expected_sha256": "f60ed8272dea9cd134a8d919cf25f01ce73ae9513ad70d0d68b3e7a80e83e8d3",
+      "actual_sha256": "f60ed8272dea9cd134a8d919cf25f01ce73ae9513ad70d0d68b3e7a80e83e8d3",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\track\\Cargo.toml",
+      "expected_sha256": "b1f8a9198eae89b9ae784933e76484cc1cf720abb56a20a6b9de3c63a428214d",
+      "actual_sha256": "b1f8a9198eae89b9ae784933e76484cc1cf720abb56a20a6b9de3c63a428214d",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\ui-egui\\Cargo.toml",
+      "expected_sha256": "d56a68d54de8c6cdfe89f51caf882e5cbe5898d18580b20a0dc923108b5e3526",
+      "actual_sha256": "d56a68d54de8c6cdfe89f51caf882e5cbe5898d18580b20a0dc923108b5e3526",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\vp9enc\\Cargo.toml",
+      "expected_sha256": "3b5d3f5ae4f40f5ff2e60c85d5dddada72d6e2c7f81b0416917ddf72be336ad8",
+      "actual_sha256": "3b5d3f5ae4f40f5ff2e60c85d5dddada72d6e2c7f81b0416917ddf72be336ad8",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\examples\\plugins\\posterize-bands\\Cargo.toml",
+      "expected_sha256": "f6b0e1e9531df14780838dcd61a346239ff5437f9c218de820e26b860e27ee84",
+      "actual_sha256": "f6b0e1e9531df14780838dcd61a346239ff5437f9c218de820e26b860e27ee84",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\xtask\\Cargo.toml",
+      "expected_sha256": "017861da6b9a91a42bedfcd90f048deacc57356128de3bed275ac3c544dd6ba9",
+      "actual_sha256": "017861da6b9a91a42bedfcd90f048deacc57356128de3bed275ac3c544dd6ba9",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\AGENTS.md",
+      "expected_sha256": "4e31a1e4a7c24f29e885fbec58a65e88ac9610bd9d06492272deed2f81c49992",
+      "actual_sha256": "4e31a1e4a7c24f29e885fbec58a65e88ac9610bd9d06492272deed2f81c49992",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\Cargo.toml",
+      "expected_sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "actual_sha256": "154bd9aca2a00a0ff1b345a210db940207a856dca6f5aef93e43b6db087e5cac",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\Cargo.lock",
+      "expected_sha256": "bc9d49460dbedc71358d4a51d1b6494b7ad793384570f2cc03dea2a68a585d41",
+      "actual_sha256": "bc9d49460dbedc71358d4a51d1b6494b7ad793384570f2cc03dea2a68a585d41",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\README.md",
+      "expected_sha256": "d5f22f2311b3bf1da0cf01a96c0bb1c6fe3585aa81df8b99ecce61cbba9ede60",
+      "actual_sha256": "d5f22f2311b3bf1da0cf01a96c0bb1c6fe3585aa81df8b99ecce61cbba9ede60",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\architecture.md",
+      "expected_sha256": "d6286054452e79d2a675dee90ec93ab243e3f54e22f0f85854426d7151dc28af",
+      "actual_sha256": "d6286054452e79d2a675dee90ec93ab243e3f54e22f0f85854426d7151dc28af",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\plugins.md",
+      "expected_sha256": "fcd949fa74977cf8357a3332feae18ae73b0eaf07c471eb4e301663c61efb8f7",
+      "actual_sha256": "fcd949fa74977cf8357a3332feae18ae73b0eaf07c471eb4e301663c61efb8f7",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\web.md",
+      "expected_sha256": "2e366254aabbd7fbd574c3cfe7aa0cb255907e1fd276c66415c6d245b91a6218",
+      "actual_sha256": "2e366254aabbd7fbd574c3cfe7aa0cb255907e1fd276c66415c6d245b91a6218",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\LICENSE-MIT",
+      "expected_sha256": "7b6db9a363688683feacdf9b528f059637f2e5d2edbacd8720fc9b26781c9abe",
+      "actual_sha256": "7b6db9a363688683feacdf9b528f059637f2e5d2edbacd8720fc9b26781c9abe",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\LICENSE-APACHE",
+      "expected_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "actual_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\NOTICE",
+      "expected_sha256": "c7ecb79db5a35e749c037773c9867d07f6ff598edce3d72bd443b4d00f24e0be",
+      "actual_sha256": "c7ecb79db5a35e749c037773c9867d07f6ff598edce3d72bd443b4d00f24e0be",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\ATTRIBUTION.md",
+      "expected_sha256": "653802d1bb337bec8a1105134620bc9bb09f383bd9ee4227c9d5de20a0f49aed",
+      "actual_sha256": "653802d1bb337bec8a1105134620bc9bb09f383bd9ee4227c9d5de20a0f49aed",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\docs\\brand\\LICENSE-brand.txt",
+      "expected_sha256": "7ee27fdb49f96a969ab80d5f800d8422aa17cb39d1cca286d18aa6227d8c7628",
+      "actual_sha256": "7ee27fdb49f96a969ab80d5f800d8422aa17cb39d1cca286d18aa6227d8c7628",
+      "matched": true
+    },
+    {
+      "coverage": "source-admission.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\assets\\app-icon\\LICENSE.txt",
+      "expected_sha256": "6f7a100b47da67df0c9e8e06397a7222766932c36cdebeff2e89cb2cd2917b85",
+      "actual_sha256": "6f7a100b47da67df0c9e8e06397a7222766932c36cdebeff2e89cb2cd2917b85",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\ui-egui\\src\\menus.rs",
+      "expected_sha256": "643c5614fccb49933473f29baa03c151815bb2215c00cfb31922f29364f567d6",
+      "actual_sha256": "643c5614fccb49933473f29baa03c151815bb2215c00cfb31922f29364f567d6",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\ui-egui\\src\\panels\\timeline.rs",
+      "expected_sha256": "c8014eabbe1082152b9922e76529faa2a92328884880af7b22c580079d510010",
+      "actual_sha256": "c8014eabbe1082152b9922e76529faa2a92328884880af7b22c580079d510010",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\ui-egui\\src\\panels\\properties.rs",
+      "expected_sha256": "93ec78ef631b3e694a52581a58321b657a39ce5d7306fc69aa1a663ae5dff036",
+      "actual_sha256": "93ec78ef631b3e694a52581a58321b657a39ce5d7306fc69aa1a663ae5dff036",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\ui-egui\\src\\panels\\graph.rs",
+      "expected_sha256": "400fb5584e9d63e04cca3086287f565989a3f85287e878e64a1d1e098ea388c3",
+      "actual_sha256": "400fb5584e9d63e04cca3086287f565989a3f85287e878e64a1d1e098ea388c3",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\frontend.rs",
+      "expected_sha256": "629c44f29ad09b1a35962f39c0c0422aef91c70924e19afa844ead026022dd38",
+      "actual_sha256": "629c44f29ad09b1a35962f39c0c0422aef91c70924e19afa844ead026022dd38",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\commands\\effect.rs",
+      "expected_sha256": "d884cfb3060e48e9912beba78a056d4567b0dda026a2860e54f89225294b34fb",
+      "actual_sha256": "d884cfb3060e48e9912beba78a056d4567b0dda026a2860e54f89225294b34fb",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\render_queue.rs",
+      "expected_sha256": "6f5691798d8819341604a8604967a37eb6e6ae397d6dc47a1d0de5899f7e1f40",
+      "actual_sha256": "6f5691798d8819341604a8604967a37eb6e6ae397d6dc47a1d0de5899f7e1f40",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\engine\\src\\history.rs",
+      "expected_sha256": "a725b978d29b126e66975f39b14eace2e866c4b6fa4d6984ff56964b85b2d5e4",
+      "actual_sha256": "a725b978d29b126e66975f39b14eace2e866c4b6fa4d6984ff56964b85b2d5e4",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\core\\construct.rs",
+      "expected_sha256": "76c9c0d1bfebcddccd240b9dcf6f080b4731759c541133a8cfd038b840617aa7",
+      "actual_sha256": "76c9c0d1bfebcddccd240b9dcf6f080b4731759c541133a8cfd038b840617aa7",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\core\\registry.rs",
+      "expected_sha256": "dedaaeb98959d1304c45cd0b10ccb41b7257930f0a7f42c738f27d8e5eb4f14d",
+      "actual_sha256": "dedaaeb98959d1304c45cd0b10ccb41b7257930f0a7f42c738f27d8e5eb4f14d",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\manifolds\\studio_bay.rs",
+      "expected_sha256": "df66d8d26cbacba55b29314e1df0febcd7ab5b75cfb44b407d2a8c55b79603ca",
+      "actual_sha256": "df66d8d26cbacba55b29314e1df0febcd7ab5b75cfb44b407d2a8c55b79603ca",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\manifolds\\projects.rs",
+      "expected_sha256": "cd58fd0cc70bb38b6ec519c9fd07c4a1258237c502f47dd6a127bfa97f58f699",
+      "actual_sha256": "cd58fd0cc70bb38b6ec519c9fd07c4a1258237c502f47dd6a127bfa97f58f699",
+      "matched": true
+    },
+    {
+      "coverage": "ui-functions.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\constructs\\mod.rs",
+      "expected_sha256": "13c64971daec9eccaee1207f53c6d1e198634a7024c8c23851f442f2d66122b4",
+      "actual_sha256": "13c64971daec9eccaee1207f53c6d1e198634a7024c8c23851f442f2d66122b4",
+      "matched": true
+    }
+  ],
+  "document_pins": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "e08fbd9c0915a34178eb385588ffe872c1163c2793260a1eb966d464f3a39f06"
+    },
+    {
+      "path": "docs/planning/README.md",
+      "sha256": "ff8b309cf473b8adc7705323300c43ff221637cf244b047b298b9b251f926ea5"
+    },
+    {
+      "path": "docs/planning/implementation-plan.md",
+      "sha256": "40846a99f1b7165f3de247ea245e5226eccaafa8ac44908237ed03fee642bf13"
+    },
+    {
+      "path": "docs/planning/delivery-revision-and-agent-handoff.md",
+      "sha256": "c659d531429859c2bb840a038f57014cc4f773b7ac0b95afe77957dfa97952b0"
+    },
+    {
+      "path": "docs/planning/biosphere-work-packets.json",
+      "sha256": "3eadcc5e2270d41d471e8e1e894cfb4819cd8da5044d801fb939f2008e126426"
+    },
+    {
+      "path": "docs/planning/tech/poet-capability-adaptation-guide.md",
+      "sha256": "7b4c757d62147044ed8a0391fdaeb6b9650d801364fafae02940ee454b9005ec"
+    },
+    {
+      "path": "docs/planning/tech/poet-comprehensive-authoring-review.md",
+      "sha256": "ccbd7c4ad4cfffd9d7008dbb629eb1c9baa8d5ba322016668e51598547ef29eb"
+    },
+    {
+      "path": "docs/planning/tech/poet-craft-consolidation.md",
+      "sha256": "b0af8308006e80dc4ac6658e9cb03b52eb0c06b809171ef339bf791bab227fe9"
+    },
+    {
+      "path": "docs/planning/tech/assets/production-toolchain-spec.md",
+      "sha256": "e5472a1212657614709c253cf890da33c73433bf5c68893c55e66517cf5152b8"
+    },
+    {
+      "path": "docs/planning/tech/craft-consolidation/source-inventory.json",
+      "sha256": "fcb86321a485c4448be1e090214e5ad513334a5b8292007fbf25bb617899b8e0"
+    },
+    {
+      "path": "docs/planning/tech/poet-ui-recovery/README.md",
+      "sha256": "3f40153717f0822b9facc3648b1bc549f9ddd1f2a287e11f7e86d1362a29452b"
+    },
+    {
+      "path": "docs/planning/tech/poet-ui-recovery/ui-function-inventory.json",
+      "sha256": "fe34f52d7690e2450be084b5744ff10cd731023c07605d074f2c0eaa2108ebf0"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/ecosystem-examples.coverage.json",
+      "sha256": "9e44501975664c67a3e24987c7b16b439dca5cc3aa4adaf872d80e7bef1bbef9"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.coverage.json",
+      "sha256": "2e5209d61e1e6f0a6ebf9d2eaa94b1cadfae3a3b0d529a2f2b4a9398a879b243"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.md",
+      "sha256": "1ee93f02a5c25d019f8538487010f62d353d046292ba8c3707458ec14f6f0416"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/independent-review.md",
+      "sha256": "fe6420c199e38ba1ebfb26d8a7ba60efbabe468028e0a4d3697c04f59bf3b383"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/README.md",
+      "sha256": "d250746afe0cd004c5321be8dd3c14852e1a52aab7156a9579abed655f9ac684"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/source-admission.coverage.json",
+      "sha256": "cd0bfe709a9623fd30663b63ddcfdf96ee3d662fbcaa5c6601823c0aa16307ff"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/source-admission.md",
+      "sha256": "e6cc8b7a96af8b6f9d267cb2852bc425ea26590046c9064fc5f1c09d979b221a"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/ui-functions.coverage.json",
+      "sha256": "7322f1646e7e059115d27f2af801bbafb1e01980dea442bbf66da8b5d0ed713c"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/effectcraft-review/ui-functions.md",
+      "sha256": "b4ace0c80140f89bb2e564b98d3e0ee868aa0ff014569e7632a288c4891632a4"
+    }
+  ],
+  "source_history": "Archive checkout provenance unavailable; file pins do not establish upstream/clean Git revision.",
+  "independent_review": "Document-only guide review; root applied recorded corrections; no independent full body/runtime qualification.",
+  "remaining": "Full PC/TOOL/PA and IP-03 foundation/product gates open; asset production HOLD; species profiles incomplete."
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "path": "candidate\\vibe\\fixtures\\crypto1_hash_sign.vibe",
+    "sha256": "f1374cfe34b8f7b58198ab78f1b5ebb76b6679469d033840c8a749643c9350e4"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check.rs",
+    "sha256": "7f53eeab2ba47a061f79842b74a9cee89ac6ea01e65178b5842d9c8125c328b9"
+  },
+  {
+    "path": "candidate\\vibe\\src\\lib.rs",
+    "sha256": "fc41537324d753f8a1972001f03e0aedf3098ce347ec405b2eec885b4a8bf230"
+  },
+  {
+    "path": "candidate\\vibe\\tests\\conformance.rs",
+    "sha256": "e344d1d716194484b8b051bf6c37239c3ec9d989d6222a917544a2758b8501b6"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\bindings.rs",
+    "sha256": "28f10a45b4b1ec66f1db6a7657e317fac8e3582d84b84127927c3c103a99389d"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\context.rs",
+    "sha256": "469f6e557bbfff6df5e28e6f9e6b35bce88a4a405a1a585672a9c20347c14fdb"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\expressions.rs",
+    "sha256": "83e61c6659594fba13ab64b35246254531129666769ee41d252a9cc2996d17a2"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\helpers.rs",
+    "sha256": "69e999c8c54905fec2fe07cd90b0b24bb2d7748655102935313797304b00c8f5"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\mod.rs",
+    "sha256": "2cb57d52fae9bfdf8092f9fb96b809e66ec80a0554886ca35b9e37f3b0a8c706"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\statements.rs",
+    "sha256": "813115adc74f4bdeaeb8718c0c692134807a79041d06a74e5299a0cab7eb4dae"
+  },
+  {
+    "path": "candidate\\vibe\\src\\check\\tests.rs",
+    "sha256": "1f8adcbd5bd2d1d9f7cfe59b03518e638a87bcab495b456d08fb13d83ea3f464"
+  },
+  {
+    "path": "candidate\\vibe\\src\\eval\\budget.rs",
+    "sha256": "2f0d7b8953f375b9afcb28ef26e5425910b8e02a863c82ded4e7d030790dbe9a"
+  },
+  {
+    "path": "candidate\\vibe\\src\\eval\\call.rs",
+    "sha256": "83f673bc5cd6270e015d98f70ed7411584ff68672f245db83ccc3a9b254b39a8"
+  },
+  {
+    "path": "candidate\\vibe\\src\\eval\\expr.rs",
+    "sha256": "9c7bcc1174779d2d2d521a1f461ca0d2d5ac3057447b24be016a8524b10d0936"
+  },
+  {
+    "path": "candidate\\vibe\\src\\eval\\mod.rs",
+    "sha256": "cd13985285f1418a137eba8503be2dfdcdb1a6271b684ac41fb6a3c4bc7e1a50"
+  },
+  {
+    "path": "candidate\\vibe\\src\\eval\\program.rs",
+    "sha256": "30e5212dda2ee8811b453a4f95c456e4cdc95a26146b57a6294285465dee79d1"
+  },
+  {
+    "path": "candidate\\vibe\\src\\eval\\stack.rs",
+    "sha256": "540ee41c74182d8b0dc7bb5818209f8caa0b311cf1c84990168aee2d4d1e234a"
+  },
+  {
+    "path": "candidate\\vibe\\src\\session\\mod.rs",
+    "sha256": "ff2567e1e585a40fcf560677cb286005b1f512f96ee39a673d5ddd675698f544"
+  },
+  {
+    "path": "candidate\\vibe\\src\\session\\prepare.rs",
+    "sha256": "363592b189d15efdc9dc941f747ccd8aa0531a35f6bbeeed2faf36b32188e6e3"
+  },
+  {
+    "path": "candidate\\vibe\\src\\session\\source_limits.rs",
+    "sha256": "4b4fe0c5dfb653856b24f7c95595481987106a149b913495ad5da6a785fd818e"
+  },
+  {
+    "path": "candidate\\vibe\\src\\session\\tests.rs",
+    "sha256": "9b5e42cdbd0f425adef5ab13bfe37a66228b80d15b4f5074f691a4726d7b1bb0"
+  },
+  {
+    "path": "candidate\\vibe\\src\\session\\values.rs",
+    "sha256": "796bcbaf70dd6f6eabfc828ffd9b34658c841a490d6564caab7edc9f38082a5f"
+  }
+]

@@ -18,6 +18,11 @@
 
 pub mod vibe_host;
 
+#[cfg(any(target_arch = "wasm32", test))]
+mod texture_admission;
+#[cfg(test)]
+mod texture_admission_fixture_tests;
+
 use ecopunk_terrain::botanical_anatomy::{
     build_scale1_whole_organism_10d, build_scale2_stem_bark_wedge_10d,
     build_scale3_floral_and_gumnut_dissection_10d, build_scale4_leaf_venation_and_histology_10d,
@@ -421,6 +426,9 @@ pub struct EcopunkPortal {
 #[cfg(target_arch = "wasm32")]
 #[wasm_bindgen]
 impl EcopunkPortal {
+    /// Await `init_webgpu` before construction so the engine can adopt its
+    /// pending GPU and admit the scene's required opaque colour textures.
+    /// Unavailable backends and rejected texture uploads return an error.
     #[wasm_bindgen(constructor)]
     pub fn new(canvas: HtmlCanvasElement) -> Result<EcopunkPortal, JsValue> {
         let mut inner = qualia_core_db::QualiaPortal::new(canvas)?;
@@ -433,15 +441,7 @@ impl EcopunkPortal {
         let _ = inner.set_exposure_compensation(0.35);
 
         let textures = build_procedural_textures();
-        for (idx, tex) in textures.iter().enumerate() {
-            let _ = inner.load_texture_encoded(
-                &tex.sha256_bytes,
-                "image/png",
-                &tex.png_bytes,
-                (idx as u8) % 4,
-                0.5,
-            );
-        }
+        texture_admission::admit_procedural_textures(&mut inner, &textures)?;
 
         let world = RegionalCorridorWorld::new();
         let session = ContinuumExplorationSession::new(world);

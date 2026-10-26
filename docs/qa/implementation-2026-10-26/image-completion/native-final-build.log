@@ -1,0 +1,51 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+error[E0576]: cannot find method or associated constant `new_from_slice` in trait `Mac`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\identity\agency.rs:235:48
+    |
+235 |     let mut extract_mac = <HmacSha256 as Mac>::new_from_slice(&km.volume_tweak)
+    |                                                ^^^^^^^^^^^^^^ not found in `Mac`
+
+error[E0576]: cannot find method or associated constant `new_from_slice` in trait `Mac`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\identity\agency.rs:241:47
+    |
+241 |     let mut expand_mac = <HmacSha256 as Mac>::new_from_slice(&prk)
+    |                                               ^^^^^^^^^^^^^^ not found in `Mac`
+
+warning: unused imports: `PAYLOAD_CATALOGUE_HEADER_BYTES`, `PAYLOAD_CATALOGUE_MAGIC`, `PAYLOAD_CATALOGUE_VERSION`, `decode_payload_catalogue_section`, `encode_payload_catalogue_section`, `header_payload_catalogue_range`, and `set_header_payload_catalogue_range`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\mod.rs:80:5
+   |
+80 |     decode_payload_catalogue_section, encode_payload_catalogue_section,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+81 |     header_payload_catalogue_range, set_header_payload_catalogue_range,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+82 |     PAYLOAD_CATALOGUE_HEADER_BYTES, PAYLOAD_CATALOGUE_MAGIC, PAYLOAD_CATALOGUE_VERSION,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+For more information about this error, try `rustc --explain E0576`.
+warning: `qualia-core-db` (lib) generated 3 warnings
+error: could not compile `qualia-core-db` (lib) due to 2 previous errors; 3 warnings emitted

@@ -1,0 +1,8 @@
+{
+  "status": "interrupted_by_supervisor_after_runtime_failures_and_wait",
+  "passed": false,
+  "observed": "6 cases selected;3 passed,2 failed on sandbox-temp atomic persist AccessDenied, remaining late-result case waited >60s.",
+  "diagnosis": "Both file cases individually reproduced atomic persist AccessDenied in default App sandbox temp. Late-result case passed individually in0.12s; global nonblocking stamp admission can refuse before barrier dispatch, a sufficient source-identified hang mechanism; exact parallel timing unproven.",
+  "remedy": "Caller-owned unique workspace TEMP/TMP; bounded source-invalidation fixture; serial focused integration cases; no weakened production/save API.",
+  "recorded_utc": "2026-10-25T05:18:06.124463+00:00"
+}

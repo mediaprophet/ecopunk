@@ -1,0 +1,39 @@
+{
+  "scope": "Static JSON/hash/source boundary verification only; no build/runtime/test execution",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/mod.rs",
+      "stage_snapshot_diff_hashes_match": true,
+      "sibling_remains_before_state": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-geospatial/src/geotiff.rs",
+      "stage_snapshot_diff_hashes_match": true,
+      "sibling_remains_before_state": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/mod.rs",
+      "stage_snapshot_diff_hashes_match": true,
+      "sibling_remains_before_state": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/intervals.rs",
+      "stage_snapshot_diff_hashes_match": true,
+      "sibling_remains_before_state": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/q42/m64_matter/checked_reader/validation.rs",
+      "stage_snapshot_diff_hashes_match": true,
+      "sibling_remains_before_state": true
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/tests/m64_container_sdk.rs",
+      "stage_snapshot_diff_hashes_match": true,
+      "sibling_remains_before_state": true
+    }
+  ],
+  "manifest_sha256": "e3585147732bbf7089ce1b90a0e050c2dd51ab088a4181f9cbc6762ed8b0523a",
+  "installer_sha256": "1bc3d4ac6318669f29988f5c1aafddbf3cb8dbe132b7f61e24ecd04e5cddeaa5",
+  "artifact_sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+  "status": "staged_not_installed_auto_review_rejected"
+}

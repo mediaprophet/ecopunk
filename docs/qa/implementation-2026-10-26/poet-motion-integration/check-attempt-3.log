@@ -1,0 +1,109 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: variable does not need to be mutable
+   --> native\src\graphical\authoring\controls.rs:160:9
+    |
+160 |     let mut material_id = use_signal(|| 0u64);
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\native_project_motion_tests.rs:327:9
+    |
+327 |     let mut ui = project.connect(author.clone()).unwrap();
+    |         ----^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:76:5
+   |
+76 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:77:5
+   |
+77 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     ----^^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\viewport_controls.rs:201:9
+    |
+201 |     let mut viewport_state = use_signal(|| None::<ViewportState>);
+    |         ----^^^^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 6 warnings (run `cargo fix --lib -p poet-cli --tests` to apply 5 suggestions)
+    Finished `test` profile [unoptimized] target(s) in 2m 36s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 13 tests
+test graphical::authoring::material_motion_controls::tests::invalid_field_updates_preserve_keys_and_uncommitted_text ... ok
+test graphical::authoring::material_motion_controls::tests::key_moves_are_ordered_and_collision_refusal_retains_local_source ... ok
+test graphical::authoring::material_motion_tests::material_motion_refuses_non_linear_or_orphaned_targets_before_source_generation ... ok
+test graphical::authoring::material_motion_tests::material_motion_rejects_bad_drafts_and_missing_targets_without_source_changes ... ok
+test graphical::authoring::material_motion_tests::material_motion_remove_keeps_sampled_factors_and_recipe_state_is_replayable ... ok
+test graphical::authoring::material_motion_tests::material_motion_source_edits_keys_and_samples_while_preserving_other_fields ... ok
+test graphical::authoring::material_motion_tests::material_motion_strict_source_schema_never_silently_repairs_unknown_state ... ok
+test graphical::authoring::material_motion_tests::material_motion_total_generated_source_is_bounded_without_touching_accepted_work ... ok
+test graphical::authoring::material_motion_tests::material_motion_track_limit_preserves_distinct_targets_and_rejects_extra ... ok
+test graphical::authoring::material_motion_tests::material_motion_typed_requests_reject_unknown_fields_modes_and_fractional_time ... ok
+test graphical::authoring::material_motion_tests::material_motion_uses_real_vibe_easing_with_explicit_outgoing_modes ... ok
+test graphical::native_project::tests::motion_workflow_tests::signed_material_motion_rejects_stale_observer_revoked_and_malformed_edits ... ok
+test graphical::native_project::tests::motion_workflow_tests::signed_material_motion_ui_mcp_history_and_hmc_reopen ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 249 filtered out; finished in 7.62s
+

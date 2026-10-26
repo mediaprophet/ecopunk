@@ -1,0 +1,30 @@
+{
+  "command": [
+    "cargo",
+    "check",
+    "--offline",
+    "--locked",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet",
+    "--lib",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T04:42:24.975605+00:00",
+  "finished_utc": "2026-10-25T04:45:21.011940+00:00",
+  "elapsed_seconds": 176.015,
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\wasm-source-before.json",
+  "source_snapshot_sha256": "b3528b4f4ada4089c1e49d1448b00ade4d3899a6896e76921241c7b6d9569b4d",
+  "recorded_local_source_files": 3554,
+  "source_changes": [],
+  "source_unchanged": true,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\wasm-conformance.log",
+  "log_sha256": "1464dce61043e6476737103fb28b28a8e4f9e40a6067915c21ddaaa7113dc3e6",
+  "boundary": "Local Rust/WGSL/manifests/locks source set only; dependency caches are selected by recorded locks. Native test scope and WASM compilation are distinct; no runtime WASM/GUI/acceptance claim."
+}

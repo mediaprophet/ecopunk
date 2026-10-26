@@ -5,6 +5,15 @@ is the difference between "the graph answers queries" and "the governed engine
 runs wherever the user is". Everything here verified against
 `qualia-core-db` feature gates + `wasm_bridge` + `render/portal` this survey.
 
+**Current product clarification, 2026-10-24:** WASM is a supported harmonised
+application target over Aether, the controlled `rust-app-framework` fork. Webizen
+Desktop is the native launcher/host; WASM operations use its authorized native
+services where required, while supported local operations can run independently.
+The [environment/framework contract](webizen-environment-framework.md) governs
+provider identifiers, authority, versions, state ownership and loss/recovery. The
+source-profile survey below is not end-to-end qualification of those contracts.
+Browser bindings do not establish the native workflow's no-JS/V8 conformance.
+
 ---
 
 ## 1. The profile ladder (verified `Cargo.toml` features)

@@ -1,0 +1,78 @@
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hniacv99v5-0bsfn8j-working`
+
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-3ous0j4z2ctrl\s-hniadc0r53-1lchalj-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\run05_sessions-3jyi2l2n5ir5f\s-hniadc46hn-14eykuu-working`
+
+warning: function `run_repl` is never used
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\candidate\poet\native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `run_repl_with_grants` is never used
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\candidate\poet\native\src\repl.rs:56:8
+   |
+56 | pub fn run_repl_with_grants(grants: Vec<String>) -> io::Result<()> {
+   |        ^^^^^^^^^^^^^^^^^^^^
+
+warning: `vibe` (bin "vibe") generated 1 warning
+warning: `vibe` (test "run05_poet") generated 2 warnings
+warning: `vibe` (test "run05_sessions") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 48.90s
+     Running tests\run05_poet.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_poet-9e13d9508f68fcb9.exe)
+
+running 12 tests
+test repl::tests::authorized_effectful_program_is_not_checked_as_a_pure_cell ... ok
+test repl::tests::explicit_cell_does_not_fall_back_to_program ... ok
+test repl::tests::failing_host_call_runs_once_in_each_mode ... ok
+test repl::tests::failed_program_keeps_effects_without_replaying_them ... ok
+test repl::tests::program_check_failure_does_not_dispatch ... ok
+test repl::tests::repl_eval_simple_math ... ok
+test repl::tests::repl_maintains_env_bindings ... ok
+test native_poet_entry_cannot_self_grant_or_replace_immutable_value ... ok
+test repl::tests::bare_condition_preserves_vibe_0_1_truthiness ... ok
+test native_poet_entry_retains_mutable_and_function_context ... ok
+test repl::tests::declarations_survive_later_submissions ... ok
+test repl::tests::malformed_program_does_not_execute_a_valid_prefix ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+     Running tests\run05_sessions.rs (docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\deps\run05_sessions-36a441478bf965a5.exe)
+
+running 28 tests
+test denied_native_cue_has_no_host_dispatch_and_explicit_grant_allows_one ... ok
+test checked_candidates_are_bound_to_session_and_revision ... ok
+test admitted_external_callback_on_named_collection_runs_once ... ok
+test early_return_cannot_promote_unexecuted_pure_callback_metadata ... ok
+test copied_alias_keeps_original_external_lambda_effect ... ok
+test explicit_type_is_not_discarded_for_bounded_lists ... ok
+test functions_imports_and_effect_context_survive_without_replay ... ok
+test direct_chain_forward_and_recursive_external_calls_are_rejected ... ok
+test functions_keep_non_capturing_0_1_semantics ... ok
+test effectful_native_host_seams_require_actual_grants ... ok
+test imported_alias_and_pipeline_do_not_hide_effects ... ok
+test inferred_recursive_cycle_effect_reaches_pure_caller ... ok
+test immutable_values_cannot_be_redeclared_via_patterns_blocks_or_bind ... ok
+test control_flow_and_bind_cannot_leave_stale_pure_callbacks ... ok
+test higher_order_indirect_callbacks_fail_closed ... ok
+test invalidated_unknown_alias_does_not_follow_later_reassignment ... ok
+test material_transaction_and_clock_cannot_gain_ambient_session_authority ... ok
+test mutable_typed_binding_survives_and_immutable_assignment_is_denied ... ok
+test pure_builtin_dispatch_precedes_same_named_user_function ... ok
+test namespace_shadowing_does_not_hide_collection_callback_effects ... ok
+test pure_named_forward_calls_recursion_and_lambda_are_allowed ... ok
+test pure_runtime_failure_does_not_install_function_or_mutated_values ... ok
+test session_limits_fail_without_dispatch ... ok
+test recursive_and_failed_budget_diagnostics_are_bounded_and_preserved ... ok
+test unknown_dynamic_targets_are_not_pure ... ok
+test runtime_failure_keeps_external_outcome_and_last_accepted_local_state ... ok
+test unknown_namespaced_bindings_and_effectful_budget_are_rejected ... ok
+test requests_do_not_grant_authority_and_failed_candidates_do_not_promote ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.89s
+

@@ -1,0 +1,17 @@
+
+running 1 test
+actual_native_material_pixels field=base_color side=64 changed_pixels=295 source_revision=3
+actual_native_material_pixels field=roughness side=64 changed_pixels=211 source_revision=4
+
+thread 'graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels' (14676) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\materials\candidate\graphical\material_pixels.rs:86:9:
+metallic produced only 0 changed pixels
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels ... FAILED
+
+failures:
+
+failures:
+    graphical::materials::pixels::accepted_material_edits_change_native_gpu_pixels
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 15 filtered out; finished in 13.92s
+

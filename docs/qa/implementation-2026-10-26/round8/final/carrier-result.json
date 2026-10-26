@@ -1,0 +1,56 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--test",
+    "foundation_source_carrier",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "carrier",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T14:24:08.170392+00:00",
+  "finished_utc": "2026-10-25T14:25:08.102888+00:00",
+  "elapsed_seconds": 59.937,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\carrier.log",
+  "log_sha256": "417355afc87e3ebe411374c5f3aa299ba60438ea350415d2b1581870acbcbbb7",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\carrier-source-before.json",
+  "source_snapshot_sha256": "7fa9719e12675fcaac981fd4ea397c349133c49f1c6cba38c5fc979b3f5c58d4",
+  "recorded_local_source_files": 3253,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      5,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "native_bound_metadata_survives_edit_rebuild_compile_replacement_and_save_as",
+    "public_resource_conflicts_and_protected_origin_edits_preserve_original",
+    "public_writer_legacy_helper_foreign_scope_and_budgets_fail_closed",
+    "source_carrier_restart::metadata_carrier_native_output_survives_fresh_process_activation_and_save_as",
+    "source_carrier_restart::source_carrier_restart_child"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

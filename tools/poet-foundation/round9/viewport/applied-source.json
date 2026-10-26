@@ -1,0 +1,92 @@
+[
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/assembly/mod.rs",
+    "before_sha256": "1a84d6d5152e6666b4fc9ac010311fcfa6b94617fbb15d87fcff58ede4b150fc",
+    "after_sha256": "5df32331cfce1b1a04d71bf65388d05f9fefe0ab36a239680a0dfc5ccc2cf516",
+    "after_lines": 25,
+    "live_matches_before": true,
+    "verified_after_sha256": "5df32331cfce1b1a04d71bf65388d05f9fefe0ab36a239680a0dfc5ccc2cf516"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/assembly/render.rs",
+    "before_sha256": "d2649d7d3b282b2d7b3a31c349db43b8bdce54860214d181828dd74d46648ed8",
+    "after_sha256": "d134eec86f43c0b7a7a018ee5610d9391edeaa8860e16c4d3be64ac8523d6022",
+    "after_lines": 152,
+    "live_matches_before": true,
+    "verified_after_sha256": "d134eec86f43c0b7a7a018ee5610d9391edeaa8860e16c4d3be64ac8523d6022"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport_provider_tests.rs",
+    "before_sha256": null,
+    "after_sha256": "c674a1a674623c0757bd3511e439b6e5abc6c20fadf2aca788be83fb6c763f39",
+    "after_lines": 240,
+    "live_matches_before": true,
+    "verified_after_sha256": "c674a1a674623c0757bd3511e439b6e5abc6c20fadf2aca788be83fb6c763f39"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport_provider.rs",
+    "before_sha256": null,
+    "after_sha256": "9c526e6b774c3d3227620e3f78f33fcb0af5e3f3361bc6a4eca563561bc39e4c",
+    "after_lines": 269,
+    "live_matches_before": true,
+    "verified_after_sha256": "9c526e6b774c3d3227620e3f78f33fcb0af5e3f3361bc6a4eca563561bc39e4c"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/camera.rs",
+    "before_sha256": null,
+    "after_sha256": "e37c179fcc7f4ccec0e0150ecccaded58f14e53f105b8f2136ef72549d835442",
+    "after_lines": 124,
+    "live_matches_before": true,
+    "verified_after_sha256": "e37c179fcc7f4ccec0e0150ecccaded58f14e53f105b8f2136ef72549d835442"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/highlight.rs",
+    "before_sha256": null,
+    "after_sha256": "cd36b7e4cf5dc03bebe30a846b88e11a6fdcc62bb50c058aec1f6a605d2888b2",
+    "after_lines": 82,
+    "live_matches_before": true,
+    "verified_after_sha256": "cd36b7e4cf5dc03bebe30a846b88e11a6fdcc62bb50c058aec1f6a605d2888b2"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/mod.rs",
+    "before_sha256": null,
+    "after_sha256": "3ae92270ad982d605a4af5f52e16148e1fbb08270532dfd8149961d271016dd5",
+    "after_lines": 24,
+    "live_matches_before": true,
+    "verified_after_sha256": "3ae92270ad982d605a4af5f52e16148e1fbb08270532dfd8149961d271016dd5"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/picking.rs",
+    "before_sha256": null,
+    "after_sha256": "18913f816edf6b977b4b336a01137061e4384d56bd067b1f83640b725577571c",
+    "after_lines": 133,
+    "live_matches_before": true,
+    "verified_after_sha256": "18913f816edf6b977b4b336a01137061e4384d56bd067b1f83640b725577571c"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/renderer.rs",
+    "before_sha256": null,
+    "after_sha256": "3ca06c6423a042270e0ef65a1398aab0354ca6ae1a1ac3fbd147f3790530e64f",
+    "after_lines": 437,
+    "live_matches_before": true,
+    "verified_after_sha256": "3ca06c6423a042270e0ef65a1398aab0354ca6ae1a1ac3fbd147f3790530e64f"
+  },
+  {
+    "repository": "poet",
+    "target": "native/src/graphical/viewport/tests.rs",
+    "before_sha256": null,
+    "after_sha256": "9c7f597289ed1354e475b2d39c9ee871d5558404b415e1dd71ff12a419c6f720",
+    "after_lines": 334,
+    "live_matches_before": true,
+    "verified_after_sha256": "9c7f597289ed1354e475b2d39c9ee871d5558404b415e1dd71ff12a419c6f720"
+  }
+]

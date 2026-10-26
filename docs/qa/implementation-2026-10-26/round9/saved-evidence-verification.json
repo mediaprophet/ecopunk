@@ -1,0 +1,307 @@
+{
+  "captured_utc": "2026-10-25T23:03:26.612098+00:00",
+  "installed_distinct_files": 58,
+  "applications": [
+    {
+      "group": "viewport",
+      "files": 10,
+      "manifest_sha256": "523c12072d31f08987231e0e153e5593e88d7fa74c736ea8a829c4b1804ced6f",
+      "receipt_sha256": "8d4650ba25c0f0163286a17f8c2397b5c56bcae51a9c0dcbc9bfb447f6b1a4b1"
+    },
+    {
+      "group": "source-layers",
+      "files": 12,
+      "manifest_sha256": "1078b783a0c6dd0114189c1a047760b96c5236b66617386d510a7f70cadc5e42",
+      "receipt_sha256": "a94fc73e6dd0c88feee093379b7de2a7bcdd4b2c4eaf8db71ca1c03b51cf892d"
+    },
+    {
+      "group": "integration",
+      "files": 21,
+      "manifest_sha256": "7c8f82f965831e0e77d6d60d7bf2bf33b2f410a48e782cc0de5b5161ce646f74",
+      "receipt_sha256": "239e3996e47c1e54f6567e3087fa6c97045b119835e6a133604bc9d39be6c826"
+    },
+    {
+      "group": "workbench",
+      "files": 6,
+      "manifest_sha256": "2e8929bf4ec391b6dc56c43a2d472f30c96ed74f20e30b4bded4577584af7c5c",
+      "receipt_sha256": "c737b58daa9209ddb70163182c3e09dc6f5c2a2e81498298f8a97f65b695a532"
+    },
+    {
+      "group": "root-repair",
+      "files": 2,
+      "manifest_sha256": "8d09e82ab77cda1dec743097c450c40f5a27bb77087dcf983d72f39cc42edc6b",
+      "receipt_sha256": "f2352cb4073875962a09e8839f213e84ee254bd6b067672664f8b9ad6723afaa"
+    },
+    {
+      "group": "reference",
+      "files": 1,
+      "manifest_sha256": "cb3b94a01bf6f2ee38c8faf3c22d29e7daec39e4d4a8ebd93925c734877fe85c",
+      "receipt_sha256": "1766b073a894847e844f87358ec98c7393b878e5312f0b4f1c77640f5c42fa54"
+    },
+    {
+      "group": "workbench-repair",
+      "files": 3,
+      "manifest_sha256": "bcccadccdcdfe45d96b834b41cf5689de8129cbb3ac6883b91ef36410fda0475",
+      "receipt_sha256": "16491d314d2500f854f31f52126344280d1c8b19f7588915d61d9ef370b899ce"
+    },
+    {
+      "group": "workbench-role-repair",
+      "files": 1,
+      "manifest_sha256": "29fe8b8b182870b7fc8fdc5c87744ad9e742edf61a73c3e794167b0ffb010e70",
+      "receipt_sha256": "843a8a31dfa4e79081a907c316114884ada78474da4dbbf073783ca119551873"
+    },
+    {
+      "group": "layer-repair",
+      "files": 5,
+      "manifest_sha256": "74e171c02b00711b8410b8147edbfdc2ad37ca9381bd757ce87a534be02abb17",
+      "receipt_sha256": "ddc7467f34706dc44d0e39794230b359673d5de8dc6e5732c651fc9d1442dbf8"
+    },
+    {
+      "group": "pointer-repair",
+      "files": 1,
+      "manifest_sha256": "e0118589051bb0ebe2de39b3ffd575dd5f50dd516b78be732b4d78f1c2ead30b",
+      "receipt_sha256": "e89a6791314eb4e1ed9c15a8a752d5a7b7853b4d8731a564f93d6bb8435878e5"
+    },
+    {
+      "group": "reference-evidence",
+      "files": 1,
+      "manifest_sha256": "8c2a93adf8dadc11f77cda2ee3b9fba14cb16a94e1190b7a610757001adb88f9",
+      "receipt_sha256": "017dc2f308e4e6a0a0bb97cfa336ad9e4a66861c1f3b9279c4ebe6cdb2b8f8f0"
+    },
+    {
+      "group": "layer-budget",
+      "files": 3,
+      "manifest_sha256": "d400be9320fcfdfbce4f40ac033970481e81b5d7c3c221b10ac78ecf9bff4832",
+      "receipt_sha256": "8e730073441ba3b1b99a4d8fcb457f33a68d93cc7b46d250c8eb60b2efffc436"
+    },
+    {
+      "group": "budget-routing",
+      "files": 2,
+      "manifest_sha256": "9f436d4f3a9df9bdc9753ffec9446c148daa4ae3087f815f791a2cd77635ed55",
+      "receipt_sha256": "7e4c562cbf75cb257b446d6c07aa05e120d162404eba344e072971f30c3693d2"
+    },
+    {
+      "group": "native-profile",
+      "files": 7,
+      "manifest_sha256": "8f84d8e6446a16966ef7916f65fbeeefc5cee4406756c15dc5789765dd4de9c6",
+      "receipt_sha256": "9196249acb520ada827742b3f94a7a6c3f2e4c86d717c060e118e22bab403f5f"
+    },
+    {
+      "group": "reference-profile",
+      "files": 1,
+      "manifest_sha256": "17efaab418426e1ae880629b537229e892fbfc0575c02bab14046944ac83ea39",
+      "receipt_sha256": "6e67cfb9201913251dcc25679776fc1a083bb8d700f8be478d075e7e0837e606"
+    },
+    {
+      "group": "lookdev",
+      "files": 4,
+      "manifest_sha256": "5fbbfcf7552952b43dc379b2b692ea6ce9a6d0a6e2b59f3cf24f893a9b199805",
+      "receipt_sha256": "85a0886005e20716fdfa4b2cda52698648d3511ba650f632537df88762c37976"
+    },
+    {
+      "group": "lookdev-ui",
+      "files": 2,
+      "manifest_sha256": "bcf1b709642a2118729e278d35366273429efffd273a873751e5ca93fb6768e5",
+      "receipt_sha256": "437aa4d3e4eb3081e9318beec590faaf26c244e685a541ba3f92b19ef1161675"
+    },
+    {
+      "group": "lookdev-integration",
+      "files": 3,
+      "manifest_sha256": "1e180683bf8818059a4c8607ae88777ca8cfffca4e2db25d8c619be68a9d2121",
+      "receipt_sha256": "4d31f97cd1d2cd712c8fc46f445e22c044a84c19c4fa434df26e4cbb606bbef1"
+    },
+    {
+      "group": "authoring-context-repair",
+      "files": 1,
+      "manifest_sha256": "357c9ae22e2607ac2b7b298791244debf63922575a9b4b921023a92ea0b3c1d8",
+      "receipt_sha256": "68539b669aac227930da8c7925819e9d0a1d07ee746df67270714045eafd0a3a"
+    }
+  ],
+  "all_current_source_hashes_match": true,
+  "selected_checks": [
+    {
+      "mode": "reference",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-result.json",
+      "passed": 1,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "authoring",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\authoring-result.json",
+      "passed": 52,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "viewport",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\viewport-result.json",
+      "passed": 12,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "input",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\input-result.json",
+      "passed": 4,
+      "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9"
+    },
+    {
+      "mode": "workbench",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\workbench-result.json",
+      "passed": 1,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "gpu",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\gpu-result.json",
+      "passed": 3,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "jobs",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\jobs-result.json",
+      "passed": 15,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "workflow",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\workflow-result.json",
+      "passed": 1,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "checkpoints",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\checkpoints-result.json",
+      "passed": 27,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "carrier",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\carrier-result.json",
+      "passed": 5,
+      "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb"
+    },
+    {
+      "mode": "profile",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\profile-result.json",
+      "passed": 1,
+      "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9"
+    },
+    {
+      "mode": "intents",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\intents-result.json",
+      "passed": 5,
+      "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9"
+    },
+    {
+      "mode": "draft",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\draft-result.json",
+      "passed": 4,
+      "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9"
+    },
+    {
+      "mode": "build",
+      "receipt": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-complete\\build-result.json",
+      "passed": 0,
+      "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9"
+    }
+  ],
+  "distinct_selected_case_names": 127,
+  "observed": {
+    "compiled_sha256": "84dce18579ec38a4c4f7e4f902219531391e3635aa2b70aad0d02f22cb073104",
+    "elapsed_ms": 75065,
+    "fixture_only": true,
+    "history_sha256": "e8d03c8ccc7fc9ed96690ddc77660a8c20deb31397b2d845a3de5a65cc381de5",
+    "hmc_bytes": 5391416,
+    "master_sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63",
+    "parts": 199,
+    "production_acceptance": "unassessed-HOLD",
+    "source_cells": 5,
+    "triangles": 79984,
+    "vertices": 239952
+  },
+  "reopened": {
+    "elapsed_ms": 65859,
+    "fixture_only": true,
+    "parts": 199,
+    "phase": "fresh-reopen",
+    "production_acceptance": "unassessed-HOLD",
+    "resources": 2,
+    "source_cells": 5
+  },
+  "artifacts": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\accepted-source.vibe",
+      "bytes": 31765,
+      "sha256": "e8d03c8ccc7fc9ed96690ddc77660a8c20deb31397b2d845a3de5a65cc381de5"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\diagnostic-equipment.hmc",
+      "bytes": 5391416,
+      "sha256": "d417a5ef7a96a0ad9e0260e8f29459159c69fd52f6f12bd79c7b50b6b1e0a5f1"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\observed.json",
+      "bytes": 419,
+      "sha256": "99282ff018880a3e070c683a89541344fb65c02f352931ffd60c698d2d499c9b"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\r9-reference-frame-all.png",
+      "bytes": 58714,
+      "sha256": "171cae62c69303a04ec44f923503d0ae5efab888655d95771f738e95e920770f"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\r9-reference-picked-hatch.png",
+      "bytes": 82398,
+      "sha256": "2dfdb0f19bff877612ecd268fba23f6665e9cddd5b9bb0997de31dee90298e7b"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\r9-reference-reopened.png",
+      "bytes": 59745,
+      "sha256": "94c65cf55cc9c00177d861d024d708cbba9bb5cd5caeed436c91cb6a0a7af838"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\reference-output\\reopened.json",
+      "bytes": 148,
+      "sha256": "d9f9d8f056a85f1459c46cb1684bcb4594c2d45d6e388680784dab351f850c44"
+    }
+  ],
+  "preserved_assets": [
+    {
+      "status": "unchanged read-only input",
+      "path": "assets/terrain/talbingo_catchment.m64",
+      "sha256": "b99dca5b2e9db3aa1b93ba6a7b9a11fbc99e37a82b7c5ac89d6fb5b51aafe8f2",
+      "bytes": 262272
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee",
+      "bytes": 5288192
+    },
+    {
+      "status": "Round 1 baseline unchanged",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040",
+      "bytes": 5413279
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/master.vibe",
+      "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+    }
+  ],
+  "native_binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 332180430,
+    "sha256": "cec0ddea71fb540f2e802975e71d304393c0e8a20fb4abfea95ab4e25c9e2edf"
+  },
+  "fixture_ledger": {
+    "path": "C:\\github\\ecopunk\\docs\\production\\community-grounds-growing-station\\claims-round9-diagnostic.json",
+    "sha256": "198578ac543d597531209d3bc66857553d9e8057bfea8abc891e9a40cb1a7086",
+    "catalogue_claims": 193,
+    "subject_specific_claims": 8,
+    "all_claims": "unassessed",
+    "film": "incomplete",
+    "open_world_game": "incomplete",
+    "cartoon": "incomplete"
+  },
+  "boundary": "Native software/GPU engineering evidence; no Computer Use, actual operator or artistic/human acceptance. Production HOLD. FND and IP-03 full gates remain open."
+}

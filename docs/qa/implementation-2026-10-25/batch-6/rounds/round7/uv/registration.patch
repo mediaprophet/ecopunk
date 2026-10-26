@@ -1,0 +1,18 @@
+diff --git a/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs b/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs
+--- a/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs
++++ b/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs
+@@ -18,1 +18,2 @@
+ pub mod advancing_front;
++pub mod uv_atlas;
+diff --git a/crates/qualia-core-db/src/specialized_libs/computational_geometry/capability_manifests/registry.rs b/crates/qualia-core-db/src/specialized_libs/computational_geometry/capability_manifests/registry.rs
+--- a/crates/qualia-core-db/src/specialized_libs/computational_geometry/capability_manifests/registry.rs
++++ b/crates/qualia-core-db/src/specialized_libs/computational_geometry/capability_manifests/registry.rs
+@@ -17,1 +17,2 @@
+ pub const GEOMETRY_OP_MANIFESTS: &[OpManifest] = &[
++    super::super::uv_atlas::UV_ATLAS_MANIFEST,
+diff --git a/native/src/graphical/surfaces/mod.rs b/native/src/graphical/surfaces/mod.rs
+--- a/native/src/graphical/surfaces/mod.rs
++++ b/native/src/graphical/surfaces/mod.rs
+@@ -5,1 +5,2 @@
+ pub mod uv;
++pub mod uv_atlas;

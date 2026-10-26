@@ -1,0 +1,34 @@
+{
+  "executable": "C:/github/ecopunk/target/debug/deps/qualia_core_db-8d00805b5856dfc8.exe",
+  "sha256": "F63CF804EA02C2B994AD6A64F15D4F7A5C008DD17A50687734B3583CD38A099A",
+  "exact_test": "render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap",
+  "arguments": [
+    "--exact",
+    "render::gpu::indirect_cull::tests::indirect_cull_routes_mesh_lods_holographic_and_surfel_streams_zero_heap",
+    "--nocapture",
+    "--test-threads=1"
+  ],
+  "exit_code": 101,
+  "gpu_requested": false,
+  "cargo_build": false,
+  "executed_utc": "2026-10-24T18:18:27.7073676Z",
+  "result": "FAILED; actual canonical binary reproduces mesh draw count 1 instead of 3",
+  "source_diagnosis": {
+    "scope": "Test fixture projection, not production cull algorithm",
+    "original_clip_z": "-0.01*z - 0.1",
+    "clip_w": "-z",
+    "near_plane": "row2 => -0.01*z - 0.1 >= 0 => z <= -10",
+    "radius": 1,
+    "rejected_expected_visible_centres": [
+      -3,
+      -8,
+      -5
+    ],
+    "remaining_mesh_centre": -20,
+    "staged_fix": "test helper standard finite WebGPU near0.1/far100 projection",
+    "production_algorithm_changed": false,
+    "candidate_test_executed": false,
+    "followup_manifest": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-3/core-cull-fix/apply-manifest.json"
+  },
+  "allocation_measurement": "The existing test helper named assert_zero_heap simply invokes f(); this rerun is not an instrumented zero-allocation measurement."
+}

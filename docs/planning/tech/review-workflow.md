@@ -64,7 +64,7 @@ matrix itself: a claim-type with no configured ratifier is a structural gap.
 - Contest ≠ veto-by-volume: contests carry reason + standing; a flood of
   unreasoned contests is an anomaly signal, not a block.
 - No silent auto-promotion: time-based "uncontested ⇒ accepted" rules are
-  **prohibited** for consequential classes (identity, equivalence, custodial
+  **prohibited** for consequential classes (identifiers, equivalence, custodial
   status) — absence of review stays "unratified", not "accepted".
 
 ## 5. Operational surfaces

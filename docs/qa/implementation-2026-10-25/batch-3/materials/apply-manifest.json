@@ -1,0 +1,54 @@
+{
+  "scope": "Native Vibe source material editing/linear factor preview proposal; parent controller admission integration required",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/entry.rs",
+      "candidate": "candidate/graphical/entry.rs",
+      "original_sha256": "4A0A7B0D50282951B9197A73DC1537E5066862E82068E228487BBB258C6C5D52",
+      "candidate_sha256": "477C87F9AEC2733D867497951A2634DD396738D2EBAAEBE6A03D8A6238166395"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/material_controls.rs",
+      "candidate": "candidate/graphical/material_controls.rs",
+      "original_sha256": null,
+      "candidate_sha256": "10E4B40FFBA77C400006222301F21728EBFC5E85FBB3AA0A3A782C04BC2909A1"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/material_pixels.rs",
+      "candidate": "candidate/graphical/material_pixels.rs",
+      "original_sha256": null,
+      "candidate_sha256": "CB33759E756DE382D0723F67026DA7AB95372B403FA26AF7FAC735D69FD6A712"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/materials_tests.rs",
+      "candidate": "candidate/graphical/materials_tests.rs",
+      "original_sha256": null,
+      "candidate_sha256": "50B1C2D8ED391E3F1425034B1C2E95D2E1DE59B421A84536CF834D2BC963D424"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/materials.rs",
+      "candidate": "candidate/graphical/materials.rs",
+      "original_sha256": null,
+      "candidate_sha256": "6CC0D0C31781AD0E57260945D2A80400034A0370662B39D8DC349D3101736A71"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/mod.rs",
+      "candidate": "candidate/graphical/mod.rs",
+      "original_sha256": "577AD23770A7EE49DA94025BC7B203B093DB367B6A66DB811C31309F56777765",
+      "candidate_sha256": "4342B7404ECDBAE1681EB4E6ECB1EFD75BEA269FB3B1F81BBB7BD9197F4D83BF"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/preview.rs",
+      "candidate": "candidate/graphical/preview.rs",
+      "original_sha256": "7624C78E1BDAE9C97D0C5AAA82DF9079BD63B333F7077551451D29A3C84FB1F1",
+      "candidate_sha256": "8550DB02E716038648E108EA026DBDC4B7FE83C7DF5B640E814C492FB2EF5036"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/ui.rs",
+      "candidate": "candidate/graphical/ui.rs",
+      "original_sha256": "9449F4676BA86F0FAE1702BE9F65C2FC0E4A14116BF69E00EB4A02FB693EAFCC",
+      "candidate_sha256": "943AF368EC4CE7F84D6126643916C1705533B1C16516532CF904F3B8A99C7EBF"
+    }
+  ]
+}

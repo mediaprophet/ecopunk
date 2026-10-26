@@ -1,0 +1,143 @@
+//! Native authoring intents over the canonical source session, never a second document.
+use crate::graphical::preview::SourceRef;
+mod assembly_source;
+mod cad_controls;
+mod cad_recipe;
+#[cfg(test)]
+mod cad_tests;
+pub(crate) mod controls;
+mod geometry_source;
+pub(crate) mod package;
+mod profile_controls;
+mod profile_recipe;
+#[cfg(test)]
+mod profile_tests;
+pub(crate) mod source;
+mod surface_binding_controls;
+mod surface_controls;
+use crate::graphical::surfaces::uv::PlanarUvDraft;
+use crate::graphical::surfaces::{SurfaceDraft, UvTransformDraft};
+pub use profile_recipe::ProfileRecipe;
+mod structure_controls;
+#[cfg(test)]
+mod structure_tests;
+#[cfg(test)]
+mod tests;
+
+#[derive(Clone, Debug)]
+pub struct PartView {
+    pub surface: SurfaceDraft,
+    pub uv_transform: UvTransformDraft,
+    pub uv_projection: Option<PlanarUvDraft>,
+    pub id: String,
+    pub parent: Option<String>,
+    pub semantic_id: u64,
+    pub translation: [f64; 3],
+    pub rotation: [f64; 3],
+    pub scale: [f64; 3],
+    pub material_id: u64,
+    pub base_color: [f64; 4],
+    pub roughness: f64,
+    pub metallic: f64,
+    pub vertices: usize,
+    pub triangles: usize,
+}
+
+#[derive(Clone, Debug)]
+pub struct AuthoringView {
+    pub source: SourceRef,
+    pub parts: Vec<PartView>,
+    pub parameters: Vec<(String, f64)>,
+}
+
+#[derive(Clone, Debug)]
+pub enum AuthoringEdit {
+    Surface {
+        material_id: u64,
+        surface: SurfaceDraft,
+    },
+    UvTransform {
+        id: String,
+        transform: UvTransformDraft,
+    },
+    UvProjection {
+        id: String,
+        projection: Option<PlanarUvDraft>,
+    },
+    /// Changes containment while retaining the exact parent-relative TRS values.
+    Reparent {
+        id: String,
+        parent: Option<String>,
+    },
+    RemoveLeaf {
+        id: String,
+    },
+    ReplaceGeometry {
+        id: String,
+        geometry: GeometryRecipe,
+    },
+    /// Creates an unattached identity-TRS part, copying only the template material.
+    AddGeometry {
+        id: String,
+        semantic_id: u64,
+        material_from: String,
+        geometry: GeometryRecipe,
+    },
+    /// Duplicates this part's complete material record under an unused identifier.
+    UniqueMaterial {
+        id: String,
+        material_id: u64,
+    },
+    Transform {
+        id: String,
+        translation: [f64; 3],
+        rotation: [f64; 3],
+        scale: [f64; 3],
+    },
+    Material {
+        material_id: u64,
+        base_color: [f64; 4],
+        roughness: f64,
+        metallic: f64,
+    },
+    Parameter {
+        key: String,
+        value: f64,
+    },
+}
+
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+#[serde(tag = "kind", deny_unknown_fields)]
+pub enum GeometryRecipe {
+    ProfileSweep {
+        profile: ProfileRecipe,
+        length: f64,
+        caps: bool,
+    },
+    RevolveProfile {
+        points: Vec<[f64; 2]>,
+        segments: u32,
+    },
+    Sphere {
+        radius: f64,
+        lat_segments: u32,
+        lon_segments: u32,
+    },
+    Torus {
+        major_radius: f64,
+        minor_radius: f64,
+        major_segments: u32,
+        minor_segments: u32,
+    },
+    CircularSweep {
+        radius: f64,
+        length: f64,
+        segments: u32,
+        caps: bool,
+    },
+}
+impl GeometryRecipe {
+    pub(crate) fn validate(&self) -> Result<(), String> {
+        geometry_source::expression(self).map(|_| ())
+    }
+}

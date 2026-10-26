@@ -1,0 +1,17 @@
+[package]
+name = "ecopunk-canonical-parser-check"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+vibe = { path = "../../../../../../../qualiaDB/crates/vibe" }
+
+[lib]
+path = "lib.rs"
+
+[[test]]
+name = "cell_full_input"
+path = "../tests/cell_full_input.rs"

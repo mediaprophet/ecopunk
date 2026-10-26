@@ -1,0 +1,31 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "scope": "round9-pinned-reference-native-authoring-qualification",
+  "status": "staged-not-applied-not-executed",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/reference_authoring_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "f488985b566ac2e0381d5c206da4cc6ea59b6e4000c3c73dd30138cc34632c40",
+      "after_bytes": 13414,
+      "after_lines": 364
+    }
+  ],
+  "source": {
+    "path": "C:/github/ecopunk/assets/reference/community-grounds-growing-station/master.vibe",
+    "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63",
+    "bytes": 15690,
+    "access": "read-only",
+    "profile": "unchanged master; no reduced preset"
+  },
+  "checks": {
+    "rustfmt": "passed",
+    "cargo": "not run by worker",
+    "tests": "not run by worker; two ignored parent/child engineering qualification functions",
+    "master_or_ledger_writes": "none",
+    "production_acceptance": "film/game/cartoon unassessed-HOLD"
+  },
+  "integration": "Root registers #[cfg(test)] mod reference_authoring_tests in graphical/mod.rs separately",
+  "run": "graphical::reference_authoring_tests::r9_reference_master_source_layers_viewport_and_fresh_hmc --ignored --nocapture"
+}

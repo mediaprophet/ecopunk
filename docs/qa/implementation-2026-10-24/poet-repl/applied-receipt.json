@@ -1,0 +1,114 @@
+{
+  "schema": "ecopunk-run03-applied-receipt-v1",
+  "updated_at_utc": "2026-10-24T09:30:47Z",
+  "status": "reviewed narrow source repair applied; focused native CLI checks passed; full VIBE-04/product scope incomplete",
+  "target": "C:/github/poet/native/src/repl.rs",
+  "original_snapshot": "repl.original.rs",
+  "source_sha256": "78f1b4c3640b2630b5760b03706078540b4d093010e26691cb44d3ae5c1ad2a3",
+  "candidate_sha256": "78f1b4c3640b2630b5760b03706078540b4d093010e26691cb44d3ae5c1ad2a3",
+  "filesystem_approval": "Approved exact digest-guarded write via require_escalated exec; apply exited 0",
+  "source_guards_verified_before_apply": 140,
+  "native_checkout_tests": {
+    "command": "cargo test --offline --locked --manifest-path C:/github/poet/Cargo.toml -p poet-cli --target-dir C:/github/ecopunk/docs/qa/implementation-2026-10-24/poet-repl/harness/target",
+    "exit_code": 0,
+    "passed": 15,
+    "failed": 0,
+    "repl_cases": 10,
+    "scope": "Actual native Poet CLI checkout; formatter/linter and REPL cases; no graphical application or WASM target run"
+  },
+  "native_binary": {
+    "build_command": "cargo build --offline --locked --manifest-path C:/github/poet/Cargo.toml -p poet-cli --target-dir C:/github/ecopunk/docs/qa/implementation-2026-10-24/poet-repl/harness/target",
+    "build_exit_code": 0,
+    "sha256": "d69098a83ca30ba75de3d1d25fe2deb9cd5c4fc0c357738bed6e5df59ea99774",
+    "execution": "Direct poet.exe repl; no Cargo/Rust invocation between source submissions",
+    "exit_code": 0,
+    "input": "native-repl-input.txt",
+    "output": "native-repl-session.log",
+    "observed_results": [
+      4,
+      8
+    ]
+  },
+  "observed_failures": [
+    {
+      "case": "Original duplicate dispatch",
+      "evidence": "baseline-test.log",
+      "result": "Expected regression failure, exit101: 2 calls instead of1"
+    },
+    {
+      "case": "Pure caller reaches External function",
+      "evidence": "harness/tests/upstream_findings.rs and candidate-test.log",
+      "result": "Canonical defect reproduced; not conformance"
+    },
+    {
+      "case": "Trailing input ignored after cell semicolon",
+      "evidence": "harness/tests/upstream_findings.rs and candidate-test.log",
+      "result": "Canonical defect reproduced; not conformance"
+    },
+    {
+      "case": "Mutable binding across submissions",
+      "evidence": "native-repl-mutable-input.txt and native-repl-mutable-bindings.log",
+      "result": "Assignment rejected as immutable; separately retained negative session probe"
+    },
+    {
+      "case": "Supervisor CLI invocation omitted repl subcommand",
+      "evidence": "native-repl-invocation-error.log",
+      "result": "Usage/exit1; corrected invocation then tested; not a software defect"
+    }
+  ],
+  "remaining": [
+    "Canonical source/session checker context for mutable bindings/functions",
+    "Full-input parser validation",
+    "Transitive effect enforcement",
+    "Multiline entry",
+    "Real async jobs/live edits",
+    "Native graphical and cooperative IP-03 gates",
+    "Required WASM profiles",
+    "Human acceptance"
+  ],
+  "human_acceptance_claimed": false,
+  "dialect_changed": false,
+  "shared_project_state_qualified": false,
+  "evidence": [
+    {
+      "path": "repl.original.rs",
+      "sha256": "2e95f923a5e4e89f0de1ae47960a5ec136a6f396cf7a7cef0cc9798284b6bd19"
+    },
+    {
+      "path": "candidate/native/src/repl.rs",
+      "sha256": "78f1b4c3640b2630b5760b03706078540b4d093010e26691cb44d3ae5c1ad2a3"
+    },
+    {
+      "path": "repl.patch",
+      "sha256": "b7ded5358226fc1b7cc20914b39e65b46f877d5571512ff480973356bca7b13f"
+    },
+    {
+      "path": "source-guards.json",
+      "sha256": "17cd35d123e1a7c00030b2e6aa824ab1e11bc546651233a77f6e7619bdf900fa"
+    },
+    {
+      "path": "baseline-test.log",
+      "sha256": "de1d116ee78b1f3226ee8f0d61a6539f902bbdf4b5be882cb105059d632e7722"
+    },
+    {
+      "path": "candidate-test.log",
+      "sha256": "3559a79252069683140f7fa1eee0a12d660be94e03d4acbff8edd00ca57c92d6"
+    },
+    {
+      "path": "native-repl-input.txt",
+      "sha256": "f6b55e0d63008526736b3fdd649f1f6cb2f84774908748d8dc563dfa686f392d"
+    },
+    {
+      "path": "native-repl-session.log",
+      "sha256": "c8487028f43c807e45b70c902a1da6f09bdf1ca54016297b1cb9cb8e8ee61d42"
+    },
+    {
+      "path": "native-repl-mutable-input.txt",
+      "sha256": "0d4c19d1d024d3bdac700d47b773f4ab941445e6aed8683e77aea100f6ccd3d3"
+    },
+    {
+      "path": "native-repl-mutable-bindings.log",
+      "sha256": "f8124485b4f6da4e651128f9315b3cee6053b900c5b4bb2d92d754b2ff1f23d1"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "ecopunk-poet-texture-effects-gpu-gate-handoff/v1",
+  "date": "2026-10-26",
+  "job": "POET-TEXTURE-W2 remaining gate reconciliation",
+  "status": "reconciled_gpu_case_and_human_acceptance_open",
+  "model": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "usage_metrics": "unknown",
+  "scope": "Compare frozen W2 selected-profile exit criteria with saved executed evidence; no source audit beyond one directly relevant existing GPU test; no execution.",
+  "outputs": [
+    "tools/poet-foundation/texture-effects/work/gpu-qualification/gates/report.md",
+    "tools/poet-foundation/texture-effects/work/gpu-qualification/gates/handoff.json"
+  ],
+  "inputs": {
+    "contract": "tools/poet-foundation/texture-effects/CONTRACT.md",
+    "phase_plan": "docs/planning/poet-authoring-swarm-phases.md",
+    "evidence_read": [
+      "docs/qa/implementation-2026-10-26/poet-texture-effects/README.md",
+      "docs/qa/implementation-2026-10-26/poet-texture-effects/verification.json",
+      "docs/qa/implementation-2026-10-26/poet-texture-effects/try-it.md",
+      "docs/qa/implementation-2026-10-26/poet-texture-effects/diagnostic/README.md",
+      "docs/qa/implementation-2026-10-26/poet-texture-effects/diagnostic/witness.json",
+      "docs/qa/implementation-2026-10-26/poet-texture-effects/check-attempt-2.log"
+    ],
+    "source_scope": [
+      {
+        "path": "C:/github/poet/native/src/graphical/surfaces/detail_pixels.rs",
+        "scope": "Existing ignored authored-atlas/detail native GPU test and Paint recipe construction only; test has empty effects list.",
+        "sha256": "recorded in existing verification/source receipts only if available; hash not independently recorded in this reconciliation"
+      }
+    ]
+  },
+  "results": {
+    "bounded_software_profile": "passed_as_recorded: 268 passed, 0 failed, 9 ignored; native binary build exit 0; signed native/MCP, CPU encoded results, history, HMC closure and fresh-process reopen evidenced.",
+    "effects_through_native_gpu": "open_missing_oracle: existing ignored detail GPU test has effects empty; W2 signed software fixture deliberately produces no GPU frame; no actual effect-specific GPU readback evidence.",
+    "human_current_window": "open_not_performed; try-it.md is a route, not evidence.",
+    "human_or_domain_approval": "open_not_performed; requires authorized human reviewer/domain participant.",
+    "asset_production": "HOLD"
+  },
+  "dispatchable_next": {
+    "type": "bounded_opt_in_native_gpu_qualification",
+    "requirement": "W2 effect result must be observable in the native preview/result path for the selected profile.",
+    "example_owner_path": "C:/github/poet/native/src/graphical/surfaces/detail_pixels.rs",
+    "proposed_case": "Use a synthetic identified imported base; compare baseline/disabled against a nonempty enabled effect through detail resolution, assembly render, and actual native GPU readback; assert a known pixel difference and correct resolved-to-uploaded resource identity; retain artifact/source/result IDs and run metadata.",
+    "oracle": "Actual GPU readback has expected nonzero stable pixel difference at the textured surface, with recipe/base/result digest linkage and alpha/resource checks; explicit GPU unavailability fails the run.",
+    "separate_acceptance": [
+      "Human performs the documented current-window operation and records actual usability feedback.",
+      "Authorized domain/reviewer acceptance is recorded separately from engineering GPU verification."
+    ]
+  },
+  "preservation": {
+    "deferred_core_stubs": "Keep all 15 records in work/deferred-functionality.json and work/deferred-functionality.md tracked as future work; do not claim implemented or promote full compositor parity into this bounded W2 gate.",
+    "existing_evidence": "Retain the saved software logs, build, source receipts, synthetic PNGs, and W1 evidence unchanged.",
+    "source_changes": "none",
+    "commands": "none",
+    "assets": "none",
+    "canonical_shared_edits": "none"
+  },
+  "restart_action": "Coordinator may dispatch only the narrow effects-through-native-GPU oracle under existing W2 ownership/process rules; then separately obtain human/current-window and domain/reviewer evidence. Do not release asset HOLD or claim W2/whole IP-03 completion until applicable gates are satisfied.",
+  "stop_condition": "No evidence currently identifies a software defect; if GPU path cannot resolve/upload the authored effect result, capture one exact failure and return to root for source-scoped repair."
+}

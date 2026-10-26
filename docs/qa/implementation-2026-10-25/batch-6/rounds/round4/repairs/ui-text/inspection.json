@@ -1,0 +1,98 @@
+[
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+    "sha256": "c5dc2e4804dcfd29ac3a85ab4e736fe423bf3283393f0d2b07fbac6d352cb1da",
+    "nonascii": [
+      {
+        "line": 171,
+        "text": "                        p{\"{resource.kind} \\xc2\\xb7 {resource.bytes} bytes \\xc2\\xb7 {resource.metadata_bytes} metadata bytes\"}"
+      },
+      {
+        "line": 203,
+        "text": "            p{\"Imports use the native host\\xe2\\u20ac\\u2122s selected library. Replacement keeps the existing resource kind and metadata. Rendering and model acceptance require separate checks.\"}"
+      }
+    ]
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_create_view.rs",
+    "sha256": "0791992d265d9e61c37b637fa50fd69bf1af9072f907c462e9cd9232cc3b27c8",
+    "nonascii": [
+      {
+        "line": 54,
+        "text": "        .ok_or(\"This native constant-grid form supports 1\\u20134096 source cells\")?"
+      },
+      {
+        "line": 159,
+        "text": "            p { \"This form creates 1\\u20134096 constant source cells through the canonical producer. The typed API supports explicit sample arrays under caller budgets. Origin and absolute samples remain independent; complete HMC/package review and scientific acceptance stay separate.\" }"
+      }
+    ]
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_edit_view.rs",
+    "sha256": "78c83da52b954b2f2c9c323c7ca0f8468b633b563756f3f228da81f7be39ea11",
+    "nonascii": [
+      {
+        "line": 86,
+        "text": "                p { \"Source extent {meta.width} \\xd7 {meta.height}. Columns and rows are zero based. Samples are absolute integer mm; origin is independent. Datum, epoch, row direction and nodata declaration are retained.\" }"
+      }
+    ]
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_review_controls.rs",
+    "sha256": "542644152e6c16139cc611c0650c738f8ef2b3a03da7764e4be65d124a13d858",
+    "nonascii": [
+      {
+        "line": 113,
+        "text": "            p{style:\"overflow-wrap:anywhere;\",\"{filename} \\xc3\\u201a\\xc2\\xb7 SHA256 {hex_digest(&digest)}\"}"
+      },
+      {
+        "line": 117,
+        "text": "                p{\"Current actor {view.evidence.principal_subject} \\xc3\\u201a\\xc2\\xb7 {view.evidence.principal_kind:?}\"}"
+      },
+      {
+        "line": 155,
+        "text": "                    p{style:\"overflow-wrap:anywhere;\",\"Contribution {contribution.contribution.id} \\xc3\\u201a\\xc2\\xb7 {contribution.actor.subject} \\xc3\\u201a\\xc2\\xb7 {contribution.work_status:?}\"}"
+      },
+      {
+        "line": 158,
+        "text": "                    p{style:\"overflow-wrap:anywhere;\",\"Request {request.id} \\xc3\\u201a\\xc2\\xb7 contribution {request.contribution_id} \\xc3\\u201a\\xc2\\xb7 decisions {request.decision_ids:?}\"}"
+      },
+      {
+        "line": 164,
+        "text": "                        p { style:\"overflow-wrap:anywhere;\", \"{prior.contribution.id} \\xb7 {prior.actor.subject} \\xb7 {prior.target.filename} \\xb7 source revision {prior.target.source.revision} \\xb7 package SHA256 {hex_digest(&prior.target.package_digest)} \\xb7 {prior.work_status:?}\" }"
+      },
+      {
+        "line": 168,
+        "text": "                    p{style:\"overflow-wrap:anywhere;\",\"Decision {review.id} \\xc3\\u201a\\xc2\\xb7 {review.actor.subject} \\xc3\\u201a\\xc2\\xb7 {review.actor.principal_kind:?} \\xc3\\u201a\\xc2\\xb7 {review.decision:?}: {review.rationale}\"}"
+      }
+    ]
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\package_grant_controls.rs",
+    "sha256": "244f5eaac8a55e6ddb522bc8155998c5ae38c6209baabaa45272dbd672f61938",
+    "nonascii": [
+      {
+        "line": 84,
+        "text": "                p{style:\"overflow-wrap:anywhere;\",\"Grant {grant.id} \\xb7 {grant.reviewer_subject} \\xb7 {grant.target.filename} \\xb7 SHA256 {crate::graphical::package::hex_digest(&grant.target.package_digest)} \\xb7 valid {grant.valid_from_unix}..{grant.valid_until_unix} UNIX seconds \\xb7 revoked {grant.revoked}\"}"
+      }
+    ]
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\ui.rs",
+    "sha256": "ce81c1f3d3c15599b636e7ece37d6ec953e6223312989dcff70b0fe4de872142",
+    "nonascii": [
+      {
+        "line": 59,
+        "text": "                h1{style:\"margin:0;\",\"Poet \\xb7 Cooperative Project\"}"
+      },
+      {
+        "line": 109,
+        "text": "                                p{\"Request {id} \\xb7 {subject} \\xb7 {pending.status:?}\"}"
+      },
+      {
+        "line": 119,
+        "text": "                                p{\"{member.subject} \\xb7 {member.kind:?} \\xb7 {member.role:?} \\xb7 reviewer {member.has_review} \\xb7 revoked {member.revoked}\"}"
+      }
+    ]
+  }
+]

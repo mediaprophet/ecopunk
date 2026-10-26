@@ -1,0 +1,1811 @@
+poet-aether-native-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-poet\harness) 
+base64 v0.22.1 alloc,default,std
+dioxus v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus) hooks,html,macro,signals,third-party-renderer
+dioxus-config-macros v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\config-macros) default
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core) 
+anyhow v1.0.104 default,std
+const_format v0.2.36 default
+const_format_proc_macros v0.2.34 (proc-macro) default
+proc-macro2 v1.0.107 default,proc-macro,span-locations
+unicode-ident v1.0.27 
+quote v1.0.47 default,proc-macro
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+unicode-xid v0.2.6 default
+konst v0.2.20 rust_1_51,rust_1_55,rust_1_56,rust_1_57,rust_1_61,rust_1_64
+konst_macro_rules v0.2.19 rust_1_51,rust_1_55,rust_1_56,rust_1_57,rust_1_61
+dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec) 
+dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) default
+convert_case v0.8.0 
+unicode-segmentation v1.13.3 
+dioxus-rsx v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\rsx) default
+dioxus-core-template v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-template) 
+dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec) 
+xxhash-rust v0.8.19 const_xxh64
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+proc-macro2-diagnostics v0.10.1 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+unicode-ident v1.0.27 
+quote v1.0.47 default,proc-macro (*)
+rustversion v1.0.23 (proc-macro) 
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+dioxus-core-template v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-template) 
+dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec) 
+xxhash-rust v0.8.19 const_xxh64
+dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types) 
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std
+futures-core v0.3.34 alloc,default,std
+futures-sink v0.3.34 alloc,default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std
+futures-core v0.3.34 alloc,default,std
+futures-io v0.3.34 std
+futures-macro v0.3.34 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+unicode-ident v1.0.27 
+futures-sink v0.3.34 alloc,default,std
+futures-task v0.3.34 alloc,std
+memchr v2.8.3 alloc,default,std
+pin-project-lite v0.2.17 
+slab v0.4.12 default,std
+generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box) 
+parking_lot v0.12.5 default
+lock_api v0.4.14 atomic_usize,default
+scopeguard v1.2.0 
+parking_lot_core v0.9.12 
+cfg-if v1.0.5 
+smallvec v1.16.3 const_generics,const_new,serde,union,write
+serde v1.0.229 alloc,default,derive,serde_derive,std
+serde_core v1.0.229 alloc,default,result,std
+serde_derive v1.0.229 (proc-macro) default
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+windows-link v0.2.1 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes
+log v0.4.34 alloc,std
+pin-project-lite v0.2.17 
+tracing-attributes v0.1.31 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+tracing-core v0.1.36 once_cell,std
+once_cell v1.21.4 alloc,default,race,std
+longest-increasing-subsequence v0.1.0 
+rustc-hash v2.1.3 default,std
+rustversion v1.0.23 (proc-macro) 
+slab v0.4.12 default,std
+slotmap v1.1.1 default,serde,std
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+subsecond v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond) 
+libc v0.2.191 default,std
+libloading v0.8.9 
+windows-link v0.2.1 
+memmap2 v0.9.11 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+subsecond-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond-types) 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+thiserror v2.0.21 default,std
+thiserror-impl v2.0.21 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+xxhash-rust v0.8.19 const_xxh64
+dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) default (*)
+dioxus-hooks v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\hooks) default
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals) default
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)  (*)
+parking_lot v0.12.5 default (*)
+rustc-hash v2.1.3 default,std
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+warnings v0.2.1 
+pin-project v1.1.13 
+pin-project-internal v1.1.13 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+warnings-macro v0.2.0 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)  (*)
+rustversion v1.0.23 (proc-macro) 
+slab v0.4.12 default,std
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html) 
+async-trait v0.1.92 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+bytes v1.12.1 default,std
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) default (*)
+dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types) 
+dioxus-hooks v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\hooks) default (*)
+dioxus-html-internal-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\html-internal-macro) 
+convert_case v0.8.0  (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+enumset v1.1.14 
+enumset_derive v0.15.0 (proc-macro) 
+darling v0.21.3 
+darling_core v0.21.3 
+fnv v1.0.7 default,std
+ident_case v1.0.1 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+darling_macro v0.21.3 (proc-macro) 
+darling_core v0.21.3  (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+euclid v0.22.14 default,serde,std
+num-traits v0.2.19 default,i128,libm,std
+libm v0.2.16 arch,default
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)  (*)
+keyboard-types v0.8.3 default,std
+bitflags v2.13.2 serde,serde_core
+serde_core v1.0.229 alloc,default,result,std
+rustversion v1.0.23 (proc-macro) 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals) default (*)
+dioxus-stores v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\stores) default,macro
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals) default (*)
+dioxus-stores-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\stores-macro) 
+convert_case v0.8.0  (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)  (*)
+subsecond v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond)  (*)
+dioxus-native v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native) data-uri,system-fonts,vello-cpu-base,vello-cpu-softbuffer
+anyrender v0.14.0 default
+kurbo v0.13.1 default,std
+arrayvec v0.7.8 default,serde,std
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+polycool v0.4.0 std
+arrayvec v0.7.8 default,serde,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+peniko v0.6.1 bytemuck,default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd
+bytemuck_derive v1.12.1 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+color v0.3.3 bytemuck,default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+kurbo v0.13.1 default,std (*)
+linebender_resource_handle v0.1.1 default,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+raw-window-handle v0.6.2 alloc,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+anyrender_vello_cpu v0.18.0 softbuffer_window_renderer
+anyrender v0.14.0 default (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+color v0.3.3 bytemuck,default,std (*)
+debug_timer v0.1.3 
+glifo v0.4.0 default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+foldhash v0.2.0 std
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde
+allocator-api2 v0.2.21 alloc
+foldhash v0.2.0 std
+serde_core v1.0.229 alloc,default,result,std
+log v0.4.34 alloc,std
+peniko v0.6.1 bytemuck,default,std (*)
+skrifa v0.44.0 autohint_shaping,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+read-fonts v0.41.0 experimental_font_api,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+font-types v0.12.6 bytemuck,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+once_cell v1.21.4 alloc,default,race,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+vello_common v0.3.0 default,png,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+fearless_simd v0.7.0 std
+guillotiere v0.7.0 
+euclid v0.22.14 default,serde,std (*)
+log v0.4.34 alloc,std
+peniko v0.6.1 bytemuck,default,std (*)
+png v0.18.1 
+bitflags v2.13.2 serde,serde_core (*)
+crc32fast v1.5.2 default,std
+cfg-if v1.0.5 
+fdeflate v0.3.7 
+simd-adler32 v0.3.10 const-generics,default,std
+flate2 v1.1.10 any_impl,default,miniz_oxide,runtime_detection,rust_backend
+crc32fast v1.5.2 default,std (*)
+miniz_oxide v0.9.1 default,simd,simd-adler32,with-alloc
+adler2 v2.0.1 
+simd-adler32 v0.3.10 const-generics,default,std
+miniz_oxide v0.8.9 default,simd,simd-adler32,with-alloc
+adler2 v2.0.1 
+simd-adler32 v0.3.10 const-generics,default,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+thiserror v2.0.21 default,std (*)
+kurbo v0.13.1 default,std (*)
+peniko v0.6.1 bytemuck,default,std (*)
+softbuffer_window_renderer v0.9.0 
+anyrender v0.14.0 default (*)
+debug_timer v0.1.3 
+kurbo v0.13.1 default,std (*)
+peniko v0.6.1 bytemuck,default,std (*)
+softbuffer v0.4.8 as-raw-xcb-connection,bytemuck,default,drm,fastrand,kms,memmap2,rustix,tiny-xlib,wayland,wayland-backend,wayland-client,wayland-dlopen,wayland-sys,x11,x11-dlopen,x11rb
+raw-window-handle v0.6.2 alloc,std
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default
+windows-link v0.2.1 
+vello_common v0.3.0 default,png,std (*)
+vello_cpu v0.3.0 std,text,u8_pipeline
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+glifo v0.4.0 default,std (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+vello_common v0.3.0 default,png,std (*)
+blitz-dom v0.3.0-beta.4 accessibility,accesskit,custom-widget,svg,system-fonts,text-transform-icu
+accesskit v0.25.1 
+uuid v1.28.0 default,js,rng,serde,std,v4
+getrandom v0.4.3 std,sys_rng,wasm_js
+cfg-if v1.0.5 
+rand_core v0.10.1 
+serde_core v1.0.229 alloc,default,result,std
+anyrender v0.14.0 default (*)
+app_units v0.7.8 default,num-traits,num_traits,serde,serde_serialization
+num-traits v0.2.19 default,i128,libm,std (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+atomic_refcell v0.1.14 default
+bitflags v2.13.2 serde,serde_core (*)
+blitz-traits v0.3.0-beta.4 
+atomic_refcell v0.1.14 default
+bitflags v2.13.2 serde,serde_core (*)
+bytes v1.12.1 default,std
+cursor-icon v1.2.0 alloc,default,std
+http v1.5.0 default,std
+bytes v1.12.1 default,std
+itoa v1.0.18 
+keyboard-types v0.8.3 default,std (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+smol_str v0.3.6 default,std
+url v2.5.8 default,serde,std
+form_urlencoded v1.2.2 alloc,default,std
+percent-encoding v2.3.2 alloc,default,std
+idna v1.1.0 alloc,compiled_data,std
+idna_adapter v1.2.2 compiled_data
+icu_normalizer v2.3.0 compiled_data
+icu_collections v2.3.0 alloc
+displaydoc v0.2.7 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+potential_utf v0.1.6 alloc,writeable,zerovec
+writeable v0.6.4 alloc
+zerovec v0.11.8 alloc,derive,yoke
+yoke v0.8.3 alloc,derive,zerofrom
+stable_deref_trait v1.2.1 alloc,default,std
+yoke-derive v0.8.4 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+synstructure v0.14.0 default,proc-macro
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+zerofrom v0.1.8 alloc,derive
+zerofrom-derive v0.1.8 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+synstructure v0.14.0 default,proc-macro (*)
+zerofrom v0.1.8 alloc,derive (*)
+zerovec-derive v0.11.6 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+utf8_iter v1.0.4 
+yoke v0.8.3 alloc,derive,zerofrom (*)
+zerofrom v0.1.8 alloc,derive (*)
+zerovec v0.11.8 alloc,derive,yoke (*)
+icu_normalizer_data v2.3.0 
+icu_provider v2.3.1 alloc,baked
+displaydoc v0.2.7 (proc-macro)  (*)
+icu_locale_core v2.3.0 alloc,zerovec
+displaydoc v0.2.7 (proc-macro)  (*)
+litemap v0.8.3 alloc
+tinystr v0.8.4 alloc,zerovec
+displaydoc v0.2.7 (proc-macro)  (*)
+zerovec v0.11.8 alloc,derive,yoke (*)
+writeable v0.6.4 alloc
+zerovec v0.11.8 alloc,derive,yoke (*)
+stable_deref_trait v1.2.1 alloc,default,std
+writeable v0.6.4 alloc
+yoke v0.8.3 alloc,derive,zerofrom (*)
+zerofrom v0.1.8 alloc,derive (*)
+zerotrie v0.2.5 alloc,yoke,zerofrom
+displaydoc v0.2.7 (proc-macro)  (*)
+yoke v0.8.3 alloc,derive,zerofrom (*)
+zerofrom v0.1.8 alloc,derive (*)
+zerovec v0.11.8 alloc,derive,yoke (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+zerovec v0.11.8 alloc,derive,yoke (*)
+icu_properties v2.3.0 compiled_data
+displaydoc v0.2.7 (proc-macro)  (*)
+icu_collections v2.3.0 alloc (*)
+icu_locale_core v2.3.0 alloc,zerovec (*)
+icu_properties_data v2.3.0 
+icu_provider v2.3.1 alloc,baked (*)
+zerotrie v0.2.5 alloc,yoke,zerofrom (*)
+zerovec v0.11.8 alloc,derive,yoke (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+utf8_iter v1.0.4 
+percent-encoding v2.3.2 alloc,default,std
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde_derive v1.0.229 (proc-macro) default (*)
+color v0.3.3 bytemuck,default,std (*)
+cssparser v0.38.0 default,fast_match_byte,fast_match_color,serde
+cssparser-macros v0.7.1 (proc-macro) 
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+dtoa-short v0.3.5 
+dtoa v1.0.11 
+itoa v1.0.18 
+phf v0.14.0 default,macros,phf_macros,std
+phf_macros v0.14.0 (proc-macro) 
+phf_generator v0.14.0 
+fastrand v2.5.0 
+phf_shared v0.14.0 default,std
+siphasher v1.0.4 default,std
+phf_shared v0.14.0 default,std (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+phf_shared v0.14.0 default,std
+siphasher v1.0.4 default,std
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+cursor-icon v1.2.0 alloc,default,std
+debug_timer v0.1.3 
+euclid v0.22.14 default,serde,std (*)
+html-escape v0.2.15 default,std
+icu_casemap v2.3.0 compiled_data
+icu_casemap_data v2.3.0 
+icu_collections v2.3.0 alloc (*)
+icu_locale_core v2.3.0 alloc,zerovec (*)
+icu_properties v2.3.0 compiled_data (*)
+icu_provider v2.3.1 alloc,baked (*)
+potential_utf v0.1.6 alloc,writeable,zerovec (*)
+writeable v0.6.4 alloc
+zerovec v0.11.8 alloc,derive,yoke (*)
+icu_locale_core v2.3.0 alloc,zerovec (*)
+icu_properties v2.3.0 compiled_data (*)
+icu_segmenter v2.3.0 auto,compiled_data,lstm
+core_maths v0.1.1 
+libm v0.2.16 arch,default
+icu_collections v2.3.0 alloc (*)
+icu_locale_fallback v2.3.0 compiled_data
+icu_locale_core v2.3.0 alloc,zerovec (*)
+icu_locale_fallback_data v2.3.0 
+icu_provider v2.3.1 alloc,baked (*)
+potential_utf v0.1.6 alloc,writeable,zerovec (*)
+tinystr v0.8.4 alloc,zerovec (*)
+zerovec v0.11.8 alloc,derive,yoke (*)
+icu_provider v2.3.1 alloc,baked (*)
+icu_segmenter_data v2.3.0 
+potential_utf v0.1.6 alloc,writeable,zerovec (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+utf8_iter v1.0.4 
+zerovec v0.11.8 alloc,derive,yoke (*)
+image v0.25.10 png
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+byteorder-lite v0.1.0 default,std
+moxcms v0.8.1 avx,avx_luts,avx_shaper_fixed_point_paths,avx_shaper_paths,default,lut,neon,neon_luts,neon_shaper_fixed_point_paths,neon_shaper_paths,sse,sse_luts,sse_shaper_fixed_point_paths,sse_shaper_paths
+num-traits v0.2.19 default,i128,libm,std (*)
+pxfm v0.1.30 
+num-traits v0.2.19 default,i128,libm,std (*)
+png v0.18.1  (*)
+keyboard-types v0.8.3 default,std (*)
+kurbo v0.13.1 default,std (*)
+linebender_resource_handle v0.1.1 default,std
+markup5ever v0.40.0 
+log v0.4.34 alloc,std
+tendril v0.5.1 
+new_debug_unreachable v1.0.6 
+web_atoms v0.3.0 
+phf v0.14.0 default,macros,phf_macros,std (*)
+string_cache v0.11.0 default,serde,serde_support
+new_debug_unreachable v1.0.6 
+parking_lot v0.12.5 default (*)
+phf_shared v0.14.0 default,std (*)
+precomputed-hash v0.1.1 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+parley v0.12.0 bytemuck,std,system
+fontique v0.12.0 bytemuck,std,system
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+linebender_resource_handle v0.1.1 default,std
+memmap2 v0.9.11 
+parlance v0.1.1 bytemuck,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+read-fonts v0.41.0 experimental_font_api,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+windows v0.62.2 Wdk,Wdk_System,Wdk_System_SystemInformation,Wdk_System_SystemServices,Wdk_System_Threading,Win32,Win32_AI,Win32_AI_MachineLearning,Win32_AI_MachineLearning_DirectML,Win32_Devices,Win32_Devices_DeviceAndDriverInstallation,Win32_Devices_Display,Win32_Foundation,Win32_Graphics,Win32_Graphics_Direct3D,Win32_Graphics_Direct3D12,Win32_Graphics_Direct3D_Dxc,Win32_Graphics_Direct3D_Fxc,Win32_Graphics_DirectComposition,Win32_Graphics_DirectWrite,Win32_Graphics_Dxgi,Win32_Graphics_Dxgi_Common,Win32_Graphics_Gdi,Win32_Graphics_OpenGL,Win32_NetworkManagement,Win32_NetworkManagement_IpHelper,Win32_NetworkManagement_Ndis,Win32_NetworkManagement_NetManagement,Win32_NetworkManagement_WindowsFilteringPlatform,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Authentication,Win32_Security_Authentication_Identity,Win32_Security_Authorization,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Diagnostics,Win32_System_Diagnostics_Debug,Win32_System_Diagnostics_ToolHelp,Win32_System_IO,Win32_System_Ioctl,Win32_System_Kernel,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Performance,Win32_System_Power,Win32_System_ProcessStatus,Win32_System_Registry,Win32_System_RemoteDesktop,Win32_System_Rpc,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_Variant,Win32_System_WindowsProgramming,Win32_System_Wmi,Win32_UI,Win32_UI_Shell,Win32_UI_WindowsAndMessaging,default,std
+windows-collections v0.3.2 std
+windows-core v0.62.2 default,std
+windows-implement v0.60.2 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+windows-interface v0.59.3 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+windows-link v0.2.1 
+windows-result v0.4.1 std
+windows-link v0.2.1 
+windows-strings v0.5.1 std
+windows-link v0.2.1 
+windows-core v0.62.2 default,std (*)
+windows-future v0.3.2 std
+windows-core v0.62.2 default,std (*)
+windows-link v0.2.1 
+windows-threading v0.2.1 
+windows-link v0.2.1 
+windows-numerics v0.3.1 std
+windows-core v0.62.2 default,std (*)
+windows-link v0.2.1 
+windows-core v0.62.2 default,std (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+linebender_resource_handle v0.1.1 default,std
+parlance v0.1.1 bytemuck,std (*)
+parley_engine v0.12.0 bytemuck,std
+fontique v0.12.0 bytemuck,std,system (*)
+harfrust v0.12.0 default,std
+bitflags v2.13.2 serde,serde_core (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+read-fonts v0.41.0 experimental_font_api,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+icu_locale_core v2.3.0 alloc,zerovec (*)
+icu_normalizer v2.3.0 compiled_data (*)
+icu_properties v2.3.0 compiled_data (*)
+icu_segmenter v2.3.0 auto,compiled_data,lstm (*)
+linebender_resource_handle v0.1.1 default,std
+parlance v0.1.1 bytemuck,std (*)
+parley_data v0.12.0 baked
+icu_collections v2.3.0 alloc (*)
+icu_properties v2.3.0 compiled_data (*)
+parley_emoji v0.12.0 std
+skrifa v0.44.0 autohint_shaping,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+percent-encoding v2.3.2 alloc,default,std
+rayon v1.12.0 
+either v1.19.0 std,use_std
+rayon-core v1.13.0 
+crossbeam-deque v0.8.8 default,std
+crossbeam-epoch v0.9.21 alloc,std
+crossbeam-utils v0.8.23 default,std
+crossbeam-utils v0.8.23 default,std
+crossbeam-utils v0.8.23 default,std
+selectors v0.41.0 to_shmem
+bitflags v2.13.2 serde,serde_core (*)
+cssparser v0.38.0 default,fast_match_byte,fast_match_color,serde (*)
+derive_more v2.1.1 add,add_assign,default,deref,deref_mut,from,std
+derive_more-impl v2.1.1 (proc-macro) add,add_assign,default,deref,deref_mut,from
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+log v0.4.34 alloc,std
+new_debug_unreachable v1.0.6 
+precomputed-hash v0.1.1 
+rustc-hash v2.1.3 default,std
+servo_arc v0.5.0 default,serde,servo,track_alloc_size
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+stable_deref_trait v1.2.1 alloc,default,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+to_shmem v0.6.0 cssparser,servo,servo_arc,smallbitvec,smallvec,string_cache,thin-vec
+cssparser v0.38.0 default,fast_match_byte,fast_match_color,serde (*)
+servo_arc v0.5.0 default,serde,servo,track_alloc_size (*)
+smallbitvec v2.6.1 
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+string_cache v0.11.0 default,serde,serde_support (*)
+thin-vec v0.2.21 default,std
+to_shmem_derive v0.2.0 (proc-macro) 
+darling v0.20.11 
+darling_core v0.20.11 
+fnv v1.0.7 default,std
+ident_case v1.0.1 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+darling_macro v0.20.11 (proc-macro) 
+darling_core v0.20.11  (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+synstructure v0.13.2 default,proc-macro
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+skrifa v0.44.0 autohint_shaping,std (*)
+slotmap v1.1.1 default,serde,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+stylo v0.22.0 default,encoding_rs,mime,serde,servo,string_cache,stylo_atoms,url,web_atoms
+app_units v0.7.8 default,num-traits,num_traits,serde,serde_serialization (*)
+arrayvec v0.7.8 default,serde,std (*)
+atomic_refcell v0.1.14 default
+bitflags v2.13.2 serde,serde_core (*)
+byteorder v1.5.0 default,std
+cssparser v0.38.0 default,fast_match_byte,fast_match_color,serde (*)
+derive_more v2.1.1 add,add_assign,default,deref,deref_mut,from,std (*)
+encoding_rs v0.8.42 alloc,default
+cfg-if v1.0.5 
+core_detect v1.0.0 default
+multiversion_no_op v1.0.0 (proc-macro) 
+scopeguard v1.2.0 
+simdutf8 v0.1.5 aarch64_neon,public_imp
+euclid v0.22.14 default,serde,std (*)
+icu_segmenter v2.3.0 auto,compiled_data,lstm (*)
+indexmap v2.14.2 default,serde,std
+equivalent v1.0.3 
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+serde_core v1.0.229 alloc,default,result,std
+itertools v0.14.0 default,use_alloc,use_std
+either v1.19.0 std,use_std
+itoa v1.0.18 
+log v0.4.34 alloc,std
+malloc_size_of_derive v0.1.3 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+synstructure v0.13.2 default,proc-macro (*)
+mime v0.3.17 
+new_debug_unreachable v1.0.6 
+num-derive v0.4.2 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+num-integer v0.1.47 default,i128,std
+num-traits v0.2.19 default,i128,libm,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+num_cpus v1.17.0 
+parking_lot v0.12.5 default (*)
+precomputed-hash v0.1.1 
+rayon v1.12.0  (*)
+rayon-core v1.13.0  (*)
+rustc-hash v2.1.3 default,std
+selectors v0.41.0 to_shmem (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+servo_arc v0.5.0 default,serde,servo,track_alloc_size (*)
+smallbitvec v2.6.1 
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+static_assertions v1.1.0 
+string_cache v0.11.0 default,serde,serde_support (*)
+strum v0.28.0 default,std
+strum_macros v0.28.0 (proc-macro) 
+heck v0.5.0 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+stylo_atoms v0.22.0 
+string_cache v0.11.0 default,serde,serde_support (*)
+stylo_derive v0.22.0 (proc-macro) 
+darling v0.20.11  (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+synstructure v0.13.2 default,proc-macro (*)
+stylo_dom v0.22.0 
+bitflags v2.13.2 serde,serde_core (*)
+stylo_malloc_size_of v0.22.0 servo,string_cache
+app_units v0.7.8 default,num-traits,num_traits,serde,serde_serialization (*)
+cssparser v0.38.0 default,fast_match_byte,fast_match_color,serde (*)
+euclid v0.22.14 default,serde,std (*)
+parking_lot v0.12.5 default (*)
+selectors v0.41.0 to_shmem (*)
+servo_arc v0.5.0 default,serde,servo,track_alloc_size (*)
+smallbitvec v2.6.1 
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+string_cache v0.11.0 default,serde,serde_support (*)
+thin-vec v0.2.21 default,std
+void v1.0.2 default,std
+stylo_malloc_size_of v0.22.0 servo,string_cache (*)
+stylo_static_prefs v0.22.0 
+stylo_traits v0.22.0 default,servo,stylo_atoms,url
+app_units v0.7.8 default,num-traits,num_traits,serde,serde_serialization (*)
+bitflags v2.13.2 serde,serde_core (*)
+cssparser v0.38.0 default,fast_match_byte,fast_match_color,serde (*)
+euclid v0.22.14 default,serde,std (*)
+malloc_size_of_derive v0.1.3 (proc-macro)  (*)
+selectors v0.41.0 to_shmem (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+servo_arc v0.5.0 default,serde,servo,track_alloc_size (*)
+stylo_atoms v0.22.0  (*)
+stylo_malloc_size_of v0.22.0 servo,string_cache (*)
+thin-vec v0.2.21 default,std
+to_shmem v0.6.0 cssparser,servo,servo_arc,smallbitvec,smallvec,string_cache,thin-vec (*)
+to_shmem_derive v0.2.0 (proc-macro)  (*)
+url v2.5.8 default,serde,std (*)
+thin-vec v0.2.21 default,std
+to_shmem v0.6.0 cssparser,servo,servo_arc,smallbitvec,smallvec,string_cache,thin-vec (*)
+to_shmem_derive v0.2.0 (proc-macro)  (*)
+uluru v3.1.0 
+arrayvec v0.7.8 default,serde,std (*)
+url v2.5.8 default,serde,std (*)
+void v1.0.2 default,std
+web_atoms v0.3.0  (*)
+stylo_dom v0.22.0  (*)
+stylo_static_prefs v0.22.0 
+stylo_taffy v0.3.0-beta.4 block,default,flexbox,grid,std
+bitflags v2.13.2 serde,serde_core (*)
+stylo v0.22.0 default,encoding_rs,mime,serde,servo,string_cache,stylo_atoms,url,web_atoms (*)
+stylo_atoms v0.22.0  (*)
+taffy v0.15.0 block_layout,calc,content_size,detailed_layout_info,flexbox,flexbox_balance,grid,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+stylo_traits v0.22.0 default,servo,stylo_atoms,url (*)
+svgtypes v0.16.1 default,std
+kurbo v0.13.1 default,std (*)
+siphasher v1.0.4 default,std
+taffy v0.15.0 block_layout,calc,content_size,detailed_layout_info,flexbox,flexbox_balance,grid,std (*)
+thin-vec v0.2.21 default,std
+thread_local v1.1.10 
+cfg-if v1.0.5 
+url v2.5.8 default,serde,std (*)
+usvg v0.48.1 base64,default,flate2,fontdb,harfrust,memmap-fonts,skrifa,svgz,system-fonts,text,unicode-bidi,unicode-script,unicode-vo,writer,xmlwriter
+base64 v0.23.1 alloc,default,simd-unsafe,std
+data-url v0.3.2 alloc,default,std
+flate2 v1.1.10 any_impl,default,miniz_oxide,runtime_detection,rust_backend (*)
+fontdb v0.24.0 fontconfig,fontconfig-parser,fs,memmap,memmap2,std
+log v0.4.34 alloc,std
+memmap2 v0.9.11 
+slotmap v1.1.1 default,serde,std (*)
+tinyvec v1.13.3 alloc,default
+harfrust v0.12.0 default,std (*)
+imagesize v0.15.0 aesprite,astc,atc,bmp,dds,default,eac,etc2,exr,farbfeld,gif,hdr,heif,ico,ilbm,jpeg,jxl,ktx2,mod,png,pnm,psd,pvrtc,qoi,tga,tiff,vtf,webp
+kurbo v0.13.1 default,std (*)
+log v0.4.34 alloc,std
+pico-args v0.5.0 default,eq-separator
+roxmltree v0.21.1 default,positions,std
+memchr v2.8.3 alloc,default,std
+simplecss v0.2.2 default,std
+log v0.4.34 alloc,std
+siphasher v1.0.4 default,std
+skrifa v0.44.0 autohint_shaping,std (*)
+strict-num v0.1.1 approx-eq,default,float-cmp
+float-cmp v0.9.0 std
+svgtypes v0.16.1 default,std (*)
+tiny-skia-path v0.12.0 default,std
+arrayref v0.3.9 
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+strict-num v0.1.1 approx-eq,default,float-cmp (*)
+unicode-bidi v0.3.18 default,hardcoded-data,std
+unicode-script v0.5.8 
+unicode-vo v0.1.0 
+xmlwriter v0.1.0 
+web-time v1.1.0 
+writeable v0.6.4 alloc
+blitz-shell v0.3.0-beta.4 data-uri
+anyrender v0.14.0 default (*)
+atomic_refcell v0.1.14 default
+blitz-dom v0.3.0-beta.4 accessibility,accesskit,custom-widget,svg,system-fonts,text-transform-icu (*)
+blitz-paint v0.3.0-beta.4 
+anyrender v0.14.0 default (*)
+blitz-dom v0.3.0-beta.4 accessibility,accesskit,custom-widget,svg,system-fonts,text-transform-icu (*)
+blitz-traits v0.3.0-beta.4  (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+color v0.3.3 bytemuck,default,std (*)
+euclid v0.22.14 default,serde,std (*)
+kurbo v0.13.1 default,std (*)
+parley v0.12.0 bytemuck,std,system (*)
+peniko v0.6.1 bytemuck,default,std (*)
+skrifa v0.44.0 autohint_shaping,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+stylo v0.22.0 default,encoding_rs,mime,serde,servo,string_cache,stylo_atoms,url,web_atoms (*)
+taffy v0.15.0 block_layout,calc,content_size,detailed_layout_info,flexbox,flexbox_balance,grid,std (*)
+blitz-traits v0.3.0-beta.4  (*)
+data-url v0.3.2 alloc,default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+keyboard-types v0.8.3 default,std (*)
+web-time v1.1.0 
+winit v0.31.0-beta.3 default,wayland,wayland-csd-adwaita,wayland-dlopen,winit-wayland,winit-x11,x11
+bitflags v2.13.2 serde,serde_core (*)
+cursor-icon v1.2.0 alloc,default,std
+dpi v0.1.2 default,std
+raw-window-handle v0.6.2 alloc,std
+smol_str v0.3.6 default,std
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+winit-core v0.31.0-beta.3 
+bitflags v2.13.2 serde,serde_core (*)
+cursor-icon v1.2.0 alloc,default,std
+dpi v0.1.2 default,std
+keyboard-types v0.8.3 default,std (*)
+raw-window-handle v0.6.2 alloc,std
+smol_str v0.3.6 default,std
+url v2.5.8 default,serde,std (*)
+winit-win32 v0.31.0-beta.3 
+bitflags v2.13.2 serde,serde_core (*)
+cursor-icon v1.2.0 alloc,default,std
+dpi v0.1.2 default,std
+raw-window-handle v0.6.2 alloc,std
+smol_str v0.3.6 default,std
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+unicode-segmentation v1.13.3 
+url v2.5.8 default,serde,std (*)
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+winit-common v0.31.0-beta.3 positioner
+dpi v0.1.2 default,std
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+winit-core v0.31.0-beta.3  (*)
+winit-core v0.31.0-beta.3  (*)
+blitz-traits v0.3.0-beta.4  (*)
+cfg-if v1.0.5 
+dioxus-asset-resolver v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\asset-resolver) default,native
+dioxus-cli-config v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\cli-config) 
+http v1.5.0 default,std (*)
+infer v0.19.0 alloc,cfb,default,std
+cfb v0.7.3 
+byteorder v1.5.0 default,std
+fnv v1.0.7 default,std
+uuid v1.28.0 default,js,rng,serde,std,v4 (*)
+percent-encoding v2.3.2 alloc,default,std
+thiserror v2.0.21 default,std (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys
+bytes v1.12.1 default,std
+mio v1.2.4 net,os-ext,os-poll
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+parking_lot v0.12.5 default (*)
+pin-project-lite v0.2.17 
+socket2 v0.6.5 all
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+tokio-macros v2.7.2 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+dioxus-cli-config v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\cli-config) 
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+dioxus-document v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\document) 
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+dioxus-core-macro v0.8.0-alpha.3 (proc-macro) (C:\github\rust-app-framework\packages\core-macro) default (*)
+dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types) 
+dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html)  (*)
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)  (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde_json v1.0.154 default,raw_value,std
+itoa v1.0.18 
+memchr v2.8.3 alloc,default,std
+serde_core v1.0.229 alloc,default,result,std
+zmij v1.0.23 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+dioxus-history v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\history) 
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html)  (*)
+dioxus-native-dom v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native-dom) accessibility,default,svg,system-fonts,text-transform-icu
+blitz-dom v0.3.0-beta.4 accessibility,accesskit,custom-widget,svg,system-fonts,text-transform-icu (*)
+blitz-traits v0.3.0-beta.4  (*)
+dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)  (*)
+dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html)  (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+keyboard-types v0.8.3 default,std (*)
+rustc-hash v2.1.3 default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+keyboard-types v0.8.3 default,std (*)
+peniko v0.6.1 bytemuck,default,std (*)
+rustc-hash v2.1.3 default,std
+slotmap v1.1.1 default,serde,std (*)
+webbrowser v1.2.4 
+log v0.4.34 alloc,std
+url v2.5.8 default,serde,std (*)
+winit v0.31.0-beta.3 default,wayland,wayland-csd-adwaita,wayland-dlopen,winit-wayland,winit-x11,x11 (*)
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db) alloc_buffers,ark-bls12-381,ark-ec,ark-ff,ark-groth16,ark-relations,ark-serialize,ark-snark,ark-std,dxc,gpu-native-dx12,gpu-native-portable,gpu-runtime,privacy-he,profile_target_1024,wgsl-forge,zk-culling
+aead v0.6.1 alloc
+crypto-common v0.2.2 
+hybrid-array v0.4.15 
+typenum v1.20.1 const-generics
+inout v0.2.4 
+hybrid-array v0.4.15  (*)
+aes-gcm v0.11.1 aes,alloc
+aead v0.6.1 alloc (*)
+aes v0.9.3 
+cipher v0.5.2 block-buffer,stream-wrapper
+block-buffer v0.12.1 
+hybrid-array v0.4.15  (*)
+crypto-common v0.2.2  (*)
+inout v0.2.4  (*)
+cpubits v0.1.1 
+cpufeatures v0.3.1 
+cipher v0.5.2 block-buffer,stream-wrapper (*)
+ctr v0.10.1 
+cipher v0.5.2 block-buffer,stream-wrapper (*)
+ctutils v0.4.3 
+cmov v0.5.4 
+ghash v0.6.0 
+polyval v0.7.3 hazmat
+cpubits v0.1.1 
+cpufeatures v0.3.1 
+universal-hash v0.6.1 
+crypto-common v0.2.2  (*)
+ctutils v0.4.3  (*)
+ark-bls12-381 v0.6.0 curve,scalar_field
+ark-ec v0.6.0 
+ahash v0.8.12 
+cfg-if v1.0.5 
+once_cell v1.21.4 alloc,default,race,std
+zerocopy v0.8.63 derive,simd,zerocopy-derive
+zerocopy-derive v0.8.63 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+ark-ff v0.6.0 
+ark-ff-asm v0.6.0 (proc-macro) 
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+ark-ff-macros v0.6.0 (proc-macro) 
+num-bigint v0.4.8 
+num-integer v0.1.47 i128
+num-traits v0.2.19 i128
+num-traits v0.2.19 i128
+num-traits v0.2.19 i128
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive
+ark-serialize-derive v0.6.0 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+ark-std v0.6.0 std
+num-traits v0.2.19 default,i128,libm,std (*)
+rand v0.8.8 rand_chacha,std_rng
+rand_chacha v0.3.1 
+ppv-lite86 v0.2.21 simd,std
+zerocopy v0.8.63 derive,simd,zerocopy-derive (*)
+rand_core v0.6.4 getrandom
+getrandom v0.2.17 
+cfg-if v1.0.5 
+rand_core v0.6.4 getrandom (*)
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle
+block-buffer v0.10.4 
+generic-array v0.14.7 more_lengths
+typenum v1.20.1 const-generics
+crypto-common v0.1.7 getrandom,rand_core,std
+generic-array v0.14.7 more_lengths (*)
+rand_core v0.6.4 getrandom (*)
+typenum v1.20.1 const-generics
+subtle v2.6.1 const-generics
+num-bigint v0.4.8 default,std
+num-integer v0.1.47 default,i128,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+ark-std v0.6.0 std (*)
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+educe v0.6.0 (proc-macro) Clone,Copy,Debug,Default,Eq,Hash,Ord,PartialEq,PartialOrd
+enum-ordinalize v4.4.2 derive
+enum-ordinalize-derive v4.4.2 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+num-bigint v0.4.8 default,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+zeroize v1.9.1 alloc,default,zeroize_derive
+zeroize_derive v1.5.0 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+ark-poly v0.6.0 
+ahash v0.8.12  (*)
+ark-ff v0.6.0  (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-std v0.6.0 std (*)
+educe v0.6.0 (proc-macro) Clone,Copy,Debug,Default,Eq,Hash,Ord,PartialEq,PartialOrd (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-std v0.6.0 std (*)
+educe v0.6.0 (proc-macro) Clone,Copy,Debug,Default,Eq,Hash,Ord,PartialEq,PartialOrd (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+itertools v0.14.0 default,use_alloc,use_std (*)
+num-bigint v0.4.8 default,std (*)
+num-integer v0.1.47 default,i128,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+ark-ff v0.6.0  (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-std v0.6.0 std (*)
+ark-ec v0.6.0  (*)
+ark-ff v0.6.0  (*)
+ark-groth16 v0.6.0 
+ark-crypto-primitives v0.6.0 merlin,snark,sponge
+ahash v0.8.12  (*)
+ark-crypto-primitives-macros v0.5.0 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+ark-ec v0.6.0  (*)
+ark-ff v0.6.0  (*)
+ark-relations v0.6.0 
+ark-ff v0.6.0  (*)
+ark-poly v0.6.0  (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-std v0.6.0 std (*)
+foldhash v0.1.5 
+indexmap v2.14.2 default,serde,std (*)
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-snark v0.6.0 
+ark-ff v0.6.0  (*)
+ark-relations v0.6.0  (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-std v0.6.0 std (*)
+ark-std v0.6.0 std (*)
+blake2 v0.10.6 default,std
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+derivative v2.2.0 (proc-macro) use_core
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v1.0.109 clone-impls,default,derive,extra-traits,parsing,printing,proc-macro,quote,visit
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+unicode-ident v1.0.27 
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+merlin v3.0.0 
+byteorder v1.5.0 default,std
+keccak v0.1.6 
+rand_core v0.6.4 getrandom (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+num-bigint v0.4.8 default,std (*)
+sha2 v0.10.9 default,std
+cfg-if v1.0.5 
+cpufeatures v0.2.17 
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+ark-ec v0.6.0  (*)
+ark-ff v0.6.0  (*)
+ark-poly v0.6.0  (*)
+ark-relations v0.6.0  (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-snark v0.6.0  (*)
+ark-std v0.6.0 std (*)
+ark-relations v0.6.0  (*)
+ark-serialize v0.6.0 ark-serialize-derive,derive (*)
+ark-snark v0.6.0  (*)
+ark-std v0.6.0 std (*)
+async-trait v0.1.92 (proc-macro)  (*)
+atoi v3.1.1 default,std
+num-traits v0.2.19 default,i128,libm,std (*)
+axum v0.8.9 default,form,http1,json,matched-path,original-uri,query,tokio,tower-log,tracing,ws
+axum-core v0.5.6 tracing
+bytes v1.12.1 default,std
+futures-core v0.3.34 alloc,default,std
+http v1.5.0 default,std (*)
+http-body v1.1.0 
+bytes v1.12.1 default,std
+http v1.5.0 default,std (*)
+http-body-util v0.1.5 default
+bytes v1.12.1 default,std
+futures-core v0.3.34 alloc,default,std
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+pin-project-lite v0.2.17 
+mime v0.3.17 
+pin-project-lite v0.2.17 
+sync_wrapper v1.0.2 futures,futures-core
+futures-core v0.3.34 alloc,default,std
+tower-layer v0.3.3 
+tower-service v0.3.3 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+base64 v0.22.1 alloc,default,std
+bytes v1.12.1 default,std
+form_urlencoded v1.2.2 alloc,default,std (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+http-body-util v0.1.5 default (*)
+hyper v1.12.0 client,default,http1,server
+atomic-waker v1.1.2 
+bytes v1.12.1 default,std
+futures-core v0.3.34 alloc,default,std
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+httparse v1.10.1 default,std
+httpdate v1.0.3 
+itoa v1.0.18 
+pin-project-lite v0.2.17 
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+want v0.3.2 
+try-lock v0.2.5 
+hyper-util v0.1.21 client,client-legacy,client-proxy,default,http1,server,service,tokio
+base64 v0.23.1 alloc,default,simd-unsafe,std
+bytes v1.12.1 default,std
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+httparse v1.10.1 default,std
+hyper v1.12.0 client,default,http1,server (*)
+ipnet v2.12.2 default,std
+libc v0.2.191 default,std
+percent-encoding v2.3.2 alloc,default,std
+pin-project-lite v0.2.17 
+socket2 v0.6.5 all (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tower-service v0.3.3 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+itoa v1.0.18 
+matchit v0.8.4 default
+memchr v2.8.3 alloc,default,std
+mime v0.3.17 
+percent-encoding v2.3.2 alloc,default,std
+pin-project-lite v0.2.17 
+serde_core v1.0.229 alloc,default,result,std
+serde_json v1.0.154 default,raw_value,std (*)
+serde_path_to_error v0.1.20 
+itoa v1.0.18 
+serde_core v1.0.229 alloc,default,result,std
+serde_urlencoded v0.7.1 
+form_urlencoded v1.2.2 alloc,default,std (*)
+itoa v1.0.18 
+ryu v1.0.23 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+sha1 v0.10.7 default,std
+cfg-if v1.0.5 
+cpufeatures v0.2.17 
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+sync_wrapper v1.0.2 futures,futures-core (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-tungstenite v0.29.0 connect,default,handshake,stream
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+log v0.4.34 alloc,std
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tungstenite v0.29.0 data-encoding,handshake,http,httparse,sha1
+bytes v1.12.1 default,std
+data-encoding v2.11.1 alloc,default,std
+http v1.5.0 default,std (*)
+httparse v1.10.1 default,std
+log v0.4.34 alloc,std
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng
+rand_chacha v0.9.0 default,std
+ppv-lite86 v0.2.21 simd,std (*)
+rand_core v0.9.5 os_rng,std
+getrandom v0.3.4 std
+cfg-if v1.0.5 
+rand_core v0.9.5 os_rng,std (*)
+sha1 v0.10.7 default,std (*)
+thiserror v2.0.21 default,std (*)
+tower v0.5.3 futures-core,futures-util,log,make,pin-project-lite,retry,sync_wrapper,timeout,tokio,tracing,util
+futures-core v0.3.34 alloc,default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+pin-project-lite v0.2.17 
+sync_wrapper v1.0.2 futures,futures-core (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tower-layer v0.3.3 
+tower-service v0.3.3 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+tower-layer v0.3.3 
+tower-service v0.3.3 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+base64 v0.23.1 alloc,default,simd-unsafe,std
+blake3 v1.8.7 default,std
+arrayvec v0.7.8 default,serde,std (*)
+cfg-if v1.0.5 
+constant_time_eq v0.4.2 std
+cpufeatures v0.3.1 
+boringtun v0.7.1 default
+aead v0.5.2 alloc,default,getrandom,rand_core
+crypto-common v0.1.7 getrandom,rand_core,std (*)
+generic-array v0.14.7 more_lengths (*)
+base64 v0.22.1 alloc,default,std
+blake2 v0.10.6 default,std (*)
+chacha20poly1305 v0.10.1 alloc,default,getrandom,rand_core
+aead v0.5.2 alloc,default,getrandom,rand_core (*)
+chacha20 v0.9.1 zeroize
+cfg-if v1.0.5 
+cipher v0.4.4 zeroize
+crypto-common v0.1.7 getrandom,rand_core,std (*)
+inout v0.1.4 
+generic-array v0.14.7 more_lengths (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+cpufeatures v0.2.17 
+cipher v0.4.4 zeroize (*)
+poly1305 v0.8.0 
+cpufeatures v0.2.17 
+opaque-debug v0.3.1 
+universal-hash v0.5.1 
+crypto-common v0.1.7 getrandom,rand_core,std (*)
+subtle v2.6.1 const-generics
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+hex v0.4.3 alloc,default,std
+hmac v0.12.1 
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+ip_network v0.4.1 
+ip_network_table v0.2.0 
+ip_network v0.4.1 
+ip_network_table-deps-treebitmap v0.5.0 
+libc v0.2.191 default,std
+parking_lot v0.12.5 default (*)
+portable-atomic v1.15.0 default,fallback
+rand_core v0.6.4 getrandom (*)
+ring v0.17.14 alloc,default,dev_urandom_fallback
+cfg-if v1.0.5 
+getrandom v0.2.17  (*)
+untrusted v0.9.0 
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+untrusted v0.9.0 
+x25519-dalek v2.0.1 alloc,default,precomputed-tables,reusable_secrets,static_secrets,zeroize
+curve25519-dalek v4.1.3 alloc,precomputed-tables,zeroize
+cfg-if v1.0.5 
+cpufeatures v0.2.17 
+curve25519-dalek-derive v0.1.1 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+subtle v2.6.1 const-generics
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+rand_core v0.6.4 getrandom (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+bytes v1.12.1 default,std
+chacha20poly1305 v0.11.0 alloc
+aead v0.6.1 alloc (*)
+chacha20 v0.10.2 cipher,rng,xchacha
+cfg-if v1.0.5 
+cipher v0.5.2 block-buffer,stream-wrapper (*)
+cpufeatures v0.3.1 
+rand_core v0.10.1 
+cipher v0.5.2 block-buffer,stream-wrapper (*)
+poly1305 v0.9.1 
+cpufeatures v0.3.1 
+universal-hash v0.6.1  (*)
+chrono v0.4.45 alloc,clock,default,iana-time-zone,js-sys,now,oldtime,serde,std,wasm-bindgen,wasmbind,winapi,windows-link
+num-traits v0.2.19 default,i128,libm,std (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+windows-link v0.2.1 
+ciborium v0.2.2 default,std
+ciborium-io v0.2.2 alloc,std
+ciborium-ll v0.2.2 
+ciborium-io v0.2.2 alloc,std
+half v2.7.1 alloc,default,num-traits,std
+cfg-if v1.0.5 
+num-traits v0.2.19 default,i128,libm,std (*)
+zerocopy v0.8.63 derive,simd,zerocopy-derive (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+core_affinity v0.8.3 
+num_cpus v1.17.0 
+winapi v0.3.9 cfg,evntrace,in6addr,inaddr,minwinbase,ntsecapi,processthreadsapi,winbase,windef,winioctl
+winapi-x86_64-pc-windows-gnu v0.4.0 
+crossbeam-channel v0.5.17 default,std
+crossbeam-utils v0.8.23 default,std
+csv v1.4.0 
+csv-core v0.1.13 default
+memchr v2.8.3 alloc,default,std
+itoa v1.0.18 
+ryu v1.0.23 
+serde_core v1.0.229 alloc,default,result,std
+dashmap v6.2.1 
+cfg-if v1.0.5 
+crossbeam-utils v0.8.23 default,std
+hashbrown v0.14.5 raw
+lock_api v0.4.14 atomic_usize,default (*)
+once_cell v1.21.4 alloc,default,race,std
+parking_lot_core v0.9.12  (*)
+ed25519-dalek v3.0.0 
+curve25519-dalek v5.0.0 digest,zeroize
+cfg-if v1.0.5 
+cpufeatures v0.3.1 
+curve25519-dalek-derive v0.1.1 (proc-macro)  (*)
+digest v0.11.3 alloc,block-api,default,mac,oid
+block-buffer v0.12.1  (*)
+const-oid v0.10.2 
+crypto-common v0.2.2  (*)
+ctutils v0.4.3  (*)
+subtle v2.6.1 const-generics
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+ed25519 v3.0.0 
+signature v3.0.0 
+sha2 v0.11.1 alloc,default,oid
+cfg-if v1.0.5 
+cpufeatures v0.3.1 
+digest v0.11.3 alloc,block-api,default,mac,oid (*)
+subtle v2.6.1 const-generics
+etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,dx12,gles,metal,serde,spirv,std,vulkan,vulkan-portability,web,webgpu,wgsl
+arrayvec v0.7.8 default,serde,std (*)
+bitflags v2.13.2 serde,serde_core (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+cfg-if v1.0.5 
+document-features v0.2.12 (proc-macro) default
+litrs v1.0.1 
+etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,default,dx12,etalon-core-deps-windows,gles,macro_rules_attribute,metal,portable-atomic,renderdoc,serde,spirv,std,vulkan,vulkan-portability,wgsl
+arrayvec v0.7.8 default,serde,std (*)
+bit-set v0.11.1 
+bit-vec v0.10.1 
+bit-vec v0.10.1 
+bitflags v2.13.2 serde,serde_core (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+document-features v0.2.12 (proc-macro) default (*)
+etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) dx12,gles,renderdoc,vulkan
+etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) dx12,gles,portable-atomic,renderdoc,vulkan
+arrayvec v0.7.8 default,serde,std (*)
+ash v0.38.0+1.3.281 debug,default,libloading,loaded,std
+libloading v0.8.9  (*)
+bit-set v0.11.1  (*)
+bitflags v2.13.2 serde,serde_core (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+cfg-if v1.0.5 
+etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) 
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web
+bitflags v2.13.2 serde,serde_core (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+log v0.4.34 alloc,std
+macro_rules_attribute v0.2.3 default
+macro_rules_attribute-proc_macro v0.2.3 (proc-macro) 
+pastey v0.2.3 (proc-macro) 
+naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) deserialize,serialize,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+indexmap v2.14.2 default,serde,std (*)
+rustc-hash v1.1.0 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+raw-window-handle v0.6.2 alloc,std
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+static_assertions v1.1.0 
+naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,glsl-out,hlsl-out,msl-out,spv-in,spv-out,termcolor,wgsl-in,wgsl-out
+arrayvec v0.7.8 default,serde,std (*)
+bit-set v0.11.1  (*)
+bitflags v2.13.2 serde,serde_core (*)
+cfg-if v1.0.5 
+codespan-reporting v0.13.1 std,termcolor
+termcolor v1.4.1 
+winapi-util v0.1.11 
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+unicode-width v0.2.2 cjk,default
+half v2.7.1 alloc,default,num-traits,std (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+indexmap v2.14.2 default,serde,std (*)
+libm v0.2.16 arch,default
+log v0.4.34 alloc,std
+naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) deserialize,serialize,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+once_cell v1.21.4 alloc,default,race,std
+petgraph v0.8.3 graphmap
+fixedbitset v0.5.7 
+hashbrown v0.15.5 default-hasher,inline-more
+foldhash v0.1.5 
+indexmap v2.14.2 default,serde,std (*)
+rustc-hash v1.1.0 
+spirv v0.4.0+sdk-1.4.341.0 
+bitflags v2.13.2 serde,serde_core (*)
+thiserror v2.0.21 default,std (*)
+unicode-ident v1.0.27 
+etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) portable-atomic,std
+cfg-if v1.0.5 
+lock_api v0.4.14 atomic_usize,default (*)
+once_cell v1.21.4 alloc,default,race,std
+parking_lot v0.12.5 default (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+glow v0.18.0 
+glutin_wgl_sys v0.6.1 
+gpu-allocator v0.28.0 d3d12,hashbrown,vulkan
+ash v0.38.0+1.3.281 debug,default,libloading,loaded,std (*)
+hashbrown v0.16.1 allocator-api2,default,default-hasher,equivalent,inline-more,raw-entry
+allocator-api2 v0.2.21 alloc
+equivalent v1.0.3 
+foldhash v0.2.0 std
+log v0.4.34 alloc,std
+presser v0.3.1 
+thiserror v2.0.21 default,std (*)
+windows v0.62.2 Wdk,Wdk_System,Wdk_System_SystemInformation,Wdk_System_SystemServices,Wdk_System_Threading,Win32,Win32_AI,Win32_AI_MachineLearning,Win32_AI_MachineLearning_DirectML,Win32_Devices,Win32_Devices_DeviceAndDriverInstallation,Win32_Devices_Display,Win32_Foundation,Win32_Graphics,Win32_Graphics_Direct3D,Win32_Graphics_Direct3D12,Win32_Graphics_Direct3D_Dxc,Win32_Graphics_Direct3D_Fxc,Win32_Graphics_DirectComposition,Win32_Graphics_DirectWrite,Win32_Graphics_Dxgi,Win32_Graphics_Dxgi_Common,Win32_Graphics_Gdi,Win32_Graphics_OpenGL,Win32_NetworkManagement,Win32_NetworkManagement_IpHelper,Win32_NetworkManagement_Ndis,Win32_NetworkManagement_NetManagement,Win32_NetworkManagement_WindowsFilteringPlatform,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Authentication,Win32_Security_Authentication_Identity,Win32_Security_Authorization,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Diagnostics,Win32_System_Diagnostics_Debug,Win32_System_Diagnostics_ToolHelp,Win32_System_IO,Win32_System_Ioctl,Win32_System_Kernel,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Performance,Win32_System_Power,Win32_System_ProcessStatus,Win32_System_Registry,Win32_System_RemoteDesktop,Win32_System_Rpc,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_Variant,Win32_System_WindowsProgramming,Win32_System_Wmi,Win32_UI,Win32_UI_Shell,Win32_UI_WindowsAndMessaging,default,std (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+khronos-egl v6.0.0 1_0,1_1,1_2,1_3,1_4,1_5,default,dynamic,libloading
+libc v0.2.191 default,std
+libloading v0.8.9  (*)
+libloading v0.8.9  (*)
+log v0.4.34 alloc,std
+naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,glsl-out,hlsl-out,msl-out,spv-in,spv-out,termcolor,wgsl-in,wgsl-out (*)
+naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) deserialize,serialize,std (*)
+ordered-float v5.5.0 
+num-traits v0.2.19 default,i128,libm,std (*)
+profiling v1.0.18 
+range-alloc v0.1.5 
+raw-window-handle v0.6.2 alloc,std
+renderdoc-sys v1.1.0 
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+static_assertions v1.1.0 
+thiserror v2.0.21 default,std (*)
+windows v0.62.2 Wdk,Wdk_System,Wdk_System_SystemInformation,Wdk_System_SystemServices,Wdk_System_Threading,Win32,Win32_AI,Win32_AI_MachineLearning,Win32_AI_MachineLearning_DirectML,Win32_Devices,Win32_Devices_DeviceAndDriverInstallation,Win32_Devices_Display,Win32_Foundation,Win32_Graphics,Win32_Graphics_Direct3D,Win32_Graphics_Direct3D12,Win32_Graphics_Direct3D_Dxc,Win32_Graphics_Direct3D_Fxc,Win32_Graphics_DirectComposition,Win32_Graphics_DirectWrite,Win32_Graphics_Dxgi,Win32_Graphics_Dxgi_Common,Win32_Graphics_Gdi,Win32_Graphics_OpenGL,Win32_NetworkManagement,Win32_NetworkManagement_IpHelper,Win32_NetworkManagement_Ndis,Win32_NetworkManagement_NetManagement,Win32_NetworkManagement_WindowsFilteringPlatform,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Authentication,Win32_Security_Authentication_Identity,Win32_Security_Authorization,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Diagnostics,Win32_System_Diagnostics_Debug,Win32_System_Diagnostics_ToolHelp,Win32_System_IO,Win32_System_Ioctl,Win32_System_Kernel,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Performance,Win32_System_Power,Win32_System_ProcessStatus,Win32_System_Registry,Win32_System_RemoteDesktop,Win32_System_Rpc,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_Variant,Win32_System_WindowsProgramming,Win32_System_Wmi,Win32_UI,Win32_UI_Shell,Win32_UI_WindowsAndMessaging,default,std (*)
+windows-core v0.62.2 default,std (*)
+windows-result v0.4.1 std (*)
+etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) dx12,gles,portable-atomic,renderdoc,vulkan (*)
+etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)  (*)
+etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) portable-atomic,std (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+indexmap v2.14.2 default,serde,std (*)
+log v0.4.34 alloc,std
+macro_rules_attribute v0.2.3 default (*)
+naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,glsl-out,hlsl-out,msl-out,spv-in,spv-out,termcolor,wgsl-in,wgsl-out (*)
+naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) deserialize,serialize,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+profiling v1.0.18 
+raw-window-handle v0.6.2 alloc,std
+rustc-hash v1.1.0 
+scopeguard v1.2.0 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+thiserror v2.0.21 default,std (*)
+etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) dx12,gles,portable-atomic,renderdoc,vulkan (*)
+etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) portable-atomic,std (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+hashbrown v0.17.1 allocator-api2,default-hasher,inline-more,raw-entry,serde (*)
+log v0.4.34 alloc,std
+naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,glsl-out,hlsl-out,msl-out,spv-in,spv-out,termcolor,wgsl-in,wgsl-out (*)
+profiling v1.0.18 
+raw-window-handle v0.6.2 alloc,std
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+static_assertions v1.1.0 
+etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,dx12,gles,metal,serde,spirv,std,vulkan,vulkan-portability,web,webgpu,wgsl (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+log v0.4.34 alloc,std
+thiserror v2.0.21 default,std (*)
+etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,gpu,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,dx12,gles,metal,serde,spirv,std,vulkan,vulkan-portability,web,webgpu,wgsl (*)
+log v0.4.34 alloc,std
+thiserror v2.0.21 default,std (*)
+etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,dx12,gles,metal,serde,spirv,std,vulkan,vulkan-portability,web,webgpu,wgsl (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+log v0.4.34 alloc,std
+thiserror v2.0.21 default,std (*)
+etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,dx12,gles,metal,serde,spirv,std,vulkan,vulkan-portability,web,webgpu,wgsl (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+log v0.4.34 alloc,std
+thiserror v2.0.21 default,std (*)
+etalon-wasm v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) serde,std,web (*)
+log v0.4.34 alloc,std
+thiserror v2.0.21 default,std (*)
+etalon-wgsl-forge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,naga-validate,std,wgsl
+blake3 v1.8.7 default,std (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+log v0.4.34 alloc,std
+naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,glsl-out,hlsl-out,msl-out,spv-in,spv-out,termcolor,wgsl-in,wgsl-out (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde_json v1.0.154 default,raw_value,std (*)
+tempfile v3.27.0 default,getrandom
+fastrand v2.5.0 alloc,default,std
+getrandom v0.4.3 std,sys_rng,wasm_js (*)
+once_cell v1.21.4 alloc,default,race,std
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+thiserror v2.0.21 default,std (*)
+fast_qr v0.13.1 svg
+fhe v0.1.1 
+doc-comment v0.3.4 
+fhe-math v0.1.1 
+ethnum v1.5.3 
+fhe-traits v0.1.1 
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng (*)
+fhe-util v0.1.1 
+num-bigint-dig v0.9.1 default,prime,rand,serde,std,u64_digit
+libm v0.2.16 arch,default
+num-integer v0.1.47 default,i128,std (*)
+num-iter v0.1.46 
+num-integer v0.1.47 default,i128,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+once_cell v1.21.4 alloc,default,race,std
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+smallvec v1.16.3 const_generics,const_new,serde,union,write (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng (*)
+itertools v0.14.0 default,use_alloc,use_std (*)
+ndarray v0.17.2 default,std
+matrixmultiply v0.3.11 cgemm,std
+rawpointer v0.2.1 
+num-complex v0.4.6 bytemuck,default,libm,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+num-integer v0.1.47 default,i128,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+rawpointer v0.2.1 
+num-bigint v0.4.8 default,std (*)
+num-bigint-dig v0.9.1 default,prime,rand,serde,std,u64_digit (*)
+num-complex v0.4.6 bytemuck,default,libm,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+prost v0.14.4 default,derive,std
+bytes v1.12.1 default,std
+prost-derive v0.14.4 (proc-macro) 
+anyhow v1.0.104 default,std
+itertools v0.14.0 default,use_alloc,use_std
+either v1.19.0 std,use_std
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+pulp v0.22.3 default,relaxed-simd,std,x86-v3
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+cfg-if v1.0.5 
+libm v0.2.16 arch,default
+num-complex v0.4.6 bytemuck,default,libm,std (*)
+paste v1.0.15 (proc-macro) 
+pulp-wasm-simd-flag v0.1.1 relaxed-simd
+raw-cpuid v11.6.0 
+bitflags v2.13.2 serde,serde_core (*)
+reborrow v0.5.5 default
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng (*)
+rand_chacha v0.9.0 default,std (*)
+sha2 v0.10.9 default,std (*)
+tfhe-ntt v0.6.1 default,std
+aligned-vec v0.6.4 std
+equator v0.4.2 
+equator-macro v0.4.2 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+pulp v0.21.5 std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+cfg-if v1.0.5 
+libm v0.2.16 arch,default
+num-complex v0.4.6 bytemuck,default,libm,std (*)
+reborrow v0.5.5 default
+thiserror v2.0.21 default,std (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+fhe-traits v0.1.1  (*)
+fhe-util v0.1.1  (*)
+itertools v0.14.0 default,use_alloc,use_std (*)
+ndarray v0.17.2 default,std (*)
+num-bigint v0.4.8 default,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+once_cell v1.21.4 alloc,default,race,std
+prost v0.14.4 default,derive,std (*)
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng (*)
+rand_chacha v0.9.0 default,std (*)
+thiserror v2.0.21 default,std (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+zeroize_derive v1.5.0 (proc-macro)  (*)
+fhe-traits v0.1.1  (*)
+fips203 v0.4.3 default-rng,ml-kem-1024,ml-kem-512,ml-kem-768
+rand_core v0.6.4 getrandom (*)
+sha3 v0.10.9 
+digest v0.10.7 alloc,block-buffer,core-api,default,mac,std,subtle (*)
+keccak v0.1.6 
+subtle v2.6.1 const-generics
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+fips204 v0.4.6 default-rng,ml-dsa-65
+rand_core v0.6.4 getrandom (*)
+sha2 v0.10.9 default,std (*)
+sha3 v0.10.9  (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+fips205 v0.4.1 default-rng,slh_dsa_sha2_256s
+rand_core v0.6.4 getrandom (*)
+sha2 v0.10.9 default,std (*)
+sha3 v0.10.9  (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+flate2 v1.1.10 any_impl,default,miniz_oxide,runtime_detection,rust_backend (*)
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-core v0.3.34 alloc,default,std
+futures-intrusive v0.5.0 alloc
+futures-core v0.3.34 alloc,default,std
+lock_api v0.4.14 atomic_usize,default (*)
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+getrandom v0.4.3 std,sys_rng,wasm_js (*)
+h2 v0.4.20 
+atomic-waker v1.1.2 
+bytes v1.12.1 default,std
+fnv v1.0.7 default,std
+futures-core v0.3.34 alloc,default,std
+futures-sink v0.3.34 alloc,default,std
+http v1.5.0 default,std (*)
+indexmap v2.14.2 default,serde,std (*)
+slab v0.4.12 default,std
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-util v0.7.20 codec,default,io,libc
+bytes v1.12.1 default,std
+futures-core v0.3.34 alloc,default,std
+futures-sink v0.3.34 alloc,default,std
+pin-project-lite v0.2.17 
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tracing v0.1.44 attributes,default,log,std,tracing-attributes (*)
+half v2.7.1 alloc,default,num-traits,std (*)
+hex v0.4.3 alloc,default,std
+hkdf v0.13.0 
+hmac v0.13.0 
+digest v0.11.3 alloc,block-api,default,mac,oid (*)
+hmac v0.13.0  (*)
+http v1.5.0 default,std (*)
+http-body-util v0.1.5 default (*)
+jpeg-decoder v0.3.2 default,rayon
+rayon v1.12.0  (*)
+keyring v4.2.0 default,v1,windows-native-keyring-store,zbus-secret-service-keyring-store
+keyring-core v1.0.1 
+log v0.4.34 alloc,std
+windows-native-keyring-store v1.1.0 default,search
+byteorder v1.5.0 default,std
+keyring-core v1.0.1  (*)
+regex v1.13.1 default,perf,perf-backtrack,perf-cache,perf-dfa,perf-inline,perf-literal,perf-onepass,std,unicode,unicode-age,unicode-bool,unicode-case,unicode-gencat,unicode-perl,unicode-script,unicode-segment
+aho-corasick v1.1.5 perf-literal,std
+memchr v2.8.3 alloc,default,std
+memchr v2.8.3 alloc,default,std
+regex-automata v0.4.18 alloc,dfa-onepass,hybrid,meta,nfa-backtrack,nfa-pikevm,nfa-thompson,perf-inline,perf-literal,perf-literal-multisubstring,perf-literal-substring,std,syntax,unicode,unicode-age,unicode-bool,unicode-case,unicode-gencat,unicode-perl,unicode-script,unicode-segment,unicode-word-boundary
+aho-corasick v1.1.5 perf-literal,std (*)
+memchr v2.8.3 alloc,default,std
+regex-syntax v0.8.11 default,std,unicode,unicode-age,unicode-bool,unicode-case,unicode-gencat,unicode-perl,unicode-script,unicode-segment
+regex-syntax v0.8.11 default,std,unicode,unicode-age,unicode-bool,unicode-case,unicode-gencat,unicode-perl,unicode-script,unicode-segment
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+libc v0.2.191 default,std
+log v0.4.34 alloc,std
+lz4_flex v0.13.1 checked-decode,default,frame,safe-decode,safe-encode,std
+twox-hash v2.1.5 xxhash32
+memmap2 v0.9.11 
+mikktspace v0.3.0 glam
+glam v0.15.2 default,std
+minicbor v2.3.1 alloc,std
+mp4 v0.14.0 
+byteorder v1.5.0 default,std
+bytes v1.12.1 default,std
+num-rational v0.4.2 default,num-bigint,serde,std
+num-bigint v0.4.8 default,std (*)
+num-integer v0.1.47 default,i128,std (*)
+num-traits v0.2.19 default,i128,libm,std (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde_json v1.0.154 default,raw_value,std (*)
+thiserror v1.0.69 
+thiserror-impl v1.0.69 (proc-macro) 
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v2.0.119 clone-impls,default,derive,extra-traits,full,parsing,printing,proc-macro,visit,visit-mut (*)
+naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,glsl-out,hlsl-out,msl-out,spv-in,spv-out,termcolor,wgsl-in,wgsl-out (*)
+num_cpus v1.17.0 
+oxiri v0.2.11 
+png v0.17.16 
+bitflags v1.3.2 default
+crc32fast v1.5.2 default,std (*)
+fdeflate v0.3.7  (*)
+flate2 v1.1.10 any_impl,default,miniz_oxide,runtime_detection,rust_backend (*)
+miniz_oxide v0.8.9 default,simd,simd-adler32,with-alloc (*)
+pollster v1.0.1 
+qualia-audio v0.0.40 (C:\github\qualiaDB\crates\qualia-audio) cpu-reference,default
+qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core) default
+chrono v0.4.45 alloc,clock,default,iana-time-zone,js-sys,now,oldtime,serde,std,wasm-bindgen,wasmbind,winapi,windows-link (*)
+hex v0.4.3 alloc,default,std
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde_json v1.0.154 default,raw_value,std (*)
+sha2 v0.11.1 alloc,default,oid (*)
+uuid v1.28.0 default,js,rng,serde,std,v4 (*)
+qualia-inference-kernel v0.0.40 (C:\github\qualiaDB\crates\qualia-inference-kernel) default
+quick-xml v0.41.0 default
+memchr v2.8.3 alloc,default,std
+rand v0.9.5 alloc,default,os_rng,small_rng,std,std_rng,thread_rng (*)
+rand v0.10.3 alloc,default,std,std_rng,sys_rng,thread_rng
+chacha20 v0.10.2 cipher,rng,xchacha (*)
+getrandom v0.4.3 std,sys_rng,wasm_js (*)
+rand_core v0.10.1 
+rand_distr v0.6.0 alloc,default,std
+num-traits v0.2.19 default,i128,libm,std (*)
+rand v0.10.3 alloc,default,std,std_rng,sys_rng,thread_rng (*)
+raw-window-handle v0.6.2 alloc,std
+rayon v1.12.0  (*)
+rcgen v0.14.10 crypto,default,pem,ring
+pem v4.0.0 default,std
+base64 v0.23.1 alloc,default,simd-unsafe,std
+ring v0.17.14 alloc,default,dev_urandom_fallback (*)
+rustls-pki-types v1.15.1 alloc,default,std
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+time v0.3.55 alloc,std
+deranged v0.5.9 default
+num-conv v0.2.2 
+powerfmt v0.2.1 
+time-core v0.1.9 
+yasna v0.6.0 default,std,time
+time v0.3.55 alloc,std (*)
+regex v1.13.1 default,perf,perf-backtrack,perf-cache,perf-dfa,perf-inline,perf-literal,perf-onepass,std,unicode,unicode-age,unicode-bool,unicode-case,unicode-gencat,unicode-perl,unicode-script,unicode-segment (*)
+reqwest v0.13.5 __rustls,__tls,blocking,json,rustls-no-provider
+base64 v0.23.1 alloc,default,simd-unsafe,std
+bytes v1.12.1 default,std
+futures-channel v0.3.34 alloc,default,futures-sink,sink,std (*)
+futures-core v0.3.34 alloc,default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+http-body-util v0.1.5 default (*)
+hyper v1.12.0 client,default,http1,server (*)
+hyper-rustls v0.27.10 http1,tls12
+http v1.5.0 default,std (*)
+hyper v1.12.0 client,default,http1,server (*)
+hyper-util v0.1.21 client,client-legacy,client-proxy,default,http1,server,service,tokio (*)
+rustls v0.23.46 log,logging,ring,std,tls12
+log v0.4.34 alloc,std
+once_cell v1.21.4 alloc,default,race,std
+ring v0.17.14 alloc,default,dev_urandom_fallback (*)
+rustls-pki-types v1.15.1 alloc,default,std (*)
+rustls-webpki v0.103.15 alloc,ring,std
+ring v0.17.14 alloc,default,dev_urandom_fallback (*)
+rustls-pki-types v1.15.1 alloc,default,std (*)
+untrusted v0.9.0 
+subtle v2.6.1 const-generics
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-rustls v0.26.6 logging,ring,tls12
+rustls v0.23.46 log,logging,ring,std,tls12 (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tower-service v0.3.3 
+hyper-util v0.1.21 client,client-legacy,client-proxy,default,http1,server,service,tokio (*)
+log v0.4.34 alloc,std
+percent-encoding v2.3.2 alloc,default,std
+pin-project-lite v0.2.17 
+rustls v0.23.46 log,logging,ring,std,tls12 (*)
+rustls-pki-types v1.15.1 alloc,default,std (*)
+rustls-platform-verifier v0.7.1 
+log v0.4.34 alloc,std
+rustls v0.23.46 log,logging,ring,std,tls12 (*)
+windows-sys v0.61.2 Wdk,Wdk_Foundation,Wdk_Storage,Wdk_Storage_FileSystem,Wdk_System,Wdk_System_IO,Win32,Win32_Devices,Win32_Devices_HumanInterfaceDevice,Win32_Foundation,Win32_Globalization,Win32_Graphics,Win32_Graphics_Dwm,Win32_Graphics_Gdi,Win32_Media,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Credentials,Win32_Security_Cryptography,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Com_StructuredStorage,Win32_System_Console,Win32_System_DataExchange,Win32_System_IO,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Pipes,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_WindowsProgramming,Win32_UI,Win32_UI_Accessibility,Win32_UI_Controls,Win32_UI_HiDpi,Win32_UI_Input,Win32_UI_Input_Ime,Win32_UI_Input_KeyboardAndMouse,Win32_UI_Input_Pointer,Win32_UI_Input_Touch,Win32_UI_Shell,Win32_UI_TextServices,Win32_UI_WindowsAndMessaging,default (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde_json v1.0.154 default,raw_value,std (*)
+sync_wrapper v1.0.2 futures,futures-core (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-rustls v0.26.6 logging,ring,tls12 (*)
+tower v0.5.3 futures-core,futures-util,log,make,pin-project-lite,retry,sync_wrapper,timeout,tokio,tracing,util (*)
+tower-http v0.6.11 follow-redirect,futures-util,tower
+bitflags v2.13.2 serde,serde_core (*)
+bytes v1.12.1 default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+pin-project-lite v0.2.17 
+tower v0.5.3 futures-core,futures-util,log,make,pin-project-lite,retry,sync_wrapper,timeout,tokio,tracing,util (*)
+tower-layer v0.3.3 
+tower-service v0.3.3 
+url v2.5.8 default,serde,std (*)
+tower-service v0.3.3 
+url v2.5.8 default,serde,std (*)
+rio_api v0.8.6 default
+rio_turtle v0.8.6 default
+oxilangtag v0.1.6 default,std
+oxiri v0.2.11 
+rio_api v0.8.6 default
+rio_xml v0.8.6 default
+oxilangtag v0.1.6 default,std
+oxiri v0.2.11 
+quick-xml v0.36.2 default
+memchr v2.8.3 alloc,default,std
+rio_api v0.8.6 default
+rtrb v0.3.5 default,std
+rustls v0.23.46 log,logging,ring,std,tls12 (*)
+rustls-pki-types v1.15.1 alloc,default,std (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+serde-wasm-bindgen v0.6.5 
+js-sys v0.3.106 default,std,unsafe-eval
+cfg-if v1.0.5 
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+wasm-bindgen v0.2.129 default,std
+cfg-if v1.0.5 
+once_cell v1.21.4 alloc,default,race,std
+wasm-bindgen-macro v0.2.129 (proc-macro) 
+quote v1.0.47 default,proc-macro (*)
+wasm-bindgen-macro-support v0.2.129 
+bumpalo v3.20.3 default
+proc-macro2 v1.0.107 default,proc-macro,span-locations (*)
+quote v1.0.47 default,proc-macro (*)
+syn v3.0.9 clone-impls,default,derive,extra-traits,fold,full,parsing,printing,proc-macro,visit,visit-mut (*)
+wasm-bindgen-shared v0.2.129 
+unicode-ident v1.0.27 
+wasm-bindgen-shared v0.2.129 
+unicode-ident v1.0.27 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+wasm-bindgen v0.2.129 default,std (*)
+serde_bytes v0.11.19 default,std
+serde_core v1.0.229 alloc,default,result,std
+serde_json v1.0.154 default,raw_value,std (*)
+serde_yaml v0.9.34+deprecated 
+indexmap v2.14.2 default,serde,std (*)
+itoa v1.0.18 
+ryu v1.0.23 
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+unsafe-libyaml v0.2.11 
+sha1 v0.11.0 alloc,default,oid
+cfg-if v1.0.5 
+cpufeatures v0.3.1 
+digest v0.11.3 alloc,block-api,default,mac,oid (*)
+sha2 v0.11.1 alloc,default,oid (*)
+sha3 v0.12.0 alloc,default,oid
+digest v0.11.3 alloc,block-api,default,mac,oid (*)
+keccak v0.2.2 
+cfg-if v1.0.5 
+sponge-cursor v0.1.0 
+sysinfo v0.39.6 component,default,disk,network,system,user
+libc v0.2.191 default,std
+memchr v2.8.3 alloc,default,std
+ntapi v0.4.3 default,user
+winapi v0.3.9 cfg,evntrace,in6addr,inaddr,minwinbase,ntsecapi,processthreadsapi,winbase,windef,winioctl (*)
+windows v0.62.2 Wdk,Wdk_System,Wdk_System_SystemInformation,Wdk_System_SystemServices,Wdk_System_Threading,Win32,Win32_AI,Win32_AI_MachineLearning,Win32_AI_MachineLearning_DirectML,Win32_Devices,Win32_Devices_DeviceAndDriverInstallation,Win32_Devices_Display,Win32_Foundation,Win32_Graphics,Win32_Graphics_Direct3D,Win32_Graphics_Direct3D12,Win32_Graphics_Direct3D_Dxc,Win32_Graphics_Direct3D_Fxc,Win32_Graphics_DirectComposition,Win32_Graphics_DirectWrite,Win32_Graphics_Dxgi,Win32_Graphics_Dxgi_Common,Win32_Graphics_Gdi,Win32_Graphics_OpenGL,Win32_NetworkManagement,Win32_NetworkManagement_IpHelper,Win32_NetworkManagement_Ndis,Win32_NetworkManagement_NetManagement,Win32_NetworkManagement_WindowsFilteringPlatform,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Authentication,Win32_Security_Authentication_Identity,Win32_Security_Authorization,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Diagnostics,Win32_System_Diagnostics_Debug,Win32_System_Diagnostics_ToolHelp,Win32_System_IO,Win32_System_Ioctl,Win32_System_Kernel,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Performance,Win32_System_Power,Win32_System_ProcessStatus,Win32_System_Registry,Win32_System_RemoteDesktop,Win32_System_Rpc,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_Variant,Win32_System_WindowsProgramming,Win32_System_Wmi,Win32_UI,Win32_UI_Shell,Win32_UI_WindowsAndMessaging,default,std (*)
+tempfile v3.27.0 default,getrandom (*)
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-rustls v0.26.6 logging,ring,tls12 (*)
+tokio-stream v0.1.19 default,sync,time,tokio-util
+futures-core v0.3.34 alloc,default,std
+pin-project-lite v0.2.17 
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-util v0.7.20 codec,default,io,libc (*)
+tower-http v0.7.1 cors,default,fs,futures-core,futures-util,httpdate,mime,mime_guess,set-header,set-status,tokio-util
+bitflags v2.13.2 serde,serde_core (*)
+bytes v1.12.1 default,std
+futures-core v0.3.34 alloc,default,std
+futures-util v0.3.34 alloc,async-await,async-await-macro,default,futures-io,futures-macro,futures-sink,io,memchr,sink,slab,std (*)
+http v1.5.0 default,std (*)
+http-body v1.1.0  (*)
+http-body-util v0.1.5 default (*)
+http-range-header v0.4.2 
+httpdate v1.0.3 
+mime v0.3.17 
+mime_guess v2.0.5 
+mime v0.3.17 
+unicase v2.10.0 
+percent-encoding v2.3.2 alloc,default,std
+pin-project-lite v0.2.17 
+tokio v1.54.0 bytes,default,fs,full,io-std,io-util,libc,macros,mio,net,parking_lot,process,rt,rt-multi-thread,signal,signal-hook-registry,socket2,sync,time,tokio-macros,windows-sys (*)
+tokio-util v0.7.20 codec,default,io,libc (*)
+tower-layer v0.3.3 
+tower-service v0.3.3 
+urlencoding v2.1.3 
+vibe v0.0.40 (C:\github\qualiaDB\crates\vibe) 
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+unicode-xid v0.2.6 default
+wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) dx12,gles,metal,parking_lot,spirv,std,vulkan,webgpu,wgsl
+etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) angle,dx12,gles,metal,serde,spirv,std,vulkan,vulkan-portability,web,webgpu,wgsl (*)
+windows v0.62.2 Wdk,Wdk_System,Wdk_System_SystemInformation,Wdk_System_SystemServices,Wdk_System_Threading,Win32,Win32_AI,Win32_AI_MachineLearning,Win32_AI_MachineLearning_DirectML,Win32_Devices,Win32_Devices_DeviceAndDriverInstallation,Win32_Devices_Display,Win32_Foundation,Win32_Graphics,Win32_Graphics_Direct3D,Win32_Graphics_Direct3D12,Win32_Graphics_Direct3D_Dxc,Win32_Graphics_Direct3D_Fxc,Win32_Graphics_DirectComposition,Win32_Graphics_DirectWrite,Win32_Graphics_Dxgi,Win32_Graphics_Dxgi_Common,Win32_Graphics_Gdi,Win32_Graphics_OpenGL,Win32_NetworkManagement,Win32_NetworkManagement_IpHelper,Win32_NetworkManagement_Ndis,Win32_NetworkManagement_NetManagement,Win32_NetworkManagement_WindowsFilteringPlatform,Win32_Networking,Win32_Networking_WinSock,Win32_Security,Win32_Security_Authentication,Win32_Security_Authentication_Identity,Win32_Security_Authorization,Win32_Storage,Win32_Storage_FileSystem,Win32_System,Win32_System_Com,Win32_System_Diagnostics,Win32_System_Diagnostics_Debug,Win32_System_Diagnostics_ToolHelp,Win32_System_IO,Win32_System_Ioctl,Win32_System_Kernel,Win32_System_LibraryLoader,Win32_System_Memory,Win32_System_Ole,Win32_System_Performance,Win32_System_Power,Win32_System_ProcessStatus,Win32_System_Registry,Win32_System_RemoteDesktop,Win32_System_Rpc,Win32_System_SystemInformation,Win32_System_SystemServices,Win32_System_Threading,Win32_System_Variant,Win32_System_WindowsProgramming,Win32_System_Wmi,Win32_UI,Win32_UI_Shell,Win32_UI_WindowsAndMessaging,default,std (*)
+x25519-dalek v3.0.0 static_secrets,zeroize
+curve25519-dalek v5.0.0 digest,zeroize (*)
+rand_core v0.10.1 
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+zeroize v1.9.1 alloc,default,zeroize_derive (*)
+zstd v0.13.3 arrays,default,legacy,zdict_builder
+zstd-safe v7.3.0 arrays,legacy,std,zdict_builder
+zstd-sys v2.1.2+zstd.1.5.7 legacy,std,zdict_builder
+vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)  (*)
+webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render) default,qualia,qualia-core-db,vibe
+base64 v0.23.1 alloc,default,simd-unsafe,std
+bytemuck v1.25.2 aarch64_simd,bytemuck_derive,derive,extern_crate_alloc,min_const_generics,wasm_simd (*)
+etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) default,std (*)
+image v0.25.10 png (*)
+log v0.4.34 alloc,std
+pollster v1.0.1 
+qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db) alloc_buffers,ark-bls12-381,ark-ec,ark-ff,ark-groth16,ark-relations,ark-serialize,ark-snark,ark-std,dxc,gpu-native-dx12,gpu-native-portable,gpu-runtime,privacy-he,profile_target_1024,wgsl-forge,zk-culling (*)
+serde v1.0.229 alloc,default,derive,serde_derive,std (*)
+vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)  (*)
+wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d) dx12,gles,metal,parking_lot,spirv,std,vulkan,webgpu,wgsl (*)

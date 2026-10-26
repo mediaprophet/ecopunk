@@ -1,0 +1,22 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\incremental\vibe-1cz4z9cv67y9p\s-hnibe6vfm8-08ksat3-working`
+
+warning: `vibe` (lib) generated 1 warning
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\incremental\poet-1ijh2g0aqiuf1\s-hnibior0jj-1dp4jwr-working`
+
+warning: function `eval_line` is never used
+  --> native\src\repl.rs:11:8
+   |
+11 | pub fn eval_line(line: &str, host: &mut impl Host, env: &mut Env) -> Result<Value, Diagnostic> {
+   |        ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+
+warning: `poet-cli` (bin "poet") generated 3 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 33.32s

@@ -1,0 +1,20 @@
+   Compiling syn v2.0.119
+   Compiling bytemuck_derive v1.11.0
+   Compiling bytemuck v1.25.2
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+    Finished `test` profile [unoptimized] target(s) in 50.35s
+     Running unittests src\lib.rs (target\debug\deps\vibe-49598b7492ed03d4.exe)
+
+running 9 tests
+test session::source_limits::tests::accepts_wide_flat_data_and_separate_statements ... ok
+test session::source_limits::tests::keyword_locale_applies_only_when_declared ... ok
+test session::source_limits::tests::literals_comments_and_lexer_errors_keep_canonical_meaning ... ok
+test session::source_limits::tests::rejects_deep_delimiters_before_parser_entry ... ok
+test session::source_limits::tests::rejects_unary_left_deep_postfix_and_generic_paths ... ok
+test session::source_limits::tests::separators_in_children_do_not_reset_parent_expression_path ... ok
+test session::tests::retained_mutability_is_checked_before_execution ... ok
+test session::validation_tests::foreign_checked_submission_never_evaluates_or_calls_validator ... ok
+test session::validation_tests::rejected_output_preserves_values_definitions_sources_and_revision ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 966 filtered out; finished in 0.10s
+

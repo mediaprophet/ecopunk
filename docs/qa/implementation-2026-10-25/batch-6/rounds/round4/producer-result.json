@@ -1,0 +1,63 @@
+{
+  "mode": "producer",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "georaster",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T07:30:29.223876+00:00",
+  "finished_utc": "2026-10-25T07:32:11.184926+00:00",
+  "elapsed_seconds": 101.953,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer.log",
+  "log_sha256": "fa60d865243b1c13aaecfc99d128acbcaeb67a02cade06e8d1ed013f9d903baf",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer-source-before.json",
+  "source_snapshot_sha256": "03301e0c9d041d332fecec89ca38b43219f4ebe282f2474c0a75ae470476b4e8",
+  "recorded_local_source_files": 3021,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 9,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      9,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::checkpoints::georaster_edit::source::tests::georaster_source_declarations_remain_unverified_bounded_and_distinct",
+    "graphical::checkpoints::georaster_edit::tests::georaster_edit_cancellation_budgets_and_coordinates_fail_closed",
+    "graphical::checkpoints::georaster_edit::tests::georaster_edit_canonical_samples_metadata_and_padding_roundtrip",
+    "graphical::checkpoints::georaster_edit::tests::georaster_edit_legacy_corrupt_and_richer_payloads_refuse_loss",
+    "graphical::cooperation::tests::georaster_edit_tests::georaster_create_explicit_source_guarded_add_and_refusals_preserve_hmc",
+    "graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authority_stale_digests_source_and_cancel_leave_hmc_exact",
+    "graphical::cooperation::tests::georaster_edit_tests::georaster_edit_authorized_save_and_fresh_process_reopen",
+    "graphical::cooperation::tests::georaster_edit_tests::georaster_jobs_dispatch_real_authorized_create_edit_and_withhold_revoked_results",
+    "graphical::cooperation::tests::georaster_edit_tests::metadata_tests::georaster_edit_refuses_selected_opaque_provided_unknown_and_observation_metadata"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round4-42f1yblv",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

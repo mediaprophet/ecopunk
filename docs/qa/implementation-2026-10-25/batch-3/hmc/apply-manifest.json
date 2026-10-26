@@ -1,0 +1,60 @@
+{
+  "scope": "Bounded native Studio editable-source HMC checkpoints with retained source journal; source candidate, not full embodiment/native UI qualification",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "original_sha256": "028C9894707E2ACBF80165A8D1DB778D20744A97F9FE7401EE4594A2E3A7FF4B",
+      "candidate": "candidate/studio_store.rs",
+      "candidate_sha256": "640B167BDF1900197680D8AE79EB41595087D157AF9D230CD91E0FA395FB8524"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_journal.rs",
+      "original_sha256": "4E9A08E599EC30A418204876D7FB63DBE871C4381D263C6BE34AA6799ABADC98",
+      "candidate": "candidate/studio_journal.rs",
+      "candidate_sha256": "A4DC6E759937BAA9B795FE72A126D5739AA55F483B97AD934656B8D3474EE9EA"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_stamped.rs",
+      "original_sha256": "E378306CD936BC3EA6B100A54D73DDE0ECF3E556731EBC7B87BCA1EA2D102F41",
+      "candidate": "candidate/studio_stamped.rs",
+      "candidate_sha256": "217255AAFC89DD8E245D70CE611101AFAEBFC8FACD91CE221B4E052153A217E4"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/mod.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_checkpoint/mod.rs",
+      "candidate_sha256": "278CB79636944D2BE5DAD6658EAC5314D0431EE62BEE6D72CF835E1980524F62"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/snapshot.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_checkpoint/snapshot.rs",
+      "candidate_sha256": "82D939659701ABDE684E99AB79E8666A381E98E8FE6D6E350CAFD62BE5BF3C20"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/codec.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_checkpoint/codec.rs",
+      "candidate_sha256": "B97100348AA8715137338EC160F0A89B338C93A5C80C44738AA8571488FCA64E"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/graph.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_checkpoint/graph.rs",
+      "candidate_sha256": "E8D8D37B166C30C1847D23C8F7C8A4AC9E35F40AD71548C8656EA4DCC5A52B7C"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_checkpoint/native_io.rs",
+      "candidate_sha256": "80E101F33424CA897DC339B7291E88AC3824744D69FF73DBF185F76127FBF985"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/tests.rs",
+      "original_sha256": null,
+      "candidate": "candidate/studio_checkpoint/tests.rs",
+      "candidate_sha256": "E48298FCAA7037974843ABFA4C8F75276C720D5177A017083F29A1D9645A12A2"
+    }
+  ]
+}

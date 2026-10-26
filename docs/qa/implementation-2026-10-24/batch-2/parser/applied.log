@@ -1,0 +1,24 @@
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\incremental\vibe-07himappbpetp\s-hni9v5vrvo-1ie37mt-working`
+
+   Compiling ecopunk-canonical-parser-check v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\parser\harness)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\incremental\ecopunk_canonical_parser_check-2ulvw6r37jrfg\s-hni9v9y33r-1v3jgxl-working`
+
+warning: `ecopunk-canonical-parser-check` (lib) generated 1 warning
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\poet-repl\harness\target\debug\incremental\cell_full_input-272uzxh8cp7qc\s-hni9vh0hoq-1rrrvyi-working`
+
+warning: `ecopunk-canonical-parser-check` (test "cell_full_input") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 24.94s
+     Running ..\tests\cell_full_input.rs (docs/qa/implementation-2026-10-24/poet-repl/harness/target\debug\deps\cell_full_input-2700b797f23a326f.exe)
+
+running 5 tests
+test accepts_cell_expression_with_optional_single_semicolon ... ok
+test accepts_trailing_whitespace_and_comments ... ok
+test preserves_lexer_errors_after_semicolon ... ok
+test rejects_tokens_after_optional_semicolon ... ok
+test nested_record_and_if_expression_still_parse ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+Exit code: 0

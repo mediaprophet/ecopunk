@@ -1,0 +1,15 @@
+{
+  "purpose": "Known documentation revisions after reviewers pinned their source/reference snapshots; prior expected hashes remain historical, not silently rewritten.",
+  "revisions": [
+    {
+      "path": "docs/planning/biosphere-work-packets.json",
+      "sha256_before": "3eadcc5e2270d41d471e8e1e894cfb4819cd8da5044d801fb939f2008e126426",
+      "sha256_after": "49bda6208015bbd9c94f255a9e995ae0ef3e2c00323990cd95cc2fa47835d11b"
+    },
+    {
+      "path": "docs/planning/README.md",
+      "sha256_before": "ff8b309cf473b8adc7705323300c43ff221637cf244b047b298b9b251f926ea5",
+      "sha256_after": "8814db1103dc832013b01d04856f37dec3c56913af19ac272f941eaf6e94a86a"
+    }
+  ]
+}

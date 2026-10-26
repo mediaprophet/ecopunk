@@ -1,0 +1,177 @@
+{
+  "schema": "ecopunk-poet-authoring-swarm-handoff/v1",
+  "encoding": "UTF-8",
+  "status": "planning_handoff_only_not_dispatch",
+  "plan": "docs/planning/poet-authoring-swarm-phases.md",
+  "governance": {
+    "existing_plan": "docs/planning/implementation-plan.md",
+    "existing_register": "docs/planning/biosphere-work-packets.json",
+    "new_phase_or_job_ids_created": false,
+    "register_state_caveat": "Existing PA-R records remain research records; coordinator must put implementation assignments and activation states in the central register/dispatch. This handoff itself does not activate jobs.",
+    "asset_production": "HOLD",
+    "central_owner": "Root/coordinator owns shared manifests, controller/registry changes, integration and the serialized Cargo/check lease."
+  },
+  "capacity": {
+    "max_concurrent_agents_total": 4,
+    "coordinator_slots": 1,
+    "worker_slots_max": 3,
+    "rule": "Use fewer workers whenever contracts or canonical outputs contend; never parallelize edits to shared state."
+  },
+  "model_routing": {
+    "basis": "Available session capability descriptions; no exact price or cost ratio is asserted.",
+    "gpt-6-luna": "Low/medium metadata, notices, inventory, source-range/pin reconciliation, straightforward isolated mechanics.",
+    "gpt-6.1-sol": "Medium for stable isolated implementation; high for native UI, domain state, authority/session behavior, integration and independent review.",
+    "gpt-6-astra": "Escalation only for a concrete unresolved architecture question with evidence and a bounded decision request."
+  },
+  "waves": [
+    {
+      "id": "W1",
+      "name": "material motion and native controls",
+      "state": "selected_material_software_cases_passed_native_binary_built; human/linked-resource/whole-foundation gates remain open",
+      "existing_ids": [
+        "IP-02",
+        "IP-03",
+        "PA-R01",
+        "PA-R02",
+        "PA-R06",
+        "PA-R11",
+        "PA-R12"
+      ],
+      "worker_count_guidance": "1-2 only after exact path allowlists; coordinator may run it serially if controller/state edits contend.",
+      "deliverables": [
+        "material motion domain state",
+        "integrated native controls",
+        "authorized UI/MCP route through same domain operation",
+        "source history/undo-redo result semantics",
+        "fresh-process HMC save/reopen evidence"
+      ],
+      "exit_evidence": [
+        "source/revision pins",
+        "actual operation and result",
+        "history and failure/refusal behavior",
+        "fresh-process HMC reopen preserves editable keys/resources",
+        "coordinator executed checks and remaining human acceptance recorded"
+      ],
+      "completed_inputs": [
+        "bounded EffectCraft source review",
+        "v2 specification delta review"
+      ]
+    },
+    {
+      "id": "W2",
+      "name": "selected image, texture and effect stack",
+      "state": "after_contract_and_ownership_freeze",
+      "existing_ids": [
+        "IP-03",
+        "PA-R03",
+        "PA-R06",
+        "PA-R01",
+        "PA-R02",
+        "PA-R11"
+      ],
+      "deliverables": [
+        "one small supported image/reference to editable layer/property/effect path",
+        "reuse audited Photo/Effect operations and existing Qualia operators",
+        "native and authorized agent route to the same document revision",
+        "source-preserving preview/result and save/reopen"
+      ],
+      "exclusions": [
+        "full compositor parity",
+        "unsupported scripts/plugins treated as successful import",
+        "new app shell or hidden document store"
+      ]
+    },
+    {
+      "id": "W3",
+      "name": "plant graph/organ and animal rig/weight/native preview bindings",
+      "state": "parallel_after_relevant_contracts_clear",
+      "existing_ids": [
+        "IP-03",
+        "R-01",
+        "R-02",
+        "R-03",
+        "BS-01",
+        "BS-10",
+        "BS-20",
+        "PA-R11"
+      ],
+      "worker_tracks": [
+        "botanical graph/organ source lineage",
+        "connected animal mesh/rig/weight/clip admission and preview"
+      ],
+      "deliverables": [
+        "bounded selection/edit/preview artifacts with exact source and correspondence",
+        "reopen and stale/corrupt refusal evidence",
+        "reuse of canonical QualiaDB geometry/simulation/skeletal/upload owners"
+      ],
+      "dependency_note": "Wait only on each relevant shared contract; full compositor completion is not a dependency. Engineering preview is not biological acceptance."
+    },
+    {
+      "id": "W4",
+      "name": "integrated cooperative qualification and game-demo derivative path",
+      "state": "after_W1_W2_W3_coherent_outputs",
+      "existing_ids": [
+        "IP-03 C1-C8",
+        "IP-04",
+        "IP-05",
+        "IP-06",
+        "R-06",
+        "BS-90",
+        "PA-R12"
+      ],
+      "deliverables": [
+        "frozen integrated source/resource/package evidence",
+        "Native contributor work and a separately admitted reviewer context, plus an agent operating under its own grants on the same source; actual human/domain approval recorded separately.",
+        "reviewed lineage/derivative admission for game-demo",
+        "coherent handoff of open model and human/domain claims",
+        "reference-readiness evidence map with open model acceptance IDs"
+      ],
+      "stage_boundary": "IP-03 authoring qualification precedes IP-04/05 master/complete package acceptance; IP-06 derivative use follows. With asset production HOLD, W4 can deliver software/readiness evidence only; it cannot create or accept final masters or assert completed game-demo use."
+    }
+  ],
+  "separately_scheduled_product_work": {
+    "existing_ids": [
+      "PA-R05",
+      "PA-R06",
+      "PA-R07",
+      "PA-R08",
+      "PA-R09"
+    ],
+    "areas": [
+      "audio",
+      "broader film/timeline",
+      "documents/PDF",
+      "grid",
+      "presentation/deck"
+    ],
+    "constraint": "Remain explicit Poet work; schedule by coherent interface/case, not as all-suite prerequisites to first master."
+  },
+  "handoff_minimum": [
+    "existing IP/ECO/PA/BS/R IDs and actual user/agent operation",
+    "exact immutable inputs and preimage hashes",
+    "disjoint owned paths and forbidden shared paths",
+    "dependencies and actual Poet/QualiaDB caller example",
+    "accepted/refused operation outcomes and evidence owner",
+    "model/reasoning effort and task-based route reason",
+    "commands/session/exit or explicitly not run",
+    "changed path hashes, result/history/reopen artifacts, open cases, next bounded action"
+  ],
+  "failure_and_cost_policy": {
+    "failure": "Capture the reproducer once and repair only owned scope. If a focused repair fails or the same failure repeats, stop repeating that approach and escalate to the coordinator for repair or rescoping; the dependent gate remains failed until resolved.",
+    "escalation": "Astra only for a specific unresolved architecture question. Unclear permission/contract blocks only its dependent slice; continue independent work.",
+    "usage": "Record observed usage/cost data, retries and tool/compute charges when available; mark unknown if unavailable. No unmeasured time/token/dollar estimates or savings promises.",
+    "worker_checks": "Workers may author focused checks within their files; only coordinator runs Cargo/workspace checks under serial lease and freezes source during a check."
+  },
+  "external_planning_references": [
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/multi-agent",
+      "use": "Independent work boundaries, clear outputs, dependent steps kept with coordinator."
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/observability",
+      "use": "Usage accounting includes root/subagents/retries and recorded usage may be best-effort rather than a final bill."
+    }
+  ],
+  "launch_sequence": "The linked plan contains per-wave worker lanes and launch conditions. Freeze exact source/symbol allowlists in the existing register before each launch. Four waves may include correction rounds; no four-turn/time/cost promise or background launcher.",
+  "current_evidence": "docs/qa/implementation-2026-10-26/poet-motion-integration/README.md"
+}

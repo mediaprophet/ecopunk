@@ -1,0 +1,84 @@
+    Blocking waiting for file lock on build directory
+warning: qualia-core-db@0.0.40: Qualia-DB: failed to stage DirectML.dll → C:/github/ecopunk/target\debug: The process cannot access the file because it is being used by another process. (os error 32)
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+error[E0364]: `decode_depth` is private, and cannot be re-exported
+  --> crates\qualia-core-db\src\render\gpu\ao.rs:14:24
+   |
+14 | pub(super) use depth::{decode_depth, encode_depth};
+   |                        ^^^^^^^^^^^^
+   |
+note: consider marking `decode_depth` as `pub` in the imported module
+  --> crates\qualia-core-db\src\render\gpu\ao.rs:14:24
+   |
+14 | pub(super) use depth::{decode_depth, encode_depth};
+   |                        ^^^^^^^^^^^^
+
+error[E0364]: `encode_depth` is private, and cannot be re-exported
+  --> crates\qualia-core-db\src\render\gpu\ao.rs:14:38
+   |
+14 | pub(super) use depth::{decode_depth, encode_depth};
+   |                                      ^^^^^^^^^^^^
+   |
+note: consider marking `encode_depth` as `pub` in the imported module
+  --> crates\qualia-core-db\src\render\gpu\ao.rs:14:38
+   |
+14 | pub(super) use depth::{decode_depth, encode_depth};
+   |                                      ^^^^^^^^^^^^
+
+error[E0603]: function import `encode_depth` is private
+   --> crates\qualia-core-db\src\render\gpu\material_pixel_tests.rs:450:40
+    |
+450 |         let expected_code = super::ao::encode_depth(expected_view_depth).unwrap();
+    |                                        ^^^^^^^^^^^^ private function import
+    |
+note: the function import `encode_depth` is defined here...
+   --> crates\qualia-core-db\src\render\gpu\ao.rs:14:38
+    |
+ 14 | pub(super) use depth::{decode_depth, encode_depth};
+    |                                      ^^^^^^^^^^^^
+note: ...and refers to the function `encode_depth` which is defined here
+   --> crates\qualia-core-db\src\render\gpu\ao_depth.rs:18:1
+    |
+ 18 | pub(super) fn encode_depth(depth: f32) -> Option<u16> {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: import `encode_depth` directly
+    |
+450 -         let expected_code = super::ao::encode_depth(expected_view_depth).unwrap();
+450 +         let expected_code = depth::encode_depth(expected_view_depth).unwrap();
+    |
+
+error[E0603]: function import `decode_depth` is private
+   --> crates\qualia-core-db\src\render\gpu\material_pixel_tests.rs:455:34
+    |
+455 |         let decoded = super::ao::decode_depth(actual).unwrap();
+    |                                  ^^^^^^^^^^^^ private function import
+    |
+note: the function import `decode_depth` is defined here...
+   --> crates\qualia-core-db\src\render\gpu\ao.rs:14:24
+    |
+ 14 | pub(super) use depth::{decode_depth, encode_depth};
+    |                        ^^^^^^^^^^^^
+note: ...and refers to the function `decode_depth` which is defined here
+   --> crates\qualia-core-db\src\render\gpu\ao_depth.rs:30:1
+    |
+ 30 | pub(super) fn decode_depth(code: u16) -> Option<f32> {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: import `decode_depth` directly
+    |
+455 -         let decoded = super::ao::decode_depth(actual).unwrap();
+455 +         let decoded = depth::decode_depth(actual).unwrap();
+    |
+
+warning: unused variable: `vp`
+   --> crates\qualia-core-db\src\render\gpu\indirect_cull.rs:885:13
+    |
+885 |         let vp = perspective_view_proj();
+    |             ^^ help: if this is intentional, prefix it with an underscore: `_vp`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+Some errors have detailed explanations: E0364, E0603.
+For more information about an error, try `rustc --explain E0364`.
+warning: `qualia-core-db` (lib test) generated 1 warning
+warning: qualia-core-db@0.0.40: Qualia-DB: failed to stage DirectML.dll → C:/github/ecopunk/target\debug: The process cannot access the file because it is being used by another process. (os error 32)
+error: could not compile `qualia-core-db` (lib test) due to 4 previous errors; 1 warning emitted

@@ -1,0 +1,1193 @@
+{
+  "record": "RUN-01-stack-source-matrix",
+  "inspected_at": "2026-10-24",
+  "scope": "read-only Cargo declaration/lock source inventory; no cargo resolve, build, test, runtime, browser, GPU or device execution",
+  "hash_algorithm": "SHA-256",
+  "evidence_files": [
+    {
+      "path": "C:/github/ecopunk/Cargo.toml",
+      "sha256": "c3dd88173048f4fcecc02df91317c6ef487adb5b0a137fa143f4758f600dba30"
+    },
+    {
+      "path": "C:/github/ecopunk/Cargo.lock",
+      "sha256": "ac0c72951e746c497b8a04a17547ba52e2235b986ea6fa40f5c7abacc3191809"
+    },
+    {
+      "path": "C:/github/ecopunk/crates/ecopunk-wasm/Cargo.toml",
+      "sha256": "d5e86de2d75074449e7a0dfea5ce4f4f42b1be7c979defb78eba02d1a685fd64"
+    },
+    {
+      "path": "C:/github/ecopunk/crates/ecopunk-terrain/Cargo.toml",
+      "sha256": "9e5542ee126b64c2b3a6cc9a5d092ea53c91427d641677e6a5156a6131038396"
+    },
+    {
+      "path": "C:/github/game-demo/Cargo.toml",
+      "sha256": "22e89626a4d83e0a58e04c61a795fac17ef2681816e39967a184187381a9551c"
+    },
+    {
+      "path": "C:/github/game-demo/Cargo.lock",
+      "sha256": "05f2622b6e84722db700c98b5c6477ca69b25228b5d316ed7ed85cb3a5fc8e97"
+    },
+    {
+      "path": "C:/github/qualiaDB/Cargo.toml",
+      "sha256": "bcd94075a5c27307b9c9b74b651ab1ad3eab308e7902d4b3a4998ae20d08b9a8"
+    },
+    {
+      "path": "C:/github/qualiaDB/Cargo.lock",
+      "sha256": "2682ff48a1c27dff10e6e26c9b412e113186cf3e70a2e09671bf188885bf4a61"
+    },
+    {
+      "path": "C:/github/etalon/Cargo.toml",
+      "sha256": "f45ab8b50270903b80d0a8469c7f9a45f75a2f83004cb932396827fb5d6c9fa5"
+    },
+    {
+      "path": "C:/github/etalon/compat/wgpu/Cargo.toml",
+      "sha256": "953d082ac45a3c5b64468df030eddad78a423537eae9012c8ccea8d113e81e89"
+    },
+    {
+      "path": "C:/github/rust-app-framework/Cargo.toml",
+      "sha256": "b74dd94e71090dddd222e07f76de48335a15afc2815b9b0e46f0811bb8fd65d5"
+    },
+    {
+      "path": "C:/github/rust-app-framework/packages/native/Cargo.toml",
+      "sha256": "a4fcf3e8bbd57c032b3c31b8053d53b707a16b9255690385f153cb2c9ed052bd"
+    },
+    {
+      "path": "C:/github/rust-app-framework/packages/web/Cargo.toml",
+      "sha256": "8801dd142f9c209d6fea1c094a1a3a37c8e6e4d08a95078d545de098d479a6e5"
+    },
+    {
+      "path": "C:/github/rust-app-framework/packages/desktop/Cargo.toml",
+      "sha256": "8c9302f73f37cd3c4986edd5705b7e0697e53c571522811352c01450de661a22"
+    },
+    {
+      "path": "C:/github/poet/Cargo.toml",
+      "sha256": "dccb5ba5353cefefd9e8cf6cc3bc736b9dd6eabaa9e59825b066598d977be385"
+    },
+    {
+      "path": "C:/github/poet/Cargo.lock",
+      "sha256": "031caaaae3ccd491296517e9fb51890a37bdf39303765bd5c74fa21876514911"
+    },
+    {
+      "path": "C:/github/webizen-desktop/Cargo.toml",
+      "sha256": "b315ea3ede3ed6c864a1eda4cffdb33fb77e044a4dcfc09a82f70995a7b56717"
+    },
+    {
+      "path": "C:/github/webizen-desktop/Cargo.lock",
+      "sha256": "28821dc7fdd82cbad7a9d4b0abff1ba2ff72aeaae849c4925a2302420e204029"
+    },
+    {
+      "path": "C:/github/webizen-os-shell/Cargo.toml",
+      "sha256": "804310bdda3c98aae6927b67fb5bc28d79a33fc13cc4bf94b8a1a4509aff842e"
+    },
+    {
+      "path": "C:/github/webizen-os-shell/Cargo.lock",
+      "sha256": "e4cdf12a95ceca5b1da84c22aa5290a0e0adac798261ffdc65c18a0e440df1db"
+    }
+  ],
+  "observations": [
+    {
+      "system": "ecopunk",
+      "declared": "QualiaDB local path crates; Etalon Git qualia-main; native gpu-runtime/dx12/forge/privacy feature selection; WASM wasm-full plus wasm-bindgen/web-sys; terrain selects native and WASM Etalon feature sets",
+      "lock_status": "lockfile present and hash-pinned; exact selected closure not independently resolved",
+      "boundary": "native source intent and browser binding intent are separate; neither is execution qualification"
+    },
+    {
+      "system": "game-demo",
+      "declared": "manifest/lock present; existing Etalon handoff documents local compat/wgpu and naga patches",
+      "lock_status": "hash-pinned; effective package source selection not established in this pass",
+      "boundary": "local patched Etalon and Ecopunk Git dependency can represent different source states"
+    },
+    {
+      "system": "qualiaDB",
+      "declared": "manifest/lock present; existing Etalon handoff documents Git branch and wgpu/naga patches",
+      "lock_status": "hash-pinned; effective source selection not established in this pass",
+      "boundary": "read-only sibling; no dependency edits or resolution"
+    },
+    {
+      "system": "etalon",
+      "declared": "developed fork workspace; compatibility wgpu facade documented in existing handoff",
+      "lock_status": "no resolution run",
+      "boundary": "source does not prove device interop or active consumer execution"
+    },
+    {
+      "system": "aether",
+      "declared": "workspace has native, desktop and web members; existing handoff distinguishes native renderer candidate, WebView desktop and browser web; root wgpu registry declaration",
+      "lock_status": "no root lockfile found at inspected root; member-level closure not captured",
+      "boundary": "desktop webview is not native renderer; WASM browser bindings do not prove native no-JS/V8"
+    },
+    {
+      "system": "poet",
+      "declared": "Cargo manifest and lock present",
+      "lock_status": "hash-pinned; target/profile closure not extracted",
+      "boundary": "native framework/renderer and Vibe host not proven"
+    },
+    {
+      "system": "webizen-desktop",
+      "declared": "Cargo manifest and lock present; existing handoff documents Tauri/WebView2 host and Qualia/Vibe/runtime dependencies",
+      "lock_status": "hash-pinned; target/profile closure not extracted",
+      "boundary": "host declaration does not demonstrate Aether native renderer integration"
+    },
+    {
+      "system": "webizen-os-shell",
+      "declared": "Cargo manifest and lock present; existing handoff documents registry Dioxus exact alpha.1 and desktop/web targets, Windows WebView2",
+      "lock_status": "hash-pinned; target/profile closure not extracted",
+      "boundary": "registry declaration does not prove controlled fork; stage routing does not prove Poet editor integration"
+    }
+  ],
+  "next_blockers": [
+    "Parse lock package blocks and effective source IDs for wgpu/naga/Etalon/Dioxus/Vibe/Qualia against manifest patches and target closure.",
+    "Reconcile Ecopunk locked Etalon revision ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6 with local Etalon revision/dirty state and game-demo path patches.",
+    "Capture Aether member lock/config/patch evidence and identify exact resolved source for each consumer.",
+    "Record per-profile resolved feature graphs for Ecopunk native/WASM, Poet, Webizen Desktop and OS-shell.",
+    "Trace and execute Poet-host-Qualia render/device path; no native no-JS/V8 or WASM local/native-assisted execution evidence was collected."
+  ],
+  "claims": {
+    "dependency_resolution": "not performed in this work item",
+    "build": "not performed",
+    "runtime_or_gpu_execution": "not performed",
+    "native_qualification": "not claimed",
+    "wasm_qualification": "not claimed"
+  },
+  "locked_package_records": [
+    {
+      "path": "C:/github/ecopunk/Cargo.lock",
+      "sha256": "ac0c72951e746c497b8a04a17547ba52e2235b986ea6fa40f5c7abacc3191809",
+      "extraction": "standard Cargo.lock package-block fields; not a target-specific feature/patch resolution",
+      "selected_packages": [
+        {
+          "name": "etalon",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-agent",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-apple",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-emscripten",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-linux-android-bsd",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-windows",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-hal",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-naga-bridge",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-nquin",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-render",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-sync",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-tensor",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-types",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-wasm",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-wgsl-forge",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "naga",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "naga-types",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "qualia-core-db",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe-wasm",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "webizen-render",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "wgpu",
+          "version": "30.0.0",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        }
+      ]
+    },
+    {
+      "path": "C:/github/game-demo/Cargo.lock",
+      "sha256": "05f2622b6e84722db700c98b5c6477ca69b25228b5d316ed7ed85cb3a5fc8e97",
+      "extraction": "standard Cargo.lock package-block fields; not a target-specific feature/patch resolution",
+      "selected_packages": [
+        {
+          "name": "etalon",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-agent",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-core",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-core-deps-apple",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-core-deps-emscripten",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-core-deps-linux-android-bsd",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-core-deps-windows",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-hal",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-naga-bridge",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-nquin",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-render",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-sync",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-tensor",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-types",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-wasm",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "etalon-wgsl-forge",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "naga",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "naga-types",
+          "version": "0.0.1",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "qualia-core-db",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe-wasm",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "wgpu",
+          "version": "30.0.0",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        }
+      ]
+    },
+    {
+      "path": "C:/github/qualiaDB/Cargo.lock",
+      "sha256": "2682ff48a1c27dff10e6e26c9b412e113186cf3e70a2e09671bf188885bf4a61",
+      "extraction": "standard Cargo.lock package-block fields; not a target-specific feature/patch resolution",
+      "selected_packages": [
+        {
+          "name": "dioxus",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-asset-resolver",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-cli-config",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-config-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-config-macros",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core-types",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-devtools",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-devtools-types",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-document",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack-core",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-history",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-hooks",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-html",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-html-internal-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-interpreter-js",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-logger",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-router",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-router-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-rsx",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-signals",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-stores",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-stores-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-web",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "etalon",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-agent",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-apple",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-emscripten",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-linux-android-bsd",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-core-deps-windows",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-hal",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-naga-bridge",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-nquin",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-render",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-sync",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-tensor",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-types",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-wasm",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "etalon-wgsl-forge",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "naga",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "naga-types",
+          "version": "0.0.1",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        },
+        {
+          "name": "qualia-core-db",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe-lsp",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe-wasm",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "webizen-render",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "wgpu",
+          "version": "30.0.0",
+          "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+          "source_kind": "git"
+        }
+      ]
+    },
+    {
+      "path": "C:/github/poet/Cargo.lock",
+      "sha256": "031caaaae3ccd491296517e9fb51890a37bdf39303765bd5c74fa21876514911",
+      "extraction": "standard Cargo.lock package-block fields; not a target-specific feature/patch resolution",
+      "selected_packages": [
+        {
+          "name": "vibe",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        }
+      ]
+    },
+    {
+      "path": "C:/github/webizen-desktop/Cargo.lock",
+      "sha256": "28821dc7fdd82cbad7a9d4b0abff1ba2ff72aeaae849c4925a2302420e204029",
+      "extraction": "standard Cargo.lock package-block fields; not a target-specific feature/patch resolution",
+      "selected_packages": [
+        {
+          "name": "dioxus",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-asset-resolver",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-cli-config",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-config-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-config-macros",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core-types",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-devtools",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-devtools-types",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-document",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack-core",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-history",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-hooks",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-html",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-html-internal-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-interpreter-js",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-logger",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-router",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-router-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-rsx",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-signals",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-stores",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-stores-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-web",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "naga",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "naga-types",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "qualia-core-db",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "webizen-render",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "wgpu",
+          "version": "30.0.0",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-core",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-core-deps-apple",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-core-deps-emscripten",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-core-deps-windows-linux-android",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-hal",
+          "version": "30.0.0",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-naga-bridge",
+          "version": "30.0.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "wgpu-types",
+          "version": "30.0.0",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        }
+      ]
+    },
+    {
+      "path": "C:/github/webizen-os-shell/Cargo.lock",
+      "sha256": "e4cdf12a95ceca5b1da84c22aa5290a0e0adac798261ffdc65c18a0e440df1db",
+      "extraction": "standard Cargo.lock package-block fields; not a target-specific feature/patch resolution",
+      "selected_packages": [
+        {
+          "name": "dioxus",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-asset-resolver",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-cli-config",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-config-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-config-macros",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-core-types",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-desktop",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-devtools",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-devtools-types",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-document",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack-core",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-fullstack-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-history",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-hooks",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-html",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-html-internal-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-interpreter-js",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-router",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-router-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-rsx",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-signals",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-stores",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-stores-macro",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "dioxus-web",
+          "version": "0.8.0-alpha.1",
+          "source": "registry+https://github.com/rust-lang/crates.io-index",
+          "source_kind": "registry"
+        },
+        {
+          "name": "qualia-core-db",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        },
+        {
+          "name": "vibe",
+          "version": "0.0.40",
+          "source": null,
+          "source_kind": "local/workspace; no source URI recorded by lockfile"
+        }
+      ]
+    }
+  ],
+  "supervisor_followup": "Parsed pinned lock package name/version/source fields for relevant engine/framework/language families. This establishes recorded package sources, not effective per-target feature closure or local HEAD equivalence."
+}

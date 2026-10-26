@@ -1,0 +1,240 @@
+{
+  "date_utc": "2026-10-26T02:18:44.920871+00:00",
+  "scope": "Eight selected current production implementation files, two selected test-source excerpts and six earlier specification excerpts. Whole-file hashes do not mean whole-file semantic inspection.",
+  "source_reads": [
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project.rs",
+      "sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "read_ranges_1_based": [
+        [
+          184,
+          230
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "SharedEditorHost project connect, MCP backend and native launch share one source owner.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/editor.rs",
+      "sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "read_ranges_1_based": [
+        [
+          1,
+          145
+        ],
+        [
+          151,
+          208
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Native authorized EditorHost read/resource/edit wrappers; typed request bounds and expected digest.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/poet_workspace/intents.rs",
+      "sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "read_ranges_1_based": [
+        [
+          182,
+          301
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Payload context/target/action/provenance checks; dispatch and unsupported cancellation.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-app-contract/src/adapter.rs",
+      "sha256": "70c2046033459e44ab380766133a2666489ae894fb8a55d3af4e45e959814677",
+      "read_ranges_1_based": [
+        [
+          1,
+          80
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Existing adapter trait with default no-op/success behaviours, not qualified domain integration.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_dispatch.rs",
+      "sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "read_ranges_1_based": [
+        [
+          1,
+          135
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Native controls map typed actions to original Poet intents; diagnostic route explicitly separate.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/source_layers/snapshot.rs",
+      "sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+      "read_ranges_1_based": [
+        [
+          1,
+          111
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Host-selected checked structural byte budget before cloning retained source values.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/webizen-desktop/src/commands/vibe_host.rs",
+      "sha256": "e9c66db217c86f10a67806e70fad7b40b205d5d20586253ab1023c7d1371cdff",
+      "read_ranges_1_based": [
+        [
+          69,
+          159
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Legacy parse/check/catalog invocation route, not authorization/no-JS native projection proof.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_checkpoint/native_io.rs",
+      "sha256": "3fb258b5f95fc7be87e25c875edec27159445369017c4f680da227f24bd02145",
+      "read_ranges_1_based": [
+        [
+          1,
+          160
+        ]
+      ],
+      "inspection_kind": "production_implementation",
+      "finding": "Bounded inert source-carrier read and expected-destination guarded staged persistence excerpt.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_tests.rs",
+      "sha256": "9dd9156698b3ba5e701b5bb82c7c3b89c3a9302d4d65ebf2ff45e9259980356a",
+      "read_ranges_1_based": [
+        [
+          195,
+          224
+        ]
+      ],
+      "inspection_kind": "selected_test_source_not_run",
+      "finding": "Test fixture initializes shared UI/MCP source; discovery of full named test only, not complete test-body review.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/poet_workspace/tests.rs",
+      "sha256": "61521fd80aa151c9673f575d9863fb9e8936e834455b6c2d60d0370481284574",
+      "read_ranges_1_based": [
+        [
+          272,
+          323
+        ]
+      ],
+      "inspection_kind": "selected_test_source_not_run",
+      "finding": "Selected refusal and revoked/cancel tests; inspected source, not executed.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/poet/00_ARCHITECTURE_OVERVIEW.md",
+      "sha256": "8de1b82d466c1b81e0c1090c938d1204fe24770ace690f885c660c67beba6e22",
+      "read_ranges_1_based": [
+        [
+          1,
+          125
+        ]
+      ],
+      "inspection_kind": "specification_reference",
+      "finding": "Earlier specification intent; hardware/latency/zero-heap/identity/Tauri/Chora wording is not current verified conformance.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/poet/03_STUDIO_CREATIVE_SPEC.md",
+      "sha256": "47ffdf55d6140bd0c59e0a60c719e5e487db3eee347e9f49fd6bfd864fe8eff8",
+      "read_ranges_1_based": [
+        [
+          1,
+          92
+        ]
+      ],
+      "inspection_kind": "specification_reference",
+      "finding": "Existing POET-STU-001 through009 authoring requirements; specifications, not execution.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/work-in-progress/ONE_POET_PRODUCT_CUT_WIP.md",
+      "sha256": "5b15b0e85ad611639ab814551f5ee8f2067c415ef931e1164bdef59328e5d5a6",
+      "read_ranges_1_based": [
+        [
+          1,
+          28
+        ]
+      ],
+      "inspection_kind": "specification_reference",
+      "finding": "Earlier one-human-product/Ask Keep Talk work in progress; reconcile with current product, not alternate navigation mandate.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/work-in-progress/POET_UPDATED_IMPLEMENTATION_PLAN_2026-09-05.md",
+      "sha256": "2fa9f9139960effa8f4a02a5caf7d119ae110c8fdfd4c85acdcecd5288011f46",
+      "read_ranges_1_based": [
+        [
+          447,
+          497
+        ]
+      ],
+      "inspection_kind": "specification_reference",
+      "finding": "ST ownership/loading/command plan excerpt, historical source-home wording remains contextual.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/adr/0012-construct-is-the-distributable-composition.md",
+      "sha256": "35c8381eb46eb02f46d33f1187c462c8b7e7123767f874b08210dd9fe8af1c4a",
+      "read_ranges_1_based": [
+        [
+          1,
+          67
+        ]
+      ],
+      "inspection_kind": "specification_reference",
+      "finding": "Construct observer coherent scope, Manifold lens, Workspace local projection; not app/project synonym.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/standards/poet-motion-contract.md",
+      "sha256": "cc1452fc4ab6e77b6bf61dbf6619ef4a7e9bbffb4fac30b27f76e55283d795fd",
+      "read_ranges_1_based": [
+        [
+          1,
+          48
+        ]
+      ],
+      "inspection_kind": "specification_reference",
+      "finding": "Chrome motion beats/reduced motion, Layout/Stage/Timeline aspects; editorial animation is separate.",
+      "execution": "not run"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "sha256": "2647158b18d8a0783f2ee8011ca0304c1d7b8369052ac5e4a936892d266b9a0f",
+      "read_ranges_1_based": [
+        [
+          1,
+          36
+        ]
+      ],
+      "inspection_kind": "module_exposure_excerpt",
+      "finding": "studio_store::checkpoint explicitly maps to physical studio_checkpoint/mod.rs; declarations only.",
+      "execution": "not run"
+    }
+  ],
+  "discovery_only": [
+    "Bounded impl AppAdapter search in QualiaDB crates/Poet/native/Webizen source yielded no direct text match for selected pattern; not proof of adapter absence.",
+    "Filename discovery and symbol search for checkpoint resolved Rust module path studio_store::checkpoint to physical studio_checkpoint files.",
+    "Selected earlier Poet master requirement/surface catalogue search; no claims of exhaustive coverage."
+  ],
+  "builds": false,
+  "tests": false,
+  "gui": false,
+  "sibling_edits": false
+}

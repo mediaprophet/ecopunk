@@ -1,0 +1,56 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling poet-source-smoke v0.0.0 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-poet\source-smoke)
+warning: fields `artifact_id`, `title`, `source_revision`, and `rebuild_supported` are never read
+  --> C:\github\poet\native\src\graphical\controller.rs:17:9
+   |
+16 | pub struct EditorSnapshot {
+   |            -------------- fields in this struct
+17 |     pub artifact_id: String,
+   |         ^^^^^^^^^^^
+18 |     pub title: String,
+   |         ^^^^^
+19 |     pub source_revision: u32,
+   |         ^^^^^^^^^^^^^^^
+...
+23 |     pub rebuild_supported: bool,
+   |         ^^^^^^^^^^^^^^^^^
+   |
+   = note: `EditorSnapshot` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `redo` is never used
+  --> C:\github\poet\native\src\graphical\controller.rs:58:8
+   |
+53 | pub trait EditorHost: Send {
+   |           ---------- method in this trait
+...
+58 |     fn redo(&mut self, expected: SourceRef) -> Result<EditorSnapshot, String>;
+   |        ^^^^
+
+warning: function `render_hmc_unqualified` is never used
+   --> C:\github\poet\native\src\graphical\preview.rs:270:15
+    |
+270 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `poet-source-smoke` (bin "poet-source-smoke") generated 3 warnings
+    Finished `dev` profile [unoptimized] target(s) in 31.86s

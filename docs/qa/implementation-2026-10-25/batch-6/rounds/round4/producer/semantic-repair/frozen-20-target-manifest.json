@@ -1,0 +1,210 @@
+{
+  "status": "staged-uncompiled-unexecuted",
+  "sibling_write_performed": false,
+  "assets": "on-hold; existing assets untouched",
+  "owner": "round4_producer",
+  "review_merge_required": true,
+  "target_count": 20,
+  "targets": [
+    {
+      "target": "C:\\github\\poet\\native\\Cargo.toml",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\Cargo.toml",
+      "before_sha256": "f5e3d41b1de37eb92fcd392a5b43485f7e1a88d67621059faab60ff8dac70133",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\Cargo.toml",
+      "after_sha256": "db437a4e408bcf646b564951a04a48f6bf026c1fe7eef0e20364fa38b4010ff0",
+      "target_sha256_at_manifest": "f5e3d41b1de37eb92fcd392a5b43485f7e1a88d67621059faab60ff8dac70133",
+      "bytes": 2417,
+      "lines": 44
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "before_sha256": "6f2d2ffb6d27b44de4aa16620242faa8a58abaff96e109cb103f74dd4a7b1341",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "after_sha256": "9671919f0640ed6f0865a5907cbc62265581359ffd270e2377f5fc7131526a81",
+      "target_sha256_at_manifest": "6f2d2ffb6d27b44de4aa16620242faa8a58abaff96e109cb103f74dd4a7b1341",
+      "bytes": 7804,
+      "lines": 208
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\mod.rs",
+      "after_sha256": "4c98e49e3a89e376c09d80b2f225a3931b48e00b02decaa0bac60d0eeead18e1",
+      "target_sha256_at_manifest": null,
+      "bytes": 8373,
+      "lines": 222
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\producer.rs",
+      "after_sha256": "ccf7f54851317ef3deef879b21c761e436bc3424aa8a6254cbd210a11459f920",
+      "target_sha256_at_manifest": null,
+      "bytes": 5997,
+      "lines": 163
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\source.rs",
+      "after_sha256": "ff6e1cec86a21e1dda7cc8cb5dd761e7ffb41279f50d661081b67a26d12d75e7",
+      "target_sha256_at_manifest": null,
+      "bytes": 5014,
+      "lines": 134
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\georaster_edit\\tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\georaster_edit\\tests.rs",
+      "after_sha256": "a925cb9d3f0db0e3ce3445fbb223219404a9b49323161c80c5497c81295495b2",
+      "target_sha256_at_manifest": null,
+      "bytes": 7899,
+      "lines": 272
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "before_sha256": "3c584b8a36dbc364163db1efbea774762b1b6d18750788080792c6ab4574bd68",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "after_sha256": "336a616ee455ca82313d26edc27d0fd45281de68fd1adc92781964d97c388552",
+      "target_sha256_at_manifest": "3c584b8a36dbc364163db1efbea774762b1b6d18750788080792c6ab4574bd68",
+      "bytes": 8634,
+      "lines": 242
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\cooperation\\editor.rs",
+      "before_sha256": "5120d552169eaeb4528bb23c03fa68556fa63814103ab3038b9c0214c33877b3",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\editor.rs",
+      "after_sha256": "600cbd71b0ea25f3ecb1d95ec36a145f8f10557e7301de1ad5ac9fea4a90d6c5",
+      "target_sha256_at_manifest": "5120d552169eaeb4528bb23c03fa68556fa63814103ab3038b9c0214c33877b3",
+      "bytes": 8494,
+      "lines": 234
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\georaster_edit_support.rs",
+      "after_sha256": "c1034f82b230fbdb56f9b5bb9cc0f476a4a3ad7d4e6cb6441d3812452fd4dd1f",
+      "target_sha256_at_manifest": null,
+      "bytes": 7717,
+      "lines": 223
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\georaster_edit_tests.rs",
+      "after_sha256": "cff1203b2806ab6a19299cf5a315eb89259055a37613146b81ab1a4fec2b8e81",
+      "target_sha256_at_manifest": null,
+      "bytes": 17144,
+      "lines": 462
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\cooperation\\tests.rs",
+      "before_sha256": "fa5e63f3b716ec4622b23da101d82fcaaf62d341545b095cf60ded20f0add3ab",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\cooperation\\tests.rs",
+      "after_sha256": "ebcafc07a90deb8bb420b252c026b2ffd18c6ea1b76bd44125867b6db0145236",
+      "target_sha256_at_manifest": "fa5e63f3b716ec4622b23da101d82fcaaf62d341545b095cf60ded20f0add3ab",
+      "bytes": 16050,
+      "lines": 469
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\editor_contract.rs",
+      "before_sha256": "8bb8b921ff3eb15fbf36d72d20955bb4d8bfb36efc8183623d8350ea7933253a",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\editor_contract.rs",
+      "after_sha256": "81e285e4eea4ecafe96a95c7eea260f433154fe149069df51d61a027364c1ad4",
+      "target_sha256_at_manifest": "8bb8b921ff3eb15fbf36d72d20955bb4d8bfb36efc8183623d8350ea7933253a",
+      "bytes": 10308,
+      "lines": 258
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\job_actions.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\job_actions.rs",
+      "before_sha256": "48f42f936248b4b7d9e572c842d6ab256c5d4f670bb71897e692592b4830ec83",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\job_actions.rs",
+      "after_sha256": "d9e8b8c6cc37a14ef724c97ca4a3a17028bb1aafea7f604e75dca0a76572dc35",
+      "target_sha256_at_manifest": "48f42f936248b4b7d9e572c842d6ab256c5d4f670bb71897e692592b4830ec83",
+      "bytes": 9829,
+      "lines": 205
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\jobs.rs",
+      "before_sha256": "a8cb4c999c99b3f248157184d053537b302e5398299a2da1011bfd4e0d04781c",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\jobs.rs",
+      "after_sha256": "5ae45b873fc3c1a4bf2322b6cc82d802308e956a913c931ba1f4d6d03f7304f2",
+      "target_sha256_at_manifest": "a8cb4c999c99b3f248157184d053537b302e5398299a2da1011bfd4e0d04781c",
+      "bytes": 15188,
+      "lines": 407
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\package\\mod.rs",
+      "before_sha256": "e1f2d605f852bb67e5f06914dc856cc1e72ed617eeff9c9acfeb096f9281884f",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\package\\mod.rs",
+      "after_sha256": "bcd8b811b84729e92353c55c57c8a70a60b4edde54966c40c52a2fe3b797fc92",
+      "target_sha256_at_manifest": "e1f2d605f852bb67e5f06914dc856cc1e72ed617eeff9c9acfeb096f9281884f",
+      "bytes": 8840,
+      "lines": 258
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\package_controls.rs",
+      "before_sha256": "a813c2b3a628f1bb8bc48808cb4fc3de604631ab67ef11b40249e351f5dd0e5c",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\package_controls.rs",
+      "after_sha256": "fa57ba8755f40827e2c01a876cbe810a7cb9c66c868993ab1ab58a94761c2b08",
+      "target_sha256_at_manifest": "a813c2b3a628f1bb8bc48808cb4fc3de604631ab67ef11b40249e351f5dd0e5c",
+      "bytes": 9749,
+      "lines": 199
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_create_view.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\package_georaster_create_view.rs",
+      "after_sha256": "0791992d265d9e61c37b637fa50fd69bf1af9072f907c462e9cd9232cc3b27c8",
+      "target_sha256_at_manifest": null,
+      "bytes": 6530,
+      "lines": 162
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package_georaster_edit_view.rs",
+      "before": null,
+      "before_sha256": null,
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\package_georaster_edit_view.rs",
+      "after_sha256": "4d85d07a2652933a818c6f427f0624e96ed3e39b6605d0337b1e1f3fcfdaeb9e",
+      "target_sha256_at_manifest": null,
+      "bytes": 5113,
+      "lines": 100
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\session_host.rs",
+      "before_sha256": "a2fdb1bd7fdbf71dac162e14310a1a1e37ffdf1bca3c19ecddf04a93af2dab76",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\session_host.rs",
+      "after_sha256": "72cb68b0ad93c993bda44d3710b8b89ef2acdaff2cf8d4398cd4ce7bf5c73f4d",
+      "target_sha256_at_manifest": "a2fdb1bd7fdbf71dac162e14310a1a1e37ffdf1bca3c19ecddf04a93af2dab76",
+      "bytes": 7555,
+      "lines": 218
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+      "before": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\before\\native\\src\\graphical\\shared_host.rs",
+      "before_sha256": "74b31445c1b54291b60acb12c12989ec25f680f8180a5c8ffb65d47f17bac93b",
+      "after": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\producer\\after\\native\\src\\graphical\\shared_host.rs",
+      "after_sha256": "2bb92b6a75a96af1d57a3a2bd53e0ad25d7a3a9d1da919b7a794b499178fe71f",
+      "target_sha256_at_manifest": "74b31445c1b54291b60acb12c12989ec25f680f8180a5c8ffb65d47f17bac93b",
+      "bytes": 7426,
+      "lines": 202
+    }
+  ]
+}

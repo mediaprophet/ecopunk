@@ -1,0 +1,60 @@
+{
+  "mode": "inspection",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "inspection",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T08:43:26.161077+00:00",
+  "finished_utc": "2026-10-25T08:43:42.439773+00:00",
+  "elapsed_seconds": 16.281,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\inspection.log",
+  "log_sha256": "8a2815d3ab3e76a15105041254eeadcc2568b159965a182e8e4c7176576d6cf4",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\inspection-source-before.json",
+  "source_snapshot_sha256": "bbf4ea576807a0c243d897c2db5002736158c70f08d3df1e5bc6da8b25391784",
+  "recorded_local_source_files": 3036,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 6,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      6,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::checkpoints::inspection::tests::canonical_v3_and_legacy_inspection_are_distinct",
+    "graphical::checkpoints::inspection::tests::corruption_unknown_payload_and_budgets_never_fallback",
+    "graphical::checkpoints::inspection::tests::native_service_preserves_immutable_pin_and_path_refusals",
+    "graphical::checkpoints::inspection::tests::selected_hmc_digests_and_unknown_metadata_remain_exact",
+    "graphical::cooperation::tests::selected_resource_inspection_requires_current_read_authority_and_source",
+    "graphical::jobs::tests::resource_inspection_late_source_and_session_completions_are_withheld"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round5-pzrzbfxm",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

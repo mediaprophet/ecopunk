@@ -1,0 +1,160 @@
+   Compiling windows v0.62.2
+   Compiling windows_x86_64_gnu v0.52.6
+   Compiling windows-targets v0.52.6
+   Compiling accesskit_consumer v0.39.1
+   Compiling error-code v3.4.0
+   Compiling clipboard-win v5.4.1
+   Compiling windows-sys v0.52.0
+   Compiling arboard v3.7.0
+   Compiling gpu-allocator v0.28.0
+   Compiling fontique v0.12.0
+   Compiling accesskit_windows v0.35.1
+   Compiling sysinfo v0.39.6
+   Compiling etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling accesskit_xplat v0.2.1
+   Compiling parley_engine v0.12.0
+   Compiling parley v0.12.0
+   Compiling blitz-dom v0.3.0-beta.4
+   Compiling etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling blitz-paint v0.3.0-beta.4
+   Compiling dioxus-native-dom v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native-dom)
+   Compiling blitz-shell v0.3.0-beta.4
+   Compiling dioxus-native v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native)
+   Compiling etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+warning: variable does not need to be mutable
+  --> native\src\graphical\ui.rs:80:9
+   |
+80 |     let mut check = {
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\ui.rs:95:9
+   |
+95 |     let mut submit = {
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:113:9
+    |
+113 |     let mut undo = {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:128:9
+    |
+128 |     let mut redo = {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:143:9
+    |
+143 |     let mut refresh = {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\ui.rs:158:9
+    |
+158 |     let mut rebuild = {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:270:15
+    |
+270 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `poet-cli` (bin "poet" test) generated 8 warnings (run `cargo fix --bin "poet" -p poet-cli --tests` to apply 6 suggestions)
+    Finished `test` profile [unoptimized] target(s) in 16m 04s
+     Running unittests src\main.rs (target\debug\deps\poet-48433f62e2784f40.exe)
+
+running 36 tests
+test format::tests::format_invalid_source_is_left_alone ... ok
+test format::tests::format_valid_program_round_trips ... ok
+test graphical::controller::tests::gapped_or_noncanonical_accepted_cell_keys_cannot_open_or_rebuild ... ok
+test graphical::controller::tests::identical_replacement_between_replay_and_promotion_is_rejected ... ok
+test graphical::controller::tests::recovery_aggregate_dispatch_and_instruction_limits_do_not_promote ... ok
+test graphical::controller::tests::replay_failure_preserves_prior_session_epoch_and_source ... ok
+test graphical::controller::tests::runtime_error_rebuild_keeps_source_and_retires_numeric_revision_epoch ... ok
+test graphical::controller::tests::undo_then_explicit_rebuild_restores_editability_without_preview_replay ... ok
+test graphical::geometry_host::tests::actual_operation_grants_guard_dynamic_targets_at_runtime ... ok
+test graphical::geometry_host::tests::granted_source_dispatches_real_native_geometry_kernel ... ok
+test graphical::jobs::tests::closing_joins_started_rebuild_and_cancels_queued_command ... ok
+test graphical::jobs::tests::completed_image_cannot_follow_a_new_source_or_session_snapshot ... ok
+test graphical::jobs::tests::failed_host_attempt_delivers_reconciliation_snapshot_without_retry ... ok
+test graphical::jobs::tests::held_state_transition_rejects_prior_success_with_unchanged_epoch_revision_and_source ... ok
+test graphical::jobs::tests::one_worker_one_queue_and_cancelled_queued_work_never_starts ... ok
+test graphical::jobs::tests::preview_with_another_execution_epoch_is_withheld_before_encoding ... ok
+test graphical::jobs::tests::publication_rechecks_actual_store_after_worker_completion ... ok
+test graphical::jobs::tests::rebuilt_epoch_rejects_old_queued_reply_and_frame_even_when_revision_repeats ... ok
+test graphical::jobs::tests::stale_session_or_replaced_incarnation_cannot_dispatch_or_install ... ok
+test graphical::jobs::tests::unsupported_profile_has_no_rebuild_dispatch ... ok
+test graphical::jobs::tests::worker_panic_closes_reply_and_is_reported_when_owner_joins ... ok
+test graphical::preview::tests::actual_extrusion_session_result_uses_nested_mesh_rows ... ok
+test graphical::preview::tests::malformed_result_rows_and_provider_frame_extent_fail_closed ... ok
+test lint::tests::lint_detects_builtin_shadowing ... ok
+test lint::tests::lint_detects_unreachable_code ... ok
+test lint::tests::lint_detects_unused_binding ... ok
+test repl::tests::authorized_effectful_program_is_not_checked_as_a_pure_cell ... ok
+test repl::tests::bare_condition_preserves_vibe_0_1_truthiness ... ok
+test repl::tests::declarations_survive_later_submissions ... ok
+test repl::tests::explicit_cell_does_not_fall_back_to_program ... ok
+test repl::tests::failed_program_keeps_effects_without_replaying_them ... ok
+test repl::tests::failing_host_call_runs_once_in_each_mode ... ok
+test repl::tests::malformed_program_does_not_execute_a_valid_prefix ... ok
+test repl::tests::program_check_failure_does_not_dispatch ... ok
+test repl::tests::repl_eval_simple_math ... ok
+test repl::tests::repl_maintains_env_bindings ... ok
+
+test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.98s
+

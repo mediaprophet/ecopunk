@@ -1,0 +1,101 @@
+{
+  "job": "W3R1-AUTH",
+  "successor": "Poet selected-session authority projection",
+  "status": "frozen-staged-awaiting-root-review-installation-and-tests",
+  "frozen_at_utc": "2026-10-26T11:28:43.749299+00:00",
+  "files": [
+    {
+      "relative_path": "native/src/graphical/cooperation/selected_owner.rs",
+      "canonical_path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\selected_owner.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\cooperation\\selected_owner.rs",
+      "before_sha256": null,
+      "after_sha256": "e7314a9500c9eacb92a96b3c2042a41c1c2060959b17b5838382ab6a70775abd",
+      "new_file": true,
+      "canonical_current_sha256": null,
+      "canonical_unchanged": true,
+      "lines": 63
+    },
+    {
+      "relative_path": "native/src/graphical/native_project.rs",
+      "canonical_path": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\native_project.rs",
+      "before_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "after_sha256": "00bd63dc4f40b36a656b9ba0f80f3f035020aec1ffc618bb83c373c0b0efefa7",
+      "new_file": false,
+      "canonical_current_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "canonical_unchanged": true,
+      "lines": 256
+    },
+    {
+      "relative_path": "native/src/graphical/native_selected_session_tests.rs",
+      "canonical_path": "C:\\github\\poet\\native\\src\\graphical\\native_selected_session_tests.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\native_selected_session_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "a4c770b8477173560f54fb972bf7758eb1634269a724aab5a8be71c4e8929dbc",
+      "new_file": true,
+      "canonical_current_sha256": null,
+      "canonical_unchanged": true,
+      "lines": 110
+    },
+    {
+      "relative_path": "native/src/graphical/package_workflow/mod.rs",
+      "canonical_path": "C:\\github\\poet\\native\\src\\graphical\\package_workflow\\mod.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\package_workflow\\mod.rs",
+      "before_sha256": "cd150c98e0a267b2d8da3a8829416061d9b218f42736d0e1bddab9a1c7fd91dd",
+      "after_sha256": "d434a58838f36c157cd861d38a65871272ee72e37aa126ef89bc71e2cc3464cb",
+      "new_file": false,
+      "canonical_current_sha256": "cd150c98e0a267b2d8da3a8829416061d9b218f42736d0e1bddab9a1c7fd91dd",
+      "canonical_unchanged": true,
+      "lines": 156
+    },
+    {
+      "relative_path": "native/src/graphical/package_workflow/service.rs",
+      "canonical_path": "C:\\github\\poet\\native\\src\\graphical\\package_workflow\\service.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\package_workflow\\service.rs",
+      "before_sha256": "375e37b53c6dfaad299496073004bbe1d793535211eb0a195c4692ffcc172ca3",
+      "after_sha256": "439c65a93c92baabd81ca1400b83ac0057b728ef9ea9e7631e9e198966f2aac8",
+      "new_file": false,
+      "canonical_current_sha256": "375e37b53c6dfaad299496073004bbe1d793535211eb0a195c4692ffcc172ca3",
+      "canonical_unchanged": true,
+      "lines": 216
+    },
+    {
+      "relative_path": "native/src/graphical/session_host.rs",
+      "canonical_path": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+      "candidate_path": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-authoring\\round1\\work\\W3R1-AUTH\\poet\\native\\src\\graphical\\session_host.rs",
+      "before_sha256": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78",
+      "after_sha256": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb",
+      "new_file": false,
+      "canonical_current_sha256": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78",
+      "canonical_unchanged": true,
+      "lines": 296
+    }
+  ],
+  "semantics": [
+    "Direct NativeProject::connect and mcp_backend remain independent admitted connections.",
+    "SessionEditorHost::current binds through NativeProject::connect_selected, a wrapper over existing native AuthorityOwner.",
+    "Selected wrapper requires exact SessionSlot handle equality and retains selection guard through full native transaction/package callback and durable commit.",
+    "Wrapper explicitly delegates with_current_package to retain native package audit; it must not use default trait adapter.",
+    "Selected publication is nonblocking: busy/poisoned/None/changed selection or any inner native stale guard gives false.",
+    "PackageWorkflowService retains selection across complete run and PackagePublicationStamp composes selection/native/package/source guards.",
+    "Order: selection -> native authority -> raw shared editor. Wrapper inner callbacks never reenter selected-session services; runtime.detach releases selection before worker join/disconnect."
+  ],
+  "tests": "NOT RUN; no formatting/build/Cargo/check by worker",
+  "new_test_sources": [
+    "native_selected_session_tests::selected_ui_handoff_withholds_old_stamps_while_direct_author_stays_admitted",
+    "native_selected_session_tests::selected_connection_refuses_busy_selection_and_package_audit_still_uses_native_owner"
+  ],
+  "root_registration": "Append #[path = \"native_selected_session_tests.rs\"] mod native_selected_session_tests; to native/src/graphical/native_project_tests.rs so new test module can reuse existing private signed software-agent fixtures. This shared file is not changed by worker.",
+  "test_expectations": [
+    "Keep native_project_workflow_tests.rs:80-88 selected-actor delayed worker denial unchanged.",
+    "Migrate native_project_motion_tests.rs:303-307 obsolete reviewer-login-author-revocation assertions to coexistence; no change to its later explicit signed revocation denial.",
+    "Root already migrating native_project_workflow_tests.rs:214-215 and texture_effect_tests.rs:414-415 direct-connection singleton expectations.",
+    "Existing package/spatial/surface/uv_detail publication-denial assertions follow signed admission changes and remain valid."
+  ],
+  "outside_owned_scope": "cooperative_workflow/service.rs clones/releases selection before inspect/record commit. Root may apply consistent full-run selection guard for direct WorkflowService.run; this candidate does not change it.",
+  "canonical_writes": 0,
+  "builds_and_tests_started": 0,
+  "asset_production": "HOLD",
+  "human_acceptance": "unassessed",
+  "next": "Root compare/install all6 exact candidates, register dedicated child tests, repair legacy motion assertions, run focused Poet/source-worker/package checks serially."
+}

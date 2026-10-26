@@ -1,0 +1,71 @@
+{
+  "status": "source-review-only-one-blocking-finding",
+  "execution_performed": false,
+  "review": "independent-review-producer.md",
+  "sources": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\contract-proposal.md",
+      "sha256": "84369eab7fceb24ce8ef87056c727c5fe07af43ed3b6d6addce16ac6842290ea"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\types.rs",
+      "sha256": "c7a3603865737efeaada50b0e5873b5582f00484482a3b98ffd3db21db8995ff"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\policy.rs",
+      "sha256": "857939dc58379d04805539190b2ed298335e5ab9ef50102706fe25033ed86620"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\records.rs",
+      "sha256": "a2e9c254d2fd07f8a452a29411da803cd2dd808fd86b9970faaaa9c18cb2997e"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\package_review\\tests.rs",
+      "sha256": "507e4dbd265c60dc41c1130597c646ee45e7fff15487dc2458a9fe8b61437e74"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\mod.rs",
+      "sha256": "29d313fbf7746cb8d43455d1256898a9ff55e106dacdd16538a24a4d6e519cec"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\workflow.rs",
+      "sha256": "b7f576a161b1775a1733ff97893a9101e799459bc99a296a532dbbc69b49155f"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\validation.rs",
+      "sha256": "c34e00352a48cd934b345292b316de72d4732d1038a795e7fa2b55e4d08905fa"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\tests.rs",
+      "sha256": "9e42eeabe9b5d28613b1bcf7a3c6509ad3d06ca380e1c8908f9bc827f22b5856"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_review\\admin_tests.rs",
+      "sha256": "bf1e8e78655e0face15dfbd7b78dd4856a51c1299839002e693f04e8ae7b4478"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+      "sha256": "b1c6ee52973abbd39b61b8be26fa4cfac1f4e609c3b2e3f19c09ce042d4fc69e"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "sha256": "9188647665c6e51f17f03d8f27e230e31a1c651dc19ec16a5e389d49d7262edb"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+      "sha256": "c95e5e19664668a26d5531643d5aa235f3dca2753bbb861320a40dc2574454e7"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\journal.rs",
+      "sha256": "480e5af0364855e0ded62e44ac905d4ae4b42e824f35fc51f332e041a7f26b1f"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "sha256": "7d9703b09010490b7cb5a015a4998a44547f7fa32360f604682c377b54a1bfc2"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "sha256": "a441cd012402e403f132daea7b311585fdd59424814b8f1e27270325adb579df"
+    }
+  ]
+}

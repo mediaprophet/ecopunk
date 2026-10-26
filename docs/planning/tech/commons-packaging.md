@@ -8,6 +8,27 @@ funded by micropayments, and *provenance-verified* end-to-end; including the
 licence-misrepresentation defence and the temporal semantics of packaged
 objects.
 
+**2026-10-24 embodiment clarification:** distribution operates over complete
+species HMC releases and made-world artefact HMC families as defined in the
+[shared package contract](assets/asset-package-spec.md),
+[species contract](assets/species-embodiment-spec.md) and
+[made-world specification](../made-world.md). A partial cache or selected
+working set does not redefine the release's graph/resource completeness.
+Native-stack delivery and resource discovery follow [architecture](../architecture.md);
+browser transport work is not a required JS/V8 dependency for its native workflow.
+Supported WASM delivery and authorized use of native providers follow the
+[environment/framework contract](webizen-environment-framework.md).
+
+**Commercial / human-rights purpose clarification, 2026-10-24:** distribution
+must retain the existing cooperative project's contribution/obligation records.
+Qualifying commercial use compensates the relevant bounded pool until discharge;
+applicable human-rights purposes may be no-charge earlier. Exemption, receipt,
+authorized contribution waiver and pool discharge are distinct records. Derived
+exports and institutional adoption retain origin/attribution and cannot reset
+discharged ancestor costs. The
+[purpose/terminology contract](high-grade-production-and-civics-experience.md)
+specifies required cases and the distinction between civics and civic activity.
+
 Grounded in: [durability-and-distribution.md](durability-and-distribution.md)
 (dual addressing, `did:`/QDNF, `pc:` rails), [cooperative-layer.md](cooperative-layer.md)
 (`spc:` social substrate, category-scoped fees, royalty tree),
@@ -23,7 +44,7 @@ Grounded in: [durability-and-distribution.md](durability-and-distribution.md)
 
 | Requirement | Existing machinery | State | Gap for packaged spatial content |
 |---|---|---|---|
-| Content-addressed identity | digest + `did:` canonical identity; HTTP aliases as timestamped claims | verified | none — packs inherit it |
+| Content-addressed identifiers | digest + `did:` canonical identifiers; HTTP aliases as timestamped claims | verified | none — packs inherit it |
 | Decentralised bytes | QDNF replication, WebTorrent seeder, IPFS partial-CAR, Bao slices, HTTP range serving | mechanism-verified | pack *layout* must be range/co-servable — layout is our choice |
 | Verified partial fetch | `Q42ByteRange`, BIDX, partial-CAR per-block CID proof; trusted pinned index | mechanism-verified; **browser gap G34 open** | spatial entries must be independently verifiable units (per-entry SHA-256 already does this) |
 | Peer discovery | `manifests/*.json` registries + QSR/DID resolution + VoID self-description | spec'd | **semantic discovery** ("find packs covering this place/time/theme") — no vocabulary yet; §4 |
@@ -55,7 +76,7 @@ to be trusted and attributed alone**.
 
 Concretely, per pack:
 
-- **Pack identity block** (durability §6.2): canonical digest + `did:` + alias
+- **Pack identifiers block** (durability §6.2): canonical digest + `did:` + alias
   list + resolution-history refs.
 - **Layer inventory** (map-layers §6/S8): each layer is a separately
   addressable entry — `eco:layer/<family>/<name>@<version>` with its own
@@ -106,7 +127,7 @@ not rent extraction.
 
 | Mode | Query shape | Mechanism | State |
 |---|---|---|---|
-| **Identity resolution** | have digest → find bytes | QDNF/DHT content addressing, resolve nodes | exists |
+| **Identifiers resolution** | have digest → find bytes | QDNF/DHT content addressing, resolve nodes | exists |
 | **Registry browsing** | have pack name → find digest | `manifests/*.json`, DCAT/VoID self-description | spec'd |
 | **Semantic discovery** | have place/time/question → find packs | manifest-quin coverage index | **new — this section** |
 
@@ -127,7 +148,7 @@ rules):
 - `prov:wasDerivedFrom` + `eco:sourceVintage` — provenance *and* freshness
   discoverable before download
 - `eco:lane` + `eco:sensitivityCeiling` — discovery respects lanes: restricted
-  packs are *resolvable* (identity exists) but their bytes route only through
+  packs are *resolvable* (identifiers exists) but their bytes route only through
   consented lanes (§7)
 
 ## 5. Provenance that survives the network
@@ -180,7 +201,7 @@ vendor's optimism never lowers the bar.
 - **Identifier-density check** (S3 gate): repackaged sources that strip
   upstream identifiers (DwC `occurrenceID`s, NSL LSIDs, ALA download DOIs)
   show an absence that is itself a review signal — a dataset claiming GBIF
-  origin with zero GBIF identifiers is a flag.
+  origin with zero GBIF identifiers are a flag.
 - **Provenance fingerprinting**: digest-correlate normalized records against
   known upstream snapshots (S0 inbox corpus). A vendor file whose rows match
   an ALA snapshot at >threshold similarity is re-attributed to the real
@@ -227,7 +248,7 @@ mode (the same warning domain-model §5 gives for the manifold, one level up):
 | Clock | Meaning | Carrier |
 |---|---|---|
 | **Source vintage** | what the upstream asserted, when | `eco:sourceVintage` in manifest quins (GOV-PRV-1) |
-| **Pack version-time** | this immutable build | digest identity + `prov:wasRevisionOf` chain (GOV-DUR-3) |
+| **Pack version-time** | this immutable build | digest identifiers + `prov:wasRevisionOf` chain (GOV-DUR-3) |
 | **Resolution-time** | what an IRI resolved to, when | timestamped alias edges (durability §2) |
 | **Serving-time** | how stale the served copy is | `reconciledAt` + expected-lag in the serve response (REC-AX-3) |
 

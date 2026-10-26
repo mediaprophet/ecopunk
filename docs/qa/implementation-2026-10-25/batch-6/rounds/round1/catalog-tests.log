@@ -1,0 +1,14 @@
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+    Finished `test` profile [unoptimized] target(s) in 46.29s
+     Running tests\poet_geometry_catalog.rs (target\debug\deps\poet_geometry_catalog-40c1ed6a6330200e.exe)
+
+running 6 tests
+test unknown_geometry_siblings_remain_denied_even_with_exact_host_grants ... ok
+test geometry_grants_do_not_relax_pure_function_effect_checks ... ok
+test invoke_grant_cannot_be_inferred_from_a_geometry_request ... ok
+test source_requests_cannot_supply_missing_host_grants ... ok
+test exact_requests_and_host_grants_admit_existing_poet_operations ... ok
+test family_host_grants_still_require_explicit_source_requests ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+

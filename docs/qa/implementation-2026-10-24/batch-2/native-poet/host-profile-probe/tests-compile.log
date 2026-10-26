@@ -1,0 +1,13 @@
+warning: field `side` is never read
+ --> C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/native-poet/host-profile-probe\marshal.rs:5:9
+  |
+4 | pub struct PreviewLimits {
+  |            ------------- field in this struct
+5 |     pub side: u32,
+  |         ^^^^
+  |
+  = note: `PreviewLimits` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+

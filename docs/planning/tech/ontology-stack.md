@@ -158,7 +158,7 @@ All four can coexist under one `eco`-family brand; the *rule* is: minted IRIs
 must be dereferenceable-or-stable, versioned, and never repurposed.
 
 **Amended by `durability-and-distribution.md`:** HTTP PIDs are *durable aliases*,
-not canonical identity — canonical identity is content digest + `did:`
+not canonical identifiers — canonical identifiers are content digest + `did:`
 identifier, with HTTP resolution recorded as timestamped provenance edges.
 Register `/def/` + w3id PIDs for human-facing discoverability, but the graph
 must never *depend* on DNS.

@@ -1,0 +1,40 @@
+{
+  "mode": "wasm",
+  "command": [
+    "cargo",
+    "check",
+    "--manifest-path",
+    "C:\\github\\ecopunk\\tools\\format-sdk-wasm-check\\Cargo.toml",
+    "--locked",
+    "--offline",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T10:44:36.337458+00:00",
+  "finished_utc": "2026-10-25T10:47:07.347205+00:00",
+  "elapsed_seconds": 151.0,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\wasm.log",
+  "log_sha256": "db0f4215f43ca76969029853db83912eb828e5a4f4f2626f831f7d49fa02b9dd",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\wasm-source-before.json",
+  "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+  "recorded_local_source_files": 3219,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": null,
+  "test_selection_ok": true,
+  "test_results": [],
+  "passed_case_names": [],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round6-if0qgz09",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

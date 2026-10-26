@@ -1,0 +1,87 @@
+diff --git "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\master.vibe.before-join" "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\master.vibe.after-join"
+index 6c23fe1..cff426a 100644
+--- "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\master.vibe.before-join"
++++ "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\master.vibe.after-join"
+@@ -93,18 +93,18 @@ effect fn poet_rebuild_parts(p:Record) -> List<Record> {
+     let datum="frame/datum";
+     for end in [{k:"left",sid:10,x:0.10},{k:"right",sid:30,x:p.width-0.10}] {
+         for side in [{k:"front",sid:1,z:0.0},{k:"rear",sid:2,z:p.depth-0.16}] {
+-            out=out.push(cg_part("frame/"+end.k+"/post-"+side.k,110000+end.sid+side.sid,datum,g_post,frame,[end.x,0.0,side.z],[-q,0.0,0.0],one));
+-            out=out.push(cg_part("frame/"+end.k+"/foot-"+side.k,110100+end.sid+side.sid,datum,g_foot,rubber,[end.x,-0.125,side.z],[-q,0.0,0.0],one));
+-            out=out.push(cg_part("frame/"+end.k+"/adjuster-"+side.k,110200+end.sid+side.sid,datum,g_foot_stem,steel,[end.x,-0.11,side.z],[-q,0.0,0.0],one));
++            out=out.push(cg_part(["frame/",end.k,"/post-",side.k].join(""),110000+end.sid+side.sid,datum,g_post,frame,[end.x,0.0,side.z],[-q,0.0,0.0],one));
++            out=out.push(cg_part(["frame/",end.k,"/foot-",side.k].join(""),110100+end.sid+side.sid,datum,g_foot,rubber,[end.x,-0.125,side.z],[-q,0.0,0.0],one));
++            out=out.push(cg_part(["frame/",end.k,"/adjuster-",side.k].join(""),110200+end.sid+side.sid,datum,g_foot_stem,steel,[end.x,-0.11,side.z],[-q,0.0,0.0],one));
+         };
+         for level in [{k:"low",sid:1,y:p.lower_level-0.225},{k:"mid",sid:2,y:p.lower_level+p.level_step-0.225},{k:"high",sid:3,y:p.lower_level+2.0*p.level_step-0.225}] {
+-            out=out.push(cg_part("frame/"+end.k+"/support-"+level.k,110300+end.sid+level.sid,datum,g_depth,frame,[end.x,level.y,0.0],zero,one));
++            out=out.push(cg_part(["frame/",end.k,"/support-",level.k].join(""),110300+end.sid+level.sid,datum,g_depth,frame,[end.x,level.y,0.0],zero,one));
+         };
+-        out=out.push(cg_part("frame/"+end.k+"/cross-brace-a",110400+end.sid,datum,g_brace,steel,[end.x,-0.14,0.73],zero,one));
+-        out=out.push(cg_part("frame/"+end.k+"/cross-brace-b",110401+end.sid,datum,g_brace_back,steel,[end.x,-0.14,0.73],zero,one));
++        out=out.push(cg_part(["frame/",end.k,"/cross-brace-a"].join(""),110400+end.sid,datum,g_brace,steel,[end.x,-0.14,0.73],zero,one));
++        out=out.push(cg_part(["frame/",end.k,"/cross-brace-b"].join(""),110401+end.sid,datum,g_brace_back,steel,[end.x,-0.14,0.73],zero,one));
+         for corner in [{k:"front",sid:1,z:0.03},{k:"rear",sid:2,z:p.depth-0.19}] {
+-            out=out.push(cg_part("frame/"+end.k+"/gusset-"+corner.k,110500+end.sid+corner.sid,datum,g_gusset,frame,[end.x-0.036,0.10,corner.z],[0.0,q,0.0],one));
+-            out=out.push(cg_part("frame/"+end.k+"/bolt-"+corner.k,110600+end.sid+corner.sid,datum,g_bolt,steel,[end.x-0.044,0.145,corner.z+0.045],[0.0,q,0.0],one));
++            out=out.push(cg_part(["frame/",end.k,"/gusset-",corner.k].join(""),110500+end.sid+corner.sid,datum,g_gusset,frame,[end.x-0.036,0.10,corner.z],[0.0,q,0.0],one));
++            out=out.push(cg_part(["frame/",end.k,"/bolt-",corner.k].join(""),110600+end.sid+corner.sid,datum,g_bolt,steel,[end.x-0.044,0.145,corner.z+0.045],[0.0,q,0.0],one));
+         };
+     };
+     out=out.push(cg_part("frame/rear-base",110700,datum,g_width,frame,[0.0,0.0,p.depth-0.16],[0.0,q,0.0],one));
+@@ -114,31 +114,31 @@ effect fn poet_rebuild_parts(p:Record) -> List<Record> {
+     let rows=[{k:"front-low",sid:120000,y:p.lower_level,z:-0.66,sign:-1.0},{k:"front-mid",sid:121000,y:p.lower_level+p.level_step,z:-0.40,sign:-1.0},{k:"front-high",sid:122000,y:p.lower_level+2.0*p.level_step,z:-0.14,sign:-1.0},{k:"rear-low",sid:123000,y:p.lower_level,z:0.66,sign:1.0},{k:"rear-mid",sid:124000,y:p.lower_level+p.level_step,z:0.40,sign:1.0},{k:"rear-high",sid:125000,y:p.lower_level+2.0*p.level_step,z:0.14,sign:1.0}];
+     let holes=[{k:"a",sid:1,t:0.0833333333333333},{k:"b",sid:2,t:0.25},{k:"c",sid:3,t:0.416666666666667},{k:"d",sid:4,t:0.583333333333333},{k:"e",sid:5,t:0.75},{k:"f",sid:6,t:0.916666666666667}];
+     for row in rows {
+-        let key="grow/"+row.k;
++        let key=["grow/",row.k].join("");
+         // Datum root origin is world(-width/2,.14,-depth/2+.08).
+         out=out.push(cg_part(key,row.sid,datum,g_channel,grow,[(p.width-p.channel_length)/2.0,row.y-0.14,row.z+p.depth/2.0-0.08],[0.0,q,0.0],one));
+-        out=out.push(cg_part(key+"/lid-edge-left",row.sid+10,key,g_lid_edge,grow,[-p.channel_width/2.0+edge_width/2.0,p.channel_height/2.0+0.005,0.0],zero,one));
+-        out=out.push(cg_part(key+"/lid-edge-right",row.sid+11,key,g_lid_edge,grow,[p.channel_width/2.0-edge_width/2.0,p.channel_height/2.0+0.005,0.0],zero,one));
+-        out=out.push(cg_part(key+"/lid-end-in",row.sid+12,key,g_lid_end,grow,[0.0,p.channel_height/2.0+0.005,0.0],zero,one));
+-        out=out.push(cg_part(key+"/lid-end-out",row.sid+13,key,g_lid_end,grow,[0.0,p.channel_height/2.0+0.005,p.channel_length-(p.channel_length/12.0-0.0425)],zero,one));
+-        out=out.push(cg_part(key+"/endcap-in",row.sid+14,key,g_endcap,grow,[0.0,0.0,-0.009],zero,one));
+-        out=out.push(cg_part(key+"/endcap-out",row.sid+15,key,g_endcap,grow,[0.0,0.0,p.channel_length],zero,one));
+-        out=out.push(cg_part(key+"/coupling-in",row.sid+16,key,g_coupling,waterline,[0.0,-0.014,-0.052],zero,one));
+-        out=out.push(cg_part(key+"/coupling-out",row.sid+17,key,g_coupling,waterline,[0.0,-0.014,p.channel_length+0.009],zero,one));
++        out=out.push(cg_part([key,"/lid-edge-left"].join(""),row.sid+10,key,g_lid_edge,grow,[-p.channel_width/2.0+edge_width/2.0,p.channel_height/2.0+0.005,0.0],zero,one));
++        out=out.push(cg_part([key,"/lid-edge-right"].join(""),row.sid+11,key,g_lid_edge,grow,[p.channel_width/2.0-edge_width/2.0,p.channel_height/2.0+0.005,0.0],zero,one));
++        out=out.push(cg_part([key,"/lid-end-in"].join(""),row.sid+12,key,g_lid_end,grow,[0.0,p.channel_height/2.0+0.005,0.0],zero,one));
++        out=out.push(cg_part([key,"/lid-end-out"].join(""),row.sid+13,key,g_lid_end,grow,[0.0,p.channel_height/2.0+0.005,p.channel_length-(p.channel_length/12.0-0.0425)],zero,one));
++        out=out.push(cg_part([key,"/endcap-in"].join(""),row.sid+14,key,g_endcap,grow,[0.0,0.0,-0.009],zero,one));
++        out=out.push(cg_part([key,"/endcap-out"].join(""),row.sid+15,key,g_endcap,grow,[0.0,0.0,p.channel_length],zero,one));
++        out=out.push(cg_part([key,"/coupling-in"].join(""),row.sid+16,key,g_coupling,waterline,[0.0,-0.014,-0.052],zero,one));
++        out=out.push(cg_part([key,"/coupling-out"].join(""),row.sid+17,key,g_coupling,waterline,[0.0,-0.014,p.channel_length+0.009],zero,one));
+         for hole in holes {
+-            out=out.push(cg_part(key+"/netpot-collar-"+hole.k,row.sid+40+hole.sid,key,g_collar,rubber,[0.0,p.channel_height/2.0+0.014,p.channel_length*hole.t],zero,one));
++            out=out.push(cg_part([key,"/netpot-collar-",hole.k].join(""),row.sid+40+hole.sid,key,g_collar,rubber,[0.0,p.channel_height/2.0+0.014,p.channel_length*hole.t],zero,one));
+             if hole.sid < 6 {
+-                out=out.push(cg_part(key+"/lid-bay-"+hole.k,row.sid+60+hole.sid,key,g_lid_bay,grow,[0.0,p.channel_height/2.0+0.005,p.channel_length*hole.t+0.0425],zero,one));
++                out=out.push(cg_part([key,"/lid-bay-",hole.k].join(""),row.sid+60+hole.sid,key,g_lid_bay,grow,[0.0,p.channel_height/2.0+0.005,p.channel_length*hole.t+0.0425],zero,one));
+             };
+         };
+         let feed_axis=[[0.0,0.0,0.0],[0.035,0.0,0.004*row.sign],[0.070,0.0,0.018*row.sign],[0.100,0.0,0.045*row.sign],[0.12,0.0,0.080*row.sign],[0.12,0.0,row.z]];
+         let return_axis=[[0.0,0.0,row.z],[-0.025,0.0,row.z-0.015*row.sign],[-0.045,0.0,row.z-0.040*row.sign],[-0.052,0.0,row.z-0.075*row.sign],[-0.052,0.0,0.0]];
+         let feed_branch=cg_pipe(0.011,feed_axis,p.ring_segments);
+         let return_branch=cg_pipe(0.016,return_axis,p.ring_segments);
+-        out=out.push(cg_part("services/feed-"+row.k,130000+row.sid-120000,datum,feed_branch,waterline,[0.06,row.y-0.154,p.depth/2.0-0.08],zero,one));
+-        out=out.push(cg_part("services/return-"+row.k,130100+row.sid-120000,datum,return_branch,waterline,[p.width-0.11,row.y-0.154,p.depth/2.0-0.08],zero,one));
+-        out=out.push(cg_part("services/valve-"+row.k,130200+row.sid-120000,datum,g_valve,steel,[0.18,row.y-0.154,p.depth/2.0-0.08+0.10*row.sign],zero,one));
+-        out=out.push(cg_part("services/lever-"+row.k,130300+row.sid-120000,datum,g_lever,control,[0.18,row.y-0.125,p.depth/2.0-0.08+0.12*row.sign],zero,one));
++        out=out.push(cg_part(["services/feed-",row.k].join(""),130000+row.sid-120000,datum,feed_branch,waterline,[0.06,row.y-0.154,p.depth/2.0-0.08],zero,one));
++        out=out.push(cg_part(["services/return-",row.k].join(""),130100+row.sid-120000,datum,return_branch,waterline,[p.width-0.11,row.y-0.154,p.depth/2.0-0.08],zero,one));
++        out=out.push(cg_part(["services/valve-",row.k].join(""),130200+row.sid-120000,datum,g_valve,steel,[0.18,row.y-0.154,p.depth/2.0-0.08+0.10*row.sign],zero,one));
++        out=out.push(cg_part(["services/lever-",row.k].join(""),130300+row.sid-120000,datum,g_lever,control,[0.18,row.y-0.125,p.depth/2.0-0.08+0.12*row.sign],zero,one));
+     };
+     out=out.push(cg_part("services/feed-trunk",136000,datum,g_feed,waterline,[0.06,0.25,p.depth/2.0-0.08],[-q,0.0,0.0],one));
+     out=out.push(cg_part("services/return-trunk",136001,datum,g_return,waterline,[p.width-0.162,0.21,p.depth/2.0-0.08],[-q,0.0,0.0],one));
+@@ -158,7 +158,7 @@ effect fn poet_rebuild_parts(p:Record) -> List<Record> {
+     out=out.push(cg_part("cabinet/pump-body",140010,datum,g_pump,waterline,[cx-0.03,0.04,cz+0.12],zero,one));
+     out=out.push(cg_part("cabinet/service-plaque",140011,datum,g_plaque,label,[cx,p.cabinet_height-0.255,cz-0.028],[-q,0.0,0.0],one));
+     for slot in [{k:"a",sid:1,y:0.025},{k:"b",sid:2,y:0.050},{k:"c",sid:3,y:0.075},{k:"d",sid:4,y:0.100}] {
+-        out=out.push(cg_part("cabinet/vent-"+slot.k,140020+slot.sid,datum,g_grille,shadow,[cx,slot.y,cz-0.031],zero,one));
++        out=out.push(cg_part(["cabinet/vent-",slot.k].join(""),140020+slot.sid,datum,g_grille,shadow,[cx,slot.y,cz-0.031],zero,one));
+     };
+     let pump_feed=cg_pipe(0.014,[[0.0,0.0,0.0],[-0.08,0.0,0.0],[-0.13,0.01,0.0],[-0.16,0.04,0.0],[-0.17,0.09,0.0],[-p.width/2.0+0.06,0.09,0.0]],p.ring_segments);
+     let sump_return=cg_pipe(0.024,[[0.0,0.0,0.0],[0.08,0.0,0.0],[0.12,0.012,0.0],[0.15,0.04,0.0],[p.width/2.0-0.162,0.04,0.0]],p.ring_segments);

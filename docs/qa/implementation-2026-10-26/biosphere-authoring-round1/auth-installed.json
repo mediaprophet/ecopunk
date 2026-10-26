@@ -1,0 +1,62 @@
+{
+  "date_utc": "2026-10-26T11:18:47.889992+00:00",
+  "scope": "W3R1-AUTH reviewed bounded concurrent native authority sessions",
+  "completed": true,
+  "files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\concurrent_session_tests.rs",
+      "before": null,
+      "after": "4b68125d98dc37642c78bf34be8017146f911a34f4c49cf5458bffda38c36462"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "before": "9188647665c6e51f17f03d8f27e230e31a1c651dc19ec16a5e389d49d7262edb",
+      "after": "7a25a887b3141614dae795a600c807be0fccc9a0438bc94c6c7d82f1c426dfe1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+      "before": "b246e802cde9fbc0ca38a88935fee216c76a80207d0220f0d23bb9cccef99c93",
+      "after": "94916ea6d2c9655f6f12d980846cb1bf0ac7a76d8e7f30dd582972778836cfce"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\tests.rs",
+      "before": "9112a104ef2f75551134378a661983b8a6b05e89acc34fcd2d2b63b456c7a2e4",
+      "after": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "before": "37b117b3c06a9025beb9f6d053aa20c72ba84cb03ab2d44ee13f787a49c42b36",
+      "after": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "before": "465ed17b4c881c24ef5890bb158b665e986e238d54cd62c1147aaabbb0425a2e",
+      "after": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_lifecycle_tests.rs",
+      "before": null,
+      "after": "83e1fca996d9f061836eaa7587ee52cfe2525815f1fea1744c3e86c2cc2df60b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_state.rs",
+      "before": null,
+      "after": "d16462a893712a25bb5c4b910be6de631b438e76e158d6e8af8e0f5deb51dd59"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_test_fixture.rs",
+      "before": null,
+      "after": "861c77ec9e7b0563f2c633d29cc92444698728e7b49dc040f0c6dc5a6b9c3de1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+      "before": "22acd11c53d1fb7c8681f5fcb65b41053110c0ae5731df525eafa084c40ea2e4",
+      "after": "4e138e82e6b8d7be9500c90a5434c90e770c89a27d7233e99e24e74227c3187c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\workflow_tests.rs",
+      "before": "fa6d2db972bdb3e3d0fcd4b9b7313671590d856d853444695462a74220a60c39",
+      "after": "c607a56f8abda192fd287d095fe69f27a07d4ef5eaaed1ecb7b30016906a1d76"
+    }
+  ]
+}

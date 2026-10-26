@@ -1,0 +1,18 @@
+{
+  "scope": "Canonical unbound MR neutral multipliers; real GPU metallic0 failure reproduced before fix",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/shaders/viewport/mesh.wgsl",
+      "candidate": "candidate/src/shaders/viewport/mesh.wgsl",
+      "original_sha256": "7DBC2A8D54EE265148DFB94D04FDC0F3658A02046CCE4C51E76A60D1CD71E807",
+      "candidate_sha256": "F2506293CD8A2477D1A5A8D40D4EE86F0D34A9D3336F2793165EAEE6E37A6AFD"
+    },
+    {
+      "target": "C:/github/QualiaDB/crates/qualia-core-db/src/render/gpu/material_textures.rs",
+      "candidate": "candidate/src/render/gpu/material_textures.rs",
+      "original_sha256": "2E846FC97652B336C0C56AF778696160A49130EEBDFB8EF3A62916BC35EDCD38",
+      "candidate_sha256": "76543ACE716254E0A439C7D0EFA39897352A4080427BB068E05F53F4B1553DBE"
+    }
+  ]
+}

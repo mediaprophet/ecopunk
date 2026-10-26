@@ -1,0 +1,26 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:\\github\\ecopunk\\tools\\format-sdk-conformance\\Cargo.toml",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--tests"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T04:27:50.437630+00:00",
+  "finished_utc": "2026-10-25T04:41:56.439154+00:00",
+  "elapsed_seconds": 845.953,
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\native-source-before.json",
+  "source_snapshot_sha256": "b3528b4f4ada4089c1e49d1448b00ade4d3899a6896e76921241c7b6d9569b4d",
+  "recorded_local_source_files": 3554,
+  "source_changes": [],
+  "source_unchanged": true,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round3\\native-conformance.log",
+  "log_sha256": "3e01a1238694bb6174fa8c9f1276c99d714e84e837f5306f56bcc7a03a0c0d3b",
+  "boundary": "Local Rust/WGSL/manifests/locks source set only; dependency caches are selected by recorded locks. Native test scope and WASM compilation are distinct; no runtime WASM/GUI/acceptance claim."
+}

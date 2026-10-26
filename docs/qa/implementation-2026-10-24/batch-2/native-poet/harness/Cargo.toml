@@ -1,0 +1,27 @@
+[package]
+name = "poet-aether-native-check"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+dioxus = { path = "C:/github/rust-app-framework/packages/dioxus", default-features = false, features = ["macro", "html", "signals", "hooks", "third-party-renderer"] }
+dioxus-native = { path = "C:/github/rust-app-framework/packages/native", default-features = false, features = ["vello-cpu-softbuffer", "system-fonts", "data-uri"] }
+vibe = { path = "C:/github/qualiaDB/crates/vibe" }
+qualia-core-db = { path = "C:/github/qualiaDB/crates/qualia-core-db", default-features = false, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-portable", "gpu-native-dx12", "wgsl-forge", "privacy-he"] }
+webizen-render = { path = "C:/github/qualiaDB/crates/webizen-render" }
+base64 = "=0.22.1"
+futures-channel = "=0.3.34"
+
+[lib]
+path = "lib.rs"
+
+[[bin]]
+name = "poet-native-authoring"
+path = "main.rs"
+
+[patch.crates-io]
+wgpu = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+naga = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }

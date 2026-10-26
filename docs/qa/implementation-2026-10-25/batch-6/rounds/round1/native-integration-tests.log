@@ -1,0 +1,75 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 4.76s
+     Running unittests src\lib.rs (target\debug\deps\poet_cli-e9761f04da66e76f.exe)
+
+running 39 tests
+test graphical::assembly::tests::actual_native_hierarchy_retains_part_ranges_materials_normals_and_uv ... ok
+test graphical::assembly::tests::malformed_ambiguous_or_unbounded_projection_is_refused ... ok
+test graphical::assembly::tests::native_container_roundtrip_preserves_semantic_ranges_normal_and_uv_streams ... ok
+test graphical::geometry_host::tests::actual_operation_grants_guard_dynamic_targets_at_runtime ... ok
+test graphical::geometry_host::tests::granted_source_dispatches_real_native_geometry_kernel ... ok
+test graphical::geometry_host::tests::profile_grants_and_host_dispatch_budgets_are_current_at_execution ... ok
+test graphical::poet_workspace::core::construct::tests::stub_honesty_is_not_live ... ok
+test graphical::poet_workspace::core::device::tests::device_profile_construction ... ok
+test graphical::poet_workspace::core::device::tests::device_type_labels ... ok
+test graphical::poet_workspace::core::device::tests::display_area ... ok
+test graphical::poet_workspace::core::intent_bus::tests::action_type_display ... ok
+test graphical::poet_workspace::core::intent_bus::tests::cbor_ld_serialisation_roundtrip ... ok
+test graphical::poet_workspace::core::intent_bus::tests::context_ref_default ... ok
+test graphical::poet_workspace::core::intent_bus::tests::payload_construction ... ok
+test graphical::poet_workspace::core::intent_bus::tests::payload_with_provenance ... ok
+test graphical::poet_workspace::core::intent_bus::tests::target_identifier_constructors ... ok
+test graphical::poet_workspace::core::manifest::tests::manifest_serialisation ... ok
+test graphical::poet_workspace::core::ontology::tests::module_lookup ... ok
+test graphical::poet_workspace::core::ontology::tests::registry_resolve ... ok
+test graphical::poet_workspace::core::registry::tests::container_authoring_state_roundtrips ... ok
+test graphical::poet_workspace::core::registry::tests::legacy_container_manifest_defaults_new_state_fields ... ok
+test graphical::poet_workspace::core::registry::tests::new_container_defaults_to_held_not_missing ... ok
+test graphical::poet_workspace::core::registry::tests::registry_construction ... ok
+test graphical::poet_workspace::core::sociality::tests::projects_are_social_health_is_not ... ok
+test graphical::poet_workspace::core::subject::tests::subject_is_not_a_construct_id ... ok
+test graphical::poet_workspace::core::tool::tests::simple_tool_construction ... ok
+test graphical::poet_workspace::core::tool::tests::tool_builds_payload ... ok
+test graphical::poet_workspace::core::workspace::tests::device_assignment ... ok
+test graphical::poet_workspace::core::workspace::tests::device_pair_unpair ... ok
+test graphical::poet_workspace::core::workspace::tests::manifold_switch ... ok
+test graphical::poet_workspace::core::workspace::tests::workspace_construction ... ok
+test graphical::poet_workspace::model::construct_seeds::tests::bundled_constructs_have_manifolds_stubs_do_not ... ok
+test graphical::poet_workspace::model::construct_seeds::tests::no_stub_is_labelled_live ... ok
+test graphical::poet_workspace::model::studio_seed::tests::studio_manifold_is_three_sessions_not_a_daw ... ok
+test graphical::poet_workspace::tests::foreign_target_context_client_provenance_unknown_and_oversize_are_rejected ... ok
+test graphical::poet_workspace::tests::native_projection_reuses_original_studio_containers_and_holds_unqualified_services ... ok
+test graphical::poet_workspace::tests::read_only_refresh_recovers_same_actor_source_successor_without_rebinding_actor ... ok
+test graphical::poet_workspace::tests::revocation_refuses_dispatch_and_cancel_never_claims_cancelled ... ok
+test graphical::poet_workspace::tests::same_native_actor_provenance_is_real_and_backend_failure_stays_rejected ... ok
+
+test result: ok. 39 passed; 0 failed; 0 ignored; 0 measured; 79 filtered out; finished in 1.09s
+

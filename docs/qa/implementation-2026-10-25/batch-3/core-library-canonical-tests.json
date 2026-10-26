@@ -1,0 +1,6 @@
+{
+  "command": "cargo test --offline --locked --manifest-path C:/github/qualiaDB/Cargo.toml -p qualia-core-db --lib --no-default-features --features native-Poet-selected-profile -- --test-threads=1",
+  "exit_code": 101,
+  "started_utc": "2026-10-24T17:37:10.6120029Z",
+  "finished_utc": "2026-10-24T18:12:36.6782003Z"
+}

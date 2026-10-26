@@ -1,0 +1,50 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::lookdev_controls",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "lookdev",
+  "attempt": "inspector-final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:49:09.285135+00:00",
+  "finished_utc": "2026-10-25T22:49:19.399318+00:00",
+  "elapsed_seconds": 10.109,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\lookdev.log",
+  "log_sha256": "7d0cca21be11fb2dc04dbe814cdb0b2c168d3c1ec9a9e26ab73ccbb48ebb356d",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\inspector-final\\lookdev-source-before.json",
+  "source_snapshot_sha256": "6f0c8afa4693dbb861299c11d19ee9705a69ed612d44e6859e5071e0244755f9",
+  "recorded_local_source_files": 3279,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": false,
+  "test_results": [
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

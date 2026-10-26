@@ -1,0 +1,454 @@
+{
+  "date_utc": "2026-10-26T13:20:51.959371+00:00",
+  "scope": "Engineering result and saved-source consistency, not human/domain or model acceptance",
+  "asset_production": "HOLD",
+  "hierarchy_auth_h1_h6": "open",
+  "core_authority": {
+    "state": "passed",
+    "passed": 31,
+    "failed": 0,
+    "ignored": 0,
+    "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\auth-focused-final.log",
+    "log_sha256": "773cce26c42ee0fc9e831d962c717f5c21cd71db2d887fcb6197a633f823cb01"
+  },
+  "core_regression": {
+    "state": "passed",
+    "passed": 9878,
+    "failed": 0,
+    "ignored": 4,
+    "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\core-regression.log",
+    "log_sha256": "b0dac09e3028c7bb71ed76aba9fb71a8d4240ad4b2f59dc76ef60edda67f398c"
+  },
+  "core_regression_input_qualification": "Historical compiled-harness pass; Vibe source changed outside this round after that harness build. Do not infer a current entire-stack pass.",
+  "poet_library": {
+    "state": "passed",
+    "passed": 307,
+    "failed": 0,
+    "ignored": 13,
+    "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\poet-library-final.log",
+    "log_sha256": "d41cd94f4a00d07c4231015a909633267ca3e704291a836307185231d340c9d4"
+  },
+  "poet_attempts": {
+    "poet-library-attempt-1.log": {
+      "state": "no_complete_result",
+      "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\poet-library-attempt-1.log",
+      "log_sha256": "b71dd4b874f117592585550785d250e2379953b7bb63f5e7bfea8de0cc7d0877"
+    },
+    "poet-library-attempt-2.log": {
+      "state": "not_passed",
+      "passed": 267,
+      "failed": 37,
+      "ignored": 13,
+      "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\poet-library-attempt-2.log",
+      "log_sha256": "1ef1bba9eb8828868c1389a07d0e6373f064d62a70d771270c8f7f3ffd82def4"
+    },
+    "poet-library-attempt-3-native.log": {
+      "state": "not_passed",
+      "passed": 306,
+      "failed": 1,
+      "ignored": 13,
+      "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\poet-library-attempt-3-native.log",
+      "log_sha256": "38dce650247bd18a61fc3800ba80044cad62c7d161f024ec296fe48aecb4f5d5"
+    },
+    "poet-library-attempt-4-native.log": {
+      "state": "no_complete_result",
+      "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\poet-library-attempt-4-native.log",
+      "log_sha256": "4f0ace37371a6ec037a0b0291583c75c82a361b9e90e44528db5582e9e8347ba"
+    },
+    "poet-library-attempt-5-native.log": {
+      "state": "passed",
+      "passed": 307,
+      "failed": 0,
+      "ignored": 13,
+      "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\poet-library-attempt-5-native.log",
+      "log_sha256": "d41cd94f4a00d07c4231015a909633267ca3e704291a836307185231d340c9d4"
+    }
+  },
+  "excluded_zero_test_attempt": {
+    "state": "not_passed",
+    "passed": 0,
+    "failed": 0,
+    "ignored": 0,
+    "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\auth-attempt-2.log",
+    "log_sha256": "50dd179d56dfa90e09d96ad7ddaaed81420359889cf65beaf024e9ba78af1b2b"
+  },
+  "saved_files": [
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\concurrent_session_tests.rs",
+      "expected": "4b68125d98dc37642c78bf34be8017146f911a34f4c49cf5458bffda38c36462",
+      "actual": "4b68125d98dc37642c78bf34be8017146f911a34f4c49cf5458bffda38c36462"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\owner.rs",
+      "expected": "77e8e82b6eeb5ab7959bd3a173254bad570dd9c720bed7d12475be89aea36aab",
+      "actual": "77e8e82b6eeb5ab7959bd3a173254bad570dd9c720bed7d12475be89aea36aab"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\package_review_admin.rs",
+      "expected": "8c88ca1d27935b9d09ce2938bfd9aee8c2414358b59aa530a546554087d5803c",
+      "actual": "8c88ca1d27935b9d09ce2938bfd9aee8c2414358b59aa530a546554087d5803c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\tests.rs",
+      "expected": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb",
+      "actual": "04eba000ff385dd13e16e18a6699237979705861a77e983116fa07f99580cadb"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "expected": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373",
+      "actual": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "expected": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "actual": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_lifecycle_tests.rs",
+      "expected": "83e1fca996d9f061836eaa7587ee52cfe2525815f1fea1744c3e86c2cc2df60b",
+      "actual": "83e1fca996d9f061836eaa7587ee52cfe2525815f1fea1744c3e86c2cc2df60b"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_state.rs",
+      "expected": "d16462a893712a25bb5c4b910be6de631b438e76e158d6e8af8e0f5deb51dd59",
+      "actual": "d16462a893712a25bb5c4b910be6de631b438e76e158d6e8af8e0f5deb51dd59"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session_test_fixture.rs",
+      "expected": "861c77ec9e7b0563f2c633d29cc92444698728e7b49dc040f0c6dc5a6b9c3de1",
+      "actual": "861c77ec9e7b0563f2c633d29cc92444698728e7b49dc040f0c6dc5a6b9c3de1"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+      "expected": "4e138e82e6b8d7be9500c90a5434c90e770c89a27d7233e99e24e74227c3187c",
+      "actual": "4e138e82e6b8d7be9500c90a5434c90e770c89a27d7233e99e24e74227c3187c"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\workflow_tests.rs",
+      "expected": "c607a56f8abda192fd287d095fe69f27a07d4ef5eaaed1ecb7b30016906a1d76",
+      "actual": "c607a56f8abda192fd287d095fe69f27a07d4ef5eaaed1ecb7b30016906a1d76"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "expected": "85cc244a058c5fdd0127c9a1f12a0e297e7a4bdc043c3153d441ab138808f579",
+      "actual": "85cc244a058c5fdd0127c9a1f12a0e297e7a4bdc043c3153d441ab138808f579"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+      "expected": "6fc422c23e170a79786291714d7eb71d6b29ce9c9641640e65a21950d54af1a5",
+      "actual": "6fc422c23e170a79786291714d7eb71d6b29ce9c9641640e65a21950d54af1a5"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "expected": "bd09085edbd48a6febe6a7ee1dd04d2353c08318e50c74f58746270ea0182def",
+      "actual": "bd09085edbd48a6febe6a7ee1dd04d2353c08318e50c74f58746270ea0182def"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controller.rs",
+      "expected": "2753496fc6233a7c04d02989e8e099a4f7fb15d6436c4434d89e4d7c4bfe16cf",
+      "actual": "2753496fc6233a7c04d02989e8e099a4f7fb15d6436c4434d89e4d7c4bfe16cf"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical_session.rs",
+      "expected": "862eff2d81a9e2ad7ce6e7ca423dc611736459170952649ab5f292876a7472f5",
+      "actual": "862eff2d81a9e2ad7ce6e7ca423dc611736459170952649ab5f292876a7472f5"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\geometry_host.rs",
+      "expected": "5e0bb23df7dd450a383d775eebfbcd3f8e0a087131f924d9854fe1dc694ac271",
+      "actual": "5e0bb23df7dd450a383d775eebfbcd3f8e0a087131f924d9854fe1dc694ac271"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "expected": "f7ff8a6d216f50c787153ee16ec7799a5899a67a501fd263111b70c345b78e17",
+      "actual": "f7ff8a6d216f50c787153ee16ec7799a5899a67a501fd263111b70c345b78e17"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\execution.rs",
+      "expected": "83aa85fa508a5fa8377d4987d5a2aefd54abf125ab3b851b98b713e8d121163d",
+      "actual": "83aa85fa508a5fa8377d4987d5a2aefd54abf125ab3b851b98b713e8d121163d"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "expected": "6bad6bf0a588e4bc7cfe8b8c3445c7e589dc8f8e12d8beac984a4fce29bad213",
+      "actual": "6bad6bf0a588e4bc7cfe8b8c3445c7e589dc8f8e12d8beac984a4fce29bad213"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "expected": "fb9c389c5a0c276d3465593e0cf76ce62ad3de5551f59d62b1650a39483fd760",
+      "actual": "fb9c389c5a0c276d3465593e0cf76ce62ad3de5551f59d62b1650a39483fd760"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "expected": "dfa5d5b85c394647b92b069be28a063e820d1ab41dcf048e2bab6feee0dcf1ae",
+      "actual": "dfa5d5b85c394647b92b069be28a063e820d1ab41dcf048e2bab6feee0dcf1ae"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "expected": "eb62b1f8229c37595ede5f87a532703d4795d7d736d119e33cc111f605f753c4",
+      "actual": "eb62b1f8229c37595ede5f87a532703d4795d7d736d119e33cc111f605f753c4"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\botanical.rs",
+      "expected": "454ca2e811df7c1b9d2a5d45c8e956dcdab540fce80d9c59fb1047e0e0b75246",
+      "actual": "454ca2e811df7c1b9d2a5d45c8e956dcdab540fce80d9c59fb1047e0e0b75246"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_workflow_tests.rs",
+      "expected": "c0aa3ef6cbf0848bc2664bfcc7f4a0d454594992b1601f7b2e368f3e75b9e503",
+      "actual": "c0aa3ef6cbf0848bc2664bfcc7f4a0d454594992b1601f7b2e368f3e75b9e503"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_tests.rs",
+      "expected": "54947c0155983905bfb78601af195cade309508b0427670c90b91a118418eb07",
+      "actual": "54947c0155983905bfb78601af195cade309508b0427670c90b91a118418eb07"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_motion_tests.rs",
+      "expected": "e6838aafc3ac12bef063d8290821e1727f949fa8c1054222d8f259b23d44f104",
+      "actual": "e6838aafc3ac12bef063d8290821e1727f949fa8c1054222d8f259b23d44f104"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+      "expected": "5b54d07c018a3489bcfdaf0ce55923101d75c6155cf39ffab03f91df659b4bce",
+      "actual": "5b54d07c018a3489bcfdaf0ce55923101d75c6155cf39ffab03f91df659b4bce"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "expected": "404a19e5f4c5b0cea442afdba2a5d9cabb69afa06d903ddbfe38d8b1d935be62",
+      "actual": "404a19e5f4c5b0cea442afdba2a5d9cabb69afa06d903ddbfe38d8b1d935be62"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperative_workflow\\service.rs",
+      "expected": "308bde348570254d24d4191807e2208b44ce4c885b9df7fc325990542a6421bf",
+      "actual": "308bde348570254d24d4191807e2208b44ce4c885b9df7fc325990542a6421bf"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\controls.rs",
+      "expected": "66067c75637108e83cd5723fa3f5ee4b47160a6d67d757fb05befe45e9fb47dd",
+      "actual": "66067c75637108e83cd5723fa3f5ee4b47160a6d67d757fb05befe45e9fb47dd"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\mod.rs",
+      "expected": "f516890a16d9e283c38e8436968d6f0af165c746f7881e712e00f8ed68e06a82",
+      "actual": "f516890a16d9e283c38e8436968d6f0af165c746f7881e712e00f8ed68e06a82"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\recipe.rs",
+      "expected": "1f042c3df63e33a00a1b0bd2b7820b2b88b706ffe800d757bc16050c6a8303ee",
+      "actual": "1f042c3df63e33a00a1b0bd2b7820b2b88b706ffe800d757bc16050c6a8303ee"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\source_edit.rs",
+      "expected": "8bc56e715e45be2468b6504ccbe74ea0c14fb47f945edee81e68228930e397e8",
+      "actual": "8bc56e715e45be2468b6504ccbe74ea0c14fb47f945edee81e68228930e397e8"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\botanical\\tests.rs",
+      "expected": "a1d602b23fda7152be9afdbbeaaabe95f576e671f89bc9af704c370c8d270ec6",
+      "actual": "a1d602b23fda7152be9afdbbeaaabe95f576e671f89bc9af704c370c8d270ec6"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\botanical_graph_host.rs",
+      "expected": "d605cce6e854da23aadd6ac85fcc5fd12bbbc1e1f4208c6da96fdccb79dd4827",
+      "actual": "d605cce6e854da23aadd6ac85fcc5fd12bbbc1e1f4208c6da96fdccb79dd4827"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_biosphere_round1_tests.rs",
+      "expected": "08250bcb30eb21e49388721e2e940188eed42572278f19ddc7144ed9efeb44e1",
+      "actual": "08250bcb30eb21e49388721e2e940188eed42572278f19ddc7144ed9efeb44e1"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\rig_binding\\mod.rs",
+      "expected": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08",
+      "actual": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\rig_binding\\controls.rs",
+      "expected": "71668671a00f04be1b70c312754d7f45a6fee9b2f3c1c097b0fbace7b2c43613",
+      "actual": "71668671a00f04be1b70c312754d7f45a6fee9b2f3c1c097b0fbace7b2c43613"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\rig_binding\\native_controls.rs",
+      "expected": "694b704ccc3843ac5c8515c470598d109f7cd6bda18862487caff6aaaf9e1cf3",
+      "actual": "694b704ccc3843ac5c8515c470598d109f7cd6bda18862487caff6aaaf9e1cf3"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\rig_binding\\tests.rs",
+      "expected": "3f113e3d63f3866a55ab9185323076ea8ed665e8735e6b9ddc6ef66904c628c2",
+      "actual": "3f113e3d63f3866a55ab9185323076ea8ed665e8735e6b9ddc6ef66904c628c2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\animated_rig_preview.rs",
+      "expected": "62036a8855f192d89853997e629920be430d3c694a524edf577f9c51a7db92a7",
+      "actual": "62036a8855f192d89853997e629920be430d3c694a524edf577f9c51a7db92a7"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\selected_owner.rs",
+      "expected": "e7314a9500c9eacb92a96b3c2042a41c1c2060959b17b5838382ab6a70775abd",
+      "actual": "e7314a9500c9eacb92a96b3c2042a41c1c2060959b17b5838382ab6a70775abd"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+      "expected": "00bd63dc4f40b36a656b9ba0f80f3f035020aec1ffc618bb83c373c0b0efefa7",
+      "actual": "00bd63dc4f40b36a656b9ba0f80f3f035020aec1ffc618bb83c373c0b0efefa7"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_selected_session_tests.rs",
+      "expected": "506ab3e16d0fb6b53443af54ab65187382b538b2a1eb4c8c0291df031de4deda",
+      "actual": "506ab3e16d0fb6b53443af54ab65187382b538b2a1eb4c8c0291df031de4deda"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package_workflow\\mod.rs",
+      "expected": "d434a58838f36c157cd861d38a65871272ee72e37aa126ef89bc71e2cc3464cb",
+      "actual": "d434a58838f36c157cd861d38a65871272ee72e37aa126ef89bc71e2cc3464cb"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package_workflow\\service.rs",
+      "expected": "439c65a93c92baabd81ca1400b83ac0057b728ef9ea9e7631e9e198966f2aac8",
+      "actual": "439c65a93c92baabd81ca1400b83ac0057b728ef9ea9e7631e9e198966f2aac8"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+      "expected": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb",
+      "actual": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\mod.rs",
+      "expected": "3c9b9043ca846a61f1daca95ca4842370da5b01147f68dfa08d86ab27c27b1b5",
+      "actual": "3c9b9043ca846a61f1daca95ca4842370da5b01147f68dfa08d86ab27c27b1b5"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\session_proof.rs",
+      "expected": "275826bb7e5e81f84b630fa76230e3e398719cac901003aaf4552312f5a29a79",
+      "actual": "275826bb7e5e81f84b630fa76230e3e398719cac901003aaf4552312f5a29a79"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\runtime.rs",
+      "expected": "90ac09987b1cb5acccb4bd639e2766b967fadb83111fdef65e4162bb989958f9",
+      "actual": "90ac09987b1cb5acccb4bd639e2766b967fadb83111fdef65e4162bb989958f9"
+    }
+  ],
+  "checked_document_links": [
+    {
+      "document": "C:\\github\\ecopunk\\docs\\planning\\biosphere-authoring-round1.md",
+      "target": "tech/human-principal-agent-authority.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\planning\\biosphere-authoring-round1.md",
+      "target": "../qa/implementation-2026-10-26/image-completion/completion-claims.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\planning\\biosphere-authoring-round1.md",
+      "target": "../qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\planning\\biosphere-authoring-round1.md",
+      "target": "../qa/implementation-2026-10-26/biosphere-authoring-round1/README.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\planning\\tech\\human-principal-agent-authority.md",
+      "target": "../../qa/implementation-2026-10-26/biosphere-authoring-round1/human-agent-authority-audit.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\planning\\tech\\human-principal-agent-authority.md",
+      "target": "../../qa/implementation-2026-10-26/biosphere-authoring-round1/human-agent-authority-audit.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "../../../planning/tech/human-principal-agent-authority.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "human-agent-authority-audit.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "hierarchy-audit-integrity.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "../../../planning/implementation-plan.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "../../../planning/biosphere-authoring-round1.md",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "auth-attempt-1.log",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "auth-privacy-installed.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "auth-focused-final.log",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "auth-attempt-2.log",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "auth-installed.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "poet-installed.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "source-integrity.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/serial_check.py",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "vibe-dependency-snapshot.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "poet-library-final.log",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "verification.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "source-integrity.json",
+      "exists": true
+    },
+    {
+      "document": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-authoring-round1\\README.md",
+      "target": "native-executable.json",
+      "exists": true
+    }
+  ]
+}

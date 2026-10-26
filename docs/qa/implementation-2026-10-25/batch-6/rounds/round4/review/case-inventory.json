@@ -1,0 +1,124 @@
+{
+  "status": "unexecuted",
+  "public_cases": [
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:source_grant_never_implies_package_grant",
+      "rust_test": "source_grant_never_implies_package_grant",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_grant_requires_exact_release_source_digest_and_lineage",
+      "rust_test": "package_grant_requires_exact_release_source_digest_and_lineage",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:revoked_expired_duplicate_and_stale_generation_fail_closed",
+      "rust_test": "revoked_expired_duplicate_and_stale_generation_fail_closed",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:producer_source_author_and_known_contributor_cannot_review",
+      "rust_test": "producer_source_author_and_known_contributor_cannot_review",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:resource_producer_may_differ_from_source_author_and_request_exact_contribution",
+      "rust_test": "resource_producer_may_differ_from_source_author_and_request_exact_contribution",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:scoped_package_decision_and_record_budget_are_explicit",
+      "rust_test": "scoped_package_decision_and_record_budget_are_explicit",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:observers_cannot_produce_and_foreign_producers_cannot_request",
+      "rust_test": "observers_cannot_produce_and_foreign_producers_cannot_request",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-cooperative-core\\tests\\package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_old_signed_admission_bytes_remain_exact",
+      "rust_test": "package_review_old_signed_admission_bytes_remain_exact",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_contribution_request_decision_and_reopen_keep_exact_lineage",
+      "rust_test": "package_review_contribution_request_decision_and_reopen_keep_exact_lineage",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_source_grants_file_mismatch_and_stale_generation_cannot_record",
+      "rust_test": "package_review_source_grants_file_mismatch_and_stale_generation_cannot_record",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse",
+      "rust_test": "package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_revocation_and_unsafe_grant_successors_are_atomic",
+      "rust_test": "package_review_revocation_and_unsafe_grant_successors_are_atomic",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_source_successor_and_revoked_membership_withhold_old_targets",
+      "rust_test": "package_review_source_successor_and_revoked_membership_withhold_old_targets",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants",
+      "rust_test": "package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\admin.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_predecessor_writer_cannot_grant_or_review_renamed_successor",
+      "rust_test": "package_review_predecessor_writer_cannot_grant_or_review_renamed_successor",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\history.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_missing_predecessor_stays_explicitly_scoped_and_unassessed",
+      "rust_test": "package_review_missing_predecessor_stays_explicitly_scoped_and_unassessed",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\history.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_unsaved_prior_source_contributor_is_excluded_after_source_successor",
+      "rust_test": "package_review_unsaved_prior_source_contributor_is_excluded_after_source_successor",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\source_history.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_evidence_contains_only_the_exact_selected_target",
+      "rust_test": "package_review_evidence_contains_only_the_exact_selected_target",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\target_isolation.rs",
+      "status": "not_run"
+    },
+    {
+      "case_id": "urn:ecopunk:qa:round4:package-review:package_review_publication_expires_after_same_source_native_package_successor",
+      "rust_test": "package_review_publication_expires_after_same_source_native_package_successor",
+      "source": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round4\\review\\after\\crates\\qualia-core-db\\tests\\native_package_review\\publication.rs",
+      "status": "not_run"
+    }
+  ],
+  "private_only_cases": [
+    "package_review_evidence_counts_refuse_before_any_append",
+    "package_review_entry_byte_budget_refuses_before_creating_a_file",
+    "package_review_generation_overflow_never_admits_signed_successor"
+  ]
+}

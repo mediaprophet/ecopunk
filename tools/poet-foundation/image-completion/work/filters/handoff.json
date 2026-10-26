@@ -1,0 +1,52 @@
+{
+  "owner": "filters",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "high",
+  "status": "staged_unexecuted",
+  "contract": {
+    "path": "tools/poet-foundation/image-completion/CONTRACT.md",
+    "sha256": "0CEB24EBE41A821A4AABD53FDAA1D947787EC06F96EF07FFC8C0F9A0D6110F63"
+  },
+  "files": [
+    {
+      "target": "crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+      "staged": "tools/poet-foundation/image-completion/work/filters/crates/qualia-core-db/src/hypermedia_authoring/image_filters.rs",
+      "preimage": null,
+      "sha256": "D5304FE88D8404C5C6792602BAAC05A53028C3A8A5E16EFB33BCDC7676D8D1FF"
+    },
+    {
+      "target": "crates/qualia-core-db/tests/image_filters_completed.rs",
+      "staged": "tools/poet-foundation/image-completion/work/filters/crates/qualia-core-db/tests/image_filters_completed.rs",
+      "preimage": null,
+      "sha256": "1650CB2B577FC8D35664F40A4683FEC4C9716EB3E0CF99641F9F8F44FD8694CF"
+    }
+  ],
+  "inspected_existing_sources": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image.rs",
+      "sha256": "6D492B8DB1E1A78E2F43BD95BC0A9FD2B7DA9DCC054FCA7EAEAE8E789F0AAB49",
+      "finding": "ImageLayer owns RGBA8 pixels and current four enum variants are no-ops. New module fits this image owner without replacing source storage."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/hypermedia_authoring/image_source_over.rs",
+      "sha256": "E04DC49F5E08216057BA56927EF1DCD98046179F658C17F46DD1F7E4E66CB84E",
+      "finding": "Existing encoded-sample straight RGBA8 source-over is a compositing operation, not a filter kernel. Filter RGB follows that encoded-sample space and preserves filter-specific alpha contracts."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computer_vision/cv/filter/gaussian_blur_u8.rs",
+      "sha256": "7A128E9D8B96F40DC06671D33734929F5A2C19B6442628ADE0A35ADF59A88FF9",
+      "finding": "Existing public CV operator is a fixed 3x3 Gray8 kernel. Its clamped edges and caller-output model are reused, but variable sigma and premultiplied RGBA require a dedicated image-authoring kernel."
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-vision/src/overlay.rs",
+      "sha256": "FFCFF4A8879C18E95C0F1411583B47E378ECA23D75A7FA001BDB9501F7B82401",
+      "finding": "Existing RGBA8 buffer handling is detection-overlay drawing and encoding; it has no filter transform or alpha-aware convolution to call."
+    }
+  ],
+  "verification": {
+    "cargo": "not_run_worker_boundary_root_serial_checks",
+    "tests": "not_run_worker_boundary_root_serial_checks",
+    "coverage_staged": "Public API known vectors including a width-nine Gaussian impulse outside the clamped edge reach, alpha, clamped edges, tiny images, identities, bounds and preflight atomic errors."
+  },
+  "notes": "Gaussian coefficients are normalized once into a fixed 97-element stack kernel and reused by both passes. The width-three impulse conservation claim was corrected to width nine, while retaining a separate width-three transparent-edge case. Root owns image.rs module registration and public re-exports. Git HEAD pin for sibling QualiaDB could not be read through sandbox; per-file SHA-256 source pins are recorded."
+}

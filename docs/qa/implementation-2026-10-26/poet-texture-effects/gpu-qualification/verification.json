@@ -1,0 +1,238 @@
+{
+  "schema": "ecopunk-poet-w2-gpu-qualification/v1",
+  "date_utc": "2026-10-26T07:21:32.789863+00:00",
+  "scope": "Selected Wave2 software profile; actual component events, native GPU and fresh-process source/resource recovery",
+  "canonical_sources": [
+    {
+      "path": "C:/github/poet/native/src/graphical/mcp/mod.rs",
+      "sha256": "69c6b44829e1f3a6a09dd4fb3a4fa82d020b7c3d09a1fa056add9e764cc2203f"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/inspection.rs",
+      "sha256": "8b80d5b8bbd4bfc82aa4343debbdf4b3b0953aaa4608c94ab856a1523be2f28d"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/jobs_tests.rs",
+      "sha256": "2759c908ed74542c3534034ad8e20acbff238754f405aebdfd8b82045ae63f2b"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_tests.rs",
+      "sha256": "a59c19ccb06d91d649c8ebf7a790503018b3d75e9516235fac5b4c530c588a73"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_uv_detail_tests.rs",
+      "sha256": "5acedde0b9ffe3108a249b5bdee068e9b5e8fd3f2d443ea9435079dffa097570"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail_pixels.rs",
+      "sha256": "7ff2a004c449b9827dabdff27877896984399b7896da406ecc66190228d1fcbc"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/tests.rs",
+      "sha256": "c7fb0d1bd0db0e0409e234e8ddd5982aff76c3b812fa105158141fcd47ff5c4b"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/recipe.rs",
+      "sha256": "4b41224aa502d9da2317837322c7d9bac56ff96cbfe0f038592b0897ab58ea30"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/render.rs",
+      "sha256": "9d6cc4dad619d5c80f8cf061d772e65df1f40275fb1042d43007c4cd450b9390"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/mod.rs",
+      "sha256": "0744bff3c7ca5dd2a194cf6b96ed59716117050fa6c95a120ce5b8285396b4d2"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surfaces/detail/effect_tests.rs",
+      "sha256": "9dc37099905a581a35a48175f457f84f7435ebddd79bea9b4330b8d2a6f8eac9"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/detail_controls.rs",
+      "sha256": "b31da3635f64a1199d54ff072879233c3013a0578f5e0a91ec2587f06a800616"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_texture_effect_tests.rs",
+      "sha256": "812f6a09ecdbd2103af4caeb763f394f227db263716db31fe59d815fb4c3745e"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/mcp/texture_effects.rs",
+      "sha256": "7c9a039dd87941272678afc3e52a19c98b2b0c0b407344f8596b817453ab51f4"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/texture_effect_component_tests.rs",
+      "sha256": "01db0ba1166e85f923b6af8c598fccc7a4c0c823f1f6d88fadfae08747913e8c"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_texture_effect_gpu_tests.rs",
+      "sha256": "608485792b914af038933a55ebafebef354816fbde43802a134b50026d0ca076"
+    }
+  ],
+  "passed_checks": [
+    {
+      "log": "baseline-gpu.log",
+      "session_id": 58623,
+      "exit": 0,
+      "summary": "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 276 filtered out"
+    },
+    {
+      "log": "component-attempt-1.log",
+      "session_id": 28052,
+      "exit": 0,
+      "summary": "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 278 filtered out"
+    },
+    {
+      "log": "native-gpu-regressions.log",
+      "session_id": 87057,
+      "exit": 0,
+      "summary": "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 277 filtered out"
+    },
+    {
+      "log": "maps-uv-gpu.log",
+      "session_id": 20869,
+      "exit": 0,
+      "summary": "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 280 filtered out"
+    },
+    {
+      "log": "retained-gpu-attempt-2.log",
+      "session_id": 92095,
+      "exit": 0,
+      "summary": "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 280 filtered out"
+    },
+    {
+      "log": "library-regressions.log",
+      "session_id": 91552,
+      "exit": 0,
+      "summary": "test result: ok. 271 passed; 0 failed; 10 ignored; 0 measured; 0 filtered out"
+    }
+  ],
+  "prior_failure": {
+    "log": "retained-gpu-attempt-1.log",
+    "session_id": 16570,
+    "exit": 101,
+    "cause": "Parent test retained admission/session snapshots while child acquired the authority journal. Parent lifetime scoped correctly; journal guard and all GPU oracles unchanged."
+  },
+  "native_build": {
+    "exit": 0,
+    "log": "native-build.log",
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "sha256": "44c6b876da8c56088a67c454ff6bcaf548c530e61d9a8baaab7f695eac5be496",
+    "bytes": 333645217
+  },
+  "artifacts": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\attempt-2\\parent-baseline-gpu.png",
+      "sha256": "cf69ca2e708e224e9ca862668fb43b675c7423f977b63a155d95075522ae899e"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\attempt-2\\parent-grayscale-gpu.png",
+      "sha256": "07d147ef5462f61297b2439ce321f573a233dd1eada8b6f2c9376eb381062a3c"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\attempt-2\\parent-invert-gpu.png",
+      "sha256": "22eef1ea927cb6eef2b37f2554efb61cdad424483895e4fcb2ff196445f9d3be"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\attempt-2\\parent-sepia-gpu.png",
+      "sha256": "e134f4978b1118fbaecdd6bdea657435f81fbb7e08351ce72cd9f1d01bd6efe3"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\attempt-2\\parent-final-gpu.png",
+      "sha256": "8c0fcf08096cc9147cce8d29e5b17d2977edd01aecd554d6e9747c30326d14ce"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\attempt-2\\child-reopened-gpu.png",
+      "sha256": "8c0fcf08096cc9147cce8d29e5b17d2977edd01aecd554d6e9747c30326d14ce"
+    }
+  ],
+  "witness": {
+    "base_sha256": "da3b54b2d271adae7cb93e287c5dbc28817ccc0abcb5c2d311c58c1801292622",
+    "gpu_backend": "unavailable through public Poet provider API",
+    "gpu_png_sha256": {
+      "baseline": "cf69ca2e708e224e9ca862668fb43b675c7423f977b63a155d95075522ae899e",
+      "child": "8c0fcf08096cc9147cce8d29e5b17d2977edd01aecd554d6e9747c30326d14ce",
+      "final": "8c0fcf08096cc9147cce8d29e5b17d2977edd01aecd554d6e9747c30326d14ce",
+      "grayscale": "07d147ef5462f61297b2439ce321f573a233dd1eada8b6f2c9376eb381062a3c",
+      "invert": "22eef1ea927cb6eef2b37f2554efb61cdad424483895e4fcb2ff196445f9d3be",
+      "sepia": "e134f4978b1118fbaecdd6bdea657435f81fbb7e08351ce72cd9f1d01bd6efe3"
+    },
+    "gpu_rgba8_sha256": "cb1af89c5f1bfb084d1f5dab8d6dadabdfd0df6faa7094c6c1c79e4522e179a5",
+    "grayscale_output_sha256": "8829d5c6c181fd6512aee3421fdaef423ac70910471843e35b5da39f48de63dc",
+    "invert_output_sha256": "4a4c7e62da282a1405a799acfc018b947060fab622802719d731cb61170d8034",
+    "ordered_output_sha256": "44161e4af95060aa8469bf9502f04f98dcd47c82a5d26db95cd3dff7097c9b33",
+    "package_sha256": "b03364cd450cb65e2b36542ea44ce3344cf6e28389ede5311d1b7777cc17d725",
+    "qualification": "64px synthetic retained native GPU readback; no current-window, human, domain or production acceptance",
+    "sepia_output_sha256": "66368613316bd90ccfbca3179ff87b97949f0c7beffbad609143bf3cca84f298",
+    "source_id": "urn:fixture:source:8752-1"
+  },
+  "backend": {
+    "effect_and_dependency_runs": "strict QUALIA_RENDER_WGPU_BACKEND=dx12; inherited by fresh child",
+    "baseline": "automatic native device selection",
+    "adapter_name_and_device_class": "unavailable; not inferred",
+    "proof_sources": [
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\portal_gpu\\constructors.rs",
+        "sha256": "55a18bdb06aa615025545f2ca38b7fdc7cba2db226334d208d982c09909f960c"
+      },
+      {
+        "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\native_device.rs",
+        "sha256": "cc42affe6099161089fa0f6562704bfdce462cb80c31f47698dd02db208c00d0"
+      }
+    ]
+  },
+  "dependency_resolution": {
+    "lock_path": "C:\\github\\poet\\Cargo.lock",
+    "lock_sha256": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a",
+    "selected_entries": [
+      {
+        "name": "etalon",
+        "version": "0.0.1",
+        "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+      },
+      {
+        "name": "naga",
+        "version": "0.0.1",
+        "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+      },
+      {
+        "name": "naga",
+        "version": "29.0.3",
+        "source": "registry+https://github.com/rust-lang/crates.io-index"
+      },
+      {
+        "name": "wgpu",
+        "version": "29.0.3",
+        "source": "registry+https://github.com/rust-lang/crates.io-index"
+      },
+      {
+        "name": "wgpu",
+        "version": "30.0.0",
+        "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+      }
+    ],
+    "caveat": "Resolved Etalon Git source, not a claim that the current local Etalon worktree was compiled."
+  },
+  "default_ignored": "10 default-ignored GPU tests; 7 explicitly executed successfully across the recorded runs. Biological branching and reference parent/child diagnostics remain unrun in this qualification.",
+  "deferred_cases": {
+    "count": 15,
+    "status": "deferred_not_dispatched",
+    "inventory": "C:\\github\\ecopunk\\tools\\poet-foundation\\texture-effects\\work\\deferred-functionality.json"
+  },
+  "remaining": [
+    "Actual native-window layout/accessibility and human acceptance",
+    "Separate human/reviewer/domain approval; whole IP-03 C1-C8 open",
+    "Broader compositor/RAW/ICC/linear-light profiles and the separately tracked image cases"
+  ],
+  "usage_metrics": "unknown; no per-agent token/currency totals available",
+  "asset_production": "HOLD; synthetic engineering inputs/readbacks only; no commits, publication or payment",
+  "document_consistency": {
+    "checked_documents": [
+      "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\README.md",
+      "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\gpu-qualification\\gallery.md",
+      "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\README.md",
+      "C:\\github\\ecopunk\\docs\\planning\\README.md"
+    ],
+    "resolved_local_links_and_images": 144,
+    "json": "root qualification records and central register parse successfully"
+  }
+}

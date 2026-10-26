@@ -37,7 +37,7 @@ interface/spec decisions. Status tags as in the capability map.
 
 - **Traditional:** export occurrence + raster data → Python (`scikit-learn`/
   `maxent`) → re-import results (if ever). Model version, data licence, and
-  run identity live in a notebook, not the graph.
+  run identifiers live in a notebook, not the graph.
 - **QualiaDB:** `solvers/learning/gaussian_process` + `statistics` over the
   same governed records; climate rasters via `opendap_adapter` (consent-gated);
   results encoded as provenance quins (`computational_economics::ontology_bridge`

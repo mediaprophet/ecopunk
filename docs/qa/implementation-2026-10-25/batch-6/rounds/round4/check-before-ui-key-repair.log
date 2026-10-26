@@ -1,0 +1,61 @@
+    Checking vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+    Checking qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+    Checking qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 2 warnings (run `cargo fix --lib -p qualia-core-db` to apply 1 suggestion)
+    Checking qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+    Checking webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+    Checking poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+    Checking poet-cli v0.0.40 (C:\github\poet\native)
+warning: use of deprecated unit struct `graphical::package_controls::PackageControls::_::Warning`: Keys are only allowed on the first node in the block.
+   --> native\src\graphical\package_controls.rs:160:41
+    |
+160 |                 GeoRasterCreateView{key:"{hex_digest(&package.digest)}",
+    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated unit struct `graphical::package_controls::PackageControls::_::Warning`: Keys are only allowed on the first node in the block.
+   --> native\src\graphical\package_controls.rs:150:43
+    |
+150 |                     GeoRasterEditView{key:"{hex_digest(&view.result.request.resource_digest)}",
+    |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (lib) generated 3 warnings
+warning: `poet-cli` (lib test) generated 3 warnings (3 duplicates)
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (bin "poet" test) generated 1 warning
+    Finished `dev` profile [unoptimized] target(s) in 3m 21s

@@ -1,0 +1,26 @@
+StudioArtifact {
+    id: "urn:ecopunk:diagnostic:source-smoke:30540",
+    did_q42: 10090465625224880895,
+    domain: "Geometry",
+    title: "API source/render diagnostic",
+    lamport_clock: 5,
+    routing_lane: 0,
+    sensitivity: 0,
+    context_did_hash: 1080348458397802090,
+    nodes: {
+        "poet.native.submission/00000000000000000001": {
+            "text": "requires [ capability(\"capability.invoke\"), capability(\"ComputationalGeometry.extrude_profile\") ];\ncapability.invoke(\"ComputationalGeometry.extrude_profile\", {\n  axis: [[0.0, 0.0, -1.0], [0.12, 0.06, -0.4], [0.18, 0.02, 0.3], [0.1, 0.0, 1.0]],\n  section: [[-0.20, -0.10], [0.18, -0.12], [0.24, 0.05], [0.02, 0.20], [-0.18, 0.10]],\n  closed: true, caps: true\n});",
+        },
+        "poet.native.submission/00000000000000000002": {
+            "text": "requires [ capability(\"capability.invoke\"), capability(\"ComputationalGeometry.extrude_profile\") ];\ncapability.invoke(\"ComputationalGeometry.extrude_profile\", {\n  axis: [[0.0, 0.0, -1.0], [0.12, 0.40, -0.4], [0.18, 0.02, 0.3], [0.1, 0.0, 1.0]],\n  section: [[-0.20, -0.10], [0.18, -0.12], [0.24, 0.05], [0.02, 0.20], [-0.18, 0.10]],\n  closed: true, caps: true\n});",
+        },
+    },
+    properties: {},
+    history: [
+        "edit:1->2",
+        "edit:2->3",
+        "undo:3->4",
+        "edit:4->5",
+    ],
+    redo_stack: [],
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "Prevent checkpoint replacement from dropping any existing inert resource; exact Poet-only guard, no core edits",
+  "applied": false,
+  "mutations": [
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/mod.rs",
+      "original_sha256": "8946DB5F5530464EE2F0BDE7475C2D5BFF264FBA6664E7EF44E66FBDA2A6BB1A",
+      "candidate": "poet-preservation-candidate/checkpoints/mod.rs",
+      "candidate_sha256": "6C62FC8B435835301B41C80CE65330FC4756370824D9E384999597A017CD842D"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/resource_preservation_tests.rs",
+      "original_sha256": null,
+      "candidate": "poet-preservation-candidate/checkpoints/resource_preservation_tests.rs",
+      "candidate_sha256": "5CAA776EBE2247B75D0F61D767F9A2B16E25BFE85324BBDBEBF5D88E05510D7C"
+    }
+  ]
+}

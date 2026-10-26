@@ -1,0 +1,8 @@
+Poet CLI toolchain for VibeScript (vvibe-0.1)
+
+Usage:
+  poet repl           Start an interactive VibeScript REPL
+  poet format <file>  Format a .vibe file
+  poet lint <file>    Run static analysis checks on a .vibe file
+  poet eval <file>    Evaluate a .vibe file and print result
+  poet help           Show this help message

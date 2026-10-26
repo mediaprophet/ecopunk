@@ -2,3 +2,21 @@
 /target_check
 **/*.rs.bk
 *.pdb
+
+# Local verification builds; retain their source, fixtures and evidence records.
+**/target/
+**/target_check/
+*.exe
+*.o
+*.obj
+*.rlib
+*.rmeta
+*.dll
+*.lib
+*.a
+*.d
+*.bc
+*.exp
+*.ilk
+*.pyc
+**/__pycache__/

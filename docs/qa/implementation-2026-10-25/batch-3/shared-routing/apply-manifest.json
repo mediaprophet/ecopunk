@@ -1,0 +1,17 @@
+{
+  "scope": "Shared native UI/MCP session route and restart-distinct non-authority context labels",
+  "mutations": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "candidate": "candidate/src/graphical/mod.rs",
+      "original_sha256": "266dbc42e792403d7bceab07796ad205220ae13ab6e33690f8a24899100f0fd6",
+      "candidate_sha256": "5abb47c60ae98da60f335ee49ba846a7d64a02bee7d43285ba44332d624cccab"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "candidate": "candidate/src/graphical/mcp/mod.rs",
+      "original_sha256": "3a3f5300ae06515da0d0add5f7ccae5adeb5e8c2fc70d166e9c4deb2e7af890d",
+      "candidate_sha256": "fc138a69d841d1d7bc17773ae9ce3d85a6ce0e4f17aabdf6210a41e3c23f7144"
+    }
+  ]
+}

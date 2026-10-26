@@ -1,0 +1,139 @@
+{
+  "status": "all actual applied source bytes equal frozen candidates",
+  "verified_at": "2026-10-24T11:17:37.101433+00:00",
+  "maps": {
+    "patch-map.json": "741c51314b8aff6899247690e1c5fc02a49d0a40cfc1fb57c97b49cc896adb0d",
+    "poet-patch-map.json": "61e1f173654fde85acc6b8d26b42334f200829ca70e3cf3618dbd81ca3d70e4e"
+  },
+  "inputs": {
+    "C:\\github\\qualiaDB\\crates\\vibe\\Cargo.toml": "b52796567e54c9575fb7cb02da59906311c9bf1a2233dace9ac0dea8b72e265f",
+    "C:\\github\\qualiaDB\\crates\\vibe\\src\\parse\\mod.rs": "3a38527eaa49f0c1ed40eda19f8523dcf5c64b2f58bfec2c5671798a218b1f40",
+    "C:\\github\\poet\\Cargo.toml": "dccb5ba5353cefefd9e8cf6cc3bc736b9dd6eabaa9e59825b066598d977be385",
+    "C:\\github\\poet\\native\\Cargo.toml": "d123d8f401345041c0222c6228a0c6bcb7bddda67a79c6abebaaf385e1a77a45",
+    "C:\\github\\poet\\Cargo.lock": "031caaaae3ccd491296517e9fb51890a37bdf39303765bd5c74fa21876514911",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\parser\\harness\\Cargo.toml": "f4df79449cb4f643324e28c0bdf805fab5b3ca08d1d61ee28daded81159e7235",
+    "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-24\\batch-2\\parser\\harness\\Cargo.lock": "4483e9b2f019227deddca3244a3e0dde31b9038ec99d54d08b4ae0abaee578ca"
+  },
+  "targets": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\fixtures\\crypto1_hash_sign.vibe",
+      "sha256": "f1374cfe34b8f7b58198ab78f1b5ebb76b6679469d033840c8a749643c9350e4",
+      "expected_sha256": "f1374cfe34b8f7b58198ab78f1b5ebb76b6679469d033840c8a749643c9350e4"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\bindings.rs",
+      "sha256": "28f10a45b4b1ec66f1db6a7657e317fac8e3582d84b84127927c3c103a99389d",
+      "expected_sha256": "28f10a45b4b1ec66f1db6a7657e317fac8e3582d84b84127927c3c103a99389d"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\context.rs",
+      "sha256": "469f6e557bbfff6df5e28e6f9e6b35bce88a4a405a1a585672a9c20347c14fdb",
+      "expected_sha256": "469f6e557bbfff6df5e28e6f9e6b35bce88a4a405a1a585672a9c20347c14fdb"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\expressions.rs",
+      "sha256": "83e61c6659594fba13ab64b35246254531129666769ee41d252a9cc2996d17a2",
+      "expected_sha256": "83e61c6659594fba13ab64b35246254531129666769ee41d252a9cc2996d17a2"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\helpers.rs",
+      "sha256": "69e999c8c54905fec2fe07cd90b0b24bb2d7748655102935313797304b00c8f5",
+      "expected_sha256": "69e999c8c54905fec2fe07cd90b0b24bb2d7748655102935313797304b00c8f5"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\mod.rs",
+      "sha256": "2cb57d52fae9bfdf8092f9fb96b809e66ec80a0554886ca35b9e37f3b0a8c706",
+      "expected_sha256": "2cb57d52fae9bfdf8092f9fb96b809e66ec80a0554886ca35b9e37f3b0a8c706"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\statements.rs",
+      "sha256": "813115adc74f4bdeaeb8718c0c692134807a79041d06a74e5299a0cab7eb4dae",
+      "expected_sha256": "813115adc74f4bdeaeb8718c0c692134807a79041d06a74e5299a0cab7eb4dae"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\tests.rs",
+      "sha256": "1f8adcbd5bd2d1d9f7cfe59b03518e638a87bcab495b456d08fb13d83ea3f464",
+      "expected_sha256": "1f8adcbd5bd2d1d9f7cfe59b03518e638a87bcab495b456d08fb13d83ea3f464"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\check.rs",
+      "sha256": "7f53eeab2ba47a061f79842b74a9cee89ac6ea01e65178b5842d9c8125c328b9",
+      "expected_sha256": "7f53eeab2ba47a061f79842b74a9cee89ac6ea01e65178b5842d9c8125c328b9"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\budget.rs",
+      "sha256": "2f0d7b8953f375b9afcb28ef26e5425910b8e02a863c82ded4e7d030790dbe9a",
+      "expected_sha256": "2f0d7b8953f375b9afcb28ef26e5425910b8e02a863c82ded4e7d030790dbe9a"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\call.rs",
+      "sha256": "83f673bc5cd6270e015d98f70ed7411584ff68672f245db83ccc3a9b254b39a8",
+      "expected_sha256": "83f673bc5cd6270e015d98f70ed7411584ff68672f245db83ccc3a9b254b39a8"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\expr.rs",
+      "sha256": "9c7bcc1174779d2d2d521a1f461ca0d2d5ac3057447b24be016a8524b10d0936",
+      "expected_sha256": "9c7bcc1174779d2d2d521a1f461ca0d2d5ac3057447b24be016a8524b10d0936"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\mod.rs",
+      "sha256": "cd13985285f1418a137eba8503be2dfdcdb1a6271b684ac41fb6a3c4bc7e1a50",
+      "expected_sha256": "cd13985285f1418a137eba8503be2dfdcdb1a6271b684ac41fb6a3c4bc7e1a50"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\program.rs",
+      "sha256": "30e5212dda2ee8811b453a4f95c456e4cdc95a26146b57a6294285465dee79d1",
+      "expected_sha256": "30e5212dda2ee8811b453a4f95c456e4cdc95a26146b57a6294285465dee79d1"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\eval\\stack.rs",
+      "sha256": "540ee41c74182d8b0dc7bb5818209f8caa0b311cf1c84990168aee2d4d1e234a",
+      "expected_sha256": "540ee41c74182d8b0dc7bb5818209f8caa0b311cf1c84990168aee2d4d1e234a"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\lib.rs",
+      "sha256": "fc41537324d753f8a1972001f03e0aedf3098ce347ec405b2eec885b4a8bf230",
+      "expected_sha256": "fc41537324d753f8a1972001f03e0aedf3098ce347ec405b2eec885b4a8bf230"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+      "sha256": "ff2567e1e585a40fcf560677cb286005b1f512f96ee39a673d5ddd675698f544",
+      "expected_sha256": "ff2567e1e585a40fcf560677cb286005b1f512f96ee39a673d5ddd675698f544"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\prepare.rs",
+      "sha256": "363592b189d15efdc9dc941f747ccd8aa0531a35f6bbeeed2faf36b32188e6e3",
+      "expected_sha256": "363592b189d15efdc9dc941f747ccd8aa0531a35f6bbeeed2faf36b32188e6e3"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\source_limits.rs",
+      "sha256": "4b4fe0c5dfb653856b24f7c95595481987106a149b913495ad5da6a785fd818e",
+      "expected_sha256": "4b4fe0c5dfb653856b24f7c95595481987106a149b913495ad5da6a785fd818e"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\tests.rs",
+      "sha256": "9b5e42cdbd0f425adef5ab13bfe37a66228b80d15b4f5074f691a4726d7b1bb0",
+      "expected_sha256": "9b5e42cdbd0f425adef5ab13bfe37a66228b80d15b4f5074f691a4726d7b1bb0"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\values.rs",
+      "sha256": "796bcbaf70dd6f6eabfc828ffd9b34658c841a490d6564caab7edc9f38082a5f",
+      "expected_sha256": "796bcbaf70dd6f6eabfc828ffd9b34658c841a490d6564caab7edc9f38082a5f"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\tests\\conformance.rs",
+      "sha256": "e344d1d716194484b8b051bf6c37239c3ec9d989d6222a917544a2758b8501b6",
+      "expected_sha256": "e344d1d716194484b8b051bf6c37239c3ec9d989d6222a917544a2758b8501b6"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\repl.rs",
+      "sha256": "be6917851e6ee58c8bf46340addeaef7d9e55e8f41a608d52f3983358b40b3cf",
+      "expected_sha256": "be6917851e6ee58c8bf46340addeaef7d9e55e8f41a608d52f3983358b40b3cf"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\main.rs",
+      "sha256": "f3099e3450213fdc5a290b48de7589ed4d00ebeb93a7dbd093b6ad68fd90c1a6",
+      "expected_sha256": "f3099e3450213fdc5a290b48de7589ed4d00ebeb93a7dbd093b6ad68fd90c1a6"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "mode": "workflow",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "surface_profile_native_intents_texture_closure_review_and_rebind_reopen",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T10:42:58.772112+00:00",
+  "finished_utc": "2026-10-25T10:44:12.969239+00:00",
+  "elapsed_seconds": 74.187,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\workflow.log",
+  "log_sha256": "ac96bc73708f5a2e32564718a39e55b632596b92fc09357fed5f0f0917853a04",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\workflow-source-before.json",
+  "source_snapshot_sha256": "b427853f3077063ad7446a9fe7b19ca0aa19845fbe4b53418fde121fd2df4864",
+  "recorded_local_source_files": 3219,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 1,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::native_project::tests::surface_workflow_tests::surface_profile_native_intents_texture_closure_review_and_rebind_reopen"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round6-3f16gkg5",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

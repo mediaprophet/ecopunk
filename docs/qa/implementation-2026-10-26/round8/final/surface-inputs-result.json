@@ -1,0 +1,57 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::surfaces::tests::",
+    "--",
+    "--test-threads=1"
+  ],
+  "mode": "surface-inputs",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T14:28:52.246480+00:00",
+  "finished_utc": "2026-10-25T14:29:05.534694+00:00",
+  "elapsed_seconds": 13.297,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surface-inputs.log",
+  "log_sha256": "d5725e0ac4137feff7fcef225d0b10a39e08097a21801f1b116a7566e3f04530",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round8\\final\\surface-inputs-source-before.json",
+  "source_snapshot_sha256": "7fa9719e12675fcaac981fd4ea397c349133c49f1c6cba38c5fc979b3f5c58d4",
+  "recorded_local_source_files": 3253,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      6,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::surfaces::tests::all_visual_mat4_fields_and_six_role_records_round_trip_pinned_vibe",
+    "graphical::surfaces::tests::normal_slot_rotation_reflection_and_legacy_textured_envelopes_refuse",
+    "graphical::surfaces::tests::resource_and_binding_budgets_refuse_without_silent_refinement",
+    "graphical::surfaces::tests::shared_linear_orm_dependency_is_retained_once_with_both_map_slots",
+    "graphical::surfaces::tests::uv_projection_uses_canonical_metres_and_transform_is_atomic",
+    "graphical::surfaces::tests::verified_dependency_closure_reopens_and_refuses_missing_corrupt_and_role_mismatch"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

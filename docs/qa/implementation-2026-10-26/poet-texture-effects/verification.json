@@ -1,0 +1,147 @@
+{
+  "schema": "ecopunk-poet-texture-effects-verification/v1",
+  "date_utc": "2026-10-26T06:28:06.970167+00:00",
+  "scope": "POET-TEXTURE-W2 selected software cases, not whole-product/asset acceptance",
+  "canonical_files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "69c6b44829e1f3a6a09dd4fb3a4fa82d020b7c3d09a1fa056add9e764cc2203f"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\inspection.rs",
+      "sha256": "8b80d5b8bbd4bfc82aa4343debbdf4b3b0953aaa4608c94ab856a1523be2f28d"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "sha256": "2759c908ed74542c3534034ad8e20acbff238754f405aebdfd8b82045ae63f2b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "sha256": "a59c19ccb06d91d649c8ebf7a790503018b3d75e9516235fac5b4c530c588a73"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_uv_detail_tests.rs",
+      "sha256": "5acedde0b9ffe3108a249b5bdee068e9b5e8fd3f2d443ea9435079dffa097570"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail_pixels.rs",
+      "sha256": "7ff2a004c449b9827dabdff27877896984399b7896da406ecc66190228d1fcbc"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\tests.rs",
+      "sha256": "c7fb0d1bd0db0e0409e234e8ddd5982aff76c3b812fa105158141fcd47ff5c4b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\recipe.rs",
+      "sha256": "4b41224aa502d9da2317837322c7d9bac56ff96cbfe0f038592b0897ab58ea30"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\render.rs",
+      "sha256": "9d6cc4dad619d5c80f8cf061d772e65df1f40275fb1042d43007c4cd450b9390"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\mod.rs",
+      "sha256": "0744bff3c7ca5dd2a194cf6b96ed59716117050fa6c95a120ce5b8285396b4d2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\effect_tests.rs",
+      "sha256": "9dc37099905a581a35a48175f457f84f7435ebddd79bea9b4330b8d2a6f8eac9"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\detail_controls.rs",
+      "sha256": "be70ad2b39ba7ef633b3e269a49b08614d22e9f1f731741d8ebbf3b0f11551d7"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_tests.rs",
+      "sha256": "abddde692ca30aa9fd2ebc5bb199e2edce8de27d36fa9757d3c2f9288f85a6fd"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\texture_effects.rs",
+      "sha256": "7c9a039dd87941272678afc3e52a19c98b2b0c0b407344f8596b817453ab51f4"
+    }
+  ],
+  "tests": {
+    "exit": 0,
+    "log": "check-attempt-2.log",
+    "summary": "test result: ok. 268 passed; 0 failed; 9 ignored; 0 measured; 0 filtered out",
+    "selected_effect_cases": [
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_add_update_toggle_order_remove_preserve_legacy",
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_bound_and_unknown_edits_are_atomic",
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_changed_source_selection_or_context_requires_reload",
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_invalid_or_changed_origin_fields_refuse_old_recipe",
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_invalid_stroke_or_procedural_form_refuses_old_recipe",
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_invalid_text_retains_form_and_refuses_apply",
+      "graphical::authoring::detail_controls::tests::texture_effect_controls_kind_switch_reveals_retained_invalid_sepia",
+      "graphical::native_project::tests::texture_effect_workflow_tests::signed_texture_effect_native_mcp_pixels_history_hmc_and_fresh_process",
+      "graphical::native_project::tests::texture_effect_workflow_tests::signed_texture_effect_refusals_preserve_source_history_and_context_rules",
+      "graphical::surfaces::detail::effect_tests::texture_effect_budgets_charge_disabled_work_and_temporary_before_base_allocation",
+      "graphical::surfaces::detail::effect_tests::texture_effect_legacy_expression_and_version_admission",
+      "graphical::surfaces::detail::effect_tests::texture_effect_order_disable_remove_and_source_immutability",
+      "graphical::surfaces::detail::effect_tests::texture_effect_real_filters_match_independent_expected_rgba_vectors",
+      "graphical::surfaces::detail::effect_tests::texture_effect_runs_after_paint_composite_and_retains_layers",
+      "graphical::surfaces::detail::effect_tests::texture_effect_strict_fields_kinds_required_fields_and_parameters"
+    ]
+  },
+  "prior_attempt": {
+    "session_id": 68375,
+    "exit": 101,
+    "log": "check-attempt-1.log",
+    "result": "266 passed, 2 failed, 9 ignored; unit-enum decoder accepted extra fields. Strict decoding repair saved; original negative tests retained."
+  },
+  "execution_sessions": {
+    "final_test": 30492,
+    "native_build": 12171
+  },
+  "commands": {
+    "test": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --lib -- --test-threads=1",
+    "build": "cargo build --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --bin poet",
+    "execution": "Root-only serial_check.py lease; canonical sources frozen during checks; tests opted into an existing diagnostic evidence directory."
+  },
+  "native_build": {
+    "exit": 0,
+    "log": "native-build.log",
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "sha256": "822bc21b1a0b8affa8ad4c276d1f145c6b1198942eebd90d3650a8d62af5839e",
+    "bytes": 333645217
+  },
+  "diagnostics": [
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\diagnostic\\original.png",
+      "sha256": "da3b54b2d271adae7cb93e287c5dbc28817ccc0abcb5c2d311c58c1801292622",
+      "bytes": 302
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\diagnostic\\effects.png",
+      "sha256": "4a4c7e62da282a1405a799acfc018b947060fab622802719d731cb61170d8034",
+      "bytes": 316
+    },
+    {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-texture-effects\\diagnostic\\reopened.png",
+      "sha256": "4a4c7e62da282a1405a799acfc018b947060fab622802719d731cb61170d8034",
+      "bytes": 316
+    }
+  ],
+  "diagnostic_scope": "8x8 synthetic calibration; CPU canonical encoded resources; no biological/production asset, human or GPU acceptance",
+  "deferred_functionality": {
+    "inventory": "C:\\github\\ecopunk\\tools\\poet-foundation\\texture-effects\\work\\deferred-functionality.json",
+    "cases": 15,
+    "status": "deferred_not_dispatched",
+    "core_source_pin_unchanged": true
+  },
+  "checks": {
+    "local_links_resolved": 21,
+    "json_files_parsed": 5,
+    "check_lease": "absent after completed root-owned commands"
+  },
+  "source_reuse": "Canonical Qualia image operations, source-over, codecs, resource/source/session/history owners reused; no external shell/kernel copied, no new JS/Boa/state store/dependency or HMC wire format.",
+  "preservation": "Preimage-pinned installs and backups; prior W1 receipts retained as historical evidence; no clean global sibling Git-state claim.",
+  "usage_metrics": "unknown; collaboration tools provide no per-agent token/currency totals",
+  "remaining": [
+    "Human/current-window and actual GPU scene-quality qualification",
+    "Full image compositor/RAW/ICC/linear-light workflows",
+    "15 recorded source stubs/ignored fields plus other unqualified operations",
+    "Simultaneous distinct-principal cooperation unqualified",
+    "Whole IP-03 C1-C8 and model/film/game/cartoon acceptance"
+  ],
+  "asset_production": "HOLD; only synthetic engineering PNG evidence retained; no production assets, commits, publication or payments"
+}

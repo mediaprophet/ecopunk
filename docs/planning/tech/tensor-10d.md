@@ -88,6 +88,17 @@ pressure arrive through **baking + modulated operators**:
 
 ## 5. Spectral payload — truth is the spectrum, not the pixel
 
+**Implementation and physical-domain clarification, 2026-10-26:** apply the
+[biosphere EMF/cue contract](biosphere-graph-spectra-and-streaming.md#emf-physical-fields-and-organism-responses).
+Keep EMF as the native framework while distinguishing electromagnetic radiation,
+mechanical/acoustic spectra and other typed environmental quantities. Current
+Core `Spd` spans 380–780 nm in 41 samples; Gaussian EMF reconstruction, a phase
+colour view and sigma-to-audio sonification do not establish measured full-band
+spectra or an organism's perception. Preserve original acquisition data, unknown
+bands, units/calibration and measured/reconstructed/modelled status. The intent
+below is not proof that every current asset/consumer already meets it; in-band
+provenance/consent flags do not establish actual authority or permission.
+
 - **Storage/truth layer is spectral**: SPD for visual, STFT/CQT sheets for
   audio + linear `α` amplitude + `μ` modulation metadata. **RGB is a lossy,
   device-specific projection** — never the stored truth.
@@ -96,7 +107,7 @@ pressure arrive through **baking + modulated operators**:
   hardware evolves. This is the format-level guarantee behind our T5
   captured-real tier: capture the spectrum once, project honestly forever.
 - **`μ` steganography layer** — DIDs, provenance, consent flags embedded in
-  guard bands (sub-20 Hz / near-20 kHz audio; IR/UV visual) — *identity and
+  guard bands (sub-20 Hz / near-20 kHz audio; IR/UV visual) — *identifiers and
   rights travel inside the signal*, not beside it.
 
 ## 6. What this means for ecopunk

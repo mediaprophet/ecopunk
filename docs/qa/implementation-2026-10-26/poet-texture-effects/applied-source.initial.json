@@ -1,0 +1,77 @@
+{
+  "date_utc": "2026-10-26T06:02:13.870596+00:00",
+  "scope": "User requested Wave2 native Poet texture/effect implementation; exact reviewed files only; no upstream Core changes, manifests, lockfiles, commits or production assets.",
+  "files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256_before": "e669dddf57310b9c54a28ebaca6e60b39d2ffa3776776b76d028e6b68110fe2e",
+      "sha256_after": "69c6b44829e1f3a6a09dd4fb3a4fa82d020b7c3d09a1fa056add9e764cc2203f"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\inspection.rs",
+      "sha256_before": "8a14b6926f2ab2255f29b7592eca14a8c1ee7dc80edba1119cbf5ab3e3a11bdb",
+      "sha256_after": "8b80d5b8bbd4bfc82aa4343debbdf4b3b0953aaa4608c94ab856a1523be2f28d"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "sha256_before": "32cf35e813c5fa5e4c592fd34b9d3b4568d56205b194cad2e7653e3b5993ad5a",
+      "sha256_after": "2759c908ed74542c3534034ad8e20acbff238754f405aebdfd8b82045ae63f2b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "sha256_before": "6b5e6de2bafdae90584235ab5ef10172cd70c22f8f5110576bdebea19b58d204",
+      "sha256_after": "a59c19ccb06d91d649c8ebf7a790503018b3d75e9516235fac5b4c530c588a73"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_uv_detail_tests.rs",
+      "sha256_before": "8a0bb9fd1dd23e48000bad9b1dc1efcea98e05aef840481ab571a00f254974d0",
+      "sha256_after": "5acedde0b9ffe3108a249b5bdee068e9b5e8fd3f2d443ea9435079dffa097570"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail_pixels.rs",
+      "sha256_before": "e0717511b3093151803df090c3191ee322ea39687135f968f66310aecc464d61",
+      "sha256_after": "7ff2a004c449b9827dabdff27877896984399b7896da406ecc66190228d1fcbc"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\tests.rs",
+      "sha256_before": "011f47883694038a5e5788a29a1635dff6a89def5da24b8d55656539a020744c",
+      "sha256_after": "c7fb0d1bd0db0e0409e234e8ddd5982aff76c3b812fa105158141fcd47ff5c4b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\recipe.rs",
+      "sha256_before": "5b9429061eacc6f8e404d54c59eaa4b093020d6b89e0d304d25e65a358f77371",
+      "sha256_after": "da250d3ee60670bb71bd03a687ef20e0a5cf76264a0b640fb7c344ee8be7baa7"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\render.rs",
+      "sha256_before": "48491aaaab748ca8eecb1d5598ee36e371c9daa6cca4dd4719defcc1a84f3fa6",
+      "sha256_after": "9d6cc4dad619d5c80f8cf061d772e65df1f40275fb1042d43007c4cd450b9390"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\mod.rs",
+      "sha256_before": "b8f7628bb571844f051d39fda7b931d4eb22b7335094897334534783efff9187",
+      "sha256_after": "0744bff3c7ca5dd2a194cf6b96ed59716117050fa6c95a120ce5b8285396b4d2"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\detail\\effect_tests.rs",
+      "sha256_before": null,
+      "sha256_after": "9dc37099905a581a35a48175f457f84f7435ebddd79bea9b4330b8d2a6f8eac9"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\detail_controls.rs",
+      "sha256_before": "80cdfc2f4b1120dd864faede2e0953ce09d7ae0b55e674ebf255f8f543f5dfb1",
+      "sha256_after": "be70ad2b39ba7ef633b3e269a49b08614d22e9f1f731741d8ebbf3b0f11551d7"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_texture_effect_tests.rs",
+      "sha256_before": null,
+      "sha256_after": "7d18e2a52f5214f1328f63685fa4f6e719ecde5774fee191e12120b63119b1cf"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\texture_effects.rs",
+      "sha256_before": null,
+      "sha256_after": "7c9a039dd87941272678afc3e52a19c98b2b0c0b407344f8596b817453ab51f4"
+    }
+  ],
+  "completed": true
+}

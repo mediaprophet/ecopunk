@@ -1,0 +1,365 @@
+{
+  "seed_ecopunk_sha256": "AC0C72951E746C497B8A04A17547BA52E2235B986EA6FA40F5C7ABACC3191809",
+  "source_aether_sha256": "E43E1DEA22E85C4B8F062132C779067CD71C5B2866C78FED54CF20288407659A",
+  "integrated_sha256": "BFDC52864DAA169032A6C23E3E8673BE9B89EF3078BFCAB0181B11178E107FC9",
+  "seed_packages": 565,
+  "aether_packages": 1513,
+  "integrated_packages": 825,
+  "changed_seed_package_version_sets": [
+    {
+      "name": "bit-set",
+      "old": [
+        "0.11.1 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.11.1 registry+https://github.com/rust-lang/crates.io-index",
+        "0.9.1 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "crc32c",
+      "old": [
+        "0.6.8 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": []
+    },
+    {
+      "name": "ecopunk-terrain",
+      "old": [
+        "0.1.0 "
+      ],
+      "new": []
+    },
+    {
+      "name": "ecopunk-wasm",
+      "old": [
+        "0.1.0 "
+      ],
+      "new": []
+    },
+    {
+      "name": "futures-channel",
+      "old": [
+        "0.3.34 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.3.32 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "glow",
+      "old": [
+        "0.18.0 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.17.0 registry+https://github.com/rust-lang/crates.io-index",
+        "0.18.0 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "jni",
+      "old": [
+        "0.22.4 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.21.1 registry+https://github.com/rust-lang/crates.io-index",
+        "0.22.4 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "linux-raw-sys",
+      "old": [
+        "0.12.1 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.12.1 registry+https://github.com/rust-lang/crates.io-index",
+        "0.4.15 registry+https://github.com/rust-lang/crates.io-index",
+        "0.9.4 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "naga",
+      "old": [
+        "0.0.1 git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+      ],
+      "new": [
+        "0.0.1 git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+        "29.0.3 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "pollster",
+      "old": [
+        "1.0.1 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.4.0 registry+https://github.com/rust-lang/crates.io-index",
+        "1.0.1 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "qualia-geospatial",
+      "old": [
+        "0.0.40 "
+      ],
+      "new": []
+    },
+    {
+      "name": "qualia-sim",
+      "old": [
+        "0.0.40 "
+      ],
+      "new": []
+    },
+    {
+      "name": "quick-xml",
+      "old": [
+        "0.36.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.41.0 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.36.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.39.4 registry+https://github.com/rust-lang/crates.io-index",
+        "0.41.0 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "redox_syscall",
+      "old": [
+        "0.5.18 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.5.18 registry+https://github.com/rust-lang/crates.io-index",
+        "0.9.0 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "rustc-hash",
+      "old": [
+        "1.1.0 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "1.1.0 registry+https://github.com/rust-lang/crates.io-index",
+        "2.1.3 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "rustix",
+      "old": [
+        "1.1.5 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.38.44 registry+https://github.com/rust-lang/crates.io-index",
+        "1.1.5 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "vibe-wasm",
+      "old": [
+        "0.0.40 "
+      ],
+      "new": []
+    },
+    {
+      "name": "wgpu",
+      "old": [
+        "30.0.0 git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+      ],
+      "new": [
+        "29.0.3 registry+https://github.com/rust-lang/crates.io-index",
+        "30.0.0 git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+      ]
+    },
+    {
+      "name": "windows_aarch64_gnullvm",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows_aarch64_msvc",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows_i686_gnu",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows_i686_msvc",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows_x86_64_gnu",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows_x86_64_gnullvm",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows-sys",
+      "old": [
+        "0.52.0 registry+https://github.com/rust-lang/crates.io-index",
+        "0.61.2 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.45.0 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.0 registry+https://github.com/rust-lang/crates.io-index",
+        "0.59.0 registry+https://github.com/rust-lang/crates.io-index",
+        "0.61.2 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    },
+    {
+      "name": "windows-targets",
+      "old": [
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ],
+      "new": [
+        "0.42.2 registry+https://github.com/rust-lang/crates.io-index",
+        "0.52.6 registry+https://github.com/rust-lang/crates.io-index"
+      ]
+    }
+  ],
+  "etalon_packages": [
+    {
+      "name": "etalon",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-agent",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-core",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-core-deps-apple",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-core-deps-emscripten",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-core-deps-linux-android-bsd",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-core-deps-windows",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-hal",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-naga-bridge",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-nquin",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-render",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-sync",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-tensor",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-types",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-wasm",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "etalon-wgsl-forge",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "naga",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "naga-types",
+      "version": "0.0.1",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    },
+    {
+      "name": "wgpu",
+      "version": "30.0.0",
+      "source": "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+    }
+  ],
+  "note": "New standalone native manifest resolved offline. This is a separate exact lock for review; it does not alter either source workspace lock. Registry package changes must be reviewed before full build."
+}

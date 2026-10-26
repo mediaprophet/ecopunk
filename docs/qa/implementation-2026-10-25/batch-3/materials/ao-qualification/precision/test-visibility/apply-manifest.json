@@ -1,0 +1,11 @@
+{
+  "scope": "cfg(test)-only GPU oracle visibility; no public or production API expansion",
+  "mutations": [
+    {
+      "original_sha256": "767A8C7C8F8EEABEC9457FE6C001B701D14EE747C9C037F2C124D42838F5FA08",
+      "candidate": "ao_depth.rs",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/ao_depth.rs",
+      "candidate_sha256": "5FDB50528E2C984FB3A3CF3B90BBE31ACA1092E23E23910B8239FF0A0C9443DF"
+    }
+  ]
+}

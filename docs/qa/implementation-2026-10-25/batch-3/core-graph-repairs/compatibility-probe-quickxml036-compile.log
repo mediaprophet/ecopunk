@@ -1,0 +1,10 @@
+warning: function `parse_group_tokens` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-graph-repairs\candidate\src\sparql_library\sparql_grammar\pattern.rs:101:15
+    |
+101 | pub(crate) fn parse_group_tokens(
+    |               ^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+

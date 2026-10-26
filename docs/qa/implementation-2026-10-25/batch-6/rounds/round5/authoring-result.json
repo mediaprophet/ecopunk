@@ -1,0 +1,68 @@
+{
+  "mode": "authoring",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::authoring::",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T08:36:26.851274+00:00",
+  "finished_utc": "2026-10-25T08:37:17.320547+00:00",
+  "elapsed_seconds": 50.469,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring.log",
+  "log_sha256": "dc8e105926deeb34181ca15657004e9d75d9c98e722b94d780c71ea97b0685c0",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\authoring-source-before.json",
+  "source_snapshot_sha256": "8317d9081a9f441561cb8b243b6a11d7e484df3a236f57e401385dbd4491d3ff",
+  "recorded_local_source_files": 3036,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 14,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      14,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::authoring::structure_tests::assembly_mutations_refuse_cycles_missing_parents_and_nonleaf_removal_without_execution",
+    "graphical::authoring::structure_tests::authoring_inventory_and_recipes_refuse_duplicates_injection_and_nonfinite_arguments",
+    "graphical::authoring::structure_tests::bounded_geometry_recipes_add_and_replace_through_actual_grants_and_one_dispatch",
+    "graphical::authoring::structure_tests::field_preserving_edits_keep_distinct_extension_schemas_and_refuse_unsafe_names",
+    "graphical::authoring::structure_tests::geometry_edits_refuse_denied_effect_and_exhausted_work_without_advancing_source",
+    "graphical::authoring::structure_tests::parameter_rebuild_retains_unsigned_precision_and_unknown_untouched_values",
+    "graphical::authoring::structure_tests::reparent_detach_and_remove_leaf_preserve_local_trs_and_unrelated_values",
+    "graphical::authoring::structure_tests::shared_material_delta_matches_unsigned_and_mixed_identifiers_without_losing_extensions",
+    "graphical::authoring::structure_tests::shared_material_edit_groups_256_parts_without_source_or_expression_depth_growth",
+    "graphical::authoring::structure_tests::structural_source_revisions_keep_stale_guard_undo_and_rebuild_lineage",
+    "graphical::authoring::structure_tests::unique_material_preserves_complete_material_and_only_selected_assignment",
+    "graphical::authoring::tests::compiled_hmc_replacement_preserves_opaque_resources_and_native_companion_graph",
+    "graphical::authoring::tests::every_generated_edit_is_a_canonical_program_with_a_record_result",
+    "graphical::authoring::tests::part_material_parameter_edits_are_real_source_revisions_with_stale_safety"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round5-s9vfc3xr",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

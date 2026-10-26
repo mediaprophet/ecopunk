@@ -1,0 +1,9 @@
+{
+  "schema": "ecopunk-round1-producer-repair/1",
+  "source": "C:\\github\\poet\\native\\examples\\growing_reference\\package.rs",
+  "before_sha256": "7c2ea80502dfa32ed29bbd767d9c038d85bcc4cb9ea1bed0af853d1d7b8f2be3",
+  "after_sha256": "ef4b3c5f3c5d61fe4e93392fea8de64b8b47c94428ed831ba6c7ec368e1c07b9",
+  "change": "Replace inaccessible filename validator with public bounded ResourceLibrary::new/read; retain files::read guards and require identical witness bytes",
+  "verification": "Static API visibility inspection only. Parent owns Cargo/runtime serial checks.",
+  "scope": "SoftwareAgent fixture only; no human or model/package acceptance"
+}

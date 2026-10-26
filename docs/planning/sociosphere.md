@@ -48,8 +48,8 @@ vocabulary and pluggable axiom sets — not a set of tags on agents.
 | **SOC-AX-5 People↔species relations are cross-domain** | Totemic/kin relations bind people/communities to taxa — a biosphere×sociosphere bridge. A taxon can *be kin* to an agent, not merely occur near them. | species–human relation = use/conservation only |
 | **SOC-AX-6 Knowledge systems record ecology** | Indigenous seasonal/phenological calendars (e.g. Nyoongar six seasons, Tiwi three) are *data* — observed ecological temporal structure — not folklore prose. | "traditional knowledge" treated as anecdote |
 | **SOC-AX-7 Context may stack multiple standing systems** | The same place/knowledge can be legitimately described by custodial *and* institutional standing at once; neither erases the other; conflicts are represented, not resolved silently. | Sovereign title tends to extinguish others |
-| **SOC-AX-8 Identity is relational, never genomic** | Who a person/community *is* — including indigeneity — is constituted by culture, knowledge, place of life/birth, language, and community-recognised relations. DNA/race markers are **prohibited as identity axioms**: basing identity on them constrains whom people may love, have children with, and care for — inconsistent with human rights (recorded harms: racial classification regimes, blood-quantum rules, stolen-generation policies). Identity claims are modelled as qualified social relations and self/community assertions — not biological attributes. | Legal "race"/blood-quantum definitions; genomic ancestry used as gate |
-| **SOC-AX-9 Language carries meaning; translation is a gloss** | A term belongs to *a language* and carries concepts its translations may not possess ("Country" ≠ "land"; kin terms with no English counterpart). Labels in other languages are *approximating glosses*, not equivalences — modelled as concept-in-language entities with mapping relations (with provenance and fidelity notes), never assumed identity. True of all languages, English included — English is itself a sociosphere language whose terms carry their own culturally loaded meanings. | `rdfs:label`/`skos:prefLabel` multilingual tags treated as interchangeable |
+| **SOC-AX-8 Identifiers are relational, never genomic** | Who a person/community *is* — including indigeneity — is constituted by culture, knowledge, place of life/birth, language, and community-recognised relations. DNA/race markers are **prohibited as identifiers axioms**: basing identifiers on them constrains whom people may love, have children with, and care for — inconsistent with human rights (recorded harms: racial classification regimes, blood-quantum rules, stolen-generation policies). Identifiers claims are modelled as qualified social relations and self/community assertions — not biological attributes. | Legal "race"/blood-quantum definitions; genomic ancestry used as gate |
+| **SOC-AX-9 Language carries meaning; translation is a gloss** | A term belongs to *a language* and carries concepts its translations may not possess ("Country" ≠ "land"; kin terms with no English counterpart). Labels in other languages are *approximating glosses*, not equivalences — modelled as concept-in-language entities with mapping relations (with provenance and fidelity notes), never assumed identifiers. True of all languages, English included — English is itself a sociosphere language whose terms carry their own culturally loaded meanings. | `rdfs:label`/`skos:prefLabel` multilingual tags treated as interchangeable |
 | **SOC-AX-10 Community recognition is a standing source** | A person's standing may be grounded in *recognition by a community* (custodianship acknowledged by a group, acceptance into language/nation, appointed authority) — a peer relation, not a credential or registry entry. Registries (native title, electoral, institutional) are evidence, not constitution. | Registry/registry-of-record treated as constitutive |
 | **SOC-AX-11 Relations carry time** | Custodianship, membership, standing, names, and statuses hold over *validity intervals*; historical states are first-class queryable records, never silently overwritten. Federation-era borders, past Country boundaries, former names — all remain. See DOM-AX-2/3 in [domain-model.md](domain-model.md). | Current-state databases that overwrite history |
 | **SOC-AX-12 Border is a kind-family** | Custodial, jurisdictional, ecological, linguistic, cadastral, historical borders coexist, overlap, and version over time; none outranks another by construction (DOM-AX-3). Native-title determinations are *one kind* of overlay on Country — not Country itself. | "The" border treated as single ground truth |
@@ -65,11 +65,11 @@ vocabulary and pluggable axiom sets — not a set of tags on agents.
 - Everything in §5A of governance.md (agent & stewardship graph) applies; sociosphere
   roles extend the role vocabulary with `traditionalCustodian`, `knowledgeHolder`,
   `elder`, `speakerFor`, `initiate`-family terms — each qualified, never global flags.
-- **Identity modelling is relational (SOC-AX-8/10):** an agent's indigeneity, standing,
+- **Identifiers modelling is relational (SOC-AX-8/10):** an agent's indigeneity, standing,
   or membership is a set of qualified relations (`recognisedBy`, `raisedAt`, `speaks`,
   `memberOf`, `custodianOf`, `bornOn` country) — never a genome attribute. Genomic
   ancestry data may exist in the corpus *as data* (e.g., ARGA reference genomes) but is
-  deontically forbidden as an identity gate (GOV-SOV-7).
+  deontically forbidden as identifiers gate (GOV-SOV-7).
 - **Concept-in-language modelling (SOC-AX-9):** terms are entities — `(term, language,
   concept, orthography, speakers)` — cross-language links are typed `gloss`/`closerTo`/
   `widerThan` mapping relations with provenance, not `owl:sameAs`. AUSTLANG language
@@ -96,7 +96,7 @@ vocabulary and pluggable axiom sets — not a set of tags on agents.
   methodologies — modelled in [tech/statistics.md](tech/statistics.md)
   (STAT-AX family). They interact with sociosphere entities (Country,
   communities, languages) through *geography and subject joins* — never as
-  identity attributes of persons (SOC-AX-8), and statistics *about* Indigenous
+  identifiers attributes of persons (SOC-AX-8), and statistics *about* Indigenous
   peoples carry sovereignty conditions (STAT-AX-10).
 
 ## 4. Evidence and sources (AU-first)

@@ -1,0 +1,52 @@
+# Round 8 — saved authoring safety and HMC continuity
+
+**2026-10-26. Bounded implementation verified; production readiness remains open.** Asset production remains **HOLD**. No new model, production render, game-demo derivative or visual-quality improvement is claimed for this round. The purpose of these changes is to keep authored work intact before interactive production.
+
+## Saved changes and independent review
+
+**34 distinct canonical source/test/manifest targets** were saved in Poet and QualiaDB, through seven hash-pinned application groups (39 writes including reviewed repairs). Exact application order is in [application-order.json](../../../../tools/poet-foundation/round8/application-order.json); each group retains before/after images, manifest and verified installation receipt. No commit, push, publication, real credential/grant, provider call, payment or Computer Use occurred.
+
+* **Parameter regeneration:** native Parameter edits require an explicit source-owned procedural baseline. A later material, part, hierarchy, UV or detail edit causes refusal before evaluation, preserving accepted source, values and history. Repeated safe base edits, native undo/rebuild and fresh-process HMC recovery pass. This deliberately changes unsafe legacy overwrite behavior; legacy source remains readable and other edits remain available. It is a bounded safety stop, **not** a complete modifier stack or qualified UV/detail remapping. The [implementation handoff](edit-safety-handoff.md) contains the migration procedure. Existing reference master bytes were not migrated or changed.
+* **HMC source metadata:** Core now provides a canonically decoded `VerifiedSourceCarrier`. When original source-entry metadata exists, it preserves the **whole exact original HMC** as an inert digest-qualified resource; metadata stays with the original source bytes and index context. Current accepted source/journal remain current, with host-qualified parent lineage. Native fresh compile, replacement, reopen and SaveAs use this path. Exact payload/kind/metadata conflicts, unsafe legacy rebinding, malformed origins, unsupported flags and budgets refuse. Reading legacy metadata-bearing files remains supported; direct normalized encoding of such a loaded checkpoint refuses until fresh capture plus verified carrier admission. Source-free texture packages retain their prior path. No signature, author, rights or authority is inferred from a digest/archive. See [implementation](metadata-handoff.md), [independent implementation review](metadata-peer-review.md) and [public/restart test review](metadata-test-review.md).
+* **Private drafts and previews:** successful current replies replace local text only if its controller buffer, revision and visible text are unchanged. Typing during a pending job, including typing then undoing to the same string, is preserved. Failed edits cannot install reply text. Current unchanged guard refusals retain valid previews; unknown worker failure or stale completion clears derived pixels because source commit may have preceded reply loss. Source and draft remain untouched by that clearing. See [UI review](ui-peer-review.md) and the [final error-path correction](../../../../tools/poet-foundation/round8/preview-error/HANDOFF.md).
+
+Root independently reviewed the parameter and public/restart test work; the workers cross-reviewed Core/native integration and UI changes. Root reviewed the final display correction and performed actual-source verification. Worker staging alone was never counted as execution.
+
+## Executed verification
+
+| Selection | Passing cases | Evidence |
+|---|---:|---|
+| Native authoring, parameter safety and source/history recovery | 39 | [receipt](final/authoring-result.json) |
+| Public native source-carrier integration and fresh-process activation/SaveAs | 5 | [receipt](final/carrier-result.json) |
+| Checkpoint, resource, typed edit and recovery regressions | 27 | [receipt](final/checkpoints-result.json) |
+| Surface inputs and source-free package compatibility | 6 | [receipt](final/surface-inputs-result.json) |
+| Surface integration | 4 | [receipt](final/surfaces-result.json) |
+| Native intent contributor/reviewer UV/detail/package/reopen fixture | 1 | [receipt](final/workflow-result.json) |
+| Draft preservation, rerun after the final display correction | 4 | [receipt](preview-repaired/draft-result.json) |
+| Worker freshness, cancellation, lost replies and panic behavior | 15 | [receipt](preview-repaired/jobs-result.json) |
+| **Distinct selected test names across these selections** | **101** | Names and exact commands retained in receipts |
+
+Fresh-process parent cases launch exact child tests and require the resulting output; bare child entrypoints do no recovery work without their phase environment. Counts include those registered entrypoints. The eight Core-private carrier unit cases are saved but **not executed** by these commands; they are not added to the total. This is software-fixture evidence, not actual human cooperation or GUI acceptance.
+
+The native Poet binary [rebuilt successfully](preview-repaired/build-result.json) after the final display correction; the saved executable is `C:/github/ecopunk/target/debug/poet.exe`. The [Core/geospatial/Portal SDK compiled for WASM](final/wasm-result.json) before that Poet-only display change. Compilation is not WASM runtime interoperability. The backend/authoring selections pin local-source snapshot `7fa9719e12675fcaac981fd4ea397c349133c49f1c6cba38c5fc979b3f5c58d4`; the subsequent two-file UI correction, draft/worker checks and final native build pin `64592fc95a4059eaf09c39dd09e8aa4841adc7c0c39a87dd58c2e7d4b70b31bf`. Both snapshots cover 3,253 local source/lock files, not every transitive dependency.
+
+One initial compile failed on three test-only `unwrap_err` calls requiring an unrelated `Debug` implementation. The [failed attempt](initial/authoring-result.json) is retained; the reviewed repair changed the assertions and subsequent selections passed. Earlier successful selections were retained rather than erased; there are 151 successful test-case executions including repeats, with 101 distinct names. No currently selected correctness test remains failed. Core formatting checks covered 19 staged files successfully; one unchanged frozen signature needs line wrapping, as disclosed in the handoff. Existing compiler warnings remain and are not presented as runtime failures.
+
+## Documentation-folder correction
+
+Moved **733** byte-pinned historical source/tool/manifest files (649 Rust, 19 Cargo snapshots and 65 Python/PowerShell files; 8,165,907 bytes) from the Round 1–7 QA staging cohort to `audit/implementation-snapshots/`. Historical receipts/reports/manifests retain their bytes and original path context. The [migration index](../../../../audit/implementation-snapshots/2026-10-25/batch-6/migration-index.json), [archive explanation](../../../../audit/implementation-snapshots/README.md) and [read-only resolver](../../../../tools/poet-foundation/round8/hygiene/resolve-archived-path.ps1) make the relocated files findable without rewriting evidence. These are archived snapshots, not production crates or supported executable workspaces. New staging/check runners live under `tools/poet-foundation/`.
+
+Two guarded attempts rolled back/refused as recorded in [relocation-attempts.json](relocation-attempts.json). Root review found nondeterministic ripgrep ordering in the helper's reference hash; v2 canonicalizes the reference tuples and requires two matching preflight scans. The successful [move log](relocation.log) records verification and exact unlinking. Other older QA cohorts still contain 732 inventoried code/tool files and need separate dependency-reviewed cleanup; this round does not claim all code has been removed from documentation folders.
+
+## Remaining gates and next work
+
+**FND-01–06 and IP-03 C1–C8 remain open.** This round advances preservation, recovery and conflict subcases within FND-04/05 and C4/5/7. It does not deliver C3/C8's usable native authoring.
+
+1. Implement the native interactive viewport: retained per-session renderer, camera gestures, framing, source-bound part selection/highlighting and manipulation. The [source/API inventory](../../../../tools/poet-foundation/round8/viewport-inventory.json) confirms existing Aether input hooks and Portal GPU picking. Qualify their wiring and part/revision mappings; do not replace existing capabilities by assumption. Creating a new GPU renderer and uploading the whole scene per pointer frame is not the intended interactive path.
+2. Close equipment-specific CAD/source-layer and material/UV/detail operations, including safe regeneration/remapping. A conservative refusal protects work but does not provide the full editing workflow.
+3. Complete the native project workbench over existing authentication, admission, contribution/review and MCP owners; demonstrate actual contributor/reviewer conflict and recovery workflows with current permissions.
+4. Qualify complete HMC graph/identifier/rights/derivation continuity, representative precision/memory/latency and declared target runtime interoperability, then obtain operator acceptance. Only the applicable passed gates can release the asset-production hold.
+
+The [dependency-ordered job dispatch and estimate](readiness-and-dispatch.md) assigns lower-cost inventory jobs and stronger Rust/review jobs. Its provisional planning range is **3–5 rounds / 12–25 active engineering hours for an interactive equipment tryout**, and **8–12 rounds / 30–60 hours for equipment production tooling plus operator/reviewer acceptance time**. These are scope-limited estimates from this dispatch, not calendar commitments or an estimate for the entire ecosystem. Broad flora/fauna/rig work and complete asset production remain unestimated.
+
+No model or target package was advanced. The unchanged [dossier](../../../production/community-grounds-growing-station/README.md), [claim ledger](../../../production/community-grounds-growing-station/claims.json) and [inventories](../../../production/community-grounds-growing-station/inventories.md) retain the open work. Film, open-world game and cartoon packages remain incomplete; no visual, engineering or human acceptance is inferred from this round's tests. The reference master, retained `.10d`/HMC fixture and terrain M64 are hash-checked by the [final evidence verifier](saved-evidence-verification.json).

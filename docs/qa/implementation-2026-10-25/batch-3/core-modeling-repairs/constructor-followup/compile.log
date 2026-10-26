@@ -1,0 +1,418 @@
+warning: unused import: `properties::*`
+ --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\focused.rs:7:5
+  |
+7 | use properties::*;
+  |     ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `ChemistryOperationResult` is never constructed
+ --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:5:12
+  |
+5 | pub struct ChemistryOperationResult<T> {
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `ConvergenceInfo` is never constructed
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:15:12
+   |
+15 | pub struct ConvergenceInfo {
+   |            ^^^^^^^^^^^^^^^
+
+warning: fields `atom_id` and `charge` are never read
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:36:9
+   |
+35 | pub struct Atom {
+   |            ---- fields in this struct
+36 |     pub atom_id: String,
+   |         ^^^^^^^
+...
+40 |     pub charge: f64,
+   |         ^^^^^^
+   |
+   = note: `Atom` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `bond_id`, `atom1_id`, `atom2_id`, `bond_order`, and `bond_length` are never read
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:47:9
+   |
+46 | pub struct Bond {
+   |            ---- fields in this struct
+47 |     pub bond_id: String,
+   |         ^^^^^^^
+48 |     pub atom1_id: String,
+   |         ^^^^^^^^
+49 |     pub atom2_id: String,
+   |         ^^^^^^^^
+50 |     pub bond_order: f64,
+   |         ^^^^^^^^^^
+51 |     pub bond_length: f64,
+   |         ^^^^^^^^^^^
+   |
+   = note: `Bond` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: struct `SimulationTrajectory` is never constructed
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:65:12
+   |
+65 | pub struct SimulationTrajectory {
+   |            ^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `SimulationFrame` is never constructed
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:74:12
+   |
+74 | pub struct SimulationFrame {
+   |            ^^^^^^^^^^^^^^^
+
+warning: struct `FrameEnergy` is never constructed
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:85:12
+   |
+85 | pub struct FrameEnergy {
+   |            ^^^^^^^^^^^
+
+warning: struct `TrajectoryProperties` is never constructed
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:93:12
+   |
+93 | pub struct TrajectoryProperties {
+   |            ^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `EnergyProfile` is never constructed
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:102:12
+    |
+102 | pub struct EnergyProfile {
+    |            ^^^^^^^^^^^^^
+
+warning: struct `EnergyPoint` is never constructed
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:110:12
+    |
+110 | pub struct EnergyPoint {
+    |            ^^^^^^^^^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:149:12
+    |
+147 | impl Bond {
+    | --------- associated function in this implementation
+148 |     /// Creates a default bond.
+149 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:175:12
+    |
+173 | impl SimulationTrajectory {
+    | ------------------------- associated function in this implementation
+174 |     /// Creates an empty trajectory.
+175 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:187:12
+    |
+185 | impl TrajectoryProperties {
+    | ------------------------- associated function in this implementation
+186 |     /// Creates default trajectory properties.
+187 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:199:12
+    |
+197 | impl ReactionConditions {
+    | ----------------------- associated function in this implementation
+198 |     /// Creates default reaction conditions.
+199 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:210:12
+    |
+208 | impl KineticsResults {
+    | -------------------- associated function in this implementation
+209 |     /// Creates empty kinetics results.
+210 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:222:12
+    |
+220 | impl QuantumProperties {
+    | ---------------------- associated function in this implementation
+221 |     /// Creates default quantum properties.
+222 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: struct `ReactionConditions` is never constructed
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:248:12
+    |
+248 | pub struct ReactionConditions {
+    |            ^^^^^^^^^^^^^^^^^^
+
+warning: struct `KineticsResults` is never constructed
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:256:12
+    |
+256 | pub struct KineticsResults {
+    |            ^^^^^^^^^^^^^^^
+
+warning: struct `QuantumProperties` is never constructed
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:265:12
+    |
+265 | pub struct QuantumProperties {
+    |            ^^^^^^^^^^^^^^^^^
+
+warning: fields `confidence_intervals` and `prediction_time` are never read
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:279:9
+    |
+277 | pub struct PredictedProperties {
+    |            ------------------- fields in this struct
+278 |     pub properties: HashMap<String, f64>,
+279 |     pub confidence_intervals: HashMap<String, (f64, f64)>,
+    |         ^^^^^^^^^^^^^^^^^^^^
+280 |     pub prediction_time: f64,
+    |         ^^^^^^^^^^^^^^^
+    |
+    = note: `PredictedProperties` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: struct `ChemistryPerformanceMetrics` is never constructed
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\types.rs:285:12
+    |
+285 | pub struct ChemistryPerformanceMetrics {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: field `machine_learning_models` is never read
+ --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:7:5
+  |
+4 | pub struct PropertyPredictor {
+  |            ----------------- field in this struct
+...
+7 |     machine_learning_models: HashMap<String, MLModel>,
+  |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: fields `model_id`, `property_type`, and `model_type` are never read
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:13:9
+   |
+12 | pub struct PropertyModel {
+   |            ------------- fields in this struct
+13 |     pub model_id: String,
+   |         ^^^^^^^^
+14 |     pub property_type: PropertyType,
+   |         ^^^^^^^^^^^^^
+15 |     pub model_type: PropertyModelType,
+   |         ^^^^^^^^^^
+   |
+   = note: `PropertyModel` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `molecular_descriptors`, `quantum_descriptors`, and `topological_descriptors` are never read
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:70:5
+   |
+69 | pub struct DescriptorCalculator {
+   |            -------------------- fields in this struct
+70 |     molecular_descriptors: MolecularDescriptors,
+   |     ^^^^^^^^^^^^^^^^^^^^^
+71 |     quantum_descriptors: QuantumDescriptors,
+   |     ^^^^^^^^^^^^^^^^^^^
+72 |     topological_descriptors: TopologicalDescriptors,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: fields `molecular_weight`, `formula`, `atom_count`, `bond_count`, and `ring_count` are never read
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:78:9
+   |
+77 | pub struct MolecularDescriptors {
+   |            -------------------- fields in this struct
+78 |     pub molecular_weight: f64,
+   |         ^^^^^^^^^^^^^^^^
+79 |     pub formula: String,
+   |         ^^^^^^^
+80 |     pub atom_count: HashMap<String, usize>,
+   |         ^^^^^^^^^^
+81 |     pub bond_count: HashMap<String, usize>,
+   |         ^^^^^^^^^^
+82 |     pub ring_count: usize,
+   |         ^^^^^^^^^^
+   |
+   = note: `MolecularDescriptors` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `homo_energy`, `lumo_energy`, `gap`, `dipole_moment`, and `polarizability` are never read
+  --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:88:9
+   |
+87 | pub struct QuantumDescriptors {
+   |            ------------------ fields in this struct
+88 |     pub homo_energy: f64,
+   |         ^^^^^^^^^^^
+89 |     pub lumo_energy: f64,
+   |         ^^^^^^^^^^^
+90 |     pub gap: f64,
+   |         ^^^
+91 |     pub dipole_moment: f64,
+   |         ^^^^^^^^^^^^^
+92 |     pub polarizability: f64,
+   |         ^^^^^^^^^^^^^^
+   |
+   = note: `QuantumDescriptors` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `connectivity_index`, `shape_index`, `wiener_index`, and `randic_index` are never read
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:98:9
+    |
+ 97 | pub struct TopologicalDescriptors {
+    |            ---------------------- fields in this struct
+ 98 |     pub connectivity_index: f64,
+    |         ^^^^^^^^^^^^^^^^^^
+ 99 |     pub shape_index: f64,
+    |         ^^^^^^^^^^^
+100 |     pub wiener_index: f64,
+    |         ^^^^^^^^^^^^
+101 |     pub randic_index: f64,
+    |         ^^^^^^^^^^^^
+    |
+    = note: `TopologicalDescriptors` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `model_id`, `model_type`, `model_parameters`, and `training_data` are never read
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:107:9
+    |
+106 | pub struct MLModel {
+    |            ------- fields in this struct
+107 |     pub model_id: String,
+    |         ^^^^^^^^
+108 |     pub model_type: MLModelType,
+    |         ^^^^^^^^^^
+109 |     pub model_parameters: MLModelParameters,
+    |         ^^^^^^^^^^^^^^^^
+110 |     pub training_data: TrainingData,
+    |         ^^^^^^^^^^^^^
+    |
+    = note: `MLModel` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `data_id`, `features`, `targets`, and `data_size` are never read
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:143:9
+    |
+142 | pub struct TrainingData {
+    |            ------------ fields in this struct
+143 |     pub data_id: String,
+    |         ^^^^^^^
+144 |     pub features: Vec<Vec<f64>>,
+    |         ^^^^^^^^
+145 |     pub targets: Vec<f64>,
+    |         ^^^^^^^
+146 |     pub data_size: usize,
+    |         ^^^^^^^^^
+    |
+    = note: `TrainingData` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: methods `register_ml_model`, `get_ml_model`, `get_ml_model_mut`, `list_ml_models`, and `remove_ml_model` are never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:503:12
+    |
+149 | impl PropertyPredictor {
+    | ---------------------- methods in this implementation
+...
+503 |     pub fn register_ml_model(&mut self, model: MLModel) {
+    |            ^^^^^^^^^^^^^^^^^
+...
+509 |     pub fn get_ml_model(&self, model_id: &str) -> Option<&MLModel> {
+    |            ^^^^^^^^^^^^
+...
+514 |     pub fn get_ml_model_mut(&mut self, model_id: &str) -> Option<&mut MLModel> {
+    |            ^^^^^^^^^^^^^^^^
+...
+519 |     pub fn list_ml_models(&self) -> Vec<String> {
+    |            ^^^^^^^^^^^^^^
+...
+524 |     pub fn remove_ml_model(&mut self, model_id: &str) -> Option<MLModel> {
+    |            ^^^^^^^^^^^^^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:531:12
+    |
+529 | impl PropertyModel {
+    | ------------------ associated function in this implementation
+530 |     /// Creates a default `PropertyModel`.
+531 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:543:12
+    |
+541 | impl PropertyModelParameters {
+    | ---------------------------- associated function in this implementation
+542 |     /// Creates default `PropertyModelParameters`.
+543 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:554:12
+    |
+552 | impl ReferenceData {
+    | ------------------ associated function in this implementation
+553 |     /// Creates empty `ReferenceData`.
+554 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:565:12
+    |
+563 | impl ReferenceConditions {
+    | ------------------------ associated function in this implementation
+564 |     /// Creates default `ReferenceConditions`.
+565 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: methods `molecular_descriptors`, `molecular_descriptors_mut`, `quantum_descriptors`, `quantum_descriptors_mut`, `topological_descriptors`, and `topological_descriptors_mut` are never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:585:12
+    |
+574 | impl DescriptorCalculator {
+    | ------------------------- methods in this implementation
+...
+585 |     pub fn molecular_descriptors(&self) -> &MolecularDescriptors {
+    |            ^^^^^^^^^^^^^^^^^^^^^
+...
+590 |     pub fn molecular_descriptors_mut(&mut self) -> &mut MolecularDescriptors {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+595 |     pub fn quantum_descriptors(&self) -> &QuantumDescriptors {
+    |            ^^^^^^^^^^^^^^^^^^^
+...
+600 |     pub fn quantum_descriptors_mut(&mut self) -> &mut QuantumDescriptors {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+...
+605 |     pub fn topological_descriptors(&self) -> &TopologicalDescriptors {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+...
+610 |     pub fn topological_descriptors_mut(&mut self) -> &mut TopologicalDescriptors {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:660:12
+    |
+658 | impl MLModel {
+    | ------------ associated function in this implementation
+659 |     /// Creates a default `MLModel`.
+660 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:672:12
+    |
+670 | impl MLModelParameters {
+    | ---------------------- associated function in this implementation
+671 |     /// Creates default `MLModelParameters`.
+672 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:683:12
+    |
+681 | impl ModelPerformance {
+    | --------------------- associated function in this implementation
+682 |     /// Creates a zeroed `ModelPerformance`.
+683 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: associated function `new` is never used
+   --> C:\github\ecopunk\docs\qa\implementation-2026-10-25\batch-3\core-modeling-repairs\constructor-followup\candidate\properties.rs:695:12
+    |
+693 | impl TrainingData {
+    | ----------------- associated function in this implementation
+694 |     /// Creates empty `TrainingData`.
+695 |     pub fn new() -> Self {
+    |            ^^^
+
+warning: 40 warnings emitted
+

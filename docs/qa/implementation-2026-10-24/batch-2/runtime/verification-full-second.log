@@ -1,0 +1,27 @@
+   Compiling vibe v0.0.40 (C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-1hljseph7yzam\s-hniaep7eqf-1itcklr-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-02v9dwwhz2k7r\s-hniaep624l-00y1sd9-working`
+
+warning: `vibe` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-2en4t3s7su0jn\s-hniaf4k2oz-0bhl71i-working`
+
+error: couldn't read `tests\../../../docs/manuals/standards/lexicon-pack-manifest-example.json`: The system cannot find the file specified. (os error 2)
+  --> tests\sprint_b_fixtures.rs:97:9
+   |
+97 |         include_str!("../../../docs/manuals/standards/lexicon-pack-manifest-example.json");
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\vibe-3ous0j4z2ctrl\s-hniaf4lsvw-0q2rsla-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\pages_samples-08d4spgd05w4t\s-hniaf4om0l-0ix13u4-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\runtime\verification\qualiaDB\crates\vibe\target\debug\incremental\conformance-07ozq0z3upmci\s-hniaf4fouy-1f636fp-working`
+
+error: could not compile `vibe` (test "sprint_b_fixtures") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+warning: `vibe` (bin "vibe" test) generated 1 warning
+warning: `vibe` (bin "vibe") generated 1 warning
+warning: `vibe` (test "pages_samples") generated 1 warning
+warning: `vibe` (test "conformance") generated 1 warning
+warning: `vibe` (lib test) generated 1 warning

@@ -1,0 +1,114 @@
+{
+  "schema": "ecopunk.round4.status.v1",
+  "status": "complete_scoped",
+  "as_of": "2026-10-25",
+  "execution": "complete_scoped",
+  "completion_claim": false,
+  "asset_production": "ON_HOLD",
+  "foundation_gates": {
+    "FND05": "open",
+    "FND01": "open",
+    "FND03": "open",
+    "FND06": "open",
+    "FND02": "open",
+    "FND04": "open"
+  },
+  "IP03_C1_C8": "open",
+  "applied_source_targets": 70,
+  "source_frozen": true,
+  "current_execution_receipts": "All requested bounded checks complete: compiler check, 36 selected native cases, native build, direct SDK WASM compilation, and root read-only reconciliation passed. WASM runtime, GUI, human acceptance and broader foundation gates remain open.",
+  "authored_unrun_private_journal_cases": 3,
+  "ci_gate_enforcement": false,
+  "GUI": "not run",
+  "WASM": "actual SDK compile passed; runtime interoperability untested",
+  "human_acceptance": false,
+  "production_assets": "ON_HOLD",
+  "no_credentials_or_human_adoption": true,
+  "compiler_check": {
+    "status": "passed_compile_only",
+    "receipt": "check-result.json",
+    "exit_code": 0,
+    "elapsed_seconds": 23.718,
+    "source_unchanged": true,
+    "tests_selected": 0,
+    "source_files": 3021
+  },
+  "repair_history": "Initial compiler check retained (UI key-placement warnings); single package_controls.rs repair is the latest hash override; distinct applied-target count remains 70.",
+  "active_checks": [],
+  "producer_tests": {
+    "status": "passed",
+    "passed": 9,
+    "failed": 0,
+    "ignored": 0,
+    "source_unchanged": true,
+    "receipt": "producer-result.json"
+  },
+  "initial_public_run": {
+    "status": "historical_fixture_failure",
+    "native": "11 passed, 1 failed",
+    "canonical_package_review": "7 not executed",
+    "reason": "historical signed-grant replacement fixture expected wrong error; preserve failure and rerun after scoped fixture repair",
+    "source_unchanged": true,
+    "receipt": "public-result.json",
+    "rerun": "public-result.json passed 19/19 after reviewed test-only fixture repair"
+  },
+  "selected_native_cases": {
+    "passed": 36,
+    "failed": 0,
+    "ignored": 0,
+    "breakdown": {
+      "prior_inspection_regression": 6,
+      "public": 19,
+      "source_review_regression": 1,
+      "producer": 9,
+      "real_HMC_workflow": 1
+    }
+  },
+  "native_build": {
+    "status": "passed",
+    "receipt": "build-result.json",
+    "exit_code": 0,
+    "source_unchanged": true,
+    "source_snapshot_sha256": "c3df828d15d5911c614d5d6e459ffd7afe54c43bb3b579955e2e237b63d91ff1",
+    "note": "Final UI text-only repair was applied after the selected tests; this build covers that repair."
+  },
+  "initial_public_failure": {
+    "preserved": "public-before-fixture-repair-result.json",
+    "status": "historical_fixture_failure",
+    "rerun": "public-result.json passed 19/19"
+  },
+  "final_verification": {
+    "receipt": "saved-evidence-verification.json",
+    "sha256": "e7554a3cbf92b32d81b2d763389aa905e3564fa4a81818845a4a0d9ad6c8de52",
+    "status": "passed",
+    "distinct_installed_targets": 70,
+    "latest_hashes_match": true,
+    "final_local_source_files": 3021,
+    "unique_selected_native_tests": 36,
+    "three_preserved_assets_unchanged": true
+  },
+  "override_receipts": [
+    {
+      "receipt": "repairs/ui-keys/applied-source.json",
+      "sha256": "b97962013e620ad53d9c65d5a4afbcb92061ff42e0991b1f767fd66dc1bebd33"
+    },
+    {
+      "receipt": "repairs/history-fixture/applied-source.json",
+      "sha256": "140f0465ae8dc8bc8c5e85f43d3ac01436f5683e7889224e238bdcc839ce4331"
+    },
+    {
+      "receipt": "repairs/ui-text/applied-source.json",
+      "sha256": "0b6bb753487f8be3e625b7e2bab9f05704fb0e2e678d7c18883ae301c43c14d4"
+    }
+  ],
+  "remaining_scope": [
+    "FND-01–06 open",
+    "IP-03 C1–C8 open",
+    "assets ON_HOLD; model claims unassessed and target packages incomplete",
+    "GUI verification not run",
+    "human acceptance false",
+    "three private journal unit cases authored but unrun; not a CI gate",
+    "WASM runtime/interoperability untested"
+  ],
+  "scoped_completion": "Bounded Round 4 checks, build, WASM compilation and read-only reconciliation completed. Broader readiness and production acceptance remain open."
+}

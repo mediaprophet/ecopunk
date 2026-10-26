@@ -1,0 +1,46 @@
+[
+  {
+    "path": "crates/qualia-core-db/src/container_10d/mod.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/container_10d/normal_section.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/container_10d/normal_section/frame_decode.rs",
+    "new_target_absent": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/container_10d/typed_payloads/frames.rs",
+    "new_target_absent": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/container_10d/typed_payloads/mod.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/container_10d/typed_payloads/readers.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/render/compile_10d.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/render/portal/mod.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/src/render/portal/scene_mesh.rs",
+    "baseline_matches_live": true
+  },
+  {
+    "path": "crates/qualia-core-db/tests/frame_decode_sdk.rs",
+    "new_target_absent": true
+  },
+  {
+    "path": "docs/manuals/standards/10d-typed-field-payloads.md",
+    "baseline_matches_live": true
+  }
+]

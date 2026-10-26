@@ -1,0 +1,30 @@
+[
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+    "replacements": [
+      {
+        "reason": "misencoded middle-dot separator",
+        "count": 2,
+        "old_hex": "c382c2b7",
+        "replacement": "|"
+      },
+      {
+        "reason": "misencoded apostrophe",
+        "count": 1,
+        "old_hex": "c3a2e282ace284a2",
+        "replacement": "'"
+      }
+    ]
+  },
+  {
+    "target": "C:\\github\\poet\\native\\src\\graphical\\package_review_controls.rs",
+    "replacements": [
+      {
+        "reason": "double-misencoded middle-dot separator",
+        "count": 9,
+        "old_hex": "c383e2809ac382c2b7",
+        "replacement": "|"
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+diff --git "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.before" "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.after"
+index a021052..6772576 100644
+--- "a/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.before"
++++ "b/C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round1\\producer\\authoring-source.rs.after"
+@@ -177,7 +177,7 @@ pub(crate) fn edit_source(
+                 };
+                 fields.push(format!("{name}:{encoded}"));
+             }
+-            return Ok(format!("poet_parameters = {{{}}};\npoet_parts = poet_rebuild_parts(poet_parameters);\n{{parts:poet_parts}};", fields.join(",")));
++            return Ok(format!("poet_parameters = {{{}}};\npoet_parts = poet_rebuild_parts(poet_parameters);\n({{parts:poet_parts}});", fields.join(",")));
+         }
+         AuthoringEdit::Transform {
+             id,
+@@ -285,11 +285,11 @@ pub(crate) fn edit_source(
+         copied.push(format!("{key}:{expr}"));
+     }
+     let parent = if has_parent {
+-        format!("fn poet_parent_{revision}(p) {{ if p.contains(\"parent\") {{ return p.parent; }} return null; }}\n")
++        format!("fn poet_parent_{revision}(p:Record) {{ if p.contains(\"parent\") {{ return p.parent; }} return null; }}\n")
+     } else {
+         String::new()
+     };
+-    let source = format!("{parent}fn {function}(p) {{ if {predicate} {{ return {{{}}}; }} return p; }}\npoet_parts = poet_parts.map({function});\n{{parts:poet_parts}};",copied.join(","));
++    let source = format!("{parent}fn {function}(p:Record) {{ if {predicate} {{ return {{{}}}; }} return p; }}\npoet_parts = poet_parts.map({function});\n({{parts:poet_parts}});",copied.join(","));
+     if source.len() > 8192 {
+         return Err("Authoring edit source exceeds host bound".into());
+     }

@@ -1,0 +1,54 @@
+{
+  "run": "RUN-06A",
+  "date": "2026-10-24",
+  "status": "inspection_only",
+  "source_repositories_modified": false,
+  "build_or_runtime_qualification": false,
+  "native_delivery_claim": false,
+  "candidate_seam": {
+    "name": "Poet scene document adapter over CADCraft Drawing, mounted in Aether native host",
+    "scope": "2D parametric construction/editor recovery slice only",
+    "usable_organism_or_assembly_modeler": false,
+    "geometry_source": "C:/github/poet-cadcraft/crates/doc/src/lib.rs::Drawing; crates/doc/src/store.rs::EntityStore; crates/constraints/src/lib.rs",
+    "poet_contract_inputs": [
+      "C:/github/poet/wasm/src/tool_chest/core/registry.rs::ManifoldSeed",
+      "C:/github/poet/wasm/src/tool_chest/core/intent_bus.rs",
+      "C:/github/poet/wasm/src/tool_chest/manifolds/studio.rs::studio_manifold_seed"
+    ],
+    "host_cooperation_inputs": [
+      "C:/github/webizen-desktop/src/commands/wellfair/projects.rs::wellfair_add_project",
+      "C:/github/webizen-desktop/src/commands/wellfair/projects.rs::wellfair_add_project_membership",
+      "C:/github/webizen-desktop/src/commands/wellfair/projects.rs::wellfair_add_contribution",
+      "C:/github/webizen-desktop/src/commands/wellfair/work_items.rs::wellfair_add_work_item",
+      "C:/github/webizen-desktop/src/commands/wellfair/work_items.rs::wellfair_add_work_item_status",
+      "C:/github/webizen-desktop/src/commands/wellfair/work_items.rs::wellfair_work_item_board"
+    ],
+    "missing": [
+      "Aether native Poet graphical mount and qualified renderer",
+      "authoritative revisioned geometry/material document contract",
+      "public 3D organic and assembly operators",
+      "semantic material authoring and preview binding",
+      "revision-safe contributor/reviewer source commands",
+      "source-to-HMC/root compilation and invalid-resource diagnosis",
+      "persistent undo/checkpoint/reopen/recovery"
+    ]
+  },
+  "ip03": {
+    "C1": "unqualified: no shared versioned brief bound to source/parts/targets/review decisions",
+    "C2": "unqualified: cooperative records exist but distinct authorized source sessions unproved",
+    "C3": "unqualified: no native GUI or qualified 3D/material authoring and preview",
+    "C4": "unqualified: in-memory CAD snapshot only; persistent attributed revision/review absent",
+    "C5": "unqualified: no expected-revision conflict/cancellation/late-job safety in source commits",
+    "C6": "unqualified: no reproducible source-to-HMC/root/downstream preview",
+    "C7": "unqualified: no restart/disconnect/rejoin recovery evidence",
+    "C8": "unqualified: native usability controls and acceptance evidence absent"
+  },
+  "next_edits": [
+    "Define Poet shared DocumentRef, expected revision, receipt, checkpoint/reopen contract after session checker.",
+    "Implement headless CADCraft Drawing revision adapter with stale-edit rejection; explicitly limited to 2D.",
+    "Mount same session in Aether native Poet scene view with selection, inspector, undo, save/reopen and incremental preview.",
+    "Select and bind owning public Qualia 3D geometry/material APIs before organism/assembly authoring; preserve editable sources.",
+    "Wire checkpoints/review to existing Webizen project/contribution/work-item owner and prove restart + source-to-HMC evidence."
+  ],
+  "provenance_boundary": "No sibling edits or moves; retain original Craft/Poet source, notices, licenses and histories. Chora excluded."
+}

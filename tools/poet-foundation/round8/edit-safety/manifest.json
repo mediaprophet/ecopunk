@@ -1,0 +1,85 @@
+{
+  "schema": "poet-foundation-stage/v1",
+  "scope": "round8-parameter-loss-prevention",
+  "status": "staged-not-applied-not-executed",
+  "files": [
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/controller.rs",
+      "before_sha256": "11fc1ff0bb46d88c0ce1a29520e8b48202d50c316753cdc7d48a7a5d00eaf8e7",
+      "after_sha256": "0dd0c2e5b9c7060ae8e73819d8efe84418a7652516f7ad9ced28857c9f5dec09",
+      "after_bytes": 4949,
+      "after_lines": 130,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/mod.rs",
+      "before_sha256": "ac3afddae490a930b56ff1124069d2a7ebc8909ca711d23fd3d4fcf604113283",
+      "after_sha256": "8281977c038e0b383b1e9fc8b93b9887a660ebdcd3c052a8300ab9df29656811",
+      "after_bytes": 3982,
+      "after_lines": 163,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/parameter_safety_restart_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "860b8eb1e0623530dd75de7253387f7d0b1193f681be861a16036b2454c76ebb",
+      "after_bytes": 5859,
+      "after_lines": 155,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/parameter_safety_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "7179a662ea05692fc860736f69a72ab4b0548eca36cf2210e66d782adf95fcc9",
+      "after_bytes": 12645,
+      "after_lines": 359,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/parameter_safety.rs",
+      "before_sha256": null,
+      "after_sha256": "18ce4962ee004f352e6c1a9a16853723816385a6d7f45bd859c26acbac0b0bf4",
+      "after_bytes": 5603,
+      "after_lines": 105,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/source.rs",
+      "before_sha256": "512f1a7d7b567dc1819f26d0f9053b31bd8f35ab778b85d847568adf2df90f0a",
+      "after_sha256": "1bd5dfde36bc6206b03f4ed6e7d0ccaa9816d9d7e136ebe91206cb76511198ce",
+      "after_bytes": 12397,
+      "after_lines": 327,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/structure_tests.rs",
+      "before_sha256": "ca400b6c75de59790bc2e5977e613daac2611c70f4a839a6359e80e4dbea178c",
+      "after_sha256": "350594d717e5e1ad0aef219e2bfe3c388ccbdaab705624ab188c8fa69ac52516",
+      "after_bytes": 16948,
+      "after_lines": 246,
+      "live_matches_before": true
+    },
+    {
+      "repository": "poet",
+      "target": "native/src/graphical/authoring/tests.rs",
+      "before_sha256": "89697f5331daecf87975c17855ed994fa598b2e560fd12093cdf33a5575dc25c",
+      "after_sha256": "870aa534da50fc7a5c4cbeef561eaaa3f69b6929aec215fe620c18495b037c03",
+      "after_bytes": 12923,
+      "after_lines": 286,
+      "live_matches_before": true
+    }
+  ],
+  "checks": {
+    "rustfmt": "passed 2026-10-26 on 3 new modules and 3 thin routes; pre-existing test formatting retained",
+    "cargo": "not run",
+    "tests": "not run",
+    "sibling_writes": "none"
+  }
+}

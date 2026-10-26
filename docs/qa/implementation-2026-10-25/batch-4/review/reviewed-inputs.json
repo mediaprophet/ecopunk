@@ -1,0 +1,313 @@
+{
+  "schema": "ecopunk.batch4.independent-source-review-inputs.v1",
+  "captured_at_utc": "2026-10-24T21:28:39.5851174Z",
+  "scope": "Saved source and test-source inspection; no execution implied",
+  "inputs": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen_tests.rs",
+      "sha256": "37aa7852459e7da34ba0a94af5859c19a8e2aaf2b5feb1ac6b8a0fea66330d92",
+      "bytes": 4206,
+      "lines": 127
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\authorised_reopen.rs",
+      "sha256": "039bb7d14759319436931674e93d268a14f792c4a4d6cddaa6a36628e89f2b10",
+      "bytes": 5050,
+      "lines": 122
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "sha256": "2d7e36c42a648199c63a614a6c2812f451615097314a540830cbab0cd4e03f26",
+      "bytes": 4539,
+      "lines": 121
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "sha256": "ce5cb92c3d136a1950a39aa49890f8d9af4ad25cea1940c4506d39a67cab07bf",
+      "bytes": 8255,
+      "lines": 234
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resource_preservation_tests.rs",
+      "sha256": "d565a3f4f59c8b7ad3da4348dee9c926f9f411c4fb471c69f081538510bd1174",
+      "bytes": 11311,
+      "lines": 356
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\resources.rs",
+      "sha256": "2e9db0ddb1267ea7a832a6678abdf610d9c74790c5373a43443e8bd3286201f6",
+      "bytes": 8429,
+      "lines": 214
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_resources.rs",
+      "sha256": "ea2165ca41ddde3efdbda634b451c441246aa1cd075833e27890d77d3757c57e",
+      "bytes": 2708,
+      "lines": 82
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\restart_tests.rs",
+      "sha256": "49a8adbf756c036813df5ceb7d4b09747b38a2798f983aed45edf5e6e60ee002",
+      "bytes": 16476,
+      "lines": 449
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\tests.rs",
+      "sha256": "9330b9bb8b0fb2e88402c4541e2f778e704adae9593cf2865b62f03fd30abdbd",
+      "bytes": 4104,
+      "lines": 109
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\controller.rs",
+      "sha256": "dfaf77064c4688340d5790a2c0e2033e011b8a3078daf68766fa8c498ab27210",
+      "bytes": 14381,
+      "lines": 384
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+      "sha256": "5dc674e9bccbe717dd49ca543efcc6a4af4c63b61ff3aba0685bf88ef6e503da",
+      "bytes": 4878,
+      "lines": 137
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mcp_tests.rs",
+      "sha256": "b3e821c32780a954650878face38b2558224cbad5bbb7296122b98289cd8c6e7",
+      "bytes": 7243,
+      "lines": 207
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\mod.rs",
+      "sha256": "8e538ad7a7b1017a01fddcb86b9847f80000e6a270610d2f4d34c07c17166970",
+      "bytes": 16177,
+      "lines": 436
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\native_owner.rs",
+      "sha256": "a846da15ad84bacb604116edaac18c2f33117c335ca273566f2c59b489f1728a",
+      "bytes": 6450,
+      "lines": 173
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "sha256": "a63719925e44e0e4678ffe5ca0babe02aa981a8c185c3faeaed89f89fa5e7567",
+      "bytes": 13733,
+      "lines": 408
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+      "sha256": "70c8ecdbefb11ead496f1293c79ba8ec2bec8c835b867dd3248521bfc1c0a624",
+      "bytes": 6941,
+      "lines": 181
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "sha256": "869acf36bceb98fce4b29a6781a7b8d06fe577e2c0a35a5aa84be96de0f5b235",
+      "bytes": 17387,
+      "lines": 462
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "5ea132ef6eb28d7a5604a711ba49c099a49fe34fec697592d8f5ea19080238b7",
+      "bytes": 16423,
+      "lines": 407
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\resources.rs",
+      "sha256": "9d121b34033e469b0fb11ef4a7f4382da939c7e7ce052757e679a4e25591bf2c",
+      "bytes": 7518,
+      "lines": 173
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "sha256": "b41588a04339ce7f6a83672b54d45cb4c6d4f24c566d4da684870727bbc2d9ef",
+      "bytes": 1199,
+      "lines": 41
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "sha256": "988646aefeb6616176a7bc98d1eb31b9e2c4540d9b9dd317f3223fae66c41b50",
+      "bytes": 13811,
+      "lines": 379
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+      "sha256": "67927dfc113b1a263939c3771496f72c725680ce213bf8f9abd4e181982a976b",
+      "bytes": 6605,
+      "lines": 173
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package_batch_controls.rs",
+      "sha256": "8525fd0f448c8ce48077300fad0a4006b5a2047b3fb6a050d7acec18edefb501",
+      "bytes": 6141,
+      "lines": 133
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package_controls.rs",
+      "sha256": "2f28b027a5e65f8797cec74236cbce6dba65a44694868a6a9e54af66221f6324",
+      "bytes": 6379,
+      "lines": 148
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\intents.rs",
+      "sha256": "58d15f52f8ecf3b43242053aef182f1daac2e448acc5b815235cb540af3ab685",
+      "bytes": 3463,
+      "lines": 93
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\library.rs",
+      "sha256": "371fb26bc24edee2feee82e626e1e8213887e333237ddd92a950dcdef10b1726",
+      "bytes": 4157,
+      "lines": 109
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+      "sha256": "6e2cf6b87db866f8be0fa033654516f4a5f071642614f7181be2c8f32ca4d160",
+      "bytes": 6564,
+      "lines": 198
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\plan.rs",
+      "sha256": "75cc2bc7a9764678cd14659a1c73976fd64bb5256f202cf0ecb3d9bb9e8fa4c3",
+      "bytes": 4608,
+      "lines": 116
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\package\\tests.rs",
+      "sha256": "a5e469d26cf071817aa75327ba4aad4d31c825909583933a3079b40e6f862395",
+      "bytes": 11354,
+      "lines": 336
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+      "sha256": "05cf4917bad61db4cc9fe38cec105e8878b417b015b4f0b81f05e9822731cde3",
+      "bytes": 5115,
+      "lines": 142
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "sha256": "5aa368c0c5a07599234b8655881fbc99982d698581f78461d41a10e0433e6fff",
+      "bytes": 10997,
+      "lines": 263
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+      "sha256": "f284467310895a478b18e7e53f2deaec9168d743a6422e8e5646f4a0b422a631",
+      "bytes": 7209,
+      "lines": 202
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "sha256": "07bc8ce23c4d91acdb10accb219de00c78533956f2dc2158927390e859da54c6",
+      "bytes": 10452,
+      "lines": 273
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\crypto\\network\\ed25519.rs",
+      "sha256": "cacf07cb5cd4dd7aba49239ff2b88f9def8632a352353297ade7e7a192e5c6ff",
+      "bytes": 3008,
+      "lines": 90
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\codec.rs",
+      "sha256": "adb13882736ba9a67f306fb73be8b873e0be8859c7d0bdfd2ab448a1be427856",
+      "bytes": 9627,
+      "lines": 268
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\dependencies.rs",
+      "sha256": "4e2adc69af3b3f0d5263ef7261fe5334e30eda51fec7500f51662daef288a359",
+      "bytes": 6496,
+      "lines": 144
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\graph.rs",
+      "sha256": "26493051de8b213de566fd4e85f7f5683f6f5af249291d29988a42045bdf5afb",
+      "bytes": 2860,
+      "lines": 61
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+      "sha256": "2f1d9eaeceb7bb2bbe45e5af0b2c26d3c503f500cb3db30feb19ee46e5c0fc05",
+      "bytes": 761,
+      "lines": 22
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+      "sha256": "e18ba20055663be00d237e7b876798253ce4d6617ef8ad612b833b929f204106",
+      "bytes": 5775,
+      "lines": 149
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resource_tests.rs",
+      "sha256": "0efbf92506501bd5f1d2a95ca61410c63275f5d2f053cef79c393f926e1d5c22",
+      "bytes": 15630,
+      "lines": 476
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\resources.rs",
+      "sha256": "8e64f39f7e18b619366a7565833ff7f981f37317f85da1053980761246bc7f16",
+      "bytes": 9997,
+      "lines": 278
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\snapshot.rs",
+      "sha256": "2c6ace6b8987674ac459a78c598212f5d80443bded8bd11d56a044d6e9695711",
+      "bytes": 5803,
+      "lines": 164
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\tests.rs",
+      "sha256": "e48298fcaa7037974843abfa4c8f75276c720d5177a017083f29a1d9645a12a2",
+      "bytes": 11017,
+      "lines": 273
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\admission.rs",
+      "sha256": "d815fe9fdee42001f018fd1ac8a5bfeda59f5a567248faa57050bbae535acb1c",
+      "bytes": 5825,
+      "lines": 173
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\journal.rs",
+      "sha256": "f1bcd7a7e220ef27c4a46280cae1a563f35f27819051e16bab9aa410738e7f85",
+      "bytes": 8798,
+      "lines": 222
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "sha256": "e0dc94d3395fae52161ef02d40b5f5bec23531f7c80a45f4d7127700f2dce80b",
+      "bytes": 14665,
+      "lines": 400
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package_tests.rs",
+      "sha256": "fd87b1954704f65828dcbaf1a8a3126089290bf6ee87c3961d49fc29c5c7ce40",
+      "bytes": 1005,
+      "lines": 37
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\package.rs",
+      "sha256": "88decbedebdb384973081e5216b5753f2d89a6c24f7c0aac8ab5ee96581cd1a5",
+      "bytes": 1352,
+      "lines": 42
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\records.rs",
+      "sha256": "7cfb24e9239d5c622920e899b7b7add38f4c9510f872b6b0c490b0c05f2b6066",
+      "bytes": 3167,
+      "lines": 92
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "sha256": "465ed17b4c881c24ef5890bb158b665e986e238d54cd62c1147aaabbb0425a2e",
+      "bytes": 5757,
+      "lines": 152
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\tests.rs",
+      "sha256": "6c17d196cf70ca34c8784b09fbaaeef8b1d27ba139178634017adfc89e66f0a7",
+      "bytes": 16752,
+      "lines": 493
+    }
+  ]
+}

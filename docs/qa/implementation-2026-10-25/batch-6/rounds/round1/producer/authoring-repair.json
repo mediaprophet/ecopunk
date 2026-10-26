@@ -1,0 +1,20 @@
+{
+  "schema": "ecopunk-round1-authoring-source-repair/1",
+  "files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "evidence_name": "authoring-source.rs",
+      "before_sha256": "368e02d42714cef04ba878d40fc7097fd297340f8c01d91e4fca5662699577ba",
+      "after_sha256": "71bca64597ef0282475cfb5c124135f5e7a919496061268887724a47ca4f75d3"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\tests.rs",
+      "evidence_name": "authoring-tests.rs",
+      "before_sha256": "f3329a14ed62dae7dba34d08f6d45e2de9bcf75bdc28696e43c9ff86724c2d98",
+      "after_sha256": "8c32864d02bc4f6389c353dfd305aac26f95d080bfec7b5f52d53ad1b3d4de17"
+    }
+  ],
+  "change": "Parenthesize generated final record expressions for Parameter/Transform/Material; type both functional helper parameters p:Record; correct fixture. Preserve actual edit/rebuild/package runtime tests and add canonical parse + prepare coverage for each generated edit kind, with optional-parent preservation assertions.",
+  "diagnosis": "Pinned parser treats a leading brace statement as Block, not record expression; parse_params requires colon/type. No canonical grammar change necessary.",
+  "verification": "Static source inspection; no Cargo or runtime by agent. Parent owns serial native tests/build/retry. No acceptance claim."
+}

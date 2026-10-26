@@ -1,0 +1,37 @@
+{
+  "job": "W2-Poet-texture-effect-reuse-trace",
+  "status": "complete_bounded_source_trace",
+  "model": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "source_root": "C:/github/qualiaDB",
+  "source_revision": "unknown; live checkout content pinned by hashes in report.md",
+  "outputs": [
+    "tools/poet-foundation/texture-effects/work/report.md",
+    "tools/poet-foundation/texture-effects/work/handoff.json"
+  ],
+  "intended_outputs": [
+    "tools/poet-foundation/texture-effects/work/reuse/report.md",
+    "tools/poet-foundation/texture-effects/work/reuse/handoff.json"
+  ],
+  "output_path_deviation": "The report and handoff were created one directory above the intended work/reuse/ directory. Existing files are preserved at their actual paths; coordinator will retain/reference those paths.",
+  "finding": {
+    "existing_operation": "qualia_core_db::hypermedia_authoring::image::{ImageDocument,ImageLayer,ImageFilter,apply_filter}; source-over composition; plus render::surface_authoring procedural CPU map/PNG APIs",
+    "recommended_effect": "ordered optional Sepia { intensity: f32 } in the existing Poet Paint/detail recipe, replayed through public apply_filter on reconstructed preview pixels",
+    "units_and_color": "intensity in [0,1]; RGBA8 encoded-sample RGB matrix blend; alpha unchanged; no linear-light/ICC or exposure claim",
+    "existing_caller": "qualia-core-db public module/re-exports and Vibe invoke host-side comment; Poet native recipe/render integration is reported by coordinator and separately pinned there, not re-audited",
+    "effectcraft_source": "saved engine-authoring review traces effect.apply and editable history/render/save workflow; no source/license bodies re-read in this focused pass",
+    "photocraft_source": "Saved docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md identifies C:/github/poet-photocraft crates/engine/src/lib.rs, crates/ops/src/lib.rs, crates/compose/src/lib.rs as reviewed anchors for layered raster commands, compositing and adjustment/filter workflow; actual bodies were not inspected in this task. Coverage pins are in media-tools.coverage.json."
+  },
+  "limits": [
+    "No build or tests run; source tests are not execution evidence",
+    "GaussianBlur, Sharpen, HueRotate and Emboss are no-op arms; BlendMode values are not honored by ImageDocument::composite",
+    "No proof of end-to-end Poet reachability, effect persistence/undo/reopen, transparency oracle, GPU or human acceptance",
+    "No whole-repository or EffectCraft re-audit; exact Poet route pin belongs to coordinator"
+  ],
+  "checks": {
+    "commands": "read-only source/document inspection, SHA-256, and creation of assigned outputs",
+    "exit_status": "not applicable",
+    "tests": "not run"
+  },
+  "restart_action": "Coordinator may use the existing Poet detail recipe/render owner to add one typed Sepia operation, then run separately authorized focused native checks and persistence/preview qualification. Preserve source recipe/base dependency and use canonical Qualia apply_filter; do not expose stub filters."
+}

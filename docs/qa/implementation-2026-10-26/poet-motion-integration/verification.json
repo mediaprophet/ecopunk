@@ -1,0 +1,128 @@
+{
+  "schema": "ecopunk-poet-material-motion-verification/v1",
+  "date_utc": "2026-10-26T04:52:46.669443+00:00",
+  "scope": "POET-MOTION-W1 bounded material-key software qualification only",
+  "canonical_files": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+      "sha256": "4a3c6ec81db38ca0e239c3cee2c80f127671b72713305110bb273e74c0376318"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "sha256": "534896e93841e3b49e2c3cac07029aa1de84802621f79f2b8c30374a60a06314"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controller.rs",
+      "sha256": "8102e2cc5c931481f0ae2533c4c54bfca08aee44312677cb8bde815a69505f52"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "sha256": "10b5cf9fb3e2ed50a62e348c9d7b59113c50d08e662b1f0ee55f0363a3e0fa20"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "sha256": "492532e99ece2df15c9cbd280d07034c9be8ce02bdd753a8a17c15a9237a3781"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "sha256": "34d7be3cc660adbd7f3161404a1a7000f8b06f102d2479a893adcffc8248618e"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "sha256": "e669dddf57310b9c54a28ebaca6e60b39d2ffa3776776b76d028e6b68110fe2e"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_tests.rs",
+      "sha256": "6b5e6de2bafdae90584235ab5ef10172cd70c22f8f5110576bdebea19b58d204"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_motion_tests.rs",
+      "sha256": "83df5258570a9e4fa2957f4f921ea215f2837f0bbdc6f1a034897dbe8c00b879"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion.rs",
+      "sha256": "b51f15d9440fa5c17426613cc18fa06fcbb765fde41a4b9b2d4923b71300ce12"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion_controls.rs",
+      "sha256": "516fd07867211f3ea6cb0629c2e94ac0ccceaaf61fbd0e44eacd0d0f6e4851d8"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion_tests.rs",
+      "sha256": "47404ef2dfaa7907a67d195fe70bbec2ed0c42a20c2807e9a1840b62884a641f"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\material_motion.rs",
+      "sha256": "1573f858739a22e23f609d1d22cd88b8677e232e88045cea7ebf5e75cf84b3cb"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\docs\\source-references\\effectcraft\\LICENSE-MIT",
+      "sha256": "7b6db9a363688683feacdf9b528f059637f2e5d2edbacd8720fc9b26781c9abe"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\docs\\source-references\\effectcraft\\NOTICE",
+      "sha256": "c7ecb79db5a35e749c037773c9867d07f6ff598edce3d72bd443b4d00f24e0be"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\docs\\source-references\\effectcraft\\README.md",
+      "sha256": "48a39f082c9a274fcf24ab4007edbc35ba038e2a4a81f93ef440fe4e48f7cd1b"
+    }
+  ],
+  "specifications_preserved": {
+    "docs/Biosphere algorithms Specifications.md": "883fe0ecf692d6a9b6d55870ef28c729df125fc550e5f506e20343176d5c5afc",
+    "docs/planning/tech/Biosphere algorithms Specifications v2.md": "986da7a1c23319a272481a78e5161b5b68d11d6aa5adb291771b92550dbf5d07"
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "result": "compile failed: two new fixture type errors; no tests executed",
+      "evidence": "check-attempt-1.json"
+    },
+    {
+      "attempt": 2,
+      "exit": 101,
+      "result": "12 passed, 1 failed; observer login intentionally retired author session before project open",
+      "evidence": "check-attempt-2.log"
+    },
+    {
+      "attempt": 3,
+      "session_id": 48778,
+      "exit": 0,
+      "result": "13 passed, 0 failed, 249 filtered; fresh-process HMC child case included",
+      "evidence": "check-attempt-3.log"
+    },
+    {
+      "kind": "native binary build",
+      "session_id": 98760,
+      "exit": 0,
+      "evidence": "native-build.log"
+    }
+  ],
+  "commands": {
+    "test": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --lib material_motion -- --test-threads=1",
+    "build": "cargo build --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --bin poet",
+    "coordinator": "Both commands ran through tools/poet-foundation/biosphere-shared/serial_check.py; sources frozen during checks; no worker Cargo runs."
+  },
+  "binary": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "sha256": "68d5f2beb422bd83b3a8614c5e2defcd94379e80a8aa5ed2dfcf71640ba020a8",
+    "bytes": 333084662,
+    "mtime_utc": "2026-10-26T04:50:18.168717+00:00"
+  },
+  "document_checks": {
+    "json_files_parsed": 8,
+    "local_links_resolved": 15
+  },
+  "source_reuse": "EffectCraft property/key interaction reference; existing Vibe easing math. No whole EffectCraft implementation, Boa/egui host, new Cargo dependency or HMC format introduced by the allowlisted install.",
+  "preservation": "Byte preimages and successive receipts retained. Global Poet Git status was unavailable under the sandbox; no clean-worktree claim.",
+  "current_check_lease": "absent after completed root-owned commands",
+  "usage_metrics": "unknown; per-agent tokens/currency not returned",
+  "limits": [
+    "No current-window/Computer Use or GPU/pixel quality verification; native binary compiled, not launched.",
+    "No actual human contributor/reviewer or biological/domain acceptance.",
+    "Existing NativeAuthority login replaces its active session. Sequential handoff/refusal tested; simultaneous distinct-principal cooperation is unqualified.",
+    "Explicit material sample/apply only; continuous transport, compositing, plant organs and connected fauna authoring remain open in this plan.",
+    "IP-03 C1-C8 overall remains open; no whole ecosystem or model completion claim.",
+    "Asset production HOLD; no film/game/cartoon accepted package produced; no commits, publication or payments."
+  ]
+}

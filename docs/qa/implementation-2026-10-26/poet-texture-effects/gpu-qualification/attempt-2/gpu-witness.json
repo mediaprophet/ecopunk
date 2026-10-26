@@ -1,0 +1,20 @@
+{
+  "base_sha256": "da3b54b2d271adae7cb93e287c5dbc28817ccc0abcb5c2d311c58c1801292622",
+  "gpu_backend": "unavailable through public Poet provider API",
+  "gpu_png_sha256": {
+    "baseline": "cf69ca2e708e224e9ca862668fb43b675c7423f977b63a155d95075522ae899e",
+    "child": "8c0fcf08096cc9147cce8d29e5b17d2977edd01aecd554d6e9747c30326d14ce",
+    "final": "8c0fcf08096cc9147cce8d29e5b17d2977edd01aecd554d6e9747c30326d14ce",
+    "grayscale": "07d147ef5462f61297b2439ce321f573a233dd1eada8b6f2c9376eb381062a3c",
+    "invert": "22eef1ea927cb6eef2b37f2554efb61cdad424483895e4fcb2ff196445f9d3be",
+    "sepia": "e134f4978b1118fbaecdd6bdea657435f81fbb7e08351ce72cd9f1d01bd6efe3"
+  },
+  "gpu_rgba8_sha256": "cb1af89c5f1bfb084d1f5dab8d6dadabdfd0df6faa7094c6c1c79e4522e179a5",
+  "grayscale_output_sha256": "8829d5c6c181fd6512aee3421fdaef423ac70910471843e35b5da39f48de63dc",
+  "invert_output_sha256": "4a4c7e62da282a1405a799acfc018b947060fab622802719d731cb61170d8034",
+  "ordered_output_sha256": "44161e4af95060aa8469bf9502f04f98dcd47c82a5d26db95cd3dff7097c9b33",
+  "package_sha256": "b03364cd450cb65e2b36542ea44ce3344cf6e28389ede5311d1b7777cc17d725",
+  "qualification": "64px synthetic retained native GPU readback; no current-window, human, domain or production acceptance",
+  "sepia_output_sha256": "66368613316bd90ccfbca3179ff87b97949f0c7beffbad609143bf3cca84f298",
+  "source_id": "urn:fixture:source:8752-1"
+}

@@ -1,0 +1,9 @@
+let mut scale: i64 = 2;
+pure fn twice(x: i64) { return x * 2; }
+scale = 4;
+twice(scale)
+let fixed: i64 = 7;
+fixed = 3;
+requires [ capability("pulse.publish") ]; pulse.publish("denied", 1);
+twice(scale)
+quit

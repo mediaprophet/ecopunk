@@ -1,0 +1,54 @@
+{
+  "manifest_path": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/install-manifest.json",
+  "manifest_sha256": "0ee679a2e1024e909a3bb4cdb9f1db21d64808a631ff62dcf5a1145e82b220e8",
+  "target_count": 53,
+  "stage_hash_mismatches": 0,
+  "selected_rechecked_inputs": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\pixels.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\candidate\\native\\src\\graphical\\surfaces\\pixels.rs",
+      "sha256": "a13384470dea99e86a2724bec2abfbf8cf3da5b51e31c96e86a1c3e6fcc11a61"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\surfaces\\wire.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\surfaces\\candidate\\native\\src\\graphical\\surfaces\\wire.rs",
+      "sha256": "36603237e0d9ebec0fff073df0d6ca5bd1cde881dcb6049c7ead67279685b874"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\source.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\authoring\\source.rs",
+      "sha256": "c595010fb543b59c88c7b83bfd47602c3aae3cd235ff2b5aecf26ad927e21129"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\authoring\\assembly_source.rs",
+      "sha256": "5d14ec709577649fdda85c476df6e7db5085473c501296aa1149f246910303c0"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\mod.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\authoring\\mod.rs",
+      "sha256": "8a0431f5ba344733551df4cb091108577ec52a8046c22b29d3bf2b66906fe3c0"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\authoring\\controls.rs",
+      "sha256": "a0c05d6f4dd601c40e413c65825a65b65c99d1d2a9cc83337207202dacbe3d7d"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\native_dispatch.rs",
+      "sha256": "eb019482cbfc4a4ef04ae4e8798b3d99fa7ac26d9e571f4472df421479bf0434"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "sha256": "52f1d34da4fdfd03709f4a6884eff8ae699605605dd1e3fee9c0979200fd353c"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\native_entry\\create.rs",
+      "stage": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round6\\integration\\after\\native\\src\\graphical\\native_entry\\create.rs",
+      "sha256": "e922c50bfe3de205cc56f4155a139736624dc728929c1c40699a459b5aaee76e"
+    }
+  ],
+  "execution": "source review only; no builds/tests/native invocation"
+}

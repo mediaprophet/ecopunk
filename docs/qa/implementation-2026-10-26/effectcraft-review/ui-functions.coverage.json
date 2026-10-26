@@ -1,0 +1,398 @@
+{
+  "review_date": "2026-10-26",
+  "purpose": "Read-only EffectCraft interaction inventory for routing reusable UI/UX into Poet's existing Construct, Manifold and ToolChest model.",
+  "scope": {
+    "effectcraft_root": "C:/github/storytold/effectcraft-main",
+    "effectcraft_instruction_file": "AGENTS.md (read; clean-room, no Adobe asset/code reuse, fail with actionable errors)",
+    "body_file_cap": 8,
+    "effectcraft_implementation_bodies_read": 8,
+    "command_registry_searches": "Broad rg catalog scans; declarations and IDs were read as search results, not counted as additional implementation body files.",
+    "actions_not_performed": [
+      "build",
+      "Cargo",
+      "test",
+      "GUI/runtime",
+      "network",
+      "provider",
+      "source edits"
+    ]
+  },
+  "effectcraft_source_pins": [
+    {
+      "path": "crates/ui-egui/src/menus.rs",
+      "ranges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "sha256": "643C5614FCCB49933473F29BAA03C151815BB2215C00CFB31922F29364F567D6",
+      "purpose": "UI command catalog, shortcuts and routing contract"
+    },
+    {
+      "path": "crates/ui-egui/src/panels/timeline.rs",
+      "ranges": [
+        [
+          65,
+          250
+        ]
+      ],
+      "sha256": "C8014EABBE1082152B9922E76529FAA2A92328884880AF7B22C580079D510010",
+      "purpose": "timeline bar gestures, pick-whip gesture and gesture-related interaction definitions"
+    },
+    {
+      "path": "crates/ui-egui/src/panels/properties.rs",
+      "ranges": [
+        [
+          70,
+          165
+        ]
+      ],
+      "sha256": "93EC78EF631B3E694A52581A58321B657A39CE5D7306FC69AA1A663AE5DFF036",
+      "purpose": "property panel rendering, selection and emitted commands"
+    },
+    {
+      "path": "crates/ui-egui/src/panels/graph.rs",
+      "ranges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "sha256": "400FB5584E9D63E04CCA3086287F565989A3F85287E878E64A1D1E098EA388C3",
+      "purpose": "graph editor interaction and command contract"
+    },
+    {
+      "path": "crates/engine/src/commands/frontend.rs",
+      "ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "sha256": "629C44F29AD09B1A35962F39C0C0422AEF91C70924E19AFA844EAD026022DD38",
+      "purpose": "frontend panel/workspace commands and parameter schemas"
+    },
+    {
+      "path": "crates/engine/src/commands/effect.rs",
+      "ranges": [
+        [
+          712,
+          765
+        ]
+      ],
+      "sha256": "D884CFB3060E48E9912BEBA78A056D4567B0DDA026A2860E54F89225294B34FB",
+      "purpose": "effect command catalog including apply/toggle/reorder/reset"
+    },
+    {
+      "path": "crates/engine/src/render_queue.rs",
+      "ranges": [
+        [
+          570,
+          665
+        ]
+      ],
+      "sha256": "6F5691798D8819341604A8604967A37EB6E6AE397D6DC47A1D0DE5899F7E1F40",
+      "purpose": "render queue/job execution, status/event handling and completion path"
+    },
+    {
+      "path": "crates/engine/src/history.rs",
+      "ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "sha256": "A725B978D29B126E66975F39B14EACE2E866C4B6FA4D6984FF56964B85B2D5E4",
+      "purpose": "branching snapshot history model and stable history node description"
+    }
+  ],
+  "command_catalog_search_hits": [
+    {
+      "path": "crates/engine/src/commands/effect.rs",
+      "lines": [
+        714,
+        745,
+        746,
+        747,
+        748,
+        749,
+        750,
+        751,
+        752,
+        753,
+        754
+      ],
+      "ids": [
+        "effect.apply",
+        "effect.applyLast",
+        "effect.removeAll",
+        "effect.remove",
+        "effect.toggle",
+        "effect.setLabel",
+        "effect.reorder",
+        "effect.duplicate",
+        "effect.copy",
+        "effect.paste",
+        "effect.reset"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/frontend.rs",
+      "lines": [
+        85,
+        93,
+        100
+      ],
+      "ids": [
+        "window.panel",
+        "window.workspace",
+        "window.saveWorkspace"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/prop.rs",
+      "lines": [
+        1317,
+        1318,
+        1319,
+        1347,
+        1348
+      ],
+      "ids": [
+        "prop.toggleAnimation",
+        "prop.addKey",
+        "prop.toggleKey",
+        "prop.select",
+        "prop.deselect"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/layer.rs",
+      "lines": [
+        1801,
+        1802,
+        1803,
+        1804,
+        1805
+      ],
+      "ids": [
+        "layer.moveEarlier",
+        "layer.moveLater",
+        "layer.moveEarlier10",
+        "layer.moveLater10",
+        "layer.slip"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/anim.rs",
+      "lines": [
+        521,
+        522,
+        524,
+        532,
+        533,
+        534,
+        539,
+        544,
+        552,
+        553,
+        554,
+        556,
+        564
+      ],
+      "ids": [
+        "keys.copy",
+        "keys.paste",
+        "keys.selectAll",
+        "keys.nudge",
+        "keys.nudgeForward",
+        "keys.nudgeBackward",
+        "keys.nudgeForward10",
+        "keys.set",
+        "keys.selectEqual",
+        "keys.selectPrevious",
+        "keys.selectFollowing",
+        "keys.setEase",
+        "keys.timeReverse"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/render_queue.rs",
+      "lines": [
+        1006,
+        1007,
+        1046,
+        1047,
+        1048,
+        1049
+      ],
+      "ids": [
+        "renderQueue.remove",
+        "renderQueue.setRender",
+        "renderQueue.move",
+        "renderQueue.duplicate",
+        "renderQueue.render",
+        "renderQueue.stop"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/edit.rs",
+      "lines": [
+        885,
+        886
+      ],
+      "ids": [
+        "edit.undo",
+        "edit.redo"
+      ]
+    },
+    {
+      "path": "crates/engine/src/commands/app_more.rs",
+      "lines": [
+        673
+      ],
+      "ids": [
+        "edit.history"
+      ]
+    },
+    {
+      "path": "crates/ui-egui/src/panels/timeline.rs",
+      "lines": [
+        2261,
+        2263,
+        2333,
+        2419,
+        2483,
+        2559,
+        3052,
+        3057,
+        3072
+      ],
+      "ids": [
+        "layer.select",
+        "layer.setBlendMode",
+        "layer.setParent",
+        "layer.slip",
+        "layer.timing",
+        "keys.select",
+        "keys.toggleHold",
+        "keys.set"
+      ]
+    }
+  ],
+  "poet_destination_context": [
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/core/construct.rs",
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "sha256": "76C9C0D1BFEBCDDCCD240B9DCF6F080B4731759C541133A8CFD038B840617AA7",
+      "finding": "Construct is coherent observer/agent scope, not an EffectCraft project/app; seed records bundled/authored/stub status."
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/core/registry.rs",
+      "ranges": [
+        [
+          18,
+          100
+        ],
+        [
+          121,
+          160
+        ]
+      ],
+      "sha256": "DEDAAEB98959D1304C45CD0B10CCB41B7257930F0A7F42C738F27D8E5EB4F14D",
+      "finding": "ToolChest registry holds toolboxes, ontology registry, Manifold and Construct definitions; ManifoldSeed describes initial containers/panels/connections"
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/manifolds/studio_bay.rs",
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "sha256": "DF66D8D26CBACBA55B29314E1DF0FEBCD7AB5B75CFB44B407D2A8C55B79603CA",
+      "finding": "Inspected WASM first-arrive studio-bay seed has no containers or panels; does not establish native/editor runtime defaults."
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/manifolds/projects.rs",
+      "ranges": [
+        [
+          382,
+          403
+        ]
+      ],
+      "sha256": "CD58FD0CC70BB38B6EC519C9FD07C4A1258237C502F47DD6A127BFA97F58F699",
+      "finding": "Inspected WASM Projects Manifold seed includes timeline container; does not establish native workspace defaults or an editing engine."
+    },
+    {
+      "path": "C:/github/poet/wasm/src/tool_chest/constructs/mod.rs",
+      "ranges": [
+        [
+          31,
+          50
+        ],
+        [
+          155,
+          180
+        ]
+      ],
+      "sha256": "13C64971DAEC9ECCAEE1207F53C6D1E198634A7024C8C23851F442F2D66122B4",
+      "finding": "Bundled Poet Construct defaults to studio-bay then seeded lenses; catalogue stub Constructs lack manifold seeds"
+    }
+  ],
+  "broad_document_and_inventory_reads": [
+    "C:/github/ecopunk/AGENTS.md and docs/planning/tech/poet-craft-consolidation.md",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+    "EffectCraft AGENTS.md, docs/architecture.md, docs/agents.md and docs/control-protocol.md (documentation, not implementation body reads)",
+    "EffectCraft UI module/panel routes and command ID search across crates/engine/src/commands and crates/ui-egui/src",
+    "Poet Construct/Manifold/ToolChest names and current seed inventory search; no EffectCraft-specific seed/handler found in scanned paths",
+    "Construct boundary additionally aligned to the coordinator-read QualiaDB docs/manuals/adr/0012-construct-is-the-distributable-composition.md; not independently hashed/audited in this bounded UI review."
+  ],
+  "evidence_status": {
+    "effectcraft_source_presence": "Selected source implementations and registries inspected; broad catalogs searched, not exhaustive.",
+    "agent_entry": "Docs describe MCP headless and bridged clients, CLI and control channel sharing stable command IDs; not executed in this audit.",
+    "poet_integration": "No EffectCraft-specific Poet wiring found in scanned Poet seed/catalog paths; destination mapping is proposed, not integrated.",
+    "runtime_qualification": "Not assessed. Render queue render/stop commands and execution/status/event paths are source-present; stop completion, acknowledgement and final job state were not traced or verified. No output reopen, human review, contributor/reviewer workflow or accessibility acceptance performed.",
+    "accessibility": "Unknown. Keyboard shortcut presence does not establish screen-reader, focus, contrast or WCAG behavior."
+  },
+  "governing_ui_category_coverage": [
+    {
+      "category": "commands",
+      "status": "selected command and menu registry sources inspected; IDs mapped; not exhaustive or executed"
+    },
+    {
+      "category": "panels",
+      "status": "selected panel/workspace routes and property/timeline/graph bodies inspected; no full panel tree/runtime layout claim"
+    },
+    {
+      "category": "gestures",
+      "status": "representative timeline drag/pick-whip and graph interaction source inspected; no live interaction test"
+    },
+    {
+      "category": "shortcuts",
+      "status": "shortcut declarations in menus.rs range 28-120 inspected; no platform/conflict/end-to-end test"
+    },
+    {
+      "category": "context menus",
+      "status": "catalog/search hits only; not body-audited as a distinct category; unknown completeness"
+    },
+    {
+      "category": "dialogs",
+      "status": "catalog/documentation hits only; no dialog body audit; behavior and accessibility unknown"
+    },
+    {
+      "category": "views",
+      "status": "properties/timeline/graph bodies inspected and viewer/composition modules inventoried; partial only"
+    },
+    {
+      "category": "accessibility",
+      "status": "unassessed; keyboard declarations do not establish accessibility acceptance"
+    }
+  ]
+}

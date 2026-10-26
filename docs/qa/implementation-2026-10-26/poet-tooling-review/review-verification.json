@@ -1,0 +1,674 @@
+{
+  "date_utc": "2026-10-26T02:11:16.097827+00:00",
+  "scope": "Documentation/source-pin consistency only; no builds, engine tests, exports, GUI, provider calls, source refactoring or acceptance.",
+  "checks": [
+    {
+      "check": "source_pins",
+      "passed": true,
+      "detail": {
+        "source_entries": 62,
+        "licence_manifests": 5,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "research_jobs",
+      "passed": true,
+      "detail": {
+        "biosphere": 6,
+        "poet": 12
+      }
+    },
+    {
+      "check": "disjoint_current_outputs",
+      "passed": true,
+      "detail": {
+        "output_pairs": 18
+      }
+    },
+    {
+      "check": "no_current_build_or_canonical_edits",
+      "passed": true,
+      "detail": "Research jobs and inactive parents explicitly forbid canonical writes; inactive children have no current canonical grant. All forbid Cargo."
+    },
+    {
+      "check": "implementation_still_inactive",
+      "passed": true,
+      "detail": {
+        "parents": 8,
+        "subjobs": 10
+      }
+    },
+    {
+      "check": "unique_job_ids",
+      "passed": true,
+      "detail": 36
+    },
+    {
+      "check": "dependency_graph_acyclic",
+      "passed": true,
+      "detail": "Execution dependencies checked; review-after handoffs are not execution prerequisites."
+    },
+    {
+      "check": "ui_inventory_preserved",
+      "passed": true,
+      "detail": {
+        "apps": 11,
+        "representative_pending_rows": 30,
+        "interaction_categories": 8
+      }
+    },
+    {
+      "check": "original_eco_queue_preserved",
+      "passed": true,
+      "detail": 120
+    },
+    {
+      "check": "queue_backlog_and_role_pins",
+      "passed": true,
+      "detail": "Current backlog and existing role-contract hashes match."
+    },
+    {
+      "check": "relative_markdown_links",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "utf8_and_no_doubled_cr",
+      "passed": true,
+      "detail": "All revised documents/JSON decoded as UTF-8; no doubled CR line endings."
+    },
+    {
+      "check": "authoring_job_input_paths_exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "research_read_budgets_and_ownership_scope",
+      "passed": true,
+      "detail": "All twelve authoring jobs bounded and unassigned; PA-R02 and PA-R11 explicitly reuse adjacent work rather than duplicate it."
+    },
+    {
+      "check": "revised_json_parse",
+      "passed": true,
+      "detail": "Every revised JSON listed in document_pins parsed."
+    }
+  ],
+  "source_pins": [
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\intents.rs",
+      "expected_sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "actual_sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\native_commands.rs",
+      "expected_sha256": "09d8e19076fcb0d6439fd4cd0301c07f7a8bd69194962a9bcb43f68b55848a28",
+      "actual_sha256": "09d8e19076fcb0d6439fd4cd0301c07f7a8bd69194962a9bcb43f68b55848a28",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\model.rs",
+      "expected_sha256": "9fee08a9cd3b2753f28c0ceb8afb975cada34ee62e0326835ca30fecb59a8647",
+      "actual_sha256": "9fee08a9cd3b2753f28c0ceb8afb975cada34ee62e0326835ca30fecb59a8647",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "expected_sha256": "873d764813a85101e5ad9dff90afe47dfbb36d34830eeb7f4802e97131739d21",
+      "actual_sha256": "873d764813a85101e5ad9dff90afe47dfbb36d34830eeb7f4802e97131739d21",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project.rs",
+      "expected_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "actual_sha256": "b5712d725d219bca7276742b65ad69f30b75987b11d5b7e62b61db96c9b32080",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+      "expected_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "actual_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\cooperative_workbench\\projection.rs",
+      "expected_sha256": "ec2c1a3dbcbb6ceb4c2fc36a7c065acd07e9d977b858223c14ea0f7a2751de63",
+      "actual_sha256": "ec2c1a3dbcbb6ceb4c2fc36a7c065acd07e9d977b858223c14ea0f7a2751de63",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "expected_sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "actual_sha256": "4cb3b6262c3c90e47d09a671366468e5d927595bda4aa543ae3614a2e81d3960",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\mcp\\mod.rs",
+      "expected_sha256": "5ea132ef6eb28d7a5604a711ba49c099a49fe34fec697592d8f5ea19080238b7",
+      "actual_sha256": "5ea132ef6eb28d7a5604a711ba49c099a49fe34fec697592d8f5ea19080238b7",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+      "expected_sha256": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78",
+      "actual_sha256": "612741d7d849a4500615d0ead1c122cdd459a073270c6ed6b89700b4e9feff78",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "expected_sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88",
+      "actual_sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\core\\intent_bus.rs",
+      "expected_sha256": "59c55d4ff0b4fa7411423d76b01bf5ebedb61f19cbac5df21ecfc4ba4b615d19",
+      "actual_sha256": "59c55d4ff0b4fa7411423d76b01bf5ebedb61f19cbac5df21ecfc4ba4b615d19",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\tool_chest\\core\\registry.rs",
+      "expected_sha256": "dedaaeb98959d1304c45cd0b10ccb41b7257930f0a7f42c738f27d8e5eb4f14d",
+      "actual_sha256": "dedaaeb98959d1304c45cd0b10ccb41b7257930f0a7f42c738f27d8e5eb4f14d",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\browser\\intent_bus.rs",
+      "expected_sha256": "1c22077db90d6b721c8c0c85189434cb04b2a5d23be61bc4083e39009dc85c95",
+      "actual_sha256": "1c22077db90d6b721c8c0c85189434cb04b2a5d23be61bc4083e39009dc85c95",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\browser\\containers\\body_core.rs",
+      "expected_sha256": "b49234b1118be93843da25ffe671e9b5e4b3c8194c6965980e516f98c890885c",
+      "actual_sha256": "b49234b1118be93843da25ffe671e9b5e4b3c8194c6965980e516f98c890885c",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\browser\\containers\\body_studio.rs",
+      "expected_sha256": "a1a8d71709c9d0b0e99cabc16c3c0707e5cbbf34d663d0a256f0972f2ea888a4",
+      "actual_sha256": "a1a8d71709c9d0b0e99cabc16c3c0707e5cbbf34d663d0a256f0972f2ea888a4",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\browser\\container_views\\doc.rs",
+      "expected_sha256": "a167a04742afa2d15f45505e976f776b04dfa295141186f8e4ee53a62c485b50",
+      "actual_sha256": "a167a04742afa2d15f45505e976f776b04dfa295141186f8e4ee53a62c485b50",
+      "matched": true
+    },
+    {
+      "coverage": "poet-authoring.coverage.json",
+      "path": "C:\\github\\poet\\wasm\\src\\browser\\studio_views\\persist\\editors.rs",
+      "expected_sha256": "49221079d96a3a9a85340f3acabe5628166eeef44271e2b412b88ea98574aa7a",
+      "actual_sha256": "49221079d96a3a9a85340f3acabe5628166eeef44271e2b412b88ea98574aa7a",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-photocraft\\crates\\ops\\src\\lib.rs",
+      "expected_sha256": "abf273426ee15eb03d53ebe0db958d37ecbebc9a29e6d02a5864b9d9cd658339",
+      "actual_sha256": "abf273426ee15eb03d53ebe0db958d37ecbebc9a29e6d02a5864b9d9cd658339",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-photocraft\\crates\\engine\\src\\lib.rs",
+      "expected_sha256": "da34152a48c50422ec1b5eeed3efdc7236141309d3a18bb9d93927121b6d2279",
+      "actual_sha256": "da34152a48c50422ec1b5eeed3efdc7236141309d3a18bb9d93927121b6d2279",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-photocraft\\crates\\compose\\src\\lib.rs",
+      "expected_sha256": "bc7b2bb2bd0275d974c1f7879366b485fa2e27e6ed4d4efbba6f7666b03c1191",
+      "actual_sha256": "bc7b2bb2bd0275d974c1f7879366b485fa2e27e6ed4d4efbba6f7666b03c1191",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-lightcraft\\crates\\develop\\src\\lib.rs",
+      "expected_sha256": "5912e268f1c7d1be30a91aefac4b7615c58c10921c52527e60bb5c2a8068a30f",
+      "actual_sha256": "5912e268f1c7d1be30a91aefac4b7615c58c10921c52527e60bb5c2a8068a30f",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-lightcraft\\crates\\pipeline\\src\\lib.rs",
+      "expected_sha256": "78a7ed149fcb206b0d07b9b00472ff0bbc495544003a73e35365ccd60a1bc469",
+      "actual_sha256": "78a7ed149fcb206b0d07b9b00472ff0bbc495544003a73e35365ccd60a1bc469",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-lightcraft\\crates\\engine\\src\\lib.rs",
+      "expected_sha256": "15044a1d276f2a9d8f86b3aa0389f5f4980dc1a541231ce6a85e672740ee73df",
+      "actual_sha256": "15044a1d276f2a9d8f86b3aa0389f5f4980dc1a541231ce6a85e672740ee73df",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-vectorcraft\\crates\\three-d\\src\\lib.rs",
+      "expected_sha256": "b5044cf2671e034378d649d2ee4e217764d0825cfd1200eb0197c174773a1b21",
+      "actual_sha256": "b5044cf2671e034378d649d2ee4e217764d0825cfd1200eb0197c174773a1b21",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-vectorcraft\\crates\\doc\\src\\lib.rs",
+      "expected_sha256": "cf862d5350e9e6f1bf33802e6acac4d416ff10a2dd0965f50423375a180e2690",
+      "actual_sha256": "cf862d5350e9e6f1bf33802e6acac4d416ff10a2dd0965f50423375a180e2690",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-vectorcraft\\crates\\engine\\src\\lib.rs",
+      "expected_sha256": "f86160b2459adfd8cc47a78d40d49af86763a78394f83b49960af11f75018ce7",
+      "actual_sha256": "f86160b2459adfd8cc47a78d40d49af86763a78394f83b49960af11f75018ce7",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-soundcraft\\crates\\automation\\src\\lib.rs",
+      "expected_sha256": "0f156f2828d881f3887534b85b4868ae3ddabb1fbd3781175f8306dc18f22a47",
+      "actual_sha256": "0f156f2828d881f3887534b85b4868ae3ddabb1fbd3781175f8306dc18f22a47",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-soundcraft\\crates\\mix\\src\\lib.rs",
+      "expected_sha256": "c4176db67b3cb555a5d81e7675ebfcf8dae2725c9617101dc26810bef07febe6",
+      "actual_sha256": "c4176db67b3cb555a5d81e7675ebfcf8dae2725c9617101dc26810bef07febe6",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-soundcraft\\crates\\engine\\src\\lib.rs",
+      "expected_sha256": "7897b06c07e8bab0cf1fb898f33e4accd0ea8d8bcda517b3065b8f3b760e2546",
+      "actual_sha256": "7897b06c07e8bab0cf1fb898f33e4accd0ea8d8bcda517b3065b8f3b760e2546",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-filmcraft\\crates\\edit\\src\\lib.rs",
+      "expected_sha256": "c6019e4ed55108fb4ff2f7caef73b24f9a7901b79b9fb0f5ddefdeaeeb6c2a5d",
+      "actual_sha256": "c6019e4ed55108fb4ff2f7caef73b24f9a7901b79b9fb0f5ddefdeaeeb6c2a5d",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-filmcraft\\crates\\automation\\src\\lib.rs",
+      "expected_sha256": "a5ec09affee9f3c72aa212b2af04ef00ec7a9f62b338a78902fb222bff8222b1",
+      "actual_sha256": "a5ec09affee9f3c72aa212b2af04ef00ec7a9f62b338a78902fb222bff8222b1",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-filmcraft\\crates\\export\\src\\lib.rs",
+      "expected_sha256": "3a11ecd0d5845cf2deae68fb83f18fcd5549f3b35ae3d96e3248b2c1da3cc747",
+      "actual_sha256": "3a11ecd0d5845cf2deae68fb83f18fcd5549f3b35ae3d96e3248b2c1da3cc747",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-filmcraft\\crates\\render\\src\\lib.rs",
+      "expected_sha256": "65ed21e5f1c7c213955c2ece280b08356d79f49f4c66c52d8eba4459cf2f98c7",
+      "actual_sha256": "65ed21e5f1c7c213955c2ece280b08356d79f49f4c66c52d8eba4459cf2f98c7",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json",
+      "path": "C:\\github\\poet-vectorcraft\\crates\\metafile\\src\\emf.rs",
+      "expected_sha256": "0dccd0929e47236d4e11e69970b347259484d6824be4db8b267005878863bf42",
+      "actual_sha256": "0dccd0929e47236d4e11e69970b347259484d6824be4db8b267005878863bf42",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-wordcraft\\README.md",
+      "expected_sha256": "0837ea96632e62de30f90c97ae78cc5e22b5d77dedcbb462adf088b310f4d25d",
+      "actual_sha256": "0837ea96632e62de30f90c97ae78cc5e22b5d77dedcbb462adf088b310f4d25d",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-wordcraft\\crates\\doc\\src\\lib.rs",
+      "expected_sha256": "eee999fe47e5a4ba93e1bb040ab37ed18c7886e6fc0b645ef696f3faef54480a",
+      "actual_sha256": "eee999fe47e5a4ba93e1bb040ab37ed18c7886e6fc0b645ef696f3faef54480a",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-wordcraft\\crates\\mcp\\src\\lib.rs",
+      "expected_sha256": "1242d18f56cea252dd7b1b4a5c16183e6b01e8703d63152d1e3444f761084a2d",
+      "actual_sha256": "1242d18f56cea252dd7b1b4a5c16183e6b01e8703d63152d1e3444f761084a2d",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-wordcraft\\crates\\engine\\src\\session.rs",
+      "expected_sha256": "49cd5ee14586ebf42ecd0e01d699cdc7953376981c7573112b35ca463f6bcca0",
+      "actual_sha256": "49cd5ee14586ebf42ecd0e01d699cdc7953376981c7573112b35ca463f6bcca0",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-pdfcraft\\README.md",
+      "expected_sha256": "2ab551189ecbcce431c792bfbad8b90f7f8e284d7602ee97b031c835cce64691",
+      "actual_sha256": "2ab551189ecbcce431c792bfbad8b90f7f8e284d7602ee97b031c835cce64691",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-pdfcraft\\crates\\engine\\src\\lib.rs",
+      "expected_sha256": "b303949764fc907413c2e37814b01fe80c85ac817a7844d181b59d5186c963f4",
+      "actual_sha256": "b303949764fc907413c2e37814b01fe80c85ac817a7844d181b59d5186c963f4",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-pdfcraft\\crates\\engine\\src\\commands.rs",
+      "expected_sha256": "68bd282ca95e48110251377a4a2e4c2279eea3cac4addbed30585399a15d84fd",
+      "actual_sha256": "68bd282ca95e48110251377a4a2e4c2279eea3cac4addbed30585399a15d84fd",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-pdfcraft\\crates\\engine\\src\\actions.rs",
+      "expected_sha256": "44a14601acd58dbf2122e51d2bfe8e721812386519f5635577bdf1a45d4f5100",
+      "actual_sha256": "44a14601acd58dbf2122e51d2bfe8e721812386519f5635577bdf1a45d4f5100",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-gridcraft\\README.md",
+      "expected_sha256": "46fb8c4a05a65d95df8963c99885202958a8d9cfffc1481e3e0f89aca3f96fa4",
+      "actual_sha256": "46fb8c4a05a65d95df8963c99885202958a8d9cfffc1481e3e0f89aca3f96fa4",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-gridcraft\\crates\\model\\src\\lib.rs",
+      "expected_sha256": "56c9b492fb8fa6ed5f03368d320c8098fbedeae606d7e173b60b21d4f0b9fe8d",
+      "actual_sha256": "56c9b492fb8fa6ed5f03368d320c8098fbedeae606d7e173b60b21d4f0b9fe8d",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-gridcraft\\crates\\functions\\src\\lib.rs",
+      "expected_sha256": "f891e3a1bbc4547518958ba0930d2c0ee04442753ba26e33dc6829c6b1079694",
+      "actual_sha256": "f891e3a1bbc4547518958ba0930d2c0ee04442753ba26e33dc6829c6b1079694",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-gridcraft\\crates\\engine\\src\\cmd\\edit.rs",
+      "expected_sha256": "01077e180839b3dc1ca20a9b3b4a56fbef8fceb3fb64cc033891f555c5c7172e",
+      "actual_sha256": "01077e180839b3dc1ca20a9b3b4a56fbef8fceb3fb64cc033891f555c5c7172e",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-deckcraft\\README.md",
+      "expected_sha256": "bf6795bd3d3f2feee94ca9edd563d6438c1cb0f202a0c1398ab890357f69fe3c",
+      "actual_sha256": "bf6795bd3d3f2feee94ca9edd563d6438c1cb0f202a0c1398ab890357f69fe3c",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-deckcraft\\crates\\model\\src\\lib.rs",
+      "expected_sha256": "3315f1f8571480f012111b81d716817feac725055c04eedd42ee8a1ebb0eaa2d",
+      "actual_sha256": "3315f1f8571480f012111b81d716817feac725055c04eedd42ee8a1ebb0eaa2d",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-deckcraft\\crates\\mcp\\src\\lib.rs",
+      "expected_sha256": "d6cc773fe9bca121038b6466ad51dbb2b9ce28a9332f0e61c2124d0bfb9ce47b",
+      "actual_sha256": "d6cc773fe9bca121038b6466ad51dbb2b9ce28a9332f0e61c2124d0bfb9ce47b",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-deckcraft\\crates\\mcp\\src\\headless.rs",
+      "expected_sha256": "781f9a2b205a4563207b8febcc23697391c2f464c53ab664a9255702acee67d6",
+      "actual_sha256": "781f9a2b205a4563207b8febcc23697391c2f464c53ab664a9255702acee67d6",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-artcraft\\README.md",
+      "expected_sha256": "933462209ceb7309defc4ec7df50b110ae17d26d9ab2ff38e241d1081d7045a1",
+      "actual_sha256": "933462209ceb7309defc4ec7df50b110ae17d26d9ab2ff38e241d1081d7045a1",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-artcraft\\artcraft-native\\src\\pages\\mod.rs",
+      "expected_sha256": "eb94217678fdf5e84d01e278ff0fa6f6241639b8740225d8d9b9264a62dabcdc",
+      "actual_sha256": "eb94217678fdf5e84d01e278ff0fa6f6241639b8740225d8d9b9264a62dabcdc",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-artcraft\\artcraft-native\\src\\app.rs",
+      "expected_sha256": "be835f9db7f3dd2ecfd42747aa186d3130ecbbc5e68da1452ce5168948485d0a",
+      "actual_sha256": "be835f9db7f3dd2ecfd42747aa186d3130ecbbc5e68da1452ce5168948485d0a",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-artcraft\\artcraft-native\\src\\pages\\create_image.rs",
+      "expected_sha256": "08de74cc4e967ad656ed1f85491c07f223c034f177a58de1e1db1b030ea6a3a5",
+      "actual_sha256": "08de74cc4e967ad656ed1f85491c07f223c034f177a58de1e1db1b030ea6a3a5",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-cadcraft\\README.md",
+      "expected_sha256": "320f5527c59725b4b7cdda62bce2a9a2019cec64339dae96a662cc6d5f0a60a9",
+      "actual_sha256": "320f5527c59725b4b7cdda62bce2a9a2019cec64339dae96a662cc6d5f0a60a9",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-cadcraft\\crates\\constraints\\src\\lib.rs",
+      "expected_sha256": "39d102b742b153879253acbba513a8f85a24b144772fd3d6f52cf303e71362bd",
+      "actual_sha256": "39d102b742b153879253acbba513a8f85a24b144772fd3d6f52cf303e71362bd",
+      "matched": true
+    },
+    {
+      "coverage": "document-data-tools.coverage.json",
+      "path": "C:\\github\\poet-cadcraft\\crates\\mcp\\src\\lib.rs",
+      "expected_sha256": "56fe44785352fcd44d9fd0497ac467030e02ec7e86c251d7e080194fcee4fb1b",
+      "actual_sha256": "56fe44785352fcd44d9fd0497ac467030e02ec7e86c251d7e080194fcee4fb1b",
+      "matched": true
+    },
+    {
+      "coverage": "qualia-app-contract-source-review.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\lib.rs",
+      "expected_sha256": "237c50a22c5de3c39b57917044e0f0e090e2869659829b247e443514263e555a",
+      "actual_sha256": "237c50a22c5de3c39b57917044e0f0e090e2869659829b247e443514263e555a",
+      "matched": true
+    },
+    {
+      "coverage": "qualia-app-contract-source-review.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\adapter.rs",
+      "expected_sha256": "70c2046033459e44ab380766133a2666489ae894fb8a55d3af4e45e959814677",
+      "actual_sha256": "70c2046033459e44ab380766133a2666489ae894fb8a55d3af4e45e959814677",
+      "matched": true
+    },
+    {
+      "coverage": "qualia-app-contract-source-review.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\descriptor.rs",
+      "expected_sha256": "88fc70de4c2480babe49cee57acc064c15fb7fa12101a4823aa2e7ae91f7b369",
+      "actual_sha256": "88fc70de4c2480babe49cee57acc064c15fb7fa12101a4823aa2e7ae91f7b369",
+      "matched": true
+    },
+    {
+      "coverage": "qualia-app-contract-source-review.json",
+      "path": "C:\\github\\qualiaDB\\crates\\qualia-app-contract\\src\\request.rs",
+      "expected_sha256": "2537a5ad2c771151b112a2b2712d8e8af76e7bf30d6e451a5a2665a096a344fc",
+      "actual_sha256": "2537a5ad2c771151b112a2b2712d8e8af76e7bf30d6e451a5a2665a096a344fc",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json licence manifest",
+      "path": "C:\\github\\poet-photocraft\\Cargo.toml",
+      "expected_sha256": "f8c5e618f713bb647209bcbd1e86e9abfdd97d40d88499ae59d5d34817c1c30f",
+      "actual_sha256": "f8c5e618f713bb647209bcbd1e86e9abfdd97d40d88499ae59d5d34817c1c30f",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json licence manifest",
+      "path": "C:\\github\\poet-lightcraft\\Cargo.toml",
+      "expected_sha256": "6c7364635e36386a1925836570366a428b7c4c485100342b1bf075b806bb16e6",
+      "actual_sha256": "6c7364635e36386a1925836570366a428b7c4c485100342b1bf075b806bb16e6",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json licence manifest",
+      "path": "C:\\github\\poet-vectorcraft\\Cargo.toml",
+      "expected_sha256": "be9ef2383e1cfdc6211ee742fe2ddf4414ea123f02e70256d6e76d250a3d918e",
+      "actual_sha256": "be9ef2383e1cfdc6211ee742fe2ddf4414ea123f02e70256d6e76d250a3d918e",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json licence manifest",
+      "path": "C:\\github\\poet-soundcraft\\Cargo.toml",
+      "expected_sha256": "0db107af66d278256cf30664995e7cd7a0df1dae6f4f29197058927e90ef026d",
+      "actual_sha256": "0db107af66d278256cf30664995e7cd7a0df1dae6f4f29197058927e90ef026d",
+      "matched": true
+    },
+    {
+      "coverage": "media-tools.coverage.json licence manifest",
+      "path": "C:\\github\\poet-filmcraft\\Cargo.toml",
+      "expected_sha256": "d80819a5d1f26c4d2d61735f26963006c9508f204847348a7c48b7e680cedc45",
+      "actual_sha256": "d80819a5d1f26c4d2d61735f26963006c9508f204847348a7c48b7e680cedc45",
+      "matched": true
+    }
+  ],
+  "document_pins": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "68f65f829d3a5ee6f98f953c6fc687d65c30f5e1ba3a65ec8a2556bbe86bb29a"
+    },
+    {
+      "path": "docs/planning/README.md",
+      "sha256": "e4519985ebad0681afb7556097d07ac55a22f75f321ef4c9073072ba3ab1d21f"
+    },
+    {
+      "path": "docs/planning/implementation-plan.md",
+      "sha256": "9129619acd6a5c9269b777ba75c1721dc7a0f5b3dd6e8bfa673d9b5d2fd24e4a"
+    },
+    {
+      "path": "docs/planning/delivery-revision-and-agent-handoff.md",
+      "sha256": "64d51d092c254a9fde066a4c97bd15c2ac27e51994f4a6e38b890c8a607a3f87"
+    },
+    {
+      "path": "docs/planning/biosphere-implementation-dispatch.md",
+      "sha256": "ea0ec47a57e9888690d071f11dd6c67cb95c684c8482eaad097022ec6c133f97"
+    },
+    {
+      "path": "docs/planning/biosphere-work-packets.json",
+      "sha256": "6ff58e4d2d94952bf4b8755feb48480450e86e9754a430a65563c8fe8ebf2e3d"
+    },
+    {
+      "path": "docs/planning/implementation-queue.json",
+      "sha256": "073aa37bcfa378a42e82478655a0eac4cdb8987bad424a3eed5f1b648813e603"
+    },
+    {
+      "path": "docs/planning/tech/ecopunk-production-backlog.md",
+      "sha256": "a426ad1d3182e2502be83851d883209cd4c37c4cefeff8bf67b597e3e3a683ae"
+    },
+    {
+      "path": "docs/planning/tech/poet-comprehensive-authoring-review.md",
+      "sha256": "65c086bb5e462ed2c4f4b837c79d66a6a19a7084585bba2b4b451c07498d63a7"
+    },
+    {
+      "path": "docs/planning/tech/poet-craft-consolidation.md",
+      "sha256": "e90e864f44f7863a7872bb895e254adf5d1221848bc4afa8dcbc2d7434134d2c"
+    },
+    {
+      "path": "docs/planning/tech/assets/production-toolchain-spec.md",
+      "sha256": "10ecb6637afce9019a2c443d1562e24738cc30171b7b199ed07cdb268b99ced3"
+    },
+    {
+      "path": "docs/planning/tech/poet-ui-recovery/README.md",
+      "sha256": "05b0cbd6c46b314a94d32d1668d73b4008cfbc6683c13b06c7bf73d799d144be"
+    },
+    {
+      "path": "docs/planning/tech/poet-ui-recovery/ui-function-inventory.json",
+      "sha256": "e34e4811023a03ddbb1a22ad8a6e0c4d7f9cfadd0e98181117fb3a34b7b3a1d3"
+    },
+    {
+      "path": "docs/planning/tech/craft-consolidation/source-inventory.json",
+      "sha256": "0875a37bbce5b3a979607abf8afad4c0616c1b0965da58679d2fa523f1150d3d"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.coverage.json",
+      "sha256": "cf8487e95e224a5c8e1dd55232f7d9f886a64c5179654e73c0cfc07e636afb5b"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+      "sha256": "8a0e171ec58cc88296a6fbe3d7d276f5f90c39ef74da1a9f764a2eb09da228fb"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/independent-document-review.md",
+      "sha256": "93192f4801ad2e568f766f0d74f0d944f3111730aff9a1d9e443846cb3b27286"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.coverage.json",
+      "sha256": "22dbd6f04a05d7c2c06e1e5539c69f14cb41e09fced23ab3def4eb2888afa532"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+      "sha256": "be982adee3763f6ab6401e15056c59d73509d656098d42f48bbabe26597cd8fa"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.coverage.json",
+      "sha256": "93d02d47d23f4c4c3f069bd515d18f4369082e9c2391e577c7cc7fe0ef63ad63"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+      "sha256": "2ad60bda25905d146b4c1c95a90b73a21f5eb8359169ece6519b2dbc14f743d2"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/qualia-app-contract-source-review.json",
+      "sha256": "e3efc028f7b1ed2d4ec140bf9727607c6352ae5434a01b0eb2242b8b1d7065e2"
+    },
+    {
+      "path": "docs/qa/implementation-2026-10-26/poet-tooling-review/README.md",
+      "sha256": "7dfed558ffef67dc8b81aee0e702bd0c2c458d2cca48160af1766511c3455981"
+    }
+  ],
+  "engine_source_changes_this_task": false,
+  "new_runtime_or_human_acceptance": false,
+  "whole_foundation_gates": "open",
+  "asset_production": "HOLD",
+  "species_profiles": "film/open-world-game/cartoon incomplete",
+  "remaining_work": "PA-01 through PA-12, PC/TOOL/IP-03 cases; exact scope/evidence in linked review/register.",
+  "independent_review": {
+    "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\independent-document-review.md",
+    "result": "No blocking contradictions; PDF wording clarified; workspace-only PA-R02 generic handoff sections explicitly reuse shared/domain reviews. Document review only."
+  },
+  "source_pin_correction": "One media coverage hash transcription corrected after re-reading its declared range and recalculating actual SHA256; correction history retained in media-tools.coverage.json.",
+  "result": "passed"
+}

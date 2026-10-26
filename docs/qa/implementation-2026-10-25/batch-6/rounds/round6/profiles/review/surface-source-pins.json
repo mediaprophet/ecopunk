@@ -1,0 +1,89 @@
+{
+  "scope": "Independent source cross-review of surfaces; no builds, GPU execution or live writes",
+  "candidates": [
+    {
+      "target": "C:/github/poet/native/src/graphical/materials.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/materials.rs",
+      "sha256": "24d71e500dc613481cc9eb03e1f570256704696efd47c3f3a1193e6bb403e818",
+      "manifest_sha256": "24d71e500dc613481cc9eb03e1f570256704696efd47c3f3a1193e6bb403e818",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/assembly/admission.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/assembly/admission.rs",
+      "sha256": "8e69833a449aca3bf217ba1df4009a974e770b8a75c053a22ebc0506e56d04ef",
+      "manifest_sha256": "8e69833a449aca3bf217ba1df4009a974e770b8a75c053a22ebc0506e56d04ef",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/assembly/render.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/assembly/render.rs",
+      "sha256": "d2649d7d3b282b2d7b3a31c349db43b8bdce54860214d181828dd74d46648ed8",
+      "manifest_sha256": "d2649d7d3b282b2d7b3a31c349db43b8bdce54860214d181828dd74d46648ed8",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/surface_controls.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/authoring/surface_controls.rs",
+      "sha256": "7dec57882ba9e5538b0ddd4ca726788dba0c7fea9d39af9684b8784976bef32d",
+      "manifest_sha256": "7dec57882ba9e5538b0ddd4ca726788dba0c7fea9d39af9684b8784976bef32d",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/binding.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/binding.rs",
+      "sha256": "5e06a1d778620edd9782406b7f4837bbf40b693eaa3e0a77586a654b5690e74b",
+      "manifest_sha256": "5e06a1d778620edd9782406b7f4837bbf40b693eaa3e0a77586a654b5690e74b",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/draft.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/draft.rs",
+      "sha256": "dd645a1d77d47931926b8d20c6f1c5d323be2065f36e2dbb3a8c1b42a00dc6c0",
+      "manifest_sha256": "dd645a1d77d47931926b8d20c6f1c5d323be2065f36e2dbb3a8c1b42a00dc6c0",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/mod.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/mod.rs",
+      "sha256": "d52cedf0f3e35526099c98f5fa900ceaaecf8e3fbd7cbe269b6657dfd57521b1",
+      "manifest_sha256": "d52cedf0f3e35526099c98f5fa900ceaaecf8e3fbd7cbe269b6657dfd57521b1",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/pixels.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/pixels.rs",
+      "sha256": "4b3c30a8d4df1cbfa0cfa476a49779a46c7081cf09d298485352b014b67c71cc",
+      "manifest_sha256": "4b3c30a8d4df1cbfa0cfa476a49779a46c7081cf09d298485352b014b67c71cc",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/resources.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/resources.rs",
+      "sha256": "261a0133d0800b095e71b20f0ee4092e3679a9060c48e36750c3dac85e3e5b81",
+      "manifest_sha256": "261a0133d0800b095e71b20f0ee4092e3679a9060c48e36750c3dac85e3e5b81",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/tests.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/tests.rs",
+      "sha256": "623714b6963f6cd897cfd97103833a434884855cc81e45d0e5bf595d748ade97",
+      "manifest_sha256": "623714b6963f6cd897cfd97103833a434884855cc81e45d0e5bf595d748ade97",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/uv.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/uv.rs",
+      "sha256": "18af225a4e9f718d57dce307f7a52cbee253f86fa6b48dd0355f9a283a06d76c",
+      "manifest_sha256": "18af225a4e9f718d57dce307f7a52cbee253f86fa6b48dd0355f9a283a06d76c",
+      "matches": true
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/surfaces/wire.rs",
+      "stage": "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-6/rounds/round6/surfaces/candidate/native/src/graphical/surfaces/wire.rs",
+      "sha256": "36603237e0d9ebec0fff073df0d6ca5bd1cde881dcb6049c7ead67279685b874",
+      "manifest_sha256": "36603237e0d9ebec0fff073df0d6ca5bd1cde881dcb6049c7ead67279685b874",
+      "matches": true
+    }
+  ]
+}

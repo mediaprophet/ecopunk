@@ -1,0 +1,19 @@
+{
+  "scope": "Harness lock seeded from current actual Poet; root package substitution and unused closure removal only, no new dependency versions",
+  "original": "F1C6D2DDFD33EC813815B3CEBDEA120B90AFC97CBBDC764742D64EC0D6C1B627",
+  "harness": "728D4619931249D6B6147796A3BA5B0DEBF71853AB3B63FDE4CF535436E30CAC",
+  "added": [
+    "poet-source-smoke@0.0.0"
+  ],
+  "removed": [
+    "nu-ansi-term@0.50.3",
+    "poet@0.0.40",
+    "minicov@0.3.8",
+    "oorandom@11.1.5",
+    "poet-cli@0.0.40",
+    "cast@0.3.0",
+    "wasm-bindgen-test-shared@0.2.129",
+    "wasm-bindgen-test-macro@0.3.79",
+    "wasm-bindgen-test@0.3.79"
+  ]
+}

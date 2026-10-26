@@ -1,0 +1,117 @@
+{
+  "schema": "ecopunk-run04-observed-audit-v1",
+  "command": "cargo run --quiet --offline --locked --manifest-path tools/asset-integrity/Cargo.toml -- C:/github/ecopunk/assets/models/corymbia-aparrerinja/model-set.json",
+  "exit_code": 1,
+  "status": "issues",
+  "manifest_sha256": "fcbd9adc8c9e6ce2aa7d3aa5efdaa6cec795adf19b2e23b2f68dd1cb0d193a96",
+  "manifest_unchanged": true,
+  "reference_count": 126,
+  "distinct_canonical_paths": 122,
+  "reference_statuses": [
+    {
+      "status": "integrity_issue",
+      "count": 19
+    },
+    {
+      "status": "ok",
+      "count": 107
+    }
+  ],
+  "resource_statuses": [
+    {
+      "status": "integrity_issue",
+      "count": 15
+    },
+    {
+      "status": "ok",
+      "count": 107
+    }
+  ],
+  "findings": [
+    {
+      "status": "byte_count_mismatch",
+      "count": 19
+    },
+    {
+      "status": "conflicting_metadata",
+      "count": 6
+    },
+    {
+      "status": "sha256_mismatch",
+      "count": 12
+    }
+  ],
+  "failing_resource_paths": [
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-surface.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\bark-study-weathering.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-dissection.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-pedicel.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-receptacle.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\flower-study-stamens.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-dissection.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-capsule.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-pedicel.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\gumnut-study-rim.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-anatomy-cutaway.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-blade.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\leaf-study-midrib.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\stem-anatomy-wedge.10d",
+    "\\\\?\\C:\\github\\ecopunk\\assets\\models\\corymbia-aparrerinja\\10d\\whole-organism-roots.10d"
+  ],
+  "output": "corymbia-integrity-report.json",
+  "output_sha256": "1bf6211616a16e5b6e7c3f46614429d088fb47294104a15d7d4420678d45981f",
+  "test_results": {
+    "passed": 9,
+    "command": "cargo test --offline --locked --manifest-path tools/asset-integrity/Cargo.toml",
+    "failed": 0,
+    "unix_symlink_tests": "not run on Windows"
+  },
+  "acceptance": "Metadata integrity issues found; no asset/manifest bytes repaired; HMC decode, visual/domain and complete model qualification not performed",
+  "distinct_resource_findings": [
+    {
+      "status": "sha256_mismatch",
+      "reference_findings": 12,
+      "distinct_canonical_resources": 8
+    },
+    {
+      "status": "byte_count_mismatch",
+      "reference_findings": 19,
+      "distinct_canonical_resources": 15
+    },
+    {
+      "status": "conflicting_metadata",
+      "reference_findings": 6,
+      "distinct_canonical_resources": 2
+    }
+  ],
+  "tool_source_pins": [
+    {
+      "path": "C:\\github\\ecopunk\\tools\\asset-integrity\\src\\auditor_tests.rs",
+      "sha256": "8a6a94abb8a4753f34333981e0515426a96d1abc9f51cc01629079376d170c4d"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\asset-integrity\\src\\auditor.rs",
+      "sha256": "c4f26d32375871c39fd4a1b86c38130d3f0f653f39734fd2702312e00b8f5eee"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\asset-integrity\\src\\hashing.rs",
+      "sha256": "82675313048268fd29be30e28ef26c411eef62bf6b0fc1d1cf1a954703a0854d"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\asset-integrity\\src\\main.rs",
+      "sha256": "8a0e3f4d635fc0208f3df2e684d5a3f50f7ddc3f711145082d0b4ee29fcee460"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\tools\\asset-integrity\\src\\pathing.rs",
+      "sha256": "83254c37fbf4f15d7ef2ec02ca06cf5be2120a9ac7ffdcfa93d762bc2aff543b"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/asset-integrity/Cargo.toml",
+      "sha256": "b20f17f05907d58e7837d78c8fd17785df19084df4531c0502a00761baa5c154"
+    },
+    {
+      "path": "C:/github/ecopunk/tools/asset-integrity/Cargo.lock",
+      "sha256": "2a29a38ac9deb4c05ddb1581e064aa9a62c6082be20e360d4d8793e4ea63acb2"
+    }
+  ]
+}

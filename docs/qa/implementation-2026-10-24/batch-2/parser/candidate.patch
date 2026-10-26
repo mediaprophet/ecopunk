@@ -1,0 +1,11 @@
+*** Begin Patch
+*** Update File: C:/github/qualiaDB/crates/vibe/src/parse/mod.rs
+@@
+-        if self.cur.kind != TokenKind::Eof && self.cur.kind != TokenKind::Semicolon {
++        if self.cur.kind == TokenKind::Semicolon {
++            self.bump()?;
++        }
++        if self.cur.kind != TokenKind::Eof {
+             return Err(self.err("unexpected tokens after cell expression"));
+         }
+*** End Patch

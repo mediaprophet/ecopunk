@@ -1,0 +1,76 @@
+{
+  "scope": "rustfmt parser only; no Rust typecheck, Cargo, runtime or acceptance",
+  "staged_files": [
+    {
+      "relative": "src/container_10d/mod.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "1aa072dc8e8ddbc55e80f05f6bd147305b0ab6fbe0ed20b8de6185e70f1f5ed6"
+    },
+    {
+      "relative": "src/container_10d/manifold_identity_v2.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "9c8147b541ee6d8cd99589458ab8e6116e1e8f96e558c7ed27b1227d34e76647"
+    },
+    {
+      "relative": "src/container_10d/morph_section.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "394eaceffb842b3c7a4aaf0a778b09d551cc503d208b88d382e6c435e0dcb070"
+    },
+    {
+      "relative": "src/render/compile_10d.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "d61eb4c387f8f60f94278e9397216a72dbd051af9b99c00285568e50c498a121"
+    },
+    {
+      "relative": "src/render/portal/mod.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "29e10e77c158f0bcdb47e813f9cbeb3761f6eac3d51835bcac0ce1465351210b"
+    },
+    {
+      "relative": "src/container_10d/typed_payloads/mod.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "02b0f3d4b7368ef53ed9d3e6e535bf78d694f3762f2075db46000d304a2abfea"
+    },
+    {
+      "relative": "src/container_10d/typed_payloads/readers.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "ac29d080bfd4cc52d643afc6faa97ee4adc86f5acaee3a6468b10afc91a329fe"
+    },
+    {
+      "relative": "tests/typed_field_payloads.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "3f914ebda4ca4fa8f7bfc17d633c6a864cfee4322929d2000f04811ea6f8e458"
+    },
+    {
+      "relative": "src/container_10d/typed_payloads/resolver.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "74af35954a905dd2086cc9618301c7ffebd59160823d026f4bf6220f23eaca47"
+    },
+    {
+      "relative": "src/container_10d/section.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "2416394e69ac1646f3ec77a4904983806bb190dce82e15e650dcd1bb222e067e"
+    },
+    {
+      "relative": "src/container_10d/section/table_validation.rs",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "96f6585e9af1a0e7fa22108093162d45cb9413d10da7064852f40941be37b7bb"
+    }
+  ],
+  "new_implementation_files_below_500_lines": true,
+  "live_core_writes": false,
+  "checks_executed": [
+    "rustfmt --emit stdout --config skip_children=true"
+  ]
+}

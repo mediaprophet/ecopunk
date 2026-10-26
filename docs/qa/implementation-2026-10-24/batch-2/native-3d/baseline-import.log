@@ -1,0 +1,17 @@
+
+running 1 test
+
+thread 'poet_host::invoke::studio_store::tests::test_import_cml_and_csv' (7848) panicked at C:\github\ecopunk\docs\qa\implementation-2026-10-24\batch-2\native-3d\originals\studio_store.rs:405:9:
+assertion `left == right` failed
+  left: None
+ right: Some("#000")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test poet_host::invoke::studio_store::tests::test_import_cml_and_csv ... FAILED
+
+failures:
+
+failures:
+    poet_host::invoke::studio_store::tests::test_import_cml_and_csv
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.01s
+

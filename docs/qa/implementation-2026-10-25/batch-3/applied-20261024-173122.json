@@ -1,0 +1,174 @@
+{
+  "applied_utc": "2026-10-24T17:31:22.9428611Z",
+  "manifests": [
+    "authorisation/apply-manifest.json",
+    "hmc/apply-manifest.json",
+    "materials/apply-manifest.json",
+    "materials/renderer-fix/apply-manifest.json",
+    "session-validation/apply-manifest.json"
+  ],
+  "mutations": [
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\lib.rs",
+      "sha256": "780DE522D539C36CBC63537FE69BD7ACC09CFD9C4C08D47391B6B87AB2F117F2",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\lib.rs",
+      "original_sha256": "ABD1A438B7C895B5B9A580E205F96575EB0D03F95FBEA689F1D2B5F82A2B9BAE"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\mod.rs",
+      "sha256": "CB2C39CC3952474A5431000F25828808976966FFEDB0BF778D96B45DF521B2B4",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\policy.rs",
+      "sha256": "F284467310895A478B18E7E53F2DEAEC9168D743A6422E8E5646F4A0B422A631",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\policy.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\records.rs",
+      "sha256": "07BC8CE23C4D91ACDB10ACCB219DE00C78533956F2DC2158927390E859DA54C6",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\records.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\tests.rs",
+      "sha256": "4F15669384F5D5CBC0EE2D9F52EA0A7AA19F6CAC219AA4EAD7B9B5A20F7A5A48",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\tests.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\authorisation\\candidate\\authoring\\types.rs",
+      "sha256": "9788D844D87055DB4E1CFA1D71FFEA4D4F0C9BAE08FFDD49EBB950357ABEA68F",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\types.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_store.rs",
+      "sha256": "640B167BDF1900197680D8AE79EB41595087D157AF9D230CD91E0FA395FB8524",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "original_sha256": "028C9894707E2ACBF80165A8D1DB778D20744A97F9FE7401EE4594A2E3A7FF4B"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_journal.rs",
+      "sha256": "A4DC6E759937BAA9B795FE72A126D5739AA55F483B97AD934656B8D3474EE9EA",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_journal.rs",
+      "original_sha256": "4E9A08E599EC30A418204876D7FB63DBE871C4381D263C6BE34AA6799ABADC98"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_stamped.rs",
+      "sha256": "217255AAFC89DD8E245D70CE611101AFAEBFC8FACD91CE221B4E052153A217E4",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+      "original_sha256": "E378306CD936BC3EA6B100A54D73DDE0ECF3E556731EBC7B87BCA1EA2D102F41"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\mod.rs",
+      "sha256": "278CB79636944D2BE5DAD6658EAC5314D0431EE62BEE6D72CF835E1980524F62",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\mod.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\snapshot.rs",
+      "sha256": "82D939659701ABDE684E99AB79E8666A381E98E8FE6D6E350CAFD62BE5BF3C20",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\snapshot.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\codec.rs",
+      "sha256": "B97100348AA8715137338EC160F0A89B338C93A5C80C44738AA8571488FCA64E",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\codec.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\graph.rs",
+      "sha256": "E8D8D37B166C30C1847D23C8F7C8A4AC9E35F40AD71548C8656EA4DCC5A52B7C",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\graph.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\native_io.rs",
+      "sha256": "80E101F33424CA897DC339B7291E88AC3824744D69FF73DBF185F76127FBF985",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\native_io.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\hmc\\candidate\\studio_checkpoint\\tests.rs",
+      "sha256": "E48298FCAA7037974843ABFA4C8F75276C720D5177A017083F29A1D9645A12A2",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_checkpoint\\tests.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\entry.rs",
+      "sha256": "477C87F9AEC2733D867497951A2634DD396738D2EBAAEBE6A03D8A6238166395",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\entry.rs",
+      "original_sha256": "4A0A7B0D50282951B9197A73DC1537E5066862E82068E228487BBB258C6C5D52"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\material_controls.rs",
+      "sha256": "10E4B40FFBA77C400006222301F21728EBFC5E85FBB3AA0A3A782C04BC2909A1",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_controls.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\material_pixels.rs",
+      "sha256": "CB33759E756DE382D0723F67026DA7AB95372B403FA26AF7FAC735D69FD6A712",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\material_pixels.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\materials_tests.rs",
+      "sha256": "50B1C2D8ED391E3F1425034B1C2E95D2E1DE59B421A84536CF834D2BC963D424",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\materials_tests.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\materials.rs",
+      "sha256": "6CC0D0C31781AD0E57260945D2A80400034A0370662B39D8DC349D3101736A71",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\materials.rs",
+      "original_sha256": null
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\mod.rs",
+      "sha256": "4342B7404ECDBAE1681EB4E6ECB1EFD75BEA269FB3B1F81BBB7BD9197F4D83BF",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "original_sha256": "577AD23770A7EE49DA94025BC7B203B093DB367B6A66DB811C31309F56777765"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\preview.rs",
+      "sha256": "8550DB02E716038648E108EA026DBDC4B7FE83C7DF5B640E814C492FB2EF5036",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\preview.rs",
+      "original_sha256": "7624C78E1BDAE9C97D0C5AAA82DF9079BD63B333F7077551451D29A3C84FB1F1"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\candidate\\graphical\\ui.rs",
+      "sha256": "943AF368EC4CE7F84D6126643916C1705533B1C16516532CF904F3B8A99C7EBF",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "original_sha256": "9449F4676BA86F0FAE1702BE9F65C2FC0E4A14116BF69E00EB4A02FB693EAFCC"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\renderer-fix\\candidate\\src\\shaders\\viewport\\mesh.wgsl",
+      "sha256": "F2506293CD8A2477D1A5A8D40D4EE86F0D34A9D3336F2793165EAEE6E37A6AFD",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\shaders\\viewport\\mesh.wgsl",
+      "original_sha256": "7DBC2A8D54EE265148DFB94D04FDC0F3658A02046CCE4C51E76A60D1CD71E807"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\materials\\renderer-fix\\candidate\\src\\render\\gpu\\material_textures.rs",
+      "sha256": "76543ACE716254E0A439C7D0EFA39897352A4080427BB068E05F53F4B1553DBE",
+      "target": "C:\\github\\QualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\material_textures.rs",
+      "original_sha256": "2E846FC97652B336C0C56AF778696160A49130EEBDFB8EF3A62916BC35EDCD38"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\session-validation\\candidate\\mod.rs",
+      "sha256": "a0b9244ef2e229504f97688a936986f5c5b20505c851cd27321721c01ccb387d",
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\mod.rs",
+      "original_sha256": "ff2567e1e585a40fcf560677cb286005b1f512f96ee39a673d5ddd675698f544"
+    },
+    {
+      "candidate": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\session-validation\\candidate\\validation_tests.rs",
+      "sha256": "b69b81081a50b86bc1c6c48b0ac9aee8a5bbf26132dd8b1e2ec2e6598e14e9fe",
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\session\\validation_tests.rs",
+      "original_sha256": null
+    }
+  ]
+}

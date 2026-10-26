@@ -1,0 +1,57 @@
+{
+  "schema": "ecopunk.batch6-round1-attempt-status.v1",
+  "attempt": "006",
+  "profile": "film",
+  "status": "partial_producer_output_render_blocked",
+  "fixture_only": true,
+  "project_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900",
+  "document_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900:document",
+  "source_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900:source",
+  "parts_identified": 199,
+  "checks": {
+    "authoring_and_save": "passed; accepted source and HMC saved",
+    "fresh_process_exact_source_regeneration": "passed",
+    "decoded_assembly_bounds": "failed; blocked before rendering",
+    "native_png": "not produced",
+    "codec_fix_test_rebuild": "pending in codec-tests.log"
+  },
+  "outputs": [
+    {
+      "kind": "accepted_source",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+      "bytes": 17571,
+      "sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5"
+    },
+    {
+      "kind": "compiled_native_mesh",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "bytes": 5288192,
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee"
+    },
+    {
+      "kind": "hmc",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "bytes": 5413279,
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040"
+    },
+    {
+      "kind": "run_receipt",
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/run.json",
+      "bytes": 1498,
+      "sha256": "121239ea85f3a4f1cf985c4ce6adf3f069b0a228e3d664cdbcebeb4c8b52148b"
+    }
+  ],
+  "failure_evidence": {
+    "probe": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/producer/decoded-bounds-probe.json",
+    "recorded_cause": "16 Z coordinates decode one f32 ULP beyond the stored maximum.",
+    "repair": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/producer/codec-repair.json",
+    "independent_source_review": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/mesh-codec-review.md",
+    "test_log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log"
+  },
+  "claim_boundary": {
+    "native_png_or_visual_acceptance": false,
+    "human_acceptance": false,
+    "model_or_package_complete": false,
+    "ip03_c1_c8_demonstrated": false
+  }
+}

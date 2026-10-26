@@ -1,0 +1,30 @@
+{
+  "scope": "Read-only analysis of existing actual tests-2 failure arrays; no new execution",
+  "evidence": "native-build/tests-2.log line210 exact arrays",
+  "native_codec": "container_10d/mesh_section.rs u16 AABB quantizer",
+  "observed_axes": [
+    {
+      "axis": 0,
+      "max_error": 4.500150680541992E-06,
+      "native_f32_aabb_extent": 0.61732745,
+      "documented_quantization_step_bound": 9.419813103012628E-06,
+      "within_bound": true
+    },
+    {
+      "axis": 1,
+      "max_error": 2.8759241104125977E-06,
+      "native_f32_aabb_extent": 0.3848691,
+      "documented_quantization_step_bound": 5.8727260038655695E-06,
+      "within_bound": true
+    },
+    {
+      "axis": 2,
+      "max_error": 1.3589859008789062E-05,
+      "native_f32_aabb_extent": 2.0802016,
+      "documented_quantization_step_bound": 3.174184215799152E-05,
+      "within_bound": true
+    }
+  ],
+  "original_failure_log_sha256": "2A7C240D43D19A1DBB1959F33B80EF03568EFB10FC1BB89DF7491BEE92ECF4DD",
+  "quantizer_source_sha256": "C610BC86FBD652A23917703122EBB798181D0DF056CAC7CA258DA68B8829C8AC"
+}

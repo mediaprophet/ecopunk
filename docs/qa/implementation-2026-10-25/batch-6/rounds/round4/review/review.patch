@@ -1,0 +1,3565 @@
+--- a/crates/qualia-cooperative-core/src/authoring/mod.rs
++++ b/crates/qualia-cooperative-core/src/authoring/mod.rs
+@@ -8,6 +8,7 @@
+ //! never reusable authority. Supported slice: directly authenticated members;
+ //! agency delegation requires a separately verified host adapter.
+ 
++pub mod package_review;
+ mod policy;
+ mod records;
+ mod types;
+--- /dev/null
++++ b/crates/qualia-cooperative-core/src/authoring/package_review/mod.rs
+@@ -0,0 +1,8 @@
++//! Exact saved-package workflow. Source grants never imply package authority.
++mod policy;
++mod records;
++mod types;
++pub use policy::{authorize_package, validate_package, PackagePermit};
++pub use types::*;
++#[cfg(test)]
++mod tests;
+--- /dev/null
++++ b/crates/qualia-cooperative-core/src/authoring/package_review/policy.rs
+@@ -0,0 +1,116 @@
++use super::{
++    super::{
++        policy::{text, valid_document, valid_window},
++        *,
++    },
++    *,
++};
++
++#[derive(Debug)]
++pub struct PackagePermit<'a> {
++    pub(super) source: AuthoringPermit<'a>,
++    pub(super) target: &'a PackageRevision,
++    pub(super) grant: Option<&'a PackageReviewGrant>,
++    pub(super) action: PackageAction,
++    pub(super) known_destination_lineage_complete: bool,
++}
++
++pub fn validate_package(
++    target: &PackageRevision,
++    limits: AuthoringLimits,
++) -> Result<(), AuthoringError> {
++    valid_document(&target.source, limits)?;
++    for value in [
++        &target.package_id,
++        &target.filename,
++        &target.producer_subject,
++    ] {
++        text(value, limits)?;
++        if value.trim().is_empty() {
++            return Err(AuthoringError::InvalidBinding);
++        }
++    }
++    if target.package_digest == [0; 32]
++        || target.package_bytes == 0
++        || target.predecessor_digest == Some([0; 32])
++    {
++        return Err(AuthoringError::InvalidBinding);
++    }
++    Ok(())
++}
++
++/// The native owner holds its current source/package/admission lock throughout.
++/// Source review_grants are deliberately never consulted for package authority.
++pub fn authorize_package<'a>(
++    view: &'a PackageAuthorityView<'a>,
++    target: &PackageRevision,
++    expected_generation: u64,
++    action: PackageAction,
++) -> Result<PackagePermit<'a>, AuthoringError> {
++    let source = authorize(
++        view.source,
++        &AuthoringRequest {
++            action: if action == PackageAction::Decide {
++                AuthoringAction::ReadSource
++            } else {
++                AuthoringAction::ContributionRecord
++            },
++            target: &target.source,
++            expected_authority_generation: expected_generation,
++        },
++    )?;
++    let limits = view.source.limits;
++    validate_package(view.current_package, limits)?;
++    validate_package(target, limits)?;
++    if target != view.current_package {
++        return Err(AuthoringError::StaleDocument);
++    }
++    if view.grants.len() > limits.max_review_grants || view.contributor_subjects.len() > 1024 {
++        return Err(AuthoringError::BudgetExceeded);
++    }
++    for subject in view.contributor_subjects {
++        text(subject, limits)?;
++    }
++    let subject = source.principal_subject();
++    let mut selected = None;
++    if action == PackageAction::Decide {
++        if target.producer_subject == subject
++            || target.source.author_subject.as_deref() == Some(subject)
++            || view.contributor_subjects.contains(&subject)
++        {
++            return Err(AuthoringError::SelfReview);
++        }
++        for grant in view.grants {
++            validate_package(&grant.target, limits)?;
++            for value in [&grant.id, &grant.reviewer_subject, &grant.admission_ref] {
++                text(value, limits)?;
++            }
++            if &grant.target != target || grant.reviewer_subject != subject {
++                continue;
++            }
++            if grant.revoked
++                || !valid_window(
++                    view.source.now_unix,
++                    grant.valid_from_unix,
++                    grant.valid_until_unix,
++                )
++                || selected.is_some()
++            {
++                return Err(AuthoringError::ReviewDenied);
++            }
++            selected = Some(grant);
++        }
++        if selected.is_none() {
++            return Err(AuthoringError::ReviewDenied);
++        }
++    } else if target.producer_subject != subject {
++        return Err(AuthoringError::InvalidBinding);
++    }
++    Ok(PackagePermit {
++        source,
++        target: view.current_package,
++        grant: selected,
++        action,
++        known_destination_lineage_complete: view.known_destination_lineage_complete,
++    })
++}
+--- /dev/null
++++ b/crates/qualia-cooperative-core/src/authoring/package_review/records.rs
+@@ -0,0 +1,151 @@
++use super::{
++    super::{records::reserve_record, *},
++    *,
++};
++use crate::projects::{Contribution, ContributionPrivacy};
++
++impl PackagePermit<'_> {
++    fn reserve(&self, extra: &[&str]) -> Result<(), AuthoringError> {
++        let p = &self.source;
++        reserve_record(
++            [
++                self.target.package_id.as_str(),
++                &self.target.filename,
++                &self.target.producer_subject,
++                &self.target.source.project_id,
++                &self.target.source.document_id,
++                &self.target.source.source_id,
++                self.target
++                    .source
++                    .author_subject
++                    .as_deref()
++                    .unwrap_or("unknown"),
++                p.principal.subject,
++                p.principal.authentication_ref,
++                p.membership.admission_ref,
++                &p.membership.membership.id,
++                &p.membership.membership.member_did,
++                p.identifier.value,
++                p.identifier.scheme,
++                p.identifier.issuer,
++                p.identifier.project_id,
++                p.identifier.evidence_ref,
++            ]
++            .into_iter()
++            .chain(extra.iter().copied()),
++            p.view.limits,
++        )
++    }
++    fn actor(&self) -> PackageActorEvidence {
++        let p = &self.source;
++        PackageActorEvidence {
++            subject: p.principal.subject.into(),
++            principal_kind: p.principal.kind,
++            authentication_ref: p.principal.authentication_ref.into(),
++            identifier_association: p.identifier.into(),
++            membership_id: p.membership.membership.id.clone(),
++            admission_ref: p.membership.admission_ref.into(),
++            authority_generation: p.view.generation,
++            occurred_at_unix: p.view.now_unix,
++        }
++    }
++    pub fn contribution_record(
++        self,
++        id: &str,
++        description: &str,
++        minutes: u32,
++        status: WorkStatus,
++    ) -> Result<PackageContributionRecord, AuthoringError> {
++        if self.action != PackageAction::Contribute {
++            return Err(AuthoringError::WrongAction);
++        }
++        self.reserve(&[
++            id,
++            description,
++            status.evidence().unwrap_or("unknown"),
++            &self.target.source.project_id,
++        ])?;
++        let occurred_at_unix = u32::try_from(self.source.view.now_unix)
++            .map_err(|_| AuthoringError::UnsupportedTime)?;
++        Ok(PackageContributionRecord {
++            contribution: Contribution {
++                id: id.into(),
++                project_id: self.target.source.project_id.clone(),
++                contributor_did: self.source.membership.membership.member_did.clone(),
++                description: description.into(),
++                effort_minutes: minutes,
++                capital_cents: 0,
++                roi_multiplier: 1.0,
++                privacy_level: ContributionPrivacy::Private,
++                occurred_at_unix,
++                occurred_at_instant: None,
++                predecessor_id: None,
++            },
++            target: self.target.clone(),
++            actor: self.actor(),
++            work_status: status,
++        })
++    }
++    pub fn request_record(
++        self,
++        id: &str,
++        contribution: &PackageContributionRecord,
++        evidence: &str,
++    ) -> Result<PackageReviewRequest, AuthoringError> {
++        if self.action != PackageAction::RequestReview {
++            return Err(AuthoringError::WrongAction);
++        }
++        if contribution.target != *self.target
++            || contribution.actor.subject != self.source.principal.subject
++        {
++            return Err(AuthoringError::InvalidBinding);
++        }
++        self.reserve(&[id, &contribution.contribution.id, evidence])?;
++        Ok(PackageReviewRequest {
++            id: id.into(),
++            target: self.target.clone(),
++            contribution_id: contribution.contribution.id.clone(),
++            actor: self.actor(),
++            evidence_ref: evidence.into(),
++            decision_ids: Vec::new(),
++            known_destination_lineage_complete: self.known_destination_lineage_complete,
++            contribution_rights_scope:
++                "Known native records only; other authorship, rights and completeness unassessed"
++                    .into(),
++        })
++    }
++    pub fn review_record(
++        self,
++        id: &str,
++        request_id: &str,
++        decision: ReviewDecision,
++        rationale: &str,
++        evidence: &str,
++    ) -> Result<PackageReviewRecord, AuthoringError> {
++        if self.action != PackageAction::Decide {
++            return Err(AuthoringError::WrongAction);
++        }
++        let grant = self.grant.ok_or(AuthoringError::ReviewDenied)?;
++        self.reserve(&[
++            id,
++            request_id,
++            rationale,
++            evidence,
++            &grant.id,
++            &grant.admission_ref,
++        ])?;
++        Ok(PackageReviewRecord {
++            id: id.into(),
++            target: self.target.clone(),
++            request_id: request_id.into(),
++            actor: self.actor(),
++            review_grant_id: grant.id.clone(),
++            review_admission_ref: grant.admission_ref.clone(),
++            decision,
++            rationale: rationale.into(),
++            decision_evidence_ref: evidence.into(),
++            known_destination_lineage_complete:self.known_destination_lineage_complete,
++            contribution_rights_scope:"Known destination/source contributors only; other authorship, rights and completeness unassessed".into(),
++        })
++    }
++}
+--- /dev/null
++++ b/crates/qualia-cooperative-core/src/authoring/package_review/tests.rs
+@@ -0,0 +1,304 @@
++//! Software fixtures; no personhood, human review, payment or model acceptance.
++use super::{super::*, *};
++use crate::projects::{Project, ProjectMembership, ProjectRole};
++
++fn target() -> PackageRevision {
++    PackageRevision {
++        package_id: "urn:fixture:release:1".into(),
++        filename: "working.hmc".into(),
++        package_digest: [2; 32],
++        predecessor_digest: Some([1; 32]),
++        package_bytes: 400,
++        source: DocumentRevision {
++            project_id: "project".into(),
++            document_id: "document".into(),
++            source_id: "source".into(),
++            revision: 7,
++            source_digest: [3; 32],
++            author_subject: Some("source-author".into()),
++        },
++        producer_subject: "producer".into(),
++    }
++}
++fn grant(target: &PackageRevision) -> PackageReviewGrant {
++    PackageReviewGrant {
++        id: "urn:fixture:package-grant".into(),
++        target: target.clone(),
++        reviewer_subject: "reviewer".into(),
++        admission_ref: "urn:fixture:admission".into(),
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }
++}
++fn source_view<T>(
++    subject: &str,
++    role: ProjectRole,
++    run: impl FnOnce(&HostAuthorityView<'_>) -> T,
++) -> T {
++    let target = target();
++    let project = Project {
++        id: "project".into(),
++        name: "fixture".into(),
++        description: String::new(),
++        licensing_ontologies: vec![],
++        created_at_unix: 1,
++        created_at_instant: None,
++    };
++    let identifiers = [QualifiedIdentifier {
++        value: "urn:fixture:actor",
++        scheme: "urn",
++        issuer: "fixture",
++        project_id: "project",
++        evidence_ref: "urn:fixture:association",
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }];
++    let principal = AuthenticatedPrincipal {
++        subject,
++        kind: PrincipalKind::SoftwareAgent,
++        authentication_ref: "fixture-auth",
++        authenticated_until_unix: 1000,
++        identifiers: &identifiers,
++    };
++    let membership = ProjectMembership {
++        id: "membership".into(),
++        project_id: "project".into(),
++        member_did: "urn:fixture:actor".into(),
++        role,
++        agreed_at_unix: 1,
++        agreed_at_instant: None,
++    };
++    let memberships = [AdmittedMembership {
++        membership: &membership,
++        member_subject: subject,
++        admission_ref: "fixture-member",
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }];
++    let source_grants = [ReviewGrant {
++        id: "source-grant",
++        project_id: "project",
++        document_id: "document",
++        reviewer_subject: subject,
++        admission_ref: "source-admission",
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }];
++    run(&HostAuthorityView {
++        principal: Some(&principal),
++        project: &project,
++        memberships: &memberships,
++        review_grants: &source_grants,
++        current_document: &target.source,
++        generation: 3,
++        now_unix: 100,
++        limits: AuthoringLimits::default(),
++    })
++}
++
++#[test]
++fn source_grant_never_implies_package_grant() {
++    source_view("reviewer", ProjectRole::Contributor, |source| {
++        let target = target();
++        let view = PackageAuthorityView {
++            source,
++            known_destination_lineage_complete: true,
++            current_package: &target,
++            grants: &[],
++            contributor_subjects: &[],
++        };
++        assert!(authorize(
++            source,
++            &AuthoringRequest {
++                action: AuthoringAction::ReviewDecision,
++                target: &target.source,
++                expected_authority_generation: 3
++            }
++        )
++        .is_ok());
++        assert_eq!(
++            authorize_package(&view, &target, 3, PackageAction::Decide).unwrap_err(),
++            AuthoringError::ReviewDenied
++        );
++    });
++}
++#[test]
++fn package_grant_requires_exact_release_source_digest_and_lineage() {
++    source_view("reviewer", ProjectRole::Contributor, |source| {
++        let target = target();
++        for case in 0..9 {
++            let mut grant = grant(&target);
++            match case {
++                0 => grant.target.package_id.push('x'),
++                1 => grant.target.filename.push('x'),
++                2 => grant.target.package_digest = [9; 32],
++                3 => grant.target.predecessor_digest = None,
++                4 => grant.target.source.revision += 1,
++                5 => grant.target.source.source_digest = [8; 32],
++                6 => grant.target.source.project_id = "other".into(),
++                7 => grant.target.producer_subject = "other".into(),
++                _ => grant.target.package_bytes += 1,
++            };
++            let grants = [grant];
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &grants,
++                contributor_subjects: &[],
++            };
++            assert!(
++                authorize_package(&view, &target, 3, PackageAction::Decide).is_err(),
++                "case {case}"
++            );
++        }
++    });
++}
++#[test]
++fn revoked_expired_duplicate_and_stale_generation_fail_closed() {
++    source_view("reviewer", ProjectRole::Contributor, |source| {
++        let target = target();
++        for case in 0..4 {
++            let mut grants = vec![grant(&target)];
++            match case {
++                0 => grants[0].revoked = true,
++                1 => grants[0].valid_until_unix = 100,
++                2 => grants.push(grants[0].clone()),
++                _ => {}
++            };
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &grants,
++                contributor_subjects: &[],
++            };
++            assert!(authorize_package(
++                &view,
++                &target,
++                if case == 3 { 2 } else { 3 },
++                PackageAction::Decide
++            )
++            .is_err());
++        }
++    });
++}
++#[test]
++fn producer_source_author_and_known_contributor_cannot_review() {
++    for subject in ["producer", "source-author", "other-contributor"] {
++        source_view(subject, ProjectRole::Contributor, |source| {
++            let target = target();
++            let mut grant = grant(&target);
++            grant.reviewer_subject = subject.into();
++            let grants = [grant];
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &grants,
++                contributor_subjects: &["other-contributor"],
++            };
++            assert_eq!(
++                authorize_package(&view, &target, 3, PackageAction::Decide).unwrap_err(),
++                AuthoringError::SelfReview
++            );
++        });
++    }
++}
++#[test]
++fn resource_producer_may_differ_from_source_author_and_request_exact_contribution() {
++    source_view("producer", ProjectRole::Contributor, |source| {
++        let target = target();
++        let view = PackageAuthorityView {
++            source,
++            known_destination_lineage_complete: true,
++            current_package: &target,
++            grants: &[],
++            contributor_subjects: &[],
++        };
++        let contribution = authorize_package(&view, &target, 3, PackageAction::Contribute)
++            .unwrap()
++            .contribution_record(
++                "urn:fixture:contribution",
++                "resource work",
++                4,
++                WorkStatus::Unknown,
++            )
++            .unwrap();
++        let request = authorize_package(&view, &target, 3, PackageAction::RequestReview)
++            .unwrap()
++            .request_record("urn:fixture:request", &contribution, "urn:fixture:evidence")
++            .unwrap();
++        assert_eq!(request.target, contribution.target);
++        assert_eq!(contribution.contribution.capital_cents, 0);
++        assert_eq!(request.actor.principal_kind, PrincipalKind::SoftwareAgent);
++        let mut wrong = contribution.clone();
++        wrong.target.package_digest = [8; 32];
++        assert!(
++            authorize_package(&view, &target, 3, PackageAction::RequestReview)
++                .unwrap()
++                .request_record("urn:fixture:wrong", &wrong, "urn:fixture:evidence")
++                .is_err()
++        );
++    });
++}
++#[test]
++fn scoped_package_decision_and_record_budget_are_explicit() {
++    source_view("reviewer", ProjectRole::Observer, |source| {
++        let target = target();
++        let grants = [grant(&target)];
++        let view = PackageAuthorityView {
++            source,
++            known_destination_lineage_complete: true,
++            current_package: &target,
++            grants: &grants,
++            contributor_subjects: &[],
++        };
++        let record = authorize_package(&view, &target, 3, PackageAction::Decide)
++            .unwrap()
++            .review_record(
++                "urn:fixture:decision",
++                "urn:fixture:request",
++                ReviewDecision::ChangesRequested,
++                "reviewed exact bytes",
++                "urn:fixture:evidence",
++            )
++            .unwrap();
++        assert_eq!(record.target, target);
++        assert_eq!(record.actor.principal_kind, PrincipalKind::SoftwareAgent);
++        assert!(authorize_package(&view, &target, 3, PackageAction::Decide)
++            .unwrap()
++            .review_record(
++                "urn:fixture:oversize",
++                "urn:fixture:request",
++                ReviewDecision::Accepted,
++                &"x".repeat(4097),
++                "urn:fixture:evidence"
++            )
++            .is_err());
++    });
++}
++#[test]
++fn observers_cannot_produce_and_foreign_producers_cannot_request() {
++    for (subject, role) in [
++        ("producer", ProjectRole::Observer),
++        ("reviewer", ProjectRole::Contributor),
++    ] {
++        source_view(subject, role, |source| {
++            let target = target();
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &[],
++                contributor_subjects: &[],
++            };
++            assert!(authorize_package(&view, &target, 3, PackageAction::Contribute).is_err());
++            assert!(authorize_package(&view, &target, 3, PackageAction::RequestReview).is_err());
++        });
++    }
++}
+--- /dev/null
++++ b/crates/qualia-cooperative-core/src/authoring/package_review/types.rs
+@@ -0,0 +1,101 @@
++use super::super::*;
++use crate::projects::Contribution;
++use serde::{Deserialize, Serialize};
++
++/// Project-scoped declared release identifier, not universal referent authority.
++/// The filename is a locator; its digest is a byte binding, not an identifier mapping.
++#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageRevision {
++    pub package_id: String,
++    pub filename: String,
++    pub package_digest: [u8; 32],
++    /// Prior destination bytes from the native overwrite guard, not full derivation.
++    pub predecessor_digest: Option<[u8; 32]>,
++    pub package_bytes: u64,
++    pub source: DocumentRevision,
++    /// Actual writer from native audit, separate from source authorship.
++    pub producer_subject: String,
++}
++
++#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageReviewGrant {
++    pub id: String,
++    pub target: PackageRevision,
++    pub reviewer_subject: String,
++    pub admission_ref: String,
++    pub valid_from_unix: u64,
++    pub valid_until_unix: u64,
++    pub revoked: bool,
++}
++
++#[derive(Clone, Copy, Debug, PartialEq, Eq)]
++pub enum PackageAction {
++    Contribute,
++    RequestReview,
++    Decide,
++}
++
++/// Borrowed host-current view, never deserialized from a client request.
++pub struct PackageAuthorityView<'a> {
++    pub source: &'a HostAuthorityView<'a>,
++    pub current_package: &'a PackageRevision,
++    pub grants: &'a [PackageReviewGrant],
++    /// All known canonical target contributors, not only the last writer.
++    pub contributor_subjects: &'a [&'a str],
++    pub known_destination_lineage_complete: bool,
++}
++
++#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageActorEvidence {
++    pub subject: String,
++    pub principal_kind: PrincipalKind,
++    pub authentication_ref: String,
++    pub identifier_association: IdentifierAssociationEvidence,
++    pub membership_id: String,
++    pub admission_ref: String,
++    pub authority_generation: u64,
++    pub occurred_at_unix: u64,
++}
++
++#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageContributionRecord {
++    pub contribution: Contribution,
++    pub target: PackageRevision,
++    pub actor: PackageActorEvidence,
++    pub work_status: WorkStatus,
++}
++
++#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageReviewRequest {
++    pub id: String,
++    pub target: PackageRevision,
++    pub contribution_id: String,
++    pub actor: PackageActorEvidence,
++    pub evidence_ref: String,
++    pub decision_ids: Vec<String>,
++    /// This workflow cannot establish complete resource authorship or rights.
++    pub contribution_rights_scope: String,
++    pub known_destination_lineage_complete: bool,
++}
++
++/// A scoped decision, never automatic model completion or human acceptance.
++#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageReviewRecord {
++    pub id: String,
++    pub target: PackageRevision,
++    pub request_id: String,
++    pub actor: PackageActorEvidence,
++    pub review_grant_id: String,
++    pub review_admission_ref: String,
++    pub decision: ReviewDecision,
++    pub rationale: String,
++    pub decision_evidence_ref: String,
++    pub known_destination_lineage_complete: bool,
++    pub contribution_rights_scope: String,
++}
+--- a/crates/qualia-cooperative-core/src/authoring/records.rs
++++ b/crates/qualia-cooperative-core/src/authoring/records.rs
+@@ -16,7 +16,7 @@
+ }
+ 
+ impl WorkStatus {
+-    fn evidence(&self) -> Option<&str> {
++    pub(super) fn evidence(&self) -> Option<&str> {
+         match self {
+             Self::Unknown => None,
+             Self::Unpaid { evidence_ref }
+@@ -104,7 +104,7 @@
+     }
+ }
+ 
+-fn reserve_record<'a>(
++pub(super) fn reserve_record<'a>(
+     values: impl IntoIterator<Item = &'a str>,
+     limits: AuthoringLimits,
+ ) -> Result<(), AuthoringError> {
+--- /dev/null
++++ b/crates/qualia-cooperative-core/tests/package_review.rs
+@@ -0,0 +1,304 @@
++//! Software fixtures; no personhood, human review, payment or model acceptance.
++use qualia_cooperative_core::authoring::{package_review::*, *};
++use qualia_cooperative_core::projects::{Project, ProjectMembership, ProjectRole};
++
++fn target() -> PackageRevision {
++    PackageRevision {
++        package_id: "urn:fixture:release:1".into(),
++        filename: "working.hmc".into(),
++        package_digest: [2; 32],
++        predecessor_digest: Some([1; 32]),
++        package_bytes: 400,
++        source: DocumentRevision {
++            project_id: "project".into(),
++            document_id: "document".into(),
++            source_id: "source".into(),
++            revision: 7,
++            source_digest: [3; 32],
++            author_subject: Some("source-author".into()),
++        },
++        producer_subject: "producer".into(),
++    }
++}
++fn grant(target: &PackageRevision) -> PackageReviewGrant {
++    PackageReviewGrant {
++        id: "urn:fixture:package-grant".into(),
++        target: target.clone(),
++        reviewer_subject: "reviewer".into(),
++        admission_ref: "urn:fixture:admission".into(),
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }
++}
++fn source_view<T>(
++    subject: &str,
++    role: ProjectRole,
++    run: impl FnOnce(&HostAuthorityView<'_>) -> T,
++) -> T {
++    let target = target();
++    let project = Project {
++        id: "project".into(),
++        name: "fixture".into(),
++        description: String::new(),
++        licensing_ontologies: vec![],
++        created_at_unix: 1,
++        created_at_instant: None,
++    };
++    let identifiers = [QualifiedIdentifier {
++        value: "urn:fixture:actor",
++        scheme: "urn",
++        issuer: "fixture",
++        project_id: "project",
++        evidence_ref: "urn:fixture:association",
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }];
++    let principal = AuthenticatedPrincipal {
++        subject,
++        kind: PrincipalKind::SoftwareAgent,
++        authentication_ref: "fixture-auth",
++        authenticated_until_unix: 1000,
++        identifiers: &identifiers,
++    };
++    let membership = ProjectMembership {
++        id: "membership".into(),
++        project_id: "project".into(),
++        member_did: "urn:fixture:actor".into(),
++        role,
++        agreed_at_unix: 1,
++        agreed_at_instant: None,
++    };
++    let memberships = [AdmittedMembership {
++        membership: &membership,
++        member_subject: subject,
++        admission_ref: "fixture-member",
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }];
++    let source_grants = [ReviewGrant {
++        id: "source-grant",
++        project_id: "project",
++        document_id: "document",
++        reviewer_subject: subject,
++        admission_ref: "source-admission",
++        valid_from_unix: 1,
++        valid_until_unix: 1000,
++        revoked: false,
++    }];
++    run(&HostAuthorityView {
++        principal: Some(&principal),
++        project: &project,
++        memberships: &memberships,
++        review_grants: &source_grants,
++        current_document: &target.source,
++        generation: 3,
++        now_unix: 100,
++        limits: AuthoringLimits::default(),
++    })
++}
++
++#[test]
++fn source_grant_never_implies_package_grant() {
++    source_view("reviewer", ProjectRole::Contributor, |source| {
++        let target = target();
++        let view = PackageAuthorityView {
++            source,
++            known_destination_lineage_complete: true,
++            current_package: &target,
++            grants: &[],
++            contributor_subjects: &[],
++        };
++        assert!(authorize(
++            source,
++            &AuthoringRequest {
++                action: AuthoringAction::ReviewDecision,
++                target: &target.source,
++                expected_authority_generation: 3
++            }
++        )
++        .is_ok());
++        assert_eq!(
++            authorize_package(&view, &target, 3, PackageAction::Decide).unwrap_err(),
++            AuthoringError::ReviewDenied
++        );
++    });
++}
++#[test]
++fn package_grant_requires_exact_release_source_digest_and_lineage() {
++    source_view("reviewer", ProjectRole::Contributor, |source| {
++        let target = target();
++        for case in 0..9 {
++            let mut grant = grant(&target);
++            match case {
++                0 => grant.target.package_id.push('x'),
++                1 => grant.target.filename.push('x'),
++                2 => grant.target.package_digest = [9; 32],
++                3 => grant.target.predecessor_digest = None,
++                4 => grant.target.source.revision += 1,
++                5 => grant.target.source.source_digest = [8; 32],
++                6 => grant.target.source.project_id = "other".into(),
++                7 => grant.target.producer_subject = "other".into(),
++                _ => grant.target.package_bytes += 1,
++            };
++            let grants = [grant];
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &grants,
++                contributor_subjects: &[],
++            };
++            assert!(
++                authorize_package(&view, &target, 3, PackageAction::Decide).is_err(),
++                "case {case}"
++            );
++        }
++    });
++}
++#[test]
++fn revoked_expired_duplicate_and_stale_generation_fail_closed() {
++    source_view("reviewer", ProjectRole::Contributor, |source| {
++        let target = target();
++        for case in 0..4 {
++            let mut grants = vec![grant(&target)];
++            match case {
++                0 => grants[0].revoked = true,
++                1 => grants[0].valid_until_unix = 100,
++                2 => grants.push(grants[0].clone()),
++                _ => {}
++            };
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &grants,
++                contributor_subjects: &[],
++            };
++            assert!(authorize_package(
++                &view,
++                &target,
++                if case == 3 { 2 } else { 3 },
++                PackageAction::Decide
++            )
++            .is_err());
++        }
++    });
++}
++#[test]
++fn producer_source_author_and_known_contributor_cannot_review() {
++    for subject in ["producer", "source-author", "other-contributor"] {
++        source_view(subject, ProjectRole::Contributor, |source| {
++            let target = target();
++            let mut grant = grant(&target);
++            grant.reviewer_subject = subject.into();
++            let grants = [grant];
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &grants,
++                contributor_subjects: &["other-contributor"],
++            };
++            assert_eq!(
++                authorize_package(&view, &target, 3, PackageAction::Decide).unwrap_err(),
++                AuthoringError::SelfReview
++            );
++        });
++    }
++}
++#[test]
++fn resource_producer_may_differ_from_source_author_and_request_exact_contribution() {
++    source_view("producer", ProjectRole::Contributor, |source| {
++        let target = target();
++        let view = PackageAuthorityView {
++            source,
++            known_destination_lineage_complete: true,
++            current_package: &target,
++            grants: &[],
++            contributor_subjects: &[],
++        };
++        let contribution = authorize_package(&view, &target, 3, PackageAction::Contribute)
++            .unwrap()
++            .contribution_record(
++                "urn:fixture:contribution",
++                "resource work",
++                4,
++                WorkStatus::Unknown,
++            )
++            .unwrap();
++        let request = authorize_package(&view, &target, 3, PackageAction::RequestReview)
++            .unwrap()
++            .request_record("urn:fixture:request", &contribution, "urn:fixture:evidence")
++            .unwrap();
++        assert_eq!(request.target, contribution.target);
++        assert_eq!(contribution.contribution.capital_cents, 0);
++        assert_eq!(request.actor.principal_kind, PrincipalKind::SoftwareAgent);
++        let mut wrong = contribution.clone();
++        wrong.target.package_digest = [8; 32];
++        assert!(
++            authorize_package(&view, &target, 3, PackageAction::RequestReview)
++                .unwrap()
++                .request_record("urn:fixture:wrong", &wrong, "urn:fixture:evidence")
++                .is_err()
++        );
++    });
++}
++#[test]
++fn scoped_package_decision_and_record_budget_are_explicit() {
++    source_view("reviewer", ProjectRole::Observer, |source| {
++        let target = target();
++        let grants = [grant(&target)];
++        let view = PackageAuthorityView {
++            source,
++            known_destination_lineage_complete: true,
++            current_package: &target,
++            grants: &grants,
++            contributor_subjects: &[],
++        };
++        let record = authorize_package(&view, &target, 3, PackageAction::Decide)
++            .unwrap()
++            .review_record(
++                "urn:fixture:decision",
++                "urn:fixture:request",
++                ReviewDecision::ChangesRequested,
++                "reviewed exact bytes",
++                "urn:fixture:evidence",
++            )
++            .unwrap();
++        assert_eq!(record.target, target);
++        assert_eq!(record.actor.principal_kind, PrincipalKind::SoftwareAgent);
++        assert!(authorize_package(&view, &target, 3, PackageAction::Decide)
++            .unwrap()
++            .review_record(
++                "urn:fixture:oversize",
++                "urn:fixture:request",
++                ReviewDecision::Accepted,
++                &"x".repeat(4097),
++                "urn:fixture:evidence"
++            )
++            .is_err());
++    });
++}
++#[test]
++fn observers_cannot_produce_and_foreign_producers_cannot_request() {
++    for (subject, role) in [
++        ("producer", ProjectRole::Observer),
++        ("reviewer", ProjectRole::Contributor),
++    ] {
++        source_view(subject, role, |source| {
++            let target = target();
++            let view = PackageAuthorityView {
++                source,
++                known_destination_lineage_complete: true,
++                current_package: &target,
++                grants: &[],
++                contributor_subjects: &[],
++            };
++            assert!(authorize_package(&view, &target, 3, PackageAction::Contribute).is_err());
++            assert!(authorize_package(&view, &target, 3, PackageAction::RequestReview).is_err());
++        });
++    }
++}
+--- a/crates/qualia-core-db/src/poet_host/native_authority/admission.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/admission.rs
+@@ -8,6 +8,8 @@
+ use sha2::{Digest, Sha256};
+ use std::io::Write;
+ 
++use qualia_cooperative_core::authoring::package_review;
++
+ pub const ADMISSION_CONTEXT: &[u8] = b"qualia.native-project-admission.v1";
+ pub const SESSION_CONTEXT: &[u8] = b"qualia.native-authoring-session.v1";
+ 
+@@ -29,6 +31,9 @@
+     pub valid_until_unix: u64,
+     pub revoked: bool,
+     pub subjects: Vec<SubjectAdmission>,
++    /// Explicit exact-package grants. Empty preserves pre-extension signed bytes.
++    #[serde(default, skip_serializing_if = "Vec::is_empty")]
++    pub package_reviews: Vec<package_review::PackageReviewGrant>,
+ }
+ 
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+@@ -190,6 +195,7 @@
+                 }
+             }
+         }
++        super::package_review::validate_admission_packages(snapshot)?;
+         Ok(digest)
+     }
+ }
+--- a/crates/qualia-core-db/src/poet_host/native_authority/enrollment/fixture.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/enrollment/fixture.rs
+@@ -79,6 +79,7 @@
+         valid_from_unix: now - 10,
+         valid_until_unix: now + 3600,
+         revoked: false,
++        package_reviews: Vec::new(),
+         subjects: vec![subject(
+             "steward",
+             steward.public_key(),
+--- a/crates/qualia-core-db/src/poet_host/native_authority/enrollment/mod.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/enrollment/mod.rs
+@@ -1,5 +1,6 @@
+ //! Native controller enrollment. Requests prove a key, never a legal identity.
+ mod owner;
++mod package_review_admin;
+ mod requests;
+ mod signer;
+ pub use owner::{EnrollmentApproval, EnrollmentPermission};
+--- a/crates/qualia-core-db/src/poet_host/native_authority/enrollment/owner.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/enrollment/owner.rs
+@@ -106,7 +106,7 @@
+         self.require_enrollment_permission(&state, &permission)?;
+         Ok(permission)
+     }
+-    fn require_enrollment_permission(
++    pub(super) fn require_enrollment_permission(
+         &self,
+         state: &State,
+         permission: &EnrollmentPermission,
+@@ -353,7 +353,7 @@
+         self.commit_enrollment(&mut state, next, true)?;
+         Ok(signed)
+     }
+-    fn sign_enrollment_admission(
++    pub(super) fn sign_enrollment_admission(
+         &self,
+         next: &mut DurableState,
+         signer: &NativeSigner,
+@@ -371,12 +371,22 @@
+         next.admission.verify(&self.anchor, 4 * 1024 * 1024)?;
+         Ok(())
+     }
+-    fn commit_enrollment(
++    pub(super) fn commit_enrollment(
+         &self,
+         state: &mut State,
+         next: DurableState,
+         changed: bool,
+     ) -> Result<(), String> {
++        // Validate all fallible admission/generation work before durable write.
++        let admission_digest = if changed {
++            super::super::package_review::validate_grant_successor(
++                &state.durable.admission.snapshot,
++                &next.admission.snapshot,
++            )?;
++            next.admission.verify(&self.anchor, 4 * 1024 * 1024)?
++        } else {
++            state.admission_digest
++        };
+         // Preflight generation before writing a durable successor.
+         let generation = if changed {
+             state
+@@ -392,10 +402,7 @@
+         }
+         state.durable = next;
+         if changed {
+-            state.admission_digest = state
+-                .durable
+-                .admission
+-                .verify(&self.anchor, 4 * 1024 * 1024)?;
++            state.admission_digest = admission_digest;
+             state.pending = None;
+             state.session = None;
+             state.grants = GrantOwner::new();
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/enrollment/package_review_admin.rs
+@@ -0,0 +1,124 @@
++//! Explicit native steward administration; no inferred enrollment privilege.
++use super::super::package_review::{validate_admission_packages, PackageReviewGrant};
++use super::{super::*, EnrollmentPermission, NativeSigner};
++
++impl NativeAuthority {
++    pub fn grant_package_review(
++        &self,
++        permission: &EnrollmentPermission,
++        grant: PackageReviewGrant,
++        signer: &NativeSigner,
++    ) -> Result<SignedAdmission, String> {
++        let mut state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        self.require_enrollment_permission(&state, permission)?;
++        if state.durable.package_grant_decisions.len() >= 256 {
++            return Err("package grant audit budget exhausted".into());
++        }
++        self.require_current_package(&state, &grant.target)?;
++        if grant.revoked || !live(now()?, grant.valid_from_unix, grant.valid_until_unix) {
++            return Err("package grant must have explicit current nonrevoked scope".into());
++        }
++        let reviewer = state
++            .durable
++            .admission
++            .snapshot
++            .subjects
++            .iter()
++            .find(|s| s.subject == grant.reviewer_subject)
++            .ok_or("package reviewer not explicitly admitted")?;
++        if reviewer.revoked
++            || !live(now()?, reviewer.valid_from_unix, reviewer.valid_until_unix)
++            || state
++                .durable
++                .package_contributions
++                .iter()
++                .any(|r| r.target == grant.target && r.actor.subject == grant.reviewer_subject)
++            || state.durable.contributions.iter().any(|r| {
++                r.target == grant.target.source && r.contributor_subject == grant.reviewer_subject
++            })
++        {
++            return Err("revoked/expired/self-contributing package reviewer denied".into());
++        }
++        let history =
++            super::super::package_review::contributor_history(&state.durable, &grant.target)?;
++        if history.subjects.contains(&grant.reviewer_subject.as_str()) {
++            return Err("known predecessor contributor cannot receive package review grant".into());
++        }
++        let mut next = state.durable.clone();
++        if next.admission.snapshot.package_reviews.len()
++            >= AuthoringLimits::default().max_review_grants
++        {
++            return Err("package grant budget exhausted".into());
++        }
++        let grant_id = grant.id.clone();
++        let evidence_ref = grant.admission_ref.clone();
++        next.admission.snapshot.package_reviews.push(grant);
++        validate_admission_packages(&next.admission.snapshot)?;
++        self.sign_enrollment_admission(&mut next, signer)?;
++        next.package_grant_decisions
++            .push(super::super::package_review::PackageGrantDecision {
++                grant_id,
++                actor_subject: state
++                    .session
++                    .as_ref()
++                    .ok_or("native session missing")?
++                    .subject
++                    .clone(),
++                evidence_ref,
++                occurred_at_unix: now()?,
++                revoked: false,
++                admission_digest: admission_digest(&next.admission.snapshot, 4 * 1024 * 1024)?,
++            });
++        let signed = next.admission.clone();
++        self.commit_enrollment(&mut state, next, true)?;
++        Ok(signed)
++    }
++
++    pub fn revoke_package_review(
++        &self,
++        permission: &EnrollmentPermission,
++        grant_id: &str,
++        decision_evidence_ref: &str,
++        signer: &NativeSigner,
++    ) -> Result<SignedAdmission, String> {
++        let mut state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        self.require_enrollment_permission(&state, permission)?;
++        if state.durable.package_grant_decisions.len() >= 256 {
++            return Err("package grant audit budget exhausted".into());
++        }
++        if decision_evidence_ref.trim().is_empty()
++            || decision_evidence_ref.len() > AuthoringLimits::default().max_text_bytes
++        {
++            return Err("explicit bounded revocation evidence required".into());
++        }
++        let mut next = state.durable.clone();
++        let grant = next
++            .admission
++            .snapshot
++            .package_reviews
++            .iter_mut()
++            .find(|g| g.id == grant_id && !g.revoked)
++            .ok_or("current exact package grant unavailable")?;
++        grant.revoked = true;
++        // Keep original grant adoption reference and bind the local audit to
++        // the changed signed admission; the audit itself is not a signature.
++        self.sign_enrollment_admission(&mut next, signer)?;
++        next.package_grant_decisions
++            .push(super::super::package_review::PackageGrantDecision {
++                grant_id: grant_id.into(),
++                actor_subject: state
++                    .session
++                    .as_ref()
++                    .ok_or("native session missing")?
++                    .subject
++                    .clone(),
++                evidence_ref: decision_evidence_ref.into(),
++                occurred_at_unix: now()?,
++                revoked: true,
++                admission_digest: admission_digest(&next.admission.snapshot, 4 * 1024 * 1024)?,
++            });
++        let signed = next.admission.clone();
++        self.commit_enrollment(&mut state, next, true)?;
++        Ok(signed)
++    }
++}
+--- a/crates/qualia-core-db/src/poet_host/native_authority/journal.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/journal.rs
+@@ -22,6 +22,14 @@
+     pub requests: Vec<super::SourceReviewRequest>,
+     #[serde(default)]
+     pub enrollment: Vec<super::enrollment::EnrollmentRecord>,
++    #[serde(default, skip_serializing_if = "Vec::is_empty")]
++    pub package_contributions: Vec<super::package_review::PackageContributionRecord>,
++    #[serde(default, skip_serializing_if = "Vec::is_empty")]
++    pub package_requests: Vec<super::package_review::PackageReviewRequest>,
++    #[serde(default, skip_serializing_if = "Vec::is_empty")]
++    pub package_reviews: Vec<super::package_review::PackageReviewRecord>,
++    #[serde(default, skip_serializing_if = "Vec::is_empty")]
++    pub package_grant_decisions: Vec<super::package_review::PackageGrantDecision>,
+ }
+ #[derive(Serialize, Deserialize)]
+ #[serde(deny_unknown_fields)]
+@@ -120,7 +128,7 @@
+             max_bytes,
+             max_entries,
+         };
+-        let mut latest = None;
++        let mut latest: Option<DurableState> = None;
+         let mut last_admission_sequence = 0;
+         let mut last_admission_digest = None;
+         for path in paths {
+@@ -166,6 +174,13 @@
+                     "authority journal regresses admission or exceeds evidence bounds".into(),
+                 );
+             }
++            super::package_review::validate_ledger(&entry.state)?;
++            if let Some(previous) = latest.as_ref() {
++                super::package_review::validate_grant_successor(
++                    &previous.admission.snapshot,
++                    &entry.state.admission.snapshot,
++                )?;
++            }
+             last_admission_sequence = entry.state.admission.snapshot.sequence;
+             last_admission_digest = Some(admission_digest);
+             journal.sequence = next;
+@@ -178,6 +193,7 @@
+         self.root.join(format!("{sequence:020}.json"))
+     }
+     pub fn append(&mut self, state: &DurableState) -> Result<(), String> {
++        super::package_review::validate_ledger(state)?;
+         if self
+             .configured_root
+             .canonicalize()
+--- a/crates/qualia-core-db/src/poet_host/native_authority/mod.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/mod.rs
+@@ -6,6 +6,7 @@
+ pub use workflow::{SourceReviewRequest, WorkflowEvidence};
+ mod journal;
+ mod package;
++pub mod package_review;
+ pub use package::{PackageWriteEvidence, PackageWriteIntent, PackageWriteReceipt};
+ mod records;
+ mod session;
+@@ -138,6 +139,10 @@
+                 packages: Vec::new(),
+                 requests: Vec::new(),
+                 enrollment: Vec::new(),
++                package_contributions: Vec::new(),
++                package_requests: Vec::new(),
++                package_reviews: Vec::new(),
++                package_grant_decisions: Vec::new(),
+             };
+             journal.append(&initial)?;
+             initial
+@@ -165,6 +170,15 @@
+         if replacement.snapshot.sequence <= state.durable.admission.snapshot.sequence {
+             return Err("stale project admission sequence".into());
+         }
++        package_review::validate_grant_successor(
++            &state.durable.admission.snapshot,
++            &replacement.snapshot,
++        )?;
++        package_review::validate_new_grant_reviewers(&state.durable, &replacement.snapshot)?;
++        let generation = state
++            .generation
++            .checked_add(1)
++            .ok_or("authority generation exhausted")?;
+         let mut next = state.durable.clone();
+         next.admission = replacement;
+         if let Err(e) = state.journal.append(&next) {
+@@ -176,10 +190,7 @@
+         state.pending = None;
+         state.session = None;
+         state.grants = GrantOwner::new();
+-        state.generation = state
+-            .generation
+-            .checked_add(1)
+-            .ok_or("authority generation exhausted")?;
++        state.generation = generation;
+         Ok(())
+     }
+     fn require_admission(&self, state: &State, now: u64) -> Result<(), String> {
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/package_review/admin_tests.rs
+@@ -0,0 +1,96 @@
++//! Encrypted test-only key files; never opens an OS credential provider.
++use super::super::super::enrollment::NativeSigner;
++use super::*;
++
++#[test]
++fn package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants() {
++    let root = tempfile::tempdir().unwrap();
++    let wrap = [67; 32];
++    let signer = NativeSigner::create_sealed(&root.path().join("authority.sealed"), &wrap).unwrap();
++    let wrong = NativeSigner::create_sealed(&root.path().join("wrong.sealed"), &wrap).unwrap();
++    let mut adopted = snapshot();
++    adopted.subjects[0].membership.role = ProjectRole::Steward;
++    let until = adopted.valid_until_unix;
++    let native_anchor = TrustedProject {
++        project_id: "project".into(),
++        issuer_identifier: "fixture-authority".into(),
++        public_key: signer.public_key(),
++    };
++    let journal = root.path().join("journal");
++    std::fs::create_dir(&journal).unwrap();
++    let owner = NativeAuthority::open(
++        &journal,
++        native_anchor,
++        signer.sign_admission(adopted).unwrap(),
++        document(),
++        1024 * 1024,
++        256,
++    )
++    .unwrap();
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let grant = PackageReviewGrant {
++        id: "urn:fixture:explicit-admin-grant".into(),
++        target: target.clone(),
++        reviewer_subject: "reviewer".into(),
++        admission_ref: "urn:fixture:explicit-admin-evidence".into(),
++        valid_from_unix: 1,
++        valid_until_unix: until,
++        revoked: false,
++    };
++    let permission = owner.enrollment_permission(&author).unwrap();
++    let before = std::fs::read_dir(&journal).unwrap().count();
++    assert!(owner
++        .grant_package_review(&permission, grant.clone(), &wrong)
++        .is_err());
++    assert_eq!(std::fs::read_dir(&journal).unwrap().count(), before);
++    assert!(owner
++        .enrollment_snapshot()
++        .unwrap()
++        .snapshot
++        .package_reviews
++        .is_empty());
++    let signed = owner
++        .grant_package_review(&permission, grant.clone(), &signer)
++        .unwrap();
++    assert_eq!(signed.snapshot.package_reviews, vec![grant]);
++    assert!(owner
++        .package_workflow_evidence(&author, &target, |_| Ok(()))
++        .is_err());
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    assert!(
++        owner
++            .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++            .unwrap()
++            .can_review
++    );
++    assert!(owner.enrollment_permission(&reviewer).is_err());
++    let author = login(&owner, "author", &AUTHOR);
++    let permission = owner.enrollment_permission(&author).unwrap();
++    owner
++        .revoke_package_review(
++            &permission,
++            "urn:fixture:explicit-admin-grant",
++            "urn:fixture:explicit-revoke-evidence",
++            &signer,
++        )
++        .unwrap();
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let evidence = owner
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .unwrap();
++    assert!(!evidence.can_review);
++    assert!(
++        owner.workflow_evidence(&reviewer).unwrap().can_review,
++        "source grants remain a separate scope"
++    );
++    let state = owner.state.lock().unwrap();
++    assert_eq!(state.durable.package_grant_decisions.len(), 2);
++    assert!(state.durable.package_grant_decisions[1].revoked);
++    assert_eq!(
++        state.durable.package_grant_decisions[1].admission_digest,
++        state.admission_digest
++    );
++}
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/package_review/history.rs
+@@ -0,0 +1,111 @@
++//! Bounded retained destination-predecessor exclusions, independent of ID aliases.
++use super::*;
++
++pub(crate) struct ContributorHistory<'a> {
++    pub subjects: Vec<&'a str>,
++    pub complete: bool,
++}
++fn same_scope(a: &DocumentRevision, b: &DocumentRevision) -> bool {
++    a.project_id == b.project_id && a.document_id == b.document_id && a.source_id == b.source_id
++}
++fn add<'a>(subjects: &mut Vec<&'a str>, subject: &'a str) -> Result<(), String> {
++    if !subjects.contains(&subject) {
++        if subjects.len() >= 1024 {
++            return Err("known package contributor history budget exhausted".into());
++        }
++        subjects.push(subject);
++    }
++    Ok(())
++}
++pub(crate) fn contributor_history<'a>(
++    state: &'a DurableState,
++    target: &PackageRevision,
++) -> Result<ContributorHistory<'a>, String> {
++    let mut pending = vec![target.package_digest];
++    let mut visited = Vec::new();
++    let mut subjects = Vec::new();
++    let mut complete = true;
++    // Conservative source-history restriction: an earlier source contribution
++    // remains known even when no HMC was saved at that source revision. Exact
++    // source ancestry is not inferred from digests or display labels here.
++    for contribution in state
++        .contributions
++        .iter()
++        .filter(|c| same_scope(&c.target, &target.source))
++    {
++        add(&mut subjects, &contribution.contributor_subject)?;
++    }
++    while let Some(digest) = pending.pop() {
++        if visited.contains(&digest) {
++            continue;
++        }
++        if visited.len() >= 256 {
++            return Err("package predecessor traversal budget exhausted".into());
++        }
++        visited.push(digest);
++        let mut matches = 0;
++        for saved in state
++            .packages
++            .iter()
++            .filter(|p| p.result_digest == digest && same_scope(&p.source, &target.source))
++        {
++            matches += 1;
++            add(&mut subjects, &saved.actor_subject)?;
++            if let Some(author) = saved.source.author_subject.as_deref() {
++                add(&mut subjects, author)?;
++            }
++            for contribution in state
++                .contributions
++                .iter()
++                .filter(|c| c.target == saved.source)
++            {
++                add(&mut subjects, &contribution.contributor_subject)?;
++            }
++            if let Some(previous) = saved.expected_digest {
++                if previous == digest || visited.contains(&previous) {
++                    complete = false;
++                } else if !pending.contains(&previous) {
++                    if pending.len() >= 256 {
++                        return Err("package predecessor frontier budget exhausted".into());
++                    }
++                    pending.push(previous);
++                }
++            }
++        }
++        if matches != 1 {
++            complete = false;
++        }
++        for contribution in state.package_contributions.iter().filter(|c| {
++            c.target.package_digest == digest && same_scope(&c.target.source, &target.source)
++        }) {
++            add(&mut subjects, &contribution.actor.subject)?;
++        }
++    }
++    // This completeness flag concerns retained destination audit edges only.
++    // SaveAs derivation, other resource authorship and rights stay unassessed.
++    Ok(ContributorHistory { subjects, complete })
++}
++
++pub(crate) fn validate_new_grant_reviewers(
++    state: &DurableState,
++    new: &AdmissionSnapshot,
++) -> Result<(), String> {
++    for grant in &new.package_reviews {
++        if state
++            .admission
++            .snapshot
++            .package_reviews
++            .iter()
++            .any(|old| old.id == grant.id)
++        {
++            continue;
++        }
++        let history = contributor_history(state, &grant.target)?;
++        if history.subjects.contains(&grant.reviewer_subject.as_str()) {
++            return Err(
++                "known predecessor/target contributor cannot receive package review grant".into(),
++            );
++        }
++    }
++    Ok(())
++}
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/package_review/mod.rs
+@@ -0,0 +1,200 @@
++//! Native current-session package evidence. No source grant is package authority.
++mod history;
++pub(super) use history::{contributor_history, validate_new_grant_reviewers};
++mod validation;
++mod workflow;
++use super::*;
++pub use qualia_cooperative_core::authoring::package_review::*;
++use serde::{Deserialize, Serialize};
++pub(super) use validation::{
++    validate_admission_packages, validate_grant_successor, validate_ledger,
++};
++
++/// Host-journal audit bound to the resulting signed admission digest. This
++/// record is local evidence, not an independently signed human decision.
++#[derive(Clone, Debug, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct PackageGrantDecision {
++    pub grant_id: String,
++    pub actor_subject: String,
++    pub evidence_ref: String,
++    pub occurred_at_unix: u64,
++    pub revoked: bool,
++    pub admission_digest: [u8; 32],
++}
++
++#[derive(Clone, Debug)]
++pub struct PackageWorkflowEvidence {
++    pub target: PackageRevision,
++    pub principal_subject: String,
++    pub principal_kind: PrincipalKind,
++    pub authority_generation: u64,
++    pub can_contribute: bool,
++    pub can_review: bool,
++    pub contributions: Vec<PackageContributionRecord>,
++    /// Other recorded package work in the same qualified source scope. These
++    /// are historical credits; ancestry/applicability to this target is not
++    /// established and no prior package decision is projected as current.
++    pub prior_contributions: Vec<PackageContributionRecord>,
++    pub requests: Vec<PackageReviewRequest>,
++    pub reviews: Vec<PackageReviewRecord>,
++    pub contribution_rights_scope: String,
++    pub known_destination_lineage_complete: bool,
++}
++
++fn saved_matches(saved: &PackageWriteEvidence, target: &PackageRevision) -> bool {
++    saved.filename == target.filename
++        && saved.result_digest == target.package_digest
++        && saved.expected_digest == target.predecessor_digest
++        && saved.result_bytes as u64 == target.package_bytes
++        && saved.source == target.source
++        && saved.actor_subject == target.producer_subject
++}
++
++impl NativeAuthority {
++    /// Nonblocking native audit/source/session freshness for UI publication.
++    /// No filesystem IO: external byte changes still require the trusted bounded
++    /// checkpoint verification on refresh/consume. This is not continuous file
++    /// monitoring and cannot authenticate a principal from serialized evidence.
++    pub fn package_publication_is_current(
++        &self,
++        handle: &SessionHandle,
++        generation: u64,
++        target: &PackageRevision,
++    ) -> bool {
++        let Ok(now) = now() else {
++            return false;
++        };
++        self.state.try_lock().is_ok_and(|state| {
++            state.generation == generation
++                && self.require_current_package(&state, target).is_ok()
++                && self.view(&state, handle, now, |_| Ok(())).is_ok()
++        })
++    }
++
++    fn with_package<T>(
++        &self,
++        state: &State,
++        handle: &SessionHandle,
++        expected_generation: u64,
++        target: &PackageRevision,
++        action: PackageAction,
++        operation: impl FnOnce(PackagePermit<'_>) -> Result<T, String>,
++    ) -> Result<T, String> {
++        self.view(state, handle, now()?, |source| {
++            self.require_current_package(state, target)?;
++            let history = contributor_history(&state.durable, target)?;
++            let view = PackageAuthorityView {
++                source,
++                current_package: target,
++                grants: &state.durable.admission.snapshot.package_reviews,
++                contributor_subjects: &history.subjects,
++                known_destination_lineage_complete: history.complete,
++            };
++            operation(
++                authorize_package(&view, target, expected_generation, action)
++                    .map_err(|e| e.to_string())?,
++            )
++        })
++    }
++
++    pub(super) fn require_current_package(
++        &self,
++        state: &State,
++        target: &PackageRevision,
++    ) -> Result<(), String> {
++        validate_package(target, AuthoringLimits::default()).map_err(|e| e.to_string())?;
++        let saved = state
++            .durable
++            .packages
++            .iter()
++            .rev()
++            .find(|p| p.filename == target.filename)
++            .ok_or("package has no native save provenance; save before requesting review")?;
++        if state.durable.document != target.source || !saved_matches(saved, target) {
++            return Err("package/source/lineage changed; refresh exact saved package".into());
++        }
++        Ok(())
++    }
++
++    fn commit_package_records(&self, state: &mut State, next: DurableState) -> Result<(), String> {
++        // Journal validates counts and bounded encoding before creating a file.
++        if let Err(e) = state.journal.append(&next) {
++            state.reconciliation = true;
++            return Err(e);
++        }
++        state.durable = next;
++        Ok(())
++    }
++
++    /// Metadata-only save history, still gated by a current admitted session.
++    /// IDs are declared by the operator; provenance and exact signed grants bind
++    /// that project-scoped declaration, never a universal referent equivalence.
++    pub fn saved_package_target(
++        &self,
++        handle: &SessionHandle,
++        filename: &str,
++        package_id: &str,
++    ) -> Result<PackageRevision, String> {
++        if [filename, package_id]
++            .iter()
++            .any(|s| s.trim().is_empty() || s.len() > AuthoringLimits::default().max_text_bytes)
++        {
++            return Err(
++                "bounded explicit package filename and project-scoped identifier required".into(),
++            );
++        }
++        let state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        self.view(&state, handle, now()?, |_| {
++            let saved = state
++                .durable
++                .packages
++                .iter()
++                .rev()
++                .find(|p| p.filename == filename)
++                .ok_or("no native save evidence for selected package")?;
++            let target = PackageRevision {
++                package_id: package_id.into(),
++                filename: saved.filename.clone(),
++                package_digest: saved.result_digest,
++                predecessor_digest: saved.expected_digest,
++                package_bytes: saved.result_bytes as u64,
++                source: saved.source.clone(),
++                producer_subject: saved.actor_subject.clone(),
++            };
++            self.require_current_package(&state, &target)?;
++            Ok(target)
++        })
++    }
++
++    /// Lock order: authority -> trusted raw checkpoint owner -> direct bounded
++    /// file check. Callback MUST NOT call an authorized editor or this authority.
++    /// A successful check attests one moment-in-time snapshot; it cannot prevent
++    /// an uncooperative external writer after the check. Recheck publication/use.
++    pub fn package_workflow_evidence(
++        &self,
++        handle: &SessionHandle,
++        target: &PackageRevision,
++        verify_current: impl FnOnce(&PackageRevision) -> Result<(), String>,
++    ) -> Result<PackageWorkflowEvidence, String> {
++        let state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        self.view(&state,handle,now()?,|view| {
++            self.require_current_package(&state,target)?;
++            verify_current(target)?;
++            let principal=view.principal.ok_or("native principal unavailable")?;
++            let allowed=|action|self.with_package(&state,handle,view.generation,target,action,|_|Ok(())).is_ok();
++            Ok(PackageWorkflowEvidence { target:target.clone(),known_destination_lineage_complete:contributor_history(&state.durable,target)?.complete,
++                principal_subject:principal.subject.into(),
++                principal_kind:principal.kind,authority_generation:view.generation,
++                can_contribute:allowed(PackageAction::Contribute),can_review:allowed(PackageAction::Decide),
++                contributions:state.durable.package_contributions.iter().filter(|r|&r.target==target).cloned().collect(),
++                prior_contributions:state.durable.package_contributions.iter().filter(|r|&r.target!=target
++                    &&r.target.source.project_id==target.source.project_id
++                    &&r.target.source.document_id==target.source.document_id
++                    &&r.target.source.source_id==target.source.source_id).cloned().collect(),
++                requests:state.durable.package_requests.iter().filter(|r|&r.target==target).cloned().collect(),
++                reviews:state.durable.package_reviews.iter().filter(|r|&r.target==target).cloned().collect(),
++                contribution_rights_scope:"Known recorded contributors excluded; other authorship/rights/completeness unassessed".into() })
++        })
++    }
++}
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/package_review/tests.rs
+@@ -0,0 +1,437 @@
++//! Signed software fixtures. Saved audit callbacks here are not actual HMC IO.
++//! Real checkpoint-byte integration belongs to the native Poet owner tests.
++use super::super::package_review::*;
++use super::*;
++#[cfg(feature = "sanctuary-crypto")]
++#[path = "admin_tests.rs"]
++mod admin_tests;
++
++fn package_target() -> PackageRevision {
++    PackageRevision {
++        package_id: "urn:fixture:project:release:1".into(),
++        filename: "working.hmc".into(),
++        package_digest: [7; 32],
++        predecessor_digest: None,
++        package_bytes: 123,
++        source: document(),
++        producer_subject: "author".into(),
++    }
++}
++fn package_snapshot() -> AdmissionSnapshot {
++    let mut snapshot = snapshot();
++    snapshot.package_reviews.push(PackageReviewGrant {
++        id: "urn:fixture:grant".into(),
++        target: package_target(),
++        reviewer_subject: "reviewer".into(),
++        admission_ref: "urn:fixture:package-adoption".into(),
++        valid_from_unix: 1,
++        valid_until_unix: snapshot.valid_until_unix,
++        revoked: false,
++    });
++    snapshot
++}
++fn save_audit(owner: &NativeAuthority, author: &SessionHandle, digest: [u8; 32]) {
++    owner
++        .transact_with_package(
++            author,
++            Some(&PackageWriteIntent {
++                filename: "working.hmc".into(),
++                expected_digest: None,
++            }),
++            |_| {
++                (
++                    DocumentTransaction {
++                        result: Ok(()),
++                        successor: None,
++                        reconciliation_required: false,
++                    },
++                    Some(PackageWriteReceipt { digest, bytes: 123 }),
++                )
++            },
++        )
++        .unwrap();
++}
++fn request(owner: &NativeAuthority, author: &SessionHandle, target: &PackageRevision) {
++    let generation = generation(owner, author);
++    owner
++        .record_package_contribution(
++            author,
++            generation,
++            target,
++            "urn:fixture:contribution",
++            "saved native package",
++            5,
++            WorkStatus::Unknown,
++            |_| Ok(()),
++        )
++        .unwrap();
++    owner
++        .request_package_review(
++            author,
++            generation,
++            target,
++            "urn:fixture:contribution",
++            "urn:fixture:request",
++            "urn:fixture:request-evidence",
++            |_| Ok(()),
++        )
++        .unwrap();
++}
++
++#[test]
++fn package_review_old_signed_admission_bytes_remain_exact() {
++    // Literal pre-extension v1 body, independent of the new snapshot serializer.
++    let golden=br#"{"version":1,"sequence":1,"issuer_identifier":"fixture-authority","project":{"id":"project","name":"legacy fixture","description":"","licensing_ontologies":[],"created_at_unix":1},"valid_from_unix":1,"valid_until_unix":4000000000,"revoked":false,"subjects":[]}"#;
++    let snapshot: AdmissionSnapshot = serde_json::from_slice(golden).unwrap();
++    assert!(snapshot.package_reviews.is_empty());
++    assert_eq!(serde_json::to_vec(&snapshot).unwrap(), golden);
++    let digest: [u8; 32] = Sha256::digest(golden).into();
++    assert_eq!(admission_digest(&snapshot, 1024 * 1024).unwrap(), digest);
++    let mut signature = [0; 64];
++    ed25519::sign_with_context(&AUTHORITY, &digest, ADMISSION_CONTEXT, &mut signature).unwrap();
++    let legacy = SignedAdmission {
++        snapshot,
++        signature: signature.to_vec(),
++    };
++    assert_eq!(legacy.verify(&anchor(), 1024 * 1024).unwrap(), digest);
++}
++
++#[test]
++fn package_review_contribution_request_decision_and_reopen_keep_exact_lineage() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), package_snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = owner
++        .saved_package_target(&author, "working.hmc", "urn:fixture:project:release:1")
++        .unwrap();
++    assert_eq!(target, package_target());
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    let record = owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:decision",
++            ReviewDecision::ChangesRequested,
++            "fixture scoped decision",
++            "urn:fixture:decision-evidence",
++            |current| {
++                assert_eq!(current, &target);
++                Ok(())
++            },
++        )
++        .unwrap();
++    assert_eq!(record.actor.principal_kind, PrincipalKind::SoftwareAgent);
++    let retained = owner.enrollment_snapshot().unwrap();
++    drop(owner);
++    let reopened = NativeAuthority::open(
++        root.path(),
++        anchor(),
++        retained,
++        document(),
++        1024 * 1024,
++        256,
++    )
++    .unwrap();
++    assert!(reopened
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .is_err());
++    let reviewer = login(&reopened, "reviewer", &REVIEWER);
++    let evidence = reopened
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .unwrap();
++    assert_eq!(evidence.contributions.len(), 1);
++    assert_eq!(evidence.requests.len(), 1);
++    assert_eq!(evidence.reviews.len(), 1);
++    assert_eq!(
++        evidence.requests[0].decision_ids,
++        vec!["urn:fixture:decision"]
++    );
++    assert_eq!(evidence.reviews[0].target, target);
++}
++
++#[test]
++fn package_review_source_grants_file_mismatch_and_stale_generation_cannot_record() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    let gen = generation(&owner, &author);
++    assert!(owner
++        .record_package_contribution(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:refused",
++            "file differs",
++            1,
++            WorkStatus::Unknown,
++            |_| Err("actual trusted checkpoint hash differs".into())
++        )
++        .is_err());
++    assert!(owner
++        .package_workflow_evidence(&author, &target, |_| Ok(()))
++        .unwrap()
++        .contributions
++        .is_empty());
++    assert!(owner
++        .record_package_contribution(
++            &author,
++            gen + 1,
++            &target,
++            "urn:fixture:stale",
++            "stale authority",
++            1,
++            WorkStatus::Unknown,
++            |_| panic!("stale authority must refuse before file callback")
++        )
++        .is_err());
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    assert!(owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:source-only",
++            ReviewDecision::Accepted,
++            "source grant is insufficient",
++            "urn:fixture:evidence",
++            |_| panic!("ungranted callback")
++        )
++        .is_err());
++}
++
++#[test]
++fn package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), package_snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let gen = generation(&owner, &author);
++    assert!(owner
++        .record_requested_package_review(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:self",
++            ReviewDecision::Accepted,
++            "self",
++            "urn:fixture:self",
++            |_| Ok(())
++        )
++        .is_err());
++    assert!(owner
++        .request_package_review(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:contribution",
++            "urn:fixture:request",
++            "urn:fixture:duplicate",
++            |_| Ok(())
++        )
++        .is_err());
++    save_audit(&owner, &author, [8; 32]);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    assert!(owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:stale-package",
++            ReviewDecision::Accepted,
++            "stale package",
++            "urn:fixture:stale",
++            |_| panic!("changed saved digest callback")
++        )
++        .is_err());
++}
++
++#[test]
++fn package_review_revocation_and_unsafe_grant_successors_are_atomic() {
++    let root = tempfile::tempdir().unwrap();
++    let initial = package_snapshot();
++    let owner = open(root.path(), initial.clone());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    for case in 0..3 {
++        let mut replacement = initial.clone();
++        replacement.sequence += 1;
++        match case {
++            0 => replacement.package_reviews.clear(),
++            1 => replacement.package_reviews[0].target.package_digest = [9; 32],
++            _ => replacement.package_reviews[0].target.package_id.push('x'),
++        };
++        assert!(owner.replace_admission(sign(replacement)).is_err());
++    }
++    let mut revoked = initial;
++    revoked.sequence += 1;
++    revoked.package_reviews[0].revoked = true;
++    owner.replace_admission(sign(revoked.clone())).unwrap();
++    assert!(owner
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .is_err());
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    assert!(
++        !owner
++            .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++            .unwrap()
++            .can_review
++    );
++    revoked.sequence += 1;
++    revoked.package_reviews[0].revoked = false;
++    assert!(owner.replace_admission(sign(revoked)).is_err());
++}
++
++#[test]
++fn package_review_evidence_counts_refuse_before_any_append() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    let gen = generation(&owner, &author);
++    let record = owner
++        .record_package_contribution(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:c",
++            "work",
++            1,
++            WorkStatus::Unknown,
++            |_| Ok(()),
++        )
++        .unwrap();
++    let mut state = owner.state.lock().unwrap();
++    let before = std::fs::read_dir(root.path()).unwrap().count();
++    let mut next = state.durable.clone();
++    next.package_contributions = vec![record; 257];
++    assert!(state.journal.append(&next).is_err());
++    assert_eq!(std::fs::read_dir(root.path()).unwrap().count(), before);
++    assert_eq!(state.durable.package_contributions.len(), 1);
++}
++
++#[test]
++fn package_review_entry_byte_budget_refuses_before_creating_a_file() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    let gen = generation(&owner, &author);
++    let record = owner
++        .record_package_contribution(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:c",
++            "work",
++            1,
++            WorkStatus::Unknown,
++            |_| Ok(()),
++        )
++        .unwrap();
++    let mut state = owner.state.lock().unwrap();
++    let before = std::fs::read_dir(root.path()).unwrap().count();
++    let mut next = state.durable.clone();
++    next.package_contributions.clear();
++    for index in 0..200 {
++        let mut item = record.clone();
++        item.contribution.id = format!("urn:fixture:{index}:{}", "x".repeat(4000));
++        item.contribution.description = "d".repeat(4000);
++        next.package_contributions.push(item);
++    }
++    assert!(state
++        .journal
++        .append(&next)
++        .unwrap_err()
++        .contains("byte budget"));
++    assert_eq!(std::fs::read_dir(root.path()).unwrap().count(), before);
++    assert_eq!(state.durable.package_contributions.len(), 1);
++}
++
++#[test]
++fn package_review_source_successor_and_revoked_membership_withhold_old_targets() {
++    let root = tempfile::tempdir().unwrap();
++    let initial = package_snapshot();
++    let owner = open(root.path(), initial.clone());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    owner
++        .transact(&author, |view| {
++            let mut successor = view.current_document.clone();
++            successor.revision += 1;
++            successor.source_digest = [9; 32];
++            DocumentTransaction {
++                result: Ok(()),
++                successor: Some(successor),
++                reconciliation_required: false,
++            }
++        })
++        .unwrap();
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    assert!(owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:old-source",
++            ReviewDecision::Accepted,
++            "old source",
++            "urn:fixture:old-source",
++            |_| panic!("source successor must refuse callback")
++        )
++        .is_err());
++    let mut revoked = initial;
++    revoked.sequence += 1;
++    revoked.subjects[1].revoked = true;
++    owner.replace_admission(sign(revoked)).unwrap();
++    assert!(owner
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .is_err());
++    assert!(owner.begin_session("reviewer", 300).is_err());
++}
++
++#[test]
++fn package_review_generation_overflow_never_admits_signed_successor() {
++    let root = tempfile::tempdir().unwrap();
++    let initial = package_snapshot();
++    let owner = open(root.path(), initial.clone());
++    let before = std::fs::read_dir(root.path()).unwrap().count();
++    {
++        let mut state = owner.state.lock().unwrap();
++        state.generation = u64::MAX;
++    }
++    let mut replacement = initial.clone();
++    replacement.sequence += 1;
++    replacement.package_reviews[0].revoked = true;
++    assert!(owner
++        .replace_admission(sign(replacement))
++        .unwrap_err()
++        .contains("generation"));
++    assert_eq!(std::fs::read_dir(root.path()).unwrap().count(), before);
++    let state = owner.state.lock().unwrap();
++    assert_eq!(state.durable.admission.snapshot.sequence, initial.sequence);
++    assert!(!state.durable.admission.snapshot.package_reviews[0].revoked);
++}
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/package_review/validation.rs
+@@ -0,0 +1,143 @@
++use super::*;
++
++pub(crate) fn validate_admission_packages(snapshot: &AdmissionSnapshot) -> Result<(), String> {
++    let limits = AuthoringLimits::default();
++    if snapshot.package_reviews.len() > limits.max_review_grants {
++        return Err("package grant count exceeds bounds".into());
++    }
++    for (i, grant) in snapshot.package_reviews.iter().enumerate() {
++        validate_package(&grant.target, limits).map_err(|e| e.to_string())?;
++        let reviewer = snapshot
++            .subjects
++            .iter()
++            .find(|s| s.subject == grant.reviewer_subject)
++            .ok_or("package review subject lacks explicit admission")?;
++        if grant.target.source.project_id != snapshot.project.id
++            || grant.id.is_empty()
++            || grant.id.len() > limits.max_text_bytes
++            || grant.admission_ref.is_empty()
++            || grant.admission_ref.len() > limits.max_text_bytes
++            || grant.valid_from_unix >= grant.valid_until_unix
++            || grant.valid_from_unix < reviewer.valid_from_unix
++            || grant.valid_until_unix > reviewer.valid_until_unix
++            || grant.valid_from_unix < snapshot.valid_from_unix
++            || grant.valid_until_unix > snapshot.valid_until_unix
++            || grant.target.producer_subject == grant.reviewer_subject
++            || grant.target.source.author_subject.as_deref()
++                == Some(grant.reviewer_subject.as_str())
++            || !snapshot
++                .subjects
++                .iter()
++                .any(|s| s.subject == grant.target.producer_subject)
++            || snapshot.package_reviews[..i].iter().any(|g| {
++                g.id == grant.id
++                    || (g.target == grant.target && g.reviewer_subject == grant.reviewer_subject)
++            })
++        {
++            return Err("invalid/duplicate exact package-review admission scope".into());
++        }
++    }
++    Ok(())
++}
++
++/// A grant identifier cannot be rebound, removed or silently resurrected by a
++/// replacement snapshot. Explicit revocation is monotonic for retained grants.
++pub(crate) fn validate_grant_successor(
++    old: &AdmissionSnapshot,
++    new: &AdmissionSnapshot,
++) -> Result<(), String> {
++    for previous in &old.package_reviews {
++        let next = new
++            .package_reviews
++            .iter()
++            .find(|g| g.id == previous.id)
++            .ok_or("package grant removal requires explicit migration")?;
++        let mut unchanged = next.clone();
++        unchanged.revoked = previous.revoked;
++        if unchanged != *previous || (previous.revoked && !next.revoked) {
++            return Err("unsafe package grant rebinding/resurrection denied".into());
++        }
++    }
++    Ok(())
++}
++
++pub(crate) fn validate_ledger(state: &DurableState) -> Result<(), String> {
++    if state.contributions.len() > 256
++        || state.reviews.len() > 256
++        || state.packages.len() > 256
++        || state.requests.len() > 256
++        || state.enrollment.len() > 256
++        || state.package_contributions.len() > 256
++        || state.package_requests.len() > 256
++        || state.package_reviews.len() > 256
++        || state.package_grant_decisions.len() > 256
++    {
++        return Err("native evidence count budget exceeded before journal write".into());
++    }
++    let target_ok = |target: &PackageRevision| -> Result<(), String> {
++        validate_package(target, AuthoringLimits::default()).map_err(|e| e.to_string())?;
++        if target.source.project_id != state.admission.snapshot.project.id
++            || !state
++                .packages
++                .iter()
++                .any(|saved| saved_matches(saved, target))
++        {
++            return Err("package evidence lacks exact native save/source/lineage binding".into());
++        }
++        Ok(())
++    };
++    for (i, c) in state.package_contributions.iter().enumerate() {
++        target_ok(&c.target)?;
++        if c.actor.subject != c.target.producer_subject
++            || c.contribution.project_id != c.target.source.project_id
++            || c.contribution.contributor_did != c.actor.identifier_association.value
++            || state.package_contributions[..i]
++                .iter()
++                .any(|r| r.contribution.id == c.contribution.id)
++        {
++            return Err("invalid package contribution attribution/duplicate".into());
++        }
++    }
++    for (i, r) in state.package_requests.iter().enumerate() {
++        target_ok(&r.target)?;
++        if r.actor.subject != r.target.producer_subject
++            || r.decision_ids.len() > 256
++            || state.package_requests[..i]
++                .iter()
++                .any(|other| other.id == r.id)
++            || !state.package_contributions.iter().any(|c| {
++                c.contribution.id == r.contribution_id
++                    && c.target == r.target
++                    && c.actor.subject == r.actor.subject
++            })
++            || r.decision_ids.iter().enumerate().any(|(j, id)| {
++                r.decision_ids[..j].contains(id)
++                    || !state
++                        .package_reviews
++                        .iter()
++                        .any(|d| &d.id == id && d.request_id == r.id && d.target == r.target)
++            })
++        {
++            return Err("invalid package review request/decision lineage".into());
++        }
++    }
++    for (i, r) in state.package_reviews.iter().enumerate() {
++        target_ok(&r.target)?;
++        if r.actor.subject == r.target.producer_subject
++            || r.target.source.author_subject.as_deref() == Some(r.actor.subject.as_str())
++            || state
++                .package_contributions
++                .iter()
++                .any(|c| c.target == r.target && c.actor.subject == r.actor.subject)
++            || state.package_reviews[..i]
++                .iter()
++                .any(|other| other.id == r.id)
++            || !state.package_requests.iter().any(|q| {
++                q.id == r.request_id && q.target == r.target && q.decision_ids.contains(&r.id)
++            })
++        {
++            return Err("invalid package decision attribution/request binding".into());
++        }
++    }
++    Ok(())
++}
+--- /dev/null
++++ b/crates/qualia-core-db/src/poet_host/native_authority/package_review/workflow.rs
+@@ -0,0 +1,142 @@
++use super::*;
++
++impl NativeAuthority {
++    pub fn record_package_contribution(
++        &self,
++        handle: &SessionHandle,
++        expected_generation: u64,
++        target: &PackageRevision,
++        id: &str,
++        description: &str,
++        minutes: u32,
++        status: WorkStatus,
++        verify_current: impl FnOnce(&PackageRevision) -> Result<(), String>,
++    ) -> Result<PackageContributionRecord, String> {
++        let mut state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        if state.durable.package_contributions.len() >= 256
++            || state
++                .durable
++                .package_contributions
++                .iter()
++                .any(|r| r.contribution.id == id)
++        {
++            return Err("duplicate package contribution or evidence budget exhausted".into());
++        }
++        let record = self.with_package(
++            &state,
++            handle,
++            expected_generation,
++            target,
++            PackageAction::Contribute,
++            |permit| {
++                let record = permit
++                    .contribution_record(id, description, minutes, status)
++                    .map_err(|e| e.to_string())?;
++                verify_current(target)?;
++                Ok(record)
++            },
++        )?;
++        let mut next = state.durable.clone();
++        next.package_contributions.push(record.clone());
++        self.commit_package_records(&mut state, next)?;
++        Ok(record)
++    }
++
++    pub fn request_package_review(
++        &self,
++        handle: &SessionHandle,
++        expected_generation: u64,
++        target: &PackageRevision,
++        contribution_id: &str,
++        id: &str,
++        evidence: &str,
++        verify_current: impl FnOnce(&PackageRevision) -> Result<(), String>,
++    ) -> Result<PackageReviewRequest, String> {
++        let mut state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        if state.durable.package_requests.len() >= 256
++            || state.durable.package_requests.iter().any(|r| r.id == id)
++        {
++            return Err("duplicate package request or evidence budget exhausted".into());
++        }
++        let contribution = state
++            .durable
++            .package_contributions
++            .iter()
++            .find(|r| r.contribution.id == contribution_id)
++            .ok_or("exact saved-package contribution required before review request")?;
++        let record = self.with_package(
++            &state,
++            handle,
++            expected_generation,
++            target,
++            PackageAction::RequestReview,
++            |permit| {
++                let record = permit
++                    .request_record(id, contribution, evidence)
++                    .map_err(|e| e.to_string())?;
++                verify_current(target)?;
++                Ok(record)
++            },
++        )?;
++        let mut next = state.durable.clone();
++        next.package_requests.push(record.clone());
++        self.commit_package_records(&mut state, next)?;
++        Ok(record)
++    }
++
++    pub fn record_requested_package_review(
++        &self,
++        handle: &SessionHandle,
++        expected_generation: u64,
++        target: &PackageRevision,
++        request_id: &str,
++        id: &str,
++        decision: ReviewDecision,
++        rationale: &str,
++        evidence: &str,
++        verify_current: impl FnOnce(&PackageRevision) -> Result<(), String>,
++    ) -> Result<PackageReviewRecord, String> {
++        let mut state = self.state.lock().map_err(|_| "native authority poisoned")?;
++        if state.durable.package_reviews.len() >= 256
++            || state.durable.package_reviews.iter().any(|r| r.id == id)
++        {
++            return Err("duplicate package decision or evidence budget exhausted".into());
++        }
++        let request = state
++            .durable
++            .package_requests
++            .iter()
++            .find(|r| r.id == request_id)
++            .ok_or("package review request unavailable")?;
++        if &request.target != target {
++            return Err("package review request target changed".into());
++        }
++        if request.decision_ids.len() >= 256 {
++            return Err("package request decision budget exhausted".into());
++        }
++        let record = self.with_package(
++            &state,
++            handle,
++            expected_generation,
++            target,
++            PackageAction::Decide,
++            |permit| {
++                let record = permit
++                    .review_record(id, request_id, decision, rationale, evidence)
++                    .map_err(|e| e.to_string())?;
++                verify_current(target)?;
++                Ok(record)
++            },
++        )?;
++        let mut next = state.durable.clone();
++        next.package_reviews.push(record.clone());
++        next.package_requests
++            .iter_mut()
++            .find(|r| r.id == request_id)
++            .ok_or("package request disappeared")?
++            .decision_ids
++            .push(record.id.clone());
++        self.commit_package_records(&mut state, next)?;
++        Ok(record)
++    }
++}
+--- a/crates/qualia-core-db/src/poet_host/native_authority/tests.rs
++++ b/crates/qualia-core-db/src/poet_host/native_authority/tests.rs
+@@ -1,5 +1,7 @@
+ //! Explicit signed fixtures exercise native cryptography, not human enrollment.
+ use super::*;
++#[path = "package_review/tests.rs"]
++mod package_review_tests;
+ #[path = "package_tests.rs"]
+ mod package_tests;
+ use qualia_cooperative_core::{
+@@ -83,6 +85,7 @@
+         valid_until_unix: until,
+         revoked: false,
+         subjects: vec![subject("author", &AUTHOR), subject("reviewer", &REVIEWER)],
++        package_reviews: Vec::new(),
+     }
+ }
+ fn anchor() -> TrustedProject {
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review/admin.rs
+@@ -0,0 +1,91 @@
++//! Encrypted test-only key files; never opens an OS credential provider.
++use super::*;
++use qualia_core_db::poet_host::native_authority::enrollment::NativeSigner;
++
++#[test]
++fn package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants() {
++    let root = tempfile::tempdir().unwrap();
++    let wrap = [67; 32];
++    let signer = NativeSigner::create_sealed(&root.path().join("authority.sealed"), &wrap).unwrap();
++    let wrong = NativeSigner::create_sealed(&root.path().join("wrong.sealed"), &wrap).unwrap();
++    let mut adopted = snapshot();
++    adopted.subjects[0].membership.role = ProjectRole::Steward;
++    let until = adopted.valid_until_unix;
++    let native_anchor = TrustedProject {
++        project_id: "project".into(),
++        issuer_identifier: "fixture-authority".into(),
++        public_key: signer.public_key(),
++    };
++    let journal = root.path().join("journal");
++    std::fs::create_dir(&journal).unwrap();
++    let owner = NativeAuthority::open(
++        &journal,
++        native_anchor,
++        signer.sign_admission(adopted).unwrap(),
++        document(),
++        1024 * 1024,
++        256,
++    )
++    .unwrap();
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let grant = PackageReviewGrant {
++        id: "urn:fixture:explicit-admin-grant".into(),
++        target: target.clone(),
++        reviewer_subject: "reviewer".into(),
++        admission_ref: "urn:fixture:explicit-admin-evidence".into(),
++        valid_from_unix: 1,
++        valid_until_unix: until,
++        revoked: false,
++    };
++    let permission = owner.enrollment_permission(&author).unwrap();
++    let before = std::fs::read_dir(&journal).unwrap().count();
++    assert!(owner
++        .grant_package_review(&permission, grant.clone(), &wrong)
++        .is_err());
++    assert_eq!(std::fs::read_dir(&journal).unwrap().count(), before);
++    assert!(owner
++        .enrollment_snapshot()
++        .unwrap()
++        .snapshot
++        .package_reviews
++        .is_empty());
++    let signed = owner
++        .grant_package_review(&permission, grant.clone(), &signer)
++        .unwrap();
++    assert_eq!(signed.snapshot.package_reviews, vec![grant]);
++    assert!(owner
++        .package_workflow_evidence(&author, &target, |_| Ok(()))
++        .is_err());
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    assert!(
++        owner
++            .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++            .unwrap()
++            .can_review
++    );
++    assert!(owner.enrollment_permission(&reviewer).is_err());
++    let author = login(&owner, "author", &AUTHOR);
++    let permission = owner.enrollment_permission(&author).unwrap();
++    owner
++        .revoke_package_review(
++            &permission,
++            "urn:fixture:explicit-admin-grant",
++            "urn:fixture:explicit-revoke-evidence",
++            &signer,
++        )
++        .unwrap();
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let evidence = owner
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .unwrap();
++    assert!(!evidence.can_review);
++    assert!(
++        owner.workflow_evidence(&reviewer).unwrap().can_review,
++        "source grants remain a separate scope"
++    );
++    let retained = owner.enrollment_snapshot().unwrap();
++    assert!(retained.snapshot.package_reviews[0].revoked);
++}
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review/fixture.rs
+@@ -0,0 +1,128 @@
++//! All identities here are software fixtures; native credential APIs are unused.
++pub use qualia_cooperative_core::{
++    authoring::*,
++    projects::{Project, ProjectMembership, ProjectRole},
++};
++pub use qualia_core_db::{
++    crypto::network::ed25519,
++    poet_host::native_authority::{package_review::*, *},
++};
++pub use sha2::{Digest, Sha256};
++use std::{
++    path::Path,
++    time::{SystemTime, UNIX_EPOCH},
++};
++pub const AUTHORITY: [u8; 32] = [17; 32];
++pub const AUTHOR: [u8; 32] = [23; 32];
++pub const REVIEWER: [u8; 32] = [29; 32];
++pub fn now() -> Result<u64, String> {
++    SystemTime::now()
++        .duration_since(UNIX_EPOCH)
++        .map(|d| d.as_secs())
++        .map_err(|e| e.to_string())
++}
++pub fn document() -> DocumentRevision {
++    DocumentRevision {
++        project_id: "project".into(),
++        document_id: "document".into(),
++        source_id: "source".into(),
++        revision: 1,
++        source_digest: [1; 32],
++        author_subject: Some("author".into()),
++    }
++}
++pub fn snapshot() -> AdmissionSnapshot {
++    let until = now().unwrap() + 3600;
++    let subject = |name: &str, seed: &[u8; 32]| SubjectAdmission {
++        subject: name.into(),
++        kind: PrincipalKind::SoftwareAgent,
++        controller_public_key: ed25519::public_from_seed(seed),
++        membership: ProjectMembership {
++            id: format!("urn:fixture:membership:{name}"),
++            project_id: "project".into(),
++            member_did: format!("urn:fixture:actor:{name}"),
++            role: ProjectRole::Contributor,
++            agreed_at_unix: 1,
++            agreed_at_instant: None,
++        },
++        identifiers: vec![IdentifierAssociationEvidence {
++            value: format!("urn:fixture:actor:{name}"),
++            scheme: "urn".into(),
++            issuer: "fixture-authority".into(),
++            project_id: "project".into(),
++            evidence_ref: format!("urn:fixture:association:{name}"),
++            valid_from_unix: 1,
++            valid_until_unix: until,
++        }],
++        reviews: vec![ReviewAdmission {
++            id: format!("urn:fixture:source-review:{name}"),
++            document_id: "document".into(),
++            admission_ref: "urn:fixture:source-admission".into(),
++            valid_from_unix: 1,
++            valid_until_unix: until,
++            revoked: false,
++        }],
++        admission_ref: format!("urn:fixture:admission:{name}"),
++        valid_from_unix: 1,
++        valid_until_unix: until,
++        revoked: false,
++    };
++    AdmissionSnapshot {
++        version: 1,
++        sequence: 1,
++        issuer_identifier: "fixture-authority".into(),
++        project: Project {
++            id: "project".into(),
++            name: "software fixture".into(),
++            description: String::new(),
++            licensing_ontologies: vec![],
++            created_at_unix: 1,
++            created_at_instant: None,
++        },
++        valid_from_unix: 1,
++        valid_until_unix: until,
++        revoked: false,
++        subjects: vec![subject("author", &AUTHOR), subject("reviewer", &REVIEWER)],
++        package_reviews: vec![],
++    }
++}
++pub fn anchor() -> TrustedProject {
++    TrustedProject {
++        project_id: "project".into(),
++        issuer_identifier: "fixture-authority".into(),
++        public_key: ed25519::public_from_seed(&AUTHORITY),
++    }
++}
++pub fn sign(snapshot: AdmissionSnapshot) -> SignedAdmission {
++    let digest = admission_digest(&snapshot, 1024 * 1024).unwrap();
++    let mut signature = [0; 64];
++    ed25519::sign_with_context(&AUTHORITY, &digest, ADMISSION_CONTEXT, &mut signature).unwrap();
++    SignedAdmission {
++        snapshot,
++        signature: signature.to_vec(),
++    }
++}
++pub fn open(path: &Path, snapshot: AdmissionSnapshot) -> NativeAuthority {
++    NativeAuthority::open(path, anchor(), sign(snapshot), document(), 1024 * 1024, 256).unwrap()
++}
++pub fn login(owner: &NativeAuthority, subject: &str, seed: &[u8; 32]) -> SessionHandle {
++    let challenge = owner.begin_session(subject, 300).unwrap();
++    let mut signature = [0; 64];
++    ed25519::sign_with_context(
++        seed,
++        challenge.message_digest(),
++        SESSION_CONTEXT,
++        &mut signature,
++    )
++    .unwrap();
++    owner.complete_session(challenge, &signature).unwrap()
++}
++pub fn generation(owner: &NativeAuthority, session: &SessionHandle) -> u64 {
++    owner
++        .transact(session, |view| DocumentTransaction {
++            result: Ok(view.generation),
++            successor: None,
++            reconciliation_required: false,
++        })
++        .unwrap()
++}
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review/history.rs
+@@ -0,0 +1,187 @@
++//! Retained predecessor exclusions survive overwrite and package identifier aliases.
++use super::*;
++use qualia_core_db::poet_host::native_authority::enrollment::NativeSigner;
++
++#[test]
++fn package_review_predecessor_writer_cannot_grant_or_review_renamed_successor() {
++    let root = tempfile::tempdir().unwrap();
++    let signer =
++        NativeSigner::create_sealed(&root.path().join("authority.sealed"), &[67; 32]).unwrap();
++    let mut adopted = snapshot();
++    adopted.subjects[0].membership.role = ProjectRole::Steward;
++    let mut source_author = adopted.subjects[0].clone();
++    source_author.subject = "source-author".into();
++    source_author.controller_public_key = ed25519::public_from_seed(&[41; 32]);
++    source_author.membership.id = "urn:fixture:membership:c".into();
++    source_author.membership.member_did = "urn:fixture:actor:c".into();
++    source_author.identifiers[0].value = "urn:fixture:actor:c".into();
++    source_author.reviews.clear();
++    adopted.subjects.push(source_author);
++    let mut source = document();
++    source.author_subject = Some("source-author".into());
++    let first = PackageRevision {
++        source: source.clone(),
++        ..package_target()
++    };
++    let mut successor = first.clone();
++    successor.package_digest = [8; 32];
++    successor.predecessor_digest = Some([7; 32]);
++    successor.producer_subject = "reviewer".into();
++    successor.package_id = "urn:fixture:renamed-release".into();
++    let grant = PackageReviewGrant {
++        id: "urn:fixture:preexisting-exact-grant".into(),
++        target: successor.clone(),
++        reviewer_subject: "author".into(),
++        admission_ref: "urn:fixture:explicit-adoption".into(),
++        valid_from_unix: 1,
++        valid_until_unix: adopted.valid_until_unix,
++        revoked: false,
++    };
++    adopted.package_reviews.push(grant.clone());
++    let anchor = TrustedProject {
++        project_id: "project".into(),
++        issuer_identifier: "fixture-authority".into(),
++        public_key: signer.public_key(),
++    };
++    let journal = root.path().join("journal");
++    std::fs::create_dir(&journal).unwrap();
++    let owner = NativeAuthority::open(
++        &journal,
++        anchor,
++        signer.sign_admission(adopted).unwrap(),
++        source,
++        1024 * 1024,
++        256,
++    )
++    .unwrap();
++    let a = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &a, [7; 32]);
++    let gen = generation(&owner, &a);
++    owner
++        .record_package_contribution(
++            &a,
++            gen,
++            &first,
++            "urn:fixture:prior-contribution",
++            "prior package work",
++            3,
++            WorkStatus::Unknown,
++            |_| Ok(()),
++        )
++        .unwrap();
++    let b = login(&owner, "reviewer", &REVIEWER);
++    owner
++        .transact_with_package(
++            &b,
++            Some(&PackageWriteIntent {
++                filename: "working.hmc".into(),
++                expected_digest: Some([7; 32]),
++            }),
++            |_| {
++                (
++                    DocumentTransaction {
++                        result: Ok(()),
++                        successor: None,
++                        reconciliation_required: false,
++                    },
++                    Some(PackageWriteReceipt {
++                        digest: [8; 32],
++                        bytes: 123,
++                    }),
++                )
++            },
++        )
++        .unwrap();
++    request(&owner, &b, &successor);
++    let a = login(&owner, "author", &AUTHOR);
++    let gen = generation(&owner, &a);
++    let evidence = owner
++        .package_workflow_evidence(&a, &successor, |_| Ok(()))
++        .unwrap();
++    assert!(evidence.known_destination_lineage_complete);
++    assert!(!evidence.can_review);
++    assert!(owner
++        .record_requested_package_review(
++            &a,
++            gen,
++            &successor,
++            "urn:fixture:request",
++            "urn:fixture:predecessor-decision",
++            ReviewDecision::Accepted,
++            "prior producer excluded",
++            "urn:fixture:evidence",
++            |_| panic!("known predecessor cannot exercise review")
++        )
++        .is_err());
++    let permission = owner.enrollment_permission(&a).unwrap();
++    let mut new_grant = grant;
++    new_grant.id = "urn:fixture:new-aliased-grant".into();
++    assert!(owner
++        .grant_package_review(&permission, new_grant.clone(), &signer)
++        .unwrap_err()
++        .contains("predecessor"));
++    let mut replacement = owner.enrollment_snapshot().unwrap().snapshot;
++    replacement.sequence += 1;
++    replacement.package_reviews.push(new_grant);
++    assert!(owner
++        .replace_admission(signer.sign_admission(replacement).unwrap())
++        .unwrap_err()
++        .contains("predecessor"));
++}
++
++#[test]
++fn package_review_missing_predecessor_stays_explicitly_scoped_and_unassessed() {
++    let root = tempfile::tempdir().unwrap();
++    let mut adopted = package_snapshot();
++    adopted.package_reviews[0].target.package_digest = [8; 32];
++    adopted.package_reviews[0].target.predecessor_digest = Some([99; 32]);
++    let target = adopted.package_reviews[0].target.clone();
++    let owner = open(root.path(), adopted);
++    let a = login(&owner, "author", &AUTHOR);
++    owner
++        .transact_with_package(
++            &a,
++            Some(&PackageWriteIntent {
++                filename: "working.hmc".into(),
++                expected_digest: Some([99; 32]),
++            }),
++            |_| {
++                (
++                    DocumentTransaction {
++                        result: Ok(()),
++                        successor: None,
++                        reconciliation_required: false,
++                    },
++                    Some(PackageWriteReceipt {
++                        digest: [8; 32],
++                        bytes: 123,
++                    }),
++                )
++            },
++        )
++        .unwrap();
++    request(&owner, &a, &target);
++    let b = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &b);
++    let evidence = owner
++        .package_workflow_evidence(&b, &target, |_| Ok(()))
++        .unwrap();
++    assert!(!evidence.known_destination_lineage_complete);
++    assert!(evidence.can_review);
++    assert!(!evidence.requests[0].known_destination_lineage_complete);
++    let decision = owner
++        .record_requested_package_review(
++            &b,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:scoped-decision",
++            ReviewDecision::ChangesRequested,
++            "missing prior destination retained as unknown",
++            "urn:fixture:unknown-history",
++            |_| Ok(()),
++        )
++        .unwrap();
++    assert!(!decision.known_destination_lineage_complete);
++    assert!(decision.contribution_rights_scope.contains("unassessed"));
++}
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review/publication.rs
+@@ -0,0 +1,65 @@
++use super::*;
++
++#[test]
++fn package_review_publication_expires_after_same_source_native_package_successor() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), package_snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:publication-decision",
++            ReviewDecision::Accepted,
++            "software fixture scoped decision",
++            "urn:fixture:evidence",
++            |_| Ok(()),
++        )
++        .unwrap();
++    assert!(owner.package_publication_is_current(&reviewer, gen, &target));
++    assert!(!owner.package_publication_is_current(&reviewer, gen + 1, &target));
++    owner
++        .transact_with_package(
++            &reviewer,
++            Some(&PackageWriteIntent {
++                filename: target.filename.clone(),
++                expected_digest: Some([7; 32]),
++            }),
++            |view| {
++                assert_eq!(view.current_document, &target.source);
++                (
++                    DocumentTransaction {
++                        result: Ok(()),
++                        successor: None,
++                        reconciliation_required: false,
++                    },
++                    Some(PackageWriteReceipt {
++                        digest: [8; 32],
++                        bytes: 124,
++                    }),
++                )
++            },
++        )
++        .unwrap();
++    assert!(
++        owner.publication_is_current(&reviewer, gen),
++        "source/session publication context stayed unchanged"
++    );
++    assert!(
++        !owner.package_publication_is_current(&reviewer, gen, &target),
++        "old exact saved-package evidence must be withheld"
++    );
++    let successor = owner
++        .saved_package_target(&reviewer, &target.filename, "urn:fixture:project:release:2")
++        .unwrap();
++    assert!(owner.package_publication_is_current(&reviewer, gen, &successor));
++    owner.disconnect(&reviewer).unwrap();
++    assert!(!owner.package_publication_is_current(&reviewer, gen, &successor));
++}
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review/source_history.rs
+@@ -0,0 +1,102 @@
++//! Known source work survives revisions with no intervening HMC save.
++use super::*;
++use qualia_core_db::poet_host::native_authority::enrollment::NativeSigner;
++
++#[test]
++fn package_review_unsaved_prior_source_contributor_is_excluded_after_source_successor() {
++    let root = tempfile::tempdir().unwrap();
++    let signer =
++        NativeSigner::create_sealed(&root.path().join("authority.sealed"), &[67; 32]).unwrap();
++    let mut adopted = snapshot();
++    adopted.subjects[0].membership.role = ProjectRole::Steward;
++    let mut producer = adopted.subjects[1].clone();
++    producer.subject = "third-producer".into();
++    producer.controller_public_key = ed25519::public_from_seed(&[41; 32]);
++    producer.membership.id = "urn:fixture:membership:third".into();
++    producer.membership.member_did = "urn:fixture:actor:third".into();
++    producer.identifiers[0].value = "urn:fixture:actor:third".into();
++    producer.reviews.clear();
++    adopted.subjects.push(producer);
++    let mut target = package_target();
++    target.source.revision = 2;
++    target.source.source_digest = [9; 32];
++    target.source.author_subject = Some("reviewer".into());
++    target.producer_subject = "third-producer".into();
++    target.package_id = "urn:fixture:renamed-source-successor-release".into();
++    let grant = PackageReviewGrant {
++        id: "urn:fixture:future-package-scope".into(),
++        target: target.clone(),
++        reviewer_subject: "author".into(),
++        admission_ref: "urn:fixture:scope-adoption".into(),
++        valid_from_unix: 1,
++        valid_until_unix: adopted.valid_until_unix,
++        revoked: false,
++    };
++    adopted.package_reviews.push(grant.clone());
++    let native_anchor = TrustedProject {
++        project_id: "project".into(),
++        issuer_identifier: "fixture-authority".into(),
++        public_key: signer.public_key(),
++    };
++    let journal = root.path().join("journal");
++    std::fs::create_dir(&journal).unwrap();
++    let owner = NativeAuthority::open(
++        &journal,
++        native_anchor,
++        signer.sign_admission(adopted).unwrap(),
++        document(),
++        1024 * 1024,
++        256,
++    )
++    .unwrap();
++    let a = login(&owner, "author", &AUTHOR);
++    owner
++        .record_contribution(
++            &a,
++            "urn:fixture:source-v1-contribution",
++            "source work before any package save",
++            5,
++            WorkStatus::Unknown,
++        )
++        .unwrap();
++    assert!(owner.package_write_evidence(&a).unwrap().is_empty());
++    let b = login(&owner, "reviewer", &REVIEWER);
++    owner
++        .transact(&b, |_| DocumentTransaction {
++            result: Ok(()),
++            successor: Some(target.source.clone()),
++            reconciliation_required: false,
++        })
++        .unwrap();
++    let c = login(&owner, "third-producer", &[41; 32]);
++    save_audit(&owner, &c, [7; 32]);
++    request(&owner, &c, &target);
++    let a = login(&owner, "author", &AUTHOR);
++    let gen = generation(&owner, &a);
++    assert!(
++        !owner
++            .package_workflow_evidence(&a, &target, |_| Ok(()))
++            .unwrap()
++            .can_review
++    );
++    assert!(owner
++        .record_requested_package_review(
++            &a,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:invalid-source-history-review",
++            ReviewDecision::Accepted,
++            "known prior source work",
++            "urn:fixture:evidence",
++            |_| panic!("known source contributor must be excluded")
++        )
++        .is_err());
++    let permission = owner.enrollment_permission(&a).unwrap();
++    let mut new_grant = grant;
++    new_grant.id = "urn:fixture:aliased-source-history-grant".into();
++    assert!(owner
++        .grant_package_review(&permission, new_grant, &signer)
++        .unwrap_err()
++        .contains("predecessor"));
++}
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review/target_isolation.rs
+@@ -0,0 +1,85 @@
++use super::*;
++
++#[test]
++fn package_review_evidence_contains_only_the_exact_selected_target() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), package_snapshot());
++    let a = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &a, [7; 32]);
++    let first = package_target();
++    request(&owner, &a, &first);
++    let b = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &b);
++    owner
++        .record_requested_package_review(
++            &b,
++            gen,
++            &first,
++            "urn:fixture:request",
++            "urn:fixture:prior-decision",
++            ReviewDecision::Accepted,
++            "scoped software fixture decision",
++            "urn:fixture:evidence",
++            |_| Ok(()),
++        )
++        .unwrap();
++    let first_evidence = owner
++        .package_workflow_evidence(&b, &first, |_| Ok(()))
++        .unwrap();
++    assert_eq!(first_evidence.contributions.len(), 1);
++    assert_eq!(first_evidence.requests.len(), 1);
++    assert_eq!(first_evidence.reviews.len(), 1);
++    let a = login(&owner, "author", &AUTHOR);
++    owner
++        .transact_with_package(
++            &a,
++            Some(&PackageWriteIntent {
++                filename: "second.hmc".into(),
++                expected_digest: None,
++            }),
++            |_| {
++                (
++                    DocumentTransaction {
++                        result: Ok(()),
++                        successor: None,
++                        reconciliation_required: false,
++                    },
++                    Some(PackageWriteReceipt {
++                        digest: [8; 32],
++                        bytes: 123,
++                    }),
++                )
++            },
++        )
++        .unwrap();
++    let second = owner
++        .saved_package_target(&a, "second.hmc", "urn:fixture:project:release:2")
++        .unwrap();
++    let second_evidence = owner
++        .package_workflow_evidence(&a, &second, |_| Ok(()))
++        .unwrap();
++    assert_eq!(second_evidence.target, second);
++    assert!(second_evidence.contributions.is_empty());
++    assert_eq!(second_evidence.prior_contributions.len(), 1);
++    assert_eq!(second_evidence.prior_contributions[0].target, first);
++    assert_eq!(
++        second_evidence.prior_contributions[0].actor.subject,
++        "author"
++    );
++    assert_eq!(
++        second_evidence.prior_contributions[0].work_status,
++        WorkStatus::Unknown
++    );
++    assert!(second_evidence.requests.is_empty());
++    assert!(second_evidence.reviews.is_empty());
++    let mut renamed = first.clone();
++    renamed.package_id = "urn:fixture:project:renamed-release:1".into();
++    let renamed_evidence = owner
++        .package_workflow_evidence(&a, &renamed, |_| Ok(()))
++        .unwrap();
++    assert!(renamed_evidence.contributions.is_empty());
++    assert_eq!(renamed_evidence.prior_contributions.len(), 1);
++    assert_eq!(renamed_evidence.prior_contributions[0].target, first);
++    assert!(renamed_evidence.requests.is_empty());
++    assert!(renamed_evidence.reviews.is_empty());
++}
+--- /dev/null
++++ b/crates/qualia-core-db/tests/native_package_review.rs
+@@ -0,0 +1,361 @@
++//! Public native package APIs; signed software fixtures are not human acceptance.
++#[path = "native_package_review/fixture.rs"]
++mod fixture;
++use fixture::*;
++#[cfg(feature = "sanctuary-crypto")]
++#[path = "native_package_review/admin.rs"]
++mod admin;
++#[cfg(feature = "sanctuary-crypto")]
++#[path = "native_package_review/history.rs"]
++mod history;
++#[path = "native_package_review/publication.rs"]
++mod publication;
++#[cfg(feature = "sanctuary-crypto")]
++#[path = "native_package_review/source_history.rs"]
++mod source_history;
++#[path = "native_package_review/target_isolation.rs"]
++mod target_isolation;
++fn package_target() -> PackageRevision {
++    PackageRevision {
++        package_id: "urn:fixture:project:release:1".into(),
++        filename: "working.hmc".into(),
++        package_digest: [7; 32],
++        predecessor_digest: None,
++        package_bytes: 123,
++        source: document(),
++        producer_subject: "author".into(),
++    }
++}
++fn package_snapshot() -> AdmissionSnapshot {
++    let mut snapshot = snapshot();
++    snapshot.package_reviews.push(PackageReviewGrant {
++        id: "urn:fixture:grant".into(),
++        target: package_target(),
++        reviewer_subject: "reviewer".into(),
++        admission_ref: "urn:fixture:package-adoption".into(),
++        valid_from_unix: 1,
++        valid_until_unix: snapshot.valid_until_unix,
++        revoked: false,
++    });
++    snapshot
++}
++fn save_audit(owner: &NativeAuthority, author: &SessionHandle, digest: [u8; 32]) {
++    owner
++        .transact_with_package(
++            author,
++            Some(&PackageWriteIntent {
++                filename: "working.hmc".into(),
++                expected_digest: None,
++            }),
++            |_| {
++                (
++                    DocumentTransaction {
++                        result: Ok(()),
++                        successor: None,
++                        reconciliation_required: false,
++                    },
++                    Some(PackageWriteReceipt { digest, bytes: 123 }),
++                )
++            },
++        )
++        .unwrap();
++}
++fn request(owner: &NativeAuthority, author: &SessionHandle, target: &PackageRevision) {
++    let generation = generation(owner, author);
++    owner
++        .record_package_contribution(
++            author,
++            generation,
++            target,
++            "urn:fixture:contribution",
++            "saved native package",
++            5,
++            WorkStatus::Unknown,
++            |_| Ok(()),
++        )
++        .unwrap();
++    owner
++        .request_package_review(
++            author,
++            generation,
++            target,
++            "urn:fixture:contribution",
++            "urn:fixture:request",
++            "urn:fixture:request-evidence",
++            |_| Ok(()),
++        )
++        .unwrap();
++}
++
++#[test]
++fn package_review_old_signed_admission_bytes_remain_exact() {
++    // Literal pre-extension v1 body, independent of the new snapshot serializer.
++    let golden=br#"{"version":1,"sequence":1,"issuer_identifier":"fixture-authority","project":{"id":"project","name":"legacy fixture","description":"","licensing_ontologies":[],"created_at_unix":1},"valid_from_unix":1,"valid_until_unix":4000000000,"revoked":false,"subjects":[]}"#;
++    let snapshot: AdmissionSnapshot = serde_json::from_slice(golden).unwrap();
++    assert!(snapshot.package_reviews.is_empty());
++    assert_eq!(serde_json::to_vec(&snapshot).unwrap(), golden);
++    let digest: [u8; 32] = Sha256::digest(golden).into();
++    assert_eq!(admission_digest(&snapshot, 1024 * 1024).unwrap(), digest);
++    let mut signature = [0; 64];
++    ed25519::sign_with_context(&AUTHORITY, &digest, ADMISSION_CONTEXT, &mut signature).unwrap();
++    let legacy = SignedAdmission {
++        snapshot,
++        signature: signature.to_vec(),
++    };
++    let root = tempfile::tempdir().unwrap();
++    let owner =
++        NativeAuthority::open(root.path(), anchor(), legacy, document(), 1024 * 1024, 256).unwrap();
++    assert_eq!(
++        admission_digest(&owner.enrollment_snapshot().unwrap().snapshot, 1024 * 1024).unwrap(),
++        digest
++    );
++}
++
++#[test]
++fn package_review_contribution_request_decision_and_reopen_keep_exact_lineage() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), package_snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = owner
++        .saved_package_target(&author, "working.hmc", "urn:fixture:project:release:1")
++        .unwrap();
++    assert_eq!(target, package_target());
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    let record = owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:decision",
++            ReviewDecision::ChangesRequested,
++            "fixture scoped decision",
++            "urn:fixture:decision-evidence",
++            |current| {
++                assert_eq!(current, &target);
++                Ok(())
++            },
++        )
++        .unwrap();
++    assert_eq!(record.actor.principal_kind, PrincipalKind::SoftwareAgent);
++    let retained = owner.enrollment_snapshot().unwrap();
++    drop(owner);
++    let reopened = NativeAuthority::open(
++        root.path(),
++        anchor(),
++        retained,
++        document(),
++        1024 * 1024,
++        256,
++    )
++    .unwrap();
++    assert!(reopened
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .is_err());
++    let reviewer = login(&reopened, "reviewer", &REVIEWER);
++    let evidence = reopened
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .unwrap();
++    assert_eq!(evidence.contributions.len(), 1);
++    assert_eq!(evidence.requests.len(), 1);
++    assert_eq!(evidence.reviews.len(), 1);
++    assert_eq!(
++        evidence.requests[0].decision_ids,
++        vec!["urn:fixture:decision"]
++    );
++    assert_eq!(evidence.reviews[0].target, target);
++}
++
++#[test]
++fn package_review_source_grants_file_mismatch_and_stale_generation_cannot_record() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    let gen = generation(&owner, &author);
++    assert!(owner
++        .record_package_contribution(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:refused",
++            "file differs",
++            1,
++            WorkStatus::Unknown,
++            |_| Err("actual trusted checkpoint hash differs".into())
++        )
++        .is_err());
++    assert!(owner
++        .package_workflow_evidence(&author, &target, |_| Ok(()))
++        .unwrap()
++        .contributions
++        .is_empty());
++    assert!(owner
++        .record_package_contribution(
++            &author,
++            gen + 1,
++            &target,
++            "urn:fixture:stale",
++            "stale authority",
++            1,
++            WorkStatus::Unknown,
++            |_| panic!("stale authority must refuse before file callback")
++        )
++        .is_err());
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    assert!(owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:source-only",
++            ReviewDecision::Accepted,
++            "source grant is insufficient",
++            "urn:fixture:evidence",
++            |_| panic!("ungranted callback")
++        )
++        .is_err());
++}
++
++#[test]
++fn package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse() {
++    let root = tempfile::tempdir().unwrap();
++    let owner = open(root.path(), package_snapshot());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let gen = generation(&owner, &author);
++    assert!(owner
++        .record_requested_package_review(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:self",
++            ReviewDecision::Accepted,
++            "self",
++            "urn:fixture:self",
++            |_| Ok(())
++        )
++        .is_err());
++    assert!(owner
++        .request_package_review(
++            &author,
++            gen,
++            &target,
++            "urn:fixture:contribution",
++            "urn:fixture:request",
++            "urn:fixture:duplicate",
++            |_| Ok(())
++        )
++        .is_err());
++    save_audit(&owner, &author, [8; 32]);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    assert!(owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:stale-package",
++            ReviewDecision::Accepted,
++            "stale package",
++            "urn:fixture:stale",
++            |_| panic!("changed saved digest callback")
++        )
++        .is_err());
++}
++
++#[test]
++fn package_review_revocation_and_unsafe_grant_successors_are_atomic() {
++    let root = tempfile::tempdir().unwrap();
++    let initial = package_snapshot();
++    let owner = open(root.path(), initial.clone());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    for case in 0..3 {
++        let mut replacement = initial.clone();
++        replacement.sequence += 1;
++        match case {
++            0 => replacement.package_reviews.clear(),
++            1 => replacement.package_reviews[0].target.package_digest = [9; 32],
++            _ => replacement.package_reviews[0].target.package_id.push('x'),
++        };
++        assert!(owner.replace_admission(sign(replacement)).is_err());
++    }
++    let mut revoked = initial;
++    revoked.sequence += 1;
++    revoked.package_reviews[0].revoked = true;
++    owner.replace_admission(sign(revoked.clone())).unwrap();
++    assert!(owner
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .is_err());
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    assert!(
++        !owner
++            .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++            .unwrap()
++            .can_review
++    );
++    revoked.sequence += 1;
++    revoked.package_reviews[0].revoked = false;
++    assert!(owner.replace_admission(sign(revoked)).is_err());
++}
++
++#[test]
++fn package_review_source_successor_and_revoked_membership_withhold_old_targets() {
++    let root = tempfile::tempdir().unwrap();
++    let initial = package_snapshot();
++    let owner = open(root.path(), initial.clone());
++    let author = login(&owner, "author", &AUTHOR);
++    save_audit(&owner, &author, [7; 32]);
++    let target = package_target();
++    request(&owner, &author, &target);
++    owner
++        .transact(&author, |view| {
++            let mut successor = view.current_document.clone();
++            successor.revision += 1;
++            successor.source_digest = [9; 32];
++            DocumentTransaction {
++                result: Ok(()),
++                successor: Some(successor),
++                reconciliation_required: false,
++            }
++        })
++        .unwrap();
++    let reviewer = login(&owner, "reviewer", &REVIEWER);
++    let gen = generation(&owner, &reviewer);
++    assert!(owner
++        .record_requested_package_review(
++            &reviewer,
++            gen,
++            &target,
++            "urn:fixture:request",
++            "urn:fixture:old-source",
++            ReviewDecision::Accepted,
++            "old source",
++            "urn:fixture:old-source",
++            |_| panic!("source successor must refuse callback")
++        )
++        .is_err());
++    let mut revoked = initial;
++    revoked.sequence += 1;
++    revoked.subjects[1].revoked = true;
++    owner.replace_admission(sign(revoked)).unwrap();
++    assert!(owner
++        .package_workflow_evidence(&reviewer, &target, |_| Ok(()))
++        .is_err());
++    assert!(owner.begin_session("reviewer", 300).is_err());
++}

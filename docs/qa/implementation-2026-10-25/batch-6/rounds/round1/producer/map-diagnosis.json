@@ -1,0 +1,13 @@
+{
+  "schema": "ecopunk-round1-map-diagnosis/1",
+  "observed": "Native authoring runtime E600 undefined poet_edit_2; parse/prepare regression passed",
+  "evidence": [
+    "eval/expr.rs:21-43 identifier evaluation resolves bindings/fields/materials/laws, not named declarations",
+    "eval/call.rs:300 map requires Value::Lambda; no named-function reference Value exists",
+    "eval/expr.rs:335-337 checks lambda captures before constructing Value::Lambda",
+    "eval/expr.rs:493-550 recursively examines call callee identifiers and does not allow program functions"
+  ],
+  "rejected_remedy": "map(|p| poet_edit_2(p)) still captures poet_edit_2 and is rejected; direct call resolution is reached only after lambda validation",
+  "minimal_remedy": "Generate one existing non-capturing lambda with inline conditional updated-record/original-part expression; inline optional parent conditional. Preserve functional list replacement without a new language feature.",
+  "verification": "Read-only diagnosis. No core/source modifications. Parent owns actual native execution."
+}

@@ -1,0 +1,14 @@
+{
+  "check": "serial_check.py --self-test",
+  "result": "PASS",
+  "scope": "coordination smoke test only; not engine build evidence",
+  "observed": [
+    "first lease created and held while harmless Python child ran",
+    "second acquisition refused and printed current lease ownership metadata",
+    "first lease released only after known child exit and matching lease UUID",
+    "subsequent acquisition and release succeeded"
+  ],
+  "cargo_invoked": false,
+  "engine_evidence": false,
+  "timestamp_utc": "2026-10-26"
+}

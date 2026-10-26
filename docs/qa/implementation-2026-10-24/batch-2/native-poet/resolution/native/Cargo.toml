@@ -1,0 +1,20 @@
+[package]
+name = "poet-cli"
+version = "0.0.40"
+edition = "2021"
+
+[dependencies]
+vibe = { workspace = true }
+dioxus = { path = "C:/github/rust-app-framework/packages/dioxus", default-features = false, features = ["macro", "html", "signals", "hooks", "third-party-renderer"], optional = true }
+dioxus-native = { path = "C:/github/rust-app-framework/packages/native", default-features = false, features = ["vello-cpu-softbuffer", "system-fonts", "data-uri"], optional = true }
+qualia-core-db = { path = "C:/github/qualiaDB/crates/qualia-core-db", default-features = false, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-portable", "gpu-native-dx12", "wgsl-forge", "privacy-he"], optional = true }
+webizen-render = { path = "C:/github/qualiaDB/crates/webizen-render", optional = true }
+base64 = { version = "=0.22.1", optional = true }
+futures-channel = { version = "=0.3.34", optional = true }
+
+[features]
+native-graphical = ["dep:dioxus", "dep:dioxus-native", "dep:qualia-core-db", "dep:webizen-render", "dep:base64", "dep:futures-channel"]
+
+[[bin]]
+name = "poet"
+path = "C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/native-poet/candidate/native/src/main.rs"

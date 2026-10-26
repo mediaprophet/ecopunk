@@ -1,0 +1,4 @@
+{
+  "command": "cargo test --manifest-path C:/github/poet/Cargo.toml -p poet-cli --features native-graphical --locked --offline --target-dir C:/github/ecopunk/target --test foundation_image_completion -- --nocapture --test-threads=1 (serial)",
+  "exit_code": 0
+}

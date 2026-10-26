@@ -1,0 +1,57 @@
+{
+  "mode": "fiel",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--test",
+    "foundation_fiel",
+    "--",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "working_directory": "C:\\github\\ecopunk",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "exit_code": 0,
+  "started_utc": "2026-10-25T08:33:31.093266+00:00",
+  "finished_utc": "2026-10-25T08:34:30.228920+00:00",
+  "elapsed_seconds": 59.141,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\fiel.log",
+  "log_sha256": "4a98d86af997da2c018967b3cd1e5f11a3972fa3d78216c4a608ebe665ac5b73",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-6\\rounds\\round5\\fiel-source-before.json",
+  "source_snapshot_sha256": "ab907b9e404c853b7bb251367f32da857499b060f07491d3ccde6dcd0e512dbf",
+  "recorded_local_source_files": 3036,
+  "source_unchanged": true,
+  "source_changes": [],
+  "expected_minimum_tests": 3,
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      3,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "canonical_checked_cases::checked_fiel_budgets_precede_large_or_late_payload_work",
+    "canonical_checked_cases::checked_fiel_grid_unaligned_and_declarations_are_borrowed",
+    "canonical_checked_cases::checked_fiel_refuses_reserved_shape_offsets_nonfinite_and_tail"
+  ],
+  "temporary_scratch": "C:\\github\\ecopunk\\target\\poet-round5-pnrq5ng0",
+  "boundary": "Recorded local Core/cooperative/geospatial/Poet source and locks, not every transitive dependency. Native fixtures are software actors; compilation is not GUI/human acceptance or WASM execution."
+}

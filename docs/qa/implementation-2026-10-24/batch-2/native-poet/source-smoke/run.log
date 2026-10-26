@@ -1,0 +1,12 @@
+PROFILE actual canonical SourceSession + GeometryHost + MeshPreviewProvider + PortalGpu; explicit grants=[capability.invoke,ComputationalGeometry.extrude_profile]; side=256; no UI access
+CHECK Canonical Vibe check passed; no execution attempted
+FIRST Source accepted; native engine preview rendered (review unassessed)
+FRAME first: side=256 png_bytes=8562 native_uri_bytes=11438 rgb_range=9..116; current_at_capture=true source_revision=2 session_revision=1
+FRAME edited: side=256 png_bytes=9195 native_uri_bytes=12282 rgb_range=9..119; current_at_capture=true source_revision=3 session_revision=2
+EDIT actual geometry changed: vertices=22/22 triangles=40/40 changed_pixels=6927
+INVALID source rejected with no source/session/epoch promotion
+RUNTIME expected rejection: E100 at Span { start: 105, end: 185 }: need axis>=2, section>=3; execution attempted=true; host reconciliation required=true
+REBUILD runtime failure recovered from exact accepted cells; old epoch retired; no preview replay
+UNDO source restored; explicit rebuild preserves accepted first cell and retires prior epoch
+FRAME final: side=256 png_bytes=10376 native_uri_bytes=13858 rgb_range=9..116; current_at_capture=true source_revision=5 session_revision=2
+PASS same-process source→real geometry→real RGBA; edit/invalid/runtime hold/rebuild/Undo/rebuild/edit. Static factor material; no UI verification or master/model acceptance.

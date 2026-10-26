@@ -1,0 +1,65 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "C:/github/poet/Cargo.toml",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--locked",
+    "--offline",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target",
+    "--lib",
+    "graphical::viewport",
+    "--",
+    "--test-threads=1",
+    "--skip",
+    "r9_native_gpu"
+  ],
+  "mode": "viewport",
+  "attempt": "final",
+  "exit_code": 0,
+  "started_utc": "2026-10-25T22:41:48.121767+00:00",
+  "finished_utc": "2026-10-25T22:41:58.157160+00:00",
+  "elapsed_seconds": 10.047,
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\viewport.log",
+  "log_sha256": "4cf0ad13531a225b9bf1424451527d22ff025880d529a86ac568da9f34b22957",
+  "source_snapshot": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\final\\viewport-source-before.json",
+  "source_snapshot_sha256": "1c9c75be66f39b37b80b5c03625c7aaf1942491ee53bbcb4b966bc67936acaeb",
+  "recorded_local_source_files": 3279,
+  "source_unchanged": true,
+  "source_changes": [],
+  "test_selection_ok": true,
+  "test_results": [
+    [
+      12,
+      0,
+      0
+    ]
+  ],
+  "passed_case_names": [
+    "graphical::viewport::tests::viewport_alpha_wind_cancel_and_late_source_changes_fail_closed",
+    "graphical::viewport::tests::viewport_empty_and_byte_budgets_reject_before_device_creation",
+    "graphical::viewport::tests::viewport_framing_accounts_for_portrait_aspect_and_off_origin_parts",
+    "graphical::viewport::tests::viewport_gestures_use_canonical_clamps_and_projection_axes",
+    "graphical::viewport::tests::viewport_pick_maps_nearest_actual_triangle_to_exact_source_part",
+    "graphical::viewport::tests::viewport_pick_uses_same_non_square_projection_and_pixel_centers",
+    "graphical::viewport_input::tests::contain_letterbox_is_not_pickable",
+    "graphical::viewport_input::tests::drag_delta_uses_same_contain_scale_and_rejects_excess",
+    "graphical::viewport_input::tests::maps_square_coordinates_to_attachment",
+    "graphical::viewport_input::tests::rejects_nonfinite_zero_and_outside_inputs",
+    "graphical::viewport_provider::tests::viewport_provider_cancel_and_stale_source_do_not_create_device",
+    "graphical::viewport_provider::tests::viewport_view_lighting_presets_reuse_canonical_bounds_without_gpu"
+  ],
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_PROFILE_TEST_INCREMENTAL": "false"
+  },
+  "boundary": "Software fixtures; not native GUI/human acceptance or WASM runtime execution. Local recorded sources and locks, not every transitive dependency."
+}

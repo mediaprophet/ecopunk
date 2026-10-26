@@ -76,9 +76,9 @@ make it a clean transition rather than a hostage negotiation:
   (k-of-n, `identity_fabric` relational recovery), the provenance/contest
   histories, and the serving records. All are already content-addressed
   records — transfer = re-sign custody + point resolution.
-- **Identifier durability pays off here** — because identity is
+- **Identifier durability pays off here** — because identifiers are
   digest+`did:`-based (not DNS-bound), changing *where* a pack is served
-  changes a service reference, not the object's identity. The ABN/domain
+  changes a service reference, not the object's identifiers. The ABN/domain
   failure mode can't orphan a stewarded corpus.
 - **Records of handover** — stewardship change is itself a provenance event
   (who, when, under what instrument) — written to the same contest/prov
@@ -101,7 +101,7 @@ make it a clean transition rather than a hostage negotiation:
 
 ## 5. Open questions
 
-1. Node identity: `did:qi` for operators/agents; what identifies the *node
+1. Node identifiers: `did:qi` for operators/agents; what identifies the *node
    service* itself — a `did:qi` document with service endpoints, presumably.
 2. QSR resolution — is a public resolver service defined upstream, or does
    ecopunk spec the first one?

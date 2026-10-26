@@ -1,0 +1,165 @@
+{
+  "cargo_receipt": {
+    "command": "cargo",
+    "arguments": [
+      "build",
+      "--offline",
+      "--locked",
+      "--manifest-path",
+      "C:/github/poet/Cargo.toml",
+      "-p",
+      "poet-cli",
+      "--lib",
+      "--features",
+      "native-graphical",
+      "--message-format=json",
+      "--target-dir",
+      "C:/github/ecopunk/target"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-24T19:58:42.6528072Z",
+    "finished_utc": "2026-10-24T20:14:23.0322021Z",
+    "input_snapshot": {
+      "path": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-25\\batch-3\\source-snapshots\\e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb.json",
+      "sha256": "e4e2e18c8cba17113fab1f7b53e0055da459ab0b1c69d824ae248e66aa2d3bfb"
+    }
+  },
+  "cargo_log_sha256": "1967cfcea76489d51b5ec8b5721dbd1111ad489a8cd1650bb41d1617abf50dc8",
+  "cargo_log_encoding": "utf-8-sig",
+  "non_json_lines": 2,
+  "poet_artifact": {
+    "reason": "compiler-artifact",
+    "package_id": "path+file:///C:/github/poet/native#poet-cli@0.0.40",
+    "manifest_path": "C:\\github\\poet\\native\\Cargo.toml",
+    "target": {
+      "kind": [
+        "lib"
+      ],
+      "crate_types": [
+        "lib"
+      ],
+      "name": "poet_cli",
+      "src_path": "C:\\github\\poet\\native\\src\\lib.rs",
+      "edition": "2021",
+      "doc": true,
+      "doctest": true,
+      "test": true
+    },
+    "profile": {
+      "opt_level": "0",
+      "debuginfo": 0,
+      "debug_assertions": true,
+      "overflow_checks": true,
+      "test": false
+    },
+    "features": [
+      "native-graphical"
+    ],
+    "filenames": [
+      "C:/github/ecopunk/target\\debug\\libpoet_cli.rlib",
+      "C:/github/ecopunk/target\\debug\\deps\\libpoet_cli-b36ef15b91b5f52d.rmeta"
+    ],
+    "executable": null,
+    "fresh": true
+  },
+  "vibe_artifact": {
+    "reason": "compiler-artifact",
+    "package_id": "path+file:///C:/github/qualiaDB/crates/vibe#0.0.40",
+    "manifest_path": "C:\\github\\qualiaDB\\crates\\vibe\\Cargo.toml",
+    "target": {
+      "kind": [
+        "lib"
+      ],
+      "crate_types": [
+        "lib"
+      ],
+      "name": "vibe",
+      "src_path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\lib.rs",
+      "edition": "2021",
+      "doc": true,
+      "doctest": true,
+      "test": true
+    },
+    "profile": {
+      "opt_level": "0",
+      "debuginfo": 0,
+      "debug_assertions": true,
+      "overflow_checks": true,
+      "test": false
+    },
+    "features": [],
+    "filenames": [
+      "C:/github/ecopunk/target\\debug\\deps\\libvibe-2937e95bb154f7f6.rlib",
+      "C:/github/ecopunk/target\\debug\\deps\\libvibe-2937e95bb154f7f6.rmeta"
+    ],
+    "executable": null,
+    "fresh": true
+  },
+  "all_build_script_linked_paths": [
+    "native=C:/github/ecopunk/target\\debug\\build\\blake3-da8ba380479449f1\\out",
+    "native=C:/github/ecopunk/target\\debug\\build\\ring-b53baf53c685dea7\\out",
+    "native=C:/github/ecopunk/target\\debug\\build\\zstd-sys-ddb15c1df437b75d\\out",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\winapi-x86_64-pc-windows-gnu-0.4.0\\lib",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows_x86_64_gnu-0.52.6\\lib",
+    "native=C:\\github\\qualiaDB\\crates\\qualia-core-db\\..\\..\\vendor\\directml\\bin\\x64-win"
+  ],
+  "input_pins": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\main.rs",
+      "sha256": "e91cd544d5ade2068a11e8b2cc0d98b45b3d7a33c0f4b336ad2a69bfdff6e73b"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\format.rs",
+      "sha256": "e4dc5979f576c72984ace5d673ef559c465a913b3ca8309272a941e02ebb3668"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\lint.rs",
+      "sha256": "57f46f7f51c102cf20916af5e0f256b0d54051cdc328e1d3207ddfc863e15bf0"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\repl.rs",
+      "sha256": "be6917851e6ee58c8bf46340addeaef7d9e55e8f41a608d52f3983358b40b3cf"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\target\\debug\\libpoet_cli.rlib",
+      "sha256": "0cd49445637fd9ae42aa4b3cf094db948dd6c85a608b735b4e68ff961f19298a"
+    },
+    {
+      "path": "C:\\github\\ecopunk\\target\\debug\\deps\\libvibe-2937e95bb154f7f6.rlib",
+      "sha256": "0b1821db2038666811458715fa37c138e91863b6c3c1598bd7e76761b986daa0"
+    }
+  ],
+  "rustc_version": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-pc-windows-gnu\nrelease: 1.97.1\nLLVM version: 22.1.6\n",
+  "argv": [
+    "rustc",
+    "--edition=2021",
+    "--crate-name",
+    "poet_batch3",
+    "C:\\github\\poet\\native\\src\\main.rs",
+    "--cfg",
+    "feature=\"native-graphical\"",
+    "--extern",
+    "poet_cli=C:/github/ecopunk/target\\debug\\libpoet_cli.rlib",
+    "--extern",
+    "vibe=C:/github/ecopunk/target\\debug\\deps\\libvibe-2937e95bb154f7f6.rlib",
+    "-L",
+    "dependency=C:\\github\\ecopunk\\target\\debug\\deps",
+    "-C",
+    "debuginfo=0",
+    "-o",
+    "C:\\github\\ecopunk\\target\\debug\\poet-batch3-e4e2e18c8cba.exe",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\blake3-da8ba380479449f1\\out",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\ring-b53baf53c685dea7\\out",
+    "-L",
+    "native=C:/github/ecopunk/target\\debug\\build\\zstd-sys-ddb15c1df437b75d\\out",
+    "-L",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\winapi-x86_64-pc-windows-gnu-0.4.0\\lib",
+    "-L",
+    "native=C:\\Users\\tim_h\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows_x86_64_gnu-0.52.6\\lib",
+    "-L",
+    "native=C:\\github\\qualiaDB\\crates\\qualia-core-db\\..\\..\\vendor\\directml\\bin\\x64-win"
+  ],
+  "artifact_kind": "direct-linked actual native main, not a Cargo bin build"
+}

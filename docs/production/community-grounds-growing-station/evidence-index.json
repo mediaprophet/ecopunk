@@ -1,0 +1,307 @@
+{
+  "schema": "ecopunk-model-evidence-index.v1",
+  "subject": "CGE-DOSSIER:CGGS-01",
+  "dossier": "community-grounds-growing-station-v0.1",
+  "catalogue": {
+    "id": "ecopunk-model-deliverables",
+    "version": "2026-10-24.2",
+    "sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb"
+  },
+  "source_pin": {
+    "path": "assets/reference/community-grounds-growing-station/master.vibe",
+    "revision": "0.2",
+    "bytes": 15690,
+    "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+  },
+  "run": {
+    "profile": "film",
+    "fixture_only": true,
+    "project_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900",
+    "document_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900:document",
+    "source_id": "urn:poet:software-fixture:cg-gs:27984-1792893372733981900:source",
+    "source_cells": 5,
+    "parts": 199,
+    "materials": 9,
+    "material_ranges": 199,
+    "vertices": 239952,
+    "triangles": 79984,
+    "exact_source_regeneration": "passed",
+    "hmc_fresh_process_reopen": "passed",
+    "render": "passed",
+    "human_visual_acceptance": "not_recorded"
+  },
+  "checks": {
+    "vibe_catalog": {
+      "passed": 6,
+      "failed": 0,
+      "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/catalog-tests.log"
+    },
+    "native_selected": {
+      "passed": 42,
+      "failed": 0,
+      "filtered": 76,
+      "elapsed_seconds": 2.25,
+      "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/native-final-tests.log",
+      "qualification": "selected Poet native tests only"
+    },
+    "core_mesh_bounds": {
+      "passed": 4,
+      "failed": 0,
+      "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log",
+      "qualification": "through Poet native test target/Core dependency closure, not full Core suite or all platforms"
+    },
+    "reference_build": {
+      "exit_code": 0,
+      "elapsed_seconds": 26.38,
+      "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log"
+    },
+    "fresh_reopen_render": {
+      "exit_code": 0,
+      "log": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log"
+    }
+  },
+  "nonduplicated_check_total": {
+    "count": 52,
+    "basis": "6 Vibe catalog + 42 selected native + 4 Core mesh-bound tests; intermediate 39/3 results are subsets and not added again"
+  },
+  "visual_triage": {
+    "status": "partial; not human acceptance",
+    "review": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/visual-triage.md",
+    "findings": [
+      "cabinet framing/occlusion",
+      "rectangular lid corners around circular collars",
+      "curved-surface shading and material readability"
+    ],
+    "engine_gap_established": false
+  },
+  "artifacts": [
+    {
+      "path": "assets/reference/community-grounds-growing-station/master.vibe",
+      "bytes": 15690,
+      "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/presets/film.vibe",
+      "bytes": 442,
+      "sha256": "5317fb49df09ea71e477c8e3bb27bf30221f9e042d79167420c2ebed86ad0037"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+      "bytes": 17571,
+      "sha256": "15dbb417f77d799632c3d13ee2e4a8b0f3b588a69adf7f134178824f7b9547c5"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+      "bytes": 5288192,
+      "sha256": "efe475f331decf3c68176432b76a56e28bf418ebd82d0af55682c8d816ef8bee"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+      "bytes": 5413279,
+      "sha256": "affe3988f75b7f05b2ab194a827d474776dbb665932ef6f33698e48c15303040"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/run.json",
+      "bytes": 1498,
+      "sha256": "121239ea85f3a4f1cf985c4ce6adf3f069b0a228e3d664cdbcebeb4c8b52148b"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/render-receipt.json",
+      "bytes": 6125,
+      "sha256": "09c848e16c5d95c427fe049ca5ce2b1b70ea739a669e1bbbe5c05e291be5cfe9"
+    },
+    {
+      "path": "target/debug/examples/growing_reference.exe",
+      "bytes": 321378562,
+      "sha256": "9d02c23f7088dfd52599cedaca3bb32221efc8a36e17983d77b8bb98a318b485"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/hero.png",
+      "bytes": 374766,
+      "sha256": "7b6de328407018785922d18d3ac2c5c258a225424eed0c58fe265c8843648ed4",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/opposite.png",
+      "bytes": 275338,
+      "sha256": "c1c91c7c3e80ecf0f598efad150da1cbd85ed2613b393d46e6679dae27e35efa",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/channel-closeup.png",
+      "bytes": 420805,
+      "sha256": "be8b5af69a7289423978580ce88211cb1b70967a46c1bc5c4631cd53cf4fe98d",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    },
+    {
+      "path": "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/cabinet-closeup.png",
+      "bytes": 217795,
+      "sha256": "e79268ed476274a340adb71e7c2e59ad1127ba9312be23926516251b12083a55",
+      "width": 1024,
+      "height": 1024,
+      "acceptance": "unassessed"
+    }
+  ],
+  "evidence_records": [
+    {
+      "id": "B6-R1-VIBE-CATALOG-01",
+      "kind": "format_check",
+      "artifact_refs": [
+        "C:/github/qualiaDB/crates/vibe/tests/poet_geometry_catalog.rs"
+      ],
+      "input_refs": [
+        "C:/github/qualiaDB/crates/vibe/src/catalog/ids.rs"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/catalog-tests.log",
+      "result": "Root selected catalog integration tests: 6 passed, 0 failed.",
+      "status": "passed",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/catalog-tests.log",
+      "content_sha256": "9c02910d11dd08ab57cd847cd7bb3d55845ada04f8146d607126cdaf6633d476",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T01:36:45Z",
+      "scope": "Vibe catalog recognition/admission regression suite only."
+    },
+    {
+      "id": "B6-R1-NATIVE-SELECTED-01",
+      "kind": "other",
+      "artifact_refs": [
+        "C:/github/poet/native/Cargo.toml"
+      ],
+      "input_refs": [
+        "C:/github/poet/native/src/graphical",
+        "C:/github/poet/native/Cargo.toml",
+        "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/authoring-tests-lambda.log"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/native-final-tests.log",
+      "result": "Root final selected native Poet checks: 42 passed, 0 failed, 76 filtered out, 2.25s.",
+      "status": "passed",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/native-final-tests.log",
+      "content_sha256": "76102f469006c0fb8e3337c2de2324e5bb9a7c3bb8ed088beeb54016f2b6cd90",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T02:21:03Z",
+      "scope": "Selected native tests only; this result includes existing portable Poet model tests and is not a whole-repository or production-readiness gate."
+    },
+    {
+      "id": "B6-R1-CORE-MESH-01",
+      "kind": "format_check",
+      "artifact_refs": [
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d"
+      ],
+      "input_refs": [
+        "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/mesh_section.rs",
+        "C:/github/qualiaDB/crates/qualia-core-db/tests/mesh_section_bounds.rs",
+        "C:/github/poet/native/Cargo.toml"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log",
+      "result": "Four public Core mesh-bound tests passed, 0 failed, via the Poet native conformance test target and its Core dependency closure; the run is not full Core-suite or all-platform qualification.",
+      "status": "passed",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/codec-tests.log",
+      "content_sha256": "4cd17ebe3d73e4b00e3e16d5af598cc699302c0b4a9fe00f9a7380d5f3238040",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T02:11:31Z",
+      "scope": "Finite ordered mesh bounds, endpoint bits, monotonic/in-frame decode, zero-span and large-finite decode cases in this selected target only."
+    },
+    {
+      "id": "B6-R1-REFERENCE-BUILD-01",
+      "kind": "build",
+      "artifact_refs": [
+        "target/debug/examples/growing_reference.exe"
+      ],
+      "input_refs": [
+        "assets/reference/community-grounds-growing-station/master.vibe",
+        "assets/reference/community-grounds-growing-station/presets/film.vibe",
+        "C:/github/poet/native/Cargo.toml",
+        "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/mesh_section.rs"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log",
+      "result": "The corrected reference example build exited 0 in 26.38s.",
+      "status": "passed",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reference-build-codec.log",
+      "content_sha256": "b841f4ff63efe4443623f6ea4dfcab0914b8f8041fd4d178f86a4ee17e988ae1",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T02:13:23Z",
+      "scope": "Reference example compilation only; this does not establish runtime or visual acceptance."
+    },
+    {
+      "id": "B6-R1-HMC-REOPEN-01",
+      "kind": "executed_scenario",
+      "artifact_refs": [
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/render-receipt.json"
+      ],
+      "input_refs": [
+        "assets/reference/community-grounds-growing-station/master.vibe",
+        "assets/reference/community-grounds-growing-station/presets/film.vibe",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/run.json"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+      "result": "Fresh-process source/HMC checks and exact regenerated .10d byte comparison passed; the opened HMC .10d then rendered successfully to four native inspection PNGs. Receipt records 5 source cells, 199 parts, 9 materials, 199 ranges, 239952 vertices and 79984 triangles.",
+      "status": "passed",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+      "content_sha256": "de4560cf16b3084da62a7a28ad5c2ebe99171e37dff34d025928b105b8173ac4",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T02:17:01Z",
+      "scope": "One fixture-only film-intent reference run; not a complete model, rights, domain, human, game-demo or C1-C8 acceptance."
+    },
+    {
+      "id": "B6-R1-IMAGE-CAPTURE-01",
+      "kind": "image",
+      "artifact_refs": [
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/hero.png",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/opposite.png",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/channel-closeup.png",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/cabinet-closeup.png"
+      ],
+      "input_refs": [
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+      "result": "Four actual 1024x1024 inspection PNGs were saved from the reopened HMC .10d. Root inspected all four for technical render behavior; independent software-agent triage of three recorded visual findings. The receipt and triage leave appearance acceptance unassessed.",
+      "status": "partial",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/reopen-render-codec.log",
+      "content_sha256": "de4560cf16b3084da62a7a28ad5c2ebe99171e37dff34d025928b105b8173ac4",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T02:17:01Z",
+      "scope": "Image capture succeeded; this is not human visual acceptance or film-profile qualification."
+    },
+    {
+      "id": "B6-R1-VISUAL-TRIAGE-01",
+      "kind": "other",
+      "artifact_refs": [
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/hero.png",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/channel-closeup.png",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/images/cabinet-closeup.png"
+      ],
+      "input_refs": [
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/accepted-source.vibe",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/growing-station.10d",
+        "assets/reference/community-grounds-growing-station/outputs/round1-film-006/hmc/growing-station.hmc"
+      ],
+      "method_ref": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/visual-triage.md",
+      "result": "Independent software-agent visual triage recorded three Round 2 findings: cabinet framing, lid aperture corner gaps, and curved-surface/material readability. No engine gap or human acceptance was established.",
+      "status": "partial",
+      "location": "docs/qa/implementation-2026-10-25/batch-6/rounds/round1/review/visual-triage.md",
+      "content_sha256": "6870342051fea3493bd5e8b986b48b1155e876133fecc124567e5662849b72b3",
+      "issued_by": "Codex root agent (software)",
+      "at": "2026-10-25T02:21:09Z",
+      "scope": "Triage covers three captured views and provides investigation inputs; Round 2 is not complete."
+    }
+  ],
+  "limits": [
+    "Film, open-world-game and cartoon packages remain incomplete; profile statuses remain unassessed.",
+    "Plant species, functional ports/water flow, complete graph/resources, rights, domain/engineering review, accessible Poet UX and game-demo integration remain unqualified.",
+    "UV0 stream exists, but source fallback UV values may be zero; no authored UV unwrap is claimed.",
+    "No human visual acceptance, human review, model completion or IP-03 C1-C8 pass is claimed.",
+    "No claim is made that tests qualify all Core code, all platforms, the full model catalogue or production quality."
+  ],
+  "open_ids_ref": "open-ids.json"
+}

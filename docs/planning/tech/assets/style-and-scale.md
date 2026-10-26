@@ -5,13 +5,27 @@ the style spectrum (captured-real → diagrammatic) crossed with the scale ladde
 (molecule → biome) — plus per-tier quality gates, provenance rules, and the
 style↔semantics separation contract.
 
-Trigger context: current generated assets (primitive-assembler blockouts, e.g.
-game-demo's 578-asset packs) are **deliberately sub-final** — composition
-fixtures, not finished models. The reference target shared by the downstream
-consumer is *illustrated realism* (the Community Grounds concept frame:
-believable proportions, designed materials, working infrastructure, warm
-restrained palette). One entity must ship **multiple forms** across the style
-spectrum; the consumer's profile selects.
+**2026-10-24 clarification:** forms are resources of an HMC embodiment, governed
+by [the package contract](asset-package-spec.md) and
+[species embodiment](species-embodiment-spec.md). A new style does not require a
+new species graph or a separate complete species package. The supplied
+Community Grounds image illustrates an intended illustrated-CG family spanning
+natural entities, people and made-world infrastructure; the image's labels do
+not establish operational or scientific facts.
+
+**High-grade master production governs:** Ecopunk first produces accepted
+high-grade sources and depictions, then explicit reviewed derivatives for
+game-demo and other targets. Existing primitive blockouts are unfinished
+engineering/composition inputs. Describing them as sub-final does not explain
+their defects or satisfy the production goal. Their remediation must identify
+the owning content/tool/integration failure and evidence-backed remedy.
+
+The Community Grounds frame informs one illustrated-realism family: believable
+proportions, designed materials, readable infrastructure and a restrained palette.
+It does not cap master fidelity or make another style lower quality. One entity
+ships multiple forms; high-grade cartoon authoring and film/game delivery remain
+separate obligations. The [master/derivative and civics-experience contract](../high-grade-production-and-civics-experience.md)
+governs source preservation, deliberate reduction and consumer acceptance.
 
 ---
 
@@ -29,11 +43,12 @@ For any semantic entity (taxon, landform, artefact, process):
   molecule          □            □            □         □          □
 ```
 
-- One **semantic ID** per entity; each populated cell is a separate
-  `.10d` payload + manifest entry with its own provenance and licence.
+- One **semantic ID** per entity; each populated cell identifies its applicable
+  payload/resource set within the HMC representation inventory, with provenance
+  and licence. A form may require multiple `.10d` components or other media.
 - **Style never changes the semantic facts** (adopted from game-demo's render
   profile rule): silhouettes, palette, and geometry treatment are
-  presentational; identity, relations, and evidence don't move.
+  presentational; identifiers, relations, and evidence don't move.
 - A style selection is a **consumer-side profile**, not a different dataset —
   the same place/entity renders identically-meaningfully in any shipped style.
 
@@ -56,7 +71,8 @@ For any semantic entity (taxon, landform, artefact, process):
   (muted sage/olive/terracotta palette family; believable humans; designed
   infrastructure). Sub-profiles = palette/lighting/material families under T3 —
   e.g., the consumer's Storybook / Earthlight / Community Grounds presets —
-  each a *separately reviewed* variant pack over shared semantic IDs.
+  each a *separately reviewed* representation set over shared semantic IDs,
+  carried within the HMC family release or an associated extension.
 - T1 schematic is the encyclopedia's workhorse (field-guide plates, anatomy
   cutaways) — "diagrammatic" is a real tier, not a fallback.
 - Tier labels are about **form**, not quality rank — a bad photogrammetry
@@ -109,12 +125,16 @@ collection promise in charter §1 made concrete.
 
 ## 6. The style↔semantics separation contract
 
-- Semantic entity (`.q42` quins + identity) is style-neutral.
-- Each shipped style = its own reviewed pack variant; the manifest binds
-  variant → semantic IDs → style tier/sub-profile → integrity digests.
+- Semantic entity (`.q42` quins + identifiers) is style-neutral.
+- Each shipped style = a reviewed representation resource set; the HMC manifest
+  binds variant → semantic IDs → style tier/sub-profile → integrity digests.
 - A consumer can preview the *same* entity/scene across styles (the consumer's
   style-compare affordance) because semantics are shared.
-- New styles = new packs, not new entities.
+- New styles = new representation resources/versions, preserving entity identifiers.
+  They can coexist in the same HMC release or arrive as explicitly associated
+  extension HMCs under the shared package contract. A complete combined release
+  retains its graph and required dependencies; selecting one form need not
+  decode all alternatives.
 
 ## 7. Source channels per tier (AU-first)
 
@@ -135,7 +155,7 @@ which targets each artifact was built/budgeted for:
 | **Mobile / tablet** | tight memory+thermal budgets; reduced LOD set; compressed textures; battery-aware | entry profile — a degraded-but-honest tier, never false-fidelity |
 | **Desktop / laptop** | full LOD set, hero-quality within style tier | reference target |
 | **AR** | low-latency pose-stable assets; small LOD set near eye-distance; anchor-compatible bounds; brightness/readability in real-world light | anchors per `ar_anchor.rs`; in-air overlays need authored spatial bounds |
-| **Film / TV (linear HD)** | pre-rendered quality ceiling — offscreen budgets; deterministic frames; full spectral fidelity (`αμσ` truth layer feeds the grade); **no real-time LOD compromise needed** — deliverable is the *video*, so assets should be authored at max fidelity even where no device could show them live | `poet-film_studio` is the production tool (clean-room NLE, WASM-capable) — linear output is a *first-class ecopunk product*, not a render demo |
+| **Film / TV / cinematic output** | Declared resolution, frame rate, colour and render-pass criteria; fully detailed editable master remains independent of delivery resolution and realtime budgets. Qualify sampling, shading and output at the intended shot/scale. | Poet and qualified native render capabilities produce frames/passes; FilmCraft edits/composites/grades the results. Missing film-render operations remain explicit upstream work. |
 
 Rule: delivery class is **declared per artifact**, like style tier — the same
 eucalypt may ship T3-mobile + T3-desktop + T5-cinematic variants; all derive
@@ -144,9 +164,9 @@ from one hero (§4 hero-first), each carrying its own budget/receipt.
 ## 9. Open questions
 
 1. Canonical tier/sub-profile ID scheme (`eco:style/t3/community-grounds@n`?).
-2. Do style variants share one `.10d` (multi-material) or one per variant —
-   consumer precedent is *separate reviewed pack per style*; adopt unless a
-   better engine path exists.
+2. Exact payload organization for representation sets: one or several `.10d`
+   entries as needed, within the shared HMC family contract. Separate complete
+   species packs per style are not required.
 3. AI-assisted asset policy — generator disclosure + human-review gate
    (GOV label needed in governance.md).
 4. Micro-rung packaging — is a pollen SEM image a `.10d` FIEL, an image entry,

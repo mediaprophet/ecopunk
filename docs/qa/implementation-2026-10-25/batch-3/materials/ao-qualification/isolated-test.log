@@ -1,0 +1,15 @@
+
+running 1 test
+
+thread 'render::gpu::material_pixel_tests::native_mask_hole_preserves_receiver_depth_in_ao_prepass' (25080) panicked at crates\qualia-core-db\src\render\gpu\material_pixel_tests.rs:425:5:
+transparent cutout must leave the rear receiver in the AO surface, not the front caster: hole=18, solid=15
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test render::gpu::material_pixel_tests::native_mask_hole_preserves_receiver_depth_in_ao_prepass ... FAILED
+
+failures:
+
+failures:
+    render::gpu::material_pixel_tests::native_mask_hole_preserves_receiver_depth_in_ao_prepass
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9757 filtered out; finished in 23.91s
+
