@@ -1,0 +1,535 @@
+{
+  "case": "vibe-repaired-package",
+  "cwd": "C:/github/qualiaDB",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "vibe",
+    "--target-dir",
+    "C:/github/ecopunk/target"
+  ],
+  "started_utc": "2026-10-27T01:45:34.696619+00:00",
+  "before": {
+    "qualiaDB": {
+      "head": "69ec4ce5d499a271da74b74018631c388124f15e",
+      "dirty": [
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/audio/scene_audio_graph.rs",
+          "sha256": "a68a53ef61cb35af9779c1ed266944777b8253b37ce64e5b944f90ec30c3bc7e"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/gguf_bridge/mod.rs",
+          "sha256": "8be9f57d5a97548e40a87120f75edfd09e1f8a91ef7f8221e9849bd82a04aebe"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/poet_host/invoke/studio_stamped.rs",
+          "sha256": "db3a6910f4519f82bcc67c0fd6297399be70cb51f59efe9bd7cfbf1018b061a8"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/poet_host/invoke/studio_stamped_tests.rs",
+          "sha256": "d6ec894188f826d2d98ea8f59562d6dd0cb1af55f879eb2d1d3f3c544ea0ede8"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+          "sha256": "8545fbc6fbe90f489cb640c820ff5eec65e6eabc43ef369fb045e5886262dbf4"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/q42/volume/payload_catalogue.rs",
+          "sha256": "2bbf792f411948c2e55a249906486028c1729c17e5d61c9e2a30d14be7c6440e"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/mod.rs",
+          "sha256": "59dfc1333ed9daab1737bfe66381f95f11ea1524df514dab179fcc9696c52022"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/poet.rs",
+          "sha256": "de45c84f85aeb8d796b2e92ae16249a60ba953c50b30f7a7e6ba092d71ffaa75"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/topology.rs",
+          "sha256": "bbe466b2bec35ed4be83a580033325b41cd56af5cd3372c2bf2e9d5c34d6b4f0"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/compiler.rs",
+          "sha256": "58562aac0e591a943045cca0dcd330708c5d19a9561a2ac4ab717b4037a6bece"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/mod.rs",
+          "sha256": "fade60e971fa625049958a5e7a03d72b979ad642c8fe2b478087c4ffabb49610"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/op.rs",
+          "sha256": "6a548e7c097eb46f0de18aaf6d4776befa406fdf8abaa021c670232e2c8d164f"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/vm.rs",
+          "sha256": "8c8a25382d6c7dcb3c9cbda609c6100e54bb91799936728c87e56a9694003248"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/capability_schema.rs",
+          "sha256": "a2caa1e6e15b46e89d08ccba2aa6da2564f47efda2eef5bc6f1e158c42247ce5"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/check/expressions.rs",
+          "sha256": "50f8c222fa81bcaa83c76367a858acba13a369249051b3a605a488a9bd7387b0"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/deontic_interrupt.rs",
+          "sha256": "4ac1dfe01c7eb433b1ece5b42431d786afcbd962297f125bbc23e8522634e940"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/effects.rs",
+          "sha256": "bc6369186a23faf794d53ee4404029fef7f80911efe6aff24fe31c9eae7e7d2a"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/call.rs",
+          "sha256": "f441d7fea67eac54d354ffa65b4e66ffbc7e82722aba498cdd2ee44c2ddc64c7"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/expr.rs",
+          "sha256": "231f652dbaa1d7eb3975cad72f4528c157ea3b3a759379a5f82bb9d1207b807e"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/mod.rs",
+          "sha256": "67a795422fc2e07c04bb1d33975774d68fd7aa69b3af0fa8d449a8a415c0d0ba"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/program.rs",
+          "sha256": "ede9c781fd85fac45d42fd4f238a1de19670a022d83c2d5f2669f35f5f1f5ebc"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/stdlib_v2/tests.rs",
+          "sha256": "f67900877a273c5e514f887f93ac98720b565409a54394a15e638485b44121dd"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/stdlib_v2/topology_and_manifold/effects_and_systems.rs",
+          "sha256": "5ffa702cfae59e24c2d2c21a64bdacdc25a4f1a29af62b0132a5edb12b7c2697"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/stdlib_v2/topology_and_manifold/mod.rs",
+          "sha256": "be23801c14148bccc22664034bc50d38cc6ceed7ab51b6cfc3eb9888090f5468"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/task_scheduler.rs",
+          "sha256": "aa6947e48536ed6c5b93b6efd1bef47a65d2c6fcccacfbed5571515a29594d6b"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/bytecode/task_admission.rs",
+          "sha256": "ebb533aaa072529ea95f524f6a34307ad58bcca0fac0c0f6705a86330781c69a"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/bytecode/task_admission_tests.rs",
+          "sha256": "617157e5011c7f4a29f1357d30c53976d8fff0d826c7adc70f99083b6517f634"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/capability_schema/runtime_entries.rs",
+          "sha256": "b293c8292d9b471d495779ac87dda6b1604a8590545c0f690b588dbb39633f44"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/eval/task_runtime.rs",
+          "sha256": "5e70f6d4788b0f7a4958b0dae2fe200595062e6571fa868677df8cbb9af63d4c"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/execution.rs",
+          "sha256": "5d172a446121609bc969777afa24fa4bb2dd1d88b4c451da1550837a4bba62a8"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/host_tests.rs",
+          "sha256": "34fe4abf77f56553dec216af604d7f188ffd67bee926ddd6d22df32b754933c0"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/registry.rs",
+          "sha256": "0f10dca9674a3ad39e5f5dfd0762d6b763a80496aa47a0382303181105189c04"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/retention.rs",
+          "sha256": "57f7a553708221e1c2072720002fc2f44fcac9ff78f6dd44972c42fff7436b82"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/tests.rs",
+          "sha256": "bdb398b14a089cd4bc1784789bf73e96a59ff70c00e1d314668eac5eb8e37a8f"
+        }
+      ],
+      "manifests_and_config": {
+        "Cargo.toml": "bcd94075a5c27307b9c9b74b651ab1ad3eab308e7902d4b3a4998ae20d08b9a8",
+        "Cargo.lock": "45040ce18d1dbb7fcc54158600188bd6a46a2bfc770968ca53c5ad687024d0a7",
+        ".cargo/config.toml": "e9623219208e143fe618620fd173f5d43f51fcab9a4e502653c8576848aedb7b"
+      }
+    },
+    "poet": {
+      "head": "3d167fdff42eb7fd913d998d786a0a39639b5d6e",
+      "dirty": [
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/controls.rs",
+          "sha256": "30e78cb3acb4b41126a2bfe3c01bc27a6363c6003936bc3cd35eac71bd731c69"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/source.rs",
+          "sha256": "85672f86632dd16f02b003888e0aff92b058ab782ab87cf1e72ce08a7d9d696f"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/source_layers/mod.rs",
+          "sha256": "1fb4627705f62a9a5f868493ac99c68cf9f3b51a605b8a19341c03bab5f4ec2a"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/source_layers/snapshot.rs",
+          "sha256": "1fec557170dbdee5684fefd97d35ffe5e5c02cb9ce15b6383b1a5788d65b08d3"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/native_project_motion_tests.rs",
+          "sha256": "9372cbdd335d15d231bf0e7c67ba41bb7041c2070dd0ef344e247d13e4c49ce7"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/preview.rs",
+          "sha256": "db433bdc94c04dfa74cdcbc3819e1c3376b377e3a9a5f764f694b3445e2a108f"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/viewport_controls.rs",
+          "sha256": "85f80868fef53bd09ec8128e5d8861fc080a1077390db31aa13741f467f99fda"
+        },
+        {
+          "status": " M",
+          "path": "native/src/repl.rs",
+          "sha256": "1635bd5ac8f0cb5b640a3455e90067d199a418eda0828003fa76537f5d076a89"
+        }
+      ],
+      "manifests_and_config": {
+        "Cargo.toml": "c3c799be5bd7b68da816621563ba58d7589b18134ffc0340bb67c68644c47d66",
+        "Cargo.lock": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a"
+      }
+    },
+    "etalon": {
+      "head": "4e77ca3f71b74c10c635b7a1f0ddd923590fdc61",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "f45ab8b50270903b80d0a8469c7f9a45f75a2f83004cb932396827fb5d6c9fa5",
+        "Cargo.lock": "a6be3bca856aef1af5aea8a933539002e591562d0838c96e2673af8289a7e3d4",
+        ".cargo/config.toml": "0b3d7ce16694a2ca5dcdc27f0b13901ea91efacfff891e06371e9d08ee22e119"
+      }
+    },
+    "rust-app-framework": {
+      "head": "60123a1932f2018ea777502b33ef9006f8f926ea",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "b74dd94e71090dddd222e07f76de48335a15afc2815b9b0e46f0811bb8fd65d5",
+        "Cargo.lock": "e43e1dea22e85c4b8f062132c779067cd71c5b2866c78fed54cf20288407659a"
+      }
+    },
+    "vibe-script": {
+      "head": "346fe6d28da65bd531f46b4a18542b66b9405ea3",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "974361a146dfc1f62315cde74912c813b983c601de4fa6c43f55e5f4acf912da",
+        "Cargo.lock": "9175eab66c20ccda7968ea338c2bbc1b3e1c3679e884cf049483aa8e011962da"
+      }
+    }
+  },
+  "human_acceptance": false,
+  "production_authorised": false,
+  "environment_overrides": {},
+  "exit_code": 101,
+  "finished_utc": "2026-10-27T01:47:34.264375+00:00",
+  "after": {
+    "qualiaDB": {
+      "head": "69ec4ce5d499a271da74b74018631c388124f15e",
+      "dirty": [
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/audio/scene_audio_graph.rs",
+          "sha256": "a68a53ef61cb35af9779c1ed266944777b8253b37ce64e5b944f90ec30c3bc7e"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/gguf_bridge/mod.rs",
+          "sha256": "8be9f57d5a97548e40a87120f75edfd09e1f8a91ef7f8221e9849bd82a04aebe"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/poet_host/invoke/studio_stamped.rs",
+          "sha256": "db3a6910f4519f82bcc67c0fd6297399be70cb51f59efe9bd7cfbf1018b061a8"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/poet_host/invoke/studio_stamped_tests.rs",
+          "sha256": "d6ec894188f826d2d98ea8f59562d6dd0cb1af55f879eb2d1d3f3c544ea0ede8"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+          "sha256": "8545fbc6fbe90f489cb640c820ff5eec65e6eabc43ef369fb045e5886262dbf4"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/q42/volume/payload_catalogue.rs",
+          "sha256": "2bbf792f411948c2e55a249906486028c1729c17e5d61c9e2a30d14be7c6440e"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/mod.rs",
+          "sha256": "59dfc1333ed9daab1737bfe66381f95f11ea1524df514dab179fcc9696c52022"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/poet.rs",
+          "sha256": "de45c84f85aeb8d796b2e92ae16249a60ba953c50b30f7a7e6ba092d71ffaa75"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/topology.rs",
+          "sha256": "bbe466b2bec35ed4be83a580033325b41cd56af5cd3372c2bf2e9d5c34d6b4f0"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/compiler.rs",
+          "sha256": "58562aac0e591a943045cca0dcd330708c5d19a9561a2ac4ab717b4037a6bece"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/mod.rs",
+          "sha256": "fade60e971fa625049958a5e7a03d72b979ad642c8fe2b478087c4ffabb49610"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/op.rs",
+          "sha256": "6a548e7c097eb46f0de18aaf6d4776befa406fdf8abaa021c670232e2c8d164f"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/bytecode/vm.rs",
+          "sha256": "8c8a25382d6c7dcb3c9cbda609c6100e54bb91799936728c87e56a9694003248"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/capability_schema.rs",
+          "sha256": "a2caa1e6e15b46e89d08ccba2aa6da2564f47efda2eef5bc6f1e158c42247ce5"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/check/expressions.rs",
+          "sha256": "50f8c222fa81bcaa83c76367a858acba13a369249051b3a605a488a9bd7387b0"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/deontic_interrupt.rs",
+          "sha256": "4ac1dfe01c7eb433b1ece5b42431d786afcbd962297f125bbc23e8522634e940"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/effects.rs",
+          "sha256": "bc6369186a23faf794d53ee4404029fef7f80911efe6aff24fe31c9eae7e7d2a"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/call.rs",
+          "sha256": "f441d7fea67eac54d354ffa65b4e66ffbc7e82722aba498cdd2ee44c2ddc64c7"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/expr.rs",
+          "sha256": "231f652dbaa1d7eb3975cad72f4528c157ea3b3a759379a5f82bb9d1207b807e"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/mod.rs",
+          "sha256": "67a795422fc2e07c04bb1d33975774d68fd7aa69b3af0fa8d449a8a415c0d0ba"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/eval/program.rs",
+          "sha256": "ede9c781fd85fac45d42fd4f238a1de19670a022d83c2d5f2669f35f5f1f5ebc"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/stdlib_v2/tests.rs",
+          "sha256": "f67900877a273c5e514f887f93ac98720b565409a54394a15e638485b44121dd"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/stdlib_v2/topology_and_manifold/effects_and_systems.rs",
+          "sha256": "5ffa702cfae59e24c2d2c21a64bdacdc25a4f1a29af62b0132a5edb12b7c2697"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/stdlib_v2/topology_and_manifold/mod.rs",
+          "sha256": "be23801c14148bccc22664034bc50d38cc6ceed7ab51b6cfc3eb9888090f5468"
+        },
+        {
+          "status": " M",
+          "path": "crates/vibe/src/task_scheduler.rs",
+          "sha256": "aa6947e48536ed6c5b93b6efd1bef47a65d2c6fcccacfbed5571515a29594d6b"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/bytecode/task_admission.rs",
+          "sha256": "ebb533aaa072529ea95f524f6a34307ad58bcca0fac0c0f6705a86330781c69a"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/bytecode/task_admission_tests.rs",
+          "sha256": "617157e5011c7f4a29f1357d30c53976d8fff0d826c7adc70f99083b6517f634"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/capability_schema/runtime_entries.rs",
+          "sha256": "b293c8292d9b471d495779ac87dda6b1604a8590545c0f690b588dbb39633f44"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/eval/task_runtime.rs",
+          "sha256": "5e70f6d4788b0f7a4958b0dae2fe200595062e6571fa868677df8cbb9af63d4c"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/execution.rs",
+          "sha256": "5d172a446121609bc969777afa24fa4bb2dd1d88b4c451da1550837a4bba62a8"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/host_tests.rs",
+          "sha256": "34fe4abf77f56553dec216af604d7f188ffd67bee926ddd6d22df32b754933c0"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/registry.rs",
+          "sha256": "0f10dca9674a3ad39e5f5dfd0762d6b763a80496aa47a0382303181105189c04"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/retention.rs",
+          "sha256": "57f7a553708221e1c2072720002fc2f44fcac9ff78f6dd44972c42fff7436b82"
+        },
+        {
+          "status": "??",
+          "path": "crates/vibe/src/task_scheduler/tests.rs",
+          "sha256": "bdb398b14a089cd4bc1784789bf73e96a59ff70c00e1d314668eac5eb8e37a8f"
+        }
+      ],
+      "manifests_and_config": {
+        "Cargo.toml": "bcd94075a5c27307b9c9b74b651ab1ad3eab308e7902d4b3a4998ae20d08b9a8",
+        "Cargo.lock": "45040ce18d1dbb7fcc54158600188bd6a46a2bfc770968ca53c5ad687024d0a7",
+        ".cargo/config.toml": "e9623219208e143fe618620fd173f5d43f51fcab9a4e502653c8576848aedb7b"
+      }
+    },
+    "poet": {
+      "head": "3d167fdff42eb7fd913d998d786a0a39639b5d6e",
+      "dirty": [
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/controls.rs",
+          "sha256": "30e78cb3acb4b41126a2bfe3c01bc27a6363c6003936bc3cd35eac71bd731c69"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/source.rs",
+          "sha256": "85672f86632dd16f02b003888e0aff92b058ab782ab87cf1e72ce08a7d9d696f"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/source_layers/mod.rs",
+          "sha256": "1fb4627705f62a9a5f868493ac99c68cf9f3b51a605b8a19341c03bab5f4ec2a"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/authoring/source_layers/snapshot.rs",
+          "sha256": "1fec557170dbdee5684fefd97d35ffe5e5c02cb9ce15b6383b1a5788d65b08d3"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/native_project_motion_tests.rs",
+          "sha256": "9372cbdd335d15d231bf0e7c67ba41bb7041c2070dd0ef344e247d13e4c49ce7"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/preview.rs",
+          "sha256": "db433bdc94c04dfa74cdcbc3819e1c3376b377e3a9a5f764f694b3445e2a108f"
+        },
+        {
+          "status": " M",
+          "path": "native/src/graphical/viewport_controls.rs",
+          "sha256": "85f80868fef53bd09ec8128e5d8861fc080a1077390db31aa13741f467f99fda"
+        },
+        {
+          "status": " M",
+          "path": "native/src/repl.rs",
+          "sha256": "1635bd5ac8f0cb5b640a3455e90067d199a418eda0828003fa76537f5d076a89"
+        }
+      ],
+      "manifests_and_config": {
+        "Cargo.toml": "c3c799be5bd7b68da816621563ba58d7589b18134ffc0340bb67c68644c47d66",
+        "Cargo.lock": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a"
+      }
+    },
+    "etalon": {
+      "head": "4e77ca3f71b74c10c635b7a1f0ddd923590fdc61",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "f45ab8b50270903b80d0a8469c7f9a45f75a2f83004cb932396827fb5d6c9fa5",
+        "Cargo.lock": "a6be3bca856aef1af5aea8a933539002e591562d0838c96e2673af8289a7e3d4",
+        ".cargo/config.toml": "0b3d7ce16694a2ca5dcdc27f0b13901ea91efacfff891e06371e9d08ee22e119"
+      }
+    },
+    "rust-app-framework": {
+      "head": "60123a1932f2018ea777502b33ef9006f8f926ea",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "b74dd94e71090dddd222e07f76de48335a15afc2815b9b0e46f0811bb8fd65d5",
+        "Cargo.lock": "e43e1dea22e85c4b8f062132c779067cd71c5b2866c78fed54cf20288407659a"
+      }
+    },
+    "vibe-script": {
+      "head": "346fe6d28da65bd531f46b4a18542b66b9405ea3",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "974361a146dfc1f62315cde74912c813b983c601de4fa6c43f55e5f4acf912da",
+        "Cargo.lock": "9175eab66c20ccda7968ea338c2bbc1b3e1c3679e884cf049483aa8e011962da"
+      }
+    }
+  },
+  "log_sha256": "c06a0ca99ce2d3ae9083e1270b30b8958a2c3a2c5c75327d66f4ef75efadf8dc",
+  "summaries": [],
+  "source_unchanged": true
+}

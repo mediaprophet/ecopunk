@@ -1,0 +1,14 @@
+    Finished `test` profile [unoptimized] target(s) in 22.55s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-ee42a411ff2af8d2.exe)
+
+running 1 test
+test graphical::native_project::tests::texture_effect_workflow_tests::gpu_tests::texture_effect_gpu_native_dispatch_mcp_history_hmc_fresh_process ... texture_effect_gpu grayscale changed_pixels=300
+texture_effect_gpu invert changed_pixels=300
+texture_effect_gpu sepia changed_pixels=300
+texture_effect_gpu ordered second step changed_pixels=300
+texture_effect_gpu order changed_pixels=300
+texture_effect_gpu_parent_and_child_passed
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 319 filtered out; finished in 27.15s
+

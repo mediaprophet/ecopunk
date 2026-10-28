@@ -1,0 +1,151 @@
+{
+  "schema": "ecopunk.staged-repair-source-hashes/v1",
+  "qualification_log": "C:/github/ecopunk/docs/qa/implementation-2026-10-27/post-update-qualification/poet-native-tests.log",
+  "qualification_log_sha256": "e0499702b5987b0b0b0a8f3b8a6e72ae1856e273850000eebe6ad115e9b754c0",
+  "candidates": [
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/vibe/src/deontic_interrupt.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/deontic_interrupt/src/deontic_interrupt.original.rs",
+      "source_original_sha256": "6b4d424248a0a6568f460622a862ef9ca8fc6d84f23d287b077f9f9111b56ab9",
+      "preserved_original_sha256": "6b4d424248a0a6568f460622a862ef9ca8fc6d84f23d287b077f9f9111b56ab9",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/deontic_interrupt/src/deontic_interrupt.candidate.rs",
+      "candidate_sha256": "eedb87944c5c597c1764ecf53a32e09115fdfecd4ac705373740f8cbbf18ba6b",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/topology_and_manifold/effects_and_systems.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/effects_and_systems/src/stdlib_v2/topology_and_manifold/effects_and_systems.original.rs",
+      "source_original_sha256": "e419e29a56f0ed1dcfb12be77ac008206e604ac8469cb2aa2c04e6ec8d4445dc",
+      "preserved_original_sha256": "e419e29a56f0ed1dcfb12be77ac008206e604ac8469cb2aa2c04e6ec8d4445dc",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/effects_and_systems/src/stdlib_v2/topology_and_manifold/effects_and_systems.candidate.rs",
+      "candidate_sha256": "93d5d7a6c5d5be883800ad8e8aba00c9aaf99c94c95a43f8c749d2f7d66fa48d",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/topology_and_manifold/mod.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/effects_and_systems/src/stdlib_v2/topology_and_manifold/mod.original.rs",
+      "source_original_sha256": "5f1c1cdd9ed194ef0373cee60311b4d11eb540c0d4b06b97bac5aa0eef9d11df",
+      "preserved_original_sha256": "5f1c1cdd9ed194ef0373cee60311b4d11eb540c0d4b06b97bac5aa0eef9d11df",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/effects_and_systems/src/stdlib_v2/topology_and_manifold/mod.candidate.rs",
+      "candidate_sha256": "be23801c14148bccc22664034bc50d38cc6ceed7ab51b6cfc3eb9888090f5468",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/vibe/src/stdlib_v2/tests.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/effects_and_systems/src/stdlib_v2/tests.original.rs",
+      "source_original_sha256": "45d27f4610ffaa245fc7190de77f1257856bbe466427be31dd121a98af10ead7",
+      "preserved_original_sha256": "45d27f4610ffaa245fc7190de77f1257856bbe466427be31dd121a98af10ead7",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/effects_and_systems/src/stdlib_v2/tests.candidate.rs",
+      "candidate_sha256": "f8d12dea24a1296bb5b7ad46ebc111690a3971a5b741eadc5ea21b3757909041",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/qualia-core-db/src/audio/scene_audio_graph.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/core_scene_audio_graph.rs",
+      "source_original_sha256": "d04d7ecdbeae7997e24619a17b674f71a8ba1c6286f0aa51fc858494dcfb1ba4",
+      "preserved_original_sha256": "d04d7ecdbeae7997e24619a17b674f71a8ba1c6286f0aa51fc858494dcfb1ba4",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/core_scene_audio_graph.rs",
+      "candidate_sha256": "79d5b4fa946f1e3615a9b817ed1a5d7fe13f4ba372f0563e0daec63f66ca7b27",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/uv_atlas/mod.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/core_uv_atlas.rs",
+      "source_original_sha256": "f8c54ad12f16022852bf62dd2bab8e55015b437d2ce42f312d98526d54f45674",
+      "preserved_original_sha256": "f8c54ad12f16022852bf62dd2bab8e55015b437d2ce42f312d98526d54f45674",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/core_uv_atlas.rs",
+      "candidate_sha256": "59dfc1333ed9daab1737bfe66381f95f11ea1524df514dab179fcc9696c52022",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/qualiaDB/crates/qualia-core-db/src/gguf_bridge/mod.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/core_gguf_bridge.rs",
+      "source_original_sha256": "7c8027e0415b67142c03616200887604c9db880733bfc82316f25a2e52073ae5",
+      "preserved_original_sha256": "7c8027e0415b67142c03616200887604c9db880733bfc82316f25a2e52073ae5",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/core_gguf_bridge.rs",
+      "candidate_sha256": "8be9f57d5a97548e40a87120f75edfd09e1f8a91ef7f8221e9849bd82a04aebe",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/authoring/source_layers/mod.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_source_layers.rs",
+      "source_original_sha256": "b67c1ae2750c50e4e0813342882856d366319293435be0580bf58990de5f752c",
+      "preserved_original_sha256": "b67c1ae2750c50e4e0813342882856d366319293435be0580bf58990de5f752c",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_source_layers.rs",
+      "candidate_sha256": "1fb4627705f62a9a5f868493ac99c68cf9f3b51a605b8a19341c03bab5f4ec2a",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/authoring/controls.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_controls.rs",
+      "source_original_sha256": "dfa5d5b85c394647b92b069be28a063e820d1ab41dcf048e2bab6feee0dcf1ae",
+      "preserved_original_sha256": "dfa5d5b85c394647b92b069be28a063e820d1ab41dcf048e2bab6feee0dcf1ae",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_controls.rs",
+      "candidate_sha256": "30e78cb3acb4b41126a2bfe3c01bc27a6363c6003936bc3cd35eac71bd731c69",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/viewport_controls.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_viewport_controls.rs",
+      "source_original_sha256": "de0fac4b2808c5c42aec80b4d7f9f7a5eef8e6c7422a68d53940a5883557b5d5",
+      "preserved_original_sha256": "de0fac4b2808c5c42aec80b4d7f9f7a5eef8e6c7422a68d53940a5883557b5d5",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_viewport_controls.rs",
+      "candidate_sha256": "900b74476f1020e9e799b5cc39b4ebc570e71c1d712ef9b6f7e189b81b8b324e",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/authoring/source.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_source.rs",
+      "source_original_sha256": "bd09085edbd48a6febe6a7ee1dd04d2353c08318e50c74f58746270ea0182def",
+      "preserved_original_sha256": "bd09085edbd48a6febe6a7ee1dd04d2353c08318e50c74f58746270ea0182def",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_source.rs",
+      "candidate_sha256": "85672f86632dd16f02b003888e0aff92b058ab782ab87cf1e72ce08a7d9d696f",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/authoring/source_layers/snapshot.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_snapshot.rs",
+      "source_original_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+      "preserved_original_sha256": "ce2e4e867860cff30a52dca2176e529ca86848cef0b0a9d7723ce8d7dfd1b51b",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_snapshot.rs",
+      "candidate_sha256": "1fec557170dbdee5684fefd97d35ffe5e5c02cb9ce15b6383b1a5788d65b08d3",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/preview.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_preview.rs",
+      "source_original_sha256": "1ca1b62e39375e808acdda34cf2e972d633a6285c22398faf5f7834bf9fc668b",
+      "preserved_original_sha256": "1ca1b62e39375e808acdda34cf2e972d633a6285c22398faf5f7834bf9fc668b",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_preview.rs",
+      "candidate_sha256": "db433bdc94c04dfa74cdcbc3819e1c3376b377e3a9a5f764f694b3445e2a108f",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_motion_tests.rs",
+      "source_original_sha256": "e6838aafc3ac12bef063d8290821e1727f949fa8c1054222d8f259b23d44f104",
+      "preserved_original_sha256": "e6838aafc3ac12bef063d8290821e1727f949fa8c1054222d8f259b23d44f104",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_motion_tests.rs",
+      "candidate_sha256": "9372cbdd335d15d231bf0e7c67ba41bb7041c2070dd0ef344e247d13e4c49ce7",
+      "status": "modified"
+    },
+    {
+      "canonical_source": "C:/github/poet/native/src/repl.rs",
+      "source_original": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/original/poet_repl.rs",
+      "source_original_sha256": "be6917851e6ee58c8bf46340addeaef7d9e55e8f41a608d52f3983358b40b3cf",
+      "preserved_original_sha256": "be6917851e6ee58c8bf46340addeaef7d9e55e8f41a608d52f3983358b40b3cf",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/warnings/candidate/poet_repl.rs",
+      "candidate_sha256": "65c6678b0499d8866504c52d1568208605d80e20a4135f9067c633cd5850131e",
+      "status": "modified"
+    },
+    {
+      "canonical_source": null,
+      "source_original": null,
+      "source_original_sha256": null,
+      "preserved_original_sha256": null,
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality/README.md",
+      "candidate_sha256": "86ab9d17f6aa6bd5a4da2eec6159212d55b2d711fa5772b4fda28c7593654962",
+      "status": "new"
+    }
+  ]
+}

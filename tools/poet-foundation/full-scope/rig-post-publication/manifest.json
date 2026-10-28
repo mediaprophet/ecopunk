@@ -1,0 +1,36 @@
+{
+  "status": "staged; not compiled or run",
+  "purpose": "Retire interactive retained rig state when canonical owner rejects a returned frame on late cancellation or changed context",
+  "files": [
+    {
+      "candidate": "tools/poet-foundation/full-scope/rig-post-publication/editor_contract.rs",
+      "target": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "preimage_sha256": "613dec7059f721e64a5ebcf9ee9946bb4fe18f54ac2449a9a43d6d9d795e87ea",
+      "candidate_sha256": "0326d7db0fdd6ec802d3966cc3a2acd42a1eeba0337f5d5c1a6089ef65169545"
+    },
+    {
+      "candidate": "tools/poet-foundation/full-scope/rig-post-publication/controller.rs",
+      "target": "C:/github/poet/native/src/graphical/controller.rs",
+      "preimage_sha256": "82f83ea642263e81ce4b2fd37e40935f5aff82f575995108fd26d5fb9a365109",
+      "candidate_sha256": "2772b614556604befeb21ae0c439f328f704801a325403b78b6804f451f24125"
+    },
+    {
+      "candidate": "tools/poet-foundation/full-scope/rig-post-publication/viewport_provider.rs",
+      "target": "C:/github/poet/native/src/graphical/viewport_provider.rs",
+      "preimage_sha256": "29c7af7ef1302283809bffa30bc8cbc58700bb11acacd7bfb038d08d27828cac",
+      "candidate_sha256": "cb5656bf5e70aa70c9263f2eb3929e79a9c90ee5961d23e6bcad6321b073cf8a"
+    },
+    {
+      "candidate": "tools/poet-foundation/full-scope/rig-post-publication/rig_tests.rs",
+      "target": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "preimage_sha256": "15e6d531bb3ffaa0456eb4fbe97479667a98def8041139473c54b47ef8983ced",
+      "candidate_sha256": "ae7239d8ff98e21194f064ae6bfca541d00f94c86e08eb1cef1738f54ad31e08"
+    }
+  ],
+  "test": "canonical_rig_preview_retires_provider_state_on_late_cancel",
+  "limitations": [
+    "Fake provider tests canonical owner path and retirement hook; not GPU, native authorisation, or proof of cancellation race freedom.",
+    "The UI and any outer host may have further publication boundaries; review them separately.",
+    "Default retirement hook is a no-op only for providers without mutable retained rig state; mutable implementations must override."
+  ]
+}

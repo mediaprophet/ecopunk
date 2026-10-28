@@ -1,0 +1,171 @@
+#!/usr/bin/env python3
+"""Coordinator-only lease for serialized native checks; cooperating callers only.
+
+Usage: python tools/poet-foundation/biosphere-shared/serial_check.py --owner ECO-123 -- cargo check --locked --offline --target-dir C:/github/ecopunk/target
+This is not a product security gate. Never remove a lease left by an unknown process.
+"""
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import uuid
+from datetime import datetime, timezone
+from importlib.util import module_from_spec, spec_from_file_location
+
+_budget_spec = spec_from_file_location("ecopunk_build_disk_budget", Path(__file__).with_name("disk_budget.py"))
+if _budget_spec is None or _budget_spec.loader is None:
+    raise RuntimeError("disk budget module unavailable; Cargo must not start")
+_disk_budget = module_from_spec(_budget_spec)
+_budget_spec.loader.exec_module(_disk_budget)
+require_start_space = _disk_budget.require_start_space
+wait_with_disk_budget = _disk_budget.wait_with_disk_budget
+
+ROOT = Path("C:/github/ecopunk")
+LEASE = ROOT / "target/coordination/native-check.lock"
+TARGET = ROOT / "target"
+
+
+def now_utc():
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def normalized(path):
+    return os.path.normcase(os.path.abspath(os.fspath(path))).replace("\\", "/")
+
+
+def write_lease(path, data, create=False):
+    mode = "x" if create else "r+"
+    with open(path, mode, encoding="utf-8", newline="\n") as stream:
+        if not create:
+            stream.seek(0)
+            stream.truncate()
+        json.dump(data, stream, ensure_ascii=False, indent=2)
+        stream.write("\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
+def acquire(path, owner, command):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    data = {"lease_uuid": str(uuid.uuid4()), "owner": owner,
+            "command": command, "coordinator_pid": os.getpid(), "child_pid": None, "start_utc": now_utc()}
+    try:
+        write_lease(path, data, create=True)
+    except FileExistsError:
+        try:
+            current = json.loads(path.read_text(encoding="utf-8"))
+            brief = {k: current.get(k) for k in ("owner", "coordinator_pid", "child_pid", "start_utc", "lease_uuid")}
+        except Exception:
+            brief = {"metadata": "unreadable; lease retained"}
+        print("native-check lease held: " + json.dumps(brief, ensure_ascii=False), file=sys.stderr)
+        return None
+    return data
+
+
+def release(path, lease_uuid):
+    try:
+        current = json.loads(path.read_text(encoding="utf-8"))
+        if current.get("lease_uuid") != lease_uuid:
+            return False
+        path.unlink()
+        return True
+    except (OSError, ValueError):
+        return False
+
+
+def check_command(command):
+    if not command or Path(command[0]).name.lower() not in ("cargo", "cargo.exe"):
+        raise ValueError("first command must be cargo")
+    if "--locked" not in command or "--offline" not in command:
+        raise ValueError("command must include --locked and --offline")
+    target_arg = None
+    for i, arg in enumerate(command):
+        if arg == "--target-dir" and i + 1 < len(command):
+            target_arg = command[i + 1]
+        elif arg.startswith("--target-dir="):
+            target_arg = arg.split("=", 1)[1]
+    if target_arg is None or normalized(target_arg) != normalized(TARGET):
+        raise ValueError("--target-dir must be C:/github/ecopunk/target")
+
+
+def self_test():
+    test_root = ROOT / "target/coordination"
+    test_root.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="serial-check-", dir=test_root) as temp:
+        path = Path(temp) / "native-check.lock"
+        lease = acquire(path, "self-test", [sys.executable, "-c", "pass"])
+        if lease is None:
+            raise RuntimeError("initial lease acquisition failed")
+        child = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(0.2)"])
+        lease["child_pid"] = child.pid
+        write_lease(path, lease)
+        contender_code = (
+            "import importlib.util,sys; "
+            "s=importlib.util.spec_from_file_location('serial_check',sys.argv[1]); "
+            "m=importlib.util.module_from_spec(s);s.loader.exec_module(m); "
+            "sys.exit(75 if m.acquire(m.Path(sys.argv[2]),'self-test-second-process',[]) is None else 1)"
+        )
+        contender = subprocess.run(
+            [sys.executable, "-c", contender_code, str(Path(__file__).resolve()), str(path)],
+            capture_output=True, text=True, encoding="utf-8", check=False,
+        )
+        if contender.returncode != 75:
+            raise RuntimeError("second process was not refused")
+        child.wait()
+        if not release(path, lease["lease_uuid"]):
+            raise RuntimeError("owned lease was not released")
+        again = acquire(path, "self-test-reacquire", [])
+        if again is None or not release(path, again["lease_uuid"]):
+            raise RuntimeError("lease reacquisition/release failed")
+    print(json.dumps({"result": "PASS", "scope": "coordination smoke test only",
+                      "cargo_invoked": False, "engine_evidence": False,
+                      "separate_contender_process": True, "contender_exit_code": contender.returncode}, indent=2))
+
+
+def main(argv):
+    if argv == ["--self-test"]:
+        self_test()
+        return 0
+    if "--" not in argv:
+        raise ValueError("expected -- before the cargo command")
+    split = argv.index("--")
+    before, command = argv[:split], argv[split + 1:]
+    if any(a in ("--lock-path", "--force-unlock") for a in before):
+        raise ValueError("lease path override and force unlock are unsupported")
+    if len(before) != 2 or before[0] != "--owner" or not before[1].strip():
+        raise ValueError("usage: --owner <packet/coordinator> -- cargo ...")
+    check_command(command)
+    require_start_space(ROOT)
+    lease = acquire(LEASE, before[1], command)
+    if lease is None:
+        return 75
+    child = None
+    try:
+        env = os.environ.copy()
+        env.setdefault("CARGO_BUILD_JOBS", "2")
+        env.setdefault("CARGO_PROFILE_DEV_DEBUG", "0")
+        env.setdefault("CARGO_PROFILE_TEST_DEBUG", "0")
+        env.setdefault("CARGO_PROFILE_DEV_INCREMENTAL", "false")
+        env.setdefault("CARGO_PROFILE_TEST_INCREMENTAL", "false")
+        env.setdefault("CARGO_INCREMENTAL", "false")
+        child = subprocess.Popen(command, shell=False, env=env)
+        lease["child_pid"] = child.pid
+        write_lease(LEASE, lease)
+        code = wait_with_disk_budget(child, ROOT)
+    except BaseException:
+        # The child may still be running; retain the lease for human/coordinator review.
+        raise
+    if not release(LEASE, lease["lease_uuid"]):
+        print("child exited, but owned lease metadata changed; lease retained", file=sys.stderr)
+        return 75
+    return code
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main(sys.argv[1:]))
+    except (ValueError, OSError, RuntimeError) as error:
+        print(f"serial_check: {error}", file=sys.stderr)
+        sys.exit(2)

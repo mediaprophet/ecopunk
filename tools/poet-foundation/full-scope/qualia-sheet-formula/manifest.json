@@ -1,0 +1,44 @@
+[
+  {
+    "staged": "Cargo.toml",
+    "destination": "C:/github/qualiaDB/crates/qualia-core-db/Cargo.toml",
+    "sha256": "eacc876d44211f2066ee23a86be18f982a1e477219ee3f9d270dce5b5eaaaabb",
+    "preimage_sha256": "0800e9e90ac14fe2c4a076b87e4f236ba09e8d0e2f67480d6594e36478f0f375"
+  },
+  {
+    "staged": "mod.rs",
+    "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/sheet/mod.rs",
+    "sha256": "6f25448cb9a7d87d6f307f345ef7f6a1e2e6076d9eb98558232a3e88fe842f39",
+    "preimage_sha256": "274582304d2e15f9e966e59adfa3d42b51b3e19f776c4380153641b8ce5c2943"
+  },
+  {
+    "staged": "formula.rs",
+    "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/sheet/formula.rs",
+    "sha256": "e63e2567f70046ad0da11a60165ad7d0356a6f7af041db968297b56893c40a73",
+    "preimage_sha256": null
+  },
+  {
+    "staged": "studio_domains.rs",
+    "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains.rs",
+    "sha256": "4abca8d9d0b4f4463bdf59fc2bba299c0e81f2374c6b76b0ce124c736f89ab12",
+    "preimage_sha256": "baa0762a5ae81a3d266f4bf2b9a9330fa45b0bd90da27af4cde0885203a204f3"
+  },
+  {
+    "staged": "webizen_sheet.rs",
+    "destination": "C:/github/qualiaDB/crates/webizen-studio/src/components/poet/bodies/sheet.rs",
+    "sha256": "70571f0953f7884fca3eef9516da343c06ea4d85bd79ab3b0c996972b283d12f",
+    "preimage_sha256": "a01b028fd422e1ef2d0201571c9aa17b47032fffcb32f53a542197d2013f470d"
+  },
+  {
+    "staged": "graphical_mod.rs",
+    "destination": "C:/github/poet/native/src/graphical/mod.rs",
+    "sha256": "93c88fb622f47cecff636b76cdbd63b56d333458008c3dac01286df1ad644739",
+    "preimage_sha256": "887825160ea03f8e3e019b86677db7580bf8dfb43bec63bc9874a26ac002191c"
+  },
+  {
+    "staged": "sheet_formula_host_tests.rs",
+    "destination": "C:/github/poet/native/src/graphical/sheet_formula_host_tests.rs",
+    "sha256": "4722d31ce991c5912d1546674e27ff4a05dc4ebace05aa143aad39b72744bf4f",
+    "preimage_sha256": null
+  }
+]

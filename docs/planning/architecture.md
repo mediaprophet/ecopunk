@@ -3,7 +3,10 @@
 **Status:** specification draft v0.4 · **Updated:** 2026-10-24.
 The governing decisions below record Timothy's 24 October clarifications.
 Detailed schemas and APIs remain proposed until qualified with their upstream owners.
-This document authorizes specification work, not edits to sibling repositories.
+This architecture document alone does not authorize sibling-repository edits.
+For the asset-production blockers, Timothy confirmed on 2026-10-27 that
+task-relevant Poet, QualiaDB and Etalon implementation is authorized, subject
+to filesystem permissions and coordinated ownership.
 
 VibeScript is the shared authored application/REPL language. The
 [comprehensive proposed 0.2 contract](tech/vibescript-0.2-specification.md) and

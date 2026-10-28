@@ -1,0 +1,41 @@
+{
+  "scope": "staged native workbook package controls and native intent/worker routing; not compiled",
+  "files": [
+    {
+      "target": "C:/github/poet/native/src/graphical/jobs.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-ui/jobs.rs",
+      "preimage_sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88",
+      "candidate_sha256": "71705b6143c564132e326b568c6d1848b7cb20d911303077f06b4f3de813eb7f"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/jobs_tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-ui/jobs_tests.rs",
+      "preimage_sha256": "2759c908ed74542c3534034ad8e20acbff238754f405aebdfd8b82045ae63f2b",
+      "candidate_sha256": "49ae0bdd252d8c608514c1cf130b01e2677a1a808efc785864a6586275fedeef"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/job_actions.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-ui/job_actions.rs",
+      "preimage_sha256": "6b00cf781357aaf0d3d396c31a0ba7bb1140db3c010800be3d90572afe5a5754",
+      "candidate_sha256": "fc5e8e80fff2df52b693ee8fb1252435e27e0573b91af1cbf659309c16801313"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/native_dispatch.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-ui/native_dispatch.rs",
+      "preimage_sha256": "e719ba8823cadc1e6e47bf2f866244f172213b8faa3f2e205ff14f8894a742b0",
+      "candidate_sha256": "b43e856643cb687f4f1e350c43cf46766d0c6528f74410a77b9006b3b2f50d94"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/poet_workspace/native_commands.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-ui/poet_workspace/native_commands.rs",
+      "preimage_sha256": "fe8027fe788f3accd8ad7807d66b70891c192b51a01e083793c35c2d1263582b",
+      "candidate_sha256": "ea29725a1d4092fce0aee9e2c487df314d7a7f27a32f60cea5ec5142955a6711"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/package_controls.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-ui/package_controls.rs",
+      "preimage_sha256": "fc1c30c0d9883742378bc0e719a09a420813708515916c5158d4d00ec46c8340",
+      "candidate_sha256": "35959566a0dffaf2b299e4907d2407ef41a97a76da2253a1fb7a7d63844ef59e"
+    }
+  ]
+}

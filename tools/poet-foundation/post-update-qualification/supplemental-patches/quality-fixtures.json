@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\stdlib_v2\\tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\quality-fixtures\\tests.candidate.rs",
+      "before_sha256": "f67900877a273c5e514f887f93ac98720b565409a54394a15e638485b44121dd",
+      "after_sha256": "8bfbd17001aef90607a301e0ebcb80a1e60e0e0c88265a7c7ff4f6cabad01a1c",
+      "reason": "Align two fixture expectations with actual registry record semantics: spawn is Pending until await, and qualification is local deferred synchronous AST task; also assert joined flag separately."
+    }
+  ],
+  "note": "Manifest rows restored from immutable installation receipt after later staging reused the filename; attempt4 preserved separately."
+}

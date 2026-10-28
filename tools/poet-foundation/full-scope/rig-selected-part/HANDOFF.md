@@ -1,0 +1,3 @@
+# Rig selected-part confirmation follow-up
+
+Staged only, no canonical writes or tests. The earlier resource confirmation binds the full source/session/epoch/authority context; this follow-up also stores the selected part at explicit confirmation and synchronously rejects a different or empty part before dispatch. The existing host selection and resource checks remain authoritative. `rig_resource_selection_tests` now includes changed-part and empty-part cases. Three files and exact preimage/candidate hashes are in the manifest. Installation requires coordinator preimage verification, then a nonzero focused test and appropriate native/GPU checks. It is not proof of human usability or model completion.

@@ -1,0 +1,7 @@
+[package]
+name = "poet-workbook-dependency-probe"
+version = "0.0.0"
+edition = "2021"
+[workspace]
+[dependencies]
+gridcraft-engine = { path = "C:/github/poet-gridcraft/crates/engine" }

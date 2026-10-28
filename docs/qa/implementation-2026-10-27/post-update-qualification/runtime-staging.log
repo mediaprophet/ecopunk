@@ -1,0 +1,8 @@
+
+running 3 tests
+test runtime_staging_tests::same_length_difference_after_first_chunk_is_detected_and_copied ... ok
+test runtime_staging_tests::missing_destination_is_staged ... ok
+test runtime_staging_tests::identical_read_only_destination_is_not_rewritten ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+

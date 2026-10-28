@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\qualia-sheet-set-cell\\ids.rs",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/ids.rs",
+      "preimage_sha256": "d9a852814b237043a889990b1aced74795f445bdd6a4a709b202ce225ad47751",
+      "candidate_sha256": "4009c71120cc1fbe6c5b38e715d4233493f7587a5035afdc9857e93672b016e0"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\qualia-sheet-set-cell\\invoke_mod.rs",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs",
+      "preimage_sha256": "dba33c0d0c7c1bd737b49a735bc5935339549fb3c2de2e421db3968c35794ed1",
+      "candidate_sha256": "977b81ef5c52fc616561fe3dd980a7d2f4003ee621e6147f9c6ee2887c8ed56b"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\qualia-sheet-set-cell\\sheet_mod.rs",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/sheet/mod.rs",
+      "preimage_sha256": "274582304d2e15f9e966e59adfa3d42b51b3e19f776c4380153641b8ce5c2943",
+      "candidate_sha256": "8a924bb0790e8f93ccf6aee74bbd461b5eae1a96ee1d6ed26f334ddf83b2ba6d"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\qualia-sheet-set-cell\\set_cell.rs",
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/sheet/set_cell.rs",
+      "preimage_sha256": null,
+      "candidate_sha256": "b8726b0ad23c35cdeca89b14a79f672b71d8ad15cdd61ef969e9e5de6542a290"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\qualia-sheet-set-cell\\sheet_set_cell_host_tests.rs",
+      "target": "C:/github/poet/native/src/graphical/sheet_set_cell_host_tests.rs",
+      "preimage_sha256": null,
+      "candidate_sha256": "b0c4260c56080a4071c78a65ac001a175b1a864aa86b86e0ec791bcddd54705e"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\qualia-sheet-set-cell\\vibe_catalog_ids.rs",
+      "target": "C:/github/qualiaDB/crates/vibe/src/catalog/ids.rs",
+      "preimage_sha256": "467496fd8cbf9c6e97bcc75ef02ec472e2ab9f5e717b5c4d60d9a6aedf777f24",
+      "candidate_sha256": "555a5f7b8ba6a1e525d6602e2d303cbef25987a080a898d5814628635079237c"
+    }
+  ],
+  "note": "Coordinator must merge sheet_mod.rs with formula candidate and register Poet test; no canonical writes or tests performed."
+}

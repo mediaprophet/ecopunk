@@ -1,0 +1,410 @@
+   Compiling unicode-ident v1.0.27
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling cfg-if v1.0.5
+   Compiling serde_core v1.0.229
+   Compiling syn v3.0.9
+   Compiling syn v2.0.119
+   Compiling serde v1.0.229
+   Compiling serde_derive v1.0.229
+   Compiling windows-link v0.2.1
+   Compiling log v0.4.34
+   Compiling autocfg v1.5.1
+   Compiling libm v0.2.16
+   Compiling once_cell v1.21.4
+   Compiling version_check v0.9.5
+   Compiling smallvec v1.16.3
+   Compiling num-traits v0.2.19
+   Compiling typenum v1.20.1
+   Compiling scopeguard v1.2.0
+   Compiling parking_lot_core v0.9.12
+   Compiling lock_api v0.4.14
+   Compiling bitflags v2.13.2
+   Compiling bytemuck_derive v1.12.1
+   Compiling parking_lot v0.12.5
+   Compiling getrandom v0.2.17
+   Compiling pin-project-lite v0.2.17
+   Compiling allocator-api2 v0.2.21
+   Compiling bytemuck v1.25.2
+   Compiling foldhash v0.2.0
+   Compiling windows-sys v0.61.2
+   Compiling memchr v2.8.3
+   Compiling zerocopy v0.8.63
+   Compiling hashbrown v0.17.1
+   Compiling zerocopy-derive v0.8.63
+   Compiling stable_deref_trait v1.2.1
+   Compiling itoa v1.0.18
+   Compiling thiserror v2.0.21
+   Compiling subtle v2.6.1
+   Compiling rand_core v0.6.4
+   Compiling thiserror-impl v2.0.21
+   Compiling synstructure v0.14.0
+   Compiling zerofrom-derive v0.1.8
+   Compiling generic-array v0.14.7
+   Compiling zerofrom v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling yoke v0.8.3
+   Compiling zeroize_derive v1.5.0
+   Compiling zeroize v1.9.1
+   Compiling tracing-core v0.1.36
+   Compiling tracing-attributes v0.1.31
+   Compiling zerovec-derive v0.11.6
+   Compiling bytes v1.12.1
+   Compiling zerovec v0.11.8
+   Compiling tracing v0.1.44
+   Compiling arrayvec v0.7.8
+   Compiling displaydoc v0.2.7
+   Compiling equivalent v1.0.3
+   Compiling crypto-common v0.1.7
+   Compiling writeable v0.6.4
+   Compiling futures-core v0.3.34
+   Compiling indexmap v2.14.2
+   Compiling tinystr v0.8.4
+   Compiling litemap v0.8.3
+   Compiling libc v0.2.191
+   Compiling icu_locale_core v2.3.0
+   Compiling potential_utf v0.1.6
+   Compiling zerotrie v0.2.5
+   Compiling fnv v1.0.7
+   Compiling icu_provider v2.3.1
+   Compiling hybrid-array v0.4.15
+   Compiling cfg_aliases v0.2.2
+   Compiling rustversion v1.0.23
+   Compiling utf8_iter v1.0.4
+   Compiling icu_collections v2.3.0
+   Compiling windows-strings v0.5.1
+   Compiling windows-result v0.4.1
+   Compiling windows-implement v0.60.2
+   Compiling windows-interface v0.59.3
+   Compiling futures-sink v0.3.34
+   Compiling getrandom v0.4.3
+   Compiling icu_properties_data v2.3.0
+   Compiling raw-window-handle v0.6.2
+   Compiling windows-core v0.62.2
+   Compiling block-buffer v0.10.4
+   Compiling num-integer v0.1.47
+   Compiling siphasher v1.0.4
+   Compiling digest v0.10.7
+   Compiling crypto-common v0.2.2
+   Compiling percent-encoding v2.3.2
+   Compiling icu_normalizer_data v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling jobserver v0.1.35
+   Compiling windows-threading v0.2.1
+   Compiling libloading v0.8.9
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling slab v0.4.12
+   Compiling cc v1.8.0
+   Compiling windows-future v0.3.2
+   Compiling phf_shared v0.14.0
+   Compiling windows-collections v0.3.2
+   Compiling windows-numerics v0.3.1
+   Compiling ppv-lite86 v0.2.21
+   Compiling futures-macro v0.3.34
+   Compiling futures-io v0.3.34
+   Compiling rand_core v0.10.1
+   Compiling futures-task v0.3.34
+   Compiling futures-util v0.3.34
+   Compiling windows v0.62.2
+   Compiling icu_normalizer v2.3.0
+   Compiling static_assertions v1.1.0
+   Compiling fastrand v2.5.0
+   Compiling phf_generator v0.14.0
+   Compiling http v1.5.0
+   Compiling ident_case v1.0.1
+   Compiling form_urlencoded v1.2.2
+   Compiling block-buffer v0.12.1
+   Compiling memmap2 v0.9.11
+   Compiling idna_adapter v1.2.2
+   Compiling either v1.19.0
+   Compiling cpufeatures v0.2.17
+   Compiling foldhash v0.1.5
+   Compiling cmov v0.5.4
+   Compiling ctutils v0.4.3
+   Compiling idna v1.1.0
+   Compiling simd-adler32 v0.3.10
+   Compiling cpufeatures v0.3.1
+   Compiling url v2.5.8
+   Compiling half v2.7.1
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.4
+   Compiling tokio-macros v2.7.2
+   Compiling byteorder v1.5.0
+   Compiling adler2 v2.0.1
+   Compiling crc32fast v1.5.2
+   Compiling anyhow v1.0.104
+   Compiling crossbeam-utils v0.8.23
+   Compiling tokio v1.54.0
+   Compiling itertools v0.14.0
+   Compiling khronos_api v3.1.0
+   Compiling rustc-hash v1.1.0
+   Compiling rustc-hash v2.1.3
+   Compiling naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling miniz_oxide v0.9.1
+   Compiling futures-channel v0.3.34
+   Compiling winapi-util v0.1.11
+   Compiling euclid v0.22.14
+   Compiling termcolor v1.4.1
+   Compiling flate2 v1.1.10
+   Compiling hashbrown v0.15.5
+   Compiling uuid v1.28.0
+   Compiling num-bigint v0.4.8
+   Compiling naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling slotmap v1.1.1
+   Compiling bit-vec v0.10.1
+   Compiling pastey v0.2.3
+   Compiling fixedbitset v0.5.7
+   Compiling unicode-segmentation v1.13.3
+   Compiling crossbeam-epoch v0.9.21
+   Compiling unicode-width v0.2.2
+   Compiling macro_rules_attribute-proc_macro v0.2.3
+   Compiling getrandom v0.3.4
+   Compiling new_debug_unreachable v1.0.6
+   Compiling unicode-xid v0.2.6
+   Compiling xml-rs v0.8.29
+   Compiling gl_generator v0.14.0
+   Compiling macro_rules_attribute v0.2.3
+   Compiling codespan-reporting v0.13.1
+   Compiling petgraph v0.8.3
+   Compiling bit-set v0.11.1
+   Compiling miniz_oxide v0.8.9
+   Compiling fdeflate v0.3.7
+   Compiling phf_macros v0.14.0
+   Compiling spirv v0.4.0+sdk-1.4.341.0
+   Compiling precomputed-hash v0.1.1
+   Compiling ash v0.38.0+1.3.281
+   Compiling base64 v0.23.1
+   Compiling zmij v1.0.23
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling string_cache v0.11.0
+   Compiling phf v0.14.0
+   Compiling etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling glutin_wgl_sys v0.6.1
+   Compiling darling_core v0.20.11
+   Compiling string_cache_codegen v0.11.2
+   Compiling rand_chacha v0.3.1
+   Compiling ring v0.17.14
+   Compiling polycool v0.4.0
+   Compiling font-types v0.12.6
+   Compiling semver v1.0.28
+   Compiling khronos-egl v6.0.0
+   Compiling linebender_resource_handle v0.1.1
+   Compiling mime v0.3.17
+   Compiling serde_json v1.0.154
+   Compiling const-oid v0.10.2
+   Compiling digest v0.11.3
+   Compiling rustc_version v0.4.1
+   Compiling read-fonts v0.41.0
+   Compiling kurbo v0.13.1
+   Compiling rand v0.8.8
+   Compiling darling_macro v0.20.11
+   Compiling rand_core v0.9.5
+   Compiling etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling hashbrown v0.16.1
+   Compiling proc-macro2-diagnostics v0.10.1
+   Compiling enum-ordinalize-derive v4.4.2
+   Compiling synstructure v0.13.2
+   Compiling dtoa v1.0.11
+   Compiling presser v0.3.1
+   Compiling gpu-allocator v0.28.0
+   Compiling dtoa-short v0.3.5
+   Compiling enum-ordinalize v4.4.2
+   Compiling rand_chacha v0.9.0
+   Compiling darling v0.20.11
+   Compiling ark-std v0.6.0
+   Compiling etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling convert_case v0.8.0
+   Compiling http-body v1.1.0
+   Compiling inout v0.2.4
+   Compiling etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling keyboard-types v0.8.3
+   Compiling ordered-float v5.5.0
+   Compiling ahash v0.8.12
+   Compiling ark-serialize-derive v0.6.0
+   Compiling cssparser-macros v0.7.1
+   Compiling dioxus-const-vec v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus-const-vec)
+   Compiling icu_locale_fallback_data v2.3.0
+   Compiling range-alloc v0.1.5
+   Compiling httparse v1.10.1
+   Compiling glow v0.18.0
+   Compiling profiling v1.0.18
+   Compiling untrusted v0.9.0
+   Compiling renderdoc-sys v1.1.0
+   Compiling xxhash-rust v0.8.19
+   Compiling dioxus-core-template v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-template)
+   Compiling cssparser v0.38.0
+   Compiling ark-serialize v0.6.0
+   Compiling rand v0.9.5
+   Compiling rayon v1.12.0
+   Compiling ark-ff-macros v0.6.0
+   Compiling educe v0.6.0
+   Compiling etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling servo_arc v0.5.0
+   Compiling color v0.3.3
+   Compiling ark-ff-asm v0.6.0
+   Compiling derive_more-impl v2.1.1
+   Compiling num_cpus v1.17.0
+   Compiling tower-service v0.3.3
+   Compiling smallbitvec v2.6.1
+   Compiling wasm-bindgen-shared v0.2.129
+   Compiling winnow v1.0.4
+   Compiling litrs v1.0.1
+   Compiling icu_segmenter_data v2.3.0
+   Compiling konst_macro_rules v0.2.19
+   Compiling thin-vec v0.2.21
+   Compiling to_shmem v0.6.0
+   Compiling konst v0.2.20
+   Compiling document-features v0.2.12
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling derive_more v2.1.1
+   Compiling ark-ff v0.6.0
+   Compiling peniko v0.6.1
+   Compiling dioxus-rsx v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\rsx)
+   Compiling etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling cipher v0.5.2
+   Compiling serde_spanned v1.1.2
+   Compiling toml_datetime v1.1.2+spec-1.1.0
+   Compiling to_shmem_derive v0.2.0
+   Compiling skrifa v0.44.0
+   Compiling png v0.18.1
+   Compiling const_format_proc_macros v0.2.34
+   Compiling phf_codegen v0.14.0
+   Compiling etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling rustls-pki-types v1.15.1
+   Compiling subsecond-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond-types)
+   Compiling toml_writer v1.1.3+spec-1.1.0
+   Compiling keccak v0.1.6
+   Compiling toml v1.1.8+spec-1.1.0
+   Compiling subsecond v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond)
+   Compiling web_atoms v0.3.0
+   Compiling const_format v0.2.36
+   Compiling selectors v0.41.0
+   Compiling icu_locale_fallback v2.3.0
+   Compiling ark-poly v0.6.0
+   Compiling dioxus-core-macro v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-macro)
+   Compiling same-file v1.0.6
+   Compiling stylo_atoms v0.22.0
+   Compiling sha2 v0.10.9
+   Compiling generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)
+   Compiling num-complex v0.4.6
+   Compiling app_units v0.7.8
+   Compiling core_maths v0.1.1
+   Compiling curve25519-dalek-derive v0.1.1
+   Compiling pin-project-internal v1.1.13
+   Compiling pkg-config v0.3.34
+   Compiling atomic-waker v1.1.2
+   Compiling void v1.0.2
+   Compiling try-lock v0.2.5
+   Compiling longest-increasing-subsequence v0.1.0
+   Compiling winapi-x86_64-pc-windows-gnu v0.4.0
+   Compiling smol_str v0.3.6
+   Compiling cursor-icon v1.2.0
+   Compiling httpdate v1.0.3
+   Compiling dioxus-core-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core-types)
+   Compiling tower-layer v0.3.3
+   Compiling rustls v0.23.46
+   Compiling dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)
+   Compiling want v0.3.2
+   Compiling stylo_malloc_size_of v0.22.0
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling pin-project v1.1.13
+   Compiling icu_segmenter v2.3.0
+   Compiling walkdir v2.5.0
+   Compiling stylo_static_prefs v0.22.0
+   Compiling rustls-webpki v0.103.15
+   Compiling universal-hash v0.6.1
+   Compiling darling_core v0.21.3
+   Compiling encoding_rs v0.8.42
+   Compiling sync_wrapper v1.0.2
+   Compiling pulp v0.21.5
+   Compiling matrixmultiply v0.3.11
+   Compiling warnings-macro v0.2.0
+   Compiling equator-macro v0.4.2
+   Compiling async-trait v0.1.92
+   Compiling winapi v0.3.9
+   Compiling num-bigint-dig v0.9.1
+   Compiling paste v1.0.15
+   Compiling bumpalo v3.20.3
+   Compiling reborrow v0.5.5
+   Compiling syn v1.0.109
+   Compiling wasm-bindgen-macro-support v0.2.129
+   Compiling equator v0.4.2
+   Compiling warnings v0.2.1
+   Compiling darling_macro v0.21.3
+   Compiling stylo v0.22.0
+   Compiling hyper v1.12.0
+   Compiling http-body-util v0.1.5
+   Compiling malloc_size_of_derive v0.1.3
+   Compiling harfrust v0.12.0
+   Compiling curve25519-dalek v5.0.0
+   Compiling curve25519-dalek v4.1.3
+   Compiling accesskit v0.25.1
+   Compiling blake2 v0.10.6
+   Compiling num-iter v0.1.46
+   Compiling wasm-bindgen v0.2.129
+   Compiling inout v0.1.4
+   Compiling aho-corasick v1.1.5
+   Compiling parlance v0.1.1
+   Compiling pulp v0.22.3
+   Compiling cpubits v0.1.1
+   Compiling core_detect v1.0.0
+   Compiling float-cmp v0.9.0
+   Compiling regex-syntax v0.8.11
+   Compiling ryu v1.0.23
+   Compiling rawpointer v0.2.1
+   Compiling ciborium-io v0.2.2
+   Compiling unicase v2.10.0
+   Compiling rio_api v0.8.6
+   Compiling ipnet v2.12.2
+   Compiling simdutf8 v0.1.5
+   Compiling heck v0.5.0
+   Compiling icu_casemap_data v2.3.0
+   Compiling multiversion_no_op v1.0.0
+   Compiling pxfm v0.1.30
+   Compiling atomic_refcell v0.1.14
+   Compiling strum_macros v0.28.0
+   Compiling moxcms v0.8.1
+   Compiling regex-automata v0.4.18
+   Compiling hyper-util v0.1.21
+   Compiling mime_guess v2.0.5
+   Compiling ciborium-ll v0.2.2
+   Compiling strict-num v0.1.1
+   Compiling fontique v0.12.0
+   Compiling cipher v0.4.4
+   Compiling stylo_traits v0.22.0
+error: failed to run custom build command for `stylo v0.22.0`
+
+Caused by:
+  process didn't exit successfully: `C:/github/ecopunk/target\debug\build\stylo-291aaac7e1f9aa98\build-script-build` (exit code: 101)
+  --- stdout
+  cargo:rerun-if-changed=build.rs
+  cargo:out_dir=C:/github/ecopunk/target\debug\build\stylo-0bb2152dea5f8d80\out
+  cargo:rerun-if-changed=properties\build.py
+  cargo:rerun-if-changed=properties\cascade.rs
+  cargo:rerun-if-changed=properties\computed_value_flags.rs
+  cargo:rerun-if-changed=properties\counted_unknown_properties.py
+  cargo:rerun-if-changed=properties\counter_style_descriptors.toml
+  cargo:rerun-if-changed=properties\data.py
+  cargo:rerun-if-changed=properties\declaration_block.rs
+  cargo:rerun-if-changed=properties\font_face_descriptors.toml
+  cargo:rerun-if-changed=properties\gecko.mako.rs
+  cargo:rerun-if-changed=properties\helpers\animated_properties.mako.rs
+  cargo:rerun-if-changed=properties\helpers.mako.rs
+  cargo:rerun-if-changed=properties\longhands.toml
+  cargo:rerun-if-changed=properties\mod.rs
+  cargo:rerun-if-changed=properties\properties.html.mako
+  cargo:rerun-if-changed=properties\properties.mako.rs
+  cargo:rerun-if-changed=properties\property_descriptors.toml
+  cargo:rerun-if-changed=properties\shorthands.rs
+  cargo:rerun-if-changed=properties\shorthands.toml
+  cargo:rerun-if-changed=properties\vendored_python\markupsafe\__init__.py
+  cargo:rerun-if-changed=properties\view_transition_descriptors.toml
+
+  --- stderr
+
+  thread 'main' (32364) panicked at C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\stylo-0.22.0\build.rs:36:9:
+  Can't find python (tried python.exe)! Try fixing PATH or setting the PYTHON3 env var
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+warning: build failed, waiting for other jobs to finish...

@@ -1,0 +1,12 @@
+{
+  "schema": "ecopunk.supplemental-quality-fixture-patches/v1",
+  "patches": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\stdlib_v2\\tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\quality-fixtures-attempt4\\tests.candidate.rs",
+      "before_sha256": "8bfbd17001aef90607a301e0ebcb80a1e60e0e0c88265a7c7ff4f6cabad01a1c",
+      "after_sha256": "c9b01676572b0a8026c944a1ab7365ca01445c8d763dffb38478f9af0b8b6402",
+      "reason": "Repair fixture placement and returned-field coverage, retain runtime-scoped pending/cancellation semantics, verify actual remote-vs-missing-local refusal routes, and assert separate integrity/proof status without owner-seal or human-authority claims."
+    }
+  ]
+}

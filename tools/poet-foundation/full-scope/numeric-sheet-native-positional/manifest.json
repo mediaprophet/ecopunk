@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-native-positional\\geometry_host.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\geometry_host.rs",
+      "preimage_sha256": "eff82168bc985949f003a6c338cca9f66a68ac626ebaa6b884f93aa22c09bdf0",
+      "candidate_sha256": "2d6a47f240d0975af2c46edd8f21545c2adc67ef1e2c8774828142d3a326bb37"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-native-positional\\sheet_range_session_tests.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\sheet_range_session_tests.rs",
+      "preimage_sha256": "61db4c930b7b7fce9be7910e9e6afef84031f27d45a0740074dab2abe12b49fe",
+      "candidate_sha256": "8e1ce1bd41e58b4e01a7f824f96e4dfde9bd694261f8e423f142104228abd13a"
+    }
+  ],
+  "note": "Staged only; coordinator verifies preimages after active build and reviews/installs serially."
+}

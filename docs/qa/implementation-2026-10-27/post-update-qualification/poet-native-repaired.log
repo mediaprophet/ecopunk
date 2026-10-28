@@ -1,0 +1,107 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0425]: cannot find function `validation_snapshot` in module `source_layers`
+  --> native\src\graphical\authoring\source_layer_tests.rs:60:40
+   |
+60 |     let (parts, base) = source_layers::validation_snapshot(
+   |                                        ^^^^^^^^^^^^^^^^^^^ not found in `source_layers`
+
+error[E0425]: cannot find value `LEGACY_BYTES` in this scope
+  --> native\src\graphical\authoring\source_layers\snapshot_tests.rs:36:16
+   |
+36 |     assert_eq!(LEGACY_BYTES, 64 * 1024 * 1024);
+   |                ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `validation_snapshot` in this scope
+  --> native\src\graphical\authoring\source_layers\snapshot_tests.rs:38:18
+   |
+38 |     let result = validation_snapshot(Some(&value), None).unwrap();
+   |                  ^^^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0596]: cannot borrow `selected` as mutable, as it is not declared as mutable
+  --> native\src\graphical\viewport_controls.rs:75:5
+   |
+75 |     selected.set(String::new());
+   |     ^^^^^^^^ cannot borrow as mutable
+   |
+help: consider changing this to be mutable
+   |
+71 |     mut selected: Signal<String>,
+   |     +++
+
+error[E0596]: cannot borrow `viewport_state` as mutable, as it is not declared as mutable
+  --> native\src\graphical\viewport_controls.rs:76:5
+   |
+76 |     viewport_state.set(None);
+   |     ^^^^^^^^^^^^^^ cannot borrow as mutable
+   |
+help: consider changing this to be mutable
+   |
+72 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     +++
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:87:5
+   |
+87 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:88:5
+   |
+88 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     ----^^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+For more information about this error, try `rustc --explain E0596`.
+warning: `poet-cli` (lib) generated 2 warnings
+error: could not compile `poet-cli` (lib) due to 2 previous errors; 2 warnings emitted
+warning: build failed, waiting for other jobs to finish...
+warning: variable does not need to be mutable
+   --> native\src\graphical\native_project_motion_tests.rs:487:9
+    |
+487 |     let mut ui = project.connect(author.clone()).unwrap();
+    |         ----^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+error[E0596]: cannot borrow `ui` as mutable, as it is not declared as mutable
+   --> native\src\graphical\native_project_motion_tests.rs:352:9
+    |
+352 |     let ui = project.connect(author.clone()).unwrap();
+    |         ^^ not mutable
+353 |     let initial = ui.snapshot().unwrap();
+354 |     ui.submit(assembly_source(), initial.source).unwrap();
+    |     -- cannot borrow as mutable
+...
+358 |     ui.authoring_edit(
+    |     -- cannot borrow as mutable
+    |
+help: consider changing this to be mutable
+    |
+352 |     let mut ui = project.connect(author.clone()).unwrap();
+    |         +++
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:87:5
+   |
+87 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+Some errors have detailed explanations: E0425, E0596.
+For more information about an error, try `rustc --explain E0425`.
+warning: `poet-cli` (lib test) generated 3 warnings (1 duplicate)
+error: could not compile `poet-cli` (lib test) due to 6 previous errors; 3 warnings emitted

@@ -1,0 +1,18 @@
+    Finished `test` profile [unoptimized] target(s) in 16.89s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\qualia_mcp-4f3870c83ac40c2a.exe)
+
+running 11 tests
+test tools::poet::export_support::tests::mcp_studio_export_binds_legacy_aliases_and_refuses_conflicts ... ok
+test tools::poet::export_support::tests::mcp_studio_export_propagates_office_and_missing_artifact_errors ... ok
+test tools::poet::export_support::tests::mcp_studio_export_rejects_invalid_alias_types_without_defaulting_format ... ok
+test tools::poet::export_support::tests::mcp_studio_export_rejects_unsafe_csv_through_both_tools_and_keeps_simple_csv ... ok
+test tools::poet::tests::test_cross_container_shed_tool ... ok
+test tools::poet::tests::test_poet_authoring_phase2_extensions ... ok
+test tools::poet::tests::test_poet_semantic_instruments_define_and_run ... ok
+test tools::poet::tests::test_shed_catalog ... ok
+test tools::qapps::tests::test_list_qapp_updates_structure ... ok
+test tools::qapps::tests::test_list_qapps_structure ... ok
+test tools::topology::tests::mcp_topology_tools_define_harbour_switch_homology_and_seal ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.62s
+

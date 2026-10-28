@@ -1,0 +1,16 @@
+{
+  "manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\supplemental-patches\\core-test-import.json",
+  "files": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\audio\\scene_audio_graph.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\quality-core-import\\scene_audio_graph.candidate.rs",
+      "before_sha256": "a68a53ef61cb35af9779c1ed266944777b8253b37ce64e5b944f90ec30c3bc7e",
+      "after_sha256": "a6e0e673041999ae9c5227b6d8d4402655a3346a0a6484a0ade84bc1ee6cf550",
+      "reason": "The warning cleanup removed a module-level HolographicPrimitive import that is only needed by the gpu-runtime test. Add the feature-gated import inside the test module; production import cleanup remains intact."
+    }
+  ],
+  "installed": [
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\audio\\scene_audio_graph.rs"
+  ],
+  "verified": false
+}

@@ -1,0 +1,501 @@
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:730:75
+    |
+730 |         return WebGpuCapabilityReport::from_adapter(&shared.adapter, Some(&shared.device));
+    |                                                                      ---- ^^^^^^^^^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+    |                                                                      |
+    |                                                                      arguments to this enum variant are incorrect
+    |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+   --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+    |
+ 22 | pub struct Device {
+    | ----------------- this is the found type
+    |
+   ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+    |
+ 22 | pub struct Device {
+    | ^^^^^^^^^^^^^^^^^ this is the expected type
+    = help: you can use `cargo tree` to explore your dependency tree
+help: the type constructed contains `&etalon::api::device::Device` due to the type of the argument passed
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:730:70
+    |
+730 |         return WebGpuCapabilityReport::from_adapter(&shared.adapter, Some(&shared.device));
+    |                                                                      ^^^^^--------------^
+    |                                                                           |
+    |                                                                           this argument influences the type of `Some`
+note: tuple variant defined here
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\option.rs:605:4
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:730:53
+    |
+730 |         return WebGpuCapabilityReport::from_adapter(&shared.adapter, Some(&shared.device));
+    |                ------------------------------------ ^^^^^^^^^^^^^^^ expected `wgpu::Adapter`, found `etalon::api::adapter::Adapter`
+    |                |
+    |                arguments to this function are incorrect
+    |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+   --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\adapter.rs:23:1
+    |
+ 23 | pub struct Adapter {
+    | ------------------ this is the found type
+    |
+   ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\adapter.rs:23:1
+    |
+ 23 | pub struct Adapter {
+    | ^^^^^^^^^^^^^^^^^^ this is the expected type
+    = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:96:8
+    |
+ 96 |     fn from_adapter(adapter: &wgpu::Adapter, device: Option<&wgpu::Device>) -> Self {
+    |        ^^^^^^^^^^^^ -----------------------
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:865:91
+    |
+865 |             let capabilities = WebGpuCapabilityReport::from_adapter(&shared.adapter, Some(&shared.device));
+    |                                                                                      ---- ^^^^^^^^^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+    |                                                                                      |
+    |                                                                                      arguments to this enum variant are incorrect
+    |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+   --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+    |
+ 22 | pub struct Device {
+    | ----------------- this is the found type
+    |
+   ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+    |
+ 22 | pub struct Device {
+    | ^^^^^^^^^^^^^^^^^ this is the expected type
+    = help: you can use `cargo tree` to explore your dependency tree
+help: the type constructed contains `&etalon::api::device::Device` due to the type of the argument passed
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:865:86
+    |
+865 |             let capabilities = WebGpuCapabilityReport::from_adapter(&shared.adapter, Some(&shared.device));
+    |                                                                                      ^^^^^--------------^
+    |                                                                                           |
+    |                                                                                           this argument influences the type of `Some`
+note: tuple variant defined here
+   --> /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\option.rs:605:4
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:865:69
+    |
+865 |             let capabilities = WebGpuCapabilityReport::from_adapter(&shared.adapter, Some(&shared.device));
+    |                                ------------------------------------ ^^^^^^^^^^^^^^^ expected `wgpu::Adapter`, found `etalon::api::adapter::Adapter`
+    |                                |
+    |                                arguments to this function are incorrect
+    |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+   --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\adapter.rs:23:1
+    |
+ 23 | pub struct Adapter {
+    | ------------------ this is the found type
+    |
+   ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\adapter.rs:23:1
+    |
+ 23 | pub struct Adapter {
+    | ^^^^^^^^^^^^^^^^^^ this is the expected type
+    = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:96:8
+    |
+ 96 |     fn from_adapter(adapter: &wgpu::Adapter, device: Option<&wgpu::Device>) -> Self {
+    |        ^^^^^^^^^^^^ -----------------------
+
+error[E0308]: mismatched types
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:886:54
+     |
+ 886 |         let texture = Self::create_offscreen_texture(&device, format, width, height);
+     |                       ------------------------------ ^^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+     |                       |
+     |                       arguments to this function are incorrect
+     |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+    --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ----------------- this is the found type
+     |
+    ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ^^^^^^^^^^^^^^^^^ this is the expected type
+     = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:1016:8
+     |
+1016 |     fn create_offscreen_texture(
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^
+1017 |         device: &wgpu::Device,
+     |         ---------------------
+
+error[E0308]: mismatched types
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:888:60
+     |
+ 888 |         let render_pipeline = Self::create_render_pipeline(&device, format);
+     |                               ---------------------------- ^^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+     |                               |
+     |                               arguments to this function are incorrect
+     |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+    --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ----------------- this is the found type
+     |
+    ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ^^^^^^^^^^^^^^^^^ this is the expected type
+     = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:1160:8
+     |
+1160 |     fn create_render_pipeline(
+     |        ^^^^^^^^^^^^^^^^^^^^^^
+1161 |         device: &wgpu::Device,
+     |         ---------------------
+
+error[E0308]: mismatched types
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:889:66
+     |
+ 889 |         let projector_pipeline = Self::create_projector_pipeline(&device, format);
+     |                                  ------------------------------- ^^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+     |                                  |
+     |                                  arguments to this function are incorrect
+     |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+    --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ----------------- this is the found type
+     |
+    ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ^^^^^^^^^^^^^^^^^ this is the expected type
+     = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:1056:8
+     |
+1056 |     fn create_projector_pipeline(
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+1057 |         device: &wgpu::Device,
+     |         ---------------------
+
+error[E0308]: mismatched types
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:892:40
+     |
+ 892 |             Self::create_vertex_buffer(&device);
+     |             -------------------------- ^^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+     |             |
+     |             arguments to this function are incorrect
+     |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+    --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ----------------- this is the found type
+     |
+    ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+     |
+  22 | pub struct Device {
+     | ^^^^^^^^^^^^^^^^^ this is the expected type
+     = help: you can use `cargo tree` to explore your dependency tree
+note: associated function defined here
+    --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:1038:8
+     |
+1038 |     fn create_vertex_buffer(device: &wgpu::Device) -> (wgpu::Buffer, wgpu::Buffer, usize) {
+     |        ^^^^^^^^^^^^^^^^^^^^ ---------------------
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:906:13
+    |
+906 |             device,
+    |             ^^^^^^ expected `wgpu::Device`, found `etalon::api::device::Device`
+    |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+   --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+    |
+ 22 | pub struct Device {
+    | ----------------- this is the found type
+    |
+   ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\device.rs:22:1
+    |
+ 22 | pub struct Device {
+    | ^^^^^^^^^^^^^^^^^ this is the expected type
+    = help: you can use `cargo tree` to explore your dependency tree
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\wgpu_renderer.rs:907:13
+    |
+907 |             queue,
+    |             ^^^^^ expected `wgpu::Queue`, found `etalon::api::queue::Queue`
+    |
+note: there are multiple different versions of crate `etalon` in the dependency graph
+   --> C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\queue.rs:16:1
+    |
+ 16 | pub struct Queue {
+    | ---------------- this is the found type
+    |
+   ::: C:\Users\tim_h\.cargo\git\checkouts\etalon-853ee32392c1daca\ed0b671\etalon\src\api\queue.rs:16:1
+    |
+ 16 | pub struct Queue {
+    | ^^^^^^^^^^^^^^^^ this is the expected type
+    = help: you can use `cargo tree` to explore your dependency tree
+
+error[E0277]: the trait bound `M64Header: NoUninit` is not satisfied
+   --> C:\github\qualiaDB\crates\qualia-geospatial\src\geotiff.rs:156:59
+    |
+156 |     out[..header_size].copy_from_slice(bytemuck::bytes_of(&header));
+    |                                        ------------------ ^^^^^^^ the trait `Pod` is not implemented for `M64Header`
+    |                                        |
+    |                                        required by a bound introduced by this call
+    |
+note: there are multiple different versions of crate `bytemuck` in the dependency graph
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ----------------------------------------------- this is the found trait
+    |
+   ::: C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this is the expected trait
+    = help: you can use `cargo tree` to explore your dependency tree
+    = help: the following other types implement trait `Pod`:
+              ()
+              ManuallyDrop<T>
+              Option<T>
+              PhantomData<T>
+              PhantomPinned
+              Wrapping<T>
+              [T; N]
+              __m128
+            and 19 others
+    = note: required for `M64Header` to implement `NoUninit`
+note: required by a bound in `bytes_of`
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\lib.rs:284:20
+    |
+284 | pub fn bytes_of<T: NoUninit>(t: &T) -> &[u8] {
+    |                    ^^^^^^^^ required by this bound in `bytes_of`
+
+error[E0277]: the trait bound `M64ChunkDirectoryEntry: NoUninit` is not satisfied
+   --> C:\github\qualiaDB\crates\qualia-geospatial\src\geotiff.rs:189:93
+    |
+189 |             out[entry_dest..entry_dest + dir_entry_size].copy_from_slice(bytemuck::bytes_of(&dir_entry));
+    |                                                                          ------------------ ^^^^^^^^^^ the trait `Pod` is not implemented for `M64ChunkDirectoryEntry`
+    |                                                                          |
+    |                                                                          required by a bound introduced by this call
+    |
+note: there are multiple different versions of crate `bytemuck` in the dependency graph
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ----------------------------------------------- this is the found trait
+    |
+   ::: C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this is the expected trait
+    = help: you can use `cargo tree` to explore your dependency tree
+    = help: the following other types implement trait `Pod`:
+              ()
+              ManuallyDrop<T>
+              Option<T>
+              PhantomData<T>
+              PhantomPinned
+              Wrapping<T>
+              [T; N]
+              __m128
+            and 19 others
+    = note: required for `M64ChunkDirectoryEntry` to implement `NoUninit`
+note: required by a bound in `bytes_of`
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\lib.rs:284:20
+    |
+284 | pub fn bytes_of<T: NoUninit>(t: &T) -> &[u8] {
+    |                    ^^^^^^^^ required by this bound in `bytes_of`
+
+error[E0277]: the trait bound `M64StrataColumnRecord: NoUninit` is not satisfied
+   --> C:\github\qualiaDB\crates\qualia-geospatial\src\geotiff.rs:203:94
+    |
+203 |                     out[rec_dest..rec_dest + record_size].copy_from_slice(bytemuck::bytes_of(&record));
+    |                                                                           ------------------ ^^^^^^^ the trait `Pod` is not implemented for `M64StrataColumnRecord`
+    |                                                                           |
+    |                                                                           required by a bound introduced by this call
+    |
+note: there are multiple different versions of crate `bytemuck` in the dependency graph
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ----------------------------------------------- this is the found trait
+    |
+   ::: C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this is the expected trait
+    = help: you can use `cargo tree` to explore your dependency tree
+    = help: the following other types implement trait `Pod`:
+              ()
+              ManuallyDrop<T>
+              Option<T>
+              PhantomData<T>
+              PhantomPinned
+              Wrapping<T>
+              [T; N]
+              __m128
+            and 19 others
+    = note: required for `M64StrataColumnRecord` to implement `NoUninit`
+note: required by a bound in `bytes_of`
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\lib.rs:284:20
+    |
+284 | pub fn bytes_of<T: NoUninit>(t: &T) -> &[u8] {
+    |                    ^^^^^^^^ required by this bound in `bytes_of`
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\poet_preview.rs:32:65
+    |
+ 32 |         let value = match snapshot.invoke_id(ids::RENDER_SCENE, Value::Record(args)) {
+    |                                    ---------                    ^^^^^^^^^^^^^^^^^^^ expected `vibe::value::Value`, found `vibe::Value`
+    |                                    |
+    |                                    arguments to this method are incorrect
+    |
+note: there are multiple different versions of crate `vibe` in the dependency graph
+   --> crates\vibe\src\value.rs:422:0
+    |
+    = note: this is the expected type
+    |
+   ::: C:\github\qualiaDB\crates\vibe\src\value.rs:422:1
+    |
+422 | pub enum Value {
+    | -------------- this is the found type
+    = help: you can use `cargo tree` to explore your dependency tree
+note: method defined here
+   --> crates\qualia-core-db\src\poet_host\mod.rs:699:11
+
+error[E0308]: mismatched types
+   --> C:\github\qualiaDB\crates\webizen-render\src\poet_preview.rs:49:38
+    |
+ 49 |         let scene = scene_from_value(&value);
+    |                     ---------------- ^^^^^^ expected `vibe::Value`, found `vibe::value::Value`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: there are multiple different versions of crate `vibe` in the dependency graph
+   --> C:\github\qualiaDB\crates\vibe\src\value.rs:422:1
+    |
+422 | pub enum Value {
+    | ^^^^^^^^^^^^^^ this is the expected type
+   --> crates\vibe\src\value.rs:422:0
+    |
+    = note: this is the found type
+    = help: you can use `cargo tree` to explore your dependency tree
+note: function defined here
+   --> C:\github\qualiaDB\crates\webizen-render\src\poet_preview.rs:98:8
+    |
+ 98 | pub fn scene_from_value(value: &Value) -> RenderScene {
+    |        ^^^^^^^^^^^^^^^^ -------------
+
+error[E0277]: the trait bound `M64Header: NoUninit` is not satisfied
+   --> C:\github\qualiaDB\crates\qualia-geospatial\src\raster_m64\writer.rs:65:50
+    |
+ 65 |     out[..64].copy_from_slice(bytemuck::bytes_of(&header));
+    |                               ------------------ ^^^^^^^ the trait `Pod` is not implemented for `M64Header`
+    |                               |
+    |                               required by a bound introduced by this call
+    |
+note: there are multiple different versions of crate `bytemuck` in the dependency graph
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ----------------------------------------------- this is the found trait
+    |
+   ::: C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this is the expected trait
+    = help: you can use `cargo tree` to explore your dependency tree
+    = help: the following other types implement trait `Pod`:
+              ()
+              ManuallyDrop<T>
+              Option<T>
+              PhantomData<T>
+              PhantomPinned
+              Wrapping<T>
+              [T; N]
+              __m128
+            and 19 others
+    = note: required for `M64Header` to implement `NoUninit`
+note: required by a bound in `bytes_of`
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\lib.rs:284:20
+    |
+284 | pub fn bytes_of<T: NoUninit>(t: &T) -> &[u8] {
+    |                    ^^^^^^^^ required by this bound in `bytes_of`
+
+error[E0277]: the trait bound `M64ChunkDirectoryEntry: NoUninit` is not satisfied
+   --> C:\github\qualiaDB\crates\qualia-geospatial\src\raster_m64\writer.rs:89:90
+    |
+ 89 |         out[192 + chunk * 64..192 + (chunk + 1) * 64].copy_from_slice(bytemuck::bytes_of(&entry));
+    |                                                                       ------------------ ^^^^^^ the trait `Pod` is not implemented for `M64ChunkDirectoryEntry`
+    |                                                                       |
+    |                                                                       required by a bound introduced by this call
+    |
+note: there are multiple different versions of crate `bytemuck` in the dependency graph
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ----------------------------------------------- this is the found trait
+    |
+   ::: C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\pod.rs:37:1
+    |
+ 37 | pub unsafe trait Pod: Zeroable + Copy + 'static {}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this is the expected trait
+    = help: you can use `cargo tree` to explore your dependency tree
+    = help: the following other types implement trait `Pod`:
+              ()
+              ManuallyDrop<T>
+              Option<T>
+              PhantomData<T>
+              PhantomPinned
+              Wrapping<T>
+              [T; N]
+              __m128
+            and 19 others
+    = note: required for `M64ChunkDirectoryEntry` to implement `NoUninit`
+note: required by a bound in `bytes_of`
+   --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\lib.rs:284:20
+    |
+284 | pub fn bytes_of<T: NoUninit>(t: &T) -> &[u8] {
+    |                    ^^^^^^^^ required by this bound in `bytes_of`
+
+error[E0599]: no associated function or constant named `zeroed` found for struct `M64StrataColumnRecord` in the current scope
+  --> C:\github\qualiaDB\crates\qualia-geospatial\src\raster_m64\writer.rs:94:52
+   |
+94 |             let mut value = M64StrataColumnRecord::zeroed();
+   |                                                    ^^^^^^ associated function or constant not found in `M64StrataColumnRecord`
+   |
+note: there are multiple different versions of crate `bytemuck` in the dependency graph
+  --> C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\zeroable.rs:25:1
+   |
+25 | pub unsafe trait Zeroable: Sized {
+   | -------------------------------- this is the trait that was imported
+   |
+  ::: C:\Users\tim_h\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bytemuck-1.25.2\src\zeroable.rs:25:1
+   |
+25 | pub unsafe trait Zeroable: Sized {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this is the expected trait
+   = help: you can use `cargo tree` to explore your dependency tree
+
+Some errors have detailed explanations: E0277, E0599.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `qualia-geospatial` (lib) due to 6 previous errors
+warning: build failed, waiting for other jobs to finish...
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `webizen-render` (lib) due to 12 previous errors

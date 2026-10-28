@@ -1,0 +1,20 @@
+{
+  "state": "staged; Rust syntax parsed; no compile or execution",
+  "new_file": {
+    "staged": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-composed-test/native_project_rig_tests.rs",
+    "destination": "C:/github/poet/native/src/graphical/native_project_rig_tests.rs",
+    "sha256": "a87296da70c5206aa75266ab01c5d7139a2620f5177941663bfaf3ab92ec559f"
+  },
+  "registration": {
+    "path": "C:/github/poet/native/src/graphical/native_project_tests.rs",
+    "preimage_sha256": "404a19e5f4c5b0cea442afdba2a5d9cabb69afa06d903ddbfe38d8b1d935be62",
+    "append": "#[path = \"native_project_rig_tests.rs\"]\nmod rig_composed_tests;"
+  },
+  "suggested_filter": "signed_native_rig_selection_edit_refusals_and_fresh_checkpoint_reopen",
+  "limits": [
+    "Signed software fixture only; no human/domain acceptance",
+    "Fixture preview calls real checked rig admission but does not exercise retained GPU viewport, mounted UI, or actual per-request mid-read cancellation",
+    "Proposed test not compiled or executed",
+    "Fresh-process child must actually run and create witness marker"
+  ]
+}

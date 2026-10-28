@@ -1,0 +1,30 @@
+{
+  "schema": "ecopunk.supplemental-poet-compile-followup/v1",
+  "scope": "Restore cfg(test)-only snapshot compatibility and correct the exact Signal/UI mutability sites; no production API widening or budget changes",
+  "patches": [
+    {
+      "target": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\native_project_motion_tests.rs",
+      "before_sha256": "9372cbdd335d15d231bf0e7c67ba41bb7041c2070dd0ef344e247d13e4c49ce7",
+      "after_sha256": "570ab96b877e7a61764378f899c6d2e7c8b336665d9717720992e6a11c20477b"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport_controls.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\viewport_controls.rs",
+      "before_sha256": "85f80868fef53bd09ec8128e5d8861fc080a1077390db31aa13741f467f99fda",
+      "after_sha256": "53ec22fb13383d3448632354d4601084bbca8c30572ad48aebff70f5a63202bc"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/source_layers/mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\authoring\\source_layers\\mod.rs",
+      "before_sha256": "1fb4627705f62a9a5f868493ac99c68cf9f3b51a605b8a19341c03bab5f4ec2a",
+      "after_sha256": "ef11805923beaa6bde08fa9839cb9a8c47567c4094aa38db47916ff51a6d5407"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/source_layers/snapshot.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\authoring\\source_layers\\snapshot.rs",
+      "before_sha256": "1fec557170dbdee5684fefd97d35ffe5e5c02cb9ce15b6383b1a5788d65b08d3",
+      "after_sha256": "7995b9fade8a59f9d90b53ecae6661286bb5e25a2bea8d5e6f29c57bccbb33ed"
+    }
+  ]
+}

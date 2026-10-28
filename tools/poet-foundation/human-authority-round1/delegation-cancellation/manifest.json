@@ -1,0 +1,42 @@
+{
+  "scope": "Persist verified root cancellation of an exact signed chain edge and consume it in current NativeAuthority candidate inspection",
+  "state": "staged, parser only; not compiled or executed",
+  "files": [
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/journal.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/journal.rs.after",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/journal.rs.before",
+      "before_sha256": "480e5af0364855e0ded62e44ac905d4ae4b42e824f35fc51f332e041a7f26b1f",
+      "after_sha256": "a5c98e2caa4ee3d19200e288dfbe3785a5b632936d3dbdc9ce777fb08c6747b3"
+    },
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/mod.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/mod.rs.after",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/mod.rs.before",
+      "before_sha256": "884602ab61b6137186eccac3aacec87d98e1bc3e39068b6a5f1755d26cb3bdaa",
+      "after_sha256": "842cb86f1ab088c5fbdff8d4b6f5d5cb802cef98c7f04d6c57bd537701880628"
+    },
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/delegation/inspection.rs.after",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/delegation/inspection.rs.before",
+      "before_sha256": "ea1a9c6adbec8b167a4b64db2611fa63158640531ff6fa4594bcc331445faaf0",
+      "after_sha256": "970f69296e0d32f06bc5d5eaf51de479d9696f347f6745ec6a9ca147522404f1"
+    },
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/delegation/tests.rs.after",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-cancellation/delegation/tests.rs.before",
+      "before_sha256": "7f00f522874003352fbd0663746b88a23c51d283571f7f240419b5d154c7733f",
+      "after_sha256": "2c043066bd7128030583267b44e132cc2325b37aa362a7ae7f5cc12e8831442e"
+    }
+  ],
+  "limitations": [
+    "No delegation adoption, leaf login, operational dispatch or human identity established",
+    "Reader handles older journal entries via serde default; older binaries cannot read newly extended nonempty records",
+    "Cancellation only accepts an unexpired currently verifiable signed chain; expired or revoked admission cases are not a general revocation recovery UX",
+    "No UI caller added; existing candidate inspector is actual consumer",
+    "No Cargo run; no source changes applied"
+  ],
+  "suggested_test": "cargo test --locked --offline -p qualia-core-db --lib delegation::tests --target-dir C:/github/ecopunk/target"
+}

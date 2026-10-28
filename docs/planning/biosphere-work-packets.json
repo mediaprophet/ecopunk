@@ -509,7 +509,7 @@
       }
     }
   ],
-  "current_mode": "awaiting_vibe_poet_update_notification_independent_preparation_active",
+  "current_mode": "native_controller_rights_cooperation_round1_verification",
   "status_vocabulary": {
     "research_ready": "May perform the named read-only study and write only assigned documents under current user direction.",
     "research_working": "A named agent is actually working; handoff records scope/process.",
@@ -2043,5 +2043,247 @@
     },
     "code_and_build_resume": "After Timothy readiness notice, recheck current capability/API owners before source changes and serial checks",
     "asset_production": "HOLD"
+  },
+  "post_update_qualification": {
+    "date": "2026-10-27",
+    "authority": "Timothy confirmed major VibeScript/related updates done and authorised testing",
+    "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md",
+    "state": "selected_software_repairs_verified_operator_and_model_gates_open",
+    "coordinator": "/root",
+    "cargo_policy": "Serial lease, offline/locked, no duplicate native library run",
+    "asset_production": "HOLD",
+    "human_operator_trial_executed": false,
+    "findings": [
+      {
+        "id": "VQ-01",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe effect/catalogue owner",
+        "governing_work": [
+          "VIBE-03",
+          "REQ-VIBE-007"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Pure checker acceptance of task.spawn; registry mutation established separately by source.",
+        "initial_state": "unmet_negative_criterion",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-02",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe scheduler/native host owner",
+        "governing_work": [
+          "VIBE-03",
+          "VIBE-05",
+          "AUTH-H3"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Integer status exposes another synthetic environment result; no human/NativeAuthority bypass claimed.",
+        "initial_state": "reproduced_public_api_isolation_gap",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-03",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe evaluator/bytecode/host owner",
+        "governing_work": [
+          "VIBE-05",
+          "VIBE-09"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "AST await and explicit task.await differ on caller environment.",
+        "initial_state": "reproduced_context_difference",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-04",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe task lifecycle owner",
+        "governing_work": [
+          "VIBE-05"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Own completed task reawait with supplied timeout flag refuses committed result.",
+        "initial_state": "reproduced_terminal_outcome_refusal",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-05",
+        "state": "truthful_refusal_and_integrity_verified_proof_provider_open",
+        "owner": "Vibe crypto/descriptor catalogue owner",
+        "governing_work": [
+          "VIBE-03",
+          "REQ-VIBE-022"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Commitment registration verifies without evaluating predicate truth; no cryptographic ZK-break claim.",
+        "initial_state": "unmet_predicate_semantics_criterion",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-06",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe content-addressing owner",
+        "governing_work": [
+          "VIBE-09"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Changed candidate source refused; not full package/dependency/remote qualification.",
+        "initial_state": "passed_scoped",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-07",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe deontic runtime/performance owner",
+        "governing_work": [
+          "REQ-VIBE-008",
+          "VIBE-11"
+        ],
+        "evidence": "vibe-repaired-package-attempt4.json",
+        "scope": "Strict <1000ns hard-stop timing:1000ns initial,1100ns isolated. Threshold unchanged; cause not established.",
+        "initial_state": "failed_debug_timing_twice",
+        "initial_evidence": "vibe-package.log; vibe-timing-isolated.log"
+      }
+    ],
+    "implementation_authority": "Timothy requested resolving problems through code for an excellent error and warning free solution",
+    "repair_tracks": [
+      {
+        "owner": "qualification_runtime_recheck",
+        "scope": "Vibe task scope/context/effects/terminal ownership; no shared manifests",
+        "staging": "tools/poet-foundation/post-update-qualification/repairs/runtime",
+        "status": "saved_and_verified_scoped",
+        "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md"
+      },
+      {
+        "owner": "qualification_poet_compatibility",
+        "scope": "Core store stamp contention and native intent/source vs preview status",
+        "staging": "tools/poet-foundation/post-update-qualification/repairs/store",
+        "status": "saved_and_verified_scoped",
+        "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md"
+      },
+      {
+        "owner": "qualification_test_map",
+        "scope": "Deontic timing, truthful predicate/commitment API, selected compiler warnings",
+        "staging": "tools/poet-foundation/post-update-qualification/repairs/quality",
+        "status": "saved_and_verified_scoped",
+        "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md"
+      }
+    ],
+    "verified_runtime": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/vibe-repaired-package-attempt4.json",
+      "unit_passed": 1020,
+      "integration_passed": 269,
+      "compiler_warnings": 0
+    },
+    "verified_core": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/core-publication-executed.json",
+      "passed": 52,
+      "failed": 0,
+      "compiler_warnings": 0,
+      "other_core_cases_filtered": 9864
+    },
+    "remaining_limits": [
+      "Synchronous local AST tasks; no asynchronous suspension or remote/provider qualification",
+      "Unsupported ZK APIs refuse; an admitted proof provider remains open",
+      "Runtime scope is not human-principal delegation or AUTH-H2-H6 acceptance",
+      "Legacy invalid cached bytecode requires regeneration from preserved source",
+      "Native operator/human acceptance and IP-03 C1-C8 remain open"
+    ],
+    "verified_native": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/poet-native-repaired-attempt3.json",
+      "passed": 399,
+      "failed": 0,
+      "ignored": 13,
+      "compiler_warnings": 0,
+      "library_test_execution": "normal parallel"
+    },
+    "verified_gpu": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/poet-native-gpu-executed.json",
+      "workflows_passed": 1,
+      "compiler_warnings": 0,
+      "fresh_process_reopen": true,
+      "parent_final_and_child_png_identical": true
+    },
+    "final_summary": "docs/qa/implementation-2026-10-27/post-update-qualification/verified-summary.json",
+    "future_dispatch_rules": [
+      "Lower-cost workers: inventories, evidence mapping and narrowly specified mechanical edits; root reviews all saved candidates",
+      "Stronger runtime/UI workers: effect and capability semantics, concurrency/lifetimes, API schemas, cfg-dependent Rust behavior and full call-site/test review",
+      "Review an entire affected fixture before a build; keep applied manifests immutable and use a new follow-up receipt",
+      "One coordinator owns canonical saves and serial Cargo; zero-test selection and compiler warnings cannot qualify a test run"
+    ],
+    "first_output_gate_scope": "Retain governing IP-03/operator and human-authority acceptance; do not automatically add unrelated later async, provider or proof expansion as a first-output requirement"
+  },
+  "native_controller_rights_round1": {
+    "date": "2026-10-27",
+    "authority": "Timothy requested remaining native contributor/reviewer and human-agent authority work plus current asset-production blocker audit",
+    "state": "saved_shared_policy_verified_core_and_native_pending",
+    "human_verification_dependency_correction": "No new personhood/provider service is a prerequisite to direct project/controller-admitted authoring; delegation requirements apply to the route relying on them",
+    "asset_production": "HOLD",
+    "evidence": "docs/qa/implementation-2026-10-27/human-authority-round1/README.md",
+    "blocker_audit": "docs/qa/implementation-2026-10-27/human-authority-round1/asset-production-blockers.md",
+    "blocker_register": "docs/qa/implementation-2026-10-27/human-authority-round1/blocker-register.json",
+    "saved_manifest": "tools/poet-foundation/human-authority-round1/reviewed-round-manifest.installed.json",
+    "canonical_paths": 27,
+    "shared_policy_tests": {
+      "record": "cooperative-delegation.json",
+      "passed": 143,
+      "failed": 0,
+      "compiler_warnings": 0
+    },
+    "selected_work": [
+      {
+        "ids": [
+          "AUTH-H2-V2",
+          "AUTH-H3",
+          "AUTH-H5"
+        ],
+        "scope": "signed controller-delegation candidate inspection and honest attribution; no durable adopted delegated-session or effect authority claim",
+        "status": "saved_core_verification_pending"
+      },
+      {
+        "ids": [
+          "AUTH-H3-V1"
+        ],
+        "scope": "QDNF issue-time scope/operation/validity-start/per-permit ceiling; native immutable-session binding uses bounded install",
+        "status": "saved_core_verification_pending"
+      },
+      {
+        "ids": [
+          "IP-03 C4",
+          "IP-03 C8"
+        ],
+        "scope": "native exact-source/package contribution and pending-request controls; human usability acceptance remains separate",
+        "status": "saved_native_verification_pending"
+      }
+    ],
+    "next_scope_limits": [
+      "Durable delegation adoption/revocation, delegated leaf authentication and commit/publication dispatch remain open",
+      "Known-control conflict detection is not proof of independent humans or adopted review enforcement",
+      "Per-permit ceilings are not shared aggregate budget consumption",
+      "Missing human/domain acceptance is not proof that direct authoring is technically impossible"
+    ],
+    "agents": [
+      {
+        "role": "shared runtime/authority implementation",
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      {
+        "role": "native cooperation controls and independent QDNF review",
+        "model": "gpt-6.1-sol",
+        "effort": "medium"
+      },
+      {
+        "role": "source/evidence blocker inventory",
+        "model": "gpt-6-luna",
+        "effort": "medium"
+      }
+    ],
+    "coordinator_only": [
+      "canonical integration and saves",
+      "shared module/Cargo/lock changes",
+      "serial Cargo checks and evidence",
+      "review before completion claims"
+    ]
   }
 }

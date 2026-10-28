@@ -1,0 +1,18 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 10m 40s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-c90abe74ab5c9ced.exe)
+
+running 6 tests
+test graphical::indexed_tetra_public_tests::tests::blended_three_arm_constant_radius_field_is_indexed_and_closed_for_fixture ... ok
+test graphical::indexed_tetra_public_tests::tests::checked_dimensions_and_short_buffers_refuse_without_writes ... ok
+test graphical::indexed_tetra_public_tests::tests::exact_zero_and_inside_boundary_refuse_before_touching_outputs ... ok
+test graphical::indexed_tetra_public_tests::tests::public_extractor_refuses_empty_numerical_collapse_and_probe_exhaustion ... ok
+test graphical::indexed_tetra_public_tests::tests::public_nonfinite_inputs_refuse_without_touching_caller_storage ... ok
+test graphical::indexed_tetra_public_tests::tests::shared_edge_sphere_is_closed_connected_and_deterministic ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 403 filtered out; finished in 0.03s
+

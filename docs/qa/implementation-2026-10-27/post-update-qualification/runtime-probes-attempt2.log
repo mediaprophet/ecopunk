@@ -1,0 +1,38 @@
+
+running 6 tests
+test actual_digest_verification_rejects_changed_source ... ok
+test completed_task_must_not_be_rewritten_by_a_caller_timeout_flag ... 
+thread 'completed_task_must_not_be_rewritten_by_a_caller_timeout_flag' (16080) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:61:5:
+caller flag replaced the completed outcome: Err(Diagnostic { code: E400, span: Span { start: 2, end: 19 }, message: "await: task 1 timed out in scheduler", suggested_fix: Some("add budget(steps: N) or a loop bound"), evidential: None })
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test explicit_await_must_preserve_the_same_environment_as_syntax_await ... 
+thread 'explicit_await_must_preserve_the_same_environment_as_syntax_await' (22280) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:47:5:
+explicit task.await lost the caller environment: Err(Diagnostic { code: E600, span: Span { start: 2, end: 13 }, message: "undefined probe_input", suggested_fix: None, evidential: None })
+FAILED
+test numeric_task_id_must_not_disclose_another_environment_result ... 
+thread 'numeric_task_id_must_not_disclose_another_environment_result' (26160) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:32:9:
+assertion `left != right` failed: integer-only lookup disclosed another environment's stored result
+  left: Some(I64(42))
+ right: Some(I64(42))
+FAILED
+test pure_source_must_reject_task_spawn ... 
+thread 'pure_source_must_reject_task_spawn' (16360) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:16:5:
+pure checker accepted a task-registry mutation
+FAILED
+test unchecked_named_predicate_must_not_be_reported_as_a_verified_proof ... 
+thread 'unchecked_named_predicate_must_not_be_reported_as_a_verified_proof' (19628) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:69:5:
+an unevaluated false predicate was accepted as verified
+FAILED
+
+failures:
+
+failures:
+    completed_task_must_not_be_rewritten_by_a_caller_timeout_flag
+    explicit_await_must_preserve_the_same_environment_as_syntax_await
+    numeric_task_id_must_not_disclose_another_environment_result
+    pure_source_must_reject_task_spawn
+    unchecked_named_predicate_must_not_be_reported_as_a_verified_proof
+
+test result: FAILED. 1 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+

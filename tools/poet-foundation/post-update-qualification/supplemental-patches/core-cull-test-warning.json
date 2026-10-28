@@ -1,0 +1,12 @@
+{
+  "patches": [
+    {
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\quality-core-cull-warning\\indirect_cull.candidate.rs",
+      "reason": "Remove the unused view-projection local from hzb_depth_pyramid_occludes_hidden_instances_zero_heap; the test constructs and uses vp_depth below.",
+      "after_sha256": "53adc251c2cf6eb92a24f251d918c5395ee95291e62689987ae3a4987c123412",
+      "before_sha256": "5e27960b5dc4b45c6330049f081b189ef6eeca792a7dafc7ea2e96163cb474e1",
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\gpu\\indirect_cull.rs"
+    }
+  ],
+  "schema": "ecopunk.supplemental-core-cull-test-warning/v1"
+}

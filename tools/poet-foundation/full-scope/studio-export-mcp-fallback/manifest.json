@@ -1,0 +1,23 @@
+{
+  "status": "staged; uncompiled and untested",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/tools/poet.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/studio-export-mcp-fallback/poet.rs",
+      "preimage_sha256": "de45c84f85aeb8d796b2e92ae16249a60ba953c50b30f7a7e6ba092d71ffaa75",
+      "candidate_sha256": "142f5a72e6889eac6b373f51fd52175a845c7ece5660bb7e53615644b0a08301"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/tools/poet_export_tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/studio-export-mcp-fallback/poet_export_tests.rs",
+      "preimage": "absent",
+      "candidate_sha256": "0c15ad98f2af57f5e39dc8123ab37e10166d8e7b3d924d9545de3d6461382561"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-mcp/src/tools/poet_export.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/studio-export-mcp-fallback/poet_export.rs",
+      "preimage": "absent",
+      "candidate_sha256": "ff39c40f06086b585b8425265237d8100676791078ee70be1b1f4e45363df9c3"
+    }
+  ]
+}

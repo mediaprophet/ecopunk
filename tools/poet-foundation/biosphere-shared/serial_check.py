@@ -12,10 +12,21 @@ import sys
 import tempfile
 import uuid
 from datetime import datetime, timezone
+from importlib.util import module_from_spec, spec_from_file_location
+
+_budget_spec = spec_from_file_location("ecopunk_build_disk_budget", Path(__file__).with_name("disk_budget.py"))
+if _budget_spec is None or _budget_spec.loader is None:
+    raise RuntimeError("disk budget module unavailable; Cargo must not start")
+_disk_budget = module_from_spec(_budget_spec)
+_budget_spec.loader.exec_module(_disk_budget)
+require_start_space = _disk_budget.require_start_space
+wait_with_disk_budget = _disk_budget.wait_with_disk_budget
 
 ROOT = Path("C:/github/ecopunk")
 LEASE = ROOT / "target/coordination/native-check.lock"
 TARGET = ROOT / "target"
+POET_WORKSPACE = Path("C:/github/poet")
+
 
 
 def now_utc():
@@ -66,19 +77,51 @@ def release(path, lease_uuid):
         return False
 
 
-def check_command(command):
+def check_command(command, cwd=None):
+    # The Core multi-crate-type output is un-hashed. Different workspace or
+    # feature graphs can overwrite it while retaining separate fingerprints.
+    # This helper reserves its one target for the known Poet native closure.
     if not command or Path(command[0]).name.lower() not in ("cargo", "cargo.exe"):
         raise ValueError("first command must be cargo")
-    if "--locked" not in command or "--offline" not in command:
+    invocation_cwd = Path.cwd() if cwd is None else Path(cwd)
+    if normalized(invocation_cwd) != normalized(POET_WORKSPACE):
+        raise ValueError("this shared target is reserved for C:/github/poet; Qualia checks require a separate guarded isolated-target workflow")
+    cargo_args = command[1:command.index("--")] if "--" in command else command[1:]
+    if not cargo_args or cargo_args[0] not in ("build", "check", "test"):
+        raise ValueError("shared target permits only cargo build, check or test")
+    if "--locked" not in cargo_args or "--offline" not in cargo_args:
         raise ValueError("command must include --locked and --offline")
-    target_arg = None
-    for i, arg in enumerate(command):
-        if arg == "--target-dir" and i + 1 < len(command):
-            target_arg = command[i + 1]
-        elif arg.startswith("--target-dir="):
-            target_arg = arg.split("=", 1)[1]
-    if target_arg is None or normalized(target_arg) != normalized(TARGET):
-        raise ValueError("--target-dir must be C:/github/ecopunk/target")
+    disallowed = ("--config", "--all-features", "--no-default-features", "--workspace", "--all", "--exclude")
+    for arg in cargo_args:
+        if any(arg == flag or arg.startswith(flag + "=") for flag in disallowed) or arg.startswith("-F"):
+            raise ValueError("workspace/feature overrides require a separate guarded isolated-target workflow")
+    targets, packages, features, manifests = [], [], [], []
+    i = 0
+    while i < len(cargo_args):
+        arg = cargo_args[i]
+        if arg in ("--target-dir", "-p", "--package", "--features", "--manifest-path"):
+            if i + 1 >= len(cargo_args):
+                raise ValueError("missing cargo option value")
+            value = cargo_args[i + 1]
+            if arg == "--target-dir": targets.append(value)
+            elif arg in ("-p", "--package"): packages.append(value)
+            elif arg == "--manifest-path": manifests.append(value)
+            else: features.append(value)
+            i += 2
+            continue
+        if arg.startswith("--target-dir="): targets.append(arg.split("=", 1)[1])
+        elif arg.startswith("--package="): packages.append(arg.split("=", 1)[1])
+        elif arg.startswith("--features="): features.append(arg.split("=", 1)[1])
+        elif arg.startswith("--manifest-path="): manifests.append(arg.split("=", 1)[1])
+        elif arg.startswith("-p") and arg != "-p":
+            raise ValueError("use an explicit -p poet-cli package selection")
+        i += 1
+    if len(targets) != 1 or normalized(targets[0]) != normalized(TARGET):
+        raise ValueError("this helper supports only one --target-dir C:/github/ecopunk/target; other targets require a separate guarded workflow")
+    if len(manifests) > 1 or (manifests and normalized(invocation_cwd / manifests[0]) != normalized(POET_WORKSPACE / "Cargo.toml")):
+        raise ValueError("shared target only accepts C:/github/poet/Cargo.toml")
+    if packages != ["poet-cli"] or features != ["native-graphical"]:
+        raise ValueError("shared target requires -p poet-cli --features native-graphical; other graphs require a separate guarded workflow")
 
 
 def self_test():
@@ -128,6 +171,7 @@ def main(argv):
     if len(before) != 2 or before[0] != "--owner" or not before[1].strip():
         raise ValueError("usage: --owner <packet/coordinator> -- cargo ...")
     check_command(command)
+    require_start_space(ROOT)
     lease = acquire(LEASE, before[1], command)
     if lease is None:
         return 75
@@ -143,7 +187,7 @@ def main(argv):
         child = subprocess.Popen(command, shell=False, env=env)
         lease["child_pid"] = child.pid
         write_lease(LEASE, lease)
-        code = child.wait()
+        code = wait_with_disk_budget(child, ROOT)
     except BaseException:
         # The child may still be running; retain the lease for human/coordinator review.
         raise

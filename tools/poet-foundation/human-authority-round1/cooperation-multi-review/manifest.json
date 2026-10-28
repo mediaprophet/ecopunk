@@ -1,0 +1,33 @@
+{
+  "scope": "Existing source and package review UI multi-decision access; no policy changes",
+  "destination_root": "C:/github/poet/native/src/graphical",
+  "staging_root": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation-multi-review",
+  "files": [
+    {
+      "file": "cooperation_selection.rs",
+      "preimage_sha256": "72886696a539e323fa463203767c354c2fcad0f5e6ed9a57e109c641e9af8d74",
+      "candidate_sha256": "0e17aa652af6621aed0abd9a4a62f0129ee91575461fc6791ddce7fe2bb6fd39"
+    },
+    {
+      "file": "cooperation_selection_tests.rs",
+      "preimage_sha256": "5e970ef76f5814a4ce3bef4974284b1f9fef456bfab29f8a576bed47a8623aa9",
+      "candidate_sha256": "53ebf6742ff10432cb6a9dcacacfdf73838588182eb4fb58db96d5f5e801a871"
+    },
+    {
+      "file": "cooperative_controls.rs",
+      "preimage_sha256": "16e3cd9c9a7820648e3b00fe2e6166f0930aee08bccc36491e21a84754b4476a",
+      "candidate_sha256": "b4a52ddbf0c36a1d8b049833624a640021a02a3d1b86dbe6f36d29c9292405ba"
+    },
+    {
+      "file": "package_review_controls.rs",
+      "preimage_sha256": "e163ddde8848ec4527976724053729ea7728654cf9d4a2503134198fa562a51a",
+      "candidate_sha256": "229029af519df1a497834253bd68601a1aab300ab1b22f68a21f6b78ba93088a"
+    }
+  ],
+  "verification": "Not run; coordinator-only Cargo. Suggested focused native library selector tests plus existing source/package review workflow tests.",
+  "limitations": [
+    "Requires coordinator review and preimage-checked save",
+    "No direct human review or delegated ancestry established",
+    "Current native suite was interrupted in prior round"
+  ]
+}

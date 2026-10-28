@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\qdnf\\owner.rs",
+      "before_sha256": "1bd4f33f33c8348caf5ef35617a677f7c321b53a30feecdf27efa924cae26110",
+      "after_sha256": "93e647cf5fe275700d8f156e057dd14c8a073d117dee806efec80200e9b1e173"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\qdnf\\owner_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "37d664aa260b62bc568aad5f06e58ecdbe41e3d7bdf69afd8e9d646d4734eb90"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\qdnf\\native_session.rs",
+      "before_sha256": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "after_sha256": "f69f25baf1c19ca3d44b245ddc678ce1dcfb784aa948df4abb444469b0f7127d"
+    }
+  ]
+}

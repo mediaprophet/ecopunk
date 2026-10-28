@@ -1,0 +1,153 @@
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+   Compiling bitflags v2.13.2
+   Compiling hashbrown v0.17.1
+   Compiling smallvec v1.16.3
+   Compiling arrayvec v0.7.8
+   Compiling parking_lot_core v0.9.12
+   Compiling indexmap v2.14.2
+   Compiling parking_lot v0.12.5
+   Compiling icu_normalizer v2.3.0
+   Compiling tokio v1.54.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling euclid v0.22.14
+   Compiling uuid v1.28.0
+   Compiling petgraph v0.8.3
+   Compiling spirv v0.4.0+sdk-1.4.341.0
+   Compiling etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling string_cache v0.11.0
+   Compiling polycool v0.4.0
+   Compiling slotmap v1.1.1
+   Compiling kurbo v0.13.1
+   Compiling etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling keyboard-types v0.8.3
+   Compiling serde_json v1.0.154
+   Compiling cssparser v0.38.0
+   Compiling servo_arc v0.5.0
+   Compiling to_shmem v0.6.0
+   Compiling peniko v0.6.1
+   Compiling subsecond-types v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond-types)
+   Compiling png v0.18.1
+   Compiling subsecond v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\subsecond\subsecond)
+   Compiling selectors v0.41.0
+   Compiling etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling generational-box v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\generational-box)
+   Compiling ark-poly v0.6.0
+   Compiling etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling app_units v0.7.8
+   Compiling stylo_malloc_size_of v0.22.0
+   Compiling dioxus-core v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\core)
+   Compiling etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling icu_segmenter v2.3.0
+   Compiling gridcraft-core v0.5.0 (C:\github\poet-gridcraft\crates\core)
+   Compiling web_atoms v0.3.0
+   Compiling stylo_atoms v0.22.0
+   Compiling accesskit v0.25.1
+   Compiling hyper v1.12.0
+   Compiling harfrust v0.12.0
+   Compiling hyper-util v0.1.21
+   Compiling fontique v0.12.0
+   Compiling num-bigint-dig v0.9.1
+   Compiling stylo_traits v0.22.0
+   Compiling dioxus-signals v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\signals)
+   Compiling tower v0.5.3
+   Compiling stylo_dom v0.22.0
+   Compiling ark-ec v0.6.0
+   Compiling ark-relations v0.6.0
+   Compiling anyrender v0.14.0
+   Compiling tokio-util v0.7.20
+   Compiling uluru v3.1.0
+   Compiling raw-cpuid v11.6.0
+   Compiling image v0.25.10
+   Compiling pulp v0.22.3
+   Compiling stylo v0.22.0
+   Compiling fontdb v0.24.0
+   Compiling parley_engine v0.12.0
+   Compiling ark-snark v0.6.0
+   Compiling fhe-util v0.1.1
+   Compiling ciborium v0.2.2
+   Compiling tokio-rustls v0.26.6
+   Compiling gridcraft-formula v0.5.0 (C:\github\poet-gridcraft\crates\formula)
+   Compiling svgtypes v0.16.1
+   Compiling taffy v0.15.0
+   Compiling usvg v0.48.1
+   Compiling blake3 v1.8.7
+   Compiling winit-core v0.31.0-beta.3
+   Compiling fhe-math v0.1.1
+   Compiling ark-crypto-primitives v0.6.0
+   Compiling markup5ever v0.40.0
+   Compiling gridcraft-model v0.5.0 (C:\github\poet-gridcraft\crates\model)
+   Compiling hyper-rustls v0.27.10
+   Compiling qualia-app-contract v0.0.40 (C:\github\qualiaDB\crates\qualia-app-contract)
+   Compiling parley v0.12.0
+   Compiling tokio-tungstenite v0.29.0
+   Compiling tower-http v0.6.11
+   Compiling dioxus-hooks v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\hooks)
+   Compiling serde_urlencoded v0.7.1
+   Compiling blitz-traits v0.3.0-beta.4
+   Compiling gridcraft-functions v0.5.0 (C:\github\poet-gridcraft\crates\functions)
+   Compiling gridcraft-numfmt v0.5.0 (C:\github\poet-gridcraft\crates\numfmt)
+   Compiling guillotiere v0.7.0
+   Compiling num-rational v0.4.2
+   Compiling chrono v0.4.45
+   Compiling serde_path_to_error v0.1.20
+   Compiling stylo_taffy v0.3.0-beta.4
+   Compiling serde_yaml v0.9.34+deprecated
+   Compiling dashmap v6.2.1
+   Compiling blitz-dom v0.3.0-beta.4
+   Compiling tower-http v0.7.1
+   Compiling axum v0.8.9
+   Compiling vello_common v0.3.0
+   Compiling csv v1.4.0
+   Compiling boringtun v0.7.1
+   Compiling dioxus-html v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\html)
+   Compiling qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+   Compiling mp4 v0.14.0
+   Compiling gridcraft-calc v0.5.0 (C:\github\poet-gridcraft\crates\calc)
+   Compiling reqwest v0.13.5
+   Compiling fhe v0.1.1
+   Compiling serde-wasm-bindgen v0.6.5
+   Compiling ark-groth16 v0.6.0
+   Compiling etalon-wgsl-forge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling winit-common v0.31.0-beta.3
+   Compiling ark-bls12-381 v0.6.0
+   Compiling tokio-stream v0.1.19
+   Compiling h2 v0.4.20
+   Compiling accesskit_consumer v0.39.1
+   Compiling etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-wasm v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling serde_bytes v0.11.19
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+   Compiling accesskit_windows v0.35.1
+   Compiling winit-win32 v0.31.0-beta.3
+   Compiling glifo v0.4.0
+   Compiling cfb v0.7.3
+   Compiling softbuffer_window_renderer v0.9.0
+   Compiling infer v0.19.0
+   Compiling vello_cpu v0.3.0
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling winit v0.31.0-beta.3
+   Compiling accesskit_xplat v0.2.1
+   Compiling blitz-paint v0.3.0-beta.4
+   Compiling dioxus-asset-resolver v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\asset-resolver)
+   Compiling dioxus-stores v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\stores)
+   Compiling blitz-shell v0.3.0-beta.4
+   Compiling dioxus-document v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\document)
+   Compiling anyrender_vello_cpu v0.18.0
+   Compiling dioxus-native-dom v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native-dom)
+   Compiling dioxus-history v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\history)
+   Compiling webbrowser v1.2.4
+   Compiling poet-geometry v0.4.0 (C:\github\poet\crates\geometry)
+   Compiling dioxus v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\dioxus)
+   Compiling dioxus-native v0.8.0-alpha.3 (C:\github\rust-app-framework\packages\native)
+   Compiling qualia-mcp v0.0.40 (C:\github\qualiaDB\crates\qualia-mcp)

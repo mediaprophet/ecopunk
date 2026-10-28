@@ -1,0 +1,19 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0433]: cannot find `botanical_session` in `super`
+  --> native\src\graphical\authoring\controller.rs:85:60
+   |
+85 |             let limits = self.host.botanical_limits(super::botanical_session::requires_uv_budget(parts, target))?;
+   |                                                            ^^^^^^^^^^^^^^^^^ could not find `botanical_session` in `super`
+   |
+help: consider importing this module
+   |
+ 2 + use crate::graphical::authoring::botanical_session;
+   |
+help: if you import `botanical_session`, refer to it directly
+   |
+85 -             let limits = self.host.botanical_limits(super::botanical_session::requires_uv_budget(parts, target))?;
+85 +             let limits = self.host.botanical_limits(botanical_session::requires_uv_budget(parts, target))?;
+   |
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `poet-cli` (lib test) due to 1 previous error

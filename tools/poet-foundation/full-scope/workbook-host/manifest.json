@@ -1,0 +1,71 @@
+{
+  "status": "staged; uncompiled and untested; requires engine workbook_p0 module",
+  "files": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\checkpoints\\mod.rs",
+      "candidate_sha256": "72dfab915e3f9fd810ba826b463099ecff227a5698651a67e80459a03b912980",
+      "preimage_sha256": "2483cf764f917545e1a6190571e5ba6ad1c9a6ee0c9c92b870cf4433687e441a"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\checkpoints\\editor.rs",
+      "candidate_sha256": "558d5f566e1e31010369a1afa82ad0a0ebfe715d00b5907edbfd6be9a16f808f",
+      "preimage_sha256": "d945c96856d9f787a8d96a3ca6de67ad92017c917399a82363b2ad7a3a4d5fcf"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\workbook.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\checkpoints\\workbook.rs",
+      "candidate_sha256": "4110ac2f09d5fe48a6a2b4671a63e12441a8e0b583595a73f173938ee3057b5d",
+      "preimage": "absent"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\workbook_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\checkpoints\\workbook_tests.rs",
+      "candidate_sha256": "a59a75c3095e363c1427d6faf97c60b431975ab22de8b137724aca9a8ca10b37",
+      "preimage": "absent"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\cooperation\\editor.rs",
+      "candidate_sha256": "25ad3a268f934f5426d4f68ae3a1e394083925a669347ac5384cbf737cee39a6",
+      "preimage_sha256": "4dc42e31671c04f1531637a37e4f9531747ddc2496f949463b53b401e86244e7"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\cooperation\\tests.rs",
+      "candidate_sha256": "ed363d6b62810957c25352b0db7c9f0d9d3f86f6db350b6a6521a49284c79c63",
+      "preimage_sha256": "b7b3c7ed9e9ba1499e2540cfaad9948cd40d561e61462828699186e9ca596f7d"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\workbook_access_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\cooperation\\workbook_access_tests.rs",
+      "candidate_sha256": "e0b54266d614f435d926386b8df13e6718fe4de65bb1cbcdcc3910c38f22c02c",
+      "preimage": "absent"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\editor_contract.rs",
+      "candidate_sha256": "242fe7d21676077380c8abc2bc1b2dbf2c69178ea152e53f63b05d8c8daa7e84",
+      "preimage_sha256": "9719aea68c7e8ded145289544501ccaa4073ce7c2347c543e5a0bb47cf508550"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\shared_host.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\shared_host.rs",
+      "candidate_sha256": "aad00eaecd470f52accdc119e94d23619776e4a5ac301bfbe37ceafb25c95446",
+      "preimage_sha256": "1736d19a5e5bdbf1eaf0d3d03bc505454b76cfbdcf9ca00edc4b3e8e5a8bc962"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\session_host.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\session_host.rs",
+      "candidate_sha256": "3f8d7956e5eec08f3ef2a67f008ce2454567e4d6bc2e9d07f0dd5a43d4cc5319",
+      "preimage_sha256": "23d3dc9fd67c9a3f559e43527ffab2a56cd29703f7bfd78c0179235246ed348e"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\workbook-host\\package\\mod.rs",
+      "candidate_sha256": "6240aea60d899a75dd429aa33ce0954e462eb842c411234510e0e67ad2eae834",
+      "preimage_sha256": "e001e71ce73c5f43702e895d59af9f6e5bfe3c6447979649924bae5633ff6a15"
+    }
+  ]
+}

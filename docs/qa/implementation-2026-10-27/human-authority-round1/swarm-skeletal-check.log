@@ -1,0 +1,22 @@
+    Finished `test` profile [unoptimized] target(s) in 28.41s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 2 tests
+test graphical::checkpoints::typed_10d::tests::skeletal_inspection_distinguishes_present_absent_and_unassessed ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_selected_package_reports_skeletal_counts_and_preserves_edit_blocker ... FAILED
+
+failures:
+
+---- graphical::checkpoints::typed_10d::tests::typed_10d_selected_package_reports_skeletal_counts_and_preserves_edit_blocker stdout ----
+
+thread 'graphical::checkpoints::typed_10d::tests::typed_10d_selected_package_reports_skeletal_counts_and_preserves_edit_blocker' (30868) panicked at native\src\graphical\checkpoints\typed_10d\tests.rs:297:6:
+called `Result::unwrap()` on an `Err` value: "checkpoint persist did not commit (retry budget exhausted); destination \\\\?\\C:\\Users\\tim_h\\AppData\\Local\\Packages\\sandbox.{2d83f2b0-5948-41c0-83a0-3970f6fe9e84}\\AC\\Temp\\.tmpg7ANRF\\typed.hmc; staged \\\\?\\C:\\Users\\tim_h\\AppData\\Local\\Packages\\sandbox.{2d83f2b0-5948-41c0-83a0-3970f6fe9e84}\\AC\\Temp\\.tmpg7ANRF\\.poet-source-RcILSm; attempts 6; first persist error: Access is denied. (os error 5); last persist error: Access is denied. (os error 5)"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    graphical::checkpoints::typed_10d::tests::typed_10d_selected_package_reports_skeletal_counts_and_preserves_edit_blocker
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 325 filtered out; finished in 0.34s
+
+error: test failed, to rerun pass `-p poet-cli --lib`

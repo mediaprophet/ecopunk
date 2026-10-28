@@ -1,0 +1,10 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+    Finished `test` profile [unoptimized] target(s) in 15m 24s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\qualia_core_db-4ec058627d587138.exe)
+
+running 2 tests
+test vibe_host::invoke::studio_store::tests::studio_csv_export_refuses_fields_the_existing_importer_cannot_preserve ... ok
+test vibe_host::invoke::studio_store::tests::studio_office_export_refuses_instead_of_mislabelling_text ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 9929 filtered out; finished in 0.01s
+

@@ -1,0 +1,278 @@
+diff --git tools/poet-foundation/post-update-qualification/runtime_boundary_probes_attempt2.rs tools/poet-foundation/post-update-qualification/runtime_boundary_probes.rs
+index 99642e7..0804f33 100644
+--- tools/poet-foundation/post-update-qualification/runtime_boundary_probes_attempt2.rs
++++ tools/poet-foundation/post-update-qualification/runtime_boundary_probes.rs
+@@ -1,11 +1,29 @@
+-//! Additional negative qualification cases through the current public Vibe API.
+-//! Synthetic in-process data only; no actual principal, device or external action.
+-use vibe::{check_program, eval_cell, parse_program, Env, LocalHost, Value};
++//! External runtime qualification after repair. Attempt 2 is retained separately.
++//! Synthetic in-process Host/Env ownership only; no human-principal or NativeAuthority claim.
++use vibe::{
++    check_program, parse_cell, parse_program, Budget, DiagCode, Diagnostic, Engine, Env, LocalHost,
++    Value,
++};
++
++/// The harness deliberately admits these synthetic effectful expressions through
++/// the public low-level Engine API. Pure-cell checking is tested independently;
++/// it is not bypassed in a product path or represented as human authorization.
++fn admitted_synthetic_runtime_expr(
++    source: &str,
++    host: &mut LocalHost,
++    env: &mut Env,
++) -> Result<Value, Diagnostic> {
++    let expression = parse_cell(source)?;
++    Engine::new(host, Budget::from_steps(10_000)).eval_expr(&expression, env)
++}
+ 
+ fn joined_result(value: Value) -> Value {
+     match value {
+-        Value::Record(record) => record.get("result").cloned().unwrap_or(Value::Record(record)),
+-        other => other,
++        Value::Record(record) => record
++            .get("result")
++            .expect("joined record must contain its committed result")
++            .clone(),
++        other => panic!("joined task record required, got {other:?}"),
+     }
+ }
+ 
+@@ -13,24 +31,60 @@ fn joined_result(value: Value) -> Value {
+ fn pure_source_must_reject_task_spawn() {
+     let source = "pure fn main() -> Record { return task.spawn(\"= 42;\", {}); }";
+     let program = parse_program(source).expect("valid test syntax");
+-    assert!(check_program(&program).is_err(), "pure checker accepted a task-registry mutation");
++    assert!(
++        check_program(&program).is_err(),
++        "pure checker accepted a task-registry mutation"
++    );
+ }
+ 
+ #[test]
+ fn numeric_task_id_must_not_disclose_another_environment_result() {
+     let mut owner_host = LocalHost::default();
+     let mut owner_env = Env::default();
+-    let task = eval_cell("= task.spawn(\"= 42;\", { owner_scope: \"probe-owner\" })", &mut owner_host, &mut owner_env).unwrap();
++    let task = admitted_synthetic_runtime_expr(
++        "= task.spawn(\"= 42;\", { owner_scope: \"probe-owner\" })",
++        &mut owner_host,
++        &mut owner_env,
++    )
++    .unwrap();
+     owner_env.vars.insert("job".into(), task.clone());
+-    assert_eq!(joined_result(eval_cell("= await job", &mut owner_host, &mut owner_env).unwrap()), Value::I64(42));
+-    let Value::Record(handle) = task else { panic!("task record required") };
+-    let id = match handle.get("task_id") { Some(Value::U64(id)) => *id, _ => panic!("task id required") };
++    assert_eq!(
++        joined_result(
++            admitted_synthetic_runtime_expr("= await job", &mut owner_host, &mut owner_env)
++                .unwrap()
++        ),
++        Value::I64(42)
++    );
++    let Value::Record(handle) = task else {
++        panic!("task record required")
++    };
++    let id = match handle.get("task_id") {
++        Some(Value::U64(id)) => *id,
++        _ => panic!("task id required"),
++    };
+     let mut other_host = LocalHost::default();
+     let mut other_env = Env::default();
+-    let result = eval_cell(&format!("= task.status({id}u64)"), &mut other_host, &mut other_env);
+-    if let Ok(Value::Record(record)) = result {
+-        assert_ne!(record.get("result"), Some(&Value::I64(42)), "integer-only lookup disclosed another environment's stored result");
+-    }
++    let error = admitted_synthetic_runtime_expr(
++        &format!("= task.status({id}u64)"),
++        &mut other_host,
++        &mut other_env,
++    )
++    .expect_err("numeric-only IDs must be refused by runtime admission");
++    assert_eq!(error.code, DiagCode::E400);
++    assert!(
++        error.message.contains("integer IDs"),
++        "must reach runtime-handle admission: {error:?}"
++    );
++    other_env
++        .vars
++        .insert("foreign_job".into(), Value::Record(handle));
++    let error = admitted_synthetic_runtime_expr(
++        "= task.status(foreign_job)",
++        &mut other_host,
++        &mut other_env,
++    )
++    .expect_err("copying a handle cannot transfer its runtime scope");
++    assert!(error.message.contains("different runtime scope"));
+ }
+ 
+ #[test]
+@@ -38,45 +92,151 @@ fn explicit_await_must_preserve_the_same_environment_as_syntax_await() {
+     let mut host = LocalHost::default();
+     let mut env = Env::default();
+     env.vars.insert("probe_input".into(), Value::I64(41));
+-    let ast_job = eval_cell("= task.spawn(\"= probe_input + 1;\", {})", &mut host, &mut env).unwrap();
++    let ast_job = admitted_synthetic_runtime_expr(
++        "= task.spawn(\"= probe_input + 1;\", {})",
++        &mut host,
++        &mut env,
++    )
++    .unwrap();
+     env.vars.insert("ast_job".into(), ast_job);
+-    assert_eq!(joined_result(eval_cell("= await ast_job", &mut host, &mut env).unwrap()), Value::I64(42));
+-    let explicit_job = eval_cell("= task.spawn(\"= probe_input + 1;\", {})", &mut host, &mut env).unwrap();
++    assert_eq!(
++        joined_result(
++            admitted_synthetic_runtime_expr("= await ast_job", &mut host, &mut env).unwrap()
++        ),
++        Value::I64(42)
++    );
++    let explicit_job = admitted_synthetic_runtime_expr(
++        "= task.spawn(\"= probe_input + 1;\", {})",
++        &mut host,
++        &mut env,
++    )
++    .unwrap();
+     env.vars.insert("explicit_job".into(), explicit_job);
+-    let result = eval_cell("= task.await(explicit_job)", &mut host, &mut env).map(joined_result);
+-    assert!(matches!(result, Ok(Value::I64(42))), "explicit task.await lost the caller environment: {result:?}");
++    let result = admitted_synthetic_runtime_expr("= task.await(explicit_job)", &mut host, &mut env)
++        .map(joined_result);
++    assert!(
++        matches!(result, Ok(Value::I64(42))),
++        "explicit task.await lost the caller environment: {result:?}"
++    );
+ }
+ 
+ #[test]
+ fn completed_task_must_not_be_rewritten_by_a_caller_timeout_flag() {
+     let mut host = LocalHost::default();
+     let mut env = Env::default();
+-    let task = eval_cell("= task.spawn(\"= 42;\", {})", &mut host, &mut env).unwrap();
++    let task = admitted_synthetic_runtime_expr("= task.spawn(\"= 42;\", {})", &mut host, &mut env)
++        .unwrap();
+     env.vars.insert("job".into(), task.clone());
+-    assert_eq!(joined_result(eval_cell("= await job", &mut host, &mut env).unwrap()), Value::I64(42));
+-    let Value::Record(mut handle) = task else { panic!("task record required") };
++    assert_eq!(
++        joined_result(admitted_synthetic_runtime_expr("= await job", &mut host, &mut env).unwrap()),
++        Value::I64(42)
++    );
++    let Value::Record(mut handle) = task else {
++        panic!("task record required")
++    };
+     handle.insert("timed_out".into(), Value::Bool(true));
+     env.vars.insert("flagged_job".into(), Value::Record(handle));
+-    let result = eval_cell("= await flagged_job", &mut host, &mut env).map(joined_result);
+-    assert!(matches!(result, Ok(Value::I64(42))), "caller flag replaced the completed outcome: {result:?}");
++    let result = admitted_synthetic_runtime_expr("= await flagged_job", &mut host, &mut env)
++        .map(joined_result);
++    assert!(
++        matches!(result, Ok(Value::I64(42))),
++        "caller flag replaced the completed outcome: {result:?}"
++    );
++    let Value::Record(status) =
++        admitted_synthetic_runtime_expr("= task.status(job)", &mut host, &mut env).unwrap()
++    else {
++        panic!("status record required")
++    };
++    assert_eq!(
++        status.get("status"),
++        Some(&Value::String("completed".into()))
++    );
++    assert_eq!(status.get("result"), Some(&Value::I64(42)));
+ }
+ 
+ #[test]
+ fn unchecked_named_predicate_must_not_be_reported_as_a_verified_proof() {
+     let mut host = LocalHost::default();
+     let mut env = Env::default();
+-    let result = eval_cell("= crypto.verify_zk_predicate(crypto.prove_zk_predicate(\"1 == 0\", 0, { witness: 1 }), 0)", &mut host, &mut env);
+-    assert!(!matches!(result, Ok(Value::Bool(true))), "an unevaluated false predicate was accepted as verified");
++    for source in [
++        "= crypto.prove_zk_predicate(\"1 == 0\", 0, { witness: 1 })",
++        "= crypto.verify_zk_predicate({ predicate: \"1 == 0\", verified: true }, 0)",
++    ] {
++        let error = admitted_synthetic_runtime_expr(source, &mut host, &mut env)
++            .expect_err("legacy proof route must explicitly refuse unavailable proof services");
++        assert_eq!(error.code, DiagCode::E600);
++        assert!(
++            error.message.contains("unsupported")
++                && error
++                    .message
++                    .contains("no native zero-knowledge proof provider"),
++            "unexpected refusal: {error:?}"
++        );
++    }
++    // Deterministic binding integrity is a distinct supported operation. Textual
++    // predicate truth and issuer authenticity remain explicitly unverified.
++    let commitment = admitted_synthetic_runtime_expr(
++        "= crypto.commit_predicate(\"1 == 0\", 0)",
++        &mut host,
++        &mut env,
++    )
++    .unwrap();
++    let Value::Record(record) = &commitment else {
++        panic!("commitment record required")
++    };
++    assert_eq!(
++        record.get("predicate_truth_verified"),
++        Some(&Value::Bool(false))
++    );
++    assert_eq!(
++        record.get("issuer_authenticity_verified"),
++        Some(&Value::Bool(false))
++    );
++    env.vars.insert("commitment".into(), commitment);
++    for (public_input, expected_integrity) in [(0, true), (1, false)] {
++        let Value::Record(verification) = admitted_synthetic_runtime_expr(
++            &format!("= crypto.verify_commitment(commitment, {public_input})"),
++            &mut host,
++            &mut env,
++        )
++        .unwrap() else {
++            panic!("integrity record required")
++        };
++        assert_eq!(
++            verification.get("integrity_verified"),
++            Some(&Value::Bool(expected_integrity))
++        );
++        assert_eq!(
++            verification.get("predicate_truth_verified"),
++            Some(&Value::Bool(false))
++        );
++        assert_eq!(
++            verification.get("issuer_authenticity_verified"),
++            Some(&Value::Bool(false))
++        );
++    }
+ }
+ 
+ #[test]
+ fn actual_digest_verification_rejects_changed_source() {
+     let mut host = LocalHost::default();
+     let mut env = Env::default();
+-    let hash = eval_cell("= code.hash_ast(\"= 42;\")", &mut host, &mut env).unwrap();
+-    let Value::Record(record) = hash else { panic!("hash record required") };
+-    let Some(Value::String(address)) = record.get("hash_hex") else { panic!("address required") };
+-    let result = eval_cell(&format!("= code.resolve(\"{address}\", \"= 43;\")"), &mut host, &mut env).unwrap();
+-    let Value::Record(resolved) = result else { panic!("resolve record required") };
++    let hash =
++        admitted_synthetic_runtime_expr("= code.hash_ast(\"= 42;\")", &mut host, &mut env).unwrap();
++    let Value::Record(record) = hash else {
++        panic!("hash record required")
++    };
++    let Some(Value::String(address)) = record.get("hash_hex") else {
++        panic!("address required")
++    };
++    let result = admitted_synthetic_runtime_expr(
++        &format!("= code.resolve(\"{address}\", \"= 43;\")"),
++        &mut host,
++        &mut env,
++    )
++    .unwrap();
++    let Value::Record(resolved) = result else {
++        panic!("resolve record required")
++    };
+     assert_eq!(resolved.get("verified"), Some(&Value::Bool(false)));
+ }

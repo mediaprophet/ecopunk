@@ -83,8 +83,10 @@ Read [docs/planning/architecture.md](docs/planning/architecture.md),
 species/made-world contract before implementation or a completion assessment.
 The intended product authors, packages, queries, simulates and presents through
 the native QualiaDB/custom dependency stack without required JavaScript, Node or
-V8. Missing general capabilities become upstream requirements; current authority
-does not extend to editing sibling repositories. Specification work comes first
+V8. Timothy confirmed on 2026-10-27 that task-relevant implementation in Poet,
+QualiaDB and Etalon is authorized for resolving the asset-production blockers,
+subject to filesystem permissions and the existing ownership and review rules.
+Other sibling repositories remain read-only unless separately authorized. Specification work comes first
 where its contract is still unresolved. Preserve existing user work.
 
 Follow the [high-grade production and civics-experience contract](docs/planning/tech/high-grade-production-and-civics-experience.md).

@@ -1,0 +1,705 @@
+{
+  "schema": "ecopunk-scoped-work-packets/v2",
+  "revision": "2026-10-28T11:56:00+11:00",
+  "scope": "QualiaDB Geography, Terrain, GIS & VibeScript Superiority Swarm Plan (GEO-SUPERIORITY-v2.1: 10 Rounds, 54 Flash Worker Packets including R1-V..R10-V, 10 Verification Gates)",
+  "governing_plan": "docs/planning/implementation-plan.md",
+  "adaptation_guide": "docs/planning/tech/geography-libraries-adaptation-guide.md",
+  "swarm_plan": "docs/planning/tech/geography-swarm-implementation-plan.md",
+  "vibescript_spec": "docs/planning/tech/vibescript-geography-integration.md",
+  "coverage_ledger": "docs/qa/implementation-2026-10-28/geography-libraries-review/coverage-and-pins.json",
+  "registered_subagents": [
+    {
+      "name": "geo-qualia-worker",
+      "model": "flash",
+      "write_tools": true,
+      "role": "Disjoint <500 LOC leaf module worker for qualia-core-db domains/geography and hmc"
+    },
+    {
+      "name": "geo-poet-worker",
+      "model": "flash",
+      "write_tools": true,
+      "role": "Disjoint <500 LOC leaf module worker for poet-core/src/geography and poet-ui"
+    },
+    {
+      "name": "geo-render-worker",
+      "model": "flash",
+      "write_tools": true,
+      "role": "Disjoint <500 LOC leaf module worker for webizen-render and wgsl_forge"
+    },
+    {
+      "name": "geo-vibe-worker",
+      "model": "flash",
+      "write_tools": true,
+      "role": "Disjoint <500 LOC leaf module & .vibe fixture worker for crates/vibe (R1-V..R10-V)"
+    },
+    {
+      "name": "geo-round-auditor",
+      "model": "flash",
+      "write_tools": false,
+      "role": "Read-only round compliance auditor (<500 LOC, HotZeroHeap/ColdBounded, bytemuck::Pod, VibeScript schemas, licenses)"
+    }
+  ],
+  "research_packets": [
+    {
+      "id": "GEO-R01",
+      "title": "Source Admission, License Audit & Manifest Inventory (EarthCraft + Nerthus + RustGIS)",
+      "status": "completed_research",
+      "deliverable": "docs/qa/implementation-2026-10-28/geography-libraries-review/source-admission.md"
+    },
+    {
+      "id": "GEO-R02",
+      "title": "EarthCraft Engine, Geodesy, Ephemeris, KML Guard & UI Audit",
+      "status": "completed_research",
+      "deliverable": "docs/qa/implementation-2026-10-28/geography-libraries-review/earthcraft-engine-and-ui.md"
+    },
+    {
+      "id": "GEO-R03",
+      "title": "Nerthus Terrain Graph, C++ Simulation Ports, 8.24 Fixed-Point Erosion & UI/MCP Audit",
+      "status": "completed_research",
+      "deliverable": "docs/qa/implementation-2026-10-28/geography-libraries-review/nerthus-engine-and-ui.md"
+    },
+    {
+      "id": "GEO-R04",
+      "title": "QualiaDB (.m64/.10d/.q42/GeometryWorkspace) & Poet Seam Mapping",
+      "status": "completed_research",
+      "deliverable": "docs/planning/tech/geography-libraries-adaptation-guide.md"
+    },
+    {
+      "id": "GEO-R05",
+      "title": "RustGIS Engine, 16 Vector/LiDAR Formats, OGC/STAC/Zarr Clients, 21 GP Tools, Lyon Tessellation & UI Audit",
+      "status": "completed_research",
+      "deliverable": "docs/qa/implementation-2026-10-28/geography-libraries-review/rustgis-engine-and-ui.md"
+    },
+    {
+      "id": "GEO-R06",
+      "title": "VibeScript Geography, Terrain, GIS & GeoSPARQL Language/Catalog/Schema Integration Audit",
+      "status": "completed_research",
+      "deliverable": "docs/planning/tech/vibescript-geography-integration.md"
+    }
+  ],
+  "swarm_rounds": [
+    {
+      "round": 1,
+      "wave_id": "GEO-S1",
+      "title": "qualia-core-db Planetary Geodesy, CRS, AusGeoid, Packed Hilbert R-Tree, Ephemeris & Geodesy.* VibeScript (Tier-1 HotZeroHeap)",
+      "status": "ready_for_dispatch",
+      "model": "flash",
+      "depends_on_rounds": [],
+      "worker_packets": [
+        {
+          "id": "R1-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/geodesy/wgs84_karney.rs",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "WGS84 ellipsoid constants, Bowring geodetic<->ECEF, Karney geodesic_inverse/direct/intermediate/polygon_area_m2, curvature radii (M,N), ENU basis."
+        },
+        {
+          "id": "R1-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/geodesy/coordinates_mgrs.rs",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "Zero-heap [u8; 64] stack parser/formatter for DD, DMS, DDM, UTM, UPS, MGRS, Geohash, and PlusCode."
+        },
+        {
+          "id": "R1-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/geodesy/crs_proj_wkt.rs",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "WKT1/WKT2/ESRI CRS parser, Transverse Mercator/LCC/Albers/Web Mercator, GDA94/GDA2020 MGA 49-56 (EPSG:7844, 7855), Helmert 7-param, AusGeoid2020/EGM2008 undulation."
+        },
+        {
+          "id": "R1-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/geodesy/dggs_rtree_hot.rs",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "A5 pentagonal equal-area DGGS indexing + Zero-Heap Packed Hilbert R-Tree (SpatialRTree64) for HotZeroHeap bbox/distance/kNN/point-in-polygon queries."
+        },
+        {
+          "id": "R1-E",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/geodesy/ephemeris_orbit.rs",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "IAU 2006/2000A solar/lunar ECEF & ENU vectors, sunrise/twilight, sloped topographic solar irradiance (Wh/m2), and Keplerian+J2 orbital propagation."
+        },
+        {
+          "id": "R1-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_geodesy_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/geodesy_crs_ephemeris.vibe",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "Registers geodetic/hydrological/cartographic units in quantity.rs and binds 16 Geodesy.* Pure/Hot descriptors + .vibe conformance tests (VBC-001, VBC-005, VBC-030)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G1",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::geodesy",
+          "cargo test -p qualia-core-db zero_heap",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "wave_id": "GEO-S2",
+      "title": "qualia-core-db Complete Procedural Terrain Node Library & Terrain.* VibeScript Pipelines (Tier-2 ColdBounded)",
+      "status": "prepared_after_round_1",
+      "model": "flash",
+      "depends_on_rounds": [1],
+      "worker_packets": [
+        {
+          "id": "R2-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/noise_simd_lut.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Seed-deterministic RANPERM/GRAD3 Perlin, OpenSimplex2S, Voronoi (F1, F2, Crackle), Gabor, Wavelet, and fBm/Ridged/Billow/Hybrid/Swiss multi-fractals."
+        },
+        {
+          "id": "R2-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/terrain_primitives.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Parametric geological landforms: Mountain, Volcano, Caldera, Canyon, DuneSea, FaultBlock, Escarpment, ImpactCrater, Archipelago, RidgeLine, Plateau, TiltedStrata, KarstTower, GlacialCirque."
+        },
+        {
+          "id": "R2-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/terrain_adjust_filter.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Adjustments & morphology: Terrace, Stratify, Fold, Shear, Curve, Clamp, Autolevel, HistogramEqualize, Dilate, ErodeMorph, Aperture, Median3x3, SeparableGaussian, DistanceTransform, CurvatureMap."
+        },
+        {
+          "id": "R2-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/terrain_selectors_combine.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Selectors (Height, Slope, Aspect, Convexity, Protrusion, Flow, Occlusion, RockExposure, Treeline) + Combine/Warp modes + all 19 post-process modifiers."
+        },
+        {
+          "id": "R2-E",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/terrain_dag_workspace.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Topological Terrain DAG scheduler with dirty-cone invalidation, seamless multi-tile border-halo stitching, and fail-closed GeometryWorkspace budget enforcement."
+        },
+        {
+          "id": "R2-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_terrain_node_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/terrain_dag_pipeline.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Binds Terrain.noise, Terrain.primitive, Terrain.adjust, Terrain.filter, Terrain.select_mask, Terrain.combine, and Terrain.eval_dag with |> pipeline fixtures (VBC-004, VBC-011, VBC-013)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G2",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::terrain",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "wave_id": "GEO-S3",
+      "title": "qualia-core-db Coupled 4D Geomorphology, 8.24 Erosion, 6-Layer .m64 0x02 Strata & StrataColumnComplex VibeScript",
+      "status": "prepared_after_round_2",
+      "model": "flash",
+      "depends_on_rounds": [1, 2],
+      "worker_packets": [
+        {
+          "id": "R3-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/erosion_fixed824.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Bit-exact 8.24 fixed-point (i32) multi-scale virtual-pipe hydraulic erosion, sediment transport, deposition, and differential rock-hardness weathering across strata."
+        },
+        {
+          "id": "R3-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/hydro_stream_power.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Priority-Flood depression breaching, D8 + Tarboton D-Infinity flow accumulation, Strahler/Shreve stream order, Stream Power Law incision, and SpanFill shallow-water lakes."
+        },
+        {
+          "id": "R3-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/thermal_snow_glacier.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Anisotropic talus thermal slippage, wind-advected orographic snow accumulation/ablation, periglacial freeze-thaw solifluction, and valley-glacier basal sliding."
+        },
+        {
+          "id": "R3-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/m64_strata_constituents.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Compiles 6-layer volumetric geology into 64B M64StrataColumnRecord (.m64 Mode 0x02) and registers all 323 Sentinel-2 colour LUTs + lithology IDs into BankedConstituentLut Bank 1."
+        },
+        {
+          "id": "R3-E",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/terrain/geomorph_qa_report.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Headless TerrainReport geomorphology verifier (hypsometric integral, slope/aspect/curvature histograms, Hack's Law drainage check, mass-conservation balance)."
+        },
+        {
+          "id": "R3-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/topology_decl_geo.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/strata_column_complex.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Extends topology_decl.rs with StrataColumnComplex, LidarPointComplex, CadastralTopologyComplex, and TransportNetworkComplex lowering + Terrain.erode_fixed824 schemas (VBC-015, VBC-024)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G3",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::terrain",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "wave_id": "GEO-S4",
+      "title": "qualia-core-db Complete 16-Format Vector, CAD, LiDAR (.m64 0x00), MVT/PMTiles I/O & GisIo.* VibeScript",
+      "status": "prepared_after_round_3",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3],
+      "worker_packets": [
+        {
+          "id": "R4-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/lidar_copc_m64.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Streaming LAS 1.2-1.4, LAZ, and COPC octree reader -> 64B E64PointRecord (.m64 Mode 0x00) + cloth-simulation ground classifier + DSM/DTM/CHM gridding."
+        },
+        {
+          "id": "R4-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/filegdb_gpkg_fgb.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Pure-Rust Esri FileGDB v10+ (.gdbtable), GeoPackage (GPKG WKB), and FlatGeobuf (Hilbert R-tree) readers and writers."
+        },
+        {
+          "id": "R4-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/shp_parquet_geojson.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Pure-Rust Esri Shapefile (.shp/.shx/.dbf/.prj), GeoParquet WKB columnar reader, GeoJSON/TopoJSON, and CSV/WKT spatial table parser."
+        },
+        {
+          "id": "R4-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/kml_gpx_gml_dxf_osm.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Guarded KML/KMZ (32 MiB/50k cap), GPX 1.1, GML 3.2, AutoCAD DXF (LINE/LWPOLYLINE/3DFACE), and OSM PBF multipolygon assembler."
+        },
+        {
+          "id": "R4-E",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/pmtiles_mvt_io.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Serverless PMTiles v3 Hilbert directory reader/writer and zero-protoc Mapbox Vector Tile (MVT) protobuf encoder/decoder."
+        },
+        {
+          "id": "R4-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_gis_io_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/lidar_vector_ingest.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Binds 13 file-format GisIo.* descriptors with Result<T,E> ? propagation and KML bomb diagnostic tests (VBC-009, VBC-012)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G4",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::gis_io",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "wave_id": "GEO-S5",
+      "title": "qualia-core-db 10-Protocol OGC/STAC/ArcGIS, Zarr/GRIB2 .10d Cubes & GeoSparql.* Deontic VibeScript Bridge",
+      "status": "prepared_after_round_4",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3, 4],
+      "worker_packets": [
+        {
+          "id": "R5-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/ogc_feature_services.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "WFS 2.0, OGC API - Features, CSW 2.0.2 catalogue harvesting, and ArcGIS REST FeatureServer protocol builders & parsers."
+        },
+        {
+          "id": "R5-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/ogc_sensor_stac.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "SOS 2.0, OGC SensorThings API v1.1 (Things/Locations/Datastreams/Observations), and STAC API ItemSearch client."
+        },
+        {
+          "id": "R5-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/cog_wcs_wms_wmts.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "HTTP-Range Cloud-Optimized GeoTIFF (COG) IFD/tile reader, WCS 2.0 coverage subsetter, and WMS 1.3.0 / WMTS 1.0.0 tile matrix addressing."
+        },
+        {
+          "id": "R5-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/datacube_zarr_netcdf_grib.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Zarr v2/v3, NetCDF-3, and GRIB2 [time,level,y,x] DataCube reader with temporal reductions compiling into .10d FIEL tensors and GRM3 tiles."
+        },
+        {
+          "id": "R5-E",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_io/geosparql_deontic_bridge.rs",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "Compiles GIS features/sensors into 48B NQuin (geo:Feature, sosa:Observation, did:q42:, resolver.rs inline tags) + Zero-Heap GeoSPARQL (sfIntersects, sfWithin) fused with Deontic Logic (OP_OBLIGATE/PERMIT/FORBID) and Allen Interval Algebra."
+        },
+        {
+          "id": "R5-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_sparql_deontic_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/geosparql_deontic_covenant.vibe",
+          "allocation_class": "HotZeroHeap",
+          "max_lines": 500,
+          "summary": "Binds GisIo.ogc_query, GisIo.read_datacube_10d, and all 6 GeoSparql.* methods into VibeScript with graph? { ... } and obligate/permit/forbid covenant fixtures (VBC-014, VBC-015, VBC-030)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G5",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::gis_io",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "wave_id": "GEO-S6",
+      "title": "qualia-core-db Complete Vector Geoprocessing Suite (All 21 GP Tools) & GisGp.* VibeScript",
+      "status": "prepared_after_round_5",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3, 4, 5],
+      "worker_packets": [
+        {
+          "id": "R6-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_overlay_clip.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Planar & geodesic boolean polygon overlays (clip, intersect, union, difference/erase, symmetric_difference, split_by_lines, identity)."
+        },
+        {
+          "id": "R6-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_buffer_dissolve.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Constant, variable-width, and geodesic buffer (round/miter/flat caps), multi_ring_buffer, attribute-keyed dissolve, and eliminate_slivers."
+        },
+        {
+          "id": "R6-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_simplify_hull_tess.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Douglas-Peucker, topology-preserving Visvalingam-Whyatt, Chaikin smoothing, geodesic densify, convex_hull, concave_hull (alpha-shape), Voronoi, Delaunay, centroid, pole_of_inaccessibility."
+        },
+        {
+          "id": "R6-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_spatial_join_kde.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "SpatialRTree64-accelerated spatial_join (Intersects/Contains/Within/Closest), Clark-Evans nearest_neighbor_index, and 2D Quartic/Epanechnikov KDE."
+        },
+        {
+          "id": "R6-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_vector_gp_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/vector_geoprocessing.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Binds GisGp.overlay, GisGp.buffer, GisGp.dissolve, GisGp.simplify, GisGp.hull, GisGp.voronoi_delaunay, GisGp.spatial_join, and GisGp.kde (VBC-011, VBC-013)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G6",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::gis_gp",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "wave_id": "GEO-S7",
+      "title": "qualia-core-db Spatial Stats, Map Algebra, Viewshed, TWI/SPI, Networks & VibeScript Cell->Map Algebra Compiler",
+      "status": "prepared_after_round_6",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3, 4, 5, 6],
+      "worker_packets": [
+        {
+          "id": "R7-A",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_kriging_spatial_stats.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Empirical variogram + automatic WLS fitting (Spherical/Exponential/Gaussian/Matern), Ordinary & Universal Kriging, IDW, Global/Local Moran's I (LISA), and Getis-Ord Gi*."
+        },
+        {
+          "id": "R7-B",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_viewshed_solar_morph.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Earth-curvature + refraction viewshed & cumulative_viewshed, Horn/Zevenbergen-Thorne slope, aspect, profile/plan curvature, multidirectional hillshade, TPI, TRI, SVF."
+        },
+        {
+          "id": "R7-C",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_map_algebra_zonal.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Zero-alloc bytecode Raster Map Algebra engine (NDVI, NDWI, EVI, SAVI, NBR, Con, SetNull), zonal_statistics, focal_statistics, and marching-squares contours/isobands."
+        },
+        {
+          "id": "R7-D",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_hydro_cost_watershed.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Pour-point snapping, watershed_delineation, Topographic Wetness Index (TWI), Stream Power Index (SPI), Sediment Transport Index (STI), cost_distance, and least_cost_path."
+        },
+        {
+          "id": "R7-E",
+          "worker": "geo-qualia-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/domains/geography/gis_gp/gp_network_topology.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Planarized RoadGraph & river network (Dijkstra, geodesic A*, TSP, isochrone service_area, OD matrix, betweenness centrality) + all 6 topology rules and automated repair."
+        },
+        {
+          "id": "R7-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/geo_map_algebra.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/map_algebra_kriging_network.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Compiles VibeScript Pure cells (= (nir - red) / (nir + red)) directly into zero-alloc Map Algebra stack bytecode + binds GisGp spatial stats/hydro/network schemas (VBC-001, VBC-016)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G7",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db geography::gis_gp",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 8,
+      "wave_id": "GEO-S8",
+      "title": "qualia-core-db::wgsl_forge Certified GPU Compute Kernels & WgslForge.geo_dispatch VibeScript",
+      "status": "prepared_after_round_7",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3, 4, 5, 6, 7],
+      "worker_packets": [
+        {
+          "id": "R8-A",
+          "worker": "geo-render-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/geo_erosion_hydro_kernels.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Registers parallel-erosion.wgsl, hydraulic-erosion.wgsl, thermal-erosion.wgsl, and flow-accumulation.wgsl in wgsl_forge with Naga validation and CPU 8.24 oracle parity."
+        },
+        {
+          "id": "R8-B",
+          "worker": "geo-render-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/geo_noise_filter_kernels.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Registers perlin-noise.wgsl, voronoi-noise.wgsl, morphology.wgsl, distance-transform.wgsl, combine.wgsl, and terrace.wgsl in wgsl_forge."
+        },
+        {
+          "id": "R8-C",
+          "worker": "geo-render-worker",
+          "target_file": "C:/github/qualiaDB/crates/qualia-core-db/src/wgsl_forge/geo_viewshed_algebra_kernels.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Registers GPU compute shaders for radial DEM viewshed, sky_view_factor, multidirectional_hillshade, and multi-band map_algebra."
+        },
+        {
+          "id": "R8-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_wgsl_forge_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/wgsl_forge_terrain_gpu.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Binds WgslForge.geo_dispatch and WgslForge.geo_oracle_verify with Native/WASM/CPU-oracle equivalence fixtures (VBC-027, VBC-029)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G8",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p qualia-core-db wgsl_forge",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 9,
+      "wave_id": "GEO-S9",
+      "title": "Poet Unified Geospatial, Terrain DAG, Shared-Vertex Topology, Cartography Studio & Cartography.* VibeScript Live Edit",
+      "status": "prepared_after_round_8",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3, 4, 5, 6, 7, 8],
+      "worker_packets": [
+        {
+          "id": "R9-A",
+          "worker": "geo-poet-worker",
+          "target_file": "C:/github/poet/crates/poet-core/src/geography/cow_delta_undo.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "PutAside Copy-on-Write delta undo/redo stack for GIS vector/attribute edits and Terrain DAG parameters via AuthorizedEditorHost and NativeIntentBus."
+        },
+        {
+          "id": "R9-B",
+          "worker": "geo-poet-worker",
+          "target_file": "C:/github/poet/crates/poet-core/src/geography/shared_vertex_ruler_camera.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "SharedVertexTopologyEditor (edit.moveSharedVertex + DragOwner + edge snap), GeodesicRuler + planimeter, FlyAnim globe-to-street camera, and spatial bookmarks."
+        },
+        {
+          "id": "R9-C",
+          "worker": "geo-poet-worker",
+          "target_file": "C:/github/poet/crates/poet-core/src/geography/terrain_graph_studio.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Poet Terrain DAG & .m64 Strata Studio controller with dirty-cone invalidation, 2D/3D geological cross-section slicer, and TerrainReport QA dashboard."
+        },
+        {
+          "id": "R9-D",
+          "worker": "geo-poet-worker",
+          "target_file": "C:/github/poet/crates/poet-core/src/geography/cartography_layout_cvd.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Jenks/Quantile/EqualInterval/StdDev/Bivariate choropleth classifier, PageLayout & MapSeries composer (SVG, PDF 1.4, glTF 2.0 3D terrain export), and Machado 3x3 ColorVision simulation."
+        },
+        {
+          "id": "R9-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_cartography_poet_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/poet_cartography_live_edit.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Binds Cartography.* (cow_undo, cow_redo, move_shared_vertex, geodesic_ruler, classify_choropleth, simulate_cvd, compose_layout, export_pdf_svg_gltf) with present & bind <-> live-edit REPL tests (VBC-017, VBC-019..021, VBC-025)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G9",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p poet-core geography",
+          "cargo test -p vibe"
+        ]
+      }
+    },
+    {
+      "round": 10,
+      "wave_id": "GEO-S10",
+      "title": "webizen-render & Etalon Planetary-to-Millimeter Viewport & End-to-End Kosciuszko VibeScript Authoring Suite",
+      "status": "prepared_after_round_9",
+      "model": "flash",
+      "depends_on_rounds": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "worker_packets": [
+        {
+          "id": "R10-A",
+          "worker": "geo-render-worker",
+          "target_file": "C:/github/qualiaDB/crates/webizen-render/src/geo_tessellation_capped.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Camera-relative f64-to-f32 polygon, stroke, and 3D building/cadastral prism tessellation (F32_REACH_PX = 8_388_608.0) with Capped<B> 256 MiB fail-closed GPU buffer guard."
+        },
+        {
+          "id": "R10-B",
+          "worker": "geo-render-worker",
+          "target_file": "C:/github/qualiaDB/crates/webizen-render/src/mvt_pmtiles_curved_labels.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Streaming MVT/PMTiles viewport layer compositor, collision-avoided curved polyline + halo label layout, and 323 Sentinel-2 BankedConstituentLut PBR terrain splatting."
+        },
+        {
+          "id": "R10-C",
+          "worker": "geo-render-worker",
+          "target_file": "C:/github/qualiaDB/crates/webizen-render/src/sky_atmosphere_limb.rs",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Bruneton BSD-3-Clause Rayleigh/Mie/Ozone atmospheric scattering driven by Round 1 IAU 2006 solar/lunar ephemeris + hybrid GPU/4-wide SIMD globe limb seam repair."
+        },
+        {
+          "id": "R10-V",
+          "worker": "geo-vibe-worker",
+          "target_file": "C:/github/qualiaDB/crates/vibe/src/capability_schema/geo_viewport_entries.rs",
+          "fixture_file": "C:/github/qualiaDB/crates/vibe/fixtures/geography/kosciuszko_e2e_authoring.vibe",
+          "allocation_class": "ColdBounded",
+          "max_lines": 500,
+          "summary": "Binds Render.geo_viewport_configure and Cartography.camera_fly_tween (from ~ to over duration ease) + end-to-end Kosciuszko no-build .vibe authoring & HMC reproduction suite (VBC-018, VBC-031)."
+        }
+      ],
+      "verification_gate": {
+        "gate_id": "G10",
+        "auditor": "geo-round-auditor",
+        "serial_commands": [
+          "cargo test -p webizen-render",
+          "cargo test -p vibe"
+        ]
+      }
+    }
+  ]
+}

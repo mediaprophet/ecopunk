@@ -1,0 +1,30 @@
+{
+  "id": "delegation-leaf-inspection",
+  "state": "staged, parser accepted; not compiled or executed",
+  "scope": "Same-lock current root and live leaf session verification for signed candidate; non-authorizing inspection plus previously staged overlap correction",
+  "files": [
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "preimage_sha256": "ea1a9c6adbec8b167a4b64db2611fa63158640531ff6fa4594bcc331445faaf0",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/full-scope/delegation-leaf-inspection/inspection.rs.before",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/full-scope/delegation-leaf-inspection/inspection.rs.after",
+      "candidate_sha256": "cc8cc813cac512a8990cc301120e0b176792e682ee8fdad0ffe08f2b4c2a4e93"
+    },
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "preimage_sha256": "7f00f522874003352fbd0663746b88a23c51d283571f7f240419b5d154c7733f",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/full-scope/delegation-leaf-inspection/tests.rs.before",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/full-scope/delegation-leaf-inspection/tests.rs.after",
+      "candidate_sha256": "710f7845c0744bd02e5fc91b8f15187cdfe1f6d136ba4802183ea39298ab8b9c"
+    }
+  ],
+  "existing_reuse": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-control-overlap/manifest.json",
+  "test": "cargo test --locked --offline -p qualia-core-db --lib native_authority::delegation::tests --target-dir C:/github/ecopunk/target",
+  "limits": [
+    "no durable adopted delegation, cancellation or revocation chain",
+    "no permitted delegated operation or publication, shared budget, or human verification",
+    "leaf authentication evidence is an instantaneous snapshot, not a durable permit",
+    "the 256-entry cancellation argument is still empty at the owner boundary"
+  ],
+  "verification": "rustfmt parser only; worker performed no Cargo"
+}

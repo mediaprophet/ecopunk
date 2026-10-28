@@ -1,0 +1,87 @@
+   Compiling qualia-app-contract v0.0.40 (C:\github\qualiaDB\crates\qualia-app-contract)
+   Compiling qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+    Finished `test` profile [unoptimized] target(s) in 23m 13s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\qualia_core_db-4ec058627d587138.exe)
+
+running 77 tests
+test net::qdnf::authority::digest_bind::tests::empty_or_zero_inputs_are_rejected ... ok
+test net::qdnf::authority::owner::tests::decoded_allow_cannot_issue_permit ... ok
+test net::qdnf::authority::owner::tests::bounded_admission_preserves_ceiling_and_exact_time_window ... ok
+test net::qdnf::authority::decoded::tests::allow_boolean_cannot_admit ... ok
+test net::qdnf::authority::owner::tests::current_grant_issues_permit ... ok
+test net::qdnf::authority::owner::tests::invalid_binding_and_self_contact_refuse_before_install ... ok
+test net::qdnf::authority::digest_bind::tests::bindings_are_full_sha384_not_first_byte ... ok
+test net::qdnf::authority::owner::tests::installed_scope_and_operation_cannot_be_rebound_at_consumption ... ok
+test net::qdnf::authority::owner::tests::legacy_ceiling_compatibility_does_not_drop_scope_or_revocation ... ok
+test net::qdnf::authority::owner::tests::stale_handle_is_rejected ... ok
+test net::qdnf::authority::owner::tests::rejected_admission_does_not_spend_capacity_or_generation ... ok
+test net::qdnf::authority::permit::tests::expired_permit_is_rejected ... ok
+test net::qdnf::authority::owner::tests::revoked_grant_cannot_issue_permit ... ok
+test net::qdnf::authority::policy::tests::allow_without_current_grant_is_not_admission ... ok
+test net::qdnf::authority::policy::tests::blocked_beats_allow ... ok
+test net::qdnf::authority::policy::tests::collapse_to_trusted_peer_is_refused_even_when_all_facts_hold ... ok
+test net::qdnf::authority::policy::tests::current_allow_without_revocation_block_or_expiry ... ok
+test net::qdnf::authority::policy::tests::cache_hit_does_not_renew_expiry ... ok
+test net::qdnf::authority::policy::tests::expired_historical_allow_cannot_authorize_current ... ok
+test net::qdnf::authority::policy::tests::payment_cannot_admit_without_control_allowance ... ok
+test net::qdnf::authority::policy::tests::payment_cannot_bypass_blocked_contact ... ok
+test net::qdnf::authority::policy::tests::reachability_is_not_authorization ... ok
+test net::qdnf::authority::policy::tests::cached_at_is_not_the_expiry_clock ... ok
+test net::qdnf::authority::verified::tests::blocked_contact_cannot_be_required_active ... ok
+test net::qdnf::authority::verified::tests::zero_principal_is_rejected ... ok
+test net::qdnf::authority::policy::tests::revoked_beats_allow ... ok
+test net::qdnf::authority::policy::tests::revoked_precedes_blocked_and_expired ... ok
+test vibe_host::native_authority::delegation::tests::software_capacity_cannot_be_promoted_to_human_root_by_consent_bytes ... ok
+test vibe_host::native_authority::enrollment::tests::deterministic_stub_vault_cannot_supply_native_production_signer ... ok
+test vibe_host::native_authority::delegation::tests::observer_root_cannot_delegate_write_but_can_inspect_explicit_read ... ok
+test vibe_host::native_authority::delegation::tests::ancestor_cancellation_expiry_revocation_and_admission_successor_refuse_the_chain ... ok
+test vibe_host::native_authority::enrollment::tests::fresh_process_child ... ok
+test vibe_host::native_authority::enrollment::tests::decline_is_durable_and_cannot_be_replayed_as_approval ... ok
+test vibe_host::native_authority::delegation::tests::child_cannot_widen_budget_forge_parent_or_cycle_back_to_root ... ok
+test vibe_host::native_authority::delegation::tests::project_admission_does_not_replace_controller_consent_signature ... ok
+test vibe_host::native_authority::delegation::tests::authenticated_root_can_inspect_signed_two_edge_controller_consent_without_dispatching ... ok
+test vibe_host::native_authority::enrollment::tests::concurrent_contributor_does_not_replace_steward_permission_or_audit_actor ... ok
+test vibe_host::native_authority::enrollment::tests::sealed_native_signer_is_retained_and_fails_on_wrong_wrap_corruption_and_plaintext ... ok
+test vibe_host::native_authority::enrollment::tests::forged_wrong_project_stale_and_expired_requests_fail_closed ... ok
+test vibe_host::native_authority::enrollment::tests::requested_steward_review_or_human_claim_cannot_silently_escalate ... ok
+test vibe_host::native_authority::enrollment::tests::replay_duplicate_controller_and_duplicate_identifier_are_rejected ... ok
+test vibe_host::native_authority::enrollment::tests::review_grant_is_distinct_and_revocation_blocks_fresh_and_existing_sessions ... ok
+test vibe_host::native_authority::enrollment::tests::explicit_steward_approval_signs_admission_and_invalidates_all_old_permissions ... ok
+test vibe_host::native_authority::tests::concurrent_session_tests::logout_and_challenge_cancellation_are_selective_even_for_same_subject ... ok
+test vibe_host::native_authority::tests::concurrent_session_tests::invalid_replayed_foreign_and_tampered_proofs_do_not_consume_other_challenges ... ok
+test vibe_host::native_authority::tests::concurrent_session_tests::simultaneous_outstanding_author_and_reviewer_proofs_keep_distinct_roles ... ok
+test vibe_host::native_authority::enrollment::tests::new_process_reopens_sealed_key_signed_admission_and_requires_fresh_login ... ok
+test vibe_host::native_authority::tests::durable_successors_survive_reopen_but_sessions_do_not ... ok
+test vibe_host::native_authority::enrollment::tests::wrong_authority_foreign_permission_and_stale_request_cannot_be_approved ... ok
+test vibe_host::native_authority::tests::failed_post_source_commit_latches_reconciliation ... ok
+test vibe_host::native_authority::tests::foreign_owner_sessions_and_expired_pending_proofs_cannot_admit ... ok
+test vibe_host::native_authority::tests::mismatched_review_document_and_expired_session_reject_current_publication ... ok
+test vibe_host::native_authority::tests::current_revocation_expiry_and_membership_identifier_are_enforced ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_old_signed_admission_bytes_remain_exact ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_contribution_request_decision_and_reopen_keep_exact_lineage ... ok
+test vibe_host::native_authority::tests::package_review_tests::admin_tests::package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_generation_overflow_never_admits_signed_successor ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_source_grants_file_mismatch_and_stale_generation_cannot_record ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_evidence_counts_refuse_before_any_append ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_source_successor_and_revoked_membership_withhold_old_targets ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_entry_byte_budget_refuses_before_creating_a_file ... ok
+test vibe_host::native_authority::tests::journal_has_one_native_owner_before_any_authoring_callback ... ok
+test vibe_host::native_authority::tests::session_lifecycle_tests::document_successor_stales_exact_read_review_and_package_but_keeps_live_sessions ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse ... ok
+test vibe_host::native_authority::tests::package_tests::exhausted_package_audit_budget_denies_before_the_file_callback ... ok
+test vibe_host::native_authority::tests::session_lifecycle_tests::concurrent_reviewer_waits_for_author_commit_then_refuses_old_revision ... ok
+test vibe_host::native_authority::tests::session_lifecycle_tests::session_and_pending_expiry_are_independent_and_reclaim_only_expired_slots ... ok
+test vibe_host::native_authority::tests::real_signed_review_is_distinct_from_author_and_requires_current_grant ... ok
+test vibe_host::native_authority::tests::signed_replacement_invalidates_sessions_and_cannot_replay_old_admission ... ok
+test vibe_host::native_authority::tests::transactions_are_serialized_and_busy_publication_fails_closed ... ok
+test vibe_host::native_authority::tests::package_review_tests::package_review_revocation_and_unsafe_grant_successors_are_atomic ... ok
+test vibe_host::native_authority::tests::workflow_tests::requested_review_is_revision_bound_distinct_and_durable ... ok
+test vibe_host::native_authority::tests::session_lifecycle_tests::only_durable_signed_admission_successors_invalidate_every_session_and_proof ... ok
+test vibe_host::native_authority::tests::weak_identity_keys_cannot_forge_controller_possession_or_project_adoption ... ok
+test vibe_host::native_authority::tests::signed_admission_and_one_use_proof_are_both_required ... ok
+test vibe_host::native_authority::tests::session_lifecycle_tests::wrong_committed_actor_or_source_conflict_latches_reconciliation_for_all_sessions ... ok
+test vibe_host::native_authority::tests::concurrent_session_tests::pending_and_live_capacity_fail_without_evicting_any_active_actor ... ok
+
+test result: ok. 77 passed; 0 failed; 0 ignored; 0 measured; 9850 filtered out; finished in 8.95s
+

@@ -1,0 +1,23 @@
+# Triangle-ordered linear connectivity — staged
+
+Status: staged and Rustfmt-parsed; no Cargo, execution or canonical edits by this worker. This is an additive QualiaDB API and coordinated update to the still-staged fork topology qualifier. The existing general `label_components` remains unchanged and continues to accept arbitrary half-edge ordering.
+
+The existing `build_triangle_half_edges` emits three contiguous half-edges per face, each with canonical face and next fields. The staged `label_components_triangle_ordered` first validates exact length, contiguous face/next layout and reciprocal reversed twins; it checks output capacities and an explicit work cap before touching either caller buffer. A BFS visits each face's three edges, giving linear traversal for this validated triangle layout. A separate `OrderedConnectivityError` and `triangle_ordered_component_work` are additive; no heap, imported runtime, JSON or universal topology claim is introduced. An arbitrary-order caller must keep using the existing owner API.
+
+The staged qualifier calls the ordered API after building half-edges itself. It still requires closed paired edges, exactly one face component, every vertex used and exactly one closed face fan per vertex. The existing half-edge hash constructor has no exposed probe budget, so qualifier preflight still reserves a worst case of two full table scans per directed edge: the overall conservative bound remains quadratic. It is not a production-size performance claim. Geometric intersections, zero area, UV/normal mapping, biological correctness and Poet/HMC source workflows remain separate work.
+
+An independent Python diagnostic `../fork-topology-qualification/estimate-three-arm.py` reproducing the synthetic 15³ Y field's sign cases estimates **390 grid-edge vertices, 776 triangles, 2,328 half-edges and 8,192 slots**. Under the original qualifier bound: hash work 38,141,952; component work 1,806,528; housekeeping 110,448; total 40,058,928 units. Under this staged ordered traversal: component work 43,520; total 38,295,920 units. These are a model of existing source, not executed QualiaDB counts, timing, geometry certification or a production asset. Hash worst-case dominates; practical scaling needs a separately budgeted/probed owner or other qualified deterministic structure.
+
+## Candidate pins and targets
+
+| Candidate | Intended target | Existing SHA-256 | Candidate SHA-256 |
+|---|---|---|---|
+| `connectivity.rs` | `C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/connectivity.rs` | `dd0681ae646b1bea1242b9ff45f16d1fba789781b86688e3d9809ad7fee3bf5b` | `8459ff21b97fb13a39f346c9637fe13a758c475939c9b46b6654b31fb47e5469` |
+| `surface_topology_qualification.rs` | `C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/surface_topology_qualification.rs` | absent, or merge if already installed | `c5a1810e8bb2940351e7cba5247a061e8a34d7c98aebd8ba94b9199bf8650604` |
+| `core_mod.rs` | `C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs` | `b4ab4b2cd66683d35ebfb9c717664d641e72259aaea09f5382b75cc54cf51776` | `451dfbb940b6382564c16f87f22c0ae784d60f0f79d10fb6d6a4cb5a94de9a6d` |
+| `poet_surface_topology_tests.rs` | `C:/github/poet/native/src/graphical/surface_topology_public_tests.rs` | absent, or merge if already installed | `ac1f4a16bf4c160d2c202a0ec4352f074e709f94e7ebecbcb7238083e4ada5ee` |
+| `poet_mod.rs` | `C:/github/poet/native/src/graphical/mod.rs` | `7aa6d84cc794bee6b3c0021937a04406e065dad2f59b5fad0c90c502701f9ef3` | `1e514037d05d804444eb200d8aedbc9da923b1ede031e6bd364f5bf75fcefa1c` |
+
+Public-caller cases include valid/invalid topology, a connected pinched icosahedron, no-write scratch/work refusals, the actual indexed-tetra three-arm synthetic field followed by qualification, ordered-vs-general component labels, malformed next/twin, reciprocal wrong endpoint and short-buffer refusal, and continued old generic support for non-contiguous half-edge order. These tests are staged, not compiled or run. The qualifier's own dependency-crate unit tests are not automatically executed by Poet.
+
+An independent source review found no definite BFS/twin or no-write-preflight blocker; the public tests and export were reviewed by inspection with no definite defect; the final short-buffer and reciprocal-wrong-endpoint negative assertions were also independently reviewed. Preserve other agents' changes: verify target hashes immediately before integration and merge shared module registration if needed. No asset, UI, HMC or human acceptance follows.

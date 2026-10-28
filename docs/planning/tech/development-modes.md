@@ -113,6 +113,12 @@ path is a distinct renderer candidate. Do not equate those feature names.
 
 ## 5. Supervised development and evaluation integrity
 
+**2026-10-27 task-specific authorization:** Timothy confirmed implementation
+in Poet, QualiaDB and Etalon for the asset-production blocker work, subject to
+filesystem permissions, preserved work and coordinated ownership. The earlier
+read-only wording below remains historical for other work and does not prohibit
+those task-relevant changes.
+
 **Authority clarification (Timothy, this supervision review):** continued
 work is on game-demo and ecopunk. QualiaDB is a read-only investigation
 source: advise Timothy of required engine/language changes, interfaces, and

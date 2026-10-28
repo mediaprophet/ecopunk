@@ -1,0 +1,48 @@
+# Controller-authority candidate: inspected scope and remaining integration
+
+2026-10-27. Bounded implementation staged for coordinator review. Canonical source was not changed by this worker. No Cargo/rustc/test/asset/provider operation ran. `rustfmt --edition 2021 --config skip_children=true` parsed and formatted the staged Rust files; that is syntax/formatting evidence only. The coordinator owns integration and serial executed verification.
+
+The user clarified that existing direct authoring must remain available through signed project/controller admission. No independent personhood service is introduced. A project-admitted Human capacity and authenticated controller can inspect explicit signed bounded controller consent. This does not establish independently verified humanity, real human/domain acceptance, legal adoption or payment. Asset work is not blocked merely because optional delegated-agent mode is incomplete.
+
+## Code and integration
+
+[manifest.json](manifest.json) gives every canonical target, complete candidate, immutable existing-file preimage and SHA-256 pair. Ten new files have null preimages; two existing files have saved exact originals. No shared module/Cargo registrations were staged; the coordinator owns those changes. New implementation files remain below 500 lines and separate schema, policy, signature validation and native inspection.
+
+Coordinator registrations:
+
+1. `qualia-cooperative-core/Cargo.toml`: add the normal workspace dependency `qualia-app-contract`. Its normal dependencies do not depend on cooperative-core/Core; its existing Core dev-dependency is disclosed separately.
+2. `authoring/mod.rs`: add `pub mod delegation; mod human_authority; pub use human_authority::{HumanAuthorityEvidence, HumanAuthorityStatus};`.
+3. Core `native_authority/mod.rs`: add `pub mod delegation;`.
+4. Update the one current Poet `cooperative_workbench/projection.rs` source-test `WorkflowEvidence` literal with `human_authority: HumanAuthorityEvidence::legacy("actor:reviewer", PrincipalKind::Human)`, importing the type as necessary. UI worker owns runtime presentation.
+5. The coordinator owns the QDNF `install_grant_with_ceiling(..., 1)` session call and its separate manifest/evidence. This worker did not modify `session.rs`.
+
+Shared `AuthoringDelegation` embeds the existing `AgencyDelegation` and `TaskDelegation`; it does not copy their identity/mode/budget structures into Poet. Exact root/admission digest, source selectors, signed grantor/grantee controllers, action lists, parent digest and bounded onward-delegation depth extend their missing authoring seam. Unknown support profiles, triggers, transfer schedules, jurisdictions and unsupported financial/provider/device effects fail closed in this bounded adapter. The supported profile is automated, persistent, values-bound AI-proxy agency; values references remain references, not credential verification claims. Observe supports read operations. Propose and ApproveEachAction are refused until their actual dispatch/approval semantics exist. BoundedDelegation checks explicit command/effect/action/purpose intersections. Empty command lists grant no wildcard here.
+
+Native `NativeSigner::sign_authoring_delegation` reuses its existing controller owner and contextual signing. `NativeAuthority::inspect_controller_delegation` runs under the existing admission lock and a current root session. It requires current project-admitted Human capacity, verifies every edge's contextual signature and current signed identifier/controller association, exact root admission/project binding, source selectors, parent digests, ancestry, expiry and attenuation. Each requested operation lies inside every ancestor's scope. Host time replaces caller time; an inspection cannot mint a live agent session. The returned `ControllerDelegationInspection` is explicitly neither serializable nor a dispatch permit. Known root-controller/root-subject/path overlap is detectable; absence of overlap does not prove independent humans.
+
+Coordinator review revision 2 additionally authorizes the exact candidate action through the existing root `AuthoringPermit` under that same lock. An Observer root cannot delegate a write merely because its controller signs the bytes; its valid explicit read candidate remains inspectable. Shared app-contract task/effect types are reexported by the cooperative delegation owner, so the Core candidates add no direct app-contract dependency. [root-review-revision.json](root-review-revision.json) records changed candidate hashes; canonical-file preimages remain unchanged.
+
+The existing AgencyDelegation evaluator classifies conventional `read`/`write`/`decide` actions and does not bind purpose or native action/data tuples. This adapter explicitly checks its native action list, exact task goal/purpose and required `native_authoring_source` tuple before calling that evaluator. It does not assume the older evaluator fills those known gaps. Positive read/write, wrong native action and foreign data-scope cases exercise the explicit adapter checks.
+
+Existing `WorkflowEvidence` now projects `HumanAuthorityEvidence::legacy(...)`. Every direct session, including a project-admitted Human tag, retains `human_principal_subject: None` and an empty delegation path. The attribution record does not silently upgrade a legacy actor into verified human ancestry.
+
+## Exact inspected source boundary
+
+[source-pins.json](source-pins.json) pins selected current files. A hash is not a semantic audit. The semantic inspection comprised:
+
+- Full native `admission.rs`, `session.rs`, `session_state.rs`, `workflow.rs`, `records.rs`, `mod.rs` and `session_test_fixture.rs`; enrollment owner lines 1–125 plus the previously pinned human-evidence approval seam; signer lines 1–160; native `tests.rs` lines 1–100; journal lines 1–130.
+- Full cooperative authoring `mod.rs`, `types.rs`, `policy.rs`; AgencyDelegation definitions/evaluator and selected source tests; AuthorityProfile definitions/constants; agency-domain constants/seeded semantics; TaskDelegation, effects and DecimalU64/AppId definitions; cooperative/app-contract Cargo dependencies.
+- Poet source file inventory for graphical native authorization/project callers, `cooperative_workbench/projection.rs` source-test literal lines 110–165. `native_authoring_profile.rs` was located/pinned, not semantically re-audited here. Cooperative authoring `records.rs` is a pin/reference to the earlier audit, not a new full read.
+- Current Ecopunk authority contract and pinned bounded authority audit; architecture/development-modes/semantic-agreements handoffs; Ecopunk instructions and QualiaDB AGENTS rules/authority entries. The first 100 QualiaDB AGENTS lines and targeted authority/hierarchy rules were read; the file's unrelated historical entries were not a new full semantic audit.
+
+The earlier audit supplies historical selected-caller findings about AgencyDelegation, app-contract, foundation/graph modalities, semantic-instrument origin/integrity and QDNF. This worker did not claim those nine broad QualiaDB capability areas were re-audited, repair unrelated semantic-instrument/CRDT consumers, or infer gaps from unreviewed code. The selected operation is native controller-delegation inspection, not general asset production or a new policy engine.
+
+## Source tests and actual limits
+
+Staged source tests cover positive signed two-edge project-admitted controller/capacity inspection; unchanged canonical source and unverified-human attribution; known shared root control despite different agent keys; absent/forged/wrong-key consent; foreign project/root; candidate cancellation and exact expiry; current admission/ancestor revocation; admission-successor replay; child budget expansion, wrong parent, cycles and unchanged depth; software-capacity root refusal; task/agency purpose/action/command intersection; empty command refusal; unsupported approval modes and financial/provider effects. These tests were not executed by this worker.
+
+AUTH-H2 remains partial: this is authentic controller-consent candidate validation over current signed project admission, not durable adoption and delegated login. AUTH-H3 remains partial: per-edge attenuation/expiry and bounded cancellation checks exist in the validator, but no persisted cancellation registry, shared consumable task budget, delegated-session invalidation or commit/publication enforcement is wired. The cancellation test exercises an owner-internal checked input, not a new public caller-supplied revocation authority.
+
+AUTH-H4/H5 remain open for actual dispatch and retained evidence: current direct contributions/reviews still record actual actor capacity; candidate root/path evidence is not silently inserted into durable author/reviewer history. Known-control overlap detection is available on inspected candidates, but native review commit does not yet invoke an adopted-chain independence policy. Human/domain acceptance remains separate. AUTH-H6 remains open: no real operator trial, new enrolment/delegation UI, native consent ceremony or adoption recovery has been claimed.
+
+Next coherent owner work is journal-backed exact signed consent adoption by the authenticated admitted root; explicitly selected delegated login with authenticated leaf controller; all native effect routes intersecting that retained chain; durable current cancellation/ancestor rechecks at commit and publication; shared TaskDelegation resource consumption; contribution/review/package root/path evidence and explicit reviewer conflict policy. Direct user-authoring does not require pretending this optional route is complete.

@@ -1,0 +1,14 @@
+{
+  "target": "C:/github/poet/native/src/graphical/native_project_rig_tests.rs",
+  "preimage_sha256": "a87296da70c5206aa75266ab01c5d7139a2620f5177941663bfaf3ab92ec559f",
+  "candidate_sha256": "c0b25fb277a65a24b0375fc334c65bb28f6ff6dd6dda94d26b09e016fd603553",
+  "status": "staged-unreviewed-unexecuted",
+  "requires": "mounted rig viewport implementation from rig-viewport/manifest.json",
+  "coverage": "Signed native project with HMC resource and real InteractivePreviewProvider; compares unhighlighted GPU readback during pose stepping, plus restore, stale frame/source, cancellation, digest mismatch, selection and disconnected authority",
+  "limitations": [
+    "Ignored GPU test; execution and visual result not yet verified",
+    "Synthetic fixture; does not establish human acceptance, full HMC memory qualification, rights or asset completion",
+    "Cancellation is pre-dispatch only; no injected mid-GPU race",
+    "Exercises host-level viewport_action, not native_dispatch or an actual mounted UI interaction"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/editor.rs",
+      "sha256": "4dc42e31671c04f1531637a37e4f9531747ddc2496f949463b53b401e86244e7",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/tests.rs",
+      "sha256": "b7b3c7ed9e9ba1499e2540cfaad9948cd40d561e61462828699186e9ca596f7d",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/surface_host.rs",
+      "sha256": "12c2275f728c3d8f94446bf010ccebc3450a30f2acc6732b0b88784b9fadda7a",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "sha256": "9719aea68c7e8ded145289544501ccaa4073ce7c2347c543e5a0bb47cf508550",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/editor.rs",
+      "sha256": "d945c96856d9f787a8d96a3ca6de67ad92017c917399a82363b2ad7a3a4d5fcf",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/package/mod.rs",
+      "sha256": "e001e71ce73c5f43702e895d59af9f6e5bfe3c6447979649924bae5633ff6a15",
+      "matches_reviewed_candidate": true
+    }
+  ],
+  "executable": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 340070384,
+    "sha256": "33e797d6f786bf2e18d2c3ef9fb0d846665b7615023d4bfff42c5c3310643bb1"
+  },
+  "checks": {
+    "surface_transaction": "8 passed",
+    "signed_texture_gpu": "1 passed",
+    "native_library": "344 passed, 14 ignored",
+    "build": "exit 0",
+    "configuration_smoke": "exit 0; no window, vault or source"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\supplemental-patches\\runtime-attempt2.json",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/bytecode/compiler.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\bytecode\\compiler.rs",
+      "before_sha256": "58562aac0e591a943045cca0dcd330708c5d19a9561a2ac4ab717b4037a6bece",
+      "after_sha256": "638892ea78f4b6c4aedc592977d9e5a9e32043701f3efacbd5e305b5ae3fec75"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/bytecode/task_admission_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\bytecode\\task_admission_tests.rs",
+      "before_sha256": "617157e5011c7f4a29f1357d30c53976d8fff0d826c7adc70f99083b6517f634",
+      "after_sha256": "a3a36b94cf66266318a06fa0b73712ac419bbec590cb14a5d09012386ea24069"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/check/bindings.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\check\\bindings.rs",
+      "before_sha256": "d09153d655abb39823edadd8ae661b24eb110d77b0053effd2d5291c75627d13",
+      "after_sha256": "21e924412ea3107f7bb28226f667098786554ecdea8748c07957b0ad574917be"
+    }
+  ],
+  "installed": [
+    "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\compiler.rs",
+    "C:\\github\\qualiaDB\\crates\\vibe\\src\\bytecode\\task_admission_tests.rs",
+    "C:\\github\\qualiaDB\\crates\\vibe\\src\\check\\bindings.rs"
+  ],
+  "verified": false
+}

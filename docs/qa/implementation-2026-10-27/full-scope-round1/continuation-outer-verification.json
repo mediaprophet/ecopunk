@@ -1,0 +1,89 @@
+{
+  "files": [
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation_selection.rs",
+      "sha256": "38c90d73222842aa0bef816f3276b7691a397263187868f347a3bb6732be8eea",
+      "expected": "38c90d73222842aa0bef816f3276b7691a397263187868f347a3bb6732be8eea",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation_selection_tests.rs",
+      "sha256": "36797bcf8e16b30d71953c54219213946b6bfe1018e4c36aa98a6034935b69bb",
+      "expected": "36797bcf8e16b30d71953c54219213946b6bfe1018e4c36aa98a6034935b69bb",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/package_review_controls.rs",
+      "sha256": "67cce157e3f8c38bc6120a5e78683d350724ae3dabaefd2cc9c4d096fbaf0c07",
+      "expected": "67cce157e3f8c38bc6120a5e78683d350724ae3dabaefd2cc9c4d096fbaf0c07",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "sha256": "42f8fd9ee36f5329126451485944115d4d04cb16fb774e96059d9127e937815e",
+      "expected": "42f8fd9ee36f5329126451485944115d4d04cb16fb774e96059d9127e937815e",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/shared_host.rs",
+      "sha256": "1736d19a5e5bdbf1eaf0d3d03bc505454b76cfbdcf9ca00edc4b3e8e5a8bc962",
+      "expected": "1736d19a5e5bdbf1eaf0d3d03bc505454b76cfbdcf9ca00edc4b3e8e5a8bc962",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/controller.rs",
+      "sha256": "353d4451b4e60a1ec318e03120dea88f40c9f9b128cf7c2972be4bd4d34d02c1",
+      "expected": "353d4451b4e60a1ec318e03120dea88f40c9f9b128cf7c2972be4bd4d34d02c1",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport_provider.rs",
+      "sha256": "b8900509b1bf26924314262c5f105bcff6199d01d9f59a69124a17eafdc744e6",
+      "expected": "b8900509b1bf26924314262c5f105bcff6199d01d9f59a69124a17eafdc744e6",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/editor.rs",
+      "sha256": "afa8204b8d710edafe69217b8c12741371ba998c743be0c3d65289fd16f57956",
+      "expected": "afa8204b8d710edafe69217b8c12741371ba998c743be0c3d65289fd16f57956",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/package/mod.rs",
+      "sha256": "a653a70f6106b177845e2cb0193c796b63d376edceb4eeacc01959731a48ebe5",
+      "expected": "a653a70f6106b177845e2cb0193c796b63d376edceb4eeacc01959731a48ebe5",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/editor.rs",
+      "sha256": "16a1a9e898007700dc38ab2fe1b40ff5868d067a49b1cf8f920ccc90df95fb74",
+      "expected": "16a1a9e898007700dc38ab2fe1b40ff5868d067a49b1cf8f920ccc90df95fb74",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/tests.rs",
+      "sha256": "038b74ad1dc04ab3c69122ccffce8fc9596657ad4ce1141ec24ac4a15a8fb625",
+      "expected": "038b74ad1dc04ab3c69122ccffce8fc9596657ad4ce1141ec24ac4a15a8fb625",
+      "matches": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_rig_tests.rs",
+      "sha256": "391c08eb65a6483fa6bd884df03f525e40aadd28eb36c03021fb480c33c05f88",
+      "expected": "391c08eb65a6483fa6bd884df03f525e40aadd28eb36c03021fb480c33c05f88",
+      "matches": true
+    }
+  ],
+  "executable": {
+    "path": "C:/github/ecopunk/target/debug/poet.exe",
+    "bytes": 339934700,
+    "sha256": "ee6377d59b19088184b37633238b359e9932fbb283df909f4a61c7c66a113260"
+  },
+  "checks": {
+    "package_selection": "5 passed",
+    "outer_transaction": "4 passed",
+    "gpu_recovery": "1 passed",
+    "native_library": "330 passed, 14 ignored",
+    "build": "exit 0",
+    "configuration_smoke": "exit 0; no window, vault or source"
+  }
+}

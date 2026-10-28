@@ -1,0 +1,11 @@
+
+running 6 tests
+test explicit_await_must_preserve_the_same_environment_as_syntax_await ... ok
+test numeric_task_id_must_not_disclose_another_environment_result ... ok
+test completed_task_must_not_be_rewritten_by_a_caller_timeout_flag ... ok
+test pure_source_must_reject_task_spawn ... ok
+test unchecked_named_predicate_must_not_be_reported_as_a_verified_proof ... ok
+test actual_digest_verification_rejects_changed_source ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+

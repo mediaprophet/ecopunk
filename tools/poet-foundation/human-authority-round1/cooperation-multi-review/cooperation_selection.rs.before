@@ -1,0 +1,89 @@
+//! Native selectors project exact canonical evidence; they never grant authority.
+use qualia_cooperative_core::authoring::DocumentRevision;
+use qualia_core_db::poet_host::native_authority::{
+    package_review::{PackageContributionRecord, PackageReviewRequest, PackageRevision},
+    SourceReviewRequest,
+};
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub(super) struct RequestChoice {
+    pub id: String,
+    pub actor_subject: String,
+    pub contribution_id: Option<String>,
+    pub evidence_ref: String,
+    pub decision_ids: Vec<String>,
+}
+impl RequestChoice {
+    pub fn pending(&self) -> bool {
+        self.decision_ids.is_empty()
+    }
+}
+
+/// A choice remains usable only while it is in the current inspected evidence.
+/// Backend session, authority, scope and independence checks remain mandatory.
+pub(super) fn pending_selection<'a>(
+    choices: &'a [RequestChoice],
+    id: &str,
+) -> Option<&'a RequestChoice> {
+    choices.iter().find(|row| row.id == id && row.pending())
+}
+
+pub(super) fn source_requests(
+    target: &DocumentRevision,
+    requests: &[SourceReviewRequest],
+) -> Vec<RequestChoice> {
+    requests
+        .iter()
+        .filter(|row| &row.target == target)
+        .map(|row| RequestChoice {
+            id: row.id.clone(),
+            actor_subject: row.requester_subject.clone(),
+            contribution_id: None,
+            evidence_ref: row.evidence_ref.clone(),
+            decision_ids: row.decision_ids.clone(),
+        })
+        .collect()
+}
+
+pub(super) fn package_requests(
+    target: &PackageRevision,
+    requests: &[PackageReviewRequest],
+) -> Vec<RequestChoice> {
+    requests
+        .iter()
+        .filter(|row| &row.target == target)
+        .map(|row| RequestChoice {
+            id: row.id.clone(),
+            actor_subject: row.actor.subject.clone(),
+            contribution_id: Some(row.contribution_id.clone()),
+            evidence_ref: row.evidence_ref.clone(),
+            decision_ids: row.decision_ids.clone(),
+        })
+        .collect()
+}
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub(super) struct ContributionChoice {
+    pub id: String,
+    pub actor_subject: String,
+}
+
+/// Request creation uses this actor's recorded contribution to these exact bytes.
+pub(super) fn package_contributions(
+    target: &PackageRevision,
+    actor: &str,
+    contributions: &[PackageContributionRecord],
+) -> Vec<ContributionChoice> {
+    contributions
+        .iter()
+        .filter(|row| &row.target == target && row.actor.subject == actor)
+        .map(|row| ContributionChoice {
+            id: row.contribution.id.clone(),
+            actor_subject: row.actor.subject.clone(),
+        })
+        .collect()
+}
+
+#[cfg(test)]
+#[path = "cooperation_selection_tests.rs"]
+mod tests;

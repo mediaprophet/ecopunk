@@ -1,0 +1,12 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 3m 07s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 4 tests
+test graphical::cooperation::tests::viewport_outer_transaction_tests::outer_viewport_transaction_retires_on_post_callback_cancellation ... ok
+test graphical::cooperation::tests::viewport_outer_transaction_tests::outer_viewport_transaction_quarantines_if_retirement_unavailable ... ok
+test graphical::cooperation::tests::viewport_outer_transaction_tests::outer_viewport_transaction_retires_on_duplicate_callback ... ok
+test graphical::cooperation::tests::viewport_outer_transaction_tests::outer_viewport_transaction_excludes_frontend_until_rejected_frame_retired ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 340 filtered out; finished in 0.02s
+

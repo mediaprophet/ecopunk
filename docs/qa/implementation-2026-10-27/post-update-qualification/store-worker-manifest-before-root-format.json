@@ -1,0 +1,28 @@
+{
+  "scope": "staged candidate only; canonical siblings untouched",
+  "generated": "2026-10-27",
+  "verification": "rustfmt --edition 2021 --config skip_children=true succeeded; no Cargo/build/tests run",
+  "files": [
+    {
+      "canonical_source": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "source_original": "tools\\poet-foundation\\post-update-qualification\\repairs\\store\\source-original\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "source_original_sha256": "2647158b18d8a0783f2ee8011ca0304c1d7b8369052ac5e4a936892d266b9a0f",
+      "candidate": "tools\\poet-foundation\\post-update-qualification\\repairs\\store\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_store.rs",
+      "candidate_sha256": "8545fbc6fbe90f489cb640c820ff5eec65e6eabc43ef369fb045e5886262dbf4"
+    },
+    {
+      "canonical_source": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+      "source_original": "tools\\poet-foundation\\post-update-qualification\\repairs\\store\\source-original\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+      "source_original_sha256": "a57997b2f3ecee1f3532f71dbcc6367bc6274efcef114c8a1b01e12b004dbf17",
+      "candidate": "tools\\poet-foundation\\post-update-qualification\\repairs\\store\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped.rs",
+      "candidate_sha256": "db3a6910f4519f82bcc67c0fd6297399be70cb51f59efe9bd7cfbf1018b061a8"
+    },
+    {
+      "canonical_source": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped_tests.rs",
+      "source_original": "tools\\poet-foundation\\post-update-qualification\\repairs\\store\\source-original\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped_tests.rs",
+      "source_original_sha256": "125948436c758d423e96c756b80b586434d1dd26bf375f026c139348c62aecbc",
+      "candidate": "tools\\poet-foundation\\post-update-qualification\\repairs\\store\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\invoke\\studio_stamped_tests.rs",
+      "candidate_sha256": "d6ec894188f826d2d98ea8f59562d6dd0cb1af55f879eb2d1d3f3c544ea0ede8"
+    }
+  ]
+}

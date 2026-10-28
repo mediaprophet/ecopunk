@@ -1,0 +1,12 @@
+{
+  "schema": "ecopunk.supplemental-quality-patches/v1",
+  "patches": [
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\vibe\\src\\stdlib_v2\\topology_and_manifold\\effects_and_systems.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\quality\\followup\\effects_and_systems.candidate.rs",
+      "before_sha256": "5ffa702cfae59e24c2d2c21a64bdacdc25a4f1a29af62b0132a5edb12b7c2697",
+      "after_sha256": "b0332c1672522fca52b4e9e3747142a3095b4fdc85bf1e818951f9df9ae65f5f",
+      "reason": "Bind predicate argument array to a local before extracting a borrowed string; fixes E0716 without changing commitment semantics."
+    }
+  ]
+}

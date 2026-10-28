@@ -1,0 +1,29 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0689]: can't call method `is_finite` on ambiguous numeric type `{float}`
+  --> native\src\graphical\authoring\botanical\typed_controls.rs:52:26
+   |
+52 |         if !point[index].is_finite() {
+   |                          ^^^^^^^^^
+
+error[E0382]: borrow of partially moved value: `current`
+   --> native\src\graphical\authoring\botanical\typed_controls.rs:133:70
+    |
+133 |             button { disabled: !fresh || selected_part.is_empty() || current.is_some(),
+    |                                                                      ^^^^^^^ value borrowed here after partial move
+...
+149 |             if let Some(form) = current {
+    |                         ---- value partially moved here
+    |
+    = note: partial move occurs because value has type `typed_controls::GraphDraft`, which does not implement the `Copy` trait
+help: borrow this binding in the pattern to avoid moving the value
+    |
+149 |             if let Some(ref form) = current {
+    |                         +++
+
+Some errors have detailed explanations: E0382, E0689.
+For more information about an error, try `rustc --explain E0382`.
+error: could not compile `poet-cli` (lib test) due to 2 previous errors

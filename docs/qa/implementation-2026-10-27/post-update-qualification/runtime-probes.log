@@ -1,0 +1,42 @@
+
+running 6 tests
+test actual_digest_verification_rejects_changed_source ... ok
+test completed_task_must_not_be_rewritten_by_a_caller_timeout_flag ... 
+thread 'completed_task_must_not_be_rewritten_by_a_caller_timeout_flag' (29752) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:49:5:
+assertion `left == right` failed
+  left: Record({"__task": Bool(true), "__task_seal": String("b0abbfacd4510fe74a2d89be90f6f0bc2f213e611c0000009674215dfe0f0e44"), "args": Record({}), "awaited": Bool(true), "cancelled": Bool(false), "code_hash": String("= 42;"), "elapsed_ms": I64(0), "execution_qualification": String("scheduled_task_joined"), "live_job_joined": Bool(true), "owner_scope": String("session:default"), "result": I64(42), "scheduler_contacted": Bool(true), "scheduler_registered": Bool(true), "spawned": Bool(true), "status": String("completed"), "target_node": Iri("did:q42:local_scheduler"), "task_id": U64(1)})
+ right: I64(42)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test explicit_await_must_preserve_the_same_environment_as_syntax_await ... 
+thread 'explicit_await_must_preserve_the_same_environment_as_syntax_await' (32308) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:36:5:
+assertion `left == right` failed
+  left: Record({"__task": Bool(true), "__task_seal": String("64364eba373220b6c03e3aa6a6ccd6cedce206c43e6799f3222edf6b94d5088f"), "args": Record({}), "awaited": Bool(true), "cancelled": Bool(false), "code_hash": String("= probe_input + 1;"), "elapsed_ms": I64(0), "execution_qualification": String("scheduled_task_joined"), "live_job_joined": Bool(true), "owner_scope": String("session:default"), "result": I64(42), "scheduler_contacted": Bool(true), "scheduler_registered": Bool(true), "spawned": Bool(true), "status": String("completed"), "target_node": Iri("did:q42:local_scheduler"), "task_id": U64(2)})
+ right: I64(42)
+FAILED
+test numeric_task_id_must_not_disclose_another_environment_result ... 
+thread 'numeric_task_id_must_not_disclose_another_environment_result' (25268) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:18:5:
+assertion `left == right` failed
+  left: Record({"__task": Bool(true), "__task_seal": String("3596db331f1693349d0cc48c0ce15b806ffd4eba8b5e3666049f3e9880e516f4"), "args": Record({"owner_scope": String("probe-owner")}), "awaited": Bool(true), "cancelled": Bool(false), "code_hash": String("= 42;"), "elapsed_ms": I64(0), "execution_qualification": String("scheduled_task_joined"), "live_job_joined": Bool(true), "owner_scope": String("probe-owner"), "result": I64(42), "scheduler_contacted": Bool(true), "scheduler_registered": Bool(true), "spawned": Bool(true), "status": String("completed"), "target_node": Iri("did:q42:local_scheduler"), "task_id": U64(3)})
+ right: I64(42)
+FAILED
+test pure_source_must_reject_task_spawn ... 
+thread 'pure_source_must_reject_task_spawn' (15764) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:9:5:
+pure checker accepted a task-registry mutation
+FAILED
+test unchecked_named_predicate_must_not_be_reported_as_a_verified_proof ... 
+thread 'unchecked_named_predicate_must_not_be_reported_as_a_verified_proof' (22588) panicked at C:\github\ecopunk\tools\poet-foundation\post-update-qualification\runtime_boundary_probes.rs:62:5:
+an unevaluated false predicate was accepted as verified
+FAILED
+
+failures:
+
+failures:
+    completed_task_must_not_be_rewritten_by_a_caller_timeout_flag
+    explicit_await_must_preserve_the_same_environment_as_syntax_await
+    numeric_task_id_must_not_disclose_another_environment_result
+    pure_source_must_reject_task_spawn
+    unchecked_named_predicate_must_not_be_reported_as_a_verified_proof
+
+test result: FAILED. 1 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+

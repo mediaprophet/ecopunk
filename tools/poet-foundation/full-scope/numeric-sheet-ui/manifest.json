@@ -1,0 +1,59 @@
+{
+  "files": [
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\jobs.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs.rs",
+      "preimage_sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88",
+      "candidate_sha256": "f5c90f83945a239b3545d4ae400dab5982334c19bc4297b4461751a5e19ab170"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\job_actions.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\job_actions.rs",
+      "preimage_sha256": "6b00cf781357aaf0d3d396c31a0ba7bb1140db3c010800be3d90572afe5a5754",
+      "candidate_sha256": "9864126cd301a8af668f6cf5d0347570abd217e2171320f4495c3904d2c5cf5b"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\jobs_tests.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\jobs_tests.rs",
+      "preimage_sha256": "2759c908ed74542c3534034ad8e20acbff238754f405aebdfd8b82045ae63f2b",
+      "candidate_sha256": "0ab642c8b59ce01f3b28b5e14c7e91570482c12c86fd92480b6bc0c234b0743c"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\native_dispatch.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\native_dispatch.rs",
+      "preimage_sha256": "e719ba8823cadc1e6e47bf2f866244f172213b8faa3f2e205ff14f8894a742b0",
+      "candidate_sha256": "56c5309495838b07579009727513e66591c0c7064c9e4f48d4459d8e1c450269"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\ui.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\ui.rs",
+      "preimage_sha256": "a29b06c03f63193736f48b1eb8f4f641c66211f9cfb6352c50b776ac5f56b958",
+      "candidate_sha256": "a64ed0f92aea612009ce37eae9616314fee8a975b8a59de73806878a2cb6dc94"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\numeric_sheet_controls.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\numeric_sheet_controls.rs",
+      "preimage_sha256": null,
+      "candidate_sha256": "f968d1002037195f13a425dfedf92e04810ac9d14a7c927cd6f7c18f944214cc"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\workspace_intents.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\intents.rs",
+      "preimage_sha256": "f1d9ff820e82eee35c1c22beb0c00abd86650a630ead3394acaaca44db6a31f5",
+      "candidate_sha256": "afb6d4f35ba34137f786da75c6a4a91f60178431dc7f949c88f3112b5fc33008"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\workspace_mod.rs",
+      "target": "C:\\github\\poet\\native\\src\\graphical\\poet_workspace\\mod.rs",
+      "preimage_sha256": "c595bf1d9933880003448146fd8eff4829a1729152933b592c0d914749b62c14",
+      "candidate_sha256": "9dfcca3f400811d8efdacb36f45d7cd3ba3033a91e7a4b42bc72f8bba6412915"
+    },
+    {
+      "staged": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\numeric-sheet-ui\\workspace_tests.rs",
+      "target": "C:/github/poet/native/src/graphical/poet_workspace/tests.rs",
+      "preimage_sha256": "5e9bdc420d3953e34a904e46e63d600e077b46932b8bd988b99b4cc38a146aaf",
+      "candidate_sha256": "68eafda835363ef9f5fd62a937e3801f434559da2ba86716011beabf4a0344d9"
+    }
+  ],
+  "note": "Typed authenticated NumericSheetIntent uses the existing bus actor, source/session, provenance and receipt dispatch; diagnostic non-authenticated context uses direct typed jobs. No new serialized/JSON payload; coordinator must merge graphical/mod.rs registration. Unbuilt/untested."
+}

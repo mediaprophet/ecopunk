@@ -1,6 +1,8 @@
 # Independent preparation for production readiness
 
-2026-10-27. VibeScript and Poet are being updated in another workstream. Timothy will advise when that work is ready. This packet prepares acceptance and assignments without editing those repositories, running Cargo, launching native tools or producing assets. The [implementation plan](implementation-plan.md) retains its governing order; production remains **HOLD**.
+2026-10-27. This packet was prepared while VibeScript and Poet updates were in progress. It defines operator acceptance and assignments; its cases remain an unexecuted trial template. The [implementation plan](implementation-plan.md) retains its governing order; production remains **HOLD**.
+
+**Subsequent qualification outcome:** Timothy authorised testing and code repairs. The separate [post-update software qualification](../qa/implementation-2026-10-27/post-update-qualification/README.md) records saved repairs, 1,769 selected passing test executions with zero failures/compiler warnings, native GPU readback and fresh-process HMC recovery. It retains failed attempts and unexecuted cases. This document and its case JSON remain an unexecuted operator-trial preparation template; software tests cannot fill human acceptance or production-authorisation fields.
 
 ## Reuse and deliverables
 

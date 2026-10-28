@@ -1,0 +1,29 @@
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling poet-spatial-authoring v0.4.0 (C:\github\poet\crates\spatial-authoring)
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+error[E0596]: cannot borrow `preview_rig` as mutable, as it is not declared as mutable
+   --> native\src\graphical\viewport_controls.rs:578:85
+    |
+578 |                 button { disabled:busy() || selected().is_empty(), onclick:move |_| preview_rig(0.0), "Preview current pose" }
+    |                                                                                     ^^^^^^^^^^^ cannot borrow as mutable
+    |
+help: consider changing this to be mutable
+    |
+380 |     let mut preview_rig = move |delta_seconds: f64| {
+    |         +++
+
+error[E0596]: cannot borrow `preview_rig_step` as mutable, as it is not declared as mutable
+   --> native\src\graphical\viewport_controls.rs:579:85
+    |
+579 | ...   button { disabled:busy() || selected().is_empty(), onclick:move |_| preview_rig_step(1.0 / 30.0), "Advance 1/30 second" }
+    |                                                                           ^^^^^^^^^^^^^^^^ cannot borrow as mutable
+    |
+help: consider changing this to be mutable
+    |
+392 |     let mut preview_rig_step = preview_rig.clone();
+    |         +++
+
+For more information about this error, try `rustc --explain E0596`.
+error: could not compile `poet-cli` (lib test) due to 2 previous errors

@@ -1,0 +1,94 @@
+diff --git C:/github/qualiaDB/crates/vibe/src/capability_schema/runtime_entries.rs C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/runtime-schema-followup/crates/vibe/src/capability_schema/runtime_entries.rs
+index de30296..5bcbaa4 100644
+--- C:/github/qualiaDB/crates/vibe/src/capability_schema/runtime_entries.rs
++++ C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/runtime-schema-followup/crates/vibe/src/capability_schema/runtime_entries.rs
+@@ -40,12 +40,12 @@ pub(super) fn entries() -> Vec<S> {
+             .with_description("Legacy proof API refuses: no admitted cryptographic predicate prover connected."),
+         S::new("crypto.verify_zk_predicate", E::Pure, H::FailClosed, "Unsupported")
+             .with_description("Legacy proof API refuses: no admitted cryptographic predicate verifier connected."),
+-        S::new("crypto.commit_predicate", E::Write, H::Always, "Record")
+-            .with_arg(A::new("predicate_text", "string", true)).with_arg(A::new("public_input", "Value", true)).with_arg(A::new("payload", "Value", true))
+-            .with_description("Registers a local content commitment to supplied text and data; does not evaluate predicate truth, establish authority or provide zero knowledge."),
+-        S::new("crypto.verify_commitment", E::Read, H::FailClosed, "bool")
+-            .with_arg(A::new("commitment", "Record", true)).with_arg(A::new("public_input", "Value", true))
+-            .with_description("Verifies registered local commitment integrity only; no predicate truth, issuer signature or cryptographic ZK verification."),
++        S::new("crypto.commit_predicate", E::Pure, H::Always, "Record")
++            .with_arg(A::new("predicate_text", "string", true)).with_arg(A::new("public_input", "Value", false))
++            .with_description("Constructs a deterministic local SHA-256 binding to predicate text and public input (default Null). No registry or witness payload; predicate_truth_verified and issuer_authenticity_verified remain false."),
++        S::new("crypto.verify_commitment", E::Pure, H::Always, "Record")
++            .with_arg(A::new("commitment", "Record", true)).with_arg(A::new("public_input", "Value", false))
++            .with_description("Returns integrity_verified by recomputing the deterministic binding with public input (default Null). Predicate truth and issuer authenticity remain unverified; no registry or cryptographic ZK verifier is involved."),
+     ];
+     for (id, description) in [
+         (
+@@ -95,3 +95,55 @@ pub(super) fn entries() -> Vec<S> {
+     }
+     entries
+ }
++
++#[cfg(test)]
++mod tests {
++    #[test]
++    fn predicate_binding_schemas_match_actual_record_results_and_optional_input() {
++        for (id, source) in [
++            (
++                "crypto.commit_predicate",
++                "= crypto.commit_predicate(\"1 == 0\")",
++            ),
++            (
++                "crypto.verify_commitment",
++                "= crypto.verify_commitment(crypto.commit_predicate(\"1 == 0\"))",
++            ),
++        ] {
++            let schema = crate::capability_schema::schema_for(id).unwrap();
++            assert_eq!(schema.returns, "Record");
++            assert_eq!(schema.effect, crate::capability_schema::EffectClass::Pure);
++            assert_eq!(
++                crate::effects::binding_effect(id),
++                crate::effects::Effect::Pure
++            );
++            assert_eq!(schema.args.len(), 2);
++            assert!(schema.args[0].required);
++            assert_eq!(schema.args[1].name, "public_input");
++            assert!(!schema.args[1].required);
++            let value = crate::eval_cell(
++                source,
++                &mut crate::LocalHost::default(),
++                &mut crate::Env::default(),
++            )
++            .unwrap();
++            let crate::Value::Record(result) = value else {
++                panic!("schema promises Record")
++            };
++            assert_eq!(
++                result.get("predicate_truth_verified"),
++                Some(&crate::Value::Bool(false))
++            );
++            assert_eq!(
++                result.get("issuer_authenticity_verified"),
++                Some(&crate::Value::Bool(false))
++            );
++            if id == "crypto.verify_commitment" {
++                assert_eq!(
++                    result.get("integrity_verified"),
++                    Some(&crate::Value::Bool(true))
++                );
++            }
++        }
++    }
++}
+diff --git C:/github/qualiaDB/crates/vibe/src/effects.rs C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/runtime-schema-followup/crates/vibe/src/effects.rs
+index cfaafb3..5071b65 100644
+--- C:/github/qualiaDB/crates/vibe/src/effects.rs
++++ C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/runtime-schema-followup/crates/vibe/src/effects.rs
+@@ -43,8 +43,8 @@ pub fn binding_effect(path: &str) -> Effect {
+         | "value.verify_provenance"
+         | "crypto.prove_zk_predicate"
+         | "crypto.verify_zk_predicate" => Effect::Cold,
+-        "crypto.commit_predicate" => Effect::Cold,
+-        "crypto.verify_commitment" => Effect::Hot,
++        // Stateless deterministic binding integrity; no registry or attestation.
++        "crypto.commit_predicate" | "crypto.verify_commitment" => Effect::Pure,
+         "task.status" => Effect::Hot,
+         // Child effects are not yet represented in Task<T, effects>. Joining may
+         // run an admitted effectful program, so dynamic joins are conservative.

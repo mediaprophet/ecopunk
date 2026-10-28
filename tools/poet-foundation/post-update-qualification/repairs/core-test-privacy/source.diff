@@ -1,0 +1,39 @@
+diff --git C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_stamped_tests.rs C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/core-test-privacy/studio_stamped_tests.candidate.rs
+index 864ea11..867478a 100644
+--- C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_stamped_tests.rs
++++ C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/core-test-privacy/studio_stamped_tests.candidate.rs
+@@ -151,17 +151,27 @@ fn unrelated_artifact_mutation_does_not_stale_current_stamp_but_same_artifact_is
+     let (_, target) =
+         create_artifact_if_absent(StudioArtifact::new("stamp-target-stable", "Geometry", "B"))
+             .unwrap();
+-    let mutation = unrelated.publication.begin(unrelated.revision()).unwrap();
+-    assert!(artifact_stamp_is_current("stamp-target-stable", &target));
++    let (edited, current) = mutate_artifact_stamped("stamp-unrelated-busy", &unrelated, |source| {
++        // This callback runs while the actual global store is locked and this
++        // artifact's publication mutation is active. An unrelated stamp must
++        // remain current rather than failing because a global try_lock is busy.
++        assert!(artifact_stamp_is_current("stamp-target-stable", &target));
++        assert!(!artifact_stamp_is_current(
++            "stamp-unrelated-busy",
++            &unrelated
++        ));
++        source.title = "A revised".into();
++        Ok(())
++    })
++    .unwrap();
++    assert_eq!(edited.title, "A revised");
++    assert!(current.revision() > unrelated.revision());
+     assert!(!artifact_stamp_is_current(
+         "stamp-unrelated-busy",
+         &unrelated
+     ));
+-    drop(mutation);
+-    assert!(artifact_stamp_is_current(
+-        "stamp-unrelated-busy",
+-        &unrelated
+-    ));
++    assert!(artifact_stamp_is_current("stamp-unrelated-busy", &current));
++    assert!(artifact_stamp_is_current("stamp-target-stable", &target));
+ }
+ 
+ #[test]

@@ -1,0 +1,21 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 1m 01s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-c90abe74ab5c9ced.exe)
+
+running 13 tests
+test graphical::authoring::botanical::tests::adopted_graph_replay_and_radius_edit_use_core_geometry ... ok
+test graphical::authoring::botanical::tests::botanical_edit_refuses_selected_atlas_without_invalidating_existing_source ... ok
+test graphical::authoring::botanical::tests::cycles_budget_foreign_target_and_drift_are_refused ... ok
+test graphical::authoring::botanical::tests::emitted_botanical_cell_evaluates_and_preserves_unrelated_source ... ok
+test graphical::authoring::botanical::tests::explicit_first_adoption_rebuilds_selected_geometry_and_keeps_unrelated_part ... ok
+test graphical::authoring::botanical::tests::position_edit_preserves_other_keys_and_changes_sweep ... ok
+test graphical::authoring::botanical::typed_controls::tests::entered_graph_uses_selected_part_and_refuses_invalid_parent_or_number ... ok
+test graphical::geometry_host::botanical_budget_tests::botanical_host_reserves_projection_edit_and_revalidation_work ... ok
+test graphical::native_entry::create::native_botanical_kernels_require_host_opt_in ... ok
+test graphical::native_project::tests::biosphere_round1_tests::botanical_native_edit_requires_actual_core_grants ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_checkpoint_exact_source_review_retains_journal ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_gpu_edit_checkpoint_fresh_reopen ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_native_intent_mcp_refusals_history_and_hmc_reopen ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 372 filtered out; finished in 6.16s
+

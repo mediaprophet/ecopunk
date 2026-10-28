@@ -1,0 +1,90 @@
+diff --git C:/github/poet/native/src/graphical/native_project_motion_tests.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\native_project_motion_tests.rs"
+index 0f190b4..119549d 100644
+--- C:/github/poet/native/src/graphical/native_project_motion_tests.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\native_project_motion_tests.rs"
+@@ -349,7 +349,7 @@ fn signed_material_motion_rejects_stale_observer_revoked_and_malformed_edits() {
+         Box::new(MotionNoPixels),
+     )
+     .unwrap();
+-    let ui = project.connect(author.clone()).unwrap();
++    let mut ui = project.connect(author.clone()).unwrap();
+     let initial = ui.snapshot().unwrap();
+     ui.submit(assembly_source(), initial.source).unwrap();
+     let mut mcp = project.mcp_backend(author).unwrap();
+@@ -484,7 +484,7 @@ fn signed_material_motion_rejects_stale_observer_revoked_and_malformed_edits() {
+     drop(ui);
+     drop(mcp);
+     let author = login(&authority, "fixture-author", &AUTHOR);
+-    let mut ui = project.connect(author.clone()).unwrap();
++    let ui = project.connect(author.clone()).unwrap();
+     let mut mcp = project.mcp_backend(author).unwrap();
+     let read = mcp.call("poet_source_read", json!({})).unwrap();
+     admission.sequence = 3;
+diff --git C:/github/poet/native/src/graphical/viewport_controls.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\viewport_controls.rs"
+index 1c57b46..bb98dde 100644
+--- C:/github/poet/native/src/graphical/viewport_controls.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\viewport_controls.rs"
+@@ -68,8 +68,8 @@ fn add_commands(previous: ViewportCommand, next: ViewportCommand) -> ViewportCom
+ 
+ fn clear_frame(
+     mut image: Signal<Option<String>>,
+-    selected: Signal<String>,
+-    viewport_state: Signal<Option<ViewportState>>,
++    mut selected: Signal<String>,
++    mut viewport_state: Signal<Option<ViewportState>>,
+ ) {
+     image.set(None);
+     selected.set(String::new());
+@@ -84,8 +84,8 @@ fn enqueue(
+     image: Signal<Option<String>>,
+     busy: Signal<bool>,
+     mut status: Signal<String>,
+-    mut selected: Signal<String>,
+-    mut viewport_state: Signal<Option<ViewportState>>,
++    selected: Signal<String>,
++    viewport_state: Signal<Option<ViewportState>>,
+     mut pending: Signal<Option<PendingCommand>>,
+ ) {
+     let current = view();
+diff --git C:/github/poet/native/src/graphical/authoring/source_layers/mod.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\authoring\\source_layers\\mod.rs"
+index 0a9eee2..7d608f4 100644
+--- C:/github/poet/native/src/graphical/authoring/source_layers/mod.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\authoring\\source_layers\\mod.rs"
+@@ -21,6 +21,8 @@ mod snapshot;
+ mod validation;
+ use super::source::{identifier, record};
+ pub(crate) use envelope::validate_render_envelope;
++#[cfg(test)]
++pub(crate) use snapshot::validation_snapshot;
+ pub(crate) use snapshot::validation_snapshot_with_budget;
+ use std::collections::BTreeMap;
+ pub(crate) use validation::validate_result;
+diff --git C:/github/poet/native/src/graphical/authoring/source_layers/snapshot.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\authoring\\source_layers\\snapshot.rs"
+index aa2acaf..dbf71ac 100644
+--- C:/github/poet/native/src/graphical/authoring/source_layers/snapshot.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\poet-compile-followup\\native\\src\\graphical\\authoring\\source_layers\\snapshot.rs"
+@@ -3,6 +3,8 @@
+ //! clone. These are budgeted structural bytes, not measured allocator/RSS bytes.
+ //! SessionLimits independently governs retained values; no source grants budget.
+ use vibe::Value;
++#[cfg(test)]
++const LEGACY_BYTES: usize = 64 * 1024 * 1024;
+ 
+ #[derive(Debug)]
+ struct SnapshotCost {
+@@ -78,6 +80,15 @@ fn cost(parts: Option<&Value>, base: Option<&Value>) -> Result<SnapshotCost, Str
+     Ok(total)
+ }
+ 
++/// Test-only compatibility profile: unchanged 64 MiB combined structural-byte ceiling.
++#[cfg(test)]
++pub(crate) fn validation_snapshot(
++    parts: Option<&Value>,
++    base: Option<&Value>,
++) -> Result<(Option<Value>, Option<Value>), String> {
++    validation_snapshot_with_budget(parts, base, LEGACY_BYTES)
++}
++
+ /// Native owner passes its existing SessionLimits.retained_value_bytes. The
+ /// caller chooses this operation allowance, independently of source content.
+ /// Count the complete bounded input before cloning, so refusals report required

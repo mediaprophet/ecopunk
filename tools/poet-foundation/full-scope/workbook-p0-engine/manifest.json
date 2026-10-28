@@ -1,0 +1,42 @@
+{
+  "status": "staged; no Cargo; lockfile update required",
+  "files": [
+    {
+      "target": "C:/github/poet/native/Cargo.toml",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-engine/Cargo.toml",
+      "candidate_sha256": "80f68f37ff25b2dd60da697026715554609abc65b7c9c2b3c405ab4d87e33459",
+      "preimage_sha256": "a77edf2e95ce40722f3b305b2978c773522906c5aa9fe878ed89a7d73716aa6b"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/mod.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-engine/graphical_mod.rs",
+      "candidate_sha256": "518da10fc55eea2c717a6666387811a15b000a611c5b05f90ceced197afae1a3",
+      "preimage_sha256": "887825160ea03f8e3e019b86677db7580bf8dfb43bec63bc9874a26ac002191c"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/workbook_p0.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-engine/workbook_p0.rs",
+      "candidate_sha256": "6efb40b8bbd97e056f4c5ae8f594153f7d5004045919386e9cc37e4d6020f18d",
+      "preimage": "absent"
+    },
+    {
+      "target": "C:/github/poet/native/third_party/gridcraft/LICENSE-MIT",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-engine/notices/LICENSE-MIT",
+      "candidate_sha256": "a87109bbb1ad43ca3920a5d7ff3806863b7e8470a73f4ded97a1447ac93333f5",
+      "preimage": "absent"
+    },
+    {
+      "target": "C:/github/poet/native/third_party/gridcraft/NOTICE",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-engine/notices/NOTICE",
+      "candidate_sha256": "7c948d5b56639a6d53c362ce0b54a79badd6f272c542f0fc0f22e9ec31c61c2b",
+      "preimage": "absent"
+    },
+    {
+      "target": "C:/github/poet/native/third_party/gridcraft/ATTRIBUTION.md",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/workbook-p0-engine/notices/ATTRIBUTION.md",
+      "candidate_sha256": "56b465eebb50e1b424c33291119529e45c8636b806d4432199ba7d57bc555c50",
+      "preimage": "absent"
+    }
+  ],
+  "source_pins": "source-pins.json"
+}

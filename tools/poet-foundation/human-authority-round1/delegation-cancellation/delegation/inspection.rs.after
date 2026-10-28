@@ -1,0 +1,165 @@
+use super::{
+    super::*,
+    verify::{verify_chain, ControllerRoot},
+};
+use qualia_cooperative_core::authoring::delegation::{
+    check_delegated_operation, DelegatedOperation, SignedAuthoringDelegation,
+};
+
+/// An inspected candidate, deliberately not serializable or a dispatch permit.
+/// No actual leaf login, durable adoption or resource consumption is asserted.
+#[derive(Debug)]
+pub struct ControllerDelegationInspection {
+    pub project_admitted_root_subject: String,
+    pub root_capacity: PrincipalKind,
+    pub root_admission_ref: String,
+    pub acting_agent_subject: String,
+    pub delegation_path: Vec<[u8; 32]>,
+    pub target: DocumentRevision,
+    pub authority_generation: u64,
+    root_controller: [u8; 32],
+}
+
+impl ControllerDelegationInspection {
+    /// Positive overlap establishes a review conflict under a policy requiring
+    /// separate controllers. False means only that this evidence did not prove
+    /// overlap; it does not prove separate humans or independent acceptance.
+    pub fn has_admitted_control_overlap(&self, other: &Self) -> bool {
+        self.root_controller == other.root_controller
+            || (self.target.project_id == other.target.project_id
+                && (self.project_admitted_root_subject == other.project_admitted_root_subject
+                    || self
+                        .delegation_path
+                        .iter()
+                        .any(|d| other.delegation_path.contains(d))))
+    }
+}
+
+impl NativeAuthority {
+    /// Cancel the final edge of a verified signed chain for this admitted root.
+    /// This records withdrawal only; it does not adopt or authorize a delegation.
+    /// Earlier edges remain usable unless separately cancelled.
+    pub fn cancel_controller_delegation(
+        &self,
+        root_session: &SessionHandle,
+        chain: &[SignedAuthoringDelegation],
+    ) -> Result<[u8; 32], String> {
+        let mut state = self.state.lock().map_err(|_| "native authority poisoned")?;
+        let now = now()?;
+        let (digest, subject) = self.view(&state, root_session, now, |view| {
+            let principal = view.principal.ok_or("native principal unavailable")?;
+            let root = state.durable.admission.snapshot.subjects.iter()
+                .find(|subject| subject.subject == principal.subject)
+                .ok_or("native root admission missing")?;
+            // Verification binds this session's root, controller, project,
+            // admission, every parent and every actual signature. It grants no action.
+            let checked = verify_chain(
+                ControllerRoot { subject: principal.subject, controller: &root.controller_public_key,
+                    admission_digest: state.admission_digest },
+                &state.durable.admission.snapshot, chain, now, &[],
+            )?;
+            Ok((checked.path[checked.count - 1], principal.subject.to_owned()))
+        })?;
+        if state.durable.delegation_cancellations.iter().any(|record| record.digest == digest) {
+            return Err("delegation already cancelled".into());
+        }
+        if state.durable.delegation_cancellations.len() >= 256 {
+            return Err("delegation cancellation budget exhausted".into());
+        }
+        let mut next = state.durable.clone();
+        next.delegation_cancellations.push(super::super::journal::DelegationCancellation {
+            digest, root_subject: subject, admission_digest: state.admission_digest,
+            cancelled_at_unix: now,
+        });
+        if let Err(error) = state.journal.append(&next) {
+            state.reconciliation = true;
+            return Err(format!("delegation cancellation journal failed; reconciliation required: {error}"));
+        }
+        state.durable = next;
+        Ok(digest)
+    }
+
+    /// Current authenticated principal explicitly inspects exact signed consent
+    /// bytes and an operation. This is the backend seam for later durable
+    /// adoption and delegated login; success authorizes no native side effect.
+    pub fn inspect_controller_delegation(
+        &self,
+        root_session: &SessionHandle,
+        chain: &[SignedAuthoringDelegation],
+        operation: &DelegatedOperation<'_>,
+    ) -> Result<ControllerDelegationInspection, String> {
+        let state = self.state.lock().map_err(|_| "native authority poisoned")?;
+        let now = now()?;
+        self.view(&state, root_session, now, |view| {
+            let principal = view.principal.ok_or("native principal unavailable")?;
+            // Controller consent cannot enlarge the root's actual project
+            // rights. Reuse the current authoring owner for this exact action,
+            // source and generation while the same native lock is held.
+            authorize(
+                view,
+                &AuthoringRequest {
+                    action: operation.action,
+                    target: operation.target,
+                    expected_authority_generation: view.generation,
+                },
+            )
+            .map_err(|e| e.to_string())?;
+            let root = state
+                .durable
+                .admission
+                .snapshot
+                .subjects
+                .iter()
+                .find(|s| s.subject == principal.subject)
+                .ok_or("native root admission missing")?;
+            if operation.target != view.current_document {
+                return Err("delegation candidate operation must bind current host source".into());
+            }
+            let cancelled: Vec<[u8; 32]> = state.durable.delegation_cancellations.iter().map(|r| r.digest).collect();
+            let checked = verify_chain(
+                ControllerRoot {
+                    subject: principal.subject,
+                    controller: &root.controller_public_key,
+                    admission_digest: state.admission_digest,
+                },
+                &state.durable.admission.snapshot,
+                chain,
+                now,
+                &cancelled,
+            )?;
+            let leaf = &chain.last().ok_or("empty delegation chain")?.delegation;
+            if operation.actor_subject != leaf.grantee_subject
+                || operation.actor_controller != &leaf.grantee_controller
+            {
+                return Err("delegation candidate leaf controller mismatch".into());
+            }
+            // The same requested operation must lie inside every ancestor's
+            // scope; actor identity at each edge remains separately verified.
+            for edge in chain {
+                let d = &edge.delegation;
+                let ancestor_operation = DelegatedOperation {
+                    actor_subject: &d.grantee_subject,
+                    actor_controller: &d.grantee_controller,
+                    purpose: operation.purpose,
+                    command_id: operation.command_id,
+                    action: operation.action,
+                    effects: operation.effects,
+                    target: operation.target,
+                    now_unix: now,
+                };
+                check_delegated_operation(d, &ancestor_operation)
+                    .map_err(|e| format!("delegation candidate operation denied: {e:?}"))?;
+            }
+            Ok(ControllerDelegationInspection {
+                project_admitted_root_subject: root.subject.clone(),
+                root_capacity: root.kind,
+                root_admission_ref: root.admission_ref.clone(),
+                acting_agent_subject: leaf.grantee_subject.clone(),
+                delegation_path: checked.path[..checked.count].to_vec(),
+                target: view.current_document.clone(),
+                authority_generation: view.generation,
+                root_controller: root.controller_public_key,
+            })
+        })
+    }
+}

@@ -1,0 +1,9 @@
+    Finished `test` profile [unoptimized] target(s) in 17.74s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 2 tests
+test graphical::checkpoints::typed_10d::tests::skeletal_inspection_distinguishes_present_absent_and_unassessed ... ok
+test graphical::checkpoints::typed_10d::tests::typed_10d_selected_package_reports_skeletal_counts_and_preserves_edit_blocker ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 325 filtered out; finished in 0.07s
+

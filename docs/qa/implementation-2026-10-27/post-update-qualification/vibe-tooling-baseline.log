@@ -1,0 +1,37 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling serde_json v1.0.151
+   Compiling quote v1.0.47
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling bytemuck_derive v1.11.0
+   Compiling serde_derive v1.0.229
+   Compiling bytemuck v1.25.2
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+   Compiling serde v1.0.229
+   Compiling vibe-lsp v0.0.1 (C:\github\vibe-script\crates\vibe-lsp)
+    Finished `test` profile [unoptimized] target(s) in 3m 38s
+     Running unittests src\main.rs (C:/github/ecopunk/target\debug\deps\vibe_lsp-80f481de3fc92103.exe)
+
+running 19 tests
+test catalog_intel::tests::hover_catalog_path ... ok
+test catalog_intel::tests::hover_snomed_term_shows_iri_and_label ... ok
+test server::tests::completion_response ... ok
+test catalog_intel::tests::snomed_colon_completes_locals ... ok
+test catalog_intel::tests::stdlib_v2_and_cbor_ld_dot_completes_and_hovers ... ok
+test catalog_intel::tests::family_dot_completes_methods ... ok
+test server::tests::read_message_eof ... ok
+test server::tests::formatting_response ... ok
+test server::tests::did_open_publishes_diagnostics ... ok
+test server::tests::diagnostics_on_parse_error ... ok
+test server::tests::diagnostics_collect_more_than_one_function ... ok
+test server::tests::diagnostics_on_valid_program ... ok
+test server::tests::initialize_response ... ok
+test server::tests::lsp_message_framing ... ok
+test server::tests::shutdown_then_exit ... ok
+test target_capabilities::tests::standalone_graph_call_explains_snapshot_semantics ... ok
+test target_capabilities::tests::strings_and_comments_do_not_create_diagnostics ... ok
+test server::tests::wasm_target_reports_native_bridge_requirement ... ok
+test target_capabilities::tests::native_bridge_call_is_flagged_for_wasm ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.26s
+

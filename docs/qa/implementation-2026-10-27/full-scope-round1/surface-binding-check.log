@@ -1,0 +1,16 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 2m 21s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 8 tests
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_accepts_binding_after_owner_checks ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_duplicate_callback_is_not_repeated_and_quarantines ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_excludes_other_frontend_and_quarantines_outer_refusal ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_preflight_refusal_preserves_host_for_retry ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_preserves_host_when_authority_refuses_before_dispatch ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_quarantines_inner_error_after_dispatch ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_real_checkpoint_preflight_then_owner_rejection ... ok
+test graphical::cooperation::tests::surface_binding_transaction_tests::surface_binding_transaction_rejects_nonshared_host_before_dispatch ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 350 filtered out; finished in 0.05s
+

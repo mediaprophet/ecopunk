@@ -1,0 +1,32 @@
+{
+  "scope": "Exact source review request decision context, existing authority and source owner unchanged",
+  "state": "staged, parsed only; not compiled or executed",
+  "files": [
+    {
+      "destination": "C:/github/poet/native/src/graphical/cooperation_selection.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/source-review-decision-context/cooperation_selection.rs",
+      "before_sha256": "0e17aa652af6621aed0abd9a4a62f0129ee91575461fc6791ddce7fe2bb6fd39",
+      "after_sha256": "4ca7a4c61081e46a218a2eade9993d4491bda3ed2f90c66798a0040f60c6b2b9",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/source-review-decision-context/cooperation_selection.rs.before"
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/cooperation_selection_tests.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/source-review-decision-context/cooperation_selection_tests.rs",
+      "before_sha256": "53ebf6742ff10432cb6a9dcacacfdf73838588182eb4fb58db96d5f5e801a871",
+      "after_sha256": "55f5871a5c74b6a7e1b29ee84b3a76149e7fc7c0c3309db2a969af7f3177f9e8",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/source-review-decision-context/cooperation_selection_tests.rs.before"
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/cooperative_controls.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/source-review-decision-context/cooperative_controls.rs",
+      "before_sha256": "b4a52ddbf0c36a1d8b049833624a640021a02a3d1b86dbe6f36d29c9292405ba",
+      "after_sha256": "08d2a5df5145464933c69f2fb31ba17504822521b0986063d0d888f4267ed4b5",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/source-review-decision-context/cooperative_controls.rs.before"
+    }
+  ],
+  "suggested_test": "cargo test --locked --offline -p poet-cli --features native-graphical --lib cooperation_selection --target-dir C:/github/ecopunk/target",
+  "limitations": [
+    "No native window/human reviewer trial",
+    "No new authority, review independence or human acceptance claim"
+  ]
+}

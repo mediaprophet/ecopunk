@@ -1,0 +1,19 @@
+{
+  "scope": "Retire previously published rig frame before fallible advance",
+  "files": [
+    {
+      "destination": "C:/github/poet/native/src/graphical/animated_rig_preview.rs",
+      "before_sha256": "62036a8855f192d89853997e629920be430d3c694a524edf577f9c51a7db92a7",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-frame-failure/animated_rig_preview.rs.after",
+      "after_sha256": "e9db4c5057dec1e7c39c8d2bae08570b79c45fe390b67710c438f108283ec19a"
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "before_sha256": "3f113e3d63f3866a55ab9185323076ea8ed665e8735e6b9ddc6ef66904c628c2",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-frame-failure/tests.rs.after",
+      "after_sha256": "bc7a2fc77811a193ab9be768f89bb82350376494727bdd527901b1c6c92aefd7"
+    }
+  ],
+  "tests": "rejected_rig_advance_retires_previous_frame",
+  "state": "staged, not compiled or executed"
+}

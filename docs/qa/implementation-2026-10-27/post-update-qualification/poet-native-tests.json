@@ -1,0 +1,148 @@
+{
+  "case": "poet-native-tests",
+  "cwd": "C:/github/poet",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "-p",
+    "poet-cli",
+    "--features",
+    "native-graphical",
+    "--tests",
+    "--target-dir",
+    "C:/github/ecopunk/target"
+  ],
+  "started_utc": "2026-10-27T00:40:57.710015+00:00",
+  "before": {
+    "qualiaDB": {
+      "head": "69ec4ce5d499a271da74b74018631c388124f15e",
+      "dirty": [
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/q42/volume/payload_catalogue.rs",
+          "sha256": "2bbf792f411948c2e55a249906486028c1729c17e5d61c9e2a30d14be7c6440e"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/poet.rs",
+          "sha256": "de45c84f85aeb8d796b2e92ae16249a60ba953c50b30f7a7e6ba092d71ffaa75"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/topology.rs",
+          "sha256": "bbe466b2bec35ed4be83a580033325b41cd56af5cd3372c2bf2e9d5c34d6b4f0"
+        }
+      ],
+      "manifests_and_config": {
+        "Cargo.toml": "bcd94075a5c27307b9c9b74b651ab1ad3eab308e7902d4b3a4998ae20d08b9a8",
+        "Cargo.lock": "45040ce18d1dbb7fcc54158600188bd6a46a2bfc770968ca53c5ad687024d0a7",
+        ".cargo/config.toml": "e9623219208e143fe618620fd173f5d43f51fcab9a4e502653c8576848aedb7b"
+      }
+    },
+    "poet": {
+      "head": "3d167fdff42eb7fd913d998d786a0a39639b5d6e",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "c3c799be5bd7b68da816621563ba58d7589b18134ffc0340bb67c68644c47d66",
+        "Cargo.lock": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a"
+      }
+    },
+    "etalon": {
+      "head": "4e77ca3f71b74c10c635b7a1f0ddd923590fdc61",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "f45ab8b50270903b80d0a8469c7f9a45f75a2f83004cb932396827fb5d6c9fa5",
+        "Cargo.lock": "a6be3bca856aef1af5aea8a933539002e591562d0838c96e2673af8289a7e3d4",
+        ".cargo/config.toml": "0b3d7ce16694a2ca5dcdc27f0b13901ea91efacfff891e06371e9d08ee22e119"
+      }
+    },
+    "rust-app-framework": {
+      "head": "60123a1932f2018ea777502b33ef9006f8f926ea",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "b74dd94e71090dddd222e07f76de48335a15afc2815b9b0e46f0811bb8fd65d5",
+        "Cargo.lock": "e43e1dea22e85c4b8f062132c779067cd71c5b2866c78fed54cf20288407659a"
+      }
+    },
+    "vibe-script": {
+      "head": "346fe6d28da65bd531f46b4a18542b66b9405ea3",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "974361a146dfc1f62315cde74912c813b983c601de4fa6c43f55e5f4acf912da",
+        "Cargo.lock": "9175eab66c20ccda7968ea338c2bbc1b3e1c3679e884cf049483aa8e011962da"
+      }
+    }
+  },
+  "human_acceptance": false,
+  "production_authorised": false,
+  "environment_overrides": {},
+  "exit_code": 101,
+  "finished_utc": "2026-10-27T00:53:18.566161+00:00",
+  "after": {
+    "qualiaDB": {
+      "head": "69ec4ce5d499a271da74b74018631c388124f15e",
+      "dirty": [
+        {
+          "status": " M",
+          "path": "crates/qualia-core-db/src/q42/volume/payload_catalogue.rs",
+          "sha256": "2bbf792f411948c2e55a249906486028c1729c17e5d61c9e2a30d14be7c6440e"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/poet.rs",
+          "sha256": "de45c84f85aeb8d796b2e92ae16249a60ba953c50b30f7a7e6ba092d71ffaa75"
+        },
+        {
+          "status": " M",
+          "path": "crates/qualia-mcp/src/tools/topology.rs",
+          "sha256": "bbe466b2bec35ed4be83a580033325b41cd56af5cd3372c2bf2e9d5c34d6b4f0"
+        }
+      ],
+      "manifests_and_config": {
+        "Cargo.toml": "bcd94075a5c27307b9c9b74b651ab1ad3eab308e7902d4b3a4998ae20d08b9a8",
+        "Cargo.lock": "45040ce18d1dbb7fcc54158600188bd6a46a2bfc770968ca53c5ad687024d0a7",
+        ".cargo/config.toml": "e9623219208e143fe618620fd173f5d43f51fcab9a4e502653c8576848aedb7b"
+      }
+    },
+    "poet": {
+      "head": "3d167fdff42eb7fd913d998d786a0a39639b5d6e",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "c3c799be5bd7b68da816621563ba58d7589b18134ffc0340bb67c68644c47d66",
+        "Cargo.lock": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a"
+      }
+    },
+    "etalon": {
+      "head": "4e77ca3f71b74c10c635b7a1f0ddd923590fdc61",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "f45ab8b50270903b80d0a8469c7f9a45f75a2f83004cb932396827fb5d6c9fa5",
+        "Cargo.lock": "a6be3bca856aef1af5aea8a933539002e591562d0838c96e2673af8289a7e3d4",
+        ".cargo/config.toml": "0b3d7ce16694a2ca5dcdc27f0b13901ea91efacfff891e06371e9d08ee22e119"
+      }
+    },
+    "rust-app-framework": {
+      "head": "60123a1932f2018ea777502b33ef9006f8f926ea",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "b74dd94e71090dddd222e07f76de48335a15afc2815b9b0e46f0811bb8fd65d5",
+        "Cargo.lock": "e43e1dea22e85c4b8f062132c779067cd71c5b2866c78fed54cf20288407659a"
+      }
+    },
+    "vibe-script": {
+      "head": "346fe6d28da65bd531f46b4a18542b66b9405ea3",
+      "dirty": [],
+      "manifests_and_config": {
+        "Cargo.toml": "974361a146dfc1f62315cde74912c813b983c601de4fa6c43f55e5f4acf912da",
+        "Cargo.lock": "9175eab66c20ccda7968ea338c2bbc1b3e1c3679e884cf049483aa8e011962da"
+      }
+    }
+  },
+  "log_sha256": "e0499702b5987b0b0b0a8f3b8a6e72ae1856e273850000eebe6ad115e9b754c0",
+  "summaries": [
+    "test result: FAILED. 297 passed; 10 failed; 13 ignored; 0 measured; 0 filtered out; finished in 19.29s"
+  ],
+  "source_unchanged": true
+}

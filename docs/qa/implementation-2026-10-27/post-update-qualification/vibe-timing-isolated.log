@@ -1,0 +1,18 @@
+    Finished `test` profile [unoptimized] target(s) in 4.26s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\vibe-49598b7492ed03d4.exe)
+
+running 1 test
+
+thread 'deontic_interrupt::tests::vc5_prohibition_breach_completes_under_1_microsecond' (19260) panicked at crates\vibe\src\deontic_interrupt.rs:739:9:
+deontic hard-stop trigger must complete in < 1µs (best of 32), best took 1100ns
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test deontic_interrupt::tests::vc5_prohibition_breach_completes_under_1_microsecond ... FAILED
+
+failures:
+
+failures:
+    deontic_interrupt::tests::vc5_prohibition_breach_completes_under_1_microsecond
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 990 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p vibe --lib`

@@ -2,6 +2,8 @@
 
 2026-10-26. Required by Timothy's clarification during the first biosphere authoring swarm. This is an implementation contract and gap register, **not a claim that the hierarchy is enforced already**. It refines IP-03 C2/C4/C5/C7; it does not replace the governing implementation order or start a separate authentication system.
 
+**Applicability correction, 2026-10-27:** Timothy challenged treating a new human-verification mechanism as a prerequisite to Ecopunk asset work. Direct authoring by an admitted project/controller continues through the existing native admission path. This contract governs operations relying on delegated agency, principal attribution and reviewer independence; an open AUTH-H item does not establish that Poet cannot model, edit, save or render. Reuse project-adopted controller associations and explicit signed consent, retaining what those records actually establish. Do not invent personhood evidence or require a new credential provider. Actual human/domain review is evidenced when it occurs and may take place during production. The separate asset-production HOLD remains the user's instruction pending applicable authoring foundations.
+
 ## Authentication and authority are separate
 
 A human principal authorises an agent to act within a defined remit. The agent remains an identified, separately authenticated actor. Authentication proves the admitted controller/key/session relationship; it does not by itself establish the human principal, delegation, resource rights or permission for the requested operation.

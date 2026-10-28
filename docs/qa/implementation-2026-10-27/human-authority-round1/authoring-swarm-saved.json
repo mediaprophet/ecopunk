@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-27",
+  "scope": "Botanical, source review context, skeletal inspection and rig frame failure safety",
+  "state": "saved; focused Cargo check currently running; not yet verified",
+  "files": [
+    {
+      "path": "C:/github/poet/native/src/graphical/native_entry/create.rs",
+      "sha256": "e17d3367bb589719b171c505bc15c43deb8dc85a689d6d414bd9ca1ac318b870"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_entry/ui.rs",
+      "sha256": "159eaf9fa899d4963771c0761563d7ac604cce7cc9956eeaaab075ae002bc83e"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation_selection.rs",
+      "sha256": "4ca7a4c61081e46a218a2eade9993d4491bda3ed2f90c66798a0040f60c6b2b9"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation_selection_tests.rs",
+      "sha256": "55f5871a5c74b6a7e1b29ee84b3a76149e7fc7c0c3309db2a969af7f3177f9e8"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperative_controls.rs",
+      "sha256": "08d2a5df5145464933c69f2fb31ba17504822521b0986063d0d888f4267ed4b5"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/package_review_controls.rs",
+      "sha256": "229029af519df1a497834253bd68601a1aab300ab1b22f68a21f6b78ba93088a"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/mod.rs",
+      "sha256": "e8fe00080f25b8180b73e6b4a568f6e8077af4dd63c49ffcda22c310d2ed045a"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/payload.rs",
+      "sha256": "f4bde24cbef5ececb43c9d1410a620ebfd5711cec342ad80d4d4501b93598a0b"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/service.rs",
+      "sha256": "7f58688704e310c5bf5943f3365c1c024159cf5f42a6347cde5fdad2c163109d"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/typed_10d/tests.rs",
+      "sha256": "1592e1dcf48f81bb277305d4c9696656e357130dd7e8490e76b2f7476f3fde87"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/package_typed_10d_view.rs",
+      "sha256": "4b7100a6a2575eaa8e4eeccf1486746cbdd404626646c1dbdcb165c76f5512f5"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/job_actions.rs",
+      "sha256": "7221b94defe0552e351fc6072d6e95c139911a2ec8fe40832e72969f5e073f9c"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/animated_rig_preview.rs",
+      "sha256": "e9db4c5057dec1e7c39c8d2bae08570b79c45fe390b67710c438f108283ec19a"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "sha256": "bc7a2fc77811a193ab9be768f89bb82350376494727bdd527901b1c6c92aefd7"
+    }
+  ],
+  "preimages": [
+    "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/botanical-path/create.rs.before",
+    "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/botanical-path/ui.rs.before",
+    "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation-multi-review/",
+    "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-skeletal-inspection/"
+  ],
+  "limitations": [
+    "Disk guard refused Cargo below 30 GiB free",
+    "No native window or human review performed"
+  ]
+}

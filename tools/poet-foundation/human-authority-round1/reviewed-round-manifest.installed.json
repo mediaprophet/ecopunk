@@ -1,0 +1,209 @@
+{
+  "manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\reviewed-round-manifest.json",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/human_authority.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/human_authority.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "4bba03bff6894c74f052b18ede0472ad994750aa522d67b09b638b01caa79fff"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/mod.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/mod.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "ff13dbaaa84847ccdfff57a5e18ad3c29dcd63b9db1ed9a1a9c83b1b433088a5"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/policy.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/policy.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "52257a7186dca6fd3c24460246e345c753bb651e52bf869a81dbd8e6eb3d94dc"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/tests.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "8192cf99fd410d7b217844234644d4ea16f5ba9421ee5992172bb9586e24b5b2"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/types.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/types.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "d79d99378af18ad2352872ac245f39ba3cb5a61e737cae16a3117c2cdba8453c"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/workflow.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/workflow.rs",
+      "original": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/before/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/workflow.rs",
+      "before_sha256": "aa643e15369f026b9153bfc0acaa92b5fb5a928baf9e387ed981c30b344d73dd",
+      "after_sha256": "64af71e314fa49f7761c2d1a50215e5945594c56f8ab9067323ff46aa2730668"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "ea1a9c6adbec8b167a4b64db2611fa63158640531ff6fa4594bcc331445faaf0"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/mod.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/mod.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "f7f45c1b3bdb6fa76917f134e7d1c4ea9b9fbadb14354d490f8fc4e6205d7341"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/test_fixture.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/test_fixture.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "b177ee2431608333340d841b0afdee1aa9e4b22c72714d281fd776c54b7d9e1e"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "af006552fe28ffc83f9c470b2ac6357f8abbedc644fe387d3d102465f8184da1"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/verify.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/verify.rs",
+      "original": null,
+      "before_sha256": null,
+      "after_sha256": "0d6689fbdf3cc6ba361150a7f8f0dda8a460727c0ce85cd39f97a2f919076e3c"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/enrollment/signer.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/enrollment/signer.rs",
+      "original": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/before/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/enrollment/signer.rs",
+      "before_sha256": "bed54e27bba0563f48d3dc888128776bbc703f234b9d07f653f18a8d10e262a8",
+      "after_sha256": "4b5b7e84081fe40cfa7d51bcf53713b85c7f554e7edab319c0b58e19fe22919e"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperative_controls.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation/candidates/cooperative_controls.rs",
+      "before_sha256": "895757eae830486b7d72b7c14591780edbca9ec589aaa0c306bbc0c49af3f36f",
+      "after_sha256": "16e3cd9c9a7820648e3b00fe2e6166f0930aee08bccc36491e21a84754b4476a"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/package_review_controls.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation/candidates/package_review_controls.rs",
+      "before_sha256": "2415a4c017d6326b0de195f1ceed7e01673a7032fec56da0cb95a35fea1e4d11",
+      "after_sha256": "e163ddde8848ec4527976724053729ea7728654cf9d4a2503134198fa562a51a"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperative_workbench/mod.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation/candidates/cooperative_workbench/mod.rs",
+      "before_sha256": "80a387b4b1fe916c301c1812acca1bf230dcf3223133167f3871bf5bf1fd7b97",
+      "after_sha256": "1cd72676a2786e0381724ec8977885102f308e0540b653aca51a53f80df4b56b"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation_selection.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation/candidates/cooperation_selection.rs",
+      "before_sha256": null,
+      "after_sha256": "72886696a539e323fa463203767c354c2fcad0f5e6ed9a57e109c641e9af8d74"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/cooperation_selection_tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/cooperation/candidates/cooperation_selection_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "5e970ef76f5814a4ce3bef4974284b1f9fef456bfab29f8a576bed47a8623aa9"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\qdnf\\owner.rs",
+      "before_sha256": "1bd4f33f33c8348caf5ef35617a677f7c321b53a30feecdf27efa924cae26110",
+      "after_sha256": "93e647cf5fe275700d8f156e057dd14c8a073d117dee806efec80200e9b1e173"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner_tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\qdnf\\owner_tests.rs",
+      "before_sha256": null,
+      "after_sha256": "37d664aa260b62bc568aad5f06e58ecdbe41e3d7bdf69afd8e9d646d4734eb90"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\qdnf\\native_session.rs",
+      "before_sha256": "c9a029477aa4086284ab110917afccedf0c8373e66ede153996839d5dc3ece6f",
+      "after_sha256": "f69f25baf1c19ca3d44b245ddc678ce1dcfb784aa948df4abb444469b0f7127d"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+      "before_sha256": "6844b8bc5a790a685e585f2c5ab47d68fa2d8796e577e83b2b78ec230d00f9e4",
+      "after_sha256": "74fa5cc2df94e80a47a07d6617deb613e255f33d8a250b17303afedb779d6e64"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+      "before_sha256": "329dfc942158141677567f8e5a9b1d9c22d1374296b20b0de8f03e8e529ac373",
+      "after_sha256": "884602ab61b6137186eccac3aacec87d98e1bc3e39068b6a5f1755d26cb3bdaa"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\poet\\native\\src\\graphical\\mod.rs",
+      "before_sha256": "85cc244a058c5fdd0127c9a1f12a0e297e7a4bdc043c3153d441ab138808f579",
+      "after_sha256": "887825160ea03f8e3e019b86677db7580bf8dfb43bec63bc9874a26ac002191c"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperative_workbench\\projection.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\poet\\native\\src\\graphical\\cooperative_workbench\\projection.rs",
+      "before_sha256": "ec2c1a3dbcbb6ceb4c2fc36a7c065acd07e9d977b858223c14ea0f7a2751de63",
+      "after_sha256": "8ce65fb33f4f15cff1c2540ab63e7e67821f7f02a1cc69761665aaf6d2c76d32"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\Cargo.toml",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\qualiaDB\\crates\\qualia-cooperative-core\\Cargo.toml",
+      "before_sha256": "d32edbb6d73358a0737a6d313c78721d2dff9ecb9dda0d25407d86f24b4cbcf3",
+      "after_sha256": "9d6a2aa0cb66a47f94623f968651b58d072d38fd695d88f64ffed7ee336923d8"
+    },
+    {
+      "target": "C:\\github\\qualiaDB\\Cargo.lock",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\qualiaDB\\Cargo.lock",
+      "before_sha256": "45040ce18d1dbb7fcc54158600188bd6a46a2bfc770968ca53c5ad687024d0a7",
+      "after_sha256": "32a584aeafe12f1b2e61493d6543858385a1986d1e7675155efe7812e6220387"
+    },
+    {
+      "target": "C:\\github\\poet\\Cargo.lock",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\human-authority-round1\\integration\\poet\\Cargo.lock",
+      "before_sha256": "712fb76e820e0ec89d8f7d2a0cf1a6bb6a456476a638baf4c18ce5b3aeb6172a",
+      "after_sha256": "5ce81bb588f6680a7cee6d7844071bdf656daf411a47f081a1f2b6717b391fb5"
+    }
+  ],
+  "installed": [
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\human_authority.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\delegation\\mod.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\delegation\\policy.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\delegation\\tests.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\delegation\\types.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\workflow.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\delegation\\inspection.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\delegation\\mod.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\delegation\\test_fixture.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\delegation\\tests.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\delegation\\verify.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\enrollment\\signer.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperative_controls.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\package_review_controls.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperative_workbench\\mod.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperation_selection.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperation_selection_tests.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\net\\qdnf\\authority\\owner_tests.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\session.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\src\\authoring\\mod.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\poet_host\\native_authority\\mod.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\mod.rs",
+    "C:\\github\\poet\\native\\src\\graphical\\cooperative_workbench\\projection.rs",
+    "C:\\github\\qualiaDB\\crates\\qualia-cooperative-core\\Cargo.toml",
+    "C:\\github\\qualiaDB\\Cargo.lock",
+    "C:\\github\\poet\\Cargo.lock"
+  ],
+  "verified": false
+}

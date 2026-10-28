@@ -1,0 +1,26 @@
+{
+  "scope": "Controller overlap detection for verified signed candidate chains; no grant, session, journal, or dispatch change",
+  "state": "staged; parsed only; not compiled or executed",
+  "files": [
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-control-overlap/inspection.rs.after",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-control-overlap/inspection.rs.before",
+      "preimage_sha256": "ea1a9c6adbec8b167a4b64db2611fa63158640531ff6fa4594bcc331445faaf0",
+      "candidate_sha256": "c6c987ddafd75088cdc0ab3a3fe427b197327907833ac5549bec4dfa2b89b163"
+    },
+    {
+      "destination": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-control-overlap/tests.rs.after",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/delegation-control-overlap/tests.rs.before",
+      "preimage_sha256": "7f00f522874003352fbd0663746b88a23c51d283571f7f240419b5d154c7733f",
+      "candidate_sha256": "45acad2c7c8b8232d9b682673925099a207edd065c2d86f29e532c4667faecdc"
+    }
+  ],
+  "test": "cargo test --locked --offline -p qualia-core-db --lib inspected_distinct_roots_sharing_an_agent_controller_are_not_independent --target-dir C:/github/ecopunk/target",
+  "limitations": [
+    "Only inspected signed chains; no currently mounted production review caller",
+    "No proof of separate humans, grant adoption, delegated session or operation enforcement",
+    "No journal format or durable data changes"
+  ]
+}

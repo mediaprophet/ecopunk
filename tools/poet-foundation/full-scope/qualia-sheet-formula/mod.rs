@@ -1,0 +1,8 @@
+//! Future seam: `qualia-sheet`. CML cell→N3 is later; this is numeric grid start.
+
+mod formula;
+mod range;
+
+pub use range::{stats, sum_range};
+
+pub use formula::evaluate_formula;

@@ -1,0 +1,318 @@
+diff --git C:/github/qualiaDB/crates/vibe/src/stdlib_v2/tests.rs C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality-fixtures-attempt4/tests.candidate.rs
+index 77c27cc..5316643 100644
+--- C:/github/qualiaDB/crates/vibe/src/stdlib_v2/tests.rs
++++ C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/quality-fixtures-attempt4/tests.candidate.rs
+@@ -1,8 +1,10 @@
+-//! End-to-end integration tests for VibeScript v0.02 (`vibe-0.2`) Standard Library
+-//! (`docs/planning/Vibe vs (2).md` §§1–22).
++//! Selected standard-library and scoped runtime integration regressions.
++//! Historical 0.02 library planning is not a released-dialect or full-conformance claim.
+ 
+ use crate::{eval_cell, eval_function, load_program, Env, LocalHost, Value};
+ 
++/// Explicit trusted synthetic Host/Env setup through the low-level Engine API.
++/// This bypasses Pure-cell admission for runtime tests, not native human authority.
+ fn eval_admitted(
+     source: &str,
+     host: &mut LocalHost,
+@@ -194,7 +196,7 @@ effect async fn verify_v0_02_pipeline() budget(steps: 600) {
+     let stalk_b = sheaf.project_stalk(global_state, ["policy", "ui"], "did:q42:agent_b");
+     let glued = sheaf.apply_glue([stalk_a, stalk_b], {});
+ 
+-    // 3. AI-native ontological fork & zero-copy manifold pointer (replacing MCP)
++    // 3. Context/mount descriptors; these fields do not prove dataset residency.
+     let fork = context.fork_by_ontology(global_state, "https://qualia.world/ontology/policy#", "audit");
+     let mounted = manifold.mount("https://qualia.world/datasets/genome_10tb", { read: true });
+ 
+@@ -231,15 +233,15 @@ effect async fn verify_v0_02_pipeline() budget(steps: 600) {
+ }
+ 
+ #[test]
+-fn await_and_task_cancel_connect_to_live_scheduler_and_qualify_detached_records() {
++fn scoped_local_tasks_and_content_integrity_preserve_boundaries() {
+     let mut host = LocalHost::default();
+     let mut env = Env::default();
+ 
+     let pure_task_refusal = eval_cell("= task.spawn(\"= 1 + 1\", {})", &mut host, &mut env)
+-        .expect_err("pure cell must not receive task scheduler authority");
++        .expect_err("pure cell must reject a task-registry mutation");
+     assert_eq!(pure_task_refusal.code, crate::DiagCode::E200);
+ 
+-    // 1. Spawn a live scheduled task and await it through the AST interpreter
++    // 1. Register a pending local task and join it through the AST interpreter.
+     let src_join = r#"
+ module test_scheduler_join;
+ 
+@@ -284,7 +286,7 @@ effect async fn spawn_and_await() budget(steps: 200) {
+         Some(&Value::String("completed".into()))
+     );
+ 
+-    // 2. Spawn a live task, cancel it via `task.cancel`, verify live registry cancellation,
++    // 2. Cancel a registered task through the task registry,
+     //    and verify that `await` on the original unmutated `job` binding fails closed!
+     let src_cancel = r#"
+ module test_scheduler_cancel;
+@@ -303,7 +305,7 @@ effect async fn cancel_live_job() budget(steps: 200) {
+ effect async fn await_cancelled_original_handle() budget(steps: 200) {
+     let job = task.spawn("= 10 + 20", {});
+     let _c = task.cancel(job);
+-    // Awaiting the original `job` record (whose in-memory map still had status="running")
++    // Awaiting the original `job` record (whose in-memory map still had status="pending")
+     // MUST fail closed because `await` contacts the live TaskRegistry!
+     return await job;
+ }
+@@ -327,7 +329,7 @@ effect async fn await_cancelled_original_handle() budget(steps: 200) {
+     );
+     assert_eq!(
+         cancelled_rec.get("execution_qualification"),
+-        Some(&Value::String("live_scheduler_cancellation".into()))
++        Some(&Value::String("local_deferred_synchronous_ast_task".into()))
+     );
+     let Some(Value::Record(live_state)) = rc.get("live_state") else {
+         panic!("expected live_state");
+@@ -348,22 +350,15 @@ effect async fn await_cancelled_original_handle() budget(steps: 200) {
+     .expect_err("awaiting a task cancelled in live scheduler must fail closed");
+     assert_eq!(err.code, crate::DiagCode::E400);
+ 
+-    // 3. Detached record qualification vs `require_live_job: true`
+-    let detached = eval_admitted(
++    // 3. Detached records are not task handles and cannot mutate scheduler state.
++    let detached_err = eval_admitted(
+         r#"= task.cancel({ status: "running" })"#,
+         &mut host,
+         &mut env,
+     )
+-    .unwrap();
+-    let Value::Record(dr) = detached else {
+-        panic!("expected Record");
+-    };
+-    assert_eq!(dr.get("scheduler_contacted"), Some(&Value::Bool(true)));
+-    assert_eq!(dr.get("live_job_cancelled"), Some(&Value::Bool(false)));
+-    assert_eq!(
+-        dr.get("execution_qualification"),
+-        Some(&Value::String("detached_record_only_no_running_job".into()))
+-    );
++    .unwrap_err();
++    assert_eq!(detached_err.code, crate::DiagCode::E400);
++    assert!(detached_err.message.contains("task record has no task_id"));
+ 
+     let strict_err = eval_admitted(
+         r#"= task.cancel({ status: "running", require_live_job: true })"#,
+@@ -373,16 +368,25 @@ effect async fn await_cancelled_original_handle() budget(steps: 200) {
+     .expect_err("require_live_job on detached record must fail closed");
+     assert_eq!(strict_err.code, crate::DiagCode::E400);
+ 
+-    // 4. `task.nursery` cancels live sibling tasks in the scheduler when a sibling fails
++    // 4. A genuine cancelled child causes the nursery to cancel a pending sibling.
+     let src_nursery = r#"
+ module test_scheduler_nursery;
+ 
+ effect async fn nursery_cancels_live_sibling() budget(steps: 200) {
+     let sibling = task.spawn("= 7 * 6", {});
+-    let res = task.nursery([sibling, { status: "failed" }]);
++    let trigger = task.spawn("= 8 * 8", {});
++    let trigger_cancel = task.cancel(trigger);
++    let res = task.nursery([trigger, sibling]);
+     let sibling_after = task.status(sibling);
++    let trigger_after = task.status(trigger);
+     return {
++        trigger_cancelled: trigger_cancel.status,
++        trigger_status: trigger_after.status,
++        all_succeeded: res.all_succeeded,
++        cancelled_siblings: res.cancelled_siblings,
++        cancellation_requested: res.cancellation_requested,
+         live_siblings_cancelled: res.live_siblings_cancelled,
++        cancellation_requested_count: res.cancellation_requested_count,
+         sibling_status: sibling_after.status,
+         sibling_cancelled: sibling_after.cancelled
+     };
+@@ -401,6 +405,18 @@ effect async fn nursery_cancels_live_sibling() budget(steps: 200) {
+         panic!("expected Record");
+     };
+     assert_eq!(rn.get("live_siblings_cancelled"), Some(&Value::U64(1)));
++    assert_eq!(rn.get("all_succeeded"), Some(&Value::Bool(false)));
++    assert_eq!(rn.get("cancelled_siblings"), Some(&Value::Bool(true)));
++    assert_eq!(rn.get("cancellation_requested"), Some(&Value::Bool(true)));
++    assert_eq!(rn.get("cancellation_requested_count"), Some(&Value::U64(1)));
++    assert_eq!(
++        rn.get("trigger_cancelled"),
++        Some(&Value::String("cancelled".into()))
++    );
++    assert_eq!(
++        rn.get("trigger_status"),
++        Some(&Value::String("cancelled".into()))
++    );
+     assert_eq!(
+         rn.get("sibling_status"),
+         Some(&Value::String("cancelled".into()))
+@@ -498,33 +514,45 @@ effect async fn nursery_cancels_live_sibling() budget(steps: 200) {
+     assert_eq!(gr.get("resolved"), Some(&Value::Bool(true)));
+     assert_eq!(gr.get("verified"), Some(&Value::Bool(true)));
+ 
+-    // Unauthorised or unavailable provider fails to spawn
+-    assert!(eval_admitted(
+-        &format!(r#"= code.spawn_at("did:q42:unavailable_node", "{hash_addr}", [])"#),
++    // Remote launch is unsupported; unavailable content also refuses on the local route.
++    let remote_error = eval_admitted(
++        &format!(r#"= code.spawn_at("did:q42:node_alpha", "{hash_addr}", [])"#),
+         &mut host,
+         &mut env,
+     )
+-    .is_err());
+-    assert!(eval_admitted(
+-        r#"= code.spawn_at("did:q42:node_alpha", "sha256:vibe:0000000000000000000000000000000000000000000000000000000000000000", [])"#,
++    .expect_err("this local profile must refuse remote launch");
++    assert_eq!(remote_error.code, crate::DiagCode::E400);
++    assert!(remote_error.message.contains("unsupported"));
++    let missing_code = eval_admitted(
++        r#"= code.spawn_at("did:q42:local_scheduler", "sha256:vibe:0000000000000000000000000000000000000000000000000000000000000000", [])"#,
+         &mut host,
+         &mut env,
+     )
+-    .is_err());
++    .expect_err("the admitted local route must refuse unavailable content");
++    assert_eq!(missing_code.code, crate::DiagCode::E400);
++    assert!(missing_code.message.contains("unavailable"));
+ 
+-    // 6. Owner-sealed task references reject forged numeric task_id records
+-    assert!(eval_admitted(
+-        r#"= task.cancel({ task_id: 1u64, status: "running" })"#,
++    // 6. Unregistered records refuse; authored IDs do not provide runtime ownership.
++    let forged_cancel = eval_admitted(
++        r#"= task.cancel({ task_id: 18446744073709551615u64, status: "running" })"#,
+         &mut host,
+         &mut env,
+     )
+-    .is_err());
+-    assert!(eval_cell(
+-        r#"= await { task_id: 1u64, status: "running" }"#,
++    .unwrap_err();
++    assert_eq!(forged_cancel.code, crate::DiagCode::E400);
++    assert!(forged_cancel
++        .message
++        .contains("unknown or its runtime scope was disposed"));
++    let forged_await = eval_admitted(
++        r#"= await { task_id: 18446744073709551615u64, status: "running" }"#,
+         &mut host,
+         &mut env,
+     )
+-    .is_err());
++    .unwrap_err();
++    assert_eq!(forged_await.code, crate::DiagCode::E400);
++    assert!(forged_await
++        .message
++        .contains("unknown or its runtime scope was disposed"));
+ 
+     // 7. Terminal state immutability: cancelling an already-completed task preserves its committed result
+     let src_immut = r#"
+@@ -568,7 +596,7 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+     assert_eq!(ri.get("cancel_acknowledged"), Some(&Value::Bool(false)));
+     assert_eq!(ri.get("live_job_cancelled"), Some(&Value::Bool(false)));
+ 
+-    // 8. Provenance and ZK predicate verification reject caller-forged records
++    // 8. Provenance local integrity and ZK proof availability remain distinct.
+     let forged_prov = eval_admitted(
+         r#"= value.verify_provenance({ value: 42, provenance: { author: "alice" }, signature_u64: 12345u64 })"#,
+         &mut host,
+@@ -590,6 +618,7 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+         panic!("expected Record");
+     };
+     assert_eq!(vp.get("authentic"), Some(&Value::Bool(true)));
++    assert_eq!(vp.get("integrity_verified"), Some(&Value::Bool(true)));
+     assert_eq!(
+         vp.get("issuer_signature_verified"),
+         Some(&Value::Bool(false))
+@@ -601,6 +630,7 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+         &mut env,
+     )
+     .unwrap_err();
++    assert_eq!(forged_zk.code, crate::DiagCode::E600);
+     assert!(forged_zk
+         .message
+         .contains("no native zero-knowledge proof provider"));
+@@ -611,6 +641,7 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+         &mut env,
+     )
+     .unwrap_err();
++    assert_eq!(unsupported_zk.code, crate::DiagCode::E600);
+     assert!(unsupported_zk
+         .message
+         .contains("no native zero-knowledge proof provider"));
+@@ -630,6 +661,10 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+         commitment_record.get("predicate_truth_verified"),
+         Some(&Value::Bool(false))
+     );
++    assert_eq!(
++        commitment_record.get("issuer_authenticity_verified"),
++        Some(&Value::Bool(false))
++    );
+     let integrity = eval_admitted(
+         r#"= crypto.verify_commitment(crypto.commit_predicate("1 == 0", 0), 0)"#,
+         &mut host,
+@@ -647,6 +682,10 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+         integrity_record.get("predicate_truth_verified"),
+         Some(&Value::Bool(false))
+     );
++    assert_eq!(
++        integrity_record.get("issuer_authenticity_verified"),
++        Some(&Value::Bool(false))
++    );
+     let tampered = eval_admitted(
+         r#"= crypto.verify_commitment(crypto.commit_predicate("1 == 0", 0), 1)"#,
+         &mut host,
+@@ -660,6 +699,14 @@ effect async fn completed_task_cannot_be_overwritten_by_cancel() budget(steps: 2
+         tampered_record.get("integrity_verified"),
+         Some(&Value::Bool(false))
+     );
++    assert_eq!(
++        tampered_record.get("predicate_truth_verified"),
++        Some(&Value::Bool(false))
++    );
++    assert_eq!(
++        tampered_record.get("issuer_authenticity_verified"),
++        Some(&Value::Bool(false))
++    );
+ }
+ 
+ #[test]
+@@ -674,6 +721,8 @@ effect async fn main() budget(steps: 200) {
+     let job = code.spawn_at("did:q42:local_scheduler", hashed.hash_hex, []);
+     return await job;
+ }
++
++
+ "#;
+     let program = load_program(source).expect("effect declaration should parse and check");
+     let result = eval_function(&program, "main", vec![], &mut host, &mut env)
+@@ -692,3 +741,31 @@ effect async fn main() budget(steps: 200) {
+     );
+     assert_eq!(result.get("live_job_joined"), Some(&Value::Bool(true)));
+ }
++
++#[test]
++fn nursery_prevalidates_all_scoped_children_before_cancelling_any() {
++    let mut host = LocalHost::default();
++    let mut env = Env::default();
++    let pending_sibling = eval_admitted(r#"= task.spawn("= 7 * 6", {})"#, &mut host, &mut env)
++        .expect("a synthetic runtime-scoped task should register as pending");
++    env.vars.insert("pending_sibling".into(), pending_sibling);
++
++    let forged_group = eval_admitted(
++        r#"= task.nursery([pending_sibling, { task_id: 18446744073709551615u64, status: "failed" }])"#,
++        &mut host,
++        &mut env,
++    )
++    .expect_err("nursery must validate every child handle before cancelling siblings");
++    assert_eq!(forged_group.code, crate::DiagCode::E400);
++    assert!(forged_group
++        .message
++        .contains("unknown or its runtime scope was disposed"));
++
++    let state = eval_admitted("= task.status(pending_sibling)", &mut host, &mut env)
++        .expect("valid sibling remains queryable after refusal");
++    let Value::Record(state) = state else {
++        panic!("expected status record");
++    };
++    assert_eq!(state.get("status"), Some(&Value::String("pending".into())));
++    assert_eq!(state.get("cancel_requested"), Some(&Value::Bool(false)));
++}

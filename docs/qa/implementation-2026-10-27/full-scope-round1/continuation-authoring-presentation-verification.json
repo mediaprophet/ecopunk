@@ -1,0 +1,65 @@
+{
+  "files": [
+    {
+      "path": "C:/github/poet/native/src/graphical/ui.rs",
+      "sha256": "a29b06c03f63193736f48b1eb8f4f641c66211f9cfb6352c50b776ac5f56b958",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/controls.rs",
+      "sha256": "4f7c859c351eb32c5c0d3292e531d4b61f51e82db35123ffd3f5037a320642ca",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport_controls.rs",
+      "sha256": "f591d51808f8768163d51399562a0decc53939b7c9330f1289a2935e3eb207c3",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/material_motion_controls.rs",
+      "sha256": "82e6f57572f64f642200dd197f8365eda3fa3bf7f5017a9cef3b6bc9a17611a5",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_store.rs",
+      "sha256": "7d1dd399d7aa595f1191730827da10d68709d0b99fd00138959540bf4a2a12a4",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-mcp/src/tools/poet.rs",
+      "sha256": "142f5a72e6889eac6b373f51fd52175a845c7ece5660bb7e53615644b0a08301",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-mcp/src/tools/poet_export_tests.rs",
+      "sha256": "0c15ad98f2af57f5e39dc8123ab37e10166d8e7b3d924d9545de3d6461382561",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-mcp/src/tools/poet_export.rs",
+      "sha256": "ff39c40f06086b585b8425265237d8100676791078ee70be1b1f4e45363df9c3",
+      "matches_reviewed_candidate": true
+    },
+    {
+      "path": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/serial_check.py",
+      "sha256": "0c7b0bab87cdaba82a1c50b7d5f475722fcf21ccdfbb309d140588d362afd9ea",
+      "matches_reviewed_candidate": true
+    }
+  ],
+  "executable": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 340244988,
+    "sha256": "c01a5e86fb8130f83d9a1394b348833bd1b1e5a489dd7579e72176bce2d83de5"
+  },
+  "checks": {
+    "studio_export": "2 passed",
+    "qualia_mcp_focused": "4 passed",
+    "qualia_mcp_full": "11 passed",
+    "poet_native_repair": "347 passed, 14 ignored",
+    "rig_gpu_repair": "1 passed",
+    "shared_target_guard": "4 parser tests and coordination self-test passed; cooperating callers only",
+    "initial_final_build": "failed with shared-target crate identity collision",
+    "repaired_build": "exit 0",
+    "configuration_smoke": "exit 0; no window, vault or source"
+  }
+}

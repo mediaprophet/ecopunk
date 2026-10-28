@@ -1,0 +1,24 @@
+# Bounded botanical authored UV preservation — staged, unverified
+
+This is a candidate, not installed source or an executed test. It preserves the existing, authored `uv0` values by reference during a tip-radius edit only. It requires the preceding mesh to equal the old QualiaDB-backed generator output, stable organ identities/parents/positions and ring count, a finite bounded vertex-aligned UV stream, equal regenerated vertex counts and exact triangle correspondence. Position edits and recipe replacement remain refused when UV0 is present: Core's direction-derived Bishop initial frame can rotate across those edits. Authored normal/skin/extension streams and indexed atlases remain refused rather than silently discarded or remapped. No UV coordinates or biological facts are invented. Identical source UV coordinates do not establish equal texel density, stretch, visual quality, or continuity at branch junctions. A separate part-level UV projection can override the retained UV stream at rendering/compilation.
+
+`geometry_host.rs`, `botanical_session.rs` and `controller.rs` stage UV-specific conservative work reservation: existing non-UV admission remains at 9 abstract units per vertex; selected UV-bearing botanical parts use 21 to reserve three 2-coordinate UV validations and one 3-index scan per triangle, with triangles bounded to twice vertices. The classifier examines only bounded part records and the selected part, not UV values; malformed, missing or duplicate target inventory takes the stricter budget and fails normal validation. Unrelated UV-bearing parts do not change selected non-UV capacity. This is an unmeasured accounting model, not proof of resource use or an edge allocation guarantee; independent review is required.
+
+`uv_native.inc.rs` is an optional synthetic signed-authority edit→compiled UV→HMC→fresh-process reopen test. It uses a temporary binary UV witness and no JSON. It is only staged and may need API, semantic or fixture correction; do not claim it passes until executed. `tests.rs` includes source replay, UV coordinate equality, changed geometry, topology/pose/initial-adoption refusal, malformed UV and geometry drift tests. A real human UI trial, artist acceptance, normal transport, topology migration, species data, and production quality remain open.
+
+The coordinator must independently review and merge source changes with the other branch-junction candidate. The two candidates overlap `source_edit.rs`; a later v2 topology profile must never silently use this v1 radius-only preservation policy. Register the optional native case in the existing signed botanical test module only after review. Check exact preimages immediately before installing, and preserve originals. No Cargo, GPU execution, production asset, or canonical Poet changes occurred in this task.
+
+## Original and candidate pins (SHA-256)
+
+| Candidate | Original canonical SHA-256 | Staged SHA-256 |
+|---|---|---|
+| `source_edit.rs` | `0a5c9e3f9785444745340103f2b71dbea4bf431ef7e7a7511ce2c5c4a8225c10` | `4865555137744b4fb8f286730ff567911aee8a8a2c1220eb503a642ea24359db` |
+| `tests.rs` | `8206377fb01846c29111bb8aac77f985d470d9ddbedb37bce029ab2c14dc60da` | `9a4f00ef0d0e482327e99fdf37265c683fc6f33b3570ecf1c78008686122e6df` |
+| `geometry_host.rs` | `eff82168bc985949f003a6c338cca9f66a68ac626ebaa6b884f93aa22c09bdf0` | `63c3cd4c115073157040d51387f28001ef8ca34ee1b5b8ec6411667959dc467e` |
+| `controller.rs` | `432f64e16b70bfeb262558bb01fe8371784c9e148c77842928e3c08464a2f1ec` | `a7b1f47d24bb0e3d5eb0e7739ef61cc6f5cbc1210666949703dbebc8ede9e7ef` |
+| `botanical_session.rs` | `862eff2d81a9e2ad7ce6e7ca423dc611736459170952649ab5f292876a7472f5` | `b4c6de89980bfbc9a70a4449e6b596422406769a9a64ac9674eb01bdfc8ee1dc` |
+| `uv_native.inc.rs` | new; no existing target | `eaff7440fbe1f30e9c58268a547e603699f8fd304cbd8956ca27872c2911e6bb` |
+
+Canonical targets are `C:/github/poet/native/src/graphical/authoring/botanical/source_edit.rs`, `C:/github/poet/native/src/graphical/authoring/botanical/tests.rs`, `C:/github/poet/native/src/graphical/geometry_host.rs`, `C:/github/poet/native/src/graphical/authoring/controller.rs`, and `C:/github/poet/native/src/graphical/authoring/botanical_session.rs`, respectively. The optional fixture would become `C:/github/poet/native/src/graphical/native_project_botanical_uv_tests.inc.rs` with an include in `native_project_biosphere_round1_tests.rs`; verify parent preimage and coordinate with other agents first. The spawned fixture child has a 30-second timeout and is killed only by its owner on expiry.
+
+Selected inspected owners: QualiaDB `sweep_extrusion.rs` `dac6ab22dc846f1b55bcec692c2d071f99ec92d677a9ef462fb4b5bdc532835f`; Poet `botanical_graph_host.rs` `d605cce6e854da23aadd6ac85fcc5fd12bbbc1e1f4208c6da96fdccb79dd4827`; Poet `assembly/admission.rs` `24ddcac00db4276ba8adaaa8acb053488bdb53c7f790cc6ed361666a0ebda4b8`. These pins are for the narrow inspected paths, not a whole-stack audit.

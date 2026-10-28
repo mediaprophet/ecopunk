@@ -1,0 +1,12 @@
+{
+  "schema": "ecopunk.supplemental-core-test-privacy/v1",
+  "patches": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_stamped_tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/post-update-qualification/repairs/core-test-privacy/studio_stamped_tests.candidate.rs",
+      "before_sha256": "d6ec894188f826d2d98ea8f59562d6dd0cb1af55f879eb2d1d3f3c544ea0ede8",
+      "after_sha256": "1a42b385444bda2dba25fb0afc016f7e55d0765b3654a67902d6d22f20c3f624",
+      "reason": "Replace private StoreStamp.publication access with an actual stamped mutation callback under the global store lock; assert unrelated stamp freshness during the mutation, held own stamp, and committed old/new stamp transitions without widening any API."
+    }
+  ]
+}

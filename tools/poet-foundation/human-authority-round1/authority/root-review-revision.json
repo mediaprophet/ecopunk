@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "reason": "Intersect candidate action with existing root AuthoringPermit; add observer read/write and explicit agency native-scope tests; use canonical task types reexported through cooperative owner to avoid Core dependency",
+  "changes": [
+    {
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/tests.rs",
+      "reviewed_before_sha256": "4249e45e220a9f5687a73ffd3a1a8e87a1c8f91bb298284c3198ba311965fec0",
+      "revised_after_sha256": "8192cf99fd410d7b217844234644d4ea16f5ba9421ee5992172bb9586e24b5b2"
+    },
+    {
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-cooperative-core/src/authoring/delegation/types.rs",
+      "reviewed_before_sha256": "457c2760221bbf87548a00af339a44545a7029b935ab88c9c11594c87de7a19d",
+      "revised_after_sha256": "d79d99378af18ad2352872ac245f39ba3cb5a61e737cae16a3117c2cdba8453c"
+    },
+    {
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "reviewed_before_sha256": "387d6ef8031bfeef6ea57c2e408761973a97f06a38116b380885dd45228eab58",
+      "revised_after_sha256": "ea1a9c6adbec8b167a4b64db2611fa63158640531ff6fa4594bcc331445faaf0"
+    },
+    {
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/test_fixture.rs",
+      "reviewed_before_sha256": "9198cd36f557db6c1b0153fc7b60416afb3b0b4c1e2438d3fceac1c67d17be06",
+      "revised_after_sha256": "b177ee2431608333340d841b0afdee1aa9e4b22c72714d281fd776c54b7d9e1e"
+    },
+    {
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/human-authority-round1/authority/after/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "reviewed_before_sha256": "e48e397d5ec1c95ae2e8cef270d684d00274b37f9b07b664356e6cb1ef917316",
+      "revised_after_sha256": "af006552fe28ffc83f9c470b2ac6357f8abbedc644fe387d3d102465f8184da1"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "path": "C:/github/poet-gridcraft/crates/core/Cargo.toml",
+    "sha256": "87edc6e60e7481e7a82293b22cf2d473302481b4bf798bc63a2f66b330f67829"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/core/src/addr.rs",
+    "sha256": "c509081cf5fd4a27d5d88381b4e4cbeb66cd76997c1bdd3f168e2bdaec6d228e"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/core/src/date.rs",
+    "sha256": "fc8d6337f15ab96792b85ed77007902941139caee4feba452ffee5b4cee69933"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/core/src/lib.rs",
+    "sha256": "4c86cb687c7325192212dce659edfb9fbb0eb1f3a72b6bbb89df910dff9512ab"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/core/src/parse.rs",
+    "sha256": "ae45dc87182ee151923c392c82fdd06f17817fdbf14b85771facc6ee76b2b8c1"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/core/src/value.rs",
+    "sha256": "a1a4b1abb135eb0dad5513d332fa738e6d47372856ea22a710decc3397cdccf2"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/Cargo.toml",
+    "sha256": "df86a52920ba8fe7ce28dc9433649eae3e8195abddfe655eea262bed70dbb24d"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/adjust.rs",
+    "sha256": "a84c8f49b42fb47c13b518975f52cda42690ac1e627576cfe1a030e296e0364f"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/ast.rs",
+    "sha256": "38d656e82172c13e9d9fd9e74cdef47a87f8cbe7bb731578a36e8b3a19f5cee5"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/input.rs",
+    "sha256": "1ab9ba03cc8e32c959daf59ff231d9df04ed8323de60cb5f9183fba9a6e62ee1"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/lexer.rs",
+    "sha256": "59de113f12e649564238c6298c3d7488a8eaacab0448bb712c026ce9d0fd1653"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/lib.rs",
+    "sha256": "c5d4776627774daeb6d8bc224551d35e0b43da4884ec5a0cc54c74b798fdcc76"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/parser.rs",
+    "sha256": "02ec7b200c764cb72922ba36704f75321e3c3535667b2493eb88ac4666e6ee4d"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/printer.rs",
+    "sha256": "0c4e4538f547d3e868e7bea6ea4b4eef03ef9c33d72ce1434a18280d0b772352"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/src/tests.rs",
+    "sha256": "ac483196b9eaa2eb93cce9bbe3cce8cc1d5a050fa01a5b82e91f26fa6031b030"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/formula/tests/spanish_input.rs",
+    "sha256": "197afb898a3cf34aa5050b18391e55d1b661de1c4938a102d53a2167da9193e9"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/Cargo.toml",
+    "sha256": "ad2898b6fdf81ec31d73e8cd328f4062068072a6ab9667c0688a8c33d2c0e4c8"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/b64.rs",
+    "sha256": "72c0128700cd76a4d255e3ef6ba2954f5a5cfc439320f7ce87f9e7cd2e763688"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/cell.rs",
+    "sha256": "f87ad386399bdb67b162dd8633fa3b10f8e83c549fa7deffb68f97915de9002b"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/cellmap.rs",
+    "sha256": "1e87c97d2adf0416b5a3e5e29901bc7e0805ba632e849f4c2c754d1bf21bf332"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/features.rs",
+    "sha256": "1869376e695820cd1147829fd31b8d5239f68cb75d7df6c157c76eff609fb932"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/lib.rs",
+    "sha256": "56c9b492fb8fa6ed5f03368d320c8098fbedeae606d7e173b60b21d4f0b9fe8d"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/sheet.rs",
+    "sha256": "6fa0ed22e69ffe2ff78d911d611c6f7315777744bacfe76628942ab3b1fec7c6"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/store.rs",
+    "sha256": "216dd6b28414716dfe4c4a4795e502eda9f718c8f00253f8c43ded7e0d8b927b"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/style.rs",
+    "sha256": "6c5a85d1b89d2ce74a9c6fb965af0f605960c00add50f49c3fa1ff3c3d143f79"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/model/src/workbook.rs",
+    "sha256": "d4843cabc7e0d22dca2a9e3887d2341c1ce76bd8cf24450fca2452f1999067c3"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/calc/Cargo.toml",
+    "sha256": "d2e8fb04d33b08ce7860f3bfa4968ec4f119b90c05eb26ce8645f3c2b68bab35"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/calc/src/eval.rs",
+    "sha256": "f0c4f53da83cef37797b7cc5fa33843b77fd00c03b5e422ca27966a58b8f4cc8"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/calc/src/lib.rs",
+    "sha256": "fdba45f6405d2b0a2613879d5d22964e631a953d1a0f726d652d09d36272555b"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/calc/src/recalc.rs",
+    "sha256": "589d2a50e6fec8f2d4ee4c1db17ff02e1101b81c0de1f17ad3df4067b20a60ef"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/calc/src/tests.rs",
+    "sha256": "7dfcbdf2931e2f642319fbeaea5abe30627a5110bf8134ab4d6635010acd9fbb"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/Cargo.toml",
+    "sha256": "8f145ab39a945d92ae18b7dff1e8f62066382e41fd5f7d87f132bfdab9cb70d5"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/src/builtin.rs",
+    "sha256": "98763a0db750639b5fa962cb9ff60adb039700b8fb065048ab9ed7ce628674c3"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/src/decimal.rs",
+    "sha256": "e7ecd778d5445a110dbbba194b6fef281968af76d56fbbb380e063c164234c8f"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/src/lib.rs",
+    "sha256": "a2265af6044f05cdff484739ccd471cfc7b3c8bdb21f6ba96316a0d5ada3c77a"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/src/parse.rs",
+    "sha256": "5f274afca10dafbc6a9133e370d9e45edbdf41e313daed90fee1494732b66eda"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/src/render.rs",
+    "sha256": "658a8deeb4679ecd6ef0308bb7cc8f36f615fd9e99f607d7bb95a81571d30b3e"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/numfmt/src/tests.rs",
+    "sha256": "41e0df16c3a3babb59ad576b533eae108655ccbdd4429623b92fec409fc3fa83"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/Cargo.toml",
+    "sha256": "45e1a93ba0e859354755771686f7197b6879407268ec5335759691a79b0ae62d"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/criteria.rs",
+    "sha256": "7276f00aa69f3426008f79427ba83633b3f0b3ae42389637b9be81258d995af7"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/database.rs",
+    "sha256": "299a147ac42035c9d735e5ce2cc19cd2049cacafe0c0b155296b8795d481fea4"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/date.rs",
+    "sha256": "a3a20a9ef36387b4bb272480d503f5cb97f5c0115f333079b6d5e52b30d070e4"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/dynamic.rs",
+    "sha256": "9372abac101f0ac9fa55353e800eb9843536ceb3b47b1d197dd280b81e76fe48"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/engineering.rs",
+    "sha256": "e770f727e0a90ee23bd15105683d4c3c3a8f3234a23f5525c395f7b867274d4b"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/financial.rs",
+    "sha256": "69c6c9a03aea04164cf32cb233494c7491f121fe50f0f171934a93c47563b98b"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/info.rs",
+    "sha256": "2de84bf8c706019c93e17a617e0104ae7b1b0b36a15b03c6ef1637e4e7b4fbde"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/lib.rs",
+    "sha256": "f891e3a1bbc4547518958ba0930d2c0ee04442753ba26e33dc6829c6b1079694"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/lift.rs",
+    "sha256": "ff472e5a9f945a0e76982831d0ad5896d8f0e4a130e766d9c857db45725c9476"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/lookup.rs",
+    "sha256": "f1d787733cd9b075f1854704cb944fe2c2b67d4709cd91149d1af67a77274dd6"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/math.rs",
+    "sha256": "d0eb1c9f047eb0b3b7945cebc8a7a02e71da054128045410ec08225dfcd8bb2a"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/special.rs",
+    "sha256": "9f2263158ebd3369dd4cfc3b25bcb5820655f989d22e7f78c85cc1b9a406d54e"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/stat.rs",
+    "sha256": "d319a9ba987b0a39790b5f9ec6060b33d212fe80da209415eda86e22d9ce0af3"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/text.rs",
+    "sha256": "dd205f20f60d3e7386b4b3ee32c6e713fd92ca5d14d0ff4acbacf9f9dde84230"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/crates/functions/src/util.rs",
+    "sha256": "7019e416b3b0ab45664976df0afe02a557f2c41cea21ac50622027b62c76fad0"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/Cargo.toml",
+    "sha256": "5e283bd8ed1b61d68758abeae236cd8aad0f8e0e409d87b1acebd536880cb758"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/Cargo.lock",
+    "sha256": "7ddadb3fe8066c86d86e41f51accec5cf38f89c8d425e7c610f0dd659b5a9259"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/LICENSE-MIT",
+    "sha256": "a87109bbb1ad43ca3920a5d7ff3806863b7e8470a73f4ded97a1447ac93333f5"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/LICENSE-APACHE",
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/NOTICE",
+    "sha256": "7c948d5b56639a6d53c362ce0b54a79badd6f272c542f0fc0f22e9ec31c61c2b"
+  },
+  {
+    "path": "C:/github/poet-gridcraft/ATTRIBUTION.md",
+    "sha256": "56b465eebb50e1b424c33291119529e45c8636b806d4432199ba7d57bc555c50"
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "scope": "Initial source-owned rig binding adoption for a selected exact HMC/SKL1 and retained viewport part",
+  "state": "staged, parsed only; not compiled or executed",
+  "files": [
+    {
+      "destination": "C:/github/poet/native/src/graphical/rig_binding/controls.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/rig_binding/controls.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/rig_binding/controls.rs.before",
+      "before_sha256": "71668671a00f04be1b70c312754d7f45a6fee9b2f3c1c097b0fbace7b2c43613",
+      "after_sha256": "0892685c09e6b526065ea11ccbd7ae22d6c668f665c30257dda8bcc20829f37e",
+      "current_sha256": "71668671a00f04be1b70c312754d7f45a6fee9b2f3c1c097b0fbace7b2c43613",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/viewport/renderer.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/viewport/renderer.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/viewport/renderer.rs.before",
+      "before_sha256": "0071d89fec0ce1dff1a4c6345b0ed411cc77ccfbf98dbcd55a80989de95e8952",
+      "after_sha256": "b0b4ad6db199fb464a92d296d1a3cf41c6da79aba27cb0cfc4723d88c24248bb",
+      "current_sha256": "0071d89fec0ce1dff1a4c6345b0ed411cc77ccfbf98dbcd55a80989de95e8952",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/rig_source.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/authoring/rig_source.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/authoring/rig_source.rs.before",
+      "before_sha256": "9ece50dfff4da2e5534636460019ca1d87f9f586ed89d3da8ffe4865e6240b9b",
+      "after_sha256": "2c9bafc757b2a130a7e34d577c402c5fb5df2ee82938680cfb4f79c65675afcf",
+      "current_sha256": "9ece50dfff4da2e5534636460019ca1d87f9f586ed89d3da8ffe4865e6240b9b",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/controller.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/controller.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/controller.rs.before",
+      "before_sha256": "a9f30f98d8371376e4e4b6d19cddaecc63b31dfc03950ac97c346e12d9d62eba",
+      "after_sha256": "dc6aa2f431a09cff4932e42c1d4d363edaab73400e418688e0829cbd010b0a78",
+      "current_sha256": "a9f30f98d8371376e4e4b6d19cddaecc63b31dfc03950ac97c346e12d9d62eba",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/controls.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/authoring/controls.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/authoring/controls.rs.before",
+      "before_sha256": "f94c34c4806430002e72a9255c4ec2559f8a399f2700bd84b461175ed4be5c2f",
+      "after_sha256": "dcbee93ca4909c49c35a10625e665abc743a0e76349219a7e7a7e7e316d90272",
+      "current_sha256": "f94c34c4806430002e72a9255c4ec2559f8a399f2700bd84b461175ed4be5c2f",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/rig_binding/tests.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/rig_binding/tests.rs.before",
+      "before_sha256": "15b18985e7670827ecbbeb1038fc1a4ef6e2b93ecb8ed48174f49b098fd02a3f",
+      "after_sha256": "15e6d531bb3ffaa0456eb4fbe97479667a98def8041139473c54b47ef8983ced",
+      "current_sha256": "15b18985e7670827ecbbeb1038fc1a4ef6e2b93ecb8ed48174f49b098fd02a3f",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/viewport/tests.rs",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/viewport/tests.rs",
+      "saved_preimage": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-adoption/native/src/graphical/viewport/tests.rs.before",
+      "before_sha256": "65f888dbcf29f6bcc727f65556ca94023465d269af0b9748c6b2dd99aabd8858",
+      "after_sha256": "bcdce84c772106d13dd8540d851536c7322eedebc84a9a24af8946c71ad3f243",
+      "current_sha256": "65f888dbcf29f6bcc727f65556ca94023465d269af0b9748c6b2dd99aabd8858",
+      "unchanged": true
+    }
+  ],
+  "verification": "Coordinator-only: cargo test --locked --offline -p poet-cli --features native-graphical --lib rig_ --target-dir C:/github/ecopunk/target; separately filter selected_rig_adoption_derives_binding_and_refuses_mismatches and add actual signed host + GPU viewport + HMC reopen qualification.",
+  "limitations": [
+    "Existing resource selection and authorization required",
+    "Exact contiguous rest mesh/normal/UV correspondence only",
+    "Adopts first SKL1 clip by resource order and records source-local bind identifier",
+    "Synchronous HMC decode and selected-resource peak allocation not fully budgeted",
+    "No animated display, complete rig workflow or native operator trial",
+    "No model or rights acceptance"
+  ]
+}

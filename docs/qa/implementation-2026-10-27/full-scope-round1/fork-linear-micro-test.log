@@ -1,0 +1,44 @@
+
+running 39 tests
+test connectivity::tests::components_deterministic ... ok
+test connectivity::tests::count_boundary_loops_rejects_small_visited ... ok
+test connectivity::tests::disk_genus_0 ... ok
+test connectivity::tests::invalid_topology_genus_none ... ok
+test connectivity::tests::label_components_rejects_small_label_buffer ... ok
+test connectivity::tests::single_triangle_euler_1 ... ok
+test connectivity::tests::single_triangle_one_boundary_loop ... ok
+test connectivity::tests::single_triangle_one_component ... ok
+test connectivity::tests::summary_deterministic_across_runs ... ok
+test connectivity::tests::summary_single_triangle ... ok
+test connectivity::tests::summary_tetrahedron ... ok
+test connectivity::tests::summary_two_disjoint_triangles ... ok
+test connectivity::tests::tetrahedron_euler_2 ... ok
+test connectivity::tests::tetrahedron_genus_0 ... ok
+test connectivity::tests::tetrahedron_one_component ... ok
+test connectivity::tests::tetrahedron_zero_boundary_loops ... ok
+test connectivity::tests::torus_genus_1 ... ok
+test connectivity::tests::two_disjoint_triangles_two_boundary_loops ... ok
+test connectivity::tests::two_disjoint_triangles_two_components ... ok
+test connectivity::tests::two_shared_edge_triangles_euler_1 ... ok
+test connectivity::tests::two_shared_edge_triangles_one_boundary_loop ... ok
+test connectivity::tests::two_shared_edge_triangles_one_component ... ok
+test connectivity::triangle_ordered_connectivity_tests::malformed_layout_and_insufficient_work_refuse_without_scratch_mutation ... ok
+test connectivity::triangle_ordered_connectivity_tests::old_general_api_still_accepts_non_contiguous_order ... ok
+test connectivity::triangle_ordered_connectivity_tests::ordered_bfs_matches_general_owner_for_connected_and_disconnected_meshes ... ok
+test micro_public_tests::tests::checked_bounds_refuse_empty_and_oversized_inputs ... ok
+test micro_public_tests::tests::exhausted_work_and_short_buffers_refuse_before_scratch_writes ... ok
+test micro_public_tests::tests::qualifies_closed_tetrahedron_and_icosahedron ... ok
+test micro_public_tests::tests::qualifies_indexed_tetra_three_arm_field ... ok
+test micro_public_tests::tests::refuses_closed_connected_edges_with_two_disjoint_vertex_fans ... ok
+test micro_public_tests::tests::refuses_open_and_disconnected_closed_surfaces ... ok
+test micro_public_tests::triangle_ordered_connectivity_tests::malformed_layout_and_insufficient_work_refuse_without_scratch_mutation ... ok
+test micro_public_tests::triangle_ordered_connectivity_tests::old_general_api_still_accepts_non_contiguous_order ... ok
+test micro_public_tests::triangle_ordered_connectivity_tests::ordered_bfs_matches_general_owner_for_connected_and_disconnected_meshes ... ok
+test surface_topology_qualification::tests::checked_bounds_refuse_empty_and_oversized_inputs ... ok
+test surface_topology_qualification::tests::exhausted_work_and_short_buffers_refuse_before_scratch_writes ... ok
+test surface_topology_qualification::tests::qualifies_closed_tetrahedron_and_icosahedron ... ok
+test surface_topology_qualification::tests::refuses_closed_connected_edges_with_two_disjoint_vertex_fans ... ok
+test surface_topology_qualification::tests::refuses_open_and_disconnected_closed_surfaces ... ok
+
+test result: ok. 39 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+

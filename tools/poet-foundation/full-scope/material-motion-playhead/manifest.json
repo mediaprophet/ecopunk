@@ -1,0 +1,37 @@
+{
+  "status": "staged, not compiled or run",
+  "files": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion_controls.rs",
+      "preimage_sha256": "516fd07867211f3ea6cb0629c2e94ac0ccceaaf61fbd0e44eacd0d0f6e4851d8",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\material-motion-playhead\\material_motion_controls.rs",
+      "candidate_sha256": "82e6f57572f64f642200dd197f8365eda3fa3bf7f5017a9cef3b6bc9a17611a5"
+    }
+  ],
+  "inspected_sources": [
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion.rs",
+      "sha256": "b51f15d9440fa5c17426613cc18fa06fcbb765fde41a4b9b2d4923b71300ce12"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\controls.rs",
+      "sha256": "dcbee93ca4909c49c35a10625e665abc743a0e76349219a7e7a7e7e316d90272"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\authoring\\material_motion_tests.rs",
+      "sha256": "47404ef2dfaa7907a67d195fe70bbec2ed0c42a20c2807e9a1840b62884a641f"
+    },
+    {
+      "path": "C:\\github\\poet\\native\\src\\graphical\\native_project_motion_tests.rs",
+      "sha256": "6203996d642f79390c0524bae906d22397fc454ef977179b76bc381120566895"
+    },
+    {
+      "path": "C:\\github\\qualiaDB\\crates\\vibe\\src\\animation\\curves.rs",
+      "sha256": "33b29ca80c9e47a2ebb5c8e7086e20480279c885ebf1e6c684351ce27491f213"
+    },
+    {
+      "path": "C:\\github\\storytold\\effectcraft-main\\crates\\ui-egui\\src\\panels\\timeline.rs",
+      "sha256": "c8014eabbe1082152b9922e76529faa2a92328884880af7b22c580079d510010"
+    }
+  ]
+}

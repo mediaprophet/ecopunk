@@ -1,0 +1,364 @@
+[package]
+name = "qualia-core-db"
+version = "0.0.40"
+edition = "2021"
+authors = ["Timothy Charles Holborn <timothy.holborn@gmail.com>"]
+description = "QualiaDB semantic graph, inference, ontology, spatial, and browser-WASM runtime"
+repository = "https://github.com/mediaprophet/qualiaDB"
+license-file = "LICENSE"
+
+[features]
+default = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-dx12", "wgsl-forge-cuda", "privacy-he"]
+
+# ── Qualia WASM build profiles (use with --no-default-features on wasm32) ──
+# WebCivics browser runtime:        --features wasm-webcivics (logic + Solid/CML + HCF yaml-ld-q42)
+# Ontology MCP kernel (exclusive):  --features wasm-ontology
+# WebCivics decision-evidence:      --features wasm-webcivics  (JSON-LD/SHACL/modal/SPARQL; NO GPU/LLM)
+# Full browser engine:              --features portal  (logic + WASM-safe science + WebGPU)
+# Logic + WASM-safe science:        --features wasm-logic
+# Science playground:               --features wasm-scientific
+# Browser model runtime:            --features wasm-llm
+# API explorer / playground:        --features wasm-full
+# Native-only stays native: daemon, filesystem volumes, NVMe/ZNS/CSD, BLE mesh, eBPF.
+gpu-runtime = [
+    "dep:wgpu",
+    "dep:etalon",
+    "dep:etalon-agent",
+    "dep:etalon-wgsl-forge",
+    "dep:etalon-nquin",
+    "dep:etalon-tensor",
+    "dep:etalon-render",
+    "dep:etalon-wasm",
+    "dep:raw-window-handle",
+]
+# DX12 remains enabled in the default Windows build. The portable native profile
+# can omit it and use the renderer-only GLES/Vulkan selection path instead.
+gpu-native-dx12 = ["wgpu/dx12", "etalon?/dx12"]
+gpu-native-portable = []
+metal-native = []
+wgsl-forge = ["dep:naga", "dxc"]
+wgsl-forge-cuda = ["wgsl-forge", "cuda"]
+webgl2 = ["dep:naga"]
+cuda = ["dep:cudarc"]
+# W7 (ADR-pending): real NVIDIA GPU thermal/power telemetry via NVML (nvml-wrapper dlopens the
+# driver's NVML at runtime — no CUDA SDK needed to build). Opt-in; the base build is unaffected and
+# `thermal_telemetry` degrades to "telemetry unavailable" when the feature is off or NVML is absent.
+nvml = ["dep:nvml-wrapper"]
+# Learned vision inference (ONNX Runtime) for the SR CNN/ESRGAN/SwinIR session adapters (D2.10-12).
+# Off by default; the adapters fail closed (WeightAbsent/FeatureDisabled) without it. Pulls the ORT
+# binaries only when explicitly enabled.
+vision-onnx = ["dep:ort"]
+dxc = []
+portal = ["wasm_simd", "gpu-runtime", "wasm-logic", "wasm-scientific"]
+wasm-ontology = []
+# Civics / decision-evidence package: semantic interchange + SHACL + modal logic +
+# SPARQL/q42 kernels + Civics-facing stats/econ receipts. Explicitly excludes
+# gpu-runtime (no WebGPU viewport, no GGUF/MoE/LLM). Prefer this over wasm-logic
+# for Node/browser Civics apps — wasm-logic currently pulls scientific→GPU.
+wasm-webcivics = ["wasm_simd"]
+wasm-logic = ["wasm-scientific"]
+wasm-scientific = ["gpu-runtime"]
+wasm-llm = ["gpu-runtime", "wasm-logic", "wasm-scientific"]
+# Optional browser GPU differential probes and legacy readback experiments.
+# Kept out of release bundles; enable explicitly while developing MC8 kernels.
+wasm-llm-diagnostics = ["wasm-llm"]
+wasm-playground = ["wasm-logic", "wasm-scientific"]
+wasm-full = ["portal", "wasm-logic", "wasm-scientific", "wasm-llm", "wasm-playground"]
+
+# Enforces explicit stack boundaries restricting memory caching paths under 512MB RAM rules
+profile_minimal_512 = []
+profile_target_1024 = ["alloc_buffers"]
+profile_accelerated = ["alloc_buffers", "neon_simd_unroll"]
+# Enables the WASM SIMD vectorized execution branch in webizen_bytecode.
+# Only has effect on wasm32 targets compiled with SIMD support (-C target-feature=+simd128).
+wasm_simd = []
+
+# Interoperability cryptographic algorithms for W3C DID compatibility
+# Enables secp256k1 (ECDSA) for interoperability with existing Web 2.0 infrastructure
+# This feature can be disabled for pure post-quantum environments
+interop-crypto = ["secp256k1", "rsa"]
+
+# Sanctuary lane cryptography with 48-byte PBKDF2 derivation
+# Enables PBKDF2 and AEAD ciphers for sanctuary volume encryption
+sanctuary-crypto = ["pbkdf2", "argon2"]
+
+# 10D volumetric tensor system for Q42 volumes
+# Enables 10D tensor coordinate system [q, v, w, x, y, z, t, α, μ, σ]
+tensor-10d = []
+
+# Hardware acceleration features for tensor operations
+tensor-gpu = []  # Enable GPU acceleration (CUDA/Metal/Vulkan)
+tensor-npu = []  # Enable NPU acceleration (Neural Engine)
+
+# Zero-knowledge proofs for Deontic Culling layer
+# Using arkworks ecosystem for unified, maintainable ZK infrastructure
+zk-culling = ["ark-bls12-381", "ark-groth16", "ark-relations", "ark-snark", "ark-ff", "ark-serialize", "ark-ec", "ark-std"]
+
+# Post-quantum KEM encapsulation + fixed-size serialization shim
+pq-kem = ["thiserror"]
+
+# Exact packed homomorphic arithmetic for the linear-algebra privacy engine.
+# Large BFV keys/ciphertexts remain outside the NQuin ABI.
+privacy-he = ["dep:fhe", "dep:fhe-traits", "dep:rand09"]
+
+# Native Qualia Decentralized Network Fabric (QDNF / QPR). Does not pull libp2p.
+qdnf = []
+# Inherited libp2p transition stack (LIG). Native Independent is the default
+# daemon path (E20.2). Opt in with `--features libp2p-compat`.
+libp2p-compat = ["dep:libp2p"]
+
+# QPU internal functionality (undocumented, private)
+# This feature gate enables internal QPU modules that are not publicly documented
+qpu_internal = []
+
+# Mock cryptography for preserving 25-year stubs without infecting production
+
+
+# Feature dependencies
+alloc_buffers = []
+neon_simd_unroll = []
+vm_tracing = []
+
+[dependencies]
+vibe = { workspace = true }
+qualia-cooperative-core = { workspace = true }
+qualia-inference-kernel = { workspace = true }
+minicbor = { workspace = true, features = ["std"] }
+futures-core = { version = "0.3", default-features = false }
+futures-channel = "0.3"
+tempfile = { workspace = true }
+futures-intrusive = { version = "0.5", default-features = false, features = ["alloc"] }
+zeroize = { version = "1.9.1", features = ["zeroize_derive"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+mikktspace = { version = "0.3.0", default-features = false, features = ["glam"] }
+serde_yaml = { workspace = true }
+serde_bytes = "0.11"
+base64 = { workspace = true, default-features = false, features = ["alloc"] }
+bytemuck = { workspace = true, features = ["derive"] }
+half = "2.4"
+log = { workspace = true }
+ed25519-dalek = { workspace = true, default-features = false }
+secp256k1 = { version = "0.31", default-features = false, features = ["std", "rand"], optional = true }
+# arkworks ecosystem for zero-knowledge proofs
+ark-bls12-381 = { version = "0.6", default-features = false, features = ["curve"], optional = true }
+ark-groth16 = { version = "0.6", default-features = false, optional = true }
+ark-relations = { version = "0.6", default-features = false, optional = true }
+ark-snark = { version = "0.6", default-features = false, optional = true }
+ark-ff = { version = "0.6", default-features = false, optional = true }
+ark-serialize = { version = "0.6", default-features = false, optional = true }
+ark-ec = { version = "0.6", default-features = false, optional = true }
+ark-std = { version = "0.6", default-features = false, features = ["std"], optional = true }
+rsa = { version = "0.9", default-features = false, features = ["sha2", "pem", "u64_digit"], optional = true }
+thiserror = { workspace = true, optional = true }
+sha2 = { workspace = true, default-features = false }
+pbkdf2 = { version = "0.13", default-features = false, features = ["hmac"], optional = true }
+argon2 = { version = "0.5", default-features = false, features = ["alloc"], optional = true }
+aes-gcm = { version = "0.11", default-features = false, features = ["aes", "alloc"] }
+aead = { version = "0.6", default-features = false }
+chacha20poly1305 = { version = "0.11", default-features = false, features = ["alloc"] }
+x25519-dalek = { version = "3", default-features = false, features = ["static_secrets", "zeroize"] }
+hkdf = { version = "0.13", default-features = false }
+hmac = { workspace = true, default-features = false }
+blake3 = { workspace = true, default-features = false }
+fips204 = { version = "0.4", default-features = false, features = ["ml-dsa-65", "default-rng"] }
+fips203 = { version = "0.4", default-features = false, features = ["ml-kem-512", "ml-kem-768", "ml-kem-1024", "default-rng"] }
+fips205 = { version = "0.4", default-features = false, features = ["slh_dsa_sha2_256s", "default-rng"] }
+quick-xml = "0.41"
+png = "0.17"
+jpeg-decoder = "0.3"
+regex = { workspace = true }
+crossbeam-channel = { workspace = true }
+core_affinity = { workspace = true }
+num_cpus = "1.16"
+rio_xml = { workspace = true }
+
+rio_turtle = { workspace = true }
+rio_api = { workspace = true }
+oxiri = { workspace = true }
+lz4_flex = { workspace = true }
+rtrb = { workspace = true }
+rand = { workspace = true }
+fhe = { version = "0.1.1", optional = true }
+fhe-traits = { version = "0.1.1", optional = true }
+rand09 = { package = "rand", version = "0.9.2", optional = true }
+hex = { workspace = true }
+sha1 = { workspace = true }
+sha3 = { workspace = true }
+urlencoding = { workspace = true }
+csv = { workspace = true }
+atoi = { workspace = true }
+ciborium = { workspace = true }
+chrono = { workspace = true, default-features = true, features = ["serde", "wasmbind"] }
+async-trait = { workspace = true }
+dashmap = "6.2.1"
+rand_distr = "0.6.0"
+fast_qr = { workspace = true, features = ["svg"] }
+wgpu = { workspace = true, default-features = false, features = ["std", "parking_lot", "metal", "gles", "vulkan", "wgsl", "webgpu", "spirv"], optional = true }
+etalon = { workspace = true, default-features = false, features = ["std", "metal", "gles", "vulkan", "wgsl", "webgpu", "spirv"], optional = true }
+etalon-agent = { workspace = true, optional = true }
+etalon-wgsl-forge = { workspace = true, optional = true }
+etalon-nquin = { workspace = true, optional = true }
+etalon-tensor = { workspace = true, optional = true }
+etalon-render = { workspace = true, optional = true }
+etalon-wasm = { workspace = true, optional = true }
+naga = { workspace = true, features = ["wgsl-in", "spv-out", "glsl-out"], optional = true }
+raw-window-handle = { workspace = true, optional = true }
+cudarc = { version = "0.19", optional = true, features = ["cuda-13030"] }
+
+
+[lib]
+crate-type = ["rlib", "cdylib"]
+
+[target.'cfg(target_os = "android")'.dependencies]
+jni = "0.22.4"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+js-sys = "0.3"
+pollster = "1.0.1"
+console_error_panic_hook = "0.1"
+web-sys = { version = "0.3", features = [
+    "StorageManager",
+    "StorageEstimate",
+    "FileSystemDirectoryHandle",
+    "FileSystemFileHandle",
+    "FileSystemSyncAccessHandle",
+    "FileSystemWritableFileStream",
+    "FileSystemGetFileOptions",
+    "File",
+    "Blob",
+    "Navigator",
+    "Window",
+    "WebSocket",
+    "MessageEvent",
+    "ErrorEvent",
+    "Event",
+    "Document",
+    "Element",
+    "HtmlElement",
+    "HtmlCanvasElement",
+    "Node",
+    "CanvasRenderingContext2d",
+    "CanvasGradient",
+    "WebGl2RenderingContext",
+    "WebGlBuffer",
+    "WebGlFramebuffer",
+    "WebGlProgram",
+    "WebGlRenderbuffer",
+    "WebGlShader",
+    "WebGlTexture",
+    "WebGlUniformLocation",
+    "WebGlVertexArrayObject",
+    "console",
+] }
+# Feature-unification shim for stable fips20x/x25519 dependencies that still
+# consume rand_core 0.6/getrandom 0.2 on wasm32.
+getrandom_02 = { package = "getrandom", version = "0.2", features = ["js"] }
+getrandom_03 = { package = "getrandom", version = "0.3", features = ["wasm_js"] }
+getrandom = { version = "0.4.3", features = ["wasm_js"] }
+serde-wasm-bindgen = "0.6.5"
+wasm-bindgen-futures = "0.4"
+reqwest = { version = "0.13.5", default-features = false, features = ["json"] }
+
+[target.'cfg(all(windows, target_arch = "x86_64"))'.dependencies]
+# Force a specific, stable version to prevent transitive conflicts and 32-bit fallback macros
+windows = { version = "0.62.2", features = [
+    "Win32_AI_MachineLearning_DirectML",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D12",
+    "Win32_Graphics_Dxgi",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Foundation",
+    "Win32_Storage_FileSystem",
+    "Win32_System_IO",
+    "Win32_System_Memory",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Threading",
+    "Win32_Security",
+    "Win32_System_Ioctl",
+    "Win32_NetworkManagement_WindowsFilteringPlatform",
+    "Win32_System_Rpc",
+] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+libc = "0.2"
+qualia-audio = { path = "../qualia-audio" }
+keyring = "4"
+memmap2 = "0.9.11"
+futures-util = "0.3"
+# Tiny block-on executor for one-shot async device probes (H1(a) cross-circuit benchmark).
+pollster = "1.0.1"
+tokio = { version = "1.54.0", features = ["full"] }
+rayon = "1.12.0"
+axum = { version = "0.8.9", features = ["ws"] }
+tower-http = { version = "0.7.1", features = ["fs", "cors", "set-header"] }
+tokio-stream = { version = "0.1.19", features = ["sync"] }
+http-body-util = "0.1.3"
+zstd = "0.13"
+flate2 = "1.1.9"
+# ONNX Runtime for learned SR session adapters (feature `vision-onnx`, off by default).
+ort = { version = "2.0.0-rc.12", features = ["download-binaries"], optional = true }
+# Pure-Rust MP4 container demuxer (MIT) for D1.11 video file I/O (demux only; codec decode is separate).
+mp4 = "0.14"
+sysinfo = "0.39.6"
+# W7: NVIDIA GPU thermal/power telemetry (opt-in via the `nvml` feature). Loads the driver's NVML
+# library at runtime (dlopen) — builds without the CUDA SDK; init fails gracefully on non-NVIDIA hosts.
+nvml-wrapper = { version = "0.12.1", optional = true }
+libp2p = { version = "0.56.0", optional = true, features = ["tcp", "dns", "noise", "yamux", "request-response", "kad", "mdns", "macros", "tokio"] }
+reqwest = { version = "0.13.5", default-features = false, features = ["json", "rustls-no-provider", "blocking"] }
+boringtun = "0.7.1"
+rcgen = "0.14.8"
+rustls = { version = "0.23.38", default-features = false, features = ["std", "tls12", "ring"] }
+rustls-pki-types = "1.15.1"
+# CSCP-09 local HTTP/2 Extended CONNECT + RFC 9297 capsules (loopback only; not MASQUE Internet).
+h2 = "0.4.15"
+http = "1.5.0"
+bytes = "1.12.1"
+tokio-rustls = { version = "0.26.4", default-features = false, features = ["logging", "tls12", "ring"] }
+# Native zero-heap DNS & SDN stack resides in crate::net::dns (zero 3rd-party dependencies)
+base64 = "0.23.1"
+getrandom = { version = "0.4.3", features = ["wasm_js"] }
+serde-wasm-bindgen = "0.6.5"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+io-uring = "0.7.12"
+
+[target.'cfg(windows)'.dependencies]
+# Pin the native enrollment owner directly; never use a replaceable global store.
+keyring-core = "1"
+windows-native-keyring-store = "1"
+
+[dev-dependencies]
+oxiri = { workspace = true }
+rio_api = { workspace = true }
+rio_turtle = { workspace = true }
+rio_xml = { workspace = true }
+naga = { workspace = true, features = ["wgsl-in", "spv-out"] }
+ciborium = { workspace = true }
+dhat = { workspace = true }
+proptest = { version = "1.11.0", default-features = false, features = ["std"] }
+serial_test = "3"
+pollster = { workspace = true }
+num-bigint = "0.5"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
+criterion = { workspace = true }
+
+[package.metadata.wasm-pack.profile.release]
+# wasm-opt -Oz was rewriting large `vec![0; n]` fills into bulk-memory ops that
+# trapped ("memory access out of bounds") on the first real GGUF copy in
+# initialize_webgpu_engine. Disabled until a safe opt set is confirmed.
+wasm-opt = false
+
+[[bench]]
+name = "qualia_benchmark"
+harness = false
+
+[[bench]]
+name = "ram_usage"
+harness = false
+
+[[bench]]
+name = "network_benchmark"
+harness = false

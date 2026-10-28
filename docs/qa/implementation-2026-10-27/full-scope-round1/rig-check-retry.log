@@ -1,0 +1,26 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 4m 02s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 18 tests
+test graphical::native_project::tests::rig_composed_tests::signed_mounted_rig_preview_reads_hmc_steps_restores_and_rejects_stale_context ... ignored, requires explicit native GPU qualification
+test graphical::rig_binding::tests::core_codec_refuses_invalid_skin_before_a_resource_can_be_attached ... ok
+test graphical::rig_binding::tests::rejected_rig_advance_retires_previous_frame ... ok
+test graphical::rig_binding::tests::sampled_frame_is_hidden_after_source_revision_changes ... ok
+test graphical::rig_binding::tests::malformed_mesh_indices_weights_and_player_controls_fail_closed ... ok
+test graphical::rig_binding::tests::mismatched_source_resource_lineage_and_controls_are_refused ... ok
+test graphical::viewport::tests::invalid_rig_pose_is_rejected_before_cpu_mutation ... ok
+test graphical::rig_binding::tests::staged_rig_control_keeps_existing_preview_and_refuses_wrong_resource ... ok
+test graphical::viewport::tests::rig_pose_updates_cpu_picking_geometry_and_bounds ... ok
+test graphical::rig_binding::tests::sealed_source_admits_real_player_and_replays_from_bind_mesh ... ok
+test graphical::rig_binding::tests::selecting_active_clip_restarts_live_player_and_reopened_source_at_zero ... ok
+test graphical::viewport::tests::selected_rig_adoption_derives_binding_and_refuses_mismatches ... ok
+test graphical::viewport::tests::selected_rig_span_requires_exact_unshared_compiled_geometry ... ok
+test graphical::viewport_provider::rig_finish_tests::cancellation_before_publication_retires_cached_frame_and_selection ... ok
+test graphical::rig_binding::tests::rig_source_candidate_evaluates_and_refuses_unsupported_contexts ... ok
+test graphical::rig_binding::tests::canonical_rig_adoption_creates_binding_and_refuses_replacement ... ok
+test graphical::rig_binding::tests::canonical_rig_edit_updates_source_and_rebuilds_without_losing_binding ... ok
+test graphical::native_project::tests::rig_composed_tests::signed_native_rig_selection_edit_refusals_and_fresh_checkpoint_reopen ... ok
+
+test result: ok. 17 passed; 0 failed; 1 ignored; 0 measured; 320 filtered out; finished in 1.57s
+

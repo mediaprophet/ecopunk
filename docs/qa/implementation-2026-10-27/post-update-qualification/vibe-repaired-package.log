@@ -1,0 +1,24 @@
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+error[E0716]: temporary value dropped while borrowed
+   --> crates\vibe\src\stdlib_v2\topology_and_manifold\effects_and_systems.rs:616:10
+    |
+616 |         &[commitment.get("predicate").cloned().unwrap_or(Value::Null)],
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ creates a temporary value which is freed while still in use
+...
+620 |     )?;
+    |       - temporary value is freed at the end of this statement
+...
+626 |     let expected = local_predicate_commitment(predicate, &public_input);
+    |                                               --------- borrow later used here
+    |
+help: consider using a `let` binding to create a longer lived value
+    |
+615 ~     let binding = [commitment.get("predicate").cloned().unwrap_or(Value::Null)];
+616 ~     let predicate = extract_str(
+617 ~         &binding,
+    |
+
+For more information about this error, try `rustc --explain E0716`.
+error: could not compile `vibe` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `vibe` (lib test) due to 1 previous error

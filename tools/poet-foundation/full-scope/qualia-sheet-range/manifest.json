@@ -1,0 +1,23 @@
+{
+  "status": "staged; no Cargo",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/sheet/range.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/qualia-sheet-range/range.rs",
+      "preimage_sha256": "eb36a754d9e6743e43003ad297c3f6c395480dbd6feaa433703bc6ddf88100cb",
+      "candidate_sha256": "17d3616b3190cd9173855fb6b7308f048bd54f9782b2f3b8ce76503b0e5f5d73"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/geometry_host.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/qualia-sheet-range/geometry_host.rs",
+      "preimage_sha256": "5e0bb23df7dd450a383d775eebfbcd3f8e0a087131f924d9854fe1dc694ac271",
+      "candidate_sha256": "807711e3f1fd023e406acc2058a97fcc9fec14b192957930bf79d10aab8cc7d2"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/sheet_range_host_tests.rs",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/qualia-sheet-range/sheet_range_host_tests.rs",
+      "preimage": "absent",
+      "candidate_sha256": "001fb804e7607901514c3e638bf79fde2265ea9c29887942724204e27a98a8b3"
+    }
+  ]
+}

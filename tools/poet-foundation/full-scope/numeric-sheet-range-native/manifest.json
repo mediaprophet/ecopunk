@@ -1,0 +1,35 @@
+{
+  "status": "UNTESTED FOLLOW-UP AGAINST FORMULA STAGING",
+  "entries": [
+    {
+      "target": "C:/github/poet/native/src/graphical/geometry_host.rs",
+      "formula_followup_preimage_sha256": "0e78281e43d4ce4c8aedc5098743933ea261b308a4bbf39d181048e8245bf0ef",
+      "staged": "geometry_host.rs",
+      "sha256": "eff82168bc985949f003a6c338cca9f66a68ac626ebaa6b884f93aa22c09bdf0"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/native_entry/create.rs",
+      "formula_followup_preimage_sha256": "7f6dfe478b5b2c6cdb1ac08eff29442bab8685a9c236e14c115af4746d43c6ae",
+      "staged": "create.rs",
+      "sha256": "079a1c348b01dafb8cf3ca9d947b627d13993e1bd9fea43dae7b8de15f83520a"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/entry.rs",
+      "formula_followup_preimage_sha256": "36ec65222b5dc7fa4d83aae73b097242c12e568f27bec528396160887286a07f",
+      "staged": "entry.rs",
+      "sha256": "f5a91c7c27b89b2b732ac4938e689093c3dee5eadf854a74dcb8965f39398bf3"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/entry_tests.rs",
+      "formula_followup_preimage_sha256": "7459cf8b3e393d54bb0d50e52fd8b7c7c04615112836da78010843ea3c4c2e48",
+      "staged": "entry_tests.rs",
+      "sha256": "bf4a1fa493f7391dec5b1d410806977d38e320d66ab7332bf1d3d3d95f6ca87c"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/sheet_range_session_tests.rs",
+      "formula_followup_preimage_sha256": null,
+      "staged": "sheet_range_session_tests.rs",
+      "sha256": "61db4c930b7b7fce9be7910e9e6afef84031f27d45a0740074dab2abe12b49fe"
+    }
+  ]
+}

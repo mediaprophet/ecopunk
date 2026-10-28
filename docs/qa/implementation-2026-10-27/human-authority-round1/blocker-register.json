@@ -1,0 +1,334 @@
+{
+  "date": "2026-10-27",
+  "title": "Asset production blockers — first reference authoring foundations",
+  "disposition": "HOLD",
+  "scope": "Bounded audit of first direct-authoring readiness, cooperative agent/reviewer work, white-gum and swamp-wallaby reference foundations, and complete-package obligations. No asset production or acceptance.",
+  "source_pins": {
+    "ecopunk": {
+      "head": "ff79f68faceb241c2fa60f2fd74a40c97e733d90",
+      "dirty": [
+        "docs/planning/README.md",
+        "docs/planning/biosphere-work-packets.json",
+        "docs/planning/interim-production-readiness.md",
+        "docs/planning/tech/vibescript-language-expansion-recommendations.md"
+      ],
+      "qualification": "Dirty planning files were read as current; not runtime evidence."
+    },
+    "qualiaDB": {
+      "head": "69ec4ce5d499a271da74b74018631c388124f15e",
+      "dirty_source_paths": "See docs/qa/implementation-2026-10-27/post-update-qualification/verified-summary.json for source hashes; the prior AUTH audit pins 33 selected files/ranges.",
+      "qualification": "Post-update summary records 38 dirty QualiaDB paths total, including 26 under crates/vibe/ (runtime Vibe). The prior AUTH audit pins 33 selected files/ranges; this is not a whole-repository semantic audit.",
+      "dirty_path_count": 38,
+      "runtime_vibe_dirty_path_count": 26
+    },
+    "poet": {
+      "head": "3d167fdff42eb7fd913d998d786a0a39639b5d6e",
+      "dirty_source_paths": "See post-update verified-summary.json for native source hashes; Round 1 source-integrity.json pins saved botanical/rig subset.",
+      "qualification": "Post-update summary records 8 dirty native source paths. Current rig/UI trace files are pinned separately below.",
+      "dirty_path_count": 8
+    },
+    "etalon": {
+      "head": "4e77ca3f71b74c10c635b7a1f0ddd923590fdc61",
+      "dirty": []
+    },
+    "rust-app-framework": {
+      "head": "60123a1932f2018ea777502b33ef9006f8f926ea",
+      "dirty": []
+    },
+    "vibe_tooling": {
+      "head": "346fe6d28da65bd531f46b4a18542b66b9405ea3",
+      "qualification": "Separate C:/github/vibe-script tooling repository; not runtime. Runtime Vibe is QualiaDB/crates/vibe and is included in QualiaDB dirty paths."
+    }
+  },
+  "evidence": {
+    "verified_software": [
+      "Round 1 Poet native library 307 passed, 0 failed, 13 ignored; Core authority 31 passed; historical Core regression 9878 passed, 0 failed, 4 ignored.",
+      "Round 8: 101 distinct selected test names, including 5 source-carrier/fresh-process cases and 1 software intent contributor/reviewer fixture.",
+      "Post-update: 1769 selected passes, 0 failures, 0 compiler warnings; one 64x64 GPU workflow with fresh-process identical output."
+    ],
+    "source_present": [
+      "Bounded botanical adopted-organ graph/native intent-MCP edit path: one graph/profile, position/radius, vertices/triangles; no authored normals/UV/skin streams; unsupported source layers refuse.",
+      "Bounded rig admission/player/frame adapter and resource tests; retained viewport, selected HMC resource resolution, durable mounted commands/MCP and rig controls explicitly not integrated."
+    ],
+    "human_operator_trial_executed": false,
+    "human_acceptance": false,
+    "domain_review": false,
+    "reference_corpus_or_rights_established": false,
+    "production_ready": false,
+    "assets_produced": 0,
+    "human_trial_is_acceptance_evidence_not_universal_authoring_prerequisite": true,
+    "direct_authoring_via_current_project_controller_admission": "Not shown to require new personhood verification/provider; qualify operation-specific controls and current permissions."
+  },
+  "formal_gates_open": [
+    "IP-03 C1-C8",
+    "AUTH-H2",
+    "AUTH-H3",
+    "AUTH-H4",
+    "AUTH-H5",
+    "AUTH-H6",
+    "FND-01",
+    "FND-02",
+    "FND-03",
+    "FND-04",
+    "FND-05",
+    "FND-06"
+  ],
+  "blockers": [
+    {
+      "id": "FIRST-AUTHOR-01",
+      "order": 1,
+      "kind": "operation-specific-foundation-readiness",
+      "status": "bounded-source-path-present-broader-workflow-open",
+      "owner": "Poet native/product owner and coordinator",
+      "missing": "Saved evidence supports a bounded botanical adopted-graph edit, selected-organ controls, position/radius changes, geometry compile and save/reopen, while unsupported attributes/source layers refuse. This does not establish a general biosphere production surface or complete biological claims; no separate personhood provider is shown as necessary for direct project/controller-admitted work.",
+      "remedy": "For the held first-production scope, name selected operation/profile and verify its native source-edit-save-reopen/render route and preservation on refusal. Review usability/domain quality during production; retain unsupported-operation refusal.",
+      "acceptance": "Operation-specific source/output IDs and executed save/reopen/render evidence; any human/domain review attached to production claim before acceptance.",
+      "evidence": [
+        "docs/qa/implementation-2026-10-26/biosphere-authoring-round1/README.md",
+        "docs/qa/implementation-2026-10-26/biosphere-authoring-round1/verification.json"
+      ]
+    },
+    {
+      "id": "AUTH-H2",
+      "order": 2,
+      "kind": "authority-engineering-and-qualification",
+      "status": "missing-integration",
+      "owner": "Strong authority/runtime implementer; coordinator owns shared adapter and checks",
+      "missing": "Adopted human-to-agent delegation is absent from selected NativeAuthority chain; project admission/session does not bind human principal, scope, purpose/action or adoption.",
+      "remedy": "Compose existing native delegation/rights owners; test valid chain and wrong human/key/project, unadopted, replay, purpose/action/scope and widening refusal.",
+      "acceptance": "Positive adopted chain and negative cases at actual selected caller, preserving source on refusal.",
+      "parent_gate": "IP-03 C2/C4/C5/C7",
+      "evidence": [
+        "docs/planning/tech/human-principal-agent-authority.md",
+        "docs/qa/implementation-2026-10-26/biosphere-authoring-round1/human-agent-authority-audit.md"
+      ],
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H3",
+      "order": 2,
+      "kind": "authority-engineering-and-qualification",
+      "status": "missing-integration",
+      "owner": "Authority/runtime implementer",
+      "missing": "Attenuation, expiry, cancellation, ancestor revocation and budgets are not qualified through commit/delayed publication across selected authoring routes.",
+      "remedy": "Use shared owner; test parent-child intersection, depth/cycle/widening refusal and expiry/revocation before commit and publication.",
+      "acceptance": "Consistent authority decision and preserved accepted work on denied/stale/revoked operation.",
+      "parent_gate": "IP-03 C2/C4/C5/C7",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H4",
+      "order": 2,
+      "kind": "route-integration",
+      "status": "missing-qualification",
+      "owner": "Poet native/Vibe/MCP/jobs integration owner",
+      "missing": "Authority parity across UI, Vibe effects, MCP/jobs, source/HMC/resources and review is unproven.",
+      "remedy": "Exercise same allowed/denied source operation across routes required by the selected task.",
+      "acceptance": "Equivalent decision with no stale/revoked bypass on selected routes.",
+      "parent_gate": "IP-03 C2/C4/C5/C7",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H5",
+      "order": 3,
+      "kind": "review-independence",
+      "status": "open",
+      "owner": "Native workbench/authority owner and actual human reviewer",
+      "missing": "Review policy does not demonstrate control ancestry; different agent IDs under one human do not establish independent review.",
+      "remedy": "Persist principal/agent/delegation ancestry and review policy; exercise same-control conflict and independent-human review.",
+      "acceptance": "Reopenable attribution/review records; actual human/domain acceptance separately identified.",
+      "parent_gate": "IP-03 C2/C4/C5/C7",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H6",
+      "order": 3,
+      "kind": "native-human-workflow",
+      "status": "open",
+      "owner": "Poet native UI and authority implementer with actual operator/reviewer",
+      "missing": "Usable enrollment/delegation/revoke/recovery/review controls and trial are absent or unaccepted.",
+      "remedy": "Expose bounded scope/expiry/revoke/recovery controls over existing authority owner; conduct actual trial.",
+      "acceptance": "Authorized operator/reviewer trial with clear controls and durable source-to-output evidence.",
+      "parent_gate": "IP-03 C2/C4/C5/C7",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H2-V1",
+      "order": 2,
+      "kind": "selected-caller-repair",
+      "status": "missing-not-admitted-as-Poet-gate",
+      "owner": "Core proof verifier owner",
+      "missing": "Audited foundation verify_delegation/governance verify_root_delegation helpers have structural-vs-proof verification concerns.",
+      "remedy": "Separate structural validation from proof/root/context verification only where selected adapter relies on these helpers.",
+      "acceptance": "Forged, empty, wrong-key/root/context and expired proof refusal plus positive adopted proof at actual caller.",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H2-V2",
+      "order": 2,
+      "kind": "selected-adapter-composition",
+      "status": "missing-native-composition",
+      "owner": "Cooperative AgencyDelegation/app-contract TaskDelegation adapter owner",
+      "missing": "Requesting agent/controller, principal adoption, purpose/action/data scope and mode/budget are not composed in native hierarchy adapter.",
+      "remedy": "Bind fields in existing adapter; do not create Poet-private authority.",
+      "acceptance": "Correct agent allowed; foreign agent/purpose/action/mode/expiry/budget refused through selected caller.",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H2-V3",
+      "order": 2,
+      "kind": "persistence-reliability",
+      "status": "missing-selected-caller-qualification",
+      "owner": "Signed-agency persistence caller owner",
+      "missing": "Audited caller may discard failed finalisation/checkpoint outcome.",
+      "remedy": "Propagate selected caller persistence failure and retain source/reconciliation evidence.",
+      "acceptance": "Failed persistence cannot appear as durable adopted delegation; qualify only if selected path uses caller.",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "AUTH-H3-V1",
+      "order": 2,
+      "kind": "authority-binding-qualification",
+      "status": "missing-richer-binding-qualification",
+      "owner": "QDNF authority record/permit consumer owner",
+      "missing": "Richer hierarchical attenuation of binding scope/operation is unqualified; audit did not establish public NativeAuthority bypass.",
+      "remedy": "Pin scope/operation with admitted grant at selected consumer; preserve fixed session binding behavior.",
+      "acceptance": "Caller-supplied binding cannot change admitted scope/operation at actual selected path.",
+      "production_dependency": "Applies to delegated agent action/shared-work review claims; not a blanket prerequisite for direct authoring by a currently admitted project contributor."
+    },
+    {
+      "id": "OP-VIEW-01",
+      "order": 1,
+      "kind": "missing-native-integration",
+      "status": "source-present-integration-open",
+      "owner": "Poet native viewport/resource engineer; coordinator owns shared registration/checks",
+      "missing": "Current mounted ui.rs calls generic viewport and authoring controls, but RigControls/AnimatedRigPreview have no caller there; admit_bound_rig has no selected-HMC resolver/admission caller. This blocks rig-dependent workflow, not botanical/all direct authoring.",
+      "remedy": "Add project/HMC resource resolver; mount RigControls against authorized durable edits and connect retained viewport selection/span to AnimatedRigPreview advance/upload. Execute selected rig edit-save-reopen and refusal preservation. Directly admitted human use requires no new personhood provider.",
+      "acceptance": "Native source-to-viewport edit/save/reopen plus stale/denied refusal for bounded task.",
+      "packet_refs": [
+        "BS-20B",
+        "BS-20C",
+        "BS-20D",
+        "BS-20E",
+        "BS-50"
+      ],
+      "evidence": [
+        "docs/qa/implementation-2026-10-26/biosphere-authoring-round1/README.md",
+        "docs/qa/implementation-2026-10-26/round8/progress.md"
+      ]
+    },
+    {
+      "id": "REF-TREE-01",
+      "order": 4,
+      "kind": "missing-reference-evidence",
+      "status": "open",
+      "owner": "Reference curator, qualified botanist, rights/media steward",
+      "missing": "No selected exact referent/corpus, taxon concept/mappings, dated source index, rights/access terms or botanical review.",
+      "remedy": "Choose locality/individual or bounded taxon-level scope; assemble versioned rights-annotated references and unresolved-claim ledger.",
+      "acceptance": "Botanist reviews taxon/diagnostic evidence and identifier mappings; unknowns retained.",
+      "evidence": [
+        "docs/qa/implementation-2026-10-27/interim-preparation/reference-evidence-gaps.md",
+        "docs/qa/implementation-2026-10-26/biological-reference/tree-cases.md"
+      ]
+    },
+    {
+      "id": "REF-WALLABY-01",
+      "order": 4,
+      "kind": "missing-reference-evidence",
+      "status": "open",
+      "owner": "Faunal curator, qualified zoologist/ecologist, rights/media steward",
+      "missing": "No selected organism/specimen/reference corpus, settled taxon concept/name history, dated rights-annotated source index or reviewed locality evidence.",
+      "remedy": "Select corpus/specimen and locality scope; preserve identifiers, uncertainty, source dates and permissions.",
+      "acceptance": "Zoologist reviews referent and bounded interpretations.",
+      "evidence": [
+        "docs/qa/implementation-2026-10-27/interim-preparation/reference-evidence-gaps.md",
+        "docs/qa/implementation-2026-10-26/biological-reference/wallaby-cases.md"
+      ]
+    },
+    {
+      "id": "REF-DIAG-01",
+      "order": 5,
+      "kind": "missing-domain-evidence",
+      "status": "open",
+      "owner": "Botany/zoology/ecology reviewers and curator",
+      "missing": "Diagnostic parts/states, variants, behavior, habitat/ecology and measurements are questions; traceable rights-cleared observations and review are absent.",
+      "remedy": "Acquire linked evidence for applicable states; classify claims as evidenced, disputed or unknown.",
+      "acceptance": "Review maps each claim to source/version/uncertainty; no invented dimensions, frequencies or tolerance."
+    },
+    {
+      "id": "RIGHTS-01",
+      "order": 7,
+      "kind": "rights-and-domain-acceptance",
+      "status": "open",
+      "owner": "Rights/media steward and civics/domain reviewer",
+      "missing": "No per-source derivative/access/attribution record, reviewed plates/output or actual bounded civics scenario assessment.",
+      "remedy": "Record creator/authority, exact source version, terms and contributor status; define scenario and review actual output.",
+      "acceptance": "Traceable source terms and attribution; separate reviewer evidence; no payment inference."
+    },
+    {
+      "id": "PKG-CLAIMS-01",
+      "order": 8,
+      "kind": "complete-package-obligation",
+      "status": "unassessed",
+      "owner": "Subject dossier owner and authorized production/domain/visual reviewers",
+      "missing": "No accepted subject HMC/Q42 corpus, full provenance/rights/derivation inventory, three-target outputs, versioned catalogue ledger or required reviews.",
+      "remedy": "After referent/foundation readiness, instantiate pinned 193-row catalogue plus expanded subject cases; preserve every row, status, editable lineage and target distinction.",
+      "acceptance": "Every applicable obligation/reviewer gate bound to evidence; remaining IDs disclosed. Later than diagnostic operator trial."
+    }
+  ],
+  "retired_or_stale": [
+    "Blanket no-source-to-output-continuity claim superseded by Round 8 selected source-carrier/reopen/SaveAs; whole continuity gate remains open.",
+    "Blanket no-native-source-editing claim superseded by Round 1 bounded botanical graph/organ edit; production surface remains incomplete.",
+    "No-concurrent-actor-sessions claim is stale for the selected 16-session software implementation; human delegation and review independence remain open.",
+    "Generic missing M64 checked reader/MID2 resolver is stale; reuse existing implementations and qualify selected exact profile/caller.",
+    "All 15 image filters/composites missing is retired; all are implemented and engineering verified.",
+    "Complete three-target species production is not required before a bounded Poet operator trial on rights-cleared non-biological material."
+  ],
+  "later_scope": [
+    "Full 120-packet backlog",
+    "All possible format/profile expansion",
+    "WASM runtime when a first operation declares native-only scope",
+    "Remote/provider tasks and admitted proof provider",
+    "Payment rails",
+    "Complete film/open-world-game/cartoon package before first authoring"
+  ],
+  "no_fabrication": [
+    "No human/domain acceptance",
+    "No model completion",
+    "No biological facts, source rights or specimen identity inferred",
+    "No new review gate declared installed"
+  ],
+  "mis_gating_correction": "Earlier draft treated OP-TRIAL-01 and AUTH-H2-H6 as first-production blockers. Corrected: direct authoring/edit/save/render through current project/controller admission does not require personhood verification or a new provider. AUTH-H2-H6 apply to agent delegation/shared-work review. Human/domain production-quality acceptance is still required for acceptance, but can occur during production. Preserve HOLD until the applicable technical foundation readiness is established; this register does not release it.",
+  "current_poet_mount_trace": [
+    {
+      "path": "C:/github/poet/native/src/graphical/ui.rs",
+      "sha256": "873d764813a85101e5ad9dff90afe47dfbb36d34830eeb7f4802e97131739d21",
+      "observation": "Mounted workbench calls ViewportControls and authoring::controls::AuthoringControls at lines 322-325; no RigControls or AnimatedRigPreview call."
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/authoring/controls.rs",
+      "sha256": "30e78cb3acb4b41126a2bfe3c01bc27a6363c6003936bc3cd35eac71bd731c69",
+      "observation": "Mounts part/profile/CAD/surface/botanical/material-motion/structure/source-layer controls; no rig control."
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/rig_binding/native_controls.rs",
+      "sha256": "694b704ccc3843ac5c8515c470598d109f7cd6bda18862487caff6aaaf9e1cf3",
+      "observation": "Defines RigControls; no selected workbench caller found."
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/animated_rig_preview.rs",
+      "sha256": "62036a8855f192d89853997e629920be430d3c694a524edf577f9c51a7db92a7",
+      "observation": "Defines advance/upload adapter; references found only in its definition and rig tests, not mounted UI."
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/rig_binding/mod.rs",
+      "sha256": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08",
+      "observation": "admit_bound_rig takes caller-supplied resource bytes/key and selected resource key/span; no UI resolver/admission caller found."
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs",
+      "sha256": "570ab96b877e7a61764378f899c6d2e7c8b336665d9717720992a6a11c20477b",
+      "observation": "Exercises signed software actor source/authority/HMC material-motion edit and checkpoint/reopen; module docs explicitly say no GUI pixels; not a rig UI test."
+    }
+  ]
+}

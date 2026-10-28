@@ -1,0 +1,85 @@
+{
+  "status": "UNTESTED STAGED CANDIDATE - not installed",
+  "entries": [
+    {
+      "path": "native/src/graphical/checkpoints/editor.rs",
+      "before_sha256": "d945c96856d9f787a8d96a3ca6de67ad92017c917399a82363b2ad7a3a4d5fcf",
+      "staged_sha256": "2a446e3ce2981396f4850557355a6e649f2d337e3e44001e41023199b2d93da0"
+    },
+    {
+      "path": "native/src/graphical/controller.rs",
+      "before_sha256": "353d4451b4e60a1ec318e03120dea88f40c9f9b128cf7c2972be4bd4d34d02c1",
+      "staged_sha256": "4511b22f09c5686c6b07cc9d1b15988262ccb86e7d4091139b5b9b0bf8dd0ec3"
+    },
+    {
+      "path": "native/src/graphical/cooperation/editor.rs",
+      "before_sha256": "4dc42e31671c04f1531637a37e4f9531747ddc2496f949463b53b401e86244e7",
+      "staged_sha256": "53b4839723a3e77d84410eb23af2a153a91ebf11aef65d420a71f25edba1e2c5"
+    },
+    {
+      "path": "native/src/graphical/editor_contract.rs",
+      "before_sha256": "9719aea68c7e8ded145289544501ccaa4073ce7c2347c543e5a0bb47cf508550",
+      "staged_sha256": "4cec6e5bf24285bdce330773141578cb9ba1a9c05b20213987720836ea960506"
+    },
+    {
+      "path": "native/src/graphical/entry.rs",
+      "before_sha256": "6e6e24225f249bed250b6502cbedb2d63b6077b04d2e9c5368daa44ed13c8880",
+      "staged_sha256": "e445aa03aa98573f08215a63b25e45ac6d3c45b82a664dd6122c2d1b163e8c7a"
+    },
+    {
+      "path": "native/src/graphical/entry_tests.rs",
+      "before_sha256": "521c7b9beb4bd0f236d6dde9feb85e1e98bce25a5ee6a5af54c401fa5eb2cded",
+      "staged_sha256": "7c6e0c224579b24c41badce34ba3c3fd5727ecc1c50f1594bd021a81031df0c2"
+    },
+    {
+      "path": "native/src/graphical/geometry_host.rs",
+      "before_sha256": "807711e3f1fd023e406acc2058a97fcc9fec14b192957930bf79d10aab8cc7d2",
+      "staged_sha256": "7422617295f11eb33bfb343aa22c27ffb67eb3da25913c8907ff0209c46aee3c"
+    },
+    {
+      "path": "native/src/graphical/mod.rs",
+      "before_sha256": "887825160ea03f8e3e019b86677db7580bf8dfb43bec63bc9874a26ac002191c",
+      "staged_sha256": "0629e72e33740bf44672fbfa2051ebd19e970f58cfefa564a269144ff7df42d5"
+    },
+    {
+      "path": "native/src/graphical/native_entry/create.rs",
+      "before_sha256": "e17d3367bb589719b171c505bc15c43deb8dc85a689d6d414bd9ca1ac318b870",
+      "staged_sha256": "dc98d87ad9b31f8bf563882894c5ecc9426cf7d4472e3dc07a77c8d7e4ab1efc"
+    },
+    {
+      "path": "native/src/graphical/native_project_numeric_sheet_tests.rs",
+      "before_sha256": null,
+      "staged_sha256": "1eeb9fbeb83eacec2cb3f325fb1e744c3136699e13eb35705e388588749a0c7e"
+    },
+    {
+      "path": "native/src/graphical/native_project_tests.rs",
+      "before_sha256": "16d75eecc7359cdcf20634dd46d7ca116e79f53b9044f3fc280586209e247914",
+      "staged_sha256": "4b566507b5f19ea57d2a00ff8c0c487c533b1cbe6702dd72c974de467ff3cf3b"
+    },
+    {
+      "path": "native/src/graphical/numeric_sheet.rs",
+      "before_sha256": null,
+      "staged_sha256": "4f84de6050ce2328b09eebff8221f72ccdc4d7412e538c1aa882528559c91a84"
+    },
+    {
+      "path": "native/src/graphical/numeric_sheet_host_tests.rs",
+      "before_sha256": null,
+      "staged_sha256": "f1adb33a75c3119cbe71827109f5ccad82e8095b89a5294b24c165cf8ced7c35"
+    },
+    {
+      "path": "native/src/graphical/package/mod.rs",
+      "before_sha256": "e001e71ce73c5f43702e895d59af9f6e5bfe3c6447979649924bae5633ff6a15",
+      "staged_sha256": "a0cb249147ec6a4a443bc96cfb265634e1424d3fe07abcd798edab9d1a513546"
+    },
+    {
+      "path": "native/src/graphical/session_host.rs",
+      "before_sha256": "23d3dc9fd67c9a3f559e43527ffab2a56cd29703f7bfd78c0179235246ed348e",
+      "staged_sha256": "bb2deabb7ed46f220e399b79f842665500a49fdbe56093a629feb749d2c7c21b"
+    },
+    {
+      "path": "native/src/graphical/shared_host.rs",
+      "before_sha256": "1736d19a5e5bdbf1eaf0d3d03bc505454b76cfbdcf9ca00edc4b3e8e5a8bc962",
+      "staged_sha256": "38dff371244da7570b3944cd2ff4863cd1cfe66151b0694c0351a8a7c426b2db"
+    }
+  ]
+}

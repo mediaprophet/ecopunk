@@ -1,0 +1,13 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 5m 06s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 5 tests
+test graphical::cooperation_selection::tests::package_request_contributions_are_this_actors_exact_saved_work ... ok
+test graphical::cooperation_selection::tests::selected_package_request_decisions_require_request_and_exact_package ... ok
+test graphical::cooperation_selection::tests::selected_source_request_decisions_are_linked_and_bound_to_exact_source ... ok
+test graphical::cooperation_selection::tests::source_choices_require_complete_target_match_for_each_selection ... ok
+test graphical::cooperation_selection::tests::package_choices_preserve_exact_bytes_scope_requester_and_answer_history ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 335 filtered out; finished in 0.54s
+

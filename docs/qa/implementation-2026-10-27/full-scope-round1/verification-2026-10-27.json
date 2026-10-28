@@ -1,0 +1,84 @@
+{
+  "scope": "post-test, post-build source snapshot; hashes alone do not prove execution",
+  "files": [
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/inspection.rs",
+      "sha256": "cc8cc813cac512a8990cc301120e0b176792e682ee8fdad0ffe08f2b4c2a4e93"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/native_authority/delegation/tests.rs",
+      "sha256": "710f7845c0744bd02e5fc91b8f15187cdfe1f6d136ba4802183ea39298ab8b9c"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport/mod.rs",
+      "sha256": "0eea226f30275d20ac1e83f1ae7786caae288bf4b32d5677a87093e7524b813f"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport/renderer.rs",
+      "sha256": "f14361706ee5ed1e6a71e8acd8fa6402af9dc654a231233998214983de076725"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport/tests.rs",
+      "sha256": "2f93f7330cc2b38f7c0c41342e4debab5d2b449a8024737c9518ef6ce0b4052d"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport_provider.rs",
+      "sha256": "cb5656bf5e70aa70c9263f2eb3929e79a9c90ee5961d23e6bcad6321b073cf8a"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "sha256": "0326d7db0fdd6ec802d3966cc3a2acd42a1eeba0337f5d5c1a6089ef65169545"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/controller.rs",
+      "sha256": "2772b614556604befeb21ae0c439f328f704801a325403b78b6804f451f24125"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/controller_viewport.rs",
+      "sha256": "2c2daf6b9fa87e913f079765859e1fd98f90b9eb061f17f9713a73e503d8cf7d"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/checkpoints/editor.rs",
+      "sha256": "7dba93c6c2b62bf3f07903e8f62f5898471271a42e566d16fd67fe3c7d82c5ea"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport_controls.rs",
+      "sha256": "51e99bf40e3fc7225d851958cf86afbc59ac1486f420195c70e48b84db06e430"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/viewport_contract.rs",
+      "sha256": "f33c3c402c595c4ae0d40da6390dcd45a5744c8c2c2bb0c009fe9e2318b8c246"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_rig_tests.rs",
+      "sha256": "c0b25fb277a65a24b0375fc334c65bb28f6ff6dd6dda94d26b09e016fd603553"
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "sha256": "ae7239d8ff98e21194f064ae6bfca541d00f94c86e08eb1cef1738f54ad31e08"
+    }
+  ],
+  "executable": {
+    "path": "C:/github/ecopunk/target/debug/poet.exe",
+    "bytes": 339885383,
+    "sha256": "ce3fced349fa1344bb9ec94b88bbeb19916d1bb7746cd3fa4074b4a7e401b2b0"
+  },
+  "checks": [
+    {
+      "log": "rig-cancellation-check.log",
+      "result": "18 passed; 0 failed; 1 ignored"
+    },
+    {
+      "log": "rig-gpu-check.log",
+      "result": "1 passed; 0 failed; 0 ignored"
+    },
+    {
+      "log": "poet-build.log",
+      "result": "exit 0"
+    },
+    {
+      "log": "poet-smoke.log",
+      "result": "exit 0; public configuration only; no window or source"
+    }
+  ]
+}

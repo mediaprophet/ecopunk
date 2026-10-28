@@ -1,0 +1,25 @@
+{
+  "source": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\build.rs",
+  "before_sha256": "2576f29ad840b0896f95aa0d79ee487384934ebc94e52b58d9703516e82abf86",
+  "started_utc": "2026-10-27T02:17:58.399396+00:00",
+  "compile_command": [
+    "rustc",
+    "--edition=2021",
+    "--test",
+    "-D",
+    "warnings",
+    "C:\\github\\qualiaDB\\crates\\qualia-core-db\\build.rs",
+    "-o",
+    "C:\\github\\ecopunk\\target\\qualification\\core-runtime-staging-tests.exe"
+  ],
+  "human_acceptance": false,
+  "compile_exit_code": 0,
+  "test_command": [
+    "C:\\github\\ecopunk\\target\\qualification\\core-runtime-staging-tests.exe",
+    "--nocapture"
+  ],
+  "test_exit_code": 0,
+  "after_sha256": "2576f29ad840b0896f95aa0d79ee487384934ebc94e52b58d9703516e82abf86",
+  "source_unchanged": true,
+  "log_sha256": "2a6bd86e89aaea671532fa1de4d6ded3894ec394ec1e0ac971b35fecd3703af7"
+}

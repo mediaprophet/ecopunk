@@ -1,0 +1,7 @@
+# Sheet.set_cell staged handoff
+
+A bounded operation on the existing QualiaDB Sheet owner accepts a typed Vibe record {grid,row,col,value} and returns a new grid. Existing rectangular grid dimensions are 1..=32 each; indices are zero based and must refer to an existing cell. I64/U64 retain full precision, F64 must be finite, and unchanged values are cloned exactly. No JSON or persistence format is introduced. It is not a workbook implementation. The caller must bound inputs before constructing them; this operator bounds its own subsequent work and allocation.
+
+See manifest.json for preimages and candidate hashes. IDs registered in the existing invoke registry, Sheet family and Vibe catalog. Public PoetSnapshot test covers valid preservation, bounds, malformed and nonfinite values. Source session and replay tests are staged by numeric-sheet-host. No Cargo build or test was run by this worker; rustfmt parsed the new operator.
+
+Coordinator: merge sheet/mod.rs with the qualia-sheet-formula candidate, preserving range, set_cell, and formula modules and exports. Register sheet_set_cell_host_tests.rs in a Poet graphical module; geometry_host.rs also has staged range-test changes, so integrate all test declarations rather than overwriting. Verify all preimages at install and resolve other concurrent edits explicitly. Formula evaluator's profile rejects integers beyond exact f64 range; this editing operator preserves them exactly. No claim of completed workbook, UI qualification, remote agents or model/package completion.

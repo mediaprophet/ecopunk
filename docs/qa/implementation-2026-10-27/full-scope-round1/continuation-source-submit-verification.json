@@ -1,0 +1,87 @@
+{
+  "files": [
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/mod.rs",
+      "sha256": "afc5d3b563d084d8f3f8def9cdb85cc5d73d709fc7cbbff7dbdeacb12508fac4",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/editor.rs",
+      "sha256": "986f5579731fd9be050b40ec07d115bb8259618b3f845c94ccee820c66d84acf",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/cooperation/tests.rs",
+      "sha256": "750fa142eb0ebf26e54499ca6c91377c99897346dc8137fa9df053d87eaa0008",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "sha256": "d3c05020f95d6ca2954519252165dc7dcf40663e0e040673642739c9af085c41",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_tests.rs",
+      "sha256": "16d75eecc7359cdcf20634dd46d7ca116e79f53b9044f3fc280586209e247914",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_biosphere_round1_tests.rs",
+      "sha256": "16d615457cd248b53c1afab4df8278d25a54ee3a9426e0cf12e1859555f0bf22",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_motion_tests.rs",
+      "sha256": "6203996d642f79390c0524bae906d22397fc454ef977179b76bc381120566895",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_rig_tests.rs",
+      "sha256": "70122e34fddd841b2d45b9541e5863587e7174696f42d8aee8bc3ddb5ababbd7",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_spatial_tests.rs",
+      "sha256": "f20bf6f7308414a51c54f9c50f047b18af19334e917d80cb8e85020daa6ab09e",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_surface_tests.rs",
+      "sha256": "05bc5a96b9117c28b3b9ca05c9f31126dd8b2c9d58d3d3b9f422b952a2a3ec08",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_uv_detail_tests.rs",
+      "sha256": "1e1046e8fb11068b745d1851c1da8e7514078d2739c7fe6ae690afb803ae0332",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_project_texture_effect_tests.rs",
+      "sha256": "c95f6ad0c594dbe9e0e55d95ccab35724135a3f16473be5fc5cd942bd687430d",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/native_selected_session_tests.rs",
+      "sha256": "3a992b75c098c36473f6cb83fb879b7afd6c3ec42ead1e04d2d7c1c394a509f7",
+      "matches_reviewed_candidate_and_noted_edits": true
+    },
+    {
+      "path": "C:/github/poet/native/src/graphical/poet_workspace/tests.rs",
+      "sha256": "5e9bdc420d3953e34a904e46e63d600e077b46932b8bd988b99b4cc38a146aaf",
+      "matches_reviewed_candidate_and_noted_edits": true
+    }
+  ],
+  "executable": {
+    "path": "C:\\github\\ecopunk\\target\\debug\\poet.exe",
+    "bytes": 340061054,
+    "sha256": "ccc0b22d29dc2bacf4132bbb441af8b0392209e74a380b8541af58358cc4d700"
+  },
+  "checks": {
+    "focused_submit": "6 passed",
+    "first_native_library": "330 passed, 6 failed, 14 ignored",
+    "native_library_retry": "336 passed, 14 ignored",
+    "final_gpu": "1 passed",
+    "build": "exit 0",
+    "configuration_smoke": "exit 0; no window, vault or source"
+  }
+}

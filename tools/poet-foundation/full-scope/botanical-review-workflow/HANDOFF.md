@@ -1,0 +1,9 @@
+# Joined botanical source-review fixture — staged
+
+Candidate only; no canonical changes, compile or execution. `candidate.inc.rs` SHA-256 `373f2ce05854e0168a7245383d5a08af85d7e1ae80b75c17c4df36bdf3259e93`. Candidate is designed for inclusion in `native_project_biosphere_round1_tests.rs` and uses that module's signed, synthetic botanical and no-pixel fixtures, plus existing `WorkflowAction` service. Confirm the fixture file preimage and all imports before integration; do not overwrite concurrent changes.
+
+It connects botanical source/edit, checkpoint artifact equality, contribution, request, distinct software reviewer, denied self/stale review, exact `DocumentRevision` comparisons including source digest and revision on retained request and decision, and a separately reopened authority journal. It also checks the retained package-write digest. The journal reopening is within the same process; source review targets source, not approval of HMC bytes, a botanical species, a person, or a complete package. No JSON witness is added. Existing fresh-process botanical reopen and staged GPU test are separate fixtures, not evidence this combined case has run.
+
+Independent source review, coordinator-owned serial compilation and focused test execution are required before claiming the test works. Record exact source snapshot and result. The test does not prove human acceptance, actual native window interaction, controller ancestry/independence, delegated authorization or package review.
+
+Independent review improvements staged: verify actual HMC byte digest and size against retained package-write record, source revision, filename and author; inspect after denied self/stale reviews to confirm source and request unchanged and no denied decision recorded. These additions are not executed.

@@ -1,0 +1,102 @@
+[
+  {
+    "path": "C:/github/poet/native/src/graphical/native_entry/ui.rs",
+    "sha256": "b23dbdd3c4bd9c7afe0246d41cd179c07af50d1359072e18fda6114c42806830"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_entry/types.rs",
+    "sha256": "3fcb0d55ad3a3d4218fbd922d39fcb99ab9ac39233e97870ea4f22472381128e"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_entry/runtime.rs",
+    "sha256": "90ac09987b1cb5acccb4bd639e2766b967fadb83111fdef65e4162bb989958f9"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_entry/worker.rs",
+    "sha256": "09f69e87466edf5d4829d4d3b94beca2efc2db0e66c3bea28cba00358b453298"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_entry/session_proof.rs",
+    "sha256": "275826bb7e5e81f84b630fa76230e3e398719cac901003aaf4552312f5a29a79"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/cooperative_workflow/mod.rs",
+    "sha256": "69dc11d2b839c3fb4a7fff949fb00fef28c31b87efd65ab45367c7f7ed0a66d6"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/cooperative_workflow/service.rs",
+    "sha256": "308bde348570254d24d4191807e2208b44ce4c885b9df7fc325990542a6421bf"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/cooperative_workbench/projection.rs",
+    "sha256": "ec2c1a3dbcbb6ceb4c2fc36a7c065acd07e9d977b858223c14ea0f7a2751de63"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/session_host.rs",
+    "sha256": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_dispatch.rs",
+    "sha256": "6bad6bf0a588e4bc7cfe8b8c3445c7e589dc8f8e12d8beac984a4fce29bad213"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/package_workflow/mod.rs",
+    "sha256": "d434a58838f36c157cd861d38a65871272ee72e37aa126ef89bc71e2cc3464cb"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/package_workflow/service.rs",
+    "sha256": "439c65a93c92baabd81ca1400b83ac0057b728ef9ea9e7631e9e198966f2aac8"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/native_authority/workflow.rs",
+    "sha256": "aa643e15369f026b9153bfc0acaa92b5fb5a928baf9e387ed981c30b344d73dd"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/native_authority/package_review/mod.rs",
+    "sha256": "a6bd46a3fd3949bceb2b121ac109b26a0de9423cc949b8a451183246146928e0"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/native_authority/package_review/workflow.rs",
+    "sha256": "b7f576a161b1775a1733ff97893a9101e799459bc99a296a532dbbc69b49155f"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-cooperative-core/src/authoring/package_review/types.rs",
+    "sha256": "38d2db4d2e0f4481b3d9e151e6f7f1315308d16cd654eaf2fe94d0cb328ac275"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-cooperative-core/src/authoring/package_review/records.rs",
+    "sha256": "3658443c6fbffb9a93bd1815d456503a5b49db6b9e576e32713ab87eb2d61d6c"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-cooperative-core/src/authoring/package_review/policy.rs",
+    "sha256": "f831cae52032d3c22293e2305d7e2eb0c421b542535e829bab14c3e988809044"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/jobs.rs",
+    "sha256": "9a3c0c79741c14def521e3d1b00ffdad622f53dcb5bb8776d539faad23a2ab88"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/ui.rs",
+    "sha256": "873d764813a85101e5ad9dff90afe47dfbb36d34830eeb7f4802e97131739d21"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/package_controls.rs",
+    "sha256": "fc1c30c0d9883742378bc0e719a09a420813708515916c5158d4d00ec46c8340"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_project_workflow_tests.rs",
+    "sha256": "c0aa3ef6cbf0848bc2664bfcc7f4a0d454594992b1601f7b2e368f3e75b9e503"
+  },
+  {
+    "path": "C:/github/poet/native/src/graphical/native_project_package_tests.rs",
+    "sha256": "45907e0592258bcfe36c5ce10f8befaae36ba889f6fa0dec7b1ad8772991badb"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-core-db/src/poet_host/native_authority/workflow_tests.rs",
+    "sha256": "c607a56f8abda192fd287d095fe69f27a07d4ef5eaaed1ecb7b30016906a1d76"
+  },
+  {
+    "path": "C:/github/QualiaDB/crates/qualia-cooperative-core/src/authoring/package_review/tests.rs",
+    "sha256": "7b1b1dc093091f71f6e49e9f62a6a830692130d963c05cb20a470113c51b73c9"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-27",
+  "executables": [
+    {
+      "path": "C:/github/ecopunk/target/debug/poet.exe",
+      "size": 339702770,
+      "sha256": "50745c95a1bf1a0a6c83e40d2d9d59cc5024bd81b8444dae65e2249ad33442c5"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-27/human-authority-round1/poet-before-rig-adoption.exe",
+      "size": 339557888,
+      "sha256": "1da9cf7f354d3f27b37dc7474c7d65b216c32f7764cdd54c174f4e5213ccf1ad"
+    },
+    {
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-27/human-authority-round1/poet-before-swarm.exe",
+      "size": 338278462,
+      "sha256": "4116a6be2e8f3da2ca5efa510277974550dbdcfba0dfd2425795c147c8511bf0"
+    }
+  ],
+  "rig_source_mismatches_after_tests": [],
+  "checks": [
+    {
+      "scope": "native library",
+      "result": "318 passed, 0 failed, 13 ignored",
+      "log": "swarm-native-lib-check.log"
+    },
+    {
+      "scope": "rig filter on rebuilt integration",
+      "result": "11 passed, 0 failed",
+      "log": "swarm-rig-integration-rebuild.log"
+    },
+    {
+      "scope": "skeletal native-access",
+      "result": "2 passed, 0 failed",
+      "log": "swarm-skeletal-native-check.log"
+    },
+    {
+      "scope": "native executable build",
+      "result": "exit 0",
+      "log": "swarm-native-build.log"
+    },
+    {
+      "scope": "public empty-project check",
+      "result": "exit 0; no window, source or credentials",
+      "command": "poet studio --native-project <empty-project-smoke> --check-project"
+    },
+    {
+      "scope": "signed native rig edit and fresh-process reopen, synthetic non-GPU preview",
+      "result": "1 passed, 0 failed",
+      "log": "swarm-composed-rig-check.log"
+    },
+    {
+      "scope": "rig adoption and signed synthetic reopen after adoption code",
+      "result": "14 passed, 0 failed",
+      "log": "swarm-rig-adoption-check.log"
+    },
+    {
+      "scope": "native library after adoption",
+      "result": "321 passed, 0 failed, 13 ignored",
+      "log": "swarm-final-native-lib.log"
+    },
+    {
+      "scope": "final native executable build and public empty-project check",
+      "result": "build exit 0; check exit 0; no window or source opened",
+      "log": "swarm-final-native-build.log"
+    }
+  ],
+  "failures": [
+    "first build failed because PYTHON3 was unavailable; retry configured bundled Python",
+    "sandbox skeletal run: 1 passed, 1 failed at temporary checkpoint access; native-access rerun passed",
+    "initial post-copy rig check reused old binary due file timestamps; forced rebuild superseded it"
+  ],
+  "limitations": [
+    "No actual native-window operator trial",
+    "No rendered GPU animation or animated rig viewport",
+    "Rig adoption tested in CPU viewport fixture; signed save/reopen uses pre-existing binding and synthetic non-GPU preview",
+    "Delegated-agent adoption, execution enforcement and independent human review remain open",
+    "Resource-specific rights and aggregate HMC peak-memory qualification remain open",
+    "User production HOLD remains"
+  ],
+  "rig_adoption_source_mismatches": []
+}

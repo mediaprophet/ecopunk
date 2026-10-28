@@ -1,0 +1,196 @@
+{
+  "scope": "Tentative mounted selected-HMC source-owned rig controls, cancellation-aware",
+  "state": "STAGED ONLY - REQUIRES INDEPENDENT REVIEW AND COMPILATION",
+  "files": [
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/controller.rs",
+      "preimage_sha256": "2753496fc6233a7c04d02989e8e099a4f7fb15d6436c4434d89e4d7c4bfe16cf",
+      "current_sha256": "2753496fc6233a7c04d02989e8e099a4f7fb15d6436c4434d89e4d7c4bfe16cf",
+      "candidate_sha256": "432f64e16b70bfeb262558bb01fe8371784c9e148c77842928e3c08464a2f1ec",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/authoring/controller.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/controls.rs",
+      "preimage_sha256": "30e78cb3acb4b41126a2bfe3c01bc27a6363c6003936bc3cd35eac71bd731c69",
+      "current_sha256": "30e78cb3acb4b41126a2bfe3c01bc27a6363c6003936bc3cd35eac71bd731c69",
+      "candidate_sha256": "f94c34c4806430002e72a9255c4ec2559f8a399f2700bd84b461175ed4be5c2f",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/authoring/controls.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/mod.rs",
+      "preimage_sha256": "6fc422c23e170a79786291714d7eb71d6b29ce9c9641640e65a21950d54af1a5",
+      "current_sha256": "6fc422c23e170a79786291714d7eb71d6b29ce9c9641640e65a21950d54af1a5",
+      "candidate_sha256": "9dfa04c4b91d1838f6db5e88e4c2fd4fdf6e7f05339ee48b9f2680f91ad109b7",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/authoring/mod.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/rig_source.rs",
+      "preimage_sha256": null,
+      "current_sha256": null,
+      "candidate_sha256": "9ece50dfff4da2e5534636460019ca1d87f9f586ed89d3da8ffe4865e6240b9b",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/authoring/rig_source.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/authoring/source.rs",
+      "preimage_sha256": "85672f86632dd16f02b003888e0aff92b058ab782ab87cf1e72ce08a7d9d696f",
+      "current_sha256": "85672f86632dd16f02b003888e0aff92b058ab782ab87cf1e72ce08a7d9d696f",
+      "candidate_sha256": "f2df03c00f164120ac64d3e7fb6c3334eca85afaa4e307730da306fa3805c667",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/authoring/source.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/checkpoints/editor.rs",
+      "preimage_sha256": "74b07c4015f17c9f6a50b806f33959557c44030350078d1c50341f4352989d9b",
+      "current_sha256": "74b07c4015f17c9f6a50b806f33959557c44030350078d1c50341f4352989d9b",
+      "candidate_sha256": "ad3d7fcea0108804b8f1f94b531392ff3aa34bd31aa0fa5c0ac373c827d96c76",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/checkpoints/editor.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/checkpoints/inspection.rs",
+      "preimage_sha256": "7a413a1aef77fb68833f96b8b9baef475c11101212b19eaf2b4fac269f7e4df8",
+      "current_sha256": "7a413a1aef77fb68833f96b8b9baef475c11101212b19eaf2b4fac269f7e4df8",
+      "candidate_sha256": "b8ad46c2eb02352b3eb1bc629a58995ef33e365f12865338e08a16bc2498b457",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/checkpoints/inspection.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/controller.rs",
+      "preimage_sha256": "f7ff8a6d216f50c787153ee16ec7799a5899a67a501fd263111b70c345b78e17",
+      "current_sha256": "f7ff8a6d216f50c787153ee16ec7799a5899a67a501fd263111b70c345b78e17",
+      "candidate_sha256": "a9f30f98d8371376e4e4b6d19cddaecc63b31dfc03950ac97c346e12d9d62eba",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/controller.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/cooperation/editor.rs",
+      "preimage_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "current_sha256": "b34e76f6a0288a1b12936904af9796168ac6757628a6b68eacf6308ddf93798d",
+      "candidate_sha256": "8671fe72e0ff9b7f3a3287e9114c6a05e2eb0d2f9da446f6c602e46673a74147",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/cooperation/editor.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "preimage_sha256": "b269b0b605b78b8c2ff609a0176c01a215e704935dc46c92f0cffd7d07b10d8f",
+      "current_sha256": "b269b0b605b78b8c2ff609a0176c01a215e704935dc46c92f0cffd7d07b10d8f",
+      "candidate_sha256": "57b47dc10bb5e353c4efb8a17ba87ab87f3746871090fd1d9a05de3875648db0",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/editor_contract.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/job_actions.rs",
+      "preimage_sha256": "7221b94defe0552e351fc6072d6e95c139911a2ec8fe40832e72969f5e073f9c",
+      "current_sha256": "7221b94defe0552e351fc6072d6e95c139911a2ec8fe40832e72969f5e073f9c",
+      "candidate_sha256": "6b00cf781357aaf0d3d396c31a0ba7bb1140db3c010800be3d90572afe5a5754",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/job_actions.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/native_dispatch.rs",
+      "preimage_sha256": "6bad6bf0a588e4bc7cfe8b8c3445c7e589dc8f8e12d8beac984a4fce29bad213",
+      "current_sha256": "6bad6bf0a588e4bc7cfe8b8c3445c7e589dc8f8e12d8beac984a4fce29bad213",
+      "candidate_sha256": "e719ba8823cadc1e6e47bf2f866244f172213b8faa3f2e205ff14f8894a742b0",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/native_dispatch.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/package/mod.rs",
+      "preimage_sha256": "c6ca3117aa0b10d16509e6a117747140b3f084784a699cb56d68ad545a197a61",
+      "current_sha256": "c6ca3117aa0b10d16509e6a117747140b3f084784a699cb56d68ad545a197a61",
+      "candidate_sha256": "af1ac27f20c5e47ea194557b8e3ccc20d056f0b028dc1ed13f814307a217701d",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/package/mod.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/poet_workspace/native_commands.rs",
+      "preimage_sha256": "fb9c389c5a0c276d3465593e0cf76ce62ad3de5551f59d62b1650a39483fd760",
+      "current_sha256": "fb9c389c5a0c276d3465593e0cf76ce62ad3de5551f59d62b1650a39483fd760",
+      "candidate_sha256": "fe8027fe788f3accd8ad7807d66b70891c192b51a01e083793c35c2d1263582b",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/poet_workspace/native_commands.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/rig_binding/mod.rs",
+      "preimage_sha256": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08",
+      "current_sha256": "28d3659061cd9f220a8b6a575a6f95a4cd2939b434b3120a1fef0a854c6f7f08",
+      "candidate_sha256": "a7de480affef3834653aa0bd55221c3d15079b38eb686fe85a49b2d134f6e35b",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/rig_binding/mod.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/rig_binding/rig_candidate.rs",
+      "preimage_sha256": null,
+      "current_sha256": null,
+      "candidate_sha256": "a68ae7f49022fd951995ac0a4a5c7e4d94a2844c1888c288b6741ec5d88dbc2e",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/rig_binding/rig_candidate.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/rig_binding/tests.rs",
+      "preimage_sha256": "bc7a2fc77811a193ab9be768f89bb82350376494727bdd527901b1c6c92aefd7",
+      "current_sha256": "bc7a2fc77811a193ab9be768f89bb82350376494727bdd527901b1c6c92aefd7",
+      "candidate_sha256": "15b18985e7670827ecbbeb1038fc1a4ef6e2b93ecb8ed48174f49b098fd02a3f",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/rig_binding/tests.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/session_host.rs",
+      "preimage_sha256": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb",
+      "current_sha256": "fa60c3e86b748d14b3d863d7b05eeefed316cc9b53404625d21f4ecf775384eb",
+      "candidate_sha256": "23d3dc9fd67c9a3f559e43527ffab2a56cd29703f7bfd78c0179235246ed348e",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/session_host.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/shared_host.rs",
+      "preimage_sha256": "993dd3da7723d89d911fa4791fee54869a12f01434a1c0090e30fa166da157d0",
+      "current_sha256": "993dd3da7723d89d911fa4791fee54869a12f01434a1c0090e30fa166da157d0",
+      "candidate_sha256": "9682c6aefd29c53ed2d8a6b04dfe64321ac036e113c86ba3279cc749c90f8867",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/shared_host.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/viewport/renderer.rs",
+      "preimage_sha256": "2f97ea57e6f23b7fa551c563d6dc359fb154d0a9ef16a09adaa9e914c40e0ded",
+      "current_sha256": "2f97ea57e6f23b7fa551c563d6dc359fb154d0a9ef16a09adaa9e914c40e0ded",
+      "candidate_sha256": "0071d89fec0ce1dff1a4c6345b0ed411cc77ccfbf98dbcd55a80989de95e8952",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/viewport/renderer.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/viewport/tests.rs",
+      "preimage_sha256": "9c7f597289ed1354e475b2d39c9ee871d5558404b415e1dd71ff12a419c6f720",
+      "current_sha256": "9c7f597289ed1354e475b2d39c9ee871d5558404b415e1dd71ff12a419c6f720",
+      "candidate_sha256": "65f888dbcf29f6bcc727f65556ca94023465d269af0b9748c6b2dd99aabd8858",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/viewport/tests.rs.after",
+      "unchanged": true
+    },
+    {
+      "destination": "C:/github/poet/native/src/graphical/viewport_provider.rs",
+      "preimage_sha256": "187b42d683694d3298aa9ed7da0ddd0e941fc30dbcad6009d02e058587aec5d6",
+      "current_sha256": "187b42d683694d3298aa9ed7da0ddd0e941fc30dbcad6009d02e058587aec5d6",
+      "candidate_sha256": "240c24f2b563d8f2fadb9954542ea56243f7ac68b9d9e335e4f7f1bfa645fed9",
+      "staged_after": "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/rig-source-owner/viewport_provider.rs.after",
+      "unchanged": true
+    }
+  ],
+  "unverified": [
+    "Compilation",
+    "Signed native authority, resource and retained viewport composition",
+    "Cancellation during HMC read and staging, including source non-commit after cancellation",
+    "Full native save/reopen and human usage",
+    "Initial binding adoption and animated output absent",
+    "HMC decode peak memory not qualified"
+  ],
+  "checks": [
+    "canonical_rig_edit_updates_source_and_rebuilds_without_losing_binding",
+    "rig_source_candidate_evaluates_and_refuses_unsupported_contexts",
+    "staged_rig_control_keeps_existing_preview_and_refuses_wrong_resource",
+    "selected_rig_span_requires_exact_unshared_compiled_geometry"
+  ]
+}

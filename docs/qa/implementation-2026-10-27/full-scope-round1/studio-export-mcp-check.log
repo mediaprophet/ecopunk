@@ -1,0 +1,69 @@
+   Compiling naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling tracing v0.1.44
+   Compiling naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling gpu-allocator v0.28.0
+   Compiling rustls v0.23.42
+   Compiling etalon-naga-bridge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-hal v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling hyper-util v0.1.20
+   Compiling etalon-core-deps-windows v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-core v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling tower v0.5.3
+   Compiling ark-relations v0.6.0
+   Compiling tungstenite v0.29.0
+   Compiling ark-snark v0.6.0
+   Compiling tokio-rustls v0.26.4
+   Compiling keyring-core v1.0.0
+   Compiling cudarc v0.19.8
+   Compiling ark-crypto-primitives v0.6.0
+   Compiling windows-native-keyring-store v1.1.0
+   Compiling hyper-rustls v0.27.9
+   Compiling tower-http v0.6.11
+   Compiling tokio-tungstenite v0.29.0
+   Compiling axum-core v0.5.6
+   Compiling etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling libloading v0.9.0
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling reqwest v0.13.5
+   Compiling axum v0.8.9
+   Compiling h2 v0.4.15
+   Compiling boringtun v0.7.1
+   Compiling etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling sysinfo v0.39.6
+   Compiling keyring v4.1.5
+   Compiling ark-groth16 v0.6.0
+   Compiling etalon-wgsl-forge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-wasm v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling utf8parse v0.2.2
+   Compiling once_cell_polyfill v1.70.2
+   Compiling anstyle-wincon v3.0.11
+   Compiling anstyle-parse v1.0.0
+   Compiling anstyle-query v1.1.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling jiff-core v0.1.0
+   Compiling colorchoice v1.0.5
+   Compiling anstream v1.0.0
+   Compiling jiff v0.2.34
+   Compiling env_filter v2.0.0
+   Compiling env_logger v0.11.11
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling qualia-sim v0.0.40 (C:\github\qualiaDB\crates\qualia-sim)
+   Compiling qualia-vision v0.0.40 (C:\github\qualiaDB\crates\qualia-vision)
+   Compiling qualia-mcp v0.0.40 (C:\github\qualiaDB\crates\qualia-mcp)
+    Finished `test` profile [unoptimized] target(s) in 17m 03s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\qualia_mcp-4f3870c83ac40c2a.exe)
+
+running 4 tests
+test tools::poet::export_support::tests::mcp_studio_export_binds_legacy_aliases_and_refuses_conflicts ... ok
+test tools::poet::export_support::tests::mcp_studio_export_propagates_office_and_missing_artifact_errors ... ok
+test tools::poet::export_support::tests::mcp_studio_export_rejects_invalid_alias_types_without_defaulting_format ... ok
+test tools::poet::export_support::tests::mcp_studio_export_rejects_unsafe_csv_through_both_tools_and_keeps_simple_csv ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.04s
+

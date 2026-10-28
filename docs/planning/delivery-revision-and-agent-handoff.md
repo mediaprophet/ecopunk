@@ -168,9 +168,10 @@ file/symbol ownership and source preimages, and selects the meaningful checks.
 The current register decomposes the plant and animal tracks into smaller
 handoffs. Shared module registration, manifests, host dispatch, controller,
 renderer and checkpoint integration remain coordinator-owned. Workers can prepare
-separate staged modules/patches; they may not all edit those shared files. Other
-repositories are read-only unless separately authorized and permitted for the
-specific reviewed change. No source move, reset or dependency upgrade by default.
+separate staged modules/patches; they may not all edit those shared files. Timothy confirmed task-relevant implementation in Poet, QualiaDB and Etalon on
+2026-10-27 for the asset-production blockers, subject to sandbox permissions and
+the ownership and review rules above. Other sibling repositories remain read-only
+unless separately authorized and permitted for the specific reviewed change. No source move, reset or dependency upgrade by default.
 
 Parent roll-up is scoped: BS-10A–D form the authored-tree authoring/recovery
 route; BS-10E retains the separate development-simulation case and does not block

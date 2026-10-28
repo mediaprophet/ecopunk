@@ -1,0 +1,22 @@
+{
+  "manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\supplemental-patches\\runtime-schema.json",
+  "files": [
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/effects.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-schema-followup\\crates\\vibe\\src\\effects.rs",
+      "before_sha256": "bc6369186a23faf794d53ee4404029fef7f80911efe6aff24fe31c9eae7e7d2a",
+      "after_sha256": "df7c54d0cc359f3625d09db86661634978c01230177a52629a4924773fbdcee9"
+    },
+    {
+      "target": "C:/github/qualiaDB/crates/vibe/src/capability_schema/runtime_entries.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-schema-followup\\crates\\vibe\\src\\capability_schema\\runtime_entries.rs",
+      "before_sha256": "b293c8292d9b471d495779ac87dda6b1604a8590545c0f690b588dbb39633f44",
+      "after_sha256": "2b33d0f0f506e355ffc5788b33cab5d2dea6550404bd07ae6e15d1844300780b"
+    }
+  ],
+  "installed": [
+    "C:\\github\\qualiaDB\\crates\\vibe\\src\\effects.rs",
+    "C:\\github\\qualiaDB\\crates\\vibe\\src\\capability_schema\\runtime_entries.rs"
+  ],
+  "verified": false
+}

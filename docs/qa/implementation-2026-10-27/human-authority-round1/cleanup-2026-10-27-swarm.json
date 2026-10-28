@@ -1,0 +1,22 @@
+{
+  "action": "User-requested generated compiler-intermediate cleanup",
+  "paths": [
+    "C:/github/qualiaDB/target/debug/deps",
+    "C:/github/qualiaDB/target/debug/build",
+    "C:/github/qualiaDB/target/debug/.fingerprint"
+  ],
+  "free_before_bytes": 19698802688,
+  "free_after_bytes": 26463195136,
+  "delta_bytes": 6764392448,
+  "checks": "No cargo/rustc process or shared native-check lease; resolved exact paths checked for reparse points before deletion.",
+  "preserved": "Source, project files, shared Ecopunk target and Poet executable, test logs and Cargo dependency downloads.",
+  "note": "Free-space delta can include concurrent filesystem activity. Deleted intermediates must be rebuilt if needed.",
+  "additional_incremental_paths": [
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-24/poet-repl/harness/target/debug/incremental",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/runtime/verification/qualiaDB/crates/vibe/target/debug/incremental",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-24/batch-2/native-poet/harness/target-aether/debug/incremental",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-3/authorisation/harness/target/debug/incremental",
+    "C:/github/ecopunk/docs/qa/implementation-2026-10-25/batch-3/mcp/harness/target/debug/incremental",
+    "C:/github/ecopunk/tools/asset-integrity/target/debug/incremental"
+  ]
+}

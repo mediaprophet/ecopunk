@@ -1,0 +1,59 @@
+    Finished `test` profile [unoptimized] target(s) in 15.16s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\qualia_core_db-965ec002a98bf526.exe)
+
+running 52 tests
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::old_reader_compatible_but_unqualified_metadata_writer_and_legacy_copy_refuse ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::source_without_metadata_needs_no_archive_and_exact_union_is_idempotent ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::foreign_subject_domain_and_archive_union_budgets_fail_closed ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::changed_current_source_journal_and_parent_stay_current_while_exact_origin_is_archived ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::resource_and_archive_payload_kind_metadata_conflicts_refuse_without_mutation ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::distinct_verified_bundle_origins_preserve_each_original_metadata_without_equivalence ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::archive_namespace_key_kind_metadata_and_exact_digest_are_checked_by_reader_and_writer ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::source_only_legacy_checkpoint_remains_compatible_and_resources_never_execute ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::native_texture_and_compiled_graph_dependency_invalidations_are_refused ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::explicit_add_replace_remove_are_digest_guarded_transactional_and_keep_metadata ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::explicit_guarded_companion_graph_edit_may_retain_identical_authoritative_bytes ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::checkpoint_child ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::mixed_package_source_material_edit_preserves_raw_bytes_graph_lexicon_and_metadata ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::stale_capture_and_activation_conflict_preserve_accepted_work ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::exact_source_schema_lineage_and_real_10d_roundtrip ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::tamper_truncation_schema_sequence_and_budget_fail_without_promotion ... ok
+test vibe_host::invoke::studio_store::checkpoint::resource_tests::combined_resource_budget_stale_package_and_corruption_preserve_disk ... ok
+test vibe_host::invoke::studio_store::checkpoint::carrier_tests::native_fresh_save_reopen_save_as_preserve_origin_without_repeated_wrapping ... ok
+test vibe_host::invoke::studio_store::cml::tests::compact_xml_preserves_explicit_style_and_tracks_the_current_node ... ok
+test vibe_host::invoke::studio_store::cml::tests::native_cml_roundtrip_preserves_unicode_escapes_whitespace_and_provenance_properties ... ok
+test vibe_host::invoke::studio_store::cml::tests::malformed_unknown_duplicate_and_budgeted_xml_never_partially_changes_source ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::windows_install::real_deny_delete_handle_release_allows_bounded_retry ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::windows_install::changed_expected_bytes_stop_retry_before_replacement ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::native_save_conflicts_invalid_bytes_and_budget_preserve_destination ... ok
+test vibe_host::invoke::studio_store::journal_tests::concurrent_same_revision_accepts_one_edit_without_running_stale_callback ... ok
+test vibe_host::invoke::studio_store::journal_tests::explicit_host_limits_admit_large_sources_and_refuse_lossy_reduction ... ok
+test vibe_host::invoke::studio_store::journal_tests::prospective_audit_bytes_are_admitted_before_every_activation ... ok
+test vibe_host::invoke::studio_store::journal_tests::legacy_replacement_and_import_cannot_reuse_old_snapshots ... ok
+test vibe_host::invoke::studio_store::journal_tests::rejected_source_or_policy_edits_leave_all_state_unchanged ... ok
+test vibe_host::invoke::studio_store::stamped::predecessor_tests::predecessor_is_actual_undo_source_and_stale_stamp_cannot_read_it ... ok
+test vibe_host::invoke::studio_store::journal_tests::stale_edits_and_undo_redo_are_atomic ... ok
+test vibe_host::invoke::studio_store::journal_tests::existing_studio_handlers_accept_checked_and_legacy_calls ... ok
+test vibe_host::invoke::studio_store::journal_tests::source_undo_redo_regenerates_identical_loft_and_material ... ok
+test vibe_host::invoke::studio_store::stamped_tests::dropping_canonical_stored_artifact_retires_retained_stamp ... ok
+test vibe_host::invoke::studio_store::stamped_tests::foreign_stamp_and_create_conflict_leave_existing_source_unchanged ... ok
+test vibe_host::invoke::studio_store::stamped_tests::fallible_candidate_error_preserves_source_revision_and_both_stacks ... ok
+test vibe_host::invoke::studio_store::journal_tests::retained_byte_and_audit_budgets_refuse_atomically ... ok
+test vibe_host::invoke::studio_store::stamped_tests::concurrent_stamped_edit_activates_one_callback_and_returns_current_stamp ... ok
+test vibe_host::invoke::studio_store::stamped_tests::invalid_upsert_candidate_does_not_retire_accepted_source ... ok
+test vibe_host::invoke::studio_store::stamped_tests::panicking_local_publication_mutation_remains_held_without_poisoning_global_store ... ok
+test vibe_host::invoke::studio_store::stamped_tests::replacement_retires_stamp_and_poisoned_store_fails_closed ... ok
+test vibe_host::invoke::studio_store::stamped_tests::legacy_infallible_upsert_keeps_its_unvalidated_compatibility_behavior ... ok
+test vibe_host::invoke::studio_store::stamped_tests::unrelated_artifact_mutation_does_not_stale_current_stamp_but_same_artifact_is_held ... ok
+test vibe_host::invoke::studio_store::stamped_tests::identical_upsert_invalidates_old_stamp_and_cannot_restore_erased_journal ... ok
+test vibe_host::invoke::studio_store::tests::test_artifact_lifecycle ... ok
+test vibe_host::invoke::studio_store::tests::test_export_native_formats ... ok
+test vibe_host::invoke::studio_store::tests::test_import_cml_and_csv ... ok
+test vibe_host::invoke::studio_store::stamped_tests::initial_admission_rejects_invalid_revision_and_retained_budgets ... ok
+test vibe_host::invoke::studio_store::tests::test_undo_redo ... ok
+test vibe_host::invoke::studio_store::journal_tests::clock_and_history_limits_refuse_without_wrapping_or_losing_source ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::windows_install::permanent_deny_delete_refusal_preserves_destination_and_cleans_staging ... ok
+test vibe_host::invoke::studio_store::checkpoint::tests::restart_process_restores_exact_source_and_private_undo_redo ... ok
+
+test result: ok. 52 passed; 0 failed; 0 ignored; 0 measured; 9864 filtered out; finished in 0.54s
+

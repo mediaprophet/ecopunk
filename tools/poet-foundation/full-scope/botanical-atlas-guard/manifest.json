@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/botanical/source_edit.rs",
+      "original": "C:/github/ecopunk/tools/poet-foundation/full-scope/botanical-atlas-guard/source_edit.original.rs",
+      "candidate_sha256": "0A5C9E3F9785444745340103F2B71DBEA4BF431EF7E7A7511CE2C5C4A8225C10",
+      "original_sha256": "8BC56E715E45BE2468B6504CCBE74EA0C14FB47F945EDEE81E68228930E397E8",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/botanical-atlas-guard/source_edit.candidate.rs"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/authoring/botanical/tests.rs",
+      "original": "C:/github/ecopunk/tools/poet-foundation/full-scope/botanical-atlas-guard/tests.original.rs",
+      "candidate_sha256": "8206377FB01846C29111BB8AAC77F985D470D9DDBEDB37BCE029AB2C14DC60DA",
+      "original_sha256": "A1D602B23FDA7152BE9AFDBBEAAABE95F576E671F89BC9AF704C370C8D270EC6",
+      "candidate": "C:/github/ecopunk/tools/poet-foundation/full-scope/botanical-atlas-guard/tests.candidate.rs"
+    }
+  ],
+  "verification": "rustfmt parsing only; no Cargo or execution",
+  "scope": "Botanical selected-part atlas preservation"
+}

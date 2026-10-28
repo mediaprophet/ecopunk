@@ -1,0 +1,342 @@
+    Finished `test` profile [unoptimized] target(s) in 2.83s
+     Running unittests src\bin\vibe.rs (C:/github/ecopunk/target\debug\deps\vibe-46cdd9b3afdaffc4.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\assignment_admission.rs (C:/github/ecopunk/target\debug\deps\assignment_admission-64c8b48dde2e6b28.exe)
+
+running 3 tests
+test immutable_identifier_refuses_before_rhs_even_without_checker ... ok
+test supported_mutable_whole_binding_still_evaluates_rhs_once ... ok
+test member_and_index_assignment_are_rejected_before_rhs_and_preserve_session ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests\cell_full_input.rs (C:/github/ecopunk/target\debug\deps\cell_full_input-9471f2ded998f289.exe)
+
+running 5 tests
+test preserves_lexer_errors_after_semicolon ... ok
+test accepts_trailing_whitespace_and_comments ... ok
+test accepts_cell_expression_with_optional_single_semicolon ... ok
+test rejects_tokens_after_optional_semicolon ... ok
+test nested_record_and_if_expression_still_parse ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests\conformance.rs (C:/github/ecopunk/target\debug\deps\conformance-ebde08278810adaa.exe)
+
+running 184 tests
+test all_phase_g_fixtures_on_disk_are_valid ... ok
+test bc11_division_by_zero ... ok
+test bc14_string_equality ... ok
+test bc12_logical_short_circuit ... ok
+test bc1_cell_arithmetic ... ok
+test bc10_encode_decode_execute ... ok
+test ad3_enum_match_evaluates ... ok
+test bc2_cell_float_math ... ok
+test ad1_enum_unit_parses ... ok
+test ad2_enum_payload_parses ... ok
+test bc13_match_statement ... ok
+test ad4_enum_nested_parses ... ok
+test bc5_for_loop ... ok
+test bc7_list_and_index ... ok
+test bc9_encode_decode_roundtrip ... ok
+test bc6_if_else ... ok
+test bc8_record_member ... ok
+test bc15_nested_functions ... ok
+test bc3_function_call ... ok
+test bc4_while_loop ... ok
+test c3_css_opacity_ratio ... ok
+test c2_reactive_color_hue_clamp ... ok
+test c1_css_keyframe_interpolation ... ok
+test c4_css_transform_scale_non_negative ... ok
+test c4_css_transform_rotate_to_radians ... ok
+test capability_resolve_is_pure_and_returns_a_record ... ok
+test c5_css_easing_in_quadratic ... ok
+test c5_css_easing_linear ... ok
+test c5_css_easing_in_out ... ok
+test c6_css_color_blend_screen ... ok
+test c6_css_color_blend_linear ... ok
+test cosmic1_transforms_parses ... ok
+test c6_css_color_blend_multiply ... ok
+test e1_emf_to_color_clamps_wavelength ... ok
+test cosmic2_celestial_parses ... ok
+test cosmic3_fictional_parses ... ok
+test e2_emf_interference_clamps ... ok
+test e3_doppler_shift_positive ... ok
+test e4_emf_attenuation_inverse_square ... ok
+test cosmic5_quantum_parses ... ok
+test cosmic4_cosmology_parses ... ok
+test e6_spectral_blend_wavelengths ... ok
+test e5_spd_to_xyz_clamps_wavelength ... ok
+test e5_spd_to_xyz_chromaticity ... ok
+test e6_spectral_metamer_check ... ok
+test f1_black_scholes_intrinsic ... ok
+test f2_portfolio_opt_weighted_return ... ok
+test e8_emf_inverse_square ... ok
+test e7_gamut_map_clamp_rgb ... ok
+test crypto1_hash_sign_parses ... ok
+test e8_emf_inverse_square_zero_distance ... ok
+test e7_gamut_map_srgb_roundtrip ... ok
+test f3_var_calc_clamps_confidence ... ok
+test g2_tick_time_effect_fn ... ok
+test g1_tick_hook_rejects_transitive_external ... ok
+test f4_options_greeks_delta_in_the_money ... ok
+test f4_options_greeks_delta_out_of_the_money ... ok
+test g5_import_math_clamp ... ok
+test f5_bond_pricing_zero_yield ... ok
+test f6_risk_metrics_sharpe_ratio ... ok
+test g4_reactive_cell_bounded_query ... ok
+test f6_risk_metrics_max_drawdown ... ok
+test g6_clinic_deontic_threshold ... ok
+test geo1_convex_hull_cross_product ... ok
+test geo3_field_viz_magnitude ... ok
+test geo2_svg_path_distance ... ok
+test fixtures_on_disk_match_section_12_and_13 ... ok
+test g3_multi_hook_tick_and_pulse ... ok
+test geo4_svg_circle_area ... ok
+test geo6_triangle_area ... ok
+test h1_tick_counter_rejects_transitive_external ... ok
+test geo5_cubic_bezier_endpoints ... ok
+test h2_pulse_filter_positive_only ... ok
+test h3_tick_time_rejects_transitive_external ... ok
+test geo5_quadratic_bezier_midpoint ... ok
+test i2_checked_overflow_produces_e600 ... ok
+test i1_checked_add_evaluates ... ok
+test i3_mixed_int_float_evaluates ... ok
+test import_invalid_path_rejected ... ok
+test import_non_vibe_path_rejected ... ok
+test language_version ... ok
+test import_alias_resolves_namespace ... ok
+test import_without_alias_uses_namespace_name ... ok
+test hook_dispatch_pulse_message_routes_to_function ... ok
+test m1_mut_reassign_succeeds ... ok
+test l1_deontic_permit_commits ... ok
+test n10_negative_sqrt_fails ... ok
+test m2_immutable_reject_produces_e701 ... ok
+test hook_dispatch_unknown_path_returns_null ... ok
+test l3_contract_validate_commits ... ok
+test n11_div_by_zero_physics_trapped ... ok
+test n12_negative_reynolds_parses ... ok
+test n14_uv_outside_visible_parses ... ok
+test n15_negative_radius_parses ... ok
+test m3_mut_in_block_succeeds ... ok
+test l2_deontic_forbid_commits_and_publishes ... ok
+test n13_negative_log_emf_fails ... ok
+test n17_negative_scale_parses ... ok
+test n16_bezier_t_out_of_range_parses ... ok
+test n18_opacity_above_one_parses ... ok
+test n19_zero_dt_derivative_trapped ... ok
+test n22_negative_rate_constant_parses ... ok
+test n21_commit_without_capability_rejected ... ok
+test n1_relational_lt_without_spaces ... ok
+test n25_negative_yield_parses ... ok
+test n23_below_absolute_zero_parses ... ok
+test n4_external_in_pure_cell ... ok
+test n20_unauthorized_pulse_rejected ... ok
+test n24_negative_volatility_parses ... ok
+test n2_illegal_reifier_pipe ... ok
+test n5_commit_without_capability ... ok
+test n3_raw_quin_literal ... ok
+test n4_unknown_math_fn_rejected_before_execution ... ok
+test n7_time_in_pure_cell_rejected ... ok
+test n7_tick_must_not_query ... ok
+test n6_unbounded_while_rejected ... ok
+test n6_commit_without_capability ... ok
+test n5_unbounded_while ... ok
+test n9_non_vibe_import_rejected ... ok
+test n8_tick_queries_graph_rejected ... ok
+test p1_wave_propagation_clamps_amplitude ... ok
+test p2_harmonic_oscillator_energy ... ok
+test p4_n_body_bounded_force ... ok
+test p11_logistic_growth_rate ... ok
+test p3_projectile_range ... ok
+test p10_quantum_energy_level ... ok
+test p11_logistic_growth_carrying ... ok
+test p5_heat_diffusion_steady_state_mean ... ok
+test p10_quantum_transition ... ok
+test p6_advection_diffusion_stability ... ok
+test p6_advection_diffusion_cfl ... ok
+test p7_pendulum_angular_frequency ... ok
+test p5_heat_diffusion_thermal_diffusivity ... ok
+test qd3_material_with_props_parses ... ok
+test qd2_multiple_fields_parses ... ok
+test p7_pendulum_period ... ok
+test p8_molecular_dynamics_lennard_jones ... ok
+test p9_cfd_is_laminar ... ok
+test qd1_field_with_unit_parses ... ok
+test quin_statement_seals_without_parity_field ... ok
+test r3_time_cell_clamps_score ... ok
+test p8_molecular_dynamics_force ... ok
+test r1_reactive_sum_counts_rows ... ok
+test p9_cfd_reynolds_number ... ok
+test r2_reactive_threshold_caps_count ... ok
+test r4_reactive_compose_sum ... ok
+test qd4_field_material_law_parses ... ok
+test s2_bio_alignment_score ... ok
+test s3_mol_weight_calculates ... ok
+test s1_smiles_validate_atom_count ... ok
+test r6_reactive_chain_derive_rate ... ok
+test r5_threshold_alert_check ... ok
+test r6_reactive_chain_zero_dt ... ok
+test s5_reaction_kinetics_first_order ... ok
+test section_12_1_cell_parses_and_evals ... ok
+test s4_molar_mass_calculation ... ok
+test t40_bidi_control_rejected ... ok
+test s5_reaction_kinetics_half_life ... ok
+test t40_cyrillic_homoglyph_mixed_rejected ... ok
+test section_12_3_bounded_query ... ok
+test s4_moles_from_mass ... ok
+test t40_japanese_hiragana_parses ... ok
+test t40_korean_identifier_parses ... ok
+test t40_unicode_ident_arabic_parses ... ok
+test s6_dna_gc_content ... ok
+test t40_unicode_ident_cjk_parses_and_evaluates ... ok
+test t40_pure_cyrillic_function_call_works ... ok
+test time_unix_is_external_and_forbidden_in_pure_cell ... ok
+test t40_unicode_ident_cyrillic_parses_and_evaluates ... ok
+test t40_unicode_ident_greek_parses ... ok
+test t40_unicode_ident_latin_extended_parses ... ok
+test time_unix_runs_in_effect_fn ... ok
+test x1_emf_to_css_opacity ... ok
+test x2_physics_to_geometry_trajectory ... ok
+test x1_emf_to_css_wavelength_mapping ... ok
+test x5_field_with_unit_accepted ... ok
+test x6_time_now_evaluates ... ok
+test x5_field_missing_unit_rejected ... ok
+test x5_nonphysical_field_without_unit_accepted ... ok
+test x4_financial_to_graph_risk_classification ... ok
+test x3_governance_to_pulse_severity ... ok
+test x6_time_now_parses ... ok
+test section_12_2_clinic_module_loads ... ok
+test zk1_threshold_range_parses ... ok
+
+test result: ok. 184 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.84s
+
+     Running tests\graphics_backend_policy.rs (C:/github/ecopunk/target\debug\deps\graphics_backend_policy-7f29e49104091cc4.exe)
+
+running 3 tests
+test webgpu_preference_does_not_hide_available_fallbacks ... ok
+test recovery_policy_retries_webgpu_then_degrades ... ok
+test graphics_policy_prefers_quality_then_degrades ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.18s
+
+     Running tests\pages_samples.rs (C:/github/ecopunk/target\debug\deps\pages_samples-0d978725bb4ae1e6.exe)
+
+running 6 tests
+test zh_locale_main_returns_one ... ok
+test lamp_color_and_pose_record ... ok
+test for_loop_let_mut_runs ... ok
+test while_let_mut_runs ... ok
+test cosmic_geodetic_to_ecef_runs ... ok
+test fib_let_mut_runs ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests\poet_geometry_catalog.rs (C:/github/ecopunk/target\debug\deps\poet_geometry_catalog-366cb411bcff24ae.exe)
+
+running 6 tests
+test unknown_geometry_siblings_remain_denied_even_with_exact_host_grants ... ok
+test geometry_grants_do_not_relax_pure_function_effect_checks ... ok
+test source_requests_cannot_supply_missing_host_grants ... ok
+test invoke_grant_cannot_be_inferred_from_a_geometry_request ... ok
+test exact_requests_and_host_grants_admit_existing_poet_operations ... ok
+test family_host_grants_still_require_explicit_source_requests ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+     Running tests\sprint_b_fixtures.rs (C:/github/ecopunk/target\debug\deps\sprint_b_fixtures-87ffa75cbfa418f1.exe)
+
+running 3 tests
+test lexicon_pin_fixtures_record_pin_and_example_pack ... ok
+test diagnose_loop_fixtures_are_invalid_with_suggested_fix ... ok
+test graph_and_volume_fixtures_parse_and_check ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+
+     Running tests\vibe_bind_lambda.rs (C:/github/ecopunk/target\debug\deps\vibe_bind_lambda-15e87a63c8da05d4.exe)
+
+running 8 tests
+test tween_at_t_halfway ... ok
+test tween_linear_settled ... ok
+test lambda_capture_is_e100 ... ok
+test lambda_filter_even ... ok
+test tween_and_lambda_round_trip_cbor ... ok
+test lambda_map_squares ... ok
+test bind_latest_clamps ... ok
+test effect_cell_pulse_when ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running tests\vibe_catalog_surface.rs (C:/github/ecopunk/target\debug\deps\vibe_catalog_surface-d1c9af1c0c3fb0f3.exe)
+
+running 24 tests
+test eval_quantity_add_keeps_unit ... ok
+test graph_query_without_grant_is_e300 ... ok
+test color_literal_and_oklch ... ok
+test locale_opt_in_does_not_steal_english_fun ... ok
+test locale_zh_cbor_ast_hash_round_trip ... ok
+test locale_ast_round_trips ... ok
+test modal_lowers_when_family_granted ... ok
+test modal_term_is_not_stamped_active ... ok
+test lamp_fixture_parses_checks_and_evals ... ok
+test present_evaluates_to_sheaf ... ok
+test locale_zh_if_keyword ... ok
+test animation_fixture_parses_and_checks ... ok
+test missing_using_is_e300 ... ok
+test locale_zh_en_projected_ast_hash_equal ... ok
+test present_block_parses ... ok
+test quantity_add_unit_mismatch_is_check_error ... ok
+test named_cells_eval_in_dag_order ... ok
+test workspace_budget_charges_strings ... ok
+test gpu_portal_fixture_parses_and_checks ... ok
+test using_animation_orbit_spin_runs ... ok
+test using_econ_gini_computes_on_local_host ... ok
+test using_animation_glass_reveal_is_not_orbit_spin ... ok
+test unknown_catalog_method_is_compile_error ... ok
+test workshop_invoke_fixtures_parse_and_check ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.99s
+
+     Running tests\vibe_features.rs (C:/github/ecopunk/target\debug\deps\vibe_features-7311922cb69b74ec.exe)
+
+running 13 tests
+test test_all_8_locales_have_full_cardinality ... ok
+test test_embedded_graph_pattern_query ... ok
+test test_quantity_literals_parse_and_eval ... ok
+test test_record_punning ... ok
+test test_first_class_modal_logic_blocks ... ok
+test test_various_physical_units ... ok
+test test_pipeline_operator_with_multi_args ... ok
+test test_pipeline_operator_evaluation ... ok
+test test_if_expr_walk_speed_and_lazy_evaluation ... ok
+test test_vector_constructors ... ok
+test test_game_demo_campaign_rules_pattern_loads_and_evaluates ... ok
+test test_if_expr_chained_records_and_bytecode_parity ... ok
+test test_if_expr_static_checks_and_parse_diagnostics ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+     Running tests\vibe_reactive_destructure.rs (C:/github/ecopunk/target\debug\deps\vibe_reactive_destructure-849a0770eacb3dcf.exe)
+
+running 14 tests
+test test_cbor_cell ... ok
+test test_cbor_destructure_constructor ... ok
+test test_cbor_destructure_list ... ok
+test test_cbor_destructure_record ... ok
+test test_destructuring_let_constructor ... ok
+test test_cbor_interpolate ... ok
+test test_cbor_composite_roundtrip ... ok
+test test_reactive_cell_cycle_detection ... ok
+test test_reactive_cell_dag_topological_execution ... ok
+test test_reactive_cell_temporal_and_when_condition ... ok
+test test_destructuring_let_list ... ok
+test test_destructuring_let_record ... ok
+test test_string_interpolation_evaluation ... ok
+test test_decompiler_and_projectional_roundtrip ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+

@@ -1,0 +1,9 @@
+# Surface-package binding transaction continuation
+
+2026-10-27. The coordinator installed the independently reviewed, preimage-checked [surface binding candidate](../../../../tools/poet-foundation/full-scope/surface-binding-transaction/manifest.json). It holds the shared editor guard through authority completion, preserves a verified preflight refusal, and quarantines the host after a failure that may have changed resources or execution epoch; it does not claim rollback. Nonshared authorized binding fails closed. The typed preflight classification is a trusted-host contract.
+
+The guarded [focused test](surface-binding-check.log) passed 8 tests, including a real HMC checkpoint and epoch fixture. The signed native [texture GPU fixture](surface-binding-gpu.log) passed 1 test, and the [native library regression](surface-binding-native.log) passed 344 tests with 14 ignored. The [executable build](surface-binding-build.log) completed successfully. Shared host exclusion does not prove isolation against direct Studio-store access, and no human workflow has been qualified.
+
+Before building, the previous executable was saved as `poet-before-surface-binding-transaction.exe.gz` (71,317,723 bytes) and verified by decompression to SHA-256 `ccc0b22d29dc2bacf4132bbb441af8b0392209e74a380b8541af58358cc4d700`. No cleanup was required.
+
+The rebuilt `C:/github/ecopunk/target/debug/poet.exe` is 340,070,384 bytes, SHA-256 `33e797d6f786bf2e18d2c3ef9fb0d846665b7615023d4bfff42c5c3310643bb1`. Its [empty-project configuration check](surface-binding-smoke.log) exited 0 without opening a window, vault or source. The [verification record](continuation-surface-binding-verification.json) pins the six reviewed source files and actual results. The separately invoked GPU case uses a signed synthetic texture workflow and fresh-process reopen; it is not human acceptance.

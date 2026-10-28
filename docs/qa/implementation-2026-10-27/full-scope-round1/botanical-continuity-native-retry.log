@@ -1,0 +1,46 @@
+   Compiling poet-cli v0.0.40 (C:\github\poet\native)
+    Finished `test` profile [unoptimized] target(s) in 1m 42s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-c90abe74ab5c9ced.exe)
+
+running 26 tests
+test graphical::authoring::botanical::tests::adopted_graph_replay_and_radius_edit_use_core_geometry ... ok
+test graphical::authoring::botanical::tests::botanical_edit_refuses_selected_atlas_without_invalidating_existing_source ... ok
+test graphical::authoring::botanical::tests::botanical_radius_edit_preserves_valid_authored_uv0_exactly ... ok
+test graphical::authoring::botanical::tests::botanical_uv0_refuses_pose_topology_malformed_and_richer_streams_without_mutation ... ok
+test graphical::authoring::botanical::tests::cycles_budget_foreign_target_and_drift_are_refused ... ok
+test graphical::authoring::botanical::tests::emitted_botanical_cell_evaluates_and_preserves_unrelated_source ... ok
+test graphical::authoring::botanical::tests::explicit_first_adoption_rebuilds_selected_geometry_and_keeps_unrelated_part ... ok
+test graphical::authoring::botanical::tests::explicit_v2_chain_sweep_removes_degree_two_caps_and_preserves_keys ... ok
+test graphical::authoring::botanical::tests::explicit_v2_migration_refuses_authored_or_atlas_bound_mesh ... ok
+test graphical::authoring::botanical::tests::legacy_v1_straight_segment_fixed_topology_golden ... ok
+test graphical::authoring::botanical::tests::pinned_legacy_host_matches_all_v1_outputs ... ok
+test graphical::authoring::botanical::tests::position_edit_preserves_other_keys_and_changes_sweep ... ok
+test graphical::authoring::botanical::tests::v2_chain_work_is_reserved_and_invalid_upgrade_does_not_change_source ... ok
+test graphical::authoring::botanical::tests::v2_explicit_upgrade_replays_source_and_preserves_other_parts ... ok
+test graphical::authoring::botanical::tests::v2_fork_is_still_separate_capped_chains ... ok
+test graphical::authoring::botanical::tests::v2_is_explicitly_versioned_and_legacy_source_is_preserved ... ok
+test graphical::authoring::botanical::typed_controls::tests::entered_graph_uses_selected_part_and_refuses_invalid_parent_or_number ... ok
+test graphical::authoring::botanical_session::uv_budget_tests::classifies_bounded_parts_before_touching_uv_content ... ok
+test graphical::geometry_host::botanical_budget_tests::botanical_host_reserves_projection_edit_and_revalidation_work ... ok
+test graphical::native_entry::create::native_botanical_kernels_require_host_opt_in ... ok
+test graphical::native_project::tests::biosphere_round1_tests::botanical_native_edit_requires_actual_core_grants ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_chain_v2_upgrade_and_fresh_hmc_reopen ... 
+running 1 test
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_chain_v2_upgrade_and_fresh_hmc_reopen ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 397 filtered out; finished in 0.27s
+
+ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_checkpoint_exact_source_review_retains_journal ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_gpu_edit_checkpoint_fresh_reopen ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_native_intent_mcp_refusals_history_and_hmc_reopen ... ok
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_uv_radius_edit_hmc_fresh_reopen ... 
+running 1 test
+test graphical::native_project::tests::biosphere_round1_tests::signed_botanical_uv_radius_edit_hmc_fresh_reopen ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 397 filtered out; finished in 0.34s
+
+ok
+
+test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 372 filtered out; finished in 8.47s
+

@@ -1,0 +1,282 @@
+warning: unused import: `HolographicPrimitive`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\audio\scene_audio_graph.rs:34:59
+   |
+34 | use crate::render::gpu::holographic::{HolographicNodeGpu, HolographicPrimitive};
+   |                                                           ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `f`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\specialized_libs\computational_geometry\uv_atlas\mod.rs:118:9
+    |
+118 |     let f = triangles.len();
+    |         ^
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+help: you might have meant to pattern match on the similarly named constant `K`
+    |
+118 -     let f = triangles.len();
+118 +     let net::qdnf::resolve::qsr::kbucket::K = triangles.len();
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+118 |     let _f = triangles.len();
+    |         +
+
+warning: method `dense_device_layout` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\mod.rs:564:19
+    |
+484 | impl KvCacheLayout {
+    | ------------------ method in this implementation
+...
+564 |     pub(crate) fn dense_device_layout(self) -> Option<Self> {
+    |                   ^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `qualia-core-db` (lib) generated 3 warnings (run `cargo fix --lib -p qualia-core-db` to apply 2 suggestions)
+warning: unused import: `validation_snapshot`
+  --> native\src\graphical\authoring\source_layers\mod.rs:24:27
+   |
+24 | pub(crate) use snapshot::{validation_snapshot, validation_snapshot_with_budget};
+   |                           ^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\authoring\controls.rs:160:9
+    |
+160 |     let mut material_id = use_signal(|| 0u64);
+    |         ----^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:76:5
+   |
+76 |     mut selected: Signal<String>,
+   |     ----^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> native\src\graphical\viewport_controls.rs:77:5
+   |
+77 |     mut viewport_state: Signal<Option<ViewportState>>,
+   |     ----^^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> native\src\graphical\viewport_controls.rs:201:9
+    |
+201 |     let mut viewport_state = use_signal(|| None::<ViewportState>);
+    |         ----^^^^^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: function `edit_source` is never used
+   --> native\src\graphical\authoring\source.rs:166:15
+    |
+166 | pub(crate) fn edit_source(
+    |               ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `edit_source_with_baseline` is never used
+   --> native\src\graphical\authoring\source.rs:174:15
+    |
+174 | pub(crate) fn edit_source_with_baseline(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `LEGACY_BYTES` is never used
+ --> native\src\graphical\authoring\source_layers\snapshot.rs:6:7
+  |
+6 | const LEGACY_BYTES: usize = 64 * 1024 * 1024;
+  |       ^^^^^^^^^^^^
+
+warning: function `validation_snapshot` is never used
+  --> native\src\graphical\authoring\source_layers\snapshot.rs:83:15
+   |
+83 | pub(crate) fn validation_snapshot(
+   |               ^^^^^^^^^^^^^^^^^^^
+
+warning: function `render_hmc_unqualified` is never used
+   --> native\src\graphical\preview.rs:258:15
+    |
+258 | pub(crate) fn render_hmc_unqualified(
+    |               ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `poet-cli` (lib) generated 10 warnings (run `cargo fix --lib -p poet-cli` to apply 5 suggestions)
+warning: function `eval_line` is never used
+  --> native\src\repl.rs:11:8
+   |
+11 | pub fn eval_line(line: &str, host: &mut impl Host, env: &mut Env) -> Result<Value, Diagnostic> {
+   |        ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+
+warning: `poet-cli` (bin "poet") generated 2 warnings
+warning: function `run_repl` is never used
+  --> native\src\repl.rs:50:8
+   |
+50 | pub fn run_repl() -> io::Result<()> {
+   |        ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `poet-cli` (bin "poet" test) generated 1 warning
+    Finished `test` profile [unoptimized] target(s) in 5.53s
+     Running unittests src\main.rs (C:/github/ecopunk/target\debug\deps\poet-b3b6fc7455fe47b9.exe)
+
+running 15 tests
+test lint::tests::lint_detects_unreachable_code ... ok
+test lint::tests::lint_detects_unused_binding ... ok
+test lint::tests::lint_detects_builtin_shadowing ... ok
+test format::tests::format_invalid_source_is_left_alone ... ok
+test repl::tests::explicit_cell_does_not_fall_back_to_program ... ok
+test repl::tests::program_check_failure_does_not_dispatch ... ok
+test repl::tests::failing_host_call_runs_once_in_each_mode ... ok
+test repl::tests::authorized_effectful_program_is_not_checked_as_a_pure_cell ... ok
+test repl::tests::repl_eval_simple_math ... ok
+test repl::tests::repl_maintains_env_bindings ... ok
+test repl::tests::failed_program_keeps_effects_without_replaying_them ... ok
+test repl::tests::declarations_survive_later_submissions ... ok
+test repl::tests::bare_condition_preserves_vibe_0_1_truthiness ... ok
+test repl::tests::malformed_program_does_not_execute_a_valid_prefix ... ok
+test format::tests::format_valid_program_round_trips ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests\foundation_fiel.rs (C:/github/ecopunk/target\debug\deps\foundation_fiel-6b11fe36d1e4de1c.exe)
+
+running 3 tests
+test canonical_checked_cases::checked_fiel_budgets_precede_large_or_late_payload_work ... ok
+test canonical_checked_cases::checked_fiel_refuses_reserved_shape_offsets_nonfinite_and_tail ... ok
+test canonical_checked_cases::checked_fiel_grid_unaligned_and_declarations_are_borrowed ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\qualiaDB\crates\vibe\tests\poet_geometry_catalog.rs (C:/github/ecopunk/target\debug\deps\foundation_geometry_catalog-669129c7376c501f.exe)
+
+running 6 tests
+test unknown_geometry_siblings_remain_denied_even_with_exact_host_grants ... ok
+test source_requests_cannot_supply_missing_host_grants ... ok
+test exact_requests_and_host_grants_admit_existing_poet_operations ... ok
+test geometry_grants_do_not_relax_pure_function_effect_checks ... ok
+test invoke_grant_cannot_be_inferred_from_a_geometry_request ... ok
+test family_host_grants_still_require_explicit_source_requests ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+     Running ..\..\qualiaDB\crates\qualia-core-db\tests\studio_hmc_texture_union.rs (C:/github/ecopunk/target\debug\deps\foundation_hmc_texture_union-31a7bbd683e97c5a.exe)
+
+running 6 tests
+test source_only_encode_retains_unrelated_future_texture_namespace_bytes_and_metadata ... ok
+test caller_entry_lengths_refuse_before_digest_or_cloned_key_work ... ok
+test conflicting_mime_digest_alias_cross_kind_and_reserved_keys_refuse_without_mutation ... ok
+test new_shared_texture_is_charged_and_packaged_once_across_native_assets ... ok
+test retained_texture_union_preserves_exact_metadata_lineage_and_unique_entry_budget ... ok
+test native_save_reopen_keeps_metadata_and_conflicting_union_preserves_destination_bytes ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests\foundation_image_completion.rs (C:/github/ecopunk/target\debug\deps\foundation_image_completion-b0784fb6813faaf8.exe)
+
+running 20 tests
+test completed_composition::mask_coverage_and_opacity_are_applied_once ... ok
+test completed_composition::opaque_known_color_vectors_for_each_non_normal_mode ... ok
+test completed_composition::malformed_hidden_layers_and_all_budget_failures_leave_output_intact ... ok
+test completed_composition::dodge_burn_endpoint_rules ... ok
+test completed_composition::every_blend_mode_has_independent_partial_alpha_and_transparent_backdrop_vectors ... ok
+test completed_composition::alpha_interpolation_and_transparent_backdrop ... ok
+test completed_composition::explicit_transparent_and_encoded_blend_identity_vectors ... ok
+test completed_composition::full_mask_identity_and_partial_coverage_match_for_every_mode ... ok
+test completed_composition::output_size_refusal_and_legacy_normal_rounding ... ok
+test completed_composition::signed_offsets_clip_in_layer_coordinates ... ok
+test completed_composition::vertical_diagonal_and_different_extent_offset_vectors ... ok
+test completed_filters::emboss_uses_signed_central_gradient_and_clamped_edges ... ok
+test completed_filters::gaussian_and_sharpen_tiny_images_and_exact_identities ... ok
+test completed_filters::gaussian_impulse_is_symmetric_conservative_and_alpha_aware ... ok
+test completed_filters::hue_and_emboss_order_is_observably_noncommuting ... ok
+test completed_filters::hue_uses_svg_matrix_and_preserves_achromatics_alpha_and_turn_identity ... ok
+test completed_filters::preflight_refuses_invalid_inputs_without_changing_output ... ok
+test completed_filters::sharpen_preserves_alpha_and_increases_opaque_impulse_contrast ... ok
+test image_completed_kernels_use_no_heap_with_caller_buffers ... ok
+test image_completed_legacy_entry_points_produce_real_outputs ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running ..\..\qualiaDB\crates\qualia-core-db\tests\image_source_over.rs (C:/github/ecopunk/target\debug\deps\foundation_image_source_over-858c7e3ac3edfc8f.exe)
+
+running 4 tests
+test opaque_legacy_fill_and_full_hardness_boundary_remain_finite ... ok
+test opaque_base_layer_opacity_and_colour_alpha_each_apply_once ... ok
+test intersecting_transparent_strokes_accumulate_source_over_coverage ... ok
+test transparent_red_is_straight_and_composite_applies_alpha_once ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\qualiaDB\crates\qualia-core-db\tests\native_package_review.rs (C:/github/ecopunk/target\debug\deps\foundation_native_package_review-8b13ffa9459b0afb.exe)
+
+running 12 tests
+test package_review_old_signed_admission_bytes_remain_exact ... ok
+test package_review_self_review_duplicate_ids_and_changed_saved_digest_refuse ... ok
+test history::package_review_missing_predecessor_stays_explicitly_scoped_and_unassessed ... ok
+test package_review_source_grants_file_mismatch_and_stale_generation_cannot_record ... ok
+test history::package_review_predecessor_writer_cannot_grant_or_review_renamed_successor ... ok
+test publication::package_review_publication_expires_after_same_source_native_package_successor ... ok
+test package_review_revocation_and_unsafe_grant_successors_are_atomic ... ok
+test package_review_source_successor_and_revoked_membership_withhold_old_targets ... ok
+test package_review_contribution_request_decision_and_reopen_keep_exact_lineage ... ok
+test source_history::package_review_unsaved_prior_source_contributor_is_excluded_after_source_successor ... ok
+test admin::package_review_explicit_steward_signed_grant_and_revocation_do_not_elevate_source_grants ... ok
+test target_isolation::package_review_evidence_contains_only_the_exact_selected_target ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.07s
+
+     Running ..\..\qualiaDB\crates\qualia-cooperative-core\tests\package_review.rs (C:/github/ecopunk/target\debug\deps\foundation_package_policy-36d99ed70566967e.exe)
+
+running 7 tests
+test source_grant_never_implies_package_grant ... ok
+test producer_source_author_and_known_contributor_cannot_review ... ok
+test package_grant_requires_exact_release_source_digest_and_lineage ... ok
+test observers_cannot_produce_and_foreign_producers_cannot_request ... ok
+test resource_producer_may_differ_from_source_author_and_request_exact_contribution ... ok
+test revoked_expired_duplicate_and_stale_generation_fail_closed ... ok
+test scoped_package_decision_and_record_budget_are_explicit ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\foundation_source_carrier.rs (C:/github/ecopunk/target\debug\deps\foundation_source_carrier-1b18d87f6ff0e47c.exe)
+
+running 5 tests
+test source_carrier_restart::source_carrier_restart_child ... ok
+test public_resource_conflicts_and_protected_origin_edits_preserve_original ... FAILED
+test public_writer_legacy_helper_foreign_scope_and_budgets_fail_closed ... ok
+test source_carrier_restart::metadata_carrier_native_output_survives_fresh_process_activation_and_save_as ... ok
+test native_bound_metadata_survives_edit_rebuild_compile_replacement_and_save_as ... ok
+
+failures:
+
+---- public_resource_conflicts_and_protected_origin_edits_preserve_original stdout ----
+
+thread 'public_resource_conflicts_and_protected_origin_edits_preserve_original' (18512) panicked at native\tests\foundation_source_carrier.rs:85:30:
+called `Result::unwrap()` on an `Err` value: "source stamp could not be revalidated; result held"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    public_resource_conflicts_and_protected_origin_edits_preserve_original
+
+test result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.14s
+
+error: test failed, to rerun pass `-p poet-cli --test foundation_source_carrier`

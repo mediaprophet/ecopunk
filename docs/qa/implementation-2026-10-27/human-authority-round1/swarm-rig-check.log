@@ -1,0 +1,14 @@
+    Finished `test` profile [unoptimized] target(s) in 1m 26s
+     Running unittests src\lib.rs (C:/github/ecopunk/target\debug\deps\poet_cli-a57a4a3c176ed7d8.exe)
+
+running 7 tests
+test graphical::rig_binding::tests::core_codec_refuses_invalid_skin_before_a_resource_can_be_attached ... ok
+test graphical::rig_binding::tests::malformed_mesh_indices_weights_and_player_controls_fail_closed ... ok
+test graphical::rig_binding::tests::rejected_rig_advance_retires_previous_frame ... ok
+test graphical::rig_binding::tests::sampled_frame_is_hidden_after_source_revision_changes ... ok
+test graphical::rig_binding::tests::mismatched_source_resource_lineage_and_controls_are_refused ... ok
+test graphical::rig_binding::tests::selecting_active_clip_restarts_live_player_and_reopened_source_at_zero ... ok
+test graphical::rig_binding::tests::sealed_source_admits_real_player_and_replays_from_bind_mesh ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 320 filtered out; finished in 0.02s
+

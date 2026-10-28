@@ -1,0 +1,94 @@
+diff --git C:/github/qualiaDB/crates/vibe/src/bytecode/compiler.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\bytecode\\compiler.rs"
+index dbeeab6..5fd1fd3 100644
+--- C:/github/qualiaDB/crates/vibe/src/bytecode/compiler.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\bytecode\\compiler.rs"
+@@ -896,11 +896,11 @@ impl Compiler {
+         // Compile body.
+         self.compile_block(&fd.body)?;
+ 
+-        // If the function doesn't end with an explicit return, emit ReturnNull.
+-        let last_byte = *self.chunk.code.last().unwrap_or(&0);
+-        if last_byte != Op::Return as u8 && last_byte != Op::ReturnNull as u8 {
+-            self.emit_op(Op::ReturnNull)?;
+-        }
++        // Every forward edge patched to the function's current end needs a real
++        // landing instruction, even when a branch ends in Return. A raw last byte
++        // may also be an operand rather than an opcode. Explicit returns bypass
++        // this harmless fallback; fallthrough cannot enter the next function.
++        self.emit_op(Op::ReturnNull)?;
+ 
+         self.pop_scope();
+         self.next_local = saved_next_local;
+diff --git C:/github/qualiaDB/crates/vibe/src/bytecode/task_admission_tests.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\bytecode\\task_admission_tests.rs"
+index fe387c6..9ceb7d6 100644
+--- C:/github/qualiaDB/crates/vibe/src/bytecode/task_admission_tests.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\bytecode\\task_admission_tests.rs"
+@@ -124,3 +124,36 @@ fn bytecode_cannot_jump_into_operands_to_hide_an_unadmitted_call() {
+             .is_err()
+     );
+ }
++
++#[test]
++fn conditional_edges_land_on_instructions_and_function_fallthrough_stays_local() {
++    let program = crate::parse_program(
++        r#"
++fn classify(x: i64) {
++    if x > 0 { if x > 10 { return 2; } else { return 1; } }
++    else { if x == 0 { return 0; } else { return -1; } }
++}
++fn wrapper(x: i64) { return classify(x); }
++fn maybe(x: i64) { if x > 0 { return 1; } }
++fn unrelated() { return 99; }
++"#,
++    )
++    .unwrap();
++    let chunk = compile(&program).unwrap();
++    super::task_admission::validate(&chunk).unwrap();
++    let mut host = LocalHost::default();
++    let mut vm = Vm::new(&chunk, &mut host, Budget::default());
++    vm.run().unwrap();
++    let wrapper = chunk.find_function("wrapper").unwrap();
++    for (input, expected) in [(20, 2), (5, 1), (0, 0), (-5, -1)] {
++        assert_eq!(
++            vm.call_function(wrapper, &[Value::I64(input)]).unwrap(),
++            Value::I64(expected)
++        );
++    }
++    assert_eq!(
++        vm.call_function(chunk.find_function("maybe").unwrap(), &[Value::I64(0)])
++            .unwrap(),
++        Value::Null
++    );
++}
+diff --git C:/github/qualiaDB/crates/vibe/src/check/bindings.rs "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\check\\bindings.rs"
+index 7049f3d..7705b6a 100644
+--- C:/github/qualiaDB/crates/vibe/src/check/bindings.rs
++++ "C:\\github\\ecopunk\\tools\\poet-foundation\\post-update-qualification\\repairs\\runtime-attempt2-followup\\crates\\vibe\\src\\check\\bindings.rs"
+@@ -333,6 +333,8 @@ pub(super) const BINDING_PATHS: &[&str] = &[
+     "value.verify_provenance",
+     "crypto.prove_zk_predicate",
+     "crypto.verify_zk_predicate",
++    "crypto.commit_predicate",
++    "crypto.verify_commitment",
+     "runtime.with_budget",
+     "continuation.snapshot",
+     "continuation.rollback_to",
+@@ -342,3 +344,18 @@ pub(super) const BINDING_PATHS: &[&str] = &[
+     "simd.validate_boundary",
+     "channel.lock_free_spsc",
+ ];
++
++#[cfg(test)]
++mod predicate_binding_tests {
++    #[test]
++    fn exact_integrity_bindings_are_recognized_without_widening_crypto_namespace() {
++        for source in [
++            "= crypto.commit_predicate(\"text\")",
++            "= crypto.verify_commitment(crypto.commit_predicate(\"text\"))",
++        ] {
++            assert!(crate::check_cell(&crate::parse_cell(source).unwrap()).is_ok());
++        }
++        let unknown = crate::parse_cell("= crypto.unregistered_predicate_operator(42)").unwrap();
++        assert!(crate::check_cell(&unknown).is_err());
++    }
++}

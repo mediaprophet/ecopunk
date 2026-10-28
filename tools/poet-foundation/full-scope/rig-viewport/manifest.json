@@ -1,0 +1,65 @@
+{
+  "status": "staged-uncompiled-unreviewed",
+  "files": [
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport/mod.rs",
+      "preimage_sha256": "e29b623df98ccad9a8a089f3492d37b580d8dbff49a23f5474605d5c1aefbbe6",
+      "candidate_sha256": "0eea226f30275d20ac1e83f1ae7786caae288bf4b32d5677a87093e7524b813f"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport/renderer.rs",
+      "preimage_sha256": "b0b4ad6db199fb464a92d296d1a3cf41c6da79aba27cb0cfc4723d88c24248bb",
+      "candidate_sha256": "f14361706ee5ed1e6a71e8acd8fa6402af9dc654a231233998214983de076725"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport/tests.rs",
+      "preimage_sha256": "bcdce84c772106d13dd8540d851536c7322eedebc84a9a24af8946c71ad3f243",
+      "candidate_sha256": "2f93f7330cc2b38f7c0c41342e4debab5d2b449a8024737c9518ef6ce0b4052d"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport_provider.rs",
+      "preimage_sha256": "240c24f2b563d8f2fadb9954542ea56243f7ac68b9d9e335e4f7f1bfa645fed9",
+      "candidate_sha256": "29c7af7ef1302283809bffa30bc8cbc58700bb11acacd7bfb038d08d27828cac"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/editor_contract.rs",
+      "preimage_sha256": "57b47dc10bb5e353c4efb8a17ba87ab87f3746871090fd1d9a05de3875648db0",
+      "candidate_sha256": "613dec7059f721e64a5ebcf9ee9946bb4fe18f54ac2449a9a43d6d9d795e87ea"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/controller.rs",
+      "preimage_sha256": "dc6aa2f431a09cff4932e42c1d4d363edaab73400e418688e0829cbd010b0a78",
+      "candidate_sha256": "82f83ea642263e81ce4b2fd37e40935f5aff82f575995108fd26d5fb9a365109"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/controller_viewport.rs",
+      "preimage_sha256": "a22914791cf19a5a218f62d747d64bba138a2da4e30d3c092d0f6e166ece79a9",
+      "candidate_sha256": "2c2daf6b9fa87e913f079765859e1fd98f90b9eb061f17f9713a73e503d8cf7d"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/checkpoints/editor.rs",
+      "preimage_sha256": "ad3d7fcea0108804b8f1f94b531392ff3aa34bd31aa0fa5c0ac373c827d96c76",
+      "candidate_sha256": "7dba93c6c2b62bf3f07903e8f62f5898471271a42e566d16fd67fe3c7d82c5ea"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport_controls.rs",
+      "preimage_sha256": "53ec22fb13383d3448632354d4601084bbca8c30572ad48aebff70f5a63202bc",
+      "candidate_sha256": "01f8d0d156a48cf681a284111110bb9cfde88771a92be7294088488457db5cb5"
+    },
+    {
+      "target": "C:/github/poet/native/src/graphical/viewport_contract.rs",
+      "preimage_sha256": "60589ef2f8d876e1cd1a7162cf502e3daca38aeb9f2eb169210460a91dcc3207",
+      "candidate_sha256": "f33c3c402c595c4ae0d40da6390dcd45a5744c8c2c2bb0c009fe9e2318b8c246"
+    }
+  ],
+  "tests": "CPU pose mirror, invalid pose, and deterministic post-render cancellation retirement source tests added, not executed; rustfmt parse pending",
+  "limitations": [
+    "No Cargo or native GPU execution was performed",
+    "Manual stepping only, not continuous playback",
+    "HMC package must correspond to current source and supplied resource digest",
+    "Exact bind mesh/normal/UV/topology required; restores source geometry before switching rig",
+    "Must independently review and verify current source preimages before integration",
+    "No end-to-end authorization/cancellation/UI tests added",
+    "Cancellation regression and native execution are not yet executed"
+  ]
+}

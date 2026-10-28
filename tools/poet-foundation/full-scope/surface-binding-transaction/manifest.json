@@ -1,0 +1,41 @@
+{
+  "status": "staged; uncompiled and untested",
+  "files": [
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\editor.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\surface-binding-transaction\\editor.rs",
+      "preimage_sha256": "986f5579731fd9be050b40ec07d115bb8259618b3f845c94ccee820c66d84acf",
+      "candidate_sha256": "4dc42e31671c04f1531637a37e4f9531747ddc2496f949463b53b401e86244e7"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\cooperation\\tests.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\surface-binding-transaction\\tests.rs",
+      "preimage_sha256": "750fa142eb0ebf26e54499ca6c91377c99897346dc8137fa9df053d87eaa0008",
+      "candidate_sha256": "b7b3c7ed9e9ba1499e2540cfaad9948cd40d561e61462828699186e9ca596f7d"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\surface_host.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\surface-binding-transaction\\surface_host.rs",
+      "preimage_sha256": "372e7e00e1c2a64fc0384c7cf20bb45d35403b708ae723bc4e8ed0a521df4436",
+      "candidate_sha256": "12c2275f728c3d8f94446bf010ccebc3450a30f2acc6732b0b88784b9fadda7a"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\editor_contract.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\surface-binding-transaction\\editor_contract.rs",
+      "preimage_sha256": "d3c05020f95d6ca2954519252165dc7dcf40663e0e040673642739c9af085c41",
+      "candidate_sha256": "9719aea68c7e8ded145289544501ccaa4073ce7c2347c543e5a0bb47cf508550"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\checkpoints\\editor.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\surface-binding-transaction\\checkpoint_editor.rs",
+      "preimage_sha256": "afa8204b8d710edafe69217b8c12741371ba998c743be0c3d65289fd16f57956",
+      "candidate_sha256": "d945c96856d9f787a8d96a3ca6de67ad92017c917399a82363b2ad7a3a4d5fcf"
+    },
+    {
+      "target": "C:\\github\\poet\\native\\src\\graphical\\package\\mod.rs",
+      "candidate": "C:\\github\\ecopunk\\tools\\poet-foundation\\full-scope\\surface-binding-transaction\\package_mod.rs",
+      "preimage_sha256": "a653a70f6106b177845e2cb0193c796b63d376edceb4eeacc01959731a48ebe5",
+      "candidate_sha256": "e001e71ce73c5f43702e895d59af9f6e5bfe3c6447979649924bae5633ff6a15"
+    }
+  ]
+}
