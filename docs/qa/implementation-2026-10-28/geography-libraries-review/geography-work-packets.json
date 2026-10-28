@@ -82,7 +82,7 @@
       "round": 1,
       "wave_id": "GEO-S1",
       "title": "qualia-core-db Planetary Geodesy, CRS, AusGeoid, Packed Hilbert R-Tree, Ephemeris & Geodesy.* VibeScript (Tier-1 HotZeroHeap)",
-      "status": "ready_for_dispatch",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [],
       "worker_packets": [
@@ -150,7 +150,7 @@
       "round": 2,
       "wave_id": "GEO-S2",
       "title": "qualia-core-db Complete Procedural Terrain Node Library & Terrain.* VibeScript Pipelines (Tier-2 ColdBounded)",
-      "status": "prepared_after_round_1",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1],
       "worker_packets": [
@@ -217,7 +217,7 @@
       "round": 3,
       "wave_id": "GEO-S3",
       "title": "qualia-core-db Coupled 4D Geomorphology, 8.24 Erosion, 6-Layer .m64 0x02 Strata & StrataColumnComplex VibeScript",
-      "status": "prepared_after_round_2",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2],
       "worker_packets": [
@@ -284,7 +284,7 @@
       "round": 4,
       "wave_id": "GEO-S4",
       "title": "qualia-core-db Complete 16-Format Vector, CAD, LiDAR (.m64 0x00), MVT/PMTiles I/O & GisIo.* VibeScript",
-      "status": "prepared_after_round_3",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3],
       "worker_packets": [
@@ -351,7 +351,7 @@
       "round": 5,
       "wave_id": "GEO-S5",
       "title": "qualia-core-db 10-Protocol OGC/STAC/ArcGIS, Zarr/GRIB2 .10d Cubes & GeoSparql.* Deontic VibeScript Bridge",
-      "status": "prepared_after_round_4",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3, 4],
       "worker_packets": [
@@ -418,7 +418,7 @@
       "round": 6,
       "wave_id": "GEO-S6",
       "title": "qualia-core-db Complete Vector Geoprocessing Suite (All 21 GP Tools) & GisGp.* VibeScript",
-      "status": "prepared_after_round_5",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3, 4, 5],
       "worker_packets": [
@@ -477,7 +477,7 @@
       "round": 7,
       "wave_id": "GEO-S7",
       "title": "qualia-core-db Spatial Stats, Map Algebra, Viewshed, TWI/SPI, Networks & VibeScript Cell->Map Algebra Compiler",
-      "status": "prepared_after_round_6",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3, 4, 5, 6],
       "worker_packets": [
@@ -544,7 +544,7 @@
       "round": 8,
       "wave_id": "GEO-S8",
       "title": "qualia-core-db::wgsl_forge Certified GPU Compute Kernels & WgslForge.geo_dispatch VibeScript",
-      "status": "prepared_after_round_7",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3, 4, 5, 6, 7],
       "worker_packets": [
@@ -595,7 +595,7 @@
       "round": 9,
       "wave_id": "GEO-S9",
       "title": "Poet Unified Geospatial, Terrain DAG, Shared-Vertex Topology, Cartography Studio & Cartography.* VibeScript Live Edit",
-      "status": "prepared_after_round_8",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3, 4, 5, 6, 7, 8],
       "worker_packets": [
@@ -654,7 +654,7 @@
       "round": 10,
       "wave_id": "GEO-S10",
       "title": "webizen-render & Etalon Planetary-to-Millimeter Viewport & End-to-End Kosciuszko VibeScript Authoring Suite",
-      "status": "prepared_after_round_9",
+      "status": "completed",
       "model": "flash",
       "depends_on_rounds": [1, 2, 3, 4, 5, 6, 7, 8, 9],
       "worker_packets": [
