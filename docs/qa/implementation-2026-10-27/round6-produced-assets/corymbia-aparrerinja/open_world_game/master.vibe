@@ -1,0 +1,26 @@
+requires [capability("capability.invoke"), capability("ComputationalGeometry.profile_sweep"), capability("ComputationalGeometry.uv_sphere")];
+
+pure fn cg_surface(id:i64, color:List, metal:f64, rough:f64) -> Record {
+    return {id:id, colour_space:"linear", base_color:color, emissive:[0.0,0.0,0.0], metallic:metal, roughness:rough, specular:1.0, alpha_cutoff:0.5, opacity_mode:"Opaque", double_sided:false};
+}
+
+let bark = cg_surface(8001, [0.84, 0.80, 0.75, 1.0], 0.0, 0.72);
+let foliage = cg_surface(8002, [0.25, 0.45, 0.22, 1.0], 0.0, 0.72);
+let seed_trunk = capability.invoke("ComputationalGeometry.profile_sweep", {
+    profile: {kind: "circle", radius: 0.16, segments: 12},
+    axis: [[0.0, 0.0, -1.0], [0.0, 0.0, 0.0], [0.4, 0.0, 1.0]],
+    caps: true
+});
+let crown = capability.invoke("ComputationalGeometry.uv_sphere", {
+    radius: 0.62,
+    lat_segments: 12,
+    lon_segments: 16
+});
+
+let mut poet_parts = [
+    {id: "branch", semantic_id: 81001, parent: null, geometry: seed_trunk, material: bark, translation: [0.0, 1.0, 0.0], rotation: [-1.5707963267948966, 0.0, 0.0], scale: [1.0, 1.0, 1.0]},
+    {id: "canopy/north", semantic_id: 81002, parent: "branch", geometry: crown, material: foliage, translation: [0.95, 0.12, 1.18], rotation: [0.0, 0.0, 0.0], scale: [1.18, 1.12, 0.78]},
+    {id: "canopy/south", semantic_id: 81003, parent: "branch", geometry: crown, material: foliage, translation: [-0.92, -0.08, 1.14], rotation: [0.0, 0.0, 0.0], scale: [1.12, 1.06, 0.74]},
+    {id: "canopy/apex", semantic_id: 81004, parent: "branch", geometry: crown, material: foliage, translation: [0.04, 0.22, 1.42], rotation: [0.0, 0.0, 0.0], scale: [1.28, 1.22, 0.82]}
+];
+({parts: poet_parts});

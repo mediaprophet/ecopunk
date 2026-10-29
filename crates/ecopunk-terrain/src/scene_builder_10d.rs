@@ -117,6 +117,7 @@ pub struct ProceduralTextureAsset {
 }
 
 /// Compiled `.10d` scene + water surface pair ready for `.hmc` packaging and `PortalGpu` rendering.
+#[derive(Clone)]
 pub struct CompiledSector10d {
     pub sector_id: &'static str,
     pub title: &'static str,
@@ -314,188 +315,24 @@ fn hash21(x: f32, y: f32) -> f32 {
     qx - qx.floor()
 }
 
-/// Synthesize 4 high-detail 256×256 procedural RGBA8 textures for Foliage Venation, Bark Micro-Relief,
+/// Synthesize 4 high-detail 512×512 procedural RGBA8 textures for Foliage Venation, Bark Micro-Relief,
 /// Riverbed Pebbles/Lithology, and SLGA Forest Loam / Moss / Litter Micro-Relief.
 pub fn build_procedural_textures() -> Vec<ProceduralTextureAsset> {
-    let w = 256u32;
-    let h = 256u32;
-    let mut out = Vec::with_capacity(4);
-
-    // Smooth value noise + 4-octave FBM helper for natural organic micro-relief (zero periodic striping)
-    let value_noise = |x: f32, y: f32| -> f32 {
-        let ix = x.floor();
-        let iy = y.floor();
-        let fx = x - ix;
-        let fy = y - iy;
-        let ux = fx * fx * (3.0 - 2.0 * fx);
-        let uy = fy * fy * (3.0 - 2.0 * fy);
-        let a = hash21(ix, iy);
-        let b = hash21(ix + 1.0, iy);
-        let c = hash21(ix, iy + 1.0);
-        let d = hash21(ix + 1.0, iy + 1.0);
-        a * (1.0 - ux) * (1.0 - uy)
-            + b * ux * (1.0 - uy)
-            + c * (1.0 - ux) * uy
-            + d * ux * uy
-    };
-    let fbm4 = |mut x: f32, mut y: f32| -> f32 {
-        let mut v = 0.0_f32;
-        let mut amp = 0.5_f32;
-        for _ in 0..4 {
-            v += amp * value_noise(x, y);
-            x = x * 2.03 + 17.1;
-            y = y * 2.01 + 31.7;
-            amp *= 0.5;
-        }
-        v
-    };
-
-    // 1. Sclerophyllous Leaf Venation & Cuticle Texture (`LeafVascularSkeleton` midrib + lateral veins + oil glands)
-    let mut leaf_rgba = vec![0u8; (w * h * 4) as usize];
-    for y in 0..h {
-        for x in 0..w {
-            let u = x as f32 / (w - 1) as f32;
-            let v = y as f32 / (h - 1) as f32;
-            let midrib_dist = (u - 0.5).abs();
-            let midrib = (1.0 - (midrib_dist / 0.035).clamp(0.0, 1.0)).powf(1.8);
-            let vein_coord = (v * 22.0 - midrib_dist * 14.0).sin().abs();
-            let secondary_vein = (1.0 - (vein_coord / 0.14).clamp(0.0, 1.0))
-                * (1.0 - (midrib_dist * 1.8).clamp(0.0, 1.0));
-            let cell_grain = fbm4(u * 28.0, v * 28.0) * 0.14;
-            let edge_darken = 1.0 - 0.14 * (midrib_dist * 2.0).powf(2.2);
-            let r = ((0.78 + 0.14 * midrib + 0.07 * secondary_vein + cell_grain) * edge_darken)
-                .clamp(0.0, 1.0);
-            let g = ((0.86 + 0.11 * midrib + 0.06 * secondary_vein + cell_grain) * edge_darken)
-                .clamp(0.0, 1.0);
-            let b = ((0.74 + 0.07 * midrib + 0.04 * secondary_vein + cell_grain * 0.6) * edge_darken)
-                .clamp(0.0, 1.0);
-            let idx = ((y * w + x) * 4) as usize;
-            leaf_rgba[idx] = (r * 255.0) as u8;
-            leaf_rgba[idx + 1] = (g * 255.0) as u8;
-            leaf_rgba[idx + 2] = (b * 255.0) as u8;
-            leaf_rgba[idx + 3] = 255;
-        }
-    }
-
-    // 2. Eucalyptus / Ghost Gum / Snow Gum Smooth & Fibrous Bark Texture
-    let mut bark_rgba = vec![0u8; (w * h * 4) as usize];
-    for y in 0..h {
-        for x in 0..w {
-            let u = x as f32 / (w - 1) as f32;
-            let v = y as f32 / (h - 1) as f32;
-            let grain = fbm4(u * 24.0, v * 8.0);
-            let mottling = fbm4(u * 6.5 + 4.2, v * 6.5 + 9.1);
-            let shade = (0.76 + 0.16 * grain + 0.14 * mottling - 0.06).clamp(0.0, 1.0);
-            let idx = ((y * w + x) * 4) as usize;
-            bark_rgba[idx] = (shade * 252.0) as u8;
-            bark_rgba[idx + 1] = (shade * 246.0) as u8;
-            bark_rgba[idx + 2] = (shade * 238.0) as u8;
-            bark_rgba[idx + 3] = 255;
-        }
-    }
-
-    // 3. Riverbed Voronoi Pebbles, Imbricated Cobbles, Alluvial Sand & Lithology Texture
-    let mut pebble_rgba = vec![0u8; (w * h * 4) as usize];
-    for y in 0..h {
-        for x in 0..w {
-            let u = x as f32 / w as f32 * 14.0;
-            let v = y as f32 / h as f32 * 14.0;
-            let ix = u.floor();
-            let iy = v.floor();
-            let fx = u - ix;
-            let fy = v - iy;
-            let mut min_d = 8.0_f32;
-            let mut best_rnd = 0.5_f32;
-            for dy in -1..=1 {
-                for dx in -1..=1 {
-                    let cx = ix + dx as f32;
-                    let cy = iy + dy as f32;
-                    let jx = dx as f32 + 0.18 + 0.64 * hash21(cx * 17.3, cy * 31.7) - fx;
-                    let jy = dy as f32 + 0.18 + 0.64 * hash21(cx * 29.1, cy * 13.9) - fy;
-                    let d = (jx * jx * 1.15 + jy * jy * 1.35).sqrt();
-                    if d < min_d {
-                        min_d = d;
-                        best_rnd = hash21(cx * 13.7, cy * 29.3);
-                    }
-                }
-            }
-            let pebble_mask = (1.0 - (min_d / 0.56).clamp(0.0, 1.0)).powf(0.65);
-            let (pr, pg, pb) = if best_rnd > 0.72 {
-                (0.86, 0.83, 0.78) // quartz-feldspar grain
-            } else if best_rnd > 0.44 {
-                (0.80, 0.74, 0.67) // warm sandstone / ironstone grain
-            } else if best_rnd < 0.24 {
-                (0.72, 0.73, 0.75) // dark biotite / basalt grain
-            } else {
-                (0.78, 0.76, 0.72) // weathered granite grain
-            };
-            let rock_grain = 0.88 + 0.12 * fbm4(u * 3.5, v * 3.5);
-            let r = ((0.76 * (1.0 - pebble_mask) + pr * pebble_mask) * rock_grain).clamp(0.0, 1.0);
-            let g = ((0.74 * (1.0 - pebble_mask) + pg * pebble_mask) * rock_grain).clamp(0.0, 1.0);
-            let b = ((0.70 * (1.0 - pebble_mask) + pb * pebble_mask) * rock_grain).clamp(0.0, 1.0);
-            let idx = ((y * w + x) * 4) as usize;
-            pebble_rgba[idx] = (r * 255.0) as u8;
-            pebble_rgba[idx + 1] = (g * 255.0) as u8;
-            pebble_rgba[idx + 2] = (b * 255.0) as u8;
-            pebble_rgba[idx + 3] = 255;
-        }
-    }
-
-    // 4. Isotropic Multi-Octave Forest Loam, Moss & Leaf-Litter Micro-Relief Texture (Zero striping!)
-    let mut soil_rgba = vec![0u8; (w * h * 4) as usize];
-    for y in 0..h {
-        for x in 0..w {
-            let u = x as f32 / (w - 1) as f32;
-            let v = y as f32 / (h - 1) as f32;
-            // Seamless toroidal / multi-scale FBM so tiling across the terrain has zero seams or stripes
-            let ax = (u * std::f32::consts::TAU).cos() * 3.2 + (v * std::f32::consts::TAU).sin() * 1.4;
-            let ay = (v * std::f32::consts::TAU).cos() * 3.2 - (u * std::f32::consts::TAU).sin() * 1.4;
-            let macro_patch = fbm4(ax + 5.0, ay + 5.0);
-            let micro_litter = fbm4(u * 26.0, v * 26.0);
-            let val = (0.82 + 0.14 * macro_patch + 0.10 * micro_litter - 0.06).clamp(0.0, 1.0);
-            let idx = ((y * w + x) * 4) as usize;
-            soil_rgba[idx] = (val * 248.0) as u8;
-            soil_rgba[idx + 1] = (val * 245.0) as u8;
-            soil_rgba[idx + 2] = (val * 234.0) as u8;
-            soil_rgba[idx + 3] = 255;
-        }
-    }
-
-    for (name, rgba8) in [
-        ("foliage_leaf_venation", leaf_rgba),
-        ("bark_fibrous_mottled", bark_rgba),
-        ("riverbed_pebbles_lithology", pebble_rgba),
-        ("slga_soil_strata_litter", soil_rgba),
-    ] {
-        let png_bytes = encode_rgba8_to_png(w, h, &rgba8);
-        let (sha256_bytes, sha256_hex) = sha256_pair(&png_bytes);
-        let hmc_key = format!("textures/sha256/{sha256_hex}");
-        out.push(ProceduralTextureAsset {
-            name,
-            hmc_key,
-            sha256_bytes,
-            sha256_hex,
-            width: w,
-            height: h,
-            rgba8,
-            png_bytes,
-        });
-    }
-
-    out
+    crate::pbr_material_synth::build_high_detail_procedural_textures()
 }
 
 /// Multi-submesh geometry accumulator that tracks submesh index ranges per material.
-struct SubmeshBuilder {
-    positions: Vec<[f32; 3]>,
-    normals: Vec<[f32; 3]>,
-    colors: Vec<[f32; 4]>,
-    uvs: Vec<[f32; 2]>,
-    indices: Vec<u32>,
+#[derive(Clone, Default)]
+pub struct SubmeshBuilder {
+    pub positions: Vec<[f32; 3]>,
+    pub normals: Vec<[f32; 3]>,
+    pub colors: Vec<[f32; 4]>,
+    pub uvs: Vec<[f32; 2]>,
+    pub indices: Vec<u32>,
 }
 
 impl SubmeshBuilder {
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             positions: Vec::new(),
             normals: Vec::new(),
@@ -505,7 +342,7 @@ impl SubmeshBuilder {
         }
     }
 
-    fn push_vertex(&mut self, pos: [f32; 3], norm: [f32; 3], col: [f32; 4], uv: [f32; 2]) -> u32 {
+    pub fn push_vertex(&mut self, pos: [f32; 3], norm: [f32; 3], col: [f32; 4], uv: [f32; 2]) -> u32 {
         let idx = self.positions.len() as u32;
         let len = (norm[0] * norm[0] + norm[1] * norm[1] + norm[2] * norm[2]).sqrt();
         let unit_norm = if len > 1e-6 {
@@ -520,12 +357,56 @@ impl SubmeshBuilder {
         idx
     }
 
-    fn push_tri(&mut self, a: u32, b: u32, c: u32) {
+    pub fn push_tri(&mut self, a: u32, b: u32, c: u32) {
         self.indices.extend_from_slice(&[a, b, c]);
     }
 
+    pub fn push_quad(&mut self, a: u32, b: u32, c: u32, d: u32) {
+        self.indices.extend_from_slice(&[a, b, c, a, c, d]);
+    }
+
+    pub fn recompute_normals_since(&mut self, vertex_start: usize, index_start: usize) {
+        if vertex_start >= self.positions.len() || index_start >= self.indices.len() {
+            return;
+        }
+        for n in &mut self.normals[vertex_start..] {
+            *n = [0.0, 0.0, 0.0];
+        }
+        for tri in self.indices[index_start..].chunks_exact(3) {
+            let (ia, ib, ic) = (tri[0] as usize, tri[1] as usize, tri[2] as usize);
+            if ia < vertex_start || ib < vertex_start || ic < vertex_start {
+                continue;
+            }
+            let a = self.positions[ia];
+            let b = self.positions[ib];
+            let c = self.positions[ic];
+            let ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+            let ac = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+            let fnrm = [
+                ab[1] * ac[2] - ab[2] * ac[1],
+                ab[2] * ac[0] - ab[0] * ac[2],
+                ab[0] * ac[1] - ab[1] * ac[0],
+            ];
+            for idx in [ia, ib, ic] {
+                self.normals[idx][0] += fnrm[0];
+                self.normals[idx][1] += fnrm[1];
+                self.normals[idx][2] += fnrm[2];
+            }
+        }
+        for n in &mut self.normals[vertex_start..] {
+            let l = (n[0] * n[0] + n[1] * n[1] + n[2] * n[2]).sqrt();
+            if l > 1e-6 {
+                n[0] /= l;
+                n[1] /= l;
+                n[2] /= l;
+            } else {
+                *n = [0.0, 1.0, 0.0];
+            }
+        }
+    }
+
     /// Extrude a 3D tube/stem/limb along `axis` using `qualia_core_db::specialized_libs::computational_geometry::sweep_extrusion::extrude_profile_along_path`.
-    fn add_bishop_swept_tube(
+    pub fn add_bishop_swept_tube(
         &mut self,
         axis: &[Point3],
         stations: &[ExtrusionStation],
@@ -533,6 +414,7 @@ impl SubmeshBuilder {
         base_color: [f32; 4],
         top_color: [f32; 4],
     ) {
+        if axis.len() < 2 || stations.len() != axis.len() { return; }
         let m_sec = radial_sides.max(5);
         let mut cross_section = Vec::with_capacity(m_sec);
         for j in 0..m_sec {
@@ -563,18 +445,23 @@ impl SubmeshBuilder {
             &mut out_t,
         ) {
             let base_idx = self.positions.len() as u32;
-            let min_y = axis.first().map(|p| p.y as f32).unwrap_or(0.0);
-            let max_y = axis.last().map(|p| p.y as f32).unwrap_or(1.0);
-            let span_y = (max_y - min_y).abs().max(0.01);
+            let mut arc = vec![0.0f64; n_axis];
+            for i in 1..n_axis {
+                let a=axis[i-1];let b=axis[i];
+                arc[i]=arc[i-1]+((b.x-a.x).powi(2)+(b.y-a.y).powi(2)+(b.z-a.z).powi(2)).sqrt();
+            }
+            let length=arc[n_axis-1].max(1e-10);
 
             for (vi, p) in out_v.iter().take(vc).enumerate() {
-                let ring = (vi / m_sec).min(n_axis - 1);
+                let cap = vi >= n_axis * m_sec;
+                let ring = if vi == n_axis*m_sec {0} else {(vi / m_sec).min(n_axis - 1)};
                 let origin = frames[ring].origin;
-                let nx = (p.x - origin.x) as f32;
-                let ny = (p.y - origin.y) as f32;
-                let nz = (p.z - origin.z) as f32;
+                let sign=if ring==0 {-1.0} else {1.0};
+                let nx = if cap {(frames[ring].e2.x*sign) as f32} else {(p.x - origin.x) as f32};
+                let ny = if cap {(frames[ring].e2.y*sign) as f32} else {(p.y - origin.y) as f32};
+                let nz = if cap {(frames[ring].e2.z*sign) as f32} else {(p.z - origin.z) as f32};
                 let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-5);
-                let t = ((p.y as f32 - min_y) / span_y).clamp(0.0, 1.0);
+                let t = (arc[ring]/length) as f32;
                 let col = [
                     base_color[0] * (1.0 - t) + top_color[0] * t,
                     base_color[1] * (1.0 - t) + top_color[1] * t,
@@ -595,8 +482,7 @@ impl SubmeshBuilder {
         }
     }
 
-    /// Generate a Cescatti 6-point `AsymmetricHull` inner foliage core (`0.46 * rx`) surrounded by
-    /// multi-layered 3D phyllotactic falcate leaf blades, wattle flower racemes, and floral spikes!
+    /// Generate a porous crown from individually represented phyllotactic leaf blades.
     fn add_cescatti_canopy_with_leaf_blades(
         &mut self,
         center: [f32; 3],
@@ -608,65 +494,8 @@ impl SubmeshBuilder {
         blade_count: usize,
         seed: f32,
     ) {
-        let slices = 8usize;
-        let stacks = 4usize;
-        let (req_v, req_t) = asymmetric_hull_capacity(slices, stacks);
-        let mut hull_v = vec![Point3::new(0.0, 0.0, 0.0); req_v];
-        let mut hull_t = vec![[0u32; 3]; req_t];
-        // Full shaded foliage crown core (`AsymmetricHull`) with lacy outer 3D falcate leaf blades
-        let core_scale = 0.82_f64;
-        let params = AsymmetricHullParams {
-            neg_x_radius: (rx as f64) * core_scale * 0.92,
-            pos_x_radius: (rx as f64) * core_scale * 1.06,
-            neg_y_radius: (rz as f64) * core_scale * 0.95,
-            pos_y_radius: (rz as f64) * core_scale * 1.04,
-            neg_x_height: 0.0,
-            pos_x_height: (ry as f64) * 0.08,
-            neg_y_height: (-ry as f64) * 0.05,
-            pos_y_height: (ry as f64) * 0.06,
-            bottom: Point3::new(0.0, 0.0, (-ry * 0.52) as f64),
-            top: Point3::new(0.0, 0.0, (ry * 0.64) as f64),
-            bottom_shape: 1.8,
-            top_shape: 2.1,
-            slices,
-            stacks,
-        };
-        if let Ok((vc, tc)) = asymmetric_hull_into(&params, &mut hull_v, &mut hull_t) {
-            let base_idx = self.positions.len() as u32;
-            for (vi, p) in hull_v.iter().take(vc).enumerate() {
-                let lx = p.x as f32;
-                let ly = p.z as f32;
-                let lz = p.y as f32;
-                let lobe = 1.0
-                    + 0.22
-                        * (lx * 9.0 + seed).sin()
-                        * (ly * 8.0 - seed * 0.7).cos()
-                        * (lz * 9.0 + seed * 1.3).sin();
-                let wx = center[0] + lx * lobe;
-                let wy = center[1] + ly * lobe;
-                let wz = center[2] + lz * lobe;
-                let nlen = (lx * lx + ly * ly + lz * lz).sqrt().max(1e-5);
-                let nx = lx / nlen;
-                let ny = ly / nlen;
-                let nz = lz / nlen;
-                let sun_blend = (0.45_f32 + 0.55_f32 * ny).clamp(0.0_f32, 1.0_f32);
-                let col = [
-                    leaf_color_a[0] * (1.0 - sun_blend * 0.6) + leaf_color_b[0] * (sun_blend * 0.6),
-                    leaf_color_a[1] * (1.0 - sun_blend * 0.6) + leaf_color_b[1] * (sun_blend * 0.6),
-                    leaf_color_a[2] * (1.0 - sun_blend * 0.6) + leaf_color_b[2] * (sun_blend * 0.6),
-                    1.0,
-                ];
-                let u = (vi % slices) as f32 / slices as f32;
-                let v = sun_blend;
-                self.push_vertex([wx, wy, wz], [nx, ny, nz], col, [u, v]);
-            }
-            for tri in hull_t.iter().take(tc) {
-                self.push_tri(base_idx + tri[0], base_idx + tri[1], base_idx + tri[2]);
-            }
-        }
-
-        // Multi-shell phyllotactic 3D falcate leaf blades (`LeafVascularSkeleton` midrib + lamina)
-        // arranged at golden-angle (137.50776 deg) spirals across inner, mid, and outer crown shells!
+        // Multi-shell phyllotactic falcate blades leave the crown open between leaves; the former
+        // solid hull concealed branch structure and read as an opaque foliage ball at portal scale.
         let golden_angle = 2.399_963_1_f32;
         let total_blades = blade_count.max(12);
         for b in 0..total_blades {
@@ -678,7 +507,7 @@ impl SubmeshBuilder {
             let bx = center[0] + phi.cos() * rx * r_ring * shell;
             let by = center[1] + y_norm * ry * shell * 0.92;
             let bz = center[2] + phi.sin() * rz * r_ring * shell;
-            let blade_len = rx * (0.42 + 0.24 * hash21(seed, b as f32 * 2.3));
+            let blade_len = rx * (0.24 + 0.14 * hash21(seed, b as f32 * 2.3));
             let blade_w = blade_len * 0.28;
             let sun_t = (0.5_f32 + 0.5_f32 * y_norm).clamp(0.0_f32, 1.0_f32);
             let col_top = [
@@ -704,7 +533,7 @@ impl SubmeshBuilder {
         }
     }
 
-    /// Add a 3D falcate (sickle-shaped) sclerophyllous leaf blade with raised midrib ridge.
+    /// Add a folded, falcate leaf lamina with normals derived from its actual triangles.
     fn add_falcate_leaf_blade(
         &mut self,
         base: [f32; 3],
@@ -738,18 +567,43 @@ impl SubmeshBuilder {
             base[1] - length * 0.94,
             base[2] + sa * length * 0.74 - ca * width * 0.42,
         ];
-        let n_l = [ca * 0.35 - sa * 0.45, 0.72, sa * 0.35 + ca * 0.45];
-        let n_c = [ca * 0.45, 0.84, sa * 0.45];
-        let n_r = [ca * 0.35 + sa * 0.45, 0.72, sa * 0.35 - ca * 0.45];
-        let v0 = self.push_vertex(p_base, n_c, col_adaxial, [0.5, 0.0]);
-        let v1 = self.push_vertex(p_mid_l, n_l, col_abaxial, [0.0, 0.5]);
-        let v2 = self.push_vertex(p_mid_c, n_c, col_adaxial, [0.5, 0.5]);
-        let v3 = self.push_vertex(p_mid_r, n_r, col_abaxial, [1.0, 0.5]);
-        let v4 = self.push_vertex(p_tip, n_c, col_adaxial, [0.5, 1.0]);
-        self.push_tri(v0, v1, v2);
-        self.push_tri(v0, v2, v3);
-        self.push_tri(v1, v4, v2);
-        self.push_tri(v2, v4, v3);
+        let points = [p_base, p_mid_l, p_mid_c, p_mid_r, p_tip];
+        let tris: [[usize; 3]; 4] = [[0, 1, 2], [0, 2, 3], [1, 4, 2], [2, 4, 3]];
+        let mut normals = [[0.0_f32; 3]; 5];
+        for tri in tris {
+            let a = points[tri[0]];
+            let b = points[tri[1]];
+            let c = points[tri[2]];
+            let ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+            let ac = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+            let face = [
+                ab[1] * ac[2] - ab[2] * ac[1],
+                ab[2] * ac[0] - ab[0] * ac[2],
+                ab[0] * ac[1] - ab[1] * ac[0],
+            ];
+            for vertex in tri {
+                normals[vertex][0] += face[0];
+                normals[vertex][1] += face[1];
+                normals[vertex][2] += face[2];
+            }
+        }
+
+        let base_idx = self.positions.len() as u32;
+        let colors = [col_adaxial, col_abaxial, col_adaxial, col_abaxial, col_adaxial];
+        let uvs = [[0.5, 0.0], [0.0, 0.5], [0.5, 0.5], [1.0, 0.5], [0.5, 1.0]];
+        for i in 0..points.len() {
+            let n = normals[i];
+            let nlen = (n[0] * n[0] + n[1] * n[1] + n[2] * n[2]).sqrt().max(1e-6);
+            self.push_vertex(
+                points[i],
+                [n[0] / nlen, n[1] / nlen, n[2] / nlen],
+                colors[i],
+                uvs[i],
+            );
+        }
+        for [a, b, c] in tris {
+            self.push_tri(base_idx + a as u32, base_idx + b as u32, base_idx + c as u32);
+        }
     }
 
     /// Add a 3D faceted boulder, granite tor, columnar basalt prism, or riverbed pebble/cobble.
@@ -1016,10 +870,8 @@ impl SubmeshBuilder {
         }
     }
 
-    /// Add an articulated 3D Australian canopy tree (*Corymbia aparrerinja*, *Eucalyptus pauciflora*,
-    /// *Eucalyptus regnans*, *Eucalyptus camaldulensis*, *Acacia pycnantha*, *Banksia serrata*)
-    /// using `space_colonization_3d`, `pipe_model_radii` (Leonardo da Vinci / Shinozaki pipe model),
-    /// Bishop-frame swept limbs, Cescatti 6-point `AsymmetricHull` canopy cores, and 3D falcate leaf blades!
+    /// Build a procedural canopy study from the existing branching/radii kernels and swept limbs.
+    /// Its palette and form are illustrative; this helper is not a taxon-validated plant model.
     fn add_canopy_tree(
         &mut self,
         trunk_builder: &mut SubmeshBuilder,
@@ -1344,7 +1196,7 @@ impl SubmeshBuilder {
     /// Evaluate an analytical composite SDF on a local 3D grid, extract closed 2-manifold
     /// triangle mesh via `marching_cubes`, weld shared vertices, compute smooth analytical SDF
     /// central-difference normals, and transform into world coordinates with yaw and scale.
-    fn append_smooth_sdf_body<F>(
+    pub fn append_smooth_sdf_body<F>(
         &mut self,
         bmin: [f32; 3],
         bmax: [f32; 3],
@@ -2022,7 +1874,7 @@ impl SubmeshBuilder {
     }
 
     /// Add an axis-aligned 3D box in local coordinates `[min_xyz, max_xyz]` with outward normals and vertex colors.
-    fn add_local_box(&mut self, min: [f32; 3], max: [f32; 3], col_bottom: [f32; 4], col_top: [f32; 4]) {
+    pub fn add_local_box(&mut self, min: [f32; 3], max: [f32; 3], col_bottom: [f32; 4], col_top: [f32; 4]) {
         let faces: [([f32; 3], [[f32; 3]; 4]); 6] = [
             // +Y top
             ([0.0, 1.0, 0.0], [[min[0], max[1], max[2]], [max[0], max[1], max[2]], [max[0], max[1], min[2]], [min[0], max[1], min[2]]]),
@@ -2518,51 +2370,7 @@ fn out_slice<T>(slice: &[T], len: usize) -> &[T] {
 /// Evaluate multi-scale East Coast terrain elevation in PortalGpu world coordinates `[-2.2, 2.2]`.
 /// Includes river gorge channel, point-bar shingle beaches, bush track bench, and mountain ridges.
 pub fn sample_sector_elevation(sector_id: &str, x: f32, z: f32, water_y: f32) -> f32 {
-    let seed = match sector_id {
-        "talbingo" => 1.1_f32,
-        "yarrangobilly" => 2.4_f32,
-        "three_mile_dam" => 3.7_f32,
-        "sydney_sandstone" => 5.1_f32,
-        "noosa_headland" => 6.5_f32,
-        _ => 7.9_f32,
-    };
-
-    // Meandering river thalweg across z
-    let meander_x = 0.28 * (z * 1.35 + seed).sin() + 0.11 * (z * 2.7 - seed * 0.6).cos();
-    let dist_river = (x - meander_x).abs();
-
-    // River channel carving below water_y so riverbed cobbles/pebbles/sand are visible underwater
-    let channel_depth = 0.36 * (-((dist_river / 0.42).powi(2))).exp();
-    // Valley walls rising toward mountain ridges / sandstone escarpments / karst cliffs
-    let valley_rise = match sector_id {
-        "sydney_sandstone" => {
-            // Stepped Hawkesbury sandstone cliff benches
-            let raw = (dist_river - 0.32).max(0.0) * 0.72;
-            raw + 0.08 * (raw * 14.0).sin()
-        }
-        "noosa_headland" => {
-            // Coastal headland on +x, open turquoise estuary/ocean on -x
-            if x < meander_x {
-                -0.16 * (meander_x - x).min(1.2)
-            } else {
-                (x - meander_x).powf(1.25) * 0.55
-            }
-        }
-        "yarrangobilly" | "jounama_karst" => (dist_river - 0.26).max(0.0).powf(1.35) * 0.82,
-        "three_mile_dam" => (dist_river - 0.38).max(0.0).powf(1.15) * 0.44,
-        _ => (dist_river - 0.30).max(0.0).powf(1.25) * 0.68,
-    };
-
-    let ridge_undulation = 0.14 * (x * 2.1 + seed).sin() * (z * 1.9 - seed * 0.8).cos()
-        + 0.06 * (x * 4.7 - z * 3.9 + seed).sin();
-
-    // Bush track bench along the right bank (`dist_river ~ 0.52`)
-    let track_dist = (x - (meander_x + 0.54)).abs();
-    let track_flatten = (-((track_dist / 0.09).powi(2))).exp();
-
-    let raw_y = water_y + 0.06 - channel_depth + valley_rise + ridge_undulation * (0.35 + 0.65 * (dist_river / 1.5).min(1.0));
-    let track_y = water_y + 0.16;
-    raw_y * (1.0 - 0.65 * track_flatten) + track_y * (0.65 * track_flatten)
+    crate::terrain_dag_sector::sample_sector_elevation_dag(sector_id, x, z, water_y)
 }
 
 /// Build and seal a complete `.10d` sector scene + `.10d` water surface for an East Coast sector.
@@ -2592,9 +2400,9 @@ pub fn build_sector_10d(
                 -0.22_f32,
                 [0.06, 0.36, 0.50],
                 [0.48, 0.78, 0.44],
-                0.35,
-                0.22,
-                1.18,
+                -0.16,
+                0.23,
+                1.16,
                 [0.54, 0.06, 0.05],
                 1u32,
             ),
@@ -2602,19 +2410,19 @@ pub fn build_sector_10d(
                 -0.24_f32,
                 [0.06, 0.48, 0.54],
                 [-0.22, 0.80, 0.56],
-                0.25,
-                0.22,
-                1.20,
-                [0.52, 0.04, 0.05],
+                -0.20,
+                0.24,
+                1.18,
+                [0.52, 0.06, 0.05],
                 1u32,
             ),
             "three_mile_dam" => (
                 -0.20_f32,
                 [0.05, 0.44, 0.60],
                 [0.48, 0.76, 0.48],
-                0.32,
-                0.22,
-                1.18,
+                -0.18,
+                0.23,
+                1.16,
                 [0.54, 0.06, 0.05],
                 1u32,
             ),
@@ -2622,19 +2430,19 @@ pub fn build_sector_10d(
                 -0.25_f32,
                 [0.08, 0.38, 0.46],
                 [0.40, 0.82, 0.44],
-                -0.30,
+                -0.26,
                 0.24,
-                1.20,
-                [0.50, 0.06, 0.05],
+                1.18,
+                [0.52, 0.06, 0.05],
                 1u32,
             ),
             "noosa_headland" => (
                 -0.18_f32,
                 [0.04, 0.52, 0.64],
                 [0.32, 0.84, 0.44],
-                0.28,
+                0.14,
                 0.22,
-                1.20,
+                1.18,
                 [0.52, 0.05, 0.05],
                 1u32,
             ),
@@ -2642,9 +2450,9 @@ pub fn build_sector_10d(
                 -0.23_f32,
                 [0.06, 0.38, 0.50],
                 [-0.44, 0.76, 0.50],
-                0.30,
+                -0.22,
                 0.24,
-                1.20,
+                1.18,
                 [0.54, 0.06, 0.05],
                 2u32,
             ),
@@ -2655,8 +2463,8 @@ pub fn build_sector_10d(
     // 1: 3D Lithology (Granite Tors, Sandstone Benches, Karst, Road Guideposts) & 3D Submerged Riverbed Pebbles/Cobbles (`tex_pebble`)
     // 2: Tree Trunks, Buttresses, Roots & Fallen Hollow Logs (`tex_bark`)
     // 3: 3D Foliage Crowns, Falcate Leaf Blades, Tree Ferns, Grass Trees, Cosserat Tussock Grasses & Submerged Ribbon Weed (`tex_leaf`, `wind_animated: true`, `double_sided: true`)
-    // 4: Articulated 3D Australian Fauna (`tex_bark`)
-    // 5: Dynamic 3D 4WD Field Rover & 3D Field Ecologist Bushwalker Actors (`tex_pebble`)
+    // 4: Fauna authored coat colours; do not apply tree bark to animals.
+    // 5: Rover and walker authored colours; do not apply stone to people/vehicles.
     let mut b_terrain = SubmeshBuilder::new();
     let mut b_lithology = SubmeshBuilder::new();
     let mut b_trunks = SubmeshBuilder::new();
@@ -2664,216 +2472,34 @@ pub fn build_sector_10d(
     let mut b_fauna = SubmeshBuilder::new();
     let mut b_actors = SubmeshBuilder::new();
 
-    // 1. Build High-Resolution Terrain Continuum Grid (`[-1.95, z_max]`)
-    let grid_n = 108usize;
+    // 1 & 2. Build High-Resolution Terrain Continuum Grid (`160x160`), 6-Layer CSIRO SLGA Cutaway,
+    // Clustered Riparian Cobble Point-Bars & Jointed Granite Tors / Sandstone Benches / Karst Outcrops
     let extent = 1.95_f32;
     let z_max = if include_cutaway_wall { 0.55_f32 } else { extent };
-    let mut grid_idx = vec![0u32; (grid_n + 1) * (grid_n + 1)];
-
-    for gz in 0..=grid_n {
-        for gx in 0..=grid_n {
-            let u = gx as f32 / grid_n as f32;
-            let v = gz as f32 / grid_n as f32;
-            let x = (u * 2.0 - 1.0) * extent;
-            let z = -extent + v * (z_max + extent);
-            let y = sample_sector_elevation(sector_id, x, z, water_y);
-
-            let eps = 0.020_f32;
-            let y_dx = sample_sector_elevation(sector_id, x + eps, z, water_y)
-                - sample_sector_elevation(sector_id, x - eps, z, water_y);
-            let y_dz = sample_sector_elevation(sector_id, x, z + eps, water_y)
-                - sample_sector_elevation(sector_id, x, z - eps, water_y);
-            let nx = -y_dx;
-            let ny = 2.0 * eps;
-            let nz = -y_dz;
-            let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-5);
-            let norm = [nx / nlen, ny / nlen, nz / nlen];
-            let slope = 1.0 - norm[1];
-
-            // Smooth organic micro-variation (no stripes)
-            let organic_var = 0.90 + 0.10 * ((x * 7.3 + z * 5.1).sin() * (x * 4.1 - z * 8.7).cos());
-            let dist_water = y - water_y;
-            let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
-                + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
-            let track_dist = (x - (meander_x + 0.54)).abs();
-
-            let col = if track_dist < 0.0055 && (z * 22.0).sin() > -0.15 {
-                // Dashed yellow highway centerline along the Hermite corridor
-                [0.95, 0.80, 0.18, 1.0]
-            } else if (track_dist - 0.064).abs() < 0.0055 {
-                // Crisp white highway edge line
-                [0.92, 0.92, 0.90, 1.0]
-            } else if track_dist < 0.068 {
-                // Compacted dark-charcoal bitumen & crushed basalt corridor pavement
-                [0.28 * organic_var, 0.29 * organic_var, 0.31 * organic_var, 1.0]
-            } else if track_dist < 0.092 {
-                // Graded red-ochre gravel road shoulder
-                [0.64 * organic_var, 0.42 * organic_var, 0.26 * organic_var, 1.0]
-            } else if dist_water < -0.02 {
-                // Submerged riverbed cobble armor & quartz sand
-                let pebbles = 0.86 + 0.14 * hash21(x * 19.0, z * 19.0);
-                [0.46 * pebbles, 0.43 * pebbles, 0.35 * pebbles, 1.0]
-            } else if dist_water < 0.055 {
-                // Shingle pebble point-bar & golden alluvial sand beach
-                let sand = 0.90 + 0.10 * hash21(x * 23.0, z * 23.0);
-                [0.72 * sand, 0.62 * sand, 0.46 * sand, 1.0]
-            } else if slope > 0.30 {
-                // Exposed Hawkesbury sandstone / Silurian karst limestone / Bogong granite cliff
-                match sector_id {
-                    "sydney_sandstone" => [0.72 * organic_var, 0.54 * organic_var, 0.36 * organic_var, 1.0],
-                    "yarrangobilly" | "jounama_karst" => [0.60 * organic_var, 0.62 * organic_var, 0.65 * organic_var, 1.0],
-                    _ => [0.54 * organic_var, 0.51 * organic_var, 0.47 * organic_var, 1.0],
-                }
-            } else {
-                // Rich Australian sclerophyll forest biomantle loam, dry eucalypt leaf litter & mossy riparian banks
-                let moisture = (-((dist_water / 0.28).powi(2))).exp();
-                let r = (0.31 * (1.0 - moisture) + 0.22 * moisture) * organic_var;
-                let g = (0.40 * (1.0 - moisture) + 0.46 * moisture) * organic_var;
-                let b = (0.21 * (1.0 - moisture) + 0.19 * moisture) * organic_var;
-                [r, g, b, 1.0]
-            };
-
-            let vi = b_terrain.push_vertex([x, y, z], norm, col, [u * 4.0, v * 4.0]);
-            grid_idx[gz * (grid_n + 1) + gx] = vi;
-        }
-    }
-
-    for gz in 0..grid_n {
-        for gx in 0..grid_n {
-            let i00 = grid_idx[gz * (grid_n + 1) + gx];
-            let i10 = grid_idx[gz * (grid_n + 1) + gx + 1];
-            let i01 = grid_idx[(gz + 1) * (grid_n + 1) + gx];
-            let i11 = grid_idx[(gz + 1) * (grid_n + 1) + gx + 1];
-            b_terrain.push_tri(i00, i01, i11);
-            b_terrain.push_tri(i00, i11, i10);
-        }
-    }
-
-    // Optional 6-Layer CSIRO SLGA Subsurface Geological Cutaway Cross-Section (`include_cutaway_wall`)
-    if include_cutaway_wall {
-        let strata_colors: [[f32; 4]; 6] = [
-            [0.20, 0.16, 0.12, 1.0], // L0 O-Horizon Dark Alpine Humus & Peat
-            [0.38, 0.27, 0.18, 1.0], // L1 A1-Horizon Organic Biomantle Loam
-            [0.78, 0.70, 0.54, 1.0], // L2 A2-Horizon Bleached Eluvial Quartz Sand
-            [0.82, 0.34, 0.16, 1.0], // L3 B2-Horizon Red-Ochre Illuvial Ferrosol Clay
-            [0.64, 0.56, 0.40, 1.0], // L4 C-Horizon Granitic Saprolite Grus
-            [0.46, 0.50, 0.58, 1.0], // L5 R-Horizon Banded Silurian Karst Limestone Bedrock
-        ];
-        let base_y = -0.96_f32;
-        for gx in 0..grid_n {
-            let u0 = gx as f32 / grid_n as f32;
-            let u1 = (gx + 1) as f32 / grid_n as f32;
-            let x0 = (u0 * 2.0 - 1.0) * extent;
-            let x1 = (u1 * 2.0 - 1.0) * extent;
-            let top0 = sample_sector_elevation(sector_id, x0, z_max, water_y);
-            let top1 = sample_sector_elevation(sector_id, x1, z_max, water_y);
-            for layer in 0..6 {
-                let f0 = layer as f32 / 6.0;
-                let f1 = (layer + 1) as f32 / 6.0;
-                let wave0 = 0.012 * (x0 * 5.5 + layer as f32 * 1.3).sin();
-                let wave1 = 0.012 * (x1 * 5.5 + layer as f32 * 1.3).sin();
-                let y0_a = top0 * (1.0 - f0) + base_y * f0 + wave0 * (1.0 - f0);
-                let y0_b = top0 * (1.0 - f1) + base_y * f1 + wave0 * (1.0 - f1);
-                let y1_a = top1 * (1.0 - f0) + base_y * f0 + wave1 * (1.0 - f0);
-                let y1_b = top1 * (1.0 - f1) + base_y * f1 + wave1 * (1.0 - f1);
-                let z_step_a = z_max + (layer as f32) * 0.012;
-                let z_step_b = z_max + ((layer + 1) as f32) * 0.012;
-                let col = strata_colors[layer];
-                let norm = [0.0, 0.22, 0.975];
-                let v0 = b_terrain.push_vertex([x0, y0_a, z_step_a], norm, col, [u0 * 4.0, f0]);
-                let v1 = b_terrain.push_vertex([x1, y1_a, z_step_a], norm, col, [u1 * 4.0, f0]);
-                let v2 = b_terrain.push_vertex([x1, y1_b, z_step_b], norm, col, [u1 * 4.0, f1]);
-                let v3 = b_terrain.push_vertex([x0, y0_b, z_step_b], norm, col, [u0 * 4.0, f1]);
-                b_terrain.push_tri(v0, v3, v2);
-                b_terrain.push_tri(v0, v2, v1);
-            }
-        }
-    }
-
-    // 2. Build 3D Submerged & Shoreline Riverbed Cobbles, Pebbles & Valley Boulders/Granite Tors
-    for i in 0..220 {
-        let fi = i as f32;
-        let z = -1.75 + (fi / 220.0) * 3.50;
-        let meander_x = 0.28 * (z * 1.35 + 1.1).sin();
-        let offset = (hash21(fi * 3.7, 9.1) - 0.5) * 0.68;
-        let x = meander_x + offset;
-        let y = sample_sector_elevation(sector_id, x, z, water_y);
-        let r = 0.014 + 0.024 * hash21(fi * 7.3, 2.1);
-        let tint_sel = hash21(fi * 11.1, 5.7);
-        let (col_b, col_t) = if tint_sel > 0.70 {
-            ([0.62, 0.56, 0.46, 1.0], [0.86, 0.80, 0.68, 1.0]) // alluvial quartz pebble
-        } else if tint_sel > 0.40 {
-            ([0.52, 0.34, 0.24, 1.0], [0.74, 0.48, 0.34, 1.0]) // red jasper / ironstone cobble
-        } else {
-            ([0.28, 0.30, 0.34, 1.0], [0.48, 0.50, 0.54, 1.0]) // basalt / granite river cobble
-        };
-        b_lithology.add_rock_or_pebble(
-            [x, y + r * 0.25, z],
-            [r * 1.35, r * 0.65, r * 1.15],
-            fi * 1.9,
-            col_b,
-            col_t,
-            fi,
-        );
-    }
-
-    // Valley Boulders, Granite Tors, Sandstone Escarpment Blocks & Karst Outcrops
-    for i in 0..55 {
-        let fi = i as f32;
-        let side = if i % 2 == 0 { 1.0_f32 } else { -1.0_f32 };
-        let z = -1.65 + (fi / 55.0) * 3.30;
-        let x = side * (0.48 + 1.25 * hash21(fi * 5.3, 1.7));
-        let meander_b = 0.28 * (z * 1.35 + 1.1).sin() + 0.11 * (z * 2.7 - 0.66).cos();
-        let road_x_b = meander_b + 0.54;
-        // Keep boulders off the road corridor and out of the foreground kangaroo clearing
-        if (x - road_x_b).abs() < 0.28 || (x > 0.90 && x < 1.38 && z > -0.35 && z < 0.45) {
-            continue;
-        }
-        let y = sample_sector_elevation(sector_id, x, z, water_y);
-        let rx = 0.045 + 0.085 * hash21(fi * 2.9, 8.4);
-        let ry = rx * (0.65 + 0.65 * hash21(fi * 4.1, 3.3));
-        let (col_b, col_t) = match sector_id {
-            "sydney_sandstone" => ([0.52, 0.38, 0.25, 1.0], [0.78, 0.62, 0.44, 1.0]),
-            "yarrangobilly" | "jounama_karst" => ([0.44, 0.46, 0.50, 1.0], [0.72, 0.74, 0.78, 1.0]),
-            _ => ([0.40, 0.38, 0.36, 1.0], [0.66, 0.64, 0.60, 1.0]),
-        };
-        b_lithology.add_rock_or_pebble(
-            [x, y + ry * 0.3, z],
-            [rx, ry, rx * 0.88],
-            fi * 0.85,
-            col_b,
-            col_t,
-            fi + 100.0,
-        );
-    }
+    crate::terrain_dag_sector::build_sector_terrain_and_lithology(
+        sector_id,
+        water_y,
+        include_cutaway_wall,
+        &mut b_terrain,
+        &mut b_lithology,
+    );
 
     // 3. Evaluate AG-12 `VegetationEvaluator::update_instances` across Vegetation Instance Pool
     // and Populate Multi-Stratum Canopy Trees, Shrubs, Tree Ferns, Grass Trees, Tussock Grasses,
     // and Submerged Benthic *Vallisneria* Ribbon Weed!
-    let sector_seed = match sector_id {
-        "talbingo" => 1.1_f32,
-        "yarrangobilly" => 2.4_f32,
-        "three_mile_dam" => 3.7_f32,
-        "sydney_sandstone" => 5.1_f32,
-        "noosa_headland" => 6.5_f32,
-        _ => 7.9_f32,
-    };
     let mut veg_states = Vec::with_capacity(64);
     for i in 0..64 {
         let fi = i as f32;
         let side = if i % 2 == 0 { 1.0_f32 } else { -1.0_f32 };
         let z = -1.70 + (fi / 64.0) * 3.40;
-        let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
-            + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
+        let meander_x = crate::terrain_dag_sector::sample_river_thalweg_x(sector_id, z);
+        let road_x = crate::terrain_dag_sector::sample_road_corridor_center_x(sector_id, z);
         let x = if side > 0.0 {
-            // Upslope of the banked road corridor (road is at meander_x + 0.54)
-            // Leave a natural grassy clearing around z in [-0.28, 0.35], x in [1.02, 1.32] for the kangaroo mob
-            let raw_x = (meander_x + 0.82 + 0.88 * hash21(fi * 6.1, 4.2)).clamp(-1.82, 1.82);
-            if z > -0.32 && z < 0.38 && raw_x < 1.32 {
-                (raw_x + 0.34).min(1.82)
-            } else {
-                raw_x
-            }
+            // Upslope of the banked road corridor
+            // Leave a natural grassy clearing around z in [-0.38, 0.44], x < road_x + 0.56 for the kangaroo mob
+            // and keep foreground camera cone (`z > 0.25`) clear of close roadside trunks
+            let min_offset = if z > -0.38 && z < 1.35 { 0.56 } else { 0.30 };
+            (road_x + min_offset + 0.82 * hash21(fi * 6.1, 4.2)).clamp(-1.82, 1.82)
         } else {
             // Opposite river bank (-X side)
             (meander_x - 0.52 - 1.15 * hash21(fi * 6.1, 4.2)).clamp(-1.82, 1.82)
@@ -2932,215 +2558,63 @@ pub fn build_sector_10d(
         &mut out_records,
     );
 
-    // Emit the 64 Multi-Species Canopy & Mid-Story Trees + Tree Ferns + Grass Trees
-    for (i, state) in veg_states.iter().enumerate() {
-        let fi = i as f32;
-        let root = [
-            state.base_transform[3][0],
-            state.base_transform[3][1],
-            state.base_transform[3][2],
-        ];
-        let h = state.height;
-        if i % 7 == 0 {
-            // *Dicksonia antarctica* Soft Tree Fern in moist gullies
-            b_foliage.add_tree_fern_or_grass_tree(&mut b_trunks, root, h * 0.52, false, fi);
-        } else if i % 6 == 0 {
-            // *Xanthorrhoea australis* Austral Grass Tree with flowering scape
-            b_foliage.add_tree_fern_or_grass_tree(&mut b_trunks, root, h * 0.46, true, fi);
-        } else {
-            // Diverse Australian Canopy & Mid-Story Archetypes:
-            // Ghost Gum (*Corymbia aparrerinja*), Snow Gum (*Eucalyptus pauciflora*),
-            // Mountain Ash (*Eucalyptus regnans*), Golden Wattle (*Acacia pycnantha*),
-            // Old Man Banksia (*Banksia serrata*), NSW Waratah (*Telopea speciosissima*)
-            let (bark_b, bark_t, leaf_d, leaf_l, contorted) = match i % 5 {
-                0 => (
-                    // Ghost Gum / Snow Gum chalk-white & ochre-mottled smooth bark
-                    [0.78, 0.74, 0.68, 1.0],
-                    [0.94, 0.92, 0.88, 1.0],
-                    [0.18, 0.38, 0.20, 1.0],
-                    [0.36, 0.62, 0.32, 1.0],
-                    true,
-                ),
-                1 => (
-                    // Golden Wattle (*Acacia pycnantha*) with golden-yellow flower racemes
-                    [0.30, 0.24, 0.18, 1.0],
-                    [0.42, 0.34, 0.26, 1.0],
-                    [0.24, 0.46, 0.18, 1.0],
-                    [0.92, 0.78, 0.16, 1.0],
-                    false,
-                ),
-                2 => (
-                    // Mountain Ash / River Red Gum tall sclerophyll canopy
-                    [0.34, 0.26, 0.20, 1.0],
-                    [0.68, 0.64, 0.56, 1.0],
-                    [0.14, 0.34, 0.18, 1.0],
-                    [0.30, 0.56, 0.28, 1.0],
-                    false,
-                ),
-                3 => (
-                    // *Banksia serrata* / *Telopea speciosissima* Waratah crimson/amber blooms
-                    [0.28, 0.22, 0.18, 1.0],
-                    [0.40, 0.32, 0.26, 1.0],
-                    [0.22, 0.40, 0.18, 1.0],
-                    [0.82, 0.26, 0.18, 1.0],
-                    true,
-                ),
-                _ => (
-                    // Peppermint / Stringybark Eucalypt
-                    [0.38, 0.30, 0.22, 1.0],
-                    [0.56, 0.48, 0.38, 1.0],
-                    [0.16, 0.36, 0.22, 1.0],
-                    [0.34, 0.58, 0.34, 1.0],
-                    true,
-                ),
-            };
-            b_foliage.add_canopy_tree(
-                &mut b_trunks,
-                root,
-                h,
-                bark_b,
-                bark_t,
-                leaf_d,
-                leaf_l,
-                contorted,
-                fi,
-            );
-        }
-    }
+    let veg_roots_and_heights: Vec<([f32; 3], f32)> = veg_states
+        .iter()
+        .map(|s| {
+            (
+                [
+                    s.base_transform[3][0],
+                    s.base_transform[3][1],
+                    s.base_transform[3][2],
+                ],
+                s.height,
+            )
+        })
+        .collect();
+    let elev_fn = |x: f32, z: f32| sample_sector_elevation(sector_id, x, z, water_y);
+    let road_fn = |z: f32| crate::terrain_dag_sector::sample_road_corridor_center_x(sector_id, z);
 
-    // 4. Dense Multi-Stratum Ground Cover: Cosserat Tussock Grasses (*Themeda triandra*, *Poa*),
-    // Riparian Rushes (*Juncus*), and Submerged Benthic *Vallisneria* Ribbon Weed on the riverbed!
-    for i in 0..240 {
-        let fi = i as f32;
-        let x = -1.78 + 3.56 * hash21(fi * 4.3, 7.1);
-        let z = -1.78 + 3.56 * hash21(fi * 8.9, 2.7);
-        let meander_g = 0.28 * (z * 1.35 + sector_seed).sin()
-            + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
-        if (x - (meander_g + 0.54)).abs() < 0.16 {
-            continue;
-        }
-        let y = sample_sector_elevation(sector_id, x, z, water_y);
-        if y < water_y - 0.03 {
-            // Submerged benthic *Vallisneria australis* ribbon weed waving on the riverbed
-            b_foliage.add_cosserat_grass_tuft(
-                [x, y, z],
-                6,
-                (water_y - y - 0.02).clamp(0.04, 0.22),
-                0.05,
-                [0.08, 0.34, 0.20, 1.0],
-                [0.18, 0.58, 0.32, 1.0],
-                fi,
-            );
-        } else if y < water_y + 0.10 {
-            // Riparian *Juncus usitatus* rushes & *Carex* sedges along the water's edge
-            b_foliage.add_cosserat_grass_tuft(
-                [x, y, z],
-                8,
-                0.11,
-                0.06,
-                [0.16, 0.38, 0.16, 1.0],
-                [0.34, 0.62, 0.24, 1.0],
-                fi,
-            );
-        } else {
-            // *Themeda triandra* Kangaroo Grass & *Poa sieberiana* Snow Grass tussocks
-            let is_themeda = i % 2 == 0;
-            let (col_b, col_t) = if is_themeda {
-                ([0.36, 0.34, 0.16, 1.0], [0.68, 0.56, 0.26, 1.0])
-            } else {
-                ([0.22, 0.38, 0.18, 1.0], [0.46, 0.64, 0.30, 1.0])
-            };
-            b_foliage.add_cosserat_grass_tuft([x, y, z], 7, 0.085, 0.065, col_b, col_t, fi);
-        }
-    }
-
-    // 5. Articulated 3D Fauna Specimens across Terrestrial, Aerial, and Underwater Strata
-    // Eastern Grey Kangaroos (*Macropus giganteus*) in the off-road grassy woodland clearing beside the road
-    for (kx_off, kz, kyaw, is_road_side) in [
-        (0.24_f32, 0.16_f32, -2.35_f32, true),
-        (0.32_f32, -0.12_f32, -1.95_f32, true),
-        (-0.68_f32, 0.35_f32, 0.85_f32, false),
-    ] {
-        let meander_k = 0.28 * (kz * 1.35 + sector_seed).sin()
-            + 0.11 * (kz * 2.7 - sector_seed * 0.6).cos();
-        let kx = if is_road_side {
-            meander_k + 0.54 + kx_off
-        } else {
-            kx_off
-        };
-        let ky = sample_sector_elevation(sector_id, kx, kz, water_y).max(water_y + 0.08);
-        b_fauna.add_fauna_specimen(
-            [kx, ky, kz],
-            kyaw,
-            SECTOR_METRIC_SCALE,
-            "macropod",
-            [0.42, 0.35, 0.28, 1.0],
-            [0.68, 0.58, 0.46, 1.0],
-        );
-    }
-    // Common Wombats (*Vombatus ursinus*) foraging near tussock grass
-    for (wx, wz, wyaw) in [(-0.55_f32, -0.32_f32, 0.45_f32), (0.38_f32, 0.65_f32, -0.85_f32)] {
-        let wy = sample_sector_elevation(sector_id, wx, wz, water_y);
-        b_fauna.add_fauna_specimen(
-            [wx, wy, wz],
-            wyaw,
-            SECTOR_METRIC_SCALE,
-            "wombat",
-            [0.28, 0.22, 0.18, 1.0],
-            [0.46, 0.38, 0.30, 1.0],
-        );
-    }
-    // Submerged Platypus (*Ornithorhynchus anatinus*) & Murray Cod (*Maccullochella peelii*) inside the river!
-    for (uz, uyaw, is_cod) in [(-0.45_f32, 0.2_f32, false), (0.35_f32, -0.3_f32, true)] {
-        let ux = 0.28 * (uz * 1.35 + 1.1).sin();
-        let bed_y = sample_sector_elevation(sector_id, ux, uz, water_y);
-        let swim_y = (bed_y + 0.08).min(water_y - 0.04);
-        let (cd, cl) = if is_cod {
-            ([0.16, 0.34, 0.20, 1.0], [0.36, 0.58, 0.32, 1.0])
-        } else {
-            ([0.26, 0.18, 0.12, 1.0], [0.44, 0.32, 0.22, 1.0])
-        };
-        let arch = if is_cod { "cod" } else { "platypus" };
-        b_fauna.add_fauna_specimen([ux, swim_y, uz], uyaw, SECTOR_METRIC_SCALE, arch, cd, cl);
-    }
-    // Soaring Wedge-Tailed Eagle (*Aquila audax*) & Sulphur-Crested Cockatoo overhead
-    b_fauna.add_fauna_specimen(
-        [-0.25, 0.58, -0.15],
-        0.55,
-        SECTOR_METRIC_SCALE,
-        "raptor",
-        [0.22, 0.16, 0.12, 1.0],
-        [0.44, 0.32, 0.22, 1.0],
+    // 3b & 4. Build Multi-Stratum Botanical Trees (`tapered_branch_field_into`), 6-Segment Falcate Leaves,
+    // Tree Ferns, Grass Trees, Fallen Logs, Cosserat Tussocks & Submerged *Vallisneria*
+    crate::botanical_field_builder::build_sector_botanical_stratum(
+        sector_id,
+        water_y,
+        &veg_roots_and_heights,
+        &elev_fn,
+        &road_fn,
+        &mut b_trunks,
+        &mut b_foliage,
     );
-    b_fauna.add_fauna_specimen(
-        [0.32, 0.48, 0.25],
-        -0.75,
-        SECTOR_METRIC_SCALE,
-        "raptor",
-        [0.88, 0.88, 0.84, 1.0],
-        [0.98, 0.96, 0.62, 1.0],
+
+    // 5. Multi-Station Lofted 3D Fauna Specimens across Terrestrial, Aerial, and Underwater Strata
+    crate::zoological_loft_builder::build_sector_fauna_population(
+        sector_id,
+        water_y,
+        &elev_fn,
+        &road_fn,
+        &mut b_fauna,
     );
 
     // For `three_mile_dam` (GPR & Trophic HUD `0x02`/`0x05`), synthesize 3D volumetric Ground-Penetrating
     // Radar dielectric wave-reflector ribbons and Trophic Energy-Flow arcs across the valley!
     if sector_id == "three_mile_dam" {
-        for r_idx in 0..7 {
-            let z_line = -0.95 + (r_idx as f32) * 0.32;
+        for r_idx in 0..5 {
+            let z_line = -1.25 + (r_idx as f32) * 0.25;
             let mut gpr_axis = Vec::with_capacity(16);
             let mut gpr_st = Vec::with_capacity(16);
             for s in 0..16 {
                 let u = s as f32 / 15.0;
-                let x = -1.25 + u * 2.50;
+                let x = -1.15 + u * 2.30;
                 let y_surf = sample_sector_elevation(sector_id, x, z_line, water_y);
-                let wave = 0.035 * (x * 7.5 + r_idx as f32).cos();
+                let wave = 0.018 * (x * 7.5 + r_idx as f32).cos();
                 gpr_axis.push(Point3::new(
                     x as f64,
-                    (y_surf + 0.03 + wave) as f64,
+                    (y_surf + 0.015 + wave) as f64,
                     z_line as f64,
                 ));
                 gpr_st.push(ExtrusionStation {
-                    scale_x: 0.014,
-                    scale_y: 0.008,
+                    scale_x: 0.0045,
+                    scale_y: 0.0025,
                     twist_rad: 0.0,
                 });
             }
@@ -3154,9 +2628,8 @@ pub fn build_sector_10d(
         }
         // Golden Trophic Energy-Flow parabolic arcs connecting primary producers (flora) to herbivores & apex raptors
         for &(p0, p1, apex_h) in &[
-            ([-0.65_f32, 0.05_f32, 0.25_f32], [0.44_f32, 0.02_f32, 0.22_f32], 0.42_f32),
-            ([0.44_f32, 0.02_f32, 0.22_f32], [-0.25_f32, 0.58_f32, -0.15_f32], 0.72_f32),
-            ([0.62_f32, 0.04_f32, -0.18_f32], [0.32_f32, 0.48_f32, 0.25_f32], 0.64_f32),
+            ([-0.65_f32, 0.05_f32, -0.35_f32], [0.85_f32, 0.02_f32, -0.10_f32], 0.34_f32),
+            ([0.85_f32, 0.02_f32, -0.10_f32], [-0.25_f32, 0.58_f32, -0.25_f32], 0.52_f32),
         ] {
             let mut arc_axis = Vec::with_capacity(14);
             let mut arc_st = Vec::with_capacity(14);
@@ -3165,7 +2638,7 @@ pub fn build_sector_10d(
                 let x = p0[0] * (1.0 - t) + p1[0] * t;
                 let z = p0[2] * (1.0 - t) + p1[2] * t;
                 let y = p0[1] * (1.0 - t) + p1[1] * t + 4.0 * t * (1.0 - t) * apex_h;
-                let r = (0.013 * (1.0 - 0.35 * (t - 0.5).abs())) as f64;
+                let r = (0.0055 * (1.0 - 0.35 * (t - 0.5).abs())) as f64;
                 arc_axis.push(Point3::new(x as f64, y as f64, z as f64));
                 arc_st.push(ExtrusionStation {
                     scale_x: r,
@@ -3183,42 +2656,24 @@ pub fn build_sector_10d(
         }
     }
 
-    // 5b. Australian Roadside Reflector Guideposts along the Banked Hermite Corridor
-    for gp in 0..16 {
-        let z_gp = -1.70 + (gp as f32 / 15.0) * 3.40;
-        if z_gp > z_max - 0.08 {
-            continue;
-        }
-        let meander_gp = 0.28 * (z_gp * 1.35 + sector_seed).sin()
-            + 0.11 * (z_gp * 2.7 - sector_seed * 0.6).cos();
-        for side in [-1.0_f32, 1.0_f32] {
-            let x_gp = meander_gp + 0.54 + side * 0.082;
-            let y_gp = sample_sector_elevation(sector_id, x_gp, z_gp, water_y);
-            // White timber/PVC post
-            b_lithology.add_local_box(
-                [x_gp - 0.005, y_gp, z_gp - 0.005],
-                [x_gp + 0.005, y_gp + 0.042, z_gp + 0.005],
-                [0.88, 0.88, 0.86, 1.0],
-                [0.98, 0.98, 0.96, 1.0],
-            );
-            // Red/White reflector cap
-            let ref_col = if side < 0.0 {
-                [0.95, 0.16, 0.12, 1.0]
-            } else {
-                [0.98, 0.86, 0.20, 1.0]
-            };
-            b_lithology.add_local_box(
-                [x_gp - 0.006, y_gp + 0.034, z_gp - 0.006],
-                [x_gp + 0.006, y_gp + 0.044, z_gp + 0.006],
-                ref_col,
-                ref_col,
-            );
-        }
-    }
+    // 5b. Dedicated Cambered Road Ribbon, Shoulders, W-Beam Guardrails, Culverts, Retaining Cribs & Timber Deck
+    crate::cad_actors_corridor::build_engineered_road_and_furniture(
+        sector_id,
+        water_y,
+        z_max,
+        &elev_fn,
+        &road_fn,
+        &mut b_terrain,
+        &mut b_lithology,
+        &mut b_trunks,
+    );
 
-    // 5c. Build Dynamic 3D 4WD Field Rover & 3D Field Ecologist Bushwalker Actors (`b_actors`)
+    // 5c. Build Dynamic 3D CAD 4WD Field Rover & 3D Field Ecologist Bushwalker Actors (`b_actors`)
     let mut rover_template = SubmeshBuilder::new();
-    rover_template.add_field_rover_4wd_local(SECTOR_METRIC_SCALE);
+    crate::cad_actors_corridor::build_cad_field_rover_4wd_local(
+        &mut rover_template,
+        SECTOR_METRIC_SCALE,
+    );
     // Orient for driving physics in WASM ([lp[2], lp[1], lp[0]]) so +Z is forward:
     let rover_local_positions: Vec<[f32; 3]> = rover_template
         .positions
@@ -3227,15 +2682,16 @@ pub fn build_sector_10d(
         .collect();
 
     let mut walker_template = SubmeshBuilder::new();
-    walker_template.add_ecologist_walker_local(SECTOR_METRIC_SCALE);
+    crate::cad_actors_corridor::build_cad_ecologist_walker_local(
+        &mut walker_template,
+        SECTOR_METRIC_SCALE,
+    );
     let walker_local_positions = walker_template.positions.clone();
 
-    // Place the initial 4WD Rover and Ecologist Walker on the banked road corridor at z = 0.0 / z = 0.18
+    // Place the initial 4WD Rover and Ecologist Walker on the cambered road ribbon at z = 0.0 / z = 0.18
     let z_r0 = 0.0_f32;
-    let x_r0 = 0.28 * (z_r0 * 1.35 + sector_seed).sin()
-        + 0.11 * (z_r0 * 2.7 - sector_seed * 0.6).cos()
-        + 0.54;
-    let y_r0 = sample_sector_elevation(sector_id, x_r0, z_r0, water_y);
+    let x_r0 = crate::terrain_dag_sector::sample_road_corridor_center_x(sector_id, z_r0);
+    let y_r0 = sample_sector_elevation(sector_id, x_r0, z_r0, water_y) + 0.0045;
     let rover_local_start = b_actors.positions.len();
     for i in 0..rover_template.positions.len() {
         let lp = rover_template.positions[i];
@@ -3255,7 +2711,7 @@ pub fn build_sector_10d(
 
     let z_w0 = 0.18_f32;
     let x_w0 = x_r0 - 0.09;
-    let y_w0 = sample_sector_elevation(sector_id, x_w0, z_w0, water_y);
+    let y_w0 = sample_sector_elevation(sector_id, x_w0, z_w0, water_y) + 0.0045;
     let walker_local_start = b_actors.positions.len();
     for i in 0..walker_template.positions.len() {
         let lp = walker_template.positions[i];
@@ -3321,7 +2777,7 @@ pub fn build_sector_10d(
         (
             "04-fauna-specimens",
             b_fauna,
-            tex_bark,
+            [0; 32],
             0.58_f32,
             0.02_f32,
             false,
@@ -3330,7 +2786,7 @@ pub fn build_sector_10d(
         (
             "05-rover-and-walker-actors",
             b_actors,
-            tex_pebble,
+            [0; 32],
             0.38_f32,
             0.12_f32,
             false,
@@ -3423,8 +2879,7 @@ pub fn build_sector_10d(
             let u = wx as f32 / wn as f32;
             let v = wz as f32 / wn as f32;
             let z = -extent + v * (z_max + extent);
-            let meander_x = 0.28 * (z * 1.35 + sector_seed).sin()
-                + 0.11 * (z * 2.7 - sector_seed * 0.6).cos();
+            let meander_x = crate::terrain_dag_sector::sample_river_thalweg_x(sector_id, z);
             let half_w = if sector_id == "noosa_headland" {
                 1.15_f32
             } else {
@@ -3698,6 +3153,12 @@ fn seal_mesh_to_10d(
         "application/vnd.ecopunk.vibe-scene;version=1",
         "Apache-2.0",
     );
+    let tangents = crate::pbr_material_synth::compute_scene_tangent_frames(
+        positions,
+        normals,
+        uvs,
+        indices,
+    );
     let mut bytes = compile_mesh_to_10d_with_extras_and_frames(
         &mesh,
         &[],
@@ -3705,7 +3166,7 @@ fn seal_mesh_to_10d(
         Compile10dExtras::default(),
         Some(colors),
         Some(normals),
-        None,
+        Some(&tangents),
     )
     .map_err(|e| format!("compile_mesh_to_10d: {e}"))?;
 
@@ -4066,23 +3527,28 @@ pub fn render_sector_via_portal_gpu_png(
     renderer.set_screen_space_ao(0.52, 0.72, 0.018);
     renderer.set_screen_space_ao_sample_count(16);
 
-    // Bind AG-22 EnvironmentProbeSet for diffuse sky/canopy bounce irradiance & specular reflection
-    let mut probes = EnvironmentProbeSet::new();
-    probes.push(EnvironmentProbe {
-        position: [0.0, 0.25, 0.0],
-        radius: 12.0,
-        irradiance: probe_tint,
-        specular_levels: [
-            [probe_tint[0] * 1.15, probe_tint[1] * 1.15, probe_tint[2] * 1.25],
-            probe_tint,
-            [probe_tint[0] * 0.85, probe_tint[1] * 0.85, probe_tint[2] * 0.90],
-            [probe_tint[0] * 0.70, probe_tint[1] * 0.70, probe_tint[2] * 0.75],
-            [probe_tint[0] * 0.58, probe_tint[1] * 0.58, probe_tint[2] * 0.62],
-        ],
-        dominant_direction: sector.sun_dir,
-        valid: true,
-    });
-    renderer.set_environment_probes(Some(&probes), [0.22, 0.26, 0.32]);
+    // Bind AG-22 2-Probe Sky/Ground Hemisphere EnvironmentProbeSet for diffuse bounce irradiance & specular reflection
+    let probes = if stylized_override.is_some() {
+        let mut custom = EnvironmentProbeSet::new();
+        custom.push(EnvironmentProbe {
+            position: [0.0, 2.5, 0.0],
+            radius: 12.0,
+            irradiance: probe_tint,
+            specular_levels: [
+                [probe_tint[0] * 1.15, probe_tint[1] * 1.15, probe_tint[2] * 1.25],
+                probe_tint,
+                [probe_tint[0] * 0.85, probe_tint[1] * 0.85, probe_tint[2] * 0.90],
+                [probe_tint[0] * 0.70, probe_tint[1] * 0.70, probe_tint[2] * 0.75],
+                [probe_tint[0] * 0.58, probe_tint[1] * 0.58, probe_tint[2] * 0.62],
+            ],
+            dominant_direction: sector.sun_dir,
+            valid: true,
+        });
+        custom
+    } else {
+        crate::pbr_material_synth::build_australian_high_country_probe_set(sector.sector_id)
+    };
+    renderer.set_environment_probes(Some(&probes), [0.0, 0.0, 0.0]);
 
     // Upload AG-10 water geometry once with BVH shoreline SDF distance (`shore_distance_accelerated_into`)
     // and `WATER_QUALITY_CINEMATIC` (tier 2) refractive depth-blended water & shoreline foam!

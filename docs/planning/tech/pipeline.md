@@ -5,6 +5,10 @@
 and `.hmc` packs (which carry `.10d` 3D assets and all other artefacts).
 Governance gates referenced here are specified in [governance.md](governance.md).
 
+**Evidence-led production extension, 2026-10-28:** [the species/object corpus and characterization process](evidence-led-asset-production.md) extends this acquisition/package pipeline through broad subject and shared domain knowledge, image/video/audio characterization, evidence-linked editable model parameters, independent comparisons, defect correction and native asset packaging. It reuses QualiaDB and the intended Poet workspace. The legacy tool/format/gap tables below retain their historical snapshot; their “verified” labels do not verify the current build or supersede later implementations. Reconcile the pending M64 profile fixes before the next asset export; `.m64` is not interchangeable with `.10d` or a generic wrapper.
+
+**Source namespace and symbolic-inference requirement, 2026-10-28:** follow the [source-to-inference contract](evidence-led-asset-production.md#7-source-namespaces-and-native-symbolic-inference): preserve upstream RDF namespaces; map non-RDF schemas/records into source-qualified vocabularies with provenance; and make the Q42 corpus usable by existing QualiaDB logic systems. Keep source assertions, mappings and derived conclusions distinguishable, with inspectable reasoning and human adoption/review. This is a required contract, not a claim of executed end-to-end qualification.
+
 **Governing clarification, 2026-10-24:** the production pipeline is native
 QualiaDB/custom-stack tooling with Vibe/Poet authoring, without required
 JavaScript, Node.js or V8. Complete species output is an HMC embodiment containing

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-29",
+  "candidate": "white-gum-review-r1",
+  "working_taxon": "Eucalyptus dalrympleana",
+  "candidate_image": "assets/production-studies/white-gum-review-r1/previews/whole-tree-r1.png",
+  "candidate_image_sha256": "612f1f86146eb26cb71ec3d24b37dd6a8f028d9b2a8c142740f1dfb3ab2e1f2a",
+  "google_comparison": {
+    "query": "white gumtree",
+    "method": "Actual screenshot of the Google Images tab opened by the user inspected",
+    "qualification": "Search results mix Eucalyptus scoparia, rossii, alba and other taxa; they do not establish one species identity"
+  },
+  "identified_photos_visually_inspected": [
+    {
+      "page": "https://www.treesandshrubsonline.org/articles/eucalyptus/eucalyptus-dalrympleana/",
+      "image": "https://www.treesandshrubsonline.org/site/assets/files/5396/eucalyptus-dalrympleana-1.jpg",
+      "caption_scope": "Kew Gardens tree planted in 1972; 23 m tall in March 2022",
+      "photographer": "Owen Johnson",
+      "method": "Opened gallery photo 6 of 10 and visually inspected browser screenshot"
+    },
+    {
+      "page": "https://www.treesandshrubsonline.org/articles/eucalyptus/eucalyptus-dalrympleana/",
+      "image": "https://www.treesandshrubsonline.org/site/assets/files/5396/eucalyptus-dalrympleana-9.jpg",
+      "caption_scope": "Young planting in Exeter, UK; August 2026",
+      "photographer": "Owen Johnson",
+      "method": "Opened gallery photo 10 of 10 and visually inspected browser screenshot"
+    }
+  ],
+  "botanical_reference": "https://plantnet.rbgsyd.nsw.gov.au/cgi-bin/NSWfl.pl?lvl=sp&name=Eucalyptus~dalrympleana&page=nswfl",
+  "observed_mismatches": [
+    "Sparse repeated radial foliage hubs instead of a deep crown with connected branching and substantial hanging foliage",
+    "Uniform fork and bare twig patterns look mechanically repeated",
+    "Flat pale trunk lacks the species bark colour variation, shedding and surface character",
+    "Basal protrusions do not demonstrate a complete root collar and root system"
+  ],
+  "limits": "Photographs are references, not measured geometry or permission to copy assets. Cultivated trees differ in age and conditions; even the inspected young tree shows a substantially different crown structure. Species identity cannot be validated from pale bark alone. Wind/root mechanics are not demonstrated by photographs.",
+  "disposition": "Does not convincingly represent the selected species; revision required",
+  "human_review": "User rejected r1 quality before requesting this comparison"
+}

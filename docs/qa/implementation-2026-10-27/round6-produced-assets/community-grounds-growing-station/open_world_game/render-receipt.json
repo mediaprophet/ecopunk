@@ -1,0 +1,219 @@
+{
+  "checks": {
+    "accepted_source_sha256": "725b947930461cbec8c2877922b834cea5f4aa4902b10b5feb4fcdc80013bdeb",
+    "compiled_sha256": "c711210da671f16108734c012790d670a743f8507ee53bef28c55022a1b3dfc1",
+    "fixture_only": true,
+    "hmc_sha256": "7cf346ea3a39c7a5c218759eedca06bd48979da543fa47b0460409704a0b8b1a",
+    "m64_sha256": "efc518a71fc27862271d357779ccce600878e50cacdc6e2db78e40f8e0155e59",
+    "m64_verification": {
+      "chunks": 1,
+      "record_crc_checked": 4096,
+      "records_without_checksum": 0,
+      "total_file_size": 262400,
+      "total_records": 4096,
+      "version": 3
+    },
+    "materials": 9,
+    "parts": 199,
+    "performed_checks": [
+      "fresh process canonical HMC source reopen under fresh signed reviewer challenge",
+      "current exact target and explicit distinct reviewer grant",
+      "master/preset/source SHA256 witnesses match HMC",
+      "accepted-source reconstruction produces exact packaged .10d bytes",
+      "native .10d integrity, normals, UV and material-range decode",
+      "native .q42 unified volume decode, block verification and NQuin ECC parity check",
+      "native .m64 Matter-64 v3 container CRC-32C directory/chunk verification via M64Reader",
+      "stable semantic IDs cover every authored part and package range",
+      "source/execution/authority publication guards current"
+    ],
+    "principal": "software-fixture-reviewer",
+    "principal_kind": "SoftwareAgent",
+    "q42_blocks": 1,
+    "q42_quins": 15,
+    "q42_sha256": "5d4e0cbbcd57bb6e6d8072e169766ff894c1da31516a421f313426a2c160e57b",
+    "quality_status": "unassessed; no master, human, whole-HMC or consumer acceptance",
+    "ranges": 199,
+    "source_cells": 6,
+    "source_target": {
+      "author_subject": "software-fixture-author",
+      "document_id": "urn:poet:software-fixture:cg-gs:33624-1793184960754075800:document",
+      "project_id": "urn:poet:software-fixture:cg-gs:33624-1793184960754075800",
+      "revision": 7,
+      "source_digest": [
+        66,
+        11,
+        38,
+        26,
+        175,
+        207,
+        10,
+        24,
+        59,
+        120,
+        50,
+        168,
+        242,
+        249,
+        96,
+        128,
+        26,
+        28,
+        238,
+        159,
+        120,
+        55,
+        153,
+        253,
+        118,
+        83,
+        94,
+        33,
+        138,
+        136,
+        137,
+        130
+      ],
+      "source_id": "urn:poet:software-fixture:cg-gs:33624-1793184960754075800:source"
+    },
+    "triangles": 34672,
+    "vertices": 104016
+  },
+  "image_scope": "1280x720 (16:9) inspection views; not a master quality ceiling",
+  "images": [
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 4.5,
+        "pitch": 0.3199999928474426,
+        "target": [
+          0.0,
+          0.8799999952316284,
+          0.0
+        ],
+        "yaw": 0.6499999761581421
+      },
+      "exposure_ev": 0.0,
+      "file": "images/hero.png",
+      "floor_geometry": "none",
+      "height": 720,
+      "native_pipeline": "PortalGpu offscreen 1280x720 (16:9)/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "d15f154437cd9b59491de95a87fe48ef7ae0e9e9f25b21b5b809da0b2be3fc9f",
+      "screen_space_ao": true,
+      "sha256": "4ca7e76a3cd0720c45cad796c8bff2a0b3d2251c8e798b1039fa847eab86b0c1",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1280
+    },
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 4.5,
+        "pitch": 0.3199999928474426,
+        "target": [
+          0.0,
+          0.8799999952316284,
+          0.0
+        ],
+        "yaw": 3.791592597961426
+      },
+      "exposure_ev": 0.0,
+      "file": "images/opposite.png",
+      "floor_geometry": "none",
+      "height": 720,
+      "native_pipeline": "PortalGpu offscreen 1280x720 (16:9)/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "01ecb152a14a71896745c090c02aa8b7ed69ef261792169815833311c133233d",
+      "screen_space_ao": true,
+      "sha256": "e5cdc874ab8f343add313a72792263dc9c59ea875e236bea5c2fb8649efec823",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1280
+    },
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 1.649999976158142,
+        "pitch": 0.6200000047683716,
+        "target": [
+          0.0,
+          1.4600000381469727,
+          -0.14000000059604645
+        ],
+        "yaw": 0.44999998807907104
+      },
+      "exposure_ev": 0.0,
+      "file": "images/channel-closeup.png",
+      "floor_geometry": "none",
+      "height": 720,
+      "native_pipeline": "PortalGpu offscreen 1280x720 (16:9)/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "b73c19052e7ee96f46e3860090c64edfe303a941161bdaa6092bebb8a05b765c",
+      "screen_space_ao": true,
+      "sha256": "314a9874a067cb2a16ce7e11b349fed98c945d547f94b2e82d4a9c9f594b4a71",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1280
+    },
+    {
+      "acceptance": "unassessed",
+      "ambient": 0.12999999523162842,
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 1.399999976158142,
+        "pitch": 0.1599999964237213,
+        "target": [
+          0.0,
+          0.36000001430511475,
+          -0.30000001192092896
+        ],
+        "yaw": 0.3499999940395355
+      },
+      "exposure_ev": 0.0,
+      "file": "images/cabinet-closeup.png",
+      "floor_geometry": "none",
+      "height": 720,
+      "native_pipeline": "PortalGpu offscreen 1280x720 (16:9)/material ranges/authored normals/UV0/native PNG",
+      "rgba_sha256": "72efb5043d975f81dded964c3bd4d2bbbd702a40408b900884e55610902e5f00",
+      "screen_space_ao": true,
+      "sha256": "d79bd6cceafd15c67b0f290b20ef25e2e3c92ab4bd3727c59afba286c7c9edda",
+      "shadows": true,
+      "sun": {
+        "direction": [
+          0.44999998807907104,
+          0.8199999928474426,
+          0.3499999940395355
+        ],
+        "intensity": 2.200000047683716
+      },
+      "width": 1280
+    }
+  ],
+  "lighting": "explicit synthetic constant prefiltered neutral probe plus native sun/AO/shadows; no photographic environment",
+  "render_source": "decoded .10d resource from reopened HMC; not regenerated mesh",
+  "review_status": "pending"
+}

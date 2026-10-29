@@ -1,0 +1,224 @@
+{
+  "schema": "ecopunk-cargo-feature-decoupling-manifest/v1",
+  "job_id": "P1-W2",
+  "phase_id": "PHASE-1",
+  "title": "QualiaDB Monolith Feature-Gate Decoupling for Fast Incremental Builds",
+  "timestamp": "2026-10-28T12:00:00Z",
+  "author": "qualia-core-worker",
+  "target_crate": {
+    "package_name": "qualia-core-db",
+    "manifest_path": "C:/github/qualiaDB/crates/qualia-core-db/Cargo.toml",
+    "root_lib": "C:/github/qualiaDB/crates/qualia-core-db/src/lib.rs",
+    "current_version": "0.0.40"
+  },
+  "executive_summary": {
+    "problem": "Cold scientific domains (quantum chemistry, DFT/SCF, bioinformatics, financial modeling, QPU bridge) currently contribute to a ~40-minute monolith compile time and slow incremental authoring cycles in Poet/Aether viewports.",
+    "solution": "Two-phase decoupling: (1) Module-level capability masks and leaf-module isolation implemented in P1-W2 (zero broken re-exports under current/default builds); (2) Coordinator-staged Cargo.toml features and caller stubbing in webizen.rs/mcp/poet_host to enable sub-second incremental check times via --features minimal-fast-build.",
+    "zero_broken_caller_guarantee": "Under default builds, all 6 domain modules and all 27 specialized libraries remain compiled and exported. Zero existing test or production caller breaks."
+  },
+  "module_capability_manifest": {
+    "domains": {
+      "query_function": "crate::domains::active_domain_mask() -> u32",
+      "checker_function": "crate::domains::is_domain_active(domain_bit: u32) -> bool",
+      "name_function": "crate::domains::domain_name(domain_bit: u32) -> &'static str",
+      "bit_constants": {
+        "DOMAIN_BIOLOGICAL": "1 << 0",
+        "DOMAIN_CHEMICAL": "1 << 1",
+        "DOMAIN_FINANCIAL": "1 << 2",
+        "DOMAIN_GEOSPATIAL": "1 << 3",
+        "DOMAIN_MATHEMATICAL": "1 << 4",
+        "DOMAIN_PHYSICAL": "1 << 5"
+      },
+      "all_domains_mask": "0b0011_1111"
+    },
+    "specialized_libs": {
+      "query_function": "crate::specialized_libs::active_specialized_lib_mask() -> u32",
+      "checker_function": "crate::specialized_libs::is_specialized_lib_active(lib_bit: u32) -> bool",
+      "name_function": "crate::specialized_libs::specialized_lib_name(lib_bit: u32) -> &'static str",
+      "total_libraries": 27,
+      "isolated_leaf_modules": [
+        {
+          "module_name": "quantum_biology",
+          "bit": "LIB_QUANTUM_BIOLOGY (1 << 16)",
+          "cfg_gate": "#[cfg(all(not(target_arch = \"wasm32\"), not(feature = \"minimal-fast-build\")))]",
+          "rationale": "Zero external callers anywhere in qualia-core-db monolith. Cleanly decoupled with zero ripple."
+        }
+      ]
+    }
+  },
+  "unconditional_caller_trace": {
+    "domains": [
+      {
+        "module": "domains::biological",
+        "unconditional_callers": [
+          "src/governance/webizen/vm.rs:569 (align_sequences)",
+          "src/governance/webizen/vm.rs:704 (align_nucleotide)",
+          "src/governance/webizen/vm.rs:718 (align_protein)",
+          "src/governance/webizen/vm.rs:733 (kmer_frequencies)",
+          "src/governance/webizen/vm.rs:745 (validate_fasta_record)",
+          "src/governance/webizen/vm.rs:775 (tanimoto_similarity)",
+          "src/wasm_bridge/bio.rs:22,27,65",
+          "src/poet_host/invoke/science/bio.rs:4,30",
+          "src/mcp/mcp_tool_impls/engineering.rs:99"
+        ]
+      },
+      {
+        "module": "domains::chemical",
+        "unconditional_callers": [
+          "src/governance/webizen/vm.rs:878 (validate_smiles)",
+          "src/governance/webizen/vm.rs:890 (validate_inchi)",
+          "src/governance/webizen/vm.rs:902,905 (parse_smiles, exact_molecular_weight)",
+          "src/governance/webizen/vm.rs:920,930 (compute_logp, compute_tpsa)",
+          "src/governance/webizen/vm.rs:940,955,966,974 (compute_descriptors, Lipinski/Veber/Ghose/Egan)",
+          "src/governance/webizen/vm.rs:983,988 (detect_functional_groups, estimate_pka)",
+          "src/governance/webizen/vm.rs:1002,1009 (count_chiral_centers, circular_fingerprint)",
+          "src/governance/webizen/vm.rs:1020,1028,1036,1043 (Arrhenius, Gibbs, equilibrium, Henderson-Hasselbalch)",
+          "src/governance/webizen/vm.rs:1053,1057,1064 (atom economy, E-factor, green metrics)",
+          "src/wasm_bridge/chemistry.rs:29..216",
+          "src/poet_host/invoke/science/chem.rs:4..104",
+          "src/mcp/mcp_tool_impls/chemistry.rs:132,199",
+          "src/platform/npu_ffi.rs:241,246,247",
+          "src/services/daemon_swarm.rs:951"
+        ]
+      },
+      {
+        "module": "domains::financial",
+        "unconditional_callers": [
+          "src/governance/webizen/vm.rs:582 (run_monte_carlo_var)",
+          "src/governance/webizen/mod.rs:12 (TaxRuleSchema)",
+          "src/services/daemon.rs:410,432,439 (Monte Carlo VaR, context, bandwidth liability)",
+          "src/wasm_bridge/compute.rs:21",
+          "src/poet_host/invoke/econ/gbm_var.rs:4"
+        ]
+      },
+      {
+        "module": "domains::geospatial",
+        "unconditional_callers": [
+          "src/governance/webizen/vm.rs:1226 (CanvasRightsModel::validate_placement)",
+          "src/lib.rs:1691 (SpatiotemporalQuadTree, embed_h3_context in tests)",
+          "src/render/terrain_seam_tests.rs:8 (generate_terrain_mesh, TerrainMesh)"
+        ]
+      },
+      {
+        "module": "domains::mathematical",
+        "unconditional_callers": [
+          "src/lib.rs:1789 (VectorSectorMap, extract_spatial_projection in tests)",
+          "src/platform/npu_ffi.rs:192,199,206,208 (LorentzVector, MinPlusVoronoiCell)"
+        ]
+      },
+      {
+        "module": "domains::physical",
+        "unconditional_callers": [
+          "src/governance/webizen/vm.rs:490 (ThermodynamicSampler)",
+          "src/poet_host/invoke/science/physics_workbench.rs:4"
+        ]
+      }
+    ],
+    "specialized_libs_cold": [
+      {
+        "module": "specialized_libs::chemistry_modeling",
+        "unconditional_callers": [
+          "src/mcp/mcp_tool_impls/chemistry.rs:5,19,61 (QuantumMethodType, ChemistryError)",
+          "src/poet_host/invoke/science/chem.rs:4..104",
+          "src/poet_host/invoke/science/integrals_host.rs:3,7 (IntegralEngine, GtoPrimitive)",
+          "src/poet_host/invoke/science/wave13_host.rs:8,9 (AngularMomentum, GtoPrimitive)",
+          "src/poet_host/invoke/science/wave16_host.rs:6 (gaussian_elimination)",
+          "src/poet_host/invoke/science/wave17_host.rs:7 (scf)"
+        ]
+      },
+      {
+        "module": "specialized_libs::financial_modeling",
+        "unconditional_callers": [
+          "src/poet_host/invoke/econ/ml_finance.rs:72",
+          "src/poet_host/invoke/econ/portfolio.rs:4,5 (compute_risk_metrics)"
+        ]
+      },
+      {
+        "module": "specialized_libs::qpu_bridge",
+        "unconditional_callers": [
+          "src/mcp/mcp_stub_impls.rs:462,463,477 (QPUJobStatus, QPUBridgeManager)"
+        ]
+      },
+      {
+        "module": "specialized_libs::quantum_biology",
+        "unconditional_callers": []
+      }
+    ]
+  },
+  "proposed_cargo_features_patch": {
+    "file_to_patch": "crates/qualia-core-db/Cargo.toml",
+    "insert_section": "[features]",
+    "features_to_add": {
+      "domain-bio": [],
+      "domain-chem": [],
+      "domain-fin": [],
+      "domain-geo": [],
+      "domain-math": [],
+      "domain-phys": [],
+      "domain-all": [
+        "domain-bio",
+        "domain-chem",
+        "domain-fin",
+        "domain-geo",
+        "domain-math",
+        "domain-phys"
+      ],
+      "specialized-chemistry": [],
+      "specialized-finance": [],
+      "specialized-qpu": [],
+      "specialized-quantumbio": [],
+      "minimal-fast-build": [
+        "gpu-runtime"
+      ]
+    },
+    "default_feature_update": {
+      "current": [
+        "profile_target_1024",
+        "zk-culling",
+        "gpu-runtime",
+        "gpu-native-dx12",
+        "wgsl-forge-cuda",
+        "privacy-he"
+      ],
+      "recommended": [
+        "profile_target_1024",
+        "zk-culling",
+        "gpu-runtime",
+        "gpu-native-dx12",
+        "wgsl-forge-cuda",
+        "privacy-he",
+        "domain-all",
+        "specialized-chemistry",
+        "specialized-finance",
+        "specialized-qpu",
+        "specialized-quantumbio"
+      ]
+    }
+  },
+  "coordinator_phase_gate_steps": [
+    {
+      "step": 1,
+      "description": "Coordinator applies proposed_cargo_features_patch to crates/qualia-core-db/Cargo.toml during serial mutation window.",
+      "action": "Add domain-* and specialized-* features to Cargo.toml [features] section."
+    },
+    {
+      "step": 2,
+      "description": "In src/governance/webizen/vm.rs, wrap domain opcodes with graceful fallback when domain feature is disabled.",
+      "pattern": "if !crate::domains::is_domain_active(crate::domains::DOMAIN_CHEMICAL) { return Err(ExecutionError::FeatureDisabled(\"domain-chem\")); }"
+    },
+    {
+      "step": 3,
+      "description": "In src/mcp/mcp_stub_impls.rs and src/poet_host/invoke/science/, wrap cold tool dispatches with corresponding feature guards.",
+      "pattern": "#[cfg(feature = \"specialized-chemistry\")] or fallback error response"
+    },
+    {
+      "step": 4,
+      "description": "Execute serial Cargo verification matrix at Phase Gate G-P1.",
+      "commands": [
+        "cargo check --all-targets --all-features",
+        "cargo check -p qualia-core-db --no-default-features --features minimal-fast-build,gpu-runtime",
+        "cargo test -p qualia-core-db --lib domains::tests specialized_libs::tests"
+      ]
+    }
+  ]
+}

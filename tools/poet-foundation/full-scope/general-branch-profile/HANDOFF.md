@@ -1,0 +1,16 @@
+# Staged general-branch graph candidates
+
+These are uninstalled, uncompiled and unexecuted. They introduce no change to the existing single-junction profile or its v1/v2 sources. The separate `poet.botanical.general-branch/v1` source embeds the existing v1 graph value and stores `radii_m` as one `[parent-end, child-end]` F64 pair per adopted edge, in child/source order. Editing by child organ identity changes that edge's pair only; the root has no incoming edge. This supports independent radii and taper on adjacent branches, not merely one shared node radius. Existing graph growth/pipe fields are retained for source compatibility; this diagnostic field uses the explicit edge radii, not those pipe-model values or colonization proposals.
+
+`general_adapter.rs` maps parent-before-child keys and explicit radii to existing QualiaDB tapered segments using caller-owned buffers. It bounds quadratic lookup/pair screens and rejects adjacent same-direction axes. `general_generate.rs` reuses the existing tapered field, indexed tetra extractor and budgeted topology qualifier under host-selected sample, segment, probe, topology, axis and payload caps. `general_tests.rs` supplies source-level roundtrip, independent taper and parent mapping examples; none has run.
+
+The global smooth union can merge unrelated edges and may alter intended adjacent branches. The diagnostic result explicitly marks `unqualified_global_union: true`. `general_edit.rs` refuses source publication on that result even after exact prior-projection and stream checks; its accounting calls point to the not-yet-implemented general_branch_budget owner. It is deliberately NOT a usable authoring route. An independent, conservative adjacency-aware clearance and source-correspondence qualification, along with self-contact and geometric quality policy, is required before changing this gate. A bounding box screen or topology receipt alone is not that qualification. The current copied initial-adoption route demands empty geometry, which existing native assembly admission may not make reachable; resolve explicit safe adoption with the current native owner.
+
+Coordinator must create the general budget and session binding integration, debit one aggregate operation through edit, submit and replay, expose general typed controls, preserve all other source fields and authored attributes or refuse, and independently review source/geometry correspondence. Payload caps cover accepted Vec capacity, not transient over-allocation, allocator metadata, Vibe session clones, or whole-process memory. The retained v1 recipe validator also charges old sweep-oriented bounds; do not treat them as a complete or optimal general-field budget. Do not install or claim implementation ready until these are resolved and the user-requested coding phase is complete. No build or test was run.
+
+Source pins (SHA-256):
+- general_adapter.rs: 729C3D8CBDF3610A2A3E7556083DDE1FA281B64F57A699623B12FF3EF30660D5
+- general_edit.rs: 13541A6B4585967414E98C3EBF43E1516825574BEC51513D6E13B87F530F03B9
+- general_generate.rs: 3DB3EC9CD4873F7CBD2C154E5CD18491F6CF7C7A02031DC328B693EB66ED2FF4
+- general_source.rs: D996BD3C2AFA79518ACF72731EB6F248E4611F72BCBAC716B79065A9F533F902
+- general_tests.rs: 16E6D7B980F58219D652A2EBDA3BBC3605E96B5459823781D847B80EA5EBCDDC

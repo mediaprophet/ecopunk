@@ -1,0 +1,31 @@
+{
+  "command": [
+    "wasm-pack",
+    "build",
+    "C:\\github\\ecopunk\\crates\\ecopunk-wasm",
+    "--target",
+    "web",
+    "--out-dir",
+    "C:\\github\\ecopunk\\target\\species-review-pkg",
+    "--release",
+    "--no-opt",
+    "--",
+    "--locked",
+    "--offline"
+  ],
+  "cwd": "C:\\github\\ecopunk",
+  "start_utc": "2026-10-29T09:08:14.590214Z",
+  "target": "C:\\github\\ecopunk\\target\\demo-wasm",
+  "package": "C:\\github\\ecopunk\\target\\species-review-pkg",
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-29\\species-production-round1\\wasm-build-02.log",
+  "environment_overrides": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_TARGET_DIR": "C:\\github\\ecopunk\\target\\demo-wasm"
+  },
+  "scope": "WASM review build; acceptance pending",
+  "end_utc": "2026-10-29T09:10:01.591388Z",
+  "exit_code": 1
+}

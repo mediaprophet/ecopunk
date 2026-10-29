@@ -268,34 +268,414 @@ pub fn evaluate_anatomical_layer_peel_zero_heap(
     count
 }
 
-// ── Mesh Accumulator & Geometry Generators ───────────────────────────────────
+// ── Mesh Accumulator & Anatomical Loft Generators ────────────────────────────
 
-struct MeshAccumulator {
-    positions: Vec<[f32; 3]>,
-    normals: Vec<[f32; 3]>,
-    colors: Vec<[f32; 4]>,
-    uvs: Vec<[f32; 2]>,
-    indices: Vec<u32>,
-    layer_tags: Vec<ZoologicalAnatomicalLayer>,
-    joint_indices: Vec<[u16; 4]>,
-    joint_weights: Vec<[f32; 4]>,
+/// Single cross-section ring station for multi-station anatomical lofting in `AnatomyMeshAccumulator`.
+#[derive(Clone, Copy, Debug)]
+pub struct AnatomicalLoftRing {
+    /// Station 3D center `[x, y, z]`.
+    pub center: [f32; 3],
+    /// Lateral half-width (`rx`) and dorsoventral half-height (`ry`).
+    pub radii: [f32; 2],
+    /// Dorsal color (top of cross-section).
+    pub dorsal_color: [f32; 4],
+    /// Mid-flank color (sides of cross-section).
+    pub flank_color: [f32; 4],
+    /// Ventral color (underside of cross-section).
+    pub ventral_color: [f32; 4],
+    /// Primary skeletal joint index.
+    pub primary_joint: usize,
+    /// Secondary skeletal joint index.
+    pub secondary_joint: usize,
+    /// Primary skeletal joint weight `[0.0, 1.0]`.
+    pub primary_weight: f32,
 }
 
-impl MeshAccumulator {
-    fn new() -> Self {
+#[inline]
+fn lerp_rgba(a: [f32; 4], b: [f32; 4], t: f32) -> [f32; 4] {
+    let u = t.clamp(0.0, 1.0);
+    [
+        a[0] + (b[0] - a[0]) * u,
+        a[1] + (b[1] - a[1]) * u,
+        a[2] + (b[2] - a[2]) * u,
+        a[3] + (b[3] - a[3]) * u,
+    ]
+}
+
+#[inline]
+fn sample_countershade(
+    dorsal: [f32; 4],
+    flank: [f32; 4],
+    ventral: [f32; 4],
+    sin_theta: f32,
+) -> [f32; 4] {
+    if sin_theta >= 0.0 {
+        lerp_rgba(flank, dorsal, sin_theta.clamp(0.0, 1.0).powf(0.75))
+    } else {
+        lerp_rgba(flank, ventral, (-sin_theta).clamp(0.0, 1.0).powf(0.70))
+    }
+}
+
+/// High-resolution anatomical mesh accumulator supporting multi-station elliptical lofts,
+/// bicondylar long bones, curved costal rib arches, fusiform muscle bellies with tendons,
+/// internal viscera, and countershaded integument envelopes.
+pub struct AnatomyMeshAccumulator {
+    pub positions: Vec<[f32; 3]>,
+    pub normals: Vec<[f32; 3]>,
+    pub colors: Vec<[f32; 4]>,
+    pub uvs: Vec<[f32; 2]>,
+    pub indices: Vec<u32>,
+    pub layer_tags: Vec<ZoologicalAnatomicalLayer>,
+    pub joint_indices: Vec<[u16; 4]>,
+    pub joint_weights: Vec<[f32; 4]>,
+}
+
+type MeshAccumulator = AnatomyMeshAccumulator;
+
+impl AnatomyMeshAccumulator {
+    pub fn new() -> Self {
         Self {
-            positions: Vec::with_capacity(3600),
-            normals: Vec::with_capacity(3600),
-            colors: Vec::with_capacity(3600),
-            uvs: Vec::with_capacity(3600),
-            indices: Vec::with_capacity(7200),
-            layer_tags: Vec::with_capacity(3600),
-            joint_indices: Vec::with_capacity(3600),
-            joint_weights: Vec::with_capacity(3600),
+            positions: Vec::with_capacity(6400),
+            normals: Vec::with_capacity(6400),
+            colors: Vec::with_capacity(6400),
+            uvs: Vec::with_capacity(6400),
+            indices: Vec::with_capacity(14400),
+            layer_tags: Vec::with_capacity(6400),
+            joint_indices: Vec::with_capacity(6400),
+            joint_weights: Vec::with_capacity(6400),
         }
     }
 
-    fn push_cylinder(
+    /// Sweeps a multi-station anatomical loft with smooth Bishop-like frames, analytical normals,
+    /// end caps, and dorsal–flank–ventral countershading.
+    pub fn push_countershaded_loft(
+        &mut self,
+        stations: &[AnatomicalLoftRing],
+        radial_segs: usize,
+        layer: ZoologicalAnatomicalLayer,
+        cap_ends: bool,
+    ) {
+        if stations.len() < 2 {
+            return;
+        }
+        let r_segs = radial_segs.max(6);
+        let n_st = stations.len();
+        let stride = (r_segs + 1) as u32;
+        let base_idx = self.positions.len() as u32;
+
+        for (si, st) in stations.iter().enumerate() {
+            let prev = if si > 0 {
+                stations[si - 1].center
+            } else {
+                stations[0].center
+            };
+            let next = if si + 1 < n_st {
+                stations[si + 1].center
+            } else {
+                stations[n_st - 1].center
+            };
+            let mut tx = next[0] - prev[0];
+            let mut ty = next[1] - prev[1];
+            let mut tz = next[2] - prev[2];
+            let tlen = (tx * tx + ty * ty + tz * tz).sqrt().max(1e-5);
+            tx /= tlen;
+            ty /= tlen;
+            tz /= tlen;
+
+            let ref_up = if ty.abs() < 0.92 {
+                [0.0_f32, 1.0_f32, 0.0_f32]
+            } else {
+                [0.0_f32, 0.0_f32, 1.0_f32]
+            };
+            let mut ux = ref_up[1] * tz - ref_up[2] * ty;
+            let mut uy = ref_up[2] * tx - ref_up[0] * tz;
+            let mut uz = ref_up[0] * ty - ref_up[1] * tx;
+            let ulen = (ux * ux + uy * uy + uz * uz).sqrt().max(1e-5);
+            ux /= ulen;
+            uy /= ulen;
+            uz /= ulen;
+
+            let vx = ty * uz - tz * uy;
+            let vy = tz * ux - tx * uz;
+            let vz = tx * uy - ty * ux;
+
+            let rx = st.radii[0].max(1e-4);
+            let ry = st.radii[1].max(1e-4);
+            let w1 = st.primary_weight.clamp(0.0, 1.0);
+            let w2 = 1.0 - w1;
+            let v_uv = si as f32 / (n_st - 1) as f32;
+
+            for s in 0..=r_segs {
+                let u_uv = s as f32 / r_segs as f32;
+                let theta = u_uv * core::f32::consts::TAU;
+                let ct = theta.cos();
+                let st_sin = theta.sin();
+
+                let px = st.center[0] + ux * (rx * ct) + vx * (ry * st_sin);
+                let py = st.center[1] + uy * (rx * ct) + vy * (ry * st_sin);
+                let pz = st.center[2] + uz * (rx * ct) + vz * (ry * st_sin);
+
+                let nx = ux * (ct / rx) + vx * (st_sin / ry);
+                let ny = uy * (ct / rx) + vy * (st_sin / ry);
+                let nz = uz * (ct / rx) + vz * (st_sin / ry);
+                let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-5);
+
+                let col = sample_countershade(
+                    st.dorsal_color,
+                    st.flank_color,
+                    st.ventral_color,
+                    st_sin,
+                );
+
+                self.positions.push([px, py, pz]);
+                self.normals.push([nx / nlen, ny / nlen, nz / nlen]);
+                self.colors.push(col);
+                self.uvs.push([u_uv, v_uv]);
+                self.layer_tags.push(layer);
+                self.joint_indices
+                    .push([st.primary_joint as u16, st.secondary_joint as u16, 0, 0]);
+                self.joint_weights.push([w1, w2, 0.0, 0.0]);
+            }
+        }
+
+        for si in 0..(n_st - 1) as u32 {
+            for s in 0..r_segs as u32 {
+                let i00 = base_idx + si * stride + s;
+                let i10 = i00 + stride;
+                let i01 = i00 + 1;
+                let i11 = i10 + 1;
+                self.indices.extend_from_slice(&[i00, i10, i11, i00, i11, i01]);
+            }
+        }
+
+        if cap_ends {
+            let first = &stations[0];
+            let c0_idx = self.positions.len() as u32;
+            self.positions.push(first.center);
+            self.normals.push([0.0, 0.0, -1.0]);
+            self.colors.push(first.flank_color);
+            self.uvs.push([0.5, 0.0]);
+            self.layer_tags.push(layer);
+            self.joint_indices
+                .push([first.primary_joint as u16, first.secondary_joint as u16, 0, 0]);
+            self.joint_weights
+                .push([first.primary_weight, 1.0 - first.primary_weight, 0.0, 0.0]);
+            for s in 0..r_segs as u32 {
+                self.indices.extend_from_slice(&[c0_idx, base_idx + s + 1, base_idx + s]);
+            }
+
+            let last = &stations[n_st - 1];
+            let last_ring = base_idx + ((n_st - 1) as u32) * stride;
+            let c1_idx = self.positions.len() as u32;
+            self.positions.push(last.center);
+            self.normals.push([0.0, 0.0, 1.0]);
+            self.colors.push(last.dorsal_color);
+            self.uvs.push([0.5, 1.0]);
+            self.layer_tags.push(layer);
+            self.joint_indices
+                .push([last.primary_joint as u16, last.secondary_joint as u16, 0, 0]);
+            self.joint_weights
+                .push([last.primary_weight, 1.0 - last.primary_weight, 0.0, 0.0]);
+            for s in 0..r_segs as u32 {
+                self.indices
+                    .extend_from_slice(&[c1_idx, last_ring + s, last_ring + s + 1]);
+            }
+        }
+    }
+
+    /// Builds an anatomical long bone with flared proximal/distal epiphyses (condyles),
+    /// curved cortical diaphysis shaft, and periosteal shading.
+    #[allow(clippy::too_many_arguments)]
+    pub fn push_long_bone_with_epiphyses(
+        &mut self,
+        prox: [f32; 3],
+        dist: [f32; 3],
+        shaft_r: f32,
+        condyle_r: f32,
+        bow_offset: [f32; 3],
+        bone_color: [f32; 4],
+        layer: ZoologicalAnatomicalLayer,
+        primary_joint: usize,
+        secondary_joint: usize,
+    ) {
+        let cartilage_tint = [
+            (bone_color[0] * 1.04).min(0.96),
+            (bone_color[1] * 1.04).min(0.95),
+            (bone_color[2] * 1.06).min(0.94),
+            bone_color[3],
+        ];
+        let shaft_shade = [
+            bone_color[0] * 0.94,
+            bone_color[1] * 0.93,
+            bone_color[2] * 0.91,
+            bone_color[3],
+        ];
+        let mut rings = [AnatomicalLoftRing {
+            center: prox,
+            radii: [condyle_r, condyle_r],
+            dorsal_color: cartilage_tint,
+            flank_color: bone_color,
+            ventral_color: shaft_shade,
+            primary_joint,
+            secondary_joint,
+            primary_weight: 0.9,
+        }; 6];
+
+        let ts = [0.0_f32, 0.14, 0.38, 0.62, 0.86, 1.0];
+        let r_scales = [
+            (condyle_r * 1.05, condyle_r * 0.92),
+            (condyle_r * 0.82, condyle_r * 0.78),
+            (shaft_r, shaft_r * 0.94),
+            (shaft_r * 0.96, shaft_r * 0.92),
+            (condyle_r * 0.80, condyle_r * 0.76),
+            (condyle_r * 1.02, condyle_r * 0.88),
+        ];
+
+        for i in 0..6 {
+            let t = ts[i];
+            let arch = (t * core::f32::consts::PI).sin();
+            let col = if !(0.2..=0.8).contains(&t) {
+                cartilage_tint
+            } else {
+                bone_color
+            };
+            rings[i] = AnatomicalLoftRing {
+                center: [
+                    prox[0] + (dist[0] - prox[0]) * t + bow_offset[0] * arch,
+                    prox[1] + (dist[1] - prox[1]) * t + bow_offset[1] * arch,
+                    prox[2] + (dist[2] - prox[2]) * t + bow_offset[2] * arch,
+                ],
+                radii: [r_scales[i].0, r_scales[i].1],
+                dorsal_color: col,
+                flank_color: bone_color,
+                ventral_color: shaft_shade,
+                primary_joint,
+                secondary_joint,
+                primary_weight: 1.0 - 0.75 * t,
+            };
+        }
+        self.push_countershaded_loft(&rings, 8, layer, true);
+    }
+
+    /// Sweeps an anatomically curved costal rib arch from a thoracic vertebra around the barrel
+    /// to the ventral sternum, transitioning from dorsal bone to ventral costal cartilage.
+    #[allow(clippy::too_many_arguments)]
+    pub fn push_curved_rib_arch(
+        &mut self,
+        spine_p: [f32; 3],
+        sternum_p: [f32; 3],
+        lateral_span: f32,
+        rib_r: f32,
+        bone_color: [f32; 4],
+        cartilage_color: [f32; 4],
+        layer: ZoologicalAnatomicalLayer,
+        primary_joint: usize,
+        secondary_joint: usize,
+    ) {
+        let mut rings = [AnatomicalLoftRing {
+            center: spine_p,
+            radii: [rib_r, rib_r],
+            dorsal_color: bone_color,
+            flank_color: bone_color,
+            ventral_color: bone_color,
+            primary_joint,
+            secondary_joint,
+            primary_weight: 0.75,
+        }; 6];
+
+        for (i, ring) in rings.iter_mut().enumerate() {
+            let t = i as f32 / 5.0;
+            let arch_x = (t * core::f32::consts::PI).sin() * lateral_span;
+            let arch_z = (t * core::f32::consts::PI).sin() * (-0.015);
+            let col = if t > 0.68 {
+                lerp_rgba(bone_color, cartilage_color, (t - 0.68) / 0.32)
+            } else {
+                bone_color
+            };
+            *ring = AnatomicalLoftRing {
+                center: [
+                    spine_p[0] + (sternum_p[0] - spine_p[0]) * t + arch_x,
+                    spine_p[1] + (sternum_p[1] - spine_p[1]) * t.powf(0.85),
+                    spine_p[2] + (sternum_p[2] - spine_p[2]) * t + arch_z,
+                ],
+                radii: [rib_r * (0.85 + 0.25 * (1.0 - t)), rib_r * 0.68],
+                dorsal_color: col,
+                flank_color: col,
+                ventral_color: col,
+                primary_joint,
+                secondary_joint,
+                primary_weight: 0.75,
+            };
+        }
+        self.push_countershaded_loft(&rings, 6, layer, false);
+    }
+
+    /// Builds a fusiform skeletal muscle belly with tapered ivory collagen tendon attachments
+    /// at origin and insertion and a swollen striated crimson belly in the middle.
+    #[allow(clippy::too_many_arguments)]
+    pub fn push_fusiform_muscle(
+        &mut self,
+        origin: [f32; 3],
+        insertion: [f32; 3],
+        belly_rx: f32,
+        belly_ry: f32,
+        belly_bow: [f32; 3],
+        muscle_color: [f32; 4],
+        tendon_color: [f32; 4],
+        layer: ZoologicalAnatomicalLayer,
+        primary_joint: usize,
+        secondary_joint: usize,
+    ) {
+        let dark_fascia = [
+            muscle_color[0] * 0.78,
+            muscle_color[1] * 0.75,
+            muscle_color[2] * 0.75,
+            muscle_color[3],
+        ];
+        let mut rings = [AnatomicalLoftRing {
+            center: origin,
+            radii: [belly_rx * 0.22, belly_ry * 0.22],
+            dorsal_color: tendon_color,
+            flank_color: tendon_color,
+            ventral_color: tendon_color,
+            primary_joint,
+            secondary_joint,
+            primary_weight: 0.85,
+        }; 7];
+
+        for (i, ring) in rings.iter_mut().enumerate() {
+            let t = i as f32 / 6.0;
+            let fusiform = (t * core::f32::consts::PI).sin().powf(0.75);
+            let r_scale = 0.18 + 0.82 * fusiform;
+            let tendon_blend = if t < 0.20 {
+                1.0 - (t / 0.20)
+            } else if t > 0.80 {
+                (t - 0.80) / 0.20
+            } else {
+                0.0
+            };
+            let dorsal_c = lerp_rgba(muscle_color, tendon_color, tendon_blend);
+            let ventral_c = lerp_rgba(dark_fascia, tendon_color, tendon_blend);
+
+            *ring = AnatomicalLoftRing {
+                center: [
+                    origin[0] + (insertion[0] - origin[0]) * t + belly_bow[0] * fusiform,
+                    origin[1] + (insertion[1] - origin[1]) * t + belly_bow[1] * fusiform,
+                    origin[2] + (insertion[2] - origin[2]) * t + belly_bow[2] * fusiform,
+                ],
+                radii: [belly_rx * r_scale, belly_ry * r_scale],
+                dorsal_color: dorsal_c,
+                flank_color: dorsal_c,
+                ventral_color: ventral_c,
+                primary_joint,
+                secondary_joint,
+                primary_weight: 1.0 - 0.70 * t,
+            };
+        }
+        self.push_countershaded_loft(&rings, 8, layer, true);
+    }
+
+    pub fn push_cylinder(
         &mut self,
         p1: [f32; 3],
         p2: [f32; 3],
@@ -385,7 +765,7 @@ impl MeshAccumulator {
         }
     }
 
-    fn push_ellipsoid(
+    pub fn push_ellipsoid(
         &mut self,
         center: [f32; 3],
         radii: [f32; 3],
@@ -450,7 +830,7 @@ impl MeshAccumulator {
         }
     }
 
-    fn push_box(
+    pub fn push_box(
         &mut self,
         min: [f32; 3],
         max: [f32; 3],
@@ -524,6 +904,42 @@ fn make_pbr_material(
 
 // ── Main Anatomical 10D Builder ──────────────────────────────────────────────
 
+/// Silhouette-level comparative profile for the broad fauna rigs. Ratios are
+/// authored presentation defaults, not validated species measurements.
+#[derive(Clone, Copy)]
+struct ArchetypeMorphology {
+    trunk: f32,
+    body_width: f32,
+    neck: f32,
+    head: f32,
+    tail: f32,
+    forelimb: f32,
+    hindlimb: f32,
+    shoulder_span: f32,
+    patagium: f32,
+}
+
+impl ArchetypeMorphology {
+    fn for_archetype(archetype: FaunaBiomechanicalArchetype) -> Self {
+        use FaunaBiomechanicalArchetype as A;
+        match archetype {
+            A::MacropodSaltatorial => Self { trunk: 1.05, body_width: 1.05, neck: 0.9, head: 0.95, tail: 1.55, forelimb: 0.72, hindlimb: 1.32, shoulder_span: 0.9, patagium: 0.0 },
+            A::VombatidFossorial => Self { trunk: 1.05, body_width: 1.42, neck: 0.72, head: 1.12, tail: 0.35, forelimb: 0.82, hindlimb: 0.82, shoulder_span: 0.95, patagium: 0.0 },
+            A::PhascolarctidArboreal => Self { trunk: 0.95, body_width: 1.08, neck: 0.88, head: 1.05, tail: 0.62, forelimb: 1.12, hindlimb: 0.96, shoulder_span: 1.02, patagium: 0.0 },
+            A::PetauridGlider => Self { trunk: 0.92, body_width: 0.82, neck: 0.88, head: 0.92, tail: 1.3, forelimb: 1.15, hindlimb: 0.98, shoulder_span: 1.12, patagium: 0.72 },
+            A::DasyuridPredator => Self { trunk: 0.96, body_width: 0.82, neck: 1.05, head: 0.9, tail: 1.12, forelimb: 0.98, hindlimb: 1.12, shoulder_span: 0.92, patagium: 0.0 },
+            A::PteropodidChiroptera => Self { trunk: 0.82, body_width: 0.9, neck: 0.76, head: 0.84, tail: 0.42, forelimb: 1.62, hindlimb: 0.72, shoulder_span: 1.55, patagium: 1.0 },
+            A::MarinePinnipedCetacean => Self { trunk: 1.48, body_width: 0.86, neck: 0.64, head: 1.08, tail: 1.0, forelimb: 1.16, hindlimb: 0.28, shoulder_span: 1.1, patagium: 0.0 },
+            A::RatiteBipedal => Self { trunk: 1.12, body_width: 0.86, neck: 1.42, head: 0.78, tail: 0.42, forelimb: 0.58, hindlimb: 1.34, shoulder_span: 0.82, patagium: 0.0 },
+            A::RaptorSoaring => Self { trunk: 0.98, body_width: 0.88, neck: 1.08, head: 0.92, tail: 0.82, forelimb: 1.38, hindlimb: 0.82, shoulder_span: 1.42, patagium: 0.0 },
+            A::PasserinePsittacine => Self { trunk: 0.82, body_width: 0.82, neck: 0.9, head: 0.88, tail: 0.88, forelimb: 1.18, hindlimb: 0.9, shoulder_span: 1.16, patagium: 0.0 },
+            A::SquamateSprawling => Self { trunk: 1.28, body_width: 0.92, neck: 0.78, head: 0.92, tail: 1.34, forelimb: 0.72, hindlimb: 0.72, shoulder_span: 1.0, patagium: 0.0 },
+            A::SerpentineUndulatory => Self { trunk: 1.62, body_width: 0.62, neck: 0.68, head: 0.72, tail: 1.45, forelimb: 0.18, hindlimb: 0.18, shoulder_span: 0.8, patagium: 0.0 },
+            A::MonotremeTeleostAmphibian => Self { trunk: 1.08, body_width: 1.08, neck: 0.72, head: 1.0, tail: 0.9, forelimb: 0.88, hindlimb: 0.88, shoulder_span: 1.0, patagium: 0.0 },
+        }
+    }
+}
+
 /// Builds a high-resolution, 3-layer Comparative Vertebrate Anatomical Digital Twin
 /// bound to `FaunaSkeletalRig10d` (18 PGA joints) and sealed into a `.10d` Living Container.
 ///
@@ -540,7 +956,9 @@ pub fn build_scale5_vertebrate_anatomy_10d(
     explode_layer_01: f32,
 ) -> CompiledVertebrateAnatomy10d {
     let rig = FaunaSkeletalRig10d::new(archetype);
-    let (body_len, hip_height) = archetype.default_dimensions();
+    let (base_body_len, hip_height) = archetype.default_dimensions();
+    let morphology = ArchetypeMorphology::for_archetype(archetype);
+    let body_len = base_body_len * morphology.trunk;
 
     let mut acc = MeshAccumulator::new();
     let mut submesh_ranges = Vec::with_capacity(17);
@@ -548,35 +966,21 @@ pub fn build_scale5_vertebrate_anatomy_10d(
 
     // Anatomical proportions
     let spine_len = (body_len * 0.32).max(0.10);
-    let neck_len = (body_len * 0.18).max(0.06);
-    let head_len = (body_len * 0.22).max(0.08);
-    let tail_len = (body_len * 0.40).max(0.12);
-    let half_width = (body_len * 0.14).max(0.04);
-    let femur_len = (hip_height * 0.48).max(0.08);
-    let tibia_len = (hip_height * 0.54).max(0.08);
+    let neck_len = (body_len * 0.18 * morphology.neck).max(0.06);
+    let head_len = (body_len * 0.22 * morphology.head).max(0.08);
+    let tail_len = (body_len * 0.40 * morphology.tail).max(0.12);
+    let half_width = (body_len * 0.14 * morphology.body_width).max(0.04);
+    let femur_len = (hip_height * 0.48 * morphology.hindlimb).max(0.025);
+    let tibia_len = (hip_height * 0.54 * morphology.hindlimb).max(0.025);
 
     // ── LAYER 0: OSTEOLOGY (8 Regions) ───────────────────────────────────────
     let ost_start_v = acc.positions.len();
+    let bone_ivory = [0.89, 0.87, 0.81, 1.0];
+    let bone_dense = [0.85, 0.83, 0.77, 1.0];
+    let cartilage_blue = [0.82, 0.85, 0.86, 1.0];
+    let enamel_white = [0.95, 0.94, 0.91, 1.0];
+    let tendon_ivory = [0.92, 0.90, 0.85, 1.0];
 
-    // 1. Cranium & Rostrum
-    let cranium_start = acc.indices.len() as u32;
-    let cranium_head_pos = [0.0, hip_height + neck_len * 0.6, spine_len * 0.7 + neck_len];
-    let rostrum_tip = [0.0, cranium_head_pos[1] - 0.02, cranium_head_pos[2] + head_len];
-
-    // Braincase ellipsoid
-    acc.push_ellipsoid(
-        cranium_head_pos,
-        [half_width * 0.55, half_width * 0.50, head_len * 0.42],
-        12,
-        8,
-        [0.88, 0.86, 0.80, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_HEAD,
-        JOINT_NECK,
-        0.85,
-    );
-
-    // Snout / Rostrum / Beak
     let is_monotreme = archetype == FaunaBiomechanicalArchetype::MonotremeTeleostAmphibian;
     let is_avian = matches!(
         archetype,
@@ -584,52 +988,97 @@ pub fn build_scale5_vertebrate_anatomy_10d(
             | FaunaBiomechanicalArchetype::PasserinePsittacine
             | FaunaBiomechanicalArchetype::RatiteBipedal
     );
-    let rostrum_r1 = if is_monotreme { half_width * 0.45 } else { half_width * 0.35 };
-    let rostrum_r2 = if is_avian { 0.005 } else { half_width * 0.22 };
 
-    acc.push_cylinder(
-        cranium_head_pos,
-        rostrum_tip,
-        rostrum_r1,
-        rostrum_r2,
-        10,
-        3,
-        [0.86, 0.84, 0.78, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_HEAD,
-        JOINT_JAW,
-        0.90,
-    );
+    // 1. Cranium & Rostrum (Multi-Station Sculpted Neurocranium, Nasal Bridge, Rostrum & Zygomatic Arches)
+    let cranium_start = acc.indices.len() as u32;
+    let cranium_head_pos = [0.0, hip_height + neck_len * 0.6, spine_len * 0.7 + neck_len];
+    let rostrum_tip = [0.0, cranium_head_pos[1] - 0.025, cranium_head_pos[2] + head_len];
 
-    // Zygomatic arches (L+R)
-    acc.push_cylinder(
-        [-half_width * 0.48, cranium_head_pos[1] - 0.02, cranium_head_pos[2] - 0.02],
-        [-half_width * 0.42, cranium_head_pos[1] - 0.01, cranium_head_pos[2] + head_len * 0.35],
-        0.008,
-        0.006,
-        8,
-        2,
-        [0.87, 0.85, 0.79, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_HEAD,
-        JOINT_NECK,
-        0.90,
-    );
-    acc.push_cylinder(
-        [half_width * 0.48, cranium_head_pos[1] - 0.02, cranium_head_pos[2] - 0.02],
-        [half_width * 0.42, cranium_head_pos[1] - 0.01, cranium_head_pos[2] + head_len * 0.35],
-        0.008,
-        0.006,
-        8,
-        2,
-        [0.87, 0.85, 0.79, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_HEAD,
-        JOINT_NECK,
-        0.90,
-    );
+    let rostrum_rx = if is_monotreme {
+        half_width * 0.44
+    } else if is_avian {
+        half_width * 0.08
+    } else {
+        half_width * 0.20
+    };
+    let rostrum_ry = if is_monotreme {
+        half_width * 0.10
+    } else if is_avian {
+        half_width * 0.08
+    } else {
+        half_width * 0.18
+    };
 
-    let cranium_mat = make_pbr_material("mat_ost_cranium", [0.88, 0.86, 0.80, 1.0], 0.45, 0.05);
+    let cranium_loft = [
+        AnatomicalLoftRing {
+            center: [0.0, cranium_head_pos[1] - 0.01, cranium_head_pos[2] - head_len * 0.34],
+            radii: [half_width * 0.38, half_width * 0.36],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_NECK,
+            primary_weight: 0.75,
+        },
+        AnatomicalLoftRing {
+            center: cranium_head_pos,
+            radii: [half_width * 0.56, half_width * 0.50],
+            dorsal_color: bone_ivory,
+            flank_color: bone_ivory,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_NECK,
+            primary_weight: 0.90,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, cranium_head_pos[1] + 0.005, cranium_head_pos[2] + head_len * 0.32],
+            radii: [half_width * 0.44, half_width * 0.38],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_JAW,
+            primary_weight: 0.92,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, cranium_head_pos[1] - 0.012, cranium_head_pos[2] + head_len * 0.68],
+            radii: [(half_width * 0.32).max(rostrum_rx), (half_width * 0.25).max(rostrum_ry)],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_JAW,
+            primary_weight: 0.95,
+        },
+        AnatomicalLoftRing {
+            center: rostrum_tip,
+            radii: [rostrum_rx, rostrum_ry],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_JAW,
+            primary_weight: 0.98,
+        },
+    ];
+    acc.push_countershaded_loft(&cranium_loft, 12, ZoologicalAnatomicalLayer::Osteology, true);
+
+    // Sculpted Zygomatic Arches & Supraorbital Ridges (L+R)
+    for side in [-1.0_f32, 1.0_f32] {
+        acc.push_long_bone_with_epiphyses(
+            [side * half_width * 0.44, cranium_head_pos[1] - 0.02, cranium_head_pos[2] - 0.03],
+            [side * half_width * 0.38, cranium_head_pos[1] - 0.01, cranium_head_pos[2] + head_len * 0.42],
+            0.008,
+            0.012,
+            [side * half_width * 0.14, -0.008, 0.0],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_HEAD,
+            JOINT_NECK,
+        );
+    }
+
+    let cranium_mat = make_pbr_material("mat_ost_cranium", bone_ivory, 0.45, 0.05);
     materials.push(cranium_mat);
     submesh_ranges.push(SubmeshRange {
         first_index: cranium_start,
@@ -638,49 +1087,69 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:cranium_rostrum"),
     });
 
-    // 2. Mandible & Dentition (procumbent lower incisors / hypsodont molars)
+    // 2. Mandible & Dentition (Curved Mandibular Rami, Coronoid Process, Procumbent Incisors & Molars)
     let mandible_start = acc.indices.len() as u32;
     let jaw_joint_l = [-half_width * 0.40, cranium_head_pos[1] - 0.04, cranium_head_pos[2]];
     let jaw_joint_r = [half_width * 0.40, cranium_head_pos[1] - 0.04, cranium_head_pos[2]];
     let chin_pos = [0.0, cranium_head_pos[1] - 0.07, rostrum_tip[2] - 0.02];
 
-    acc.push_cylinder(
-        jaw_joint_l,
-        chin_pos,
-        half_width * 0.16,
-        half_width * 0.12,
-        8,
-        3,
-        [0.87, 0.85, 0.79, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_JAW,
-        JOINT_HEAD,
-        0.85,
-    );
-    acc.push_cylinder(
-        jaw_joint_r,
-        chin_pos,
-        half_width * 0.16,
-        half_width * 0.12,
-        8,
-        3,
-        [0.87, 0.85, 0.79, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_JAW,
-        JOINT_HEAD,
-        0.85,
-    );
+    for (side, jaw_j) in [(-1.0_f32, jaw_joint_l), (1.0_f32, jaw_joint_r)] {
+        // Mandibular ramus & body with masseteric curvature
+        acc.push_long_bone_with_epiphyses(
+            jaw_j,
+            chin_pos,
+            half_width * 0.11,
+            half_width * 0.16,
+            [side * half_width * 0.08, -0.018, 0.0],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_JAW,
+            JOINT_HEAD,
+        );
+        // Ascending coronoid process
+        acc.push_cylinder(
+            [jaw_j[0] * 0.88, jaw_j[1] - 0.01, jaw_j[2] + head_len * 0.14],
+            [jaw_j[0] * 0.84, jaw_j[1] + 0.032, jaw_j[2] + head_len * 0.10],
+            0.009,
+            0.004,
+            6,
+            2,
+            bone_dense,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_JAW,
+            JOINT_HEAD,
+            0.90,
+        );
+        // Row of 4 bilophodont/hypsodont cheek molars along each dentary
+        for m in 0..4 {
+            let mt = 0.35 + (m as f32) * 0.14;
+            let mx = jaw_j[0] * (1.0 - mt) + chin_pos[0] * mt;
+            let my = jaw_j[1] * (1.0 - mt) + chin_pos[1] * mt + 0.014;
+            let mz = jaw_j[2] * (1.0 - mt) + chin_pos[2] * mt;
+            acc.push_ellipsoid(
+                [mx, my, mz],
+                [0.007, 0.009, 0.008],
+                6,
+                4,
+                enamel_white,
+                ZoologicalAnatomicalLayer::Osteology,
+                JOINT_JAW,
+                JOINT_HEAD,
+                0.95,
+            );
+        }
+    }
 
     // Procumbent lower incisors (characteristic of Diprotodontia)
-    let incisor_tip = [0.0, chin_pos[1] + 0.015, chin_pos[2] + 0.035];
+    let incisor_tip = [0.0, chin_pos[1] + 0.016, chin_pos[2] + 0.038];
     acc.push_cylinder(
         chin_pos,
         incisor_tip,
-        0.007,
+        0.008,
         0.004,
-        6,
+        8,
         2,
-        [0.94, 0.93, 0.90, 1.0], // Enamel ivory
+        enamel_white,
         ZoologicalAnatomicalLayer::Osteology,
         JOINT_JAW,
         JOINT_HEAD,
@@ -696,59 +1165,106 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:mandible_dentition"),
     });
 
-    // 3. Cervical, Thoracic & Lumbar Vertebrae
+    // 3. Cervical, Thoracic & Lumbar Vertebrae (Segmented Centra, Neural Spines & Transverse Processes)
     let vert_start = acc.indices.len() as u32;
     let pelvis_pos = [0.0, hip_height, 0.0];
     let chest_pos = [0.0, hip_height + 0.05, spine_len * 0.7];
 
-    // Cervical vertebrae (neck)
-    acc.push_cylinder(
-        chest_pos,
-        cranium_head_pos,
-        half_width * 0.22,
-        half_width * 0.18,
-        8,
-        5,
-        [0.85, 0.83, 0.77, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_NECK,
-        JOINT_CHEST,
-        0.70,
-    );
+    // Cervical vertebral loft (S-curved neck column)
+    let cervical_loft = [
+        AnatomicalLoftRing {
+            center: chest_pos,
+            radii: [half_width * 0.21, half_width * 0.19],
+            dorsal_color: bone_dense,
+            flank_color: bone_ivory,
+            ventral_color: cartilage_blue,
+            primary_joint: JOINT_CHEST,
+            secondary_joint: JOINT_NECK,
+            primary_weight: 0.65,
+        },
+        AnatomicalLoftRing {
+            center: [
+                0.0,
+                (chest_pos[1] + cranium_head_pos[1]) * 0.46,
+                (chest_pos[2] + cranium_head_pos[2]) * 0.52,
+            ],
+            radii: [half_width * 0.19, half_width * 0.17],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: cartilage_blue,
+            primary_joint: JOINT_NECK,
+            secondary_joint: JOINT_CHEST,
+            primary_weight: 0.80,
+        },
+        AnatomicalLoftRing {
+            center: cranium_head_pos,
+            radii: [half_width * 0.17, half_width * 0.16],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_NECK,
+            secondary_joint: JOINT_HEAD,
+            primary_weight: 0.75,
+        },
+    ];
+    acc.push_countershaded_loft(&cervical_loft, 8, ZoologicalAnatomicalLayer::Osteology, false);
 
-    // Thoracic & Lumbar vertebrae (dorsal column)
+    // Thoracic & Lumbar vertebral column with curved dorsal neural spines and lateral transverse processes
     acc.push_cylinder(
         pelvis_pos,
         chest_pos,
-        half_width * 0.26,
-        half_width * 0.22,
+        half_width * 0.24,
+        half_width * 0.20,
         8,
-        6,
-        [0.85, 0.83, 0.77, 1.0],
+        7,
+        bone_dense,
         ZoologicalAnatomicalLayer::Osteology,
         JOINT_SPINE,
         JOINT_CHEST,
         0.55,
     );
 
-    // Neural spines
-    for s in 1..=5 {
-        let t = s as f32 / 6.0;
+    for s in 1..=7 {
+        let t = s as f32 / 8.0;
         let c = [
             pelvis_pos[0] + (chest_pos[0] - pelvis_pos[0]) * t,
             pelvis_pos[1] + (chest_pos[1] - pelvis_pos[1]) * t,
             pelvis_pos[2] + (chest_pos[2] - pelvis_pos[2]) * t,
         ];
-        acc.push_box(
-            [c[0] - 0.005, c[1] + 0.015, c[2] - 0.015],
-            [c[0] + 0.005, c[1] + 0.045, c[2] + 0.015],
-            [0.84, 0.82, 0.76, 1.0],
+        // Dorsal spinous process (taller over withers/thorax, angling caudally)
+        let spine_h = half_width * (0.34 + 0.22 * (t * core::f32::consts::PI).sin());
+        let tilt_z = if t > 0.45 { -0.018 } else { 0.008 };
+        acc.push_cylinder(
+            [c[0], c[1] + half_width * 0.14, c[2]],
+            [c[0], c[1] + half_width * 0.14 + spine_h, c[2] + tilt_z],
+            0.008,
+            0.004,
+            6,
+            2,
+            bone_ivory,
             ZoologicalAnatomicalLayer::Osteology,
             JOINT_SPINE,
+            JOINT_CHEST,
+            1.0 - t * 0.6,
+        );
+        // Paired lumbar/thoracic transverse processes
+        let tp_span = half_width * (0.42 - 0.14 * t);
+        acc.push_cylinder(
+            [-tp_span, c[1] - 0.004, c[2]],
+            [tp_span, c[1] - 0.004, c[2]],
+            0.006,
+            0.006,
+            6,
+            2,
+            bone_dense,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_SPINE,
+            JOINT_CHEST,
+            1.0 - t * 0.6,
         );
     }
 
-    let vert_mat = make_pbr_material("mat_ost_vertebrae", [0.85, 0.83, 0.77, 1.0], 0.50, 0.02);
+    let vert_mat = make_pbr_material("mat_ost_vertebrae", bone_dense, 0.50, 0.02);
     materials.push(vert_mat);
     submesh_ranges.push(SubmeshRange {
         first_index: vert_start,
@@ -757,45 +1273,83 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:vertebrae"),
     });
 
-    // 4. Ribcage & Sternum (including avian keeled carina & furcula)
+    // 4. Ribcage & Sternum (8 Pairs of Anatomically Curved Costal Rib Arches, Sternebrae / Carina & Furcula)
     let rib_start = acc.indices.len() as u32;
-    let sternum_y = chest_pos[1] - half_width * 0.75;
-    let sternum_pos = [0.0, sternum_y, chest_pos[2] * 0.8];
+    let sternum_y = chest_pos[1] - half_width * 0.78;
+    let sternum_pos = [0.0, sternum_y, chest_pos[2] * 0.80];
 
-    // 6 Rib pairs
-    for r in 1..=6 {
-        let t = r as f32 / 7.0;
+    for r in 1..=8 {
+        let t = r as f32 / 9.0;
         let spine_p = [
-            pelvis_pos[0] + (chest_pos[0] - pelvis_pos[0]) * (0.3 + 0.6 * t),
-            pelvis_pos[1] + (chest_pos[1] - pelvis_pos[1]) * (0.3 + 0.6 * t),
-            pelvis_pos[2] + (chest_pos[2] - pelvis_pos[2]) * (0.3 + 0.6 * t),
+            pelvis_pos[0] + (chest_pos[0] - pelvis_pos[0]) * (0.24 + 0.70 * t),
+            pelvis_pos[1] + (chest_pos[1] - pelvis_pos[1]) * (0.24 + 0.70 * t),
+            pelvis_pos[2] + (chest_pos[2] - pelvis_pos[2]) * (0.24 + 0.70 * t),
         ];
         let sternum_p = [
             sternum_pos[0],
-            sternum_pos[1],
-            sternum_pos[2] - 0.04 * (3.0 - r as f32),
+            sternum_pos[1] + 0.01 * (1.0 - (t * core::f32::consts::PI).sin()),
+            sternum_pos[2] + (t - 0.5) * spine_len * 0.48,
         ];
-
-        let rib_w = half_width * 0.65;
-        let rib_mid_l = [-rib_w, (spine_p[1] + sternum_p[1]) * 0.5, spine_p[2]];
-        let rib_mid_r = [rib_w, (spine_p[1] + sternum_p[1]) * 0.5, spine_p[2]];
-
-        acc.push_cylinder(spine_p, rib_mid_l, 0.007, 0.006, 6, 2, [0.84, 0.82, 0.76, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_CHEST, JOINT_SPINE, 0.7);
-        acc.push_cylinder(rib_mid_l, sternum_p, 0.006, 0.005, 6, 2, [0.82, 0.80, 0.74, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_CHEST, JOINT_SPINE, 0.8);
-
-        acc.push_cylinder(spine_p, rib_mid_r, 0.007, 0.006, 6, 2, [0.84, 0.82, 0.76, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_CHEST, JOINT_SPINE, 0.7);
-        acc.push_cylinder(rib_mid_r, sternum_p, 0.006, 0.005, 6, 2, [0.82, 0.80, 0.74, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_CHEST, JOINT_SPINE, 0.8);
+        let barrel_bulge = half_width * (0.58 + 0.34 * (t * core::f32::consts::PI).sin());
+        acc.push_curved_rib_arch(
+            spine_p,
+            sternum_p,
+            -barrel_bulge,
+            0.007,
+            bone_ivory,
+            cartilage_blue,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_CHEST,
+            JOINT_SPINE,
+        );
+        acc.push_curved_rib_arch(
+            spine_p,
+            sternum_p,
+            barrel_bulge,
+            0.007,
+            bone_ivory,
+            cartilage_blue,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_CHEST,
+            JOINT_SPINE,
+        );
     }
 
-    // Sternum / Keeled Carina (deep blade in birds, sternebrae in mammals)
-    let carina_depth = if is_avian { half_width * 0.55 } else { half_width * 0.15 };
-    acc.push_box(
-        [sternum_pos[0] - 0.008, sternum_pos[1] - carina_depth, sternum_pos[2] - spine_len * 0.22],
-        [sternum_pos[0] + 0.008, sternum_pos[1] + 0.01, sternum_pos[2] + spine_len * 0.22],
-        [0.86, 0.84, 0.78, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_CHEST,
-    );
+    // Sternum / Keeled Carina loft
+    let carina_depth = if is_avian { half_width * 0.58 } else { half_width * 0.14 };
+    let sternum_loft = [
+        AnatomicalLoftRing {
+            center: [0.0, sternum_pos[1] - carina_depth * 0.3, sternum_pos[2] - spine_len * 0.25],
+            radii: [0.012, carina_depth * 0.45],
+            dorsal_color: bone_dense,
+            flank_color: bone_ivory,
+            ventral_color: cartilage_blue,
+            primary_joint: JOINT_CHEST,
+            secondary_joint: JOINT_SPINE,
+            primary_weight: 0.85,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, sternum_pos[1] - carina_depth * 0.5, sternum_pos[2]],
+            radii: [0.014, carina_depth * 0.65],
+            dorsal_color: bone_ivory,
+            flank_color: bone_ivory,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_CHEST,
+            secondary_joint: JOINT_SPINE,
+            primary_weight: 0.90,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, sternum_pos[1] - carina_depth * 0.2, sternum_pos[2] + spine_len * 0.26],
+            radii: [0.016, carina_depth * 0.35],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_CHEST,
+            secondary_joint: JOINT_NECK,
+            primary_weight: 0.92,
+        },
+    ];
+    acc.push_countershaded_loft(&sternum_loft, 8, ZoologicalAnatomicalLayer::Osteology, true);
 
     let rib_mat = make_pbr_material("mat_ost_ribcage", [0.83, 0.81, 0.75, 1.0], 0.42, 0.02);
     materials.push(rib_mat);
@@ -806,38 +1360,98 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:ribcage_sternum"),
     });
 
-    // 5. Pectoral Girdle & Forelimb
+    // 5. Pectoral Girdle & Forelimb (Sculpted Scapular Blades, Humerus, Radius/Ulna & Digits)
     let pect_start = acc.indices.len() as u32;
-    let shoulder_l = [-half_width * 0.70, chest_pos[1] - 0.02, chest_pos[2] * 0.9];
-    let shoulder_r = [half_width * 0.70, chest_pos[1] - 0.02, chest_pos[2] * 0.9];
-    let elbow_l = [-half_width * 0.80, chest_pos[1] - femur_len * 0.55, shoulder_l[2] - 0.04];
-    let elbow_r = [half_width * 0.80, chest_pos[1] - femur_len * 0.55, shoulder_r[2] - 0.04];
-    let wrist_l = [-half_width * 0.75, chest_pos[1] - femur_len * 0.95, elbow_l[2] + 0.08];
-    let wrist_r = [half_width * 0.75, chest_pos[1] - femur_len * 0.95, elbow_r[2] + 0.08];
+    let shoulder_l = [-half_width * 0.70 * morphology.shoulder_span, chest_pos[1] - 0.02, chest_pos[2] * 0.9];
+    let shoulder_r = [half_width * 0.70 * morphology.shoulder_span, chest_pos[1] - 0.02, chest_pos[2] * 0.9];
+    let elbow_l = [-half_width * 0.80 * morphology.shoulder_span, chest_pos[1] - femur_len * 0.55 * morphology.forelimb, shoulder_l[2] - 0.04];
+    let elbow_r = [half_width * 0.80 * morphology.shoulder_span, chest_pos[1] - femur_len * 0.55 * morphology.forelimb, shoulder_r[2] - 0.04];
+    let wrist_l = [-half_width * 0.75 * morphology.shoulder_span, chest_pos[1] - femur_len * 0.95 * morphology.forelimb, elbow_l[2] + 0.08];
+    let wrist_r = [half_width * 0.75 * morphology.shoulder_span, chest_pos[1] - femur_len * 0.95 * morphology.forelimb, elbow_r[2] + 0.08];
 
-    // Scapulae (L+R)
-    acc.push_box(
-        [shoulder_l[0] - 0.015, shoulder_l[1], shoulder_l[2] - spine_len * 0.18],
-        [shoulder_l[0] + 0.015, shoulder_l[1] + 0.06, shoulder_l[2] + 0.02],
-        [0.86, 0.84, 0.78, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_LEFT_SHOULDER,
-    );
-    acc.push_box(
-        [shoulder_r[0] - 0.015, shoulder_r[1], shoulder_r[2] - spine_len * 0.18],
-        [shoulder_r[0] + 0.015, shoulder_r[1] + 0.06, shoulder_r[2] + 0.02],
-        [0.86, 0.84, 0.78, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_LEFT_SHOULDER,
-    );
+    for (side, sh, el, wr) in [
+        (-1.0_f32, shoulder_l, elbow_l, wrist_l),
+        (1.0_f32, shoulder_r, elbow_r, wrist_r),
+    ] {
+        // Flared triangular scapular blade with scapular spine
+        let scap_loft = [
+            AnatomicalLoftRing {
+                center: sh,
+                radii: [0.014, 0.020],
+                dorsal_color: cartilage_blue,
+                flank_color: bone_ivory,
+                ventral_color: bone_dense,
+                primary_joint: JOINT_LEFT_SHOULDER,
+                secondary_joint: JOINT_CHEST,
+                primary_weight: 0.85,
+            },
+            AnatomicalLoftRing {
+                center: [sh[0] * 0.88, sh[1] + half_width * 0.34, sh[2] - spine_len * 0.12],
+                radii: [0.010, 0.042],
+                dorsal_color: bone_ivory,
+                flank_color: bone_ivory,
+                ventral_color: bone_dense,
+                primary_joint: JOINT_LEFT_SHOULDER,
+                secondary_joint: JOINT_CHEST,
+                primary_weight: 0.70,
+            },
+            AnatomicalLoftRing {
+                center: [sh[0] * 0.72, sh[1] + half_width * 0.56, sh[2] - spine_len * 0.22],
+                radii: [0.008, 0.056],
+                dorsal_color: cartilage_blue,
+                flank_color: bone_ivory,
+                ventral_color: bone_dense,
+                primary_joint: JOINT_CHEST,
+                secondary_joint: JOINT_LEFT_SHOULDER,
+                primary_weight: 0.65,
+            },
+        ];
+        acc.push_countershaded_loft(&scap_loft, 8, ZoologicalAnatomicalLayer::Osteology, true);
 
-    // Humerus, Radius, Ulna
-    acc.push_cylinder(shoulder_l, elbow_l, half_width * 0.16, half_width * 0.14, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_SHOULDER, JOINT_LEFT_ELBOW, 0.6);
-    acc.push_cylinder(shoulder_r, elbow_r, half_width * 0.16, half_width * 0.14, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_SHOULDER, JOINT_LEFT_ELBOW, 0.6);
-    acc.push_cylinder(elbow_l, wrist_l, half_width * 0.12, half_width * 0.10, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_ELBOW, JOINT_LEFT_WRIST_WING, 0.6);
-    acc.push_cylinder(elbow_r, wrist_r, half_width * 0.12, half_width * 0.10, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_ELBOW, JOINT_LEFT_WRIST_WING, 0.6);
+        // Humerus with proximal head and distal trochlear condyles
+        acc.push_long_bone_with_epiphyses(
+            sh,
+            el,
+            half_width * 0.11,
+            half_width * 0.16,
+            [side * 0.008, 0.0, 0.008],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_LEFT_SHOULDER,
+            JOINT_LEFT_ELBOW,
+        );
+        // Radius & Ulna with olecranon process
+        acc.push_long_bone_with_epiphyses(
+            [el[0], el[1] + 0.012, el[2] - 0.014],
+            wr,
+            half_width * 0.085,
+            half_width * 0.12,
+            [0.0, -0.006, 0.006],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_LEFT_ELBOW,
+            JOINT_LEFT_WRIST_WING,
+        );
+        // Metacarpals & phalanges
+        for d in -1..=1 {
+            let dx = (d as f32) * 0.010;
+            acc.push_cylinder(
+                [wr[0] + dx, wr[1], wr[2]],
+                [wr[0] + dx * 1.3, wr[1] - 0.025, wr[2] + 0.035],
+                0.006,
+                0.003,
+                6,
+                2,
+                bone_dense,
+                ZoologicalAnatomicalLayer::Osteology,
+                JOINT_LEFT_WRIST_WING,
+                JOINT_LEFT_ELBOW,
+                0.95,
+            );
+        }
+    }
 
-    let pect_mat = make_pbr_material("mat_ost_pectoral", [0.86, 0.84, 0.78, 1.0], 0.40, 0.02);
+    let pect_mat = make_pbr_material("mat_ost_pectoral", bone_ivory, 0.40, 0.02);
     materials.push(pect_mat);
     submesh_ranges.push(SubmeshRange {
         first_index: pect_start,
@@ -846,49 +1460,70 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:pectoral_forelimb"),
     });
 
-    // 6. Pelvic Girdle & EPIPUBIC BONES (characteristic marsupial / monotreme trait)
+    // 6. Pelvic Girdle & EPIPUBIC BONES (Sculpted Ilium, Ischium, Pubis & Paired Ossa Epipubica)
     let pelvis_start = acc.indices.len() as u32;
-    let ilium_l = [-half_width * 0.62, pelvis_pos[1] + 0.04, pelvis_pos[2] + 0.06];
-    let ilium_r = [half_width * 0.62, pelvis_pos[1] + 0.04, pelvis_pos[2] + 0.06];
+    let ilium_l = [-half_width * 0.62, pelvis_pos[1] + 0.045, pelvis_pos[2] + 0.07];
+    let ilium_r = [half_width * 0.62, pelvis_pos[1] + 0.045, pelvis_pos[2] + 0.07];
+    let ischium_l = [-half_width * 0.52, pelvis_pos[1] - 0.035, pelvis_pos[2] - 0.075];
+    let ischium_r = [half_width * 0.52, pelvis_pos[1] - 0.035, pelvis_pos[2] - 0.075];
     let pubis_pos = [0.0, pelvis_pos[1] - half_width * 0.45, pelvis_pos[2] + 0.04];
 
-    // Pelvic ring
-    acc.push_cylinder(pelvis_pos, ilium_l, half_width * 0.20, half_width * 0.16, 8, 2, [0.87, 0.85, 0.79, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_PELVIS_ROOT, JOINT_LEFT_HIP, 0.7);
-    acc.push_cylinder(pelvis_pos, ilium_r, half_width * 0.20, half_width * 0.16, 8, 2, [0.87, 0.85, 0.79, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_PELVIS_ROOT, JOINT_RIGHT_HIP, 0.7);
-    acc.push_cylinder(pubis_pos, ilium_l, half_width * 0.14, half_width * 0.12, 6, 2, [0.87, 0.85, 0.79, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_PELVIS_ROOT, JOINT_LEFT_HIP, 0.8);
-    acc.push_cylinder(pubis_pos, ilium_r, half_width * 0.14, half_width * 0.12, 6, 2, [0.87, 0.85, 0.79, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_PELVIS_ROOT, JOINT_RIGHT_HIP, 0.8);
+    for (il, isch, hip_j) in [
+        (ilium_l, ischium_l, JOINT_LEFT_HIP),
+        (ilium_r, ischium_r, JOINT_RIGHT_HIP),
+    ] {
+        // Ilium -> Acetabulum -> Ischium sculpted pelvic wing
+        acc.push_long_bone_with_epiphyses(
+            il,
+            isch,
+            half_width * 0.14,
+            half_width * 0.21,
+            [0.0, 0.012, 0.0],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_PELVIS_ROOT,
+            hip_j,
+        );
+        // Pubic ramus arch
+        acc.push_long_bone_with_epiphyses(
+            pubis_pos,
+            il,
+            half_width * 0.09,
+            half_width * 0.13,
+            [0.0, -0.010, 0.0],
+            bone_dense,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_PELVIS_ROOT,
+            hip_j,
+        );
+    }
 
-    // ── EPIPUBIC BONES (Os Epipubicum) ──
-    // Paired forward-pointing pelvic bones present in Marsupialia and Monotremata.
+    // ── EPIPUBIC BONES (Ossa Epipubica) ──
     let epipubic_len = half_width * 0.85;
     let epipubic_tip_l = [-half_width * 0.24, pubis_pos[1] + epipubic_len * 0.40, pubis_pos[2] + epipubic_len * 0.90];
     let epipubic_tip_r = [half_width * 0.24, pubis_pos[1] + epipubic_len * 0.40, pubis_pos[2] + epipubic_len * 0.90];
 
-    acc.push_cylinder(
+    acc.push_long_bone_with_epiphyses(
         [-0.02, pubis_pos[1], pubis_pos[2]],
         epipubic_tip_l,
         0.008,
-        0.004,
-        8,
-        4,
-        [0.89, 0.87, 0.81, 1.0],
+        0.012,
+        [-0.006, 0.005, 0.0],
+        bone_ivory,
         ZoologicalAnatomicalLayer::Osteology,
         JOINT_PELVIS_ROOT,
         JOINT_SPINE,
-        0.90,
     );
-    acc.push_cylinder(
+    acc.push_long_bone_with_epiphyses(
         [0.02, pubis_pos[1], pubis_pos[2]],
         epipubic_tip_r,
         0.008,
-        0.004,
-        8,
-        4,
-        [0.89, 0.87, 0.81, 1.0],
+        0.012,
+        [0.006, 0.005, 0.0],
+        bone_ivory,
         ZoologicalAnatomicalLayer::Osteology,
         JOINT_PELVIS_ROOT,
         JOINT_SPINE,
-        0.90,
     );
 
     let pelvis_mat = make_pbr_material("mat_ost_pelvis_epipubic", [0.87, 0.85, 0.79, 1.0], 0.44, 0.02);
@@ -900,7 +1535,7 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:pelvic_epipubic_bones"),
     });
 
-    // 7. Hindlimb & Syndactyl Pes
+    // 7. Hindlimb & Syndactyl Pes (Bicondylar Femur, Tibia/Fibula, Calcaneum & Syndactyl Digits)
     let hind_start = acc.indices.len() as u32;
     let hip_l = [-half_width * 0.65, pelvis_pos[1] - 0.02, pelvis_pos[2]];
     let hip_r = [half_width * 0.65, pelvis_pos[1] - 0.02, pelvis_pos[2]];
@@ -911,63 +1546,75 @@ pub fn build_scale5_vertebrate_anatomy_10d(
     let pes_tip_l = [ankle_l[0], ankle_l[1], ankle_l[2] + half_width * 1.4];
     let pes_tip_r = [ankle_r[0], ankle_r[1], ankle_r[2] + half_width * 1.4];
 
-    // Femurs (L+R)
-    acc.push_cylinder(hip_l, knee_l, half_width * 0.22, half_width * 0.18, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_HIP, JOINT_LEFT_KNEE, 0.6);
-    acc.push_cylinder(hip_r, knee_r, half_width * 0.22, half_width * 0.18, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_RIGHT_HIP, JOINT_RIGHT_KNEE, 0.6);
+    for (side, hip_p, knee_p, ankle_p, pes_p, j_hip, j_knee, j_ankle) in [
+        (-1.0_f32, hip_l, knee_l, ankle_l, pes_tip_l, JOINT_LEFT_HIP, JOINT_LEFT_KNEE, JOINT_LEFT_ANKLE),
+        (1.0_f32, hip_r, knee_r, ankle_r, pes_tip_r, JOINT_RIGHT_HIP, JOINT_RIGHT_KNEE, JOINT_RIGHT_ANKLE),
+    ] {
+        // Femur with greater trochanter & distal condyles
+        acc.push_long_bone_with_epiphyses(
+            hip_p,
+            knee_p,
+            half_width * 0.14,
+            half_width * 0.22,
+            [side * 0.010, 0.012, 0.010],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            j_hip,
+            j_knee,
+        );
+        // Tibia & Fibula with cnemial crest
+        acc.push_long_bone_with_epiphyses(
+            knee_p,
+            ankle_p,
+            half_width * 0.11,
+            half_width * 0.17,
+            [0.0, 0.0, -0.012],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            j_knee,
+            j_ankle,
+        );
+        // Calcaneum heel lever
+        acc.push_long_bone_with_epiphyses(
+            ankle_p,
+            [ankle_p[0], ankle_p[1] + 0.018, ankle_p[2] - half_width * 0.36],
+            0.012,
+            0.018,
+            [0.0, 0.004, 0.0],
+            bone_dense,
+            ZoologicalAnatomicalLayer::Osteology,
+            j_ankle,
+            j_knee,
+        );
+        // Elongated 4th Metatarsal & Hopping Digit IV
+        acc.push_long_bone_with_epiphyses(
+            ankle_p,
+            pes_p,
+            half_width * 0.09,
+            half_width * 0.13,
+            [0.0, 0.006, 0.0],
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            j_ankle,
+            j_knee,
+        );
+        // Syndactyl grooming digits II & III (paired medial digits)
+        acc.push_cylinder(
+            [ankle_p[0] - side * 0.015, ankle_p[1], ankle_p[2] + 0.02],
+            [pes_p[0] - side * 0.015, pes_p[1], pes_p[2] * 0.75],
+            0.005,
+            0.003,
+            6,
+            2,
+            bone_ivory,
+            ZoologicalAnatomicalLayer::Osteology,
+            j_ankle,
+            j_knee,
+            0.95,
+        );
+    }
 
-    // Tibia & Fibula (L+R)
-    acc.push_cylinder(knee_l, ankle_l, half_width * 0.18, half_width * 0.14, 8, 4, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_KNEE, JOINT_LEFT_ANKLE, 0.6);
-    acc.push_cylinder(knee_r, ankle_r, half_width * 0.18, half_width * 0.14, 8, 4, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_RIGHT_KNEE, JOINT_RIGHT_ANKLE, 0.6);
-
-    // Calcaneum / Heel bone (L+R)
-    acc.push_box(
-        [ankle_l[0] - 0.015, ankle_l[1], ankle_l[2] - half_width * 0.35],
-        [ankle_l[0] + 0.015, ankle_l[1] + 0.03, ankle_l[2]],
-        [0.85, 0.83, 0.77, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_LEFT_ANKLE,
-    );
-    acc.push_box(
-        [ankle_r[0] - 0.015, ankle_r[1], ankle_r[2] - half_width * 0.35],
-        [ankle_r[0] + 0.015, ankle_r[1] + 0.03, ankle_r[2]],
-        [0.85, 0.83, 0.77, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_RIGHT_ANKLE,
-    );
-
-    // Main 4th Metatarsal & Hopping Digit IV
-    acc.push_cylinder(ankle_l, pes_tip_l, half_width * 0.14, half_width * 0.09, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_LEFT_ANKLE, JOINT_LEFT_KNEE, 0.9);
-    acc.push_cylinder(ankle_r, pes_tip_r, half_width * 0.14, half_width * 0.09, 8, 3, [0.86, 0.84, 0.78, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_RIGHT_ANKLE, JOINT_RIGHT_KNEE, 0.9);
-
-    // Syndactyl grooming digits II & III (paired medial digits)
-    acc.push_cylinder(
-        [ankle_l[0] + 0.015, ankle_l[1], ankle_l[2] + 0.02],
-        [pes_tip_l[0] + 0.015, pes_tip_l[1], pes_tip_l[2] * 0.75],
-        0.005,
-        0.003,
-        6,
-        2,
-        [0.88, 0.86, 0.80, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_LEFT_ANKLE,
-        JOINT_LEFT_KNEE,
-        0.95,
-    );
-    acc.push_cylinder(
-        [ankle_r[0] - 0.015, ankle_r[1], ankle_r[2] + 0.02],
-        [pes_tip_r[0] - 0.015, pes_tip_r[1], pes_tip_r[2] * 0.75],
-        0.005,
-        0.003,
-        6,
-        2,
-        [0.88, 0.86, 0.80, 1.0],
-        ZoologicalAnatomicalLayer::Osteology,
-        JOINT_RIGHT_ANKLE,
-        JOINT_RIGHT_KNEE,
-        0.95,
-    );
-
-    let hind_mat = make_pbr_material("mat_ost_hindlimb_pes", [0.86, 0.84, 0.78, 1.0], 0.42, 0.02);
+    let hind_mat = make_pbr_material("mat_ost_hindlimb_pes", bone_ivory, 0.42, 0.02);
     materials.push(hind_mat);
     submesh_ranges.push(SubmeshRange {
         first_index: hind_start,
@@ -976,33 +1623,83 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:hindlimb_syndactyl_pes"),
     });
 
-    // 8. Caudal Vertebral Chain
+    // 8. Caudal Vertebral Chain (Articulated Caudal Centra, Transverse Processes & Haemal Chevrons)
     let tail_start = acc.indices.len() as u32;
     let tail_base = [0.0, pelvis_pos[1] - 0.02, -spine_len * 0.1];
     let tail_mid = [0.0, pelvis_pos[1] - femur_len * 0.45, -tail_len * 0.55];
     let tail_tip = [0.0, ankle_l[1] + 0.02, -tail_len];
 
-    acc.push_cylinder(tail_base, tail_mid, half_width * 0.28, half_width * 0.18, 8, 4, [0.84, 0.82, 0.76, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_TAIL_BASE, JOINT_TAIL_MID, 0.6);
-    acc.push_cylinder(tail_mid, tail_tip, half_width * 0.18, half_width * 0.06, 8, 4, [0.84, 0.82, 0.76, 1.0], ZoologicalAnatomicalLayer::Osteology, JOINT_TAIL_MID, JOINT_TAIL_TIP, 0.6);
+    let caudal_loft = [
+        AnatomicalLoftRing {
+            center: tail_base,
+            radii: [half_width * 0.24, half_width * 0.22],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_TAIL_BASE,
+            secondary_joint: JOINT_PELVIS_ROOT,
+            primary_weight: 0.80,
+        },
+        AnatomicalLoftRing {
+            center: tail_mid,
+            radii: [half_width * 0.16, half_width * 0.15],
+            dorsal_color: bone_ivory,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_TAIL_MID,
+            secondary_joint: JOINT_TAIL_BASE,
+            primary_weight: 0.80,
+        },
+        AnatomicalLoftRing {
+            center: tail_tip,
+            radii: [half_width * 0.05, half_width * 0.05],
+            dorsal_color: bone_dense,
+            flank_color: bone_dense,
+            ventral_color: bone_dense,
+            primary_joint: JOINT_TAIL_TIP,
+            secondary_joint: JOINT_TAIL_MID,
+            primary_weight: 0.90,
+        },
+    ];
+    acc.push_countershaded_loft(&caudal_loft, 8, ZoologicalAnatomicalLayer::Osteology, true);
 
-    // Chevron bones (haemal arches on ventral tail vertebrae)
-    for c in 1..=4 {
-        let t = c as f32 / 5.0;
+    for c in 1..=5 {
+        let t = c as f32 / 6.0;
         let pos = [
             tail_base[0] + (tail_mid[0] - tail_base[0]) * t,
-            tail_base[1] + (tail_mid[1] - tail_base[1]) * t - 0.015,
+            tail_base[1] + (tail_mid[1] - tail_base[1]) * t - 0.014,
             tail_base[2] + (tail_mid[2] - tail_base[2]) * t,
         ];
-        acc.push_box(
-            [pos[0] - 0.005, pos[1] - 0.02, pos[2] - 0.01],
-            [pos[0] + 0.005, pos[1], pos[2] + 0.01],
-            [0.83, 0.81, 0.75, 1.0],
+        acc.push_cylinder(
+            [pos[0], pos[1], pos[2]],
+            [pos[0], pos[1] - 0.022 * (1.0 - t * 0.4), pos[2] - 0.008],
+            0.006,
+            0.003,
+            6,
+            2,
+            bone_dense,
             ZoologicalAnatomicalLayer::Osteology,
             JOINT_TAIL_BASE,
+            JOINT_TAIL_MID,
+            1.0 - t * 0.5,
         );
     }
 
-    let tail_mat = make_pbr_material("mat_ost_caudal", [0.84, 0.82, 0.76, 1.0], 0.48, 0.02);
+    if archetype == FaunaBiomechanicalArchetype::MarinePinnipedCetacean {
+        acc.push_ellipsoid(
+            tail_tip,
+            [half_width * 0.72, 0.035, half_width * 0.24],
+            12,
+            6,
+            bone_dense,
+            ZoologicalAnatomicalLayer::Osteology,
+            JOINT_TAIL_TIP,
+            JOINT_TAIL_MID,
+            0.8,
+        );
+    }
+
+    let tail_mat = make_pbr_material("mat_ost_caudal", bone_dense, 0.48, 0.02);
     materials.push(tail_mat);
     submesh_ranges.push(SubmeshRange {
         first_index: tail_start,
@@ -1013,17 +1710,40 @@ pub fn build_scale5_vertebrate_anatomy_10d(
 
     let ost_end_v = acc.positions.len();
 
-    // ── LAYER 1: MYOLOGY & TENDONS (8 Groups) ───────────────────────────────
+    // ── LAYER 1: MYOLOGY, TENDONS & VISCERA (8 Functional Submeshes) ─────────
     let myo_start_v = acc.positions.len();
 
-    // 9. Gastrocnemius & Plantaris (power calf musculature)
+    // 9. Gastrocnemius & Plantaris (Lateral & Medial Fusiform Calf Bellies)
     let gast_start = acc.indices.len() as u32;
     let gastro_center_l = [knee_l[0] * 1.02, (knee_l[1] + ankle_l[1]) * 0.58, knee_l[2] - half_width * 0.15];
-    let gastro_center_r = [knee_r[1] * 0.0 + knee_r[0] * 1.02, (knee_r[1] + ankle_r[1]) * 0.58, knee_r[2] - half_width * 0.15];
-    let gastro_radii = [half_width * 0.24, tibia_len * 0.38, half_width * 0.20];
+    let gastro_center_r = [knee_r[0] * 1.02, (knee_r[1] + ankle_r[1]) * 0.58, knee_r[2] - half_width * 0.15];
+    let myotendinous_l = [ankle_l[0], (knee_l[1] + ankle_l[1]) * 0.36, ankle_l[2] - half_width * 0.22];
+    let myotendinous_r = [ankle_r[0], (knee_r[1] + ankle_r[1]) * 0.36, ankle_r[2] - half_width * 0.22];
 
-    acc.push_ellipsoid(gastro_center_l, gastro_radii, 10, 6, [0.55, 0.18, 0.18, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_LEFT_KNEE, JOINT_LEFT_ANKLE, 0.7);
-    acc.push_ellipsoid(gastro_center_r, gastro_radii, 10, 6, [0.55, 0.18, 0.18, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_RIGHT_KNEE, JOINT_RIGHT_ANKLE, 0.7);
+    acc.push_fusiform_muscle(
+        knee_l,
+        myotendinous_l,
+        half_width * 0.24,
+        half_width * 0.22,
+        [-0.012, 0.0, -half_width * 0.16],
+        [0.58, 0.17, 0.17, 1.0],
+        tendon_ivory,
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_LEFT_KNEE,
+        JOINT_LEFT_ANKLE,
+    );
+    acc.push_fusiform_muscle(
+        knee_r,
+        myotendinous_r,
+        half_width * 0.24,
+        half_width * 0.22,
+        [0.012, 0.0, -half_width * 0.16],
+        [0.58, 0.17, 0.17, 1.0],
+        tendon_ivory,
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_RIGHT_KNEE,
+        JOINT_RIGHT_ANKLE,
+    );
 
     let gast_mat = make_pbr_material("mat_myo_gastrocnemius", [0.55, 0.18, 0.18, 1.0], 0.65, 0.0);
     materials.push(gast_mat);
@@ -1034,23 +1754,55 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:gastrocnemius_plantaris"),
     });
 
-    // 10. ELASTIC ACHILLES TENDON SPRING (stores and returns up to 65% metabolic work)
+    // 10. ELASTIC ACHILLES TENDON SPRING (Stores & Returns up to 65% Metabolic Work)
     let ach_start = acc.indices.len() as u32;
-    let achilles_start_l = [gastro_center_l[0], gastro_center_l[1] - tibia_len * 0.28, gastro_center_l[2]];
-    let achilles_start_r = [gastro_center_r[0], gastro_center_r[1] - tibia_len * 0.28, gastro_center_r[2]];
-    let calcaneus_l = [ankle_l[0], ankle_l[1] + 0.01, ankle_l[2] - half_width * 0.28];
-    let calcaneus_r = [ankle_r[0], ankle_r[1] + 0.01, ankle_r[2] - half_width * 0.28];
-    let plantar_l = [ankle_l[0], ankle_l[1] - 0.01, ankle_l[2] + half_width * 0.8];
-    let plantar_r = [ankle_r[0], ankle_r[1] - 0.01, ankle_r[2] + half_width * 0.8];
+    let achilles_start_l = [gastro_center_l[0], gastro_center_l[1] - tibia_len * 0.22, gastro_center_l[2]];
+    let achilles_start_r = [gastro_center_r[0], gastro_center_r[1] - tibia_len * 0.22, gastro_center_r[2]];
+    let calcaneus_l = [ankle_l[0], ankle_l[1] + 0.012, ankle_l[2] - half_width * 0.30];
+    let calcaneus_r = [ankle_r[0], ankle_r[1] + 0.012, ankle_r[2] - half_width * 0.30];
+    let plantar_l = [ankle_l[0], ankle_l[1] - 0.008, ankle_l[2] + half_width * 0.90];
+    let plantar_r = [ankle_r[0], ankle_r[1] - 0.008, ankle_r[2] + half_width * 0.90];
 
-    // Tendon cylinder spanning calf -> tuber calcanei -> plantar fascia
-    acc.push_cylinder(achilles_start_l, calcaneus_l, half_width * 0.06, half_width * 0.05, 8, 3, [0.92, 0.90, 0.85, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_LEFT_ANKLE, JOINT_LEFT_KNEE, 0.85);
-    acc.push_cylinder(calcaneus_l, plantar_l, half_width * 0.05, half_width * 0.04, 8, 3, [0.92, 0.90, 0.85, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_LEFT_ANKLE, JOINT_LEFT_KNEE, 0.95);
+    for (a_start, calc_p, plant_p, j_ank, j_kn) in [
+        (achilles_start_l, calcaneus_l, plantar_l, JOINT_LEFT_ANKLE, JOINT_LEFT_KNEE),
+        (achilles_start_r, calcaneus_r, plantar_r, JOINT_RIGHT_ANKLE, JOINT_RIGHT_KNEE),
+    ] {
+        let tendon_rings = [
+            AnatomicalLoftRing {
+                center: a_start,
+                radii: [half_width * 0.068, half_width * 0.055],
+                dorsal_color: tendon_ivory,
+                flank_color: tendon_ivory,
+                ventral_color: tendon_ivory,
+                primary_joint: j_kn,
+                secondary_joint: j_ank,
+                primary_weight: 0.65,
+            },
+            AnatomicalLoftRing {
+                center: calc_p,
+                radii: [half_width * 0.056, half_width * 0.048],
+                dorsal_color: tendon_ivory,
+                flank_color: tendon_ivory,
+                ventral_color: tendon_ivory,
+                primary_joint: j_ank,
+                secondary_joint: j_kn,
+                primary_weight: 0.90,
+            },
+            AnatomicalLoftRing {
+                center: plant_p,
+                radii: [half_width * 0.048, half_width * 0.028],
+                dorsal_color: tendon_ivory,
+                flank_color: tendon_ivory,
+                ventral_color: tendon_ivory,
+                primary_joint: j_ank,
+                secondary_joint: j_kn,
+                primary_weight: 0.95,
+            },
+        ];
+        acc.push_countershaded_loft(&tendon_rings, 8, ZoologicalAnatomicalLayer::MyologyAndTendons, true);
+    }
 
-    acc.push_cylinder(achilles_start_r, calcaneus_r, half_width * 0.06, half_width * 0.05, 8, 3, [0.92, 0.90, 0.85, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_RIGHT_ANKLE, JOINT_RIGHT_KNEE, 0.85);
-    acc.push_cylinder(calcaneus_r, plantar_r, half_width * 0.05, half_width * 0.04, 8, 3, [0.92, 0.90, 0.85, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_RIGHT_ANKLE, JOINT_RIGHT_KNEE, 0.95);
-
-    let ach_mat = make_pbr_material("mat_myo_achilles_tendon", [0.92, 0.90, 0.85, 1.0], 0.22, 0.08); // Collagenous sheen
+    let ach_mat = make_pbr_material("mat_myo_achilles_tendon", tendon_ivory, 0.22, 0.08);
     materials.push(ach_mat);
     submesh_ranges.push(SubmeshRange {
         first_index: ach_start,
@@ -1059,14 +1811,40 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:achilles_tendon_spring"),
     });
 
-    // 11. Gluteus & Biceps Femoris (massive thigh extensor)
+    // 11. Gluteus, Biceps Femoris & Quadriceps Vastus Lateralis (Fusiform Thigh Extensors)
     let glut_start = acc.indices.len() as u32;
-    let thigh_center_l = [(hip_l[0] + knee_l[0]) * 0.5 - 0.02, (hip_l[1] + knee_l[1]) * 0.5, (hip_l[2] + knee_l[2]) * 0.5];
-    let thigh_center_r = [(hip_r[0] + knee_r[0]) * 0.5 + 0.02, (hip_r[1] + knee_r[1]) * 0.5, (hip_r[2] + knee_r[2]) * 0.5];
-    let thigh_radii = [half_width * 0.32, femur_len * 0.42, half_width * 0.30];
-
-    acc.push_ellipsoid(thigh_center_l, thigh_radii, 10, 6, [0.52, 0.16, 0.16, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_LEFT_HIP, JOINT_LEFT_KNEE, 0.7);
-    acc.push_ellipsoid(thigh_center_r, thigh_radii, 10, 6, [0.52, 0.16, 0.16, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_RIGHT_HIP, JOINT_RIGHT_KNEE, 0.7);
+    for (side, il_p, isch_p, hip_p, kn_p, j_hip, j_kn) in [
+        (-1.0_f32, ilium_l, ischium_l, hip_l, knee_l, JOINT_LEFT_HIP, JOINT_LEFT_KNEE),
+        (1.0_f32, ilium_r, ischium_r, hip_r, knee_r, JOINT_RIGHT_HIP, JOINT_RIGHT_KNEE),
+    ] {
+        // Biceps femoris & gluteus superficialis
+        acc.push_fusiform_muscle(
+            isch_p,
+            kn_p,
+            half_width * 0.28,
+            half_width * 0.32,
+            [side * half_width * 0.14, 0.02, -0.02],
+            [0.54, 0.16, 0.16, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            j_hip,
+            j_kn,
+        );
+        // Quadriceps vastus lateralis & rectus femoris
+        acc.push_fusiform_muscle(
+            il_p,
+            kn_p,
+            half_width * 0.24,
+            half_width * 0.26,
+            [side * half_width * 0.10, 0.03, 0.03],
+            [0.58, 0.19, 0.18, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            j_hip,
+            j_kn,
+        );
+        let _ = hip_p;
+    }
 
     let glut_mat = make_pbr_material("mat_myo_gluteus", [0.52, 0.16, 0.16, 1.0], 0.62, 0.0);
     materials.push(glut_mat);
@@ -1077,14 +1855,36 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:gluteus_biceps_femoris"),
     });
 
-    // 12. Iliopsoas & Caudofemoralis (deep flexor & retractor)
+    // 12. Iliopsoas, Caudofemoralis & Epaxial/Hypaxial Spinal/Caudal Bundles
     let ilio_start = acc.indices.len() as u32;
-    let caudofem_l = [(hip_l[0] + tail_base[0]) * 0.5, hip_l[1] - 0.03, (hip_l[2] + tail_base[2]) * 0.5];
-    let caudofem_r = [(hip_r[0] + tail_base[0]) * 0.5, hip_r[1] - 0.03, (hip_r[2] + tail_base[2]) * 0.5];
-    let caudofem_radii = [half_width * 0.22, half_width * 0.18, spine_len * 0.24];
-
-    acc.push_ellipsoid(caudofem_l, caudofem_radii, 8, 6, [0.50, 0.15, 0.15, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_PELVIS_ROOT, JOINT_TAIL_BASE, 0.7);
-    acc.push_ellipsoid(caudofem_r, caudofem_radii, 8, 6, [0.50, 0.15, 0.15, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_PELVIS_ROOT, JOINT_TAIL_BASE, 0.7);
+    for (side, hip_p, j_hip) in [(-1.0_f32, hip_l, JOINT_LEFT_HIP), (1.0_f32, hip_r, JOINT_RIGHT_HIP)] {
+        // Caudofemoralis (tail base to femur retractor)
+        acc.push_fusiform_muscle(
+            tail_mid,
+            hip_p,
+            half_width * 0.20,
+            half_width * 0.22,
+            [side * half_width * 0.12, -0.01, 0.0],
+            [0.50, 0.15, 0.15, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_TAIL_BASE,
+            j_hip,
+        );
+        // Dorsal epaxial (longissimus dorsi) muscle bundle spanning pelvis to chest
+        acc.push_fusiform_muscle(
+            [side * half_width * 0.22, pelvis_pos[1] + 0.03, pelvis_pos[2]],
+            [side * half_width * 0.20, chest_pos[1] + 0.03, chest_pos[2]],
+            half_width * 0.18,
+            half_width * 0.16,
+            [side * 0.01, 0.02, 0.0],
+            [0.53, 0.16, 0.16, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_SPINE,
+            JOINT_CHEST,
+        );
+    }
 
     let ilio_mat = make_pbr_material("mat_myo_iliopsoas", [0.50, 0.15, 0.15, 1.0], 0.60, 0.0);
     materials.push(ilio_mat);
@@ -1095,14 +1895,36 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:iliopsoas_caudofemoralis"),
     });
 
-    // 13. Pectoralis Major & Supracoracoideus (massive chest flight/forelimb muscles)
+    // 13. Pectoralis Major, Supracoracoideus & Latissimus Dorsi (Chest & Back Fan Muscles)
     let pect_myo_start = acc.indices.len() as u32;
-    let pect_center_l = [-half_width * 0.35, sternum_pos[1] + 0.03, chest_pos[2] * 0.85];
-    let pect_center_r = [half_width * 0.35, sternum_pos[1] + 0.03, chest_pos[2] * 0.85];
-    let pect_radii = [half_width * 0.38, half_width * 0.35, spine_len * 0.28];
-
-    acc.push_ellipsoid(pect_center_l, pect_radii, 10, 6, [0.58, 0.20, 0.20, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_CHEST, JOINT_LEFT_SHOULDER, 0.7);
-    acc.push_ellipsoid(pect_center_r, pect_radii, 10, 6, [0.58, 0.20, 0.20, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_CHEST, JOINT_RIGHT_HIP, 0.7);
+    for (side, sh_p) in [(-1.0_f32, shoulder_l), (1.0_f32, shoulder_r)] {
+        // Pectoralis major fan from sternum/carina to humerus deltopectoral crest
+        acc.push_fusiform_muscle(
+            [0.0, sternum_pos[1], sternum_pos[2]],
+            sh_p,
+            half_width * 0.30,
+            half_width * 0.24,
+            [side * half_width * 0.12, -0.02, 0.03],
+            [0.58, 0.20, 0.20, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_CHEST,
+            JOINT_LEFT_SHOULDER,
+        );
+        // Latissimus dorsi from mid-thoracic fascia to proximal humerus
+        acc.push_fusiform_muscle(
+            [0.0, (pelvis_pos[1] + chest_pos[1]) * 0.52, (pelvis_pos[2] + chest_pos[2]) * 0.45],
+            sh_p,
+            half_width * 0.20,
+            half_width * 0.24,
+            [side * half_width * 0.26, 0.0, 0.0],
+            [0.54, 0.18, 0.18, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_CHEST,
+            JOINT_SPINE,
+        );
+    }
 
     let pect_myo_mat = make_pbr_material("mat_myo_pectoralis", [0.58, 0.20, 0.20, 1.0], 0.64, 0.0);
     materials.push(pect_myo_mat);
@@ -1113,14 +1935,39 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:pectoralis_supracoracoideus"),
     });
 
-    // 14. Deltoid & Triceps Fossorial (powerful digging/climbing shoulder abductors)
+    // 14. Deltoid, Triceps Brachii & Biceps Brachii (Fossorial/Brachial Musculature)
     let delt_start = acc.indices.len() as u32;
-    let delt_center_l = [(shoulder_l[0] + elbow_l[0]) * 0.5, (shoulder_l[1] + elbow_l[1]) * 0.5, (shoulder_l[2] + elbow_l[2]) * 0.5];
-    let delt_center_r = [(shoulder_r[0] + elbow_r[0]) * 0.5, (shoulder_r[1] + elbow_r[1]) * 0.5, (shoulder_r[2] + elbow_r[2]) * 0.5];
-    let delt_radii = [half_width * 0.20, femur_len * 0.30, half_width * 0.20];
-
-    acc.push_ellipsoid(delt_center_l, delt_radii, 8, 6, [0.54, 0.17, 0.17, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_LEFT_SHOULDER, JOINT_LEFT_ELBOW, 0.7);
-    acc.push_ellipsoid(delt_center_r, delt_radii, 8, 6, [0.54, 0.17, 0.17, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_LEFT_SHOULDER, JOINT_LEFT_ELBOW, 0.7);
+    for (side, sh_p, el_p, wr_p) in [
+        (-1.0_f32, shoulder_l, elbow_l, wrist_l),
+        (1.0_f32, shoulder_r, elbow_r, wrist_r),
+    ] {
+        // Deltoid & Triceps brachii
+        acc.push_fusiform_muscle(
+            sh_p,
+            el_p,
+            half_width * 0.19,
+            half_width * 0.21,
+            [side * 0.015, 0.0, -0.018],
+            [0.54, 0.17, 0.17, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_LEFT_SHOULDER,
+            JOINT_LEFT_ELBOW,
+        );
+        // Antebrachial flexors/extensors
+        acc.push_fusiform_muscle(
+            el_p,
+            wr_p,
+            half_width * 0.13,
+            half_width * 0.14,
+            [side * 0.008, 0.0, 0.010],
+            [0.52, 0.16, 0.16, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_LEFT_ELBOW,
+            JOINT_LEFT_WRIST_WING,
+        );
+    }
 
     let delt_mat = make_pbr_material("mat_myo_deltoid", [0.54, 0.17, 0.17, 1.0], 0.63, 0.0);
     materials.push(delt_mat);
@@ -1131,14 +1978,35 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:deltoid_triceps"),
     });
 
-    // 15. Masseter & Temporalis (jaw mastication muscles)
+    // 15. Masseter, Temporalis & Cervical Splenius/Sternocleidomastoid
     let mass_start = acc.indices.len() as u32;
-    let masseter_l = [-half_width * 0.44, cranium_head_pos[1] - 0.02, cranium_head_pos[2] + head_len * 0.2];
-    let masseter_r = [half_width * 0.44, cranium_head_pos[1] - 0.02, cranium_head_pos[2] + head_len * 0.2];
-    let masseter_radii = [half_width * 0.15, half_width * 0.24, head_len * 0.22];
-
-    acc.push_ellipsoid(masseter_l, masseter_radii, 8, 5, [0.48, 0.16, 0.16, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_HEAD, JOINT_JAW, 0.6);
-    acc.push_ellipsoid(masseter_r, masseter_radii, 8, 5, [0.48, 0.16, 0.16, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_HEAD, JOINT_JAW, 0.6);
+    for (side, jaw_j) in [(-1.0_f32, jaw_joint_l), (1.0_f32, jaw_joint_r)] {
+        acc.push_fusiform_muscle(
+            [side * half_width * 0.42, cranium_head_pos[1] + 0.01, cranium_head_pos[2] + head_len * 0.12],
+            [jaw_j[0] * 0.75, chin_pos[1] + 0.01, (jaw_j[2] + chin_pos[2]) * 0.5],
+            half_width * 0.15,
+            half_width * 0.20,
+            [side * 0.012, 0.0, 0.0],
+            [0.48, 0.16, 0.16, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_HEAD,
+            JOINT_JAW,
+        );
+        // Splenius / sternocleidomastoid neck strap
+        acc.push_fusiform_muscle(
+            [side * half_width * 0.24, chest_pos[1], chest_pos[2]],
+            [side * half_width * 0.30, cranium_head_pos[1], cranium_head_pos[2] - 0.02],
+            half_width * 0.15,
+            half_width * 0.16,
+            [side * 0.01, 0.01, 0.0],
+            [0.52, 0.17, 0.17, 1.0],
+            tendon_ivory,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_NECK,
+            JOINT_HEAD,
+        );
+    }
 
     let mass_mat = make_pbr_material("mat_myo_masseter", [0.48, 0.16, 0.16, 1.0], 0.62, 0.0);
     materials.push(mass_mat);
@@ -1149,12 +2017,154 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         semantic_id: q_hash("urn:qualia:bio:submesh:masseter_temporalis"),
     });
 
-    // 16. Intercostals & Diaphragm (thoracic respiratory musculature)
+    // 16. Intercostals, Diaphragm & Internal VISCERA (Bilobed Lungs, Bronchial Tree,
+    //     4-Chambered Heart with Aortic Arch, Lobulated Liver, Stomach & Coiled Intestines)
     let inter_start = acc.indices.len() as u32;
-    let chest_center = [0.0, (chest_pos[1] + sternum_pos[1]) * 0.5, (chest_pos[2] + pelvis_pos[2]) * 0.5];
-    let chest_radii = [half_width * 0.72, (chest_pos[1] - sternum_pos[1]) * 0.55, spine_len * 0.36];
+    let thorax_y = (chest_pos[1] + sternum_pos[1]) * 0.52;
+    let thorax_z = chest_pos[2] * 0.78;
 
-    acc.push_ellipsoid(chest_center, chest_radii, 10, 6, [0.46, 0.15, 0.15, 1.0], ZoologicalAnatomicalLayer::MyologyAndTendons, JOINT_CHEST, JOINT_SPINE, 0.7);
+    // Cartilaginous Trachea & Bifurcating Primary Bronchi
+    acc.push_cylinder(
+        [0.0, cranium_head_pos[1] - 0.05, cranium_head_pos[2] - 0.02],
+        [0.0, thorax_y + 0.03, thorax_z + spine_len * 0.14],
+        0.012,
+        0.012,
+        8,
+        4,
+        cartilage_blue,
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_NECK,
+        JOINT_CHEST,
+        0.65,
+    );
+
+    // Bilobed Left & Right Lungs with Primary Bronchial Branches
+    let lung_coral = [0.82, 0.44, 0.46, 1.0];
+    for side in [-1.0_f32, 1.0_f32] {
+        let lung_c = [side * half_width * 0.34, thorax_y + 0.01, thorax_z];
+        acc.push_cylinder(
+            [0.0, thorax_y + 0.03, thorax_z + spine_len * 0.14],
+            lung_c,
+            0.009,
+            0.007,
+            6,
+            2,
+            cartilage_blue,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_CHEST,
+            JOINT_SPINE,
+            0.85,
+        );
+        // Cranial & caudal pulmonary lobes
+        acc.push_ellipsoid(
+            [lung_c[0], lung_c[1] + 0.01, lung_c[2] + spine_len * 0.08],
+            [half_width * 0.24, half_width * 0.26, spine_len * 0.16],
+            10,
+            6,
+            lung_coral,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_CHEST,
+            JOINT_SPINE,
+            0.85,
+        );
+        acc.push_ellipsoid(
+            [lung_c[0] * 1.05, lung_c[1] - 0.01, lung_c[2] - spine_len * 0.09],
+            [half_width * 0.27, half_width * 0.30, spine_len * 0.20],
+            10,
+            6,
+            lung_coral,
+            ZoologicalAnatomicalLayer::MyologyAndTendons,
+            JOINT_CHEST,
+            JOINT_SPINE,
+            0.80,
+        );
+    }
+
+    // 4-Chambered Heart & Systemic Aortic Arch
+    let heart_pos = [-half_width * 0.06, sternum_pos[1] + half_width * 0.26, thorax_z + 0.02];
+    acc.push_ellipsoid(
+        heart_pos,
+        [half_width * 0.18, half_width * 0.22, half_width * 0.19],
+        10,
+        6,
+        [0.68, 0.12, 0.16, 1.0],
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_CHEST,
+        JOINT_SPINE,
+        0.90,
+    );
+    // Curving Aortic Arch
+    acc.push_curved_rib_arch(
+        [heart_pos[0], heart_pos[1] + half_width * 0.16, heart_pos[2]],
+        [0.0, chest_pos[1] - 0.02, thorax_z - spine_len * 0.20],
+        0.022,
+        0.009,
+        [0.78, 0.16, 0.18, 1.0],
+        [0.72, 0.14, 0.16, 1.0],
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_CHEST,
+        JOINT_SPINE,
+    );
+
+    // Lobulated Liver (caudal to diaphragm)
+    let liver_pos = [half_width * 0.10, thorax_y - 0.02, spine_len * 0.42];
+    acc.push_ellipsoid(
+        liver_pos,
+        [half_width * 0.36, half_width * 0.26, spine_len * 0.16],
+        10,
+        6,
+        [0.44, 0.15, 0.14, 1.0],
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_SPINE,
+        JOINT_CHEST,
+        0.75,
+    );
+
+    // Sacciform Stomach
+    let stomach_pos = [-half_width * 0.18, thorax_y - 0.04, spine_len * 0.30];
+    acc.push_ellipsoid(
+        stomach_pos,
+        [half_width * 0.26, half_width * 0.22, spine_len * 0.18],
+        10,
+        6,
+        [0.74, 0.50, 0.42, 1.0],
+        ZoologicalAnatomicalLayer::MyologyAndTendons,
+        JOINT_SPINE,
+        JOINT_PELVIS_ROOT,
+        0.75,
+    );
+
+    // Coiled Small & Large Intestinal Tract
+    let gut_pink = [0.78, 0.56, 0.48, 1.0];
+    let mut gut_rings = [AnatomicalLoftRing {
+        center: stomach_pos,
+        radii: [0.018, 0.018],
+        dorsal_color: gut_pink,
+        flank_color: gut_pink,
+        ventral_color: gut_pink,
+        primary_joint: JOINT_SPINE,
+        secondary_joint: JOINT_PELVIS_ROOT,
+        primary_weight: 0.70,
+    }; 8];
+    for (gi, ring) in gut_rings.iter_mut().enumerate() {
+        let gt = gi as f32 / 7.0;
+        let coil_angle = gt * core::f32::consts::TAU * 2.0;
+        *ring = AnatomicalLoftRing {
+            center: [
+                coil_angle.cos() * half_width * 0.24,
+                pelvis_pos[1] - half_width * 0.18 + coil_angle.sin() * half_width * 0.12,
+                spine_len * (0.28 - gt * 0.24),
+            ],
+            radii: [half_width * 0.13, half_width * 0.13],
+            dorsal_color: gut_pink,
+            flank_color: gut_pink,
+            ventral_color: [0.70, 0.48, 0.42, 1.0],
+            primary_joint: JOINT_SPINE,
+            secondary_joint: JOINT_PELVIS_ROOT,
+            primary_weight: 0.65,
+        };
+    }
+    acc.push_countershaded_loft(&gut_rings, 8, ZoologicalAnatomicalLayer::MyologyAndTendons, true);
 
     let inter_mat = make_pbr_material("mat_myo_intercostals", [0.46, 0.15, 0.15, 1.0], 0.68, 0.0);
     materials.push(inter_mat);
@@ -1167,63 +2177,284 @@ pub fn build_scale5_vertebrate_anatomy_10d(
 
     let myo_end_v = acc.positions.len();
 
-    // ── LAYER 2: EXTERNAL INTEGUMENT (Pelage / Plumage / Squamation) ────────
+    // ── LAYER 2: EXTERNAL INTEGUMENT (Multi-Station Countershaded Pelage / Plumage / Skin) ──
     let int_start_v = acc.positions.len();
     let int_start_idx = acc.indices.len() as u32;
 
-    // Archetype pelage / plumage / scale tint
     let integument_color = match archetype {
-        FaunaBiomechanicalArchetype::MacropodSaltatorial => [0.48, 0.40, 0.32, 1.0], // Tawny kangaroo fur
-        FaunaBiomechanicalArchetype::VombatidFossorial => [0.34, 0.28, 0.22, 1.0],   // Grizzly wombat fur
-        FaunaBiomechanicalArchetype::PhascolarctidArboreal => [0.55, 0.52, 0.48, 1.0], // Koala silver wool
-        FaunaBiomechanicalArchetype::PetauridGlider => [0.60, 0.58, 0.56, 1.0],     // Glider soft silver pelage
-        FaunaBiomechanicalArchetype::DasyuridPredator => [0.42, 0.30, 0.22, 1.0],   // Quoll rufous fur
-        FaunaBiomechanicalArchetype::PteropodidChiroptera => [0.22, 0.18, 0.16, 1.0], // Flying-fox black/russet
-        FaunaBiomechanicalArchetype::MarinePinnipedCetacean => [0.32, 0.36, 0.42, 1.0], // Seal/dolphin slate skin
-        FaunaBiomechanicalArchetype::RatiteBipedal => [0.18, 0.17, 0.18, 1.0],      // Cassowary shaggy plumage
-        FaunaBiomechanicalArchetype::RaptorSoaring => [0.28, 0.22, 0.16, 1.0],      // Wedge-tailed eagle umber
-        FaunaBiomechanicalArchetype::PasserinePsittacine => [0.38, 0.52, 0.28, 1.0], // Parrot olive plumage
-        FaunaBiomechanicalArchetype::SquamateSprawling => [0.44, 0.42, 0.34, 1.0],  // Monitor mottled scales
-        FaunaBiomechanicalArchetype::SerpentineUndulatory => [0.20, 0.18, 0.20, 1.0], // Python glossy scales
-        FaunaBiomechanicalArchetype::MonotremeTeleostAmphibian => [0.36, 0.26, 0.20, 1.0], // Platypus waterproof pelage
+        FaunaBiomechanicalArchetype::MacropodSaltatorial => [0.48, 0.40, 0.32, 1.0],
+        FaunaBiomechanicalArchetype::VombatidFossorial => [0.34, 0.28, 0.22, 1.0],
+        FaunaBiomechanicalArchetype::PhascolarctidArboreal => [0.55, 0.52, 0.48, 1.0],
+        FaunaBiomechanicalArchetype::PetauridGlider => [0.60, 0.58, 0.56, 1.0],
+        FaunaBiomechanicalArchetype::DasyuridPredator => [0.42, 0.30, 0.22, 1.0],
+        FaunaBiomechanicalArchetype::PteropodidChiroptera => [0.22, 0.18, 0.16, 1.0],
+        FaunaBiomechanicalArchetype::MarinePinnipedCetacean => [0.32, 0.36, 0.42, 1.0],
+        FaunaBiomechanicalArchetype::RatiteBipedal => [0.18, 0.17, 0.18, 1.0],
+        FaunaBiomechanicalArchetype::RaptorSoaring => [0.28, 0.22, 0.16, 1.0],
+        FaunaBiomechanicalArchetype::PasserinePsittacine => [0.38, 0.52, 0.28, 1.0],
+        FaunaBiomechanicalArchetype::SquamateSprawling => [0.44, 0.42, 0.34, 1.0],
+        FaunaBiomechanicalArchetype::SerpentineUndulatory => [0.20, 0.18, 0.20, 1.0],
+        FaunaBiomechanicalArchetype::MonotremeTeleostAmphibian => [0.36, 0.26, 0.20, 1.0],
     };
+    let flank_tint: [f32; 4] = [
+        (integument_color[0] * 1.22_f32).min(0.92),
+        (integument_color[1] * 1.20_f32).min(0.90),
+        (integument_color[2] * 1.18_f32).min(0.86),
+        1.0,
+    ];
+    let ventral_cream: [f32; 4] = [
+        (integument_color[0] * 0.55_f32 + 0.42).min(0.95),
+        (integument_color[1] * 0.55_f32 + 0.40).min(0.93),
+        (integument_color[2] * 0.52_f32 + 0.36).min(0.89),
+        1.0,
+    ];
+    let charcoal_dark = [0.14, 0.12, 0.12, 1.0];
 
-    // Main Torso Envelope
-    acc.push_ellipsoid(
-        [0.0, hip_height + 0.02, spine_len * 0.45],
-        [half_width * 0.95, half_width * 0.90, spine_len * 0.65],
-        16,
-        10,
-        integument_color,
-        ZoologicalAnatomicalLayer::ExternalIntegument,
-        JOINT_CHEST,
-        JOINT_PELVIS_ROOT,
-        0.55,
-    );
+    // Multi-Station Continuous Head -> Neck -> Thorax -> Abdomen -> Pelvis -> Tail Integument Loft
+    let axial_integument_loft = [
+        AnatomicalLoftRing {
+            center: tail_tip,
+            radii: [half_width * 0.10, half_width * 0.10],
+            dorsal_color: charcoal_dark,
+            flank_color: integument_color,
+            ventral_color: integument_color,
+            primary_joint: JOINT_TAIL_TIP,
+            secondary_joint: JOINT_TAIL_MID,
+            primary_weight: 0.90,
+        },
+        AnatomicalLoftRing {
+            center: tail_mid,
+            radii: [half_width * 0.24, half_width * 0.22],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_TAIL_MID,
+            secondary_joint: JOINT_TAIL_BASE,
+            primary_weight: 0.80,
+        },
+        AnatomicalLoftRing {
+            center: tail_base,
+            radii: [half_width * 0.38, half_width * 0.36],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_TAIL_BASE,
+            secondary_joint: JOINT_PELVIS_ROOT,
+            primary_weight: 0.75,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, pelvis_pos[1] + 0.01, pelvis_pos[2] + spine_len * 0.08],
+            radii: [half_width * 0.96, half_width * 0.90],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_PELVIS_ROOT,
+            secondary_joint: JOINT_SPINE,
+            primary_weight: 0.75,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, hip_height + 0.03, spine_len * 0.42],
+            radii: [half_width * 0.94, half_width * 0.88],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_SPINE,
+            secondary_joint: JOINT_CHEST,
+            primary_weight: 0.65,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, chest_pos[1], chest_pos[2]],
+            radii: [half_width * 0.82, half_width * 0.78],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_CHEST,
+            secondary_joint: JOINT_NECK,
+            primary_weight: 0.75,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, (chest_pos[1] + cranium_head_pos[1]) * 0.52, (chest_pos[2] + cranium_head_pos[2]) * 0.52],
+            radii: [half_width * 0.46, half_width * 0.44],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_NECK,
+            secondary_joint: JOINT_HEAD,
+            primary_weight: 0.75,
+        },
+        AnatomicalLoftRing {
+            center: cranium_head_pos,
+            radii: [half_width * 0.62, half_width * 0.56],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_NECK,
+            primary_weight: 0.88,
+        },
+        AnatomicalLoftRing {
+            center: [0.0, cranium_head_pos[1] - 0.02, cranium_head_pos[2] + head_len * 0.55],
+            radii: [half_width * 0.38, half_width * 0.32],
+            dorsal_color: integument_color,
+            flank_color: flank_tint,
+            ventral_color: ventral_cream,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_JAW,
+            primary_weight: 0.90,
+        },
+        AnatomicalLoftRing {
+            center: [rostrum_tip[0], rostrum_tip[1], rostrum_tip[2] + 0.015],
+            radii: [rostrum_rx * 1.15, rostrum_ry * 1.15],
+            dorsal_color: charcoal_dark,
+            flank_color: charcoal_dark,
+            ventral_color: charcoal_dark,
+            primary_joint: JOINT_HEAD,
+            secondary_joint: JOINT_JAW,
+            primary_weight: 0.95,
+        },
+    ];
+    acc.push_countershaded_loft(&axial_integument_loft, 16, ZoologicalAnatomicalLayer::ExternalIntegument, true);
 
-    // Head & Snout Envelope
-    acc.push_ellipsoid(
-        [0.0, cranium_head_pos[1] - 0.02, cranium_head_pos[2] + head_len * 0.25],
-        [half_width * 0.65, half_width * 0.60, head_len * 0.62],
-        12,
-        8,
-        integument_color,
-        ZoologicalAnatomicalLayer::ExternalIntegument,
-        JOINT_HEAD,
-        JOINT_NECK,
-        0.80,
-    );
+    // Multi-Station Countershaded Hindlimbs & Forelimbs Integument
+    for (hip_p, knee_p, ankle_p, pes_p, j_hip, j_knee, j_ankle) in [
+        (hip_l, knee_l, ankle_l, pes_tip_l, JOINT_LEFT_HIP, JOINT_LEFT_KNEE, JOINT_LEFT_ANKLE),
+        (hip_r, knee_r, ankle_r, pes_tip_r, JOINT_RIGHT_HIP, JOINT_RIGHT_KNEE, JOINT_RIGHT_ANKLE),
+    ] {
+        let hind_loft = [
+            AnatomicalLoftRing {
+                center: hip_p,
+                radii: [half_width * 0.42, half_width * 0.44],
+                dorsal_color: integument_color,
+                flank_color: flank_tint,
+                ventral_color: ventral_cream,
+                primary_joint: j_hip,
+                secondary_joint: JOINT_PELVIS_ROOT,
+                primary_weight: 0.80,
+            },
+            AnatomicalLoftRing {
+                center: knee_p,
+                radii: [half_width * 0.28, half_width * 0.30],
+                dorsal_color: integument_color,
+                flank_color: flank_tint,
+                ventral_color: ventral_cream,
+                primary_joint: j_knee,
+                secondary_joint: j_hip,
+                primary_weight: 0.80,
+            },
+            AnatomicalLoftRing {
+                center: ankle_p,
+                radii: [half_width * 0.16, half_width * 0.18],
+                dorsal_color: integument_color,
+                flank_color: flank_tint,
+                ventral_color: charcoal_dark,
+                primary_joint: j_ankle,
+                secondary_joint: j_knee,
+                primary_weight: 0.85,
+            },
+            AnatomicalLoftRing {
+                center: pes_p,
+                radii: [half_width * 0.11, half_width * 0.08],
+                dorsal_color: charcoal_dark,
+                flank_color: charcoal_dark,
+                ventral_color: charcoal_dark,
+                primary_joint: j_ankle,
+                secondary_joint: j_knee,
+                primary_weight: 0.95,
+            },
+        ];
+        acc.push_countershaded_loft(&hind_loft, 10, ZoologicalAnatomicalLayer::ExternalIntegument, true);
+    }
 
-    // Limbs outer envelope (Forelimbs L+R)
-    acc.push_cylinder(shoulder_l, wrist_l, half_width * 0.25, half_width * 0.16, 8, 3, integument_color, ZoologicalAnatomicalLayer::ExternalIntegument, JOINT_LEFT_SHOULDER, JOINT_LEFT_WRIST_WING, 0.5);
-    acc.push_cylinder(shoulder_r, wrist_r, half_width * 0.25, half_width * 0.16, 8, 3, integument_color, ZoologicalAnatomicalLayer::ExternalIntegument, JOINT_LEFT_SHOULDER, JOINT_LEFT_WRIST_WING, 0.5);
+    for (sh_p, el_p, wr_p) in [(shoulder_l, elbow_l, wrist_l), (shoulder_r, elbow_r, wrist_r)] {
+        let fore_loft = [
+            AnatomicalLoftRing {
+                center: sh_p,
+                radii: [half_width * 0.26, half_width * 0.28],
+                dorsal_color: integument_color,
+                flank_color: flank_tint,
+                ventral_color: ventral_cream,
+                primary_joint: JOINT_LEFT_SHOULDER,
+                secondary_joint: JOINT_CHEST,
+                primary_weight: 0.80,
+            },
+            AnatomicalLoftRing {
+                center: el_p,
+                radii: [half_width * 0.19, half_width * 0.20],
+                dorsal_color: integument_color,
+                flank_color: flank_tint,
+                ventral_color: ventral_cream,
+                primary_joint: JOINT_LEFT_ELBOW,
+                secondary_joint: JOINT_LEFT_SHOULDER,
+                primary_weight: 0.80,
+            },
+            AnatomicalLoftRing {
+                center: wr_p,
+                radii: [half_width * 0.12, half_width * 0.10],
+                dorsal_color: charcoal_dark,
+                flank_color: charcoal_dark,
+                ventral_color: charcoal_dark,
+                primary_joint: JOINT_LEFT_WRIST_WING,
+                secondary_joint: JOINT_LEFT_ELBOW,
+                primary_weight: 0.90,
+            },
+        ];
+        acc.push_countershaded_loft(&fore_loft, 8, ZoologicalAnatomicalLayer::ExternalIntegument, true);
+    }
 
-    // Hindlimbs outer envelope (Thigh + Leg L+R)
-    acc.push_cylinder(hip_l, ankle_l, half_width * 0.38, half_width * 0.20, 10, 4, integument_color, ZoologicalAnatomicalLayer::ExternalIntegument, JOINT_LEFT_HIP, JOINT_LEFT_ANKLE, 0.5);
-    acc.push_cylinder(hip_r, ankle_r, half_width * 0.38, half_width * 0.20, 10, 4, integument_color, ZoologicalAnatomicalLayer::ExternalIntegument, JOINT_RIGHT_HIP, JOINT_RIGHT_ANKLE, 0.5);
+    // Patagial sheet for gliders and bats
+    if morphology.patagium > 0.0 {
+        for side in [-1.0f32, 1.0] {
+            acc.push_ellipsoid(
+                [side * half_width * 0.72, hip_height + femur_len * 0.15, spine_len * 0.30],
+                [half_width * morphology.patagium, 0.012, spine_len * 0.42],
+                12,
+                8,
+                integument_color,
+                ZoologicalAnatomicalLayer::ExternalIntegument,
+                JOINT_LEFT_SHOULDER,
+                JOINT_PELVIS_ROOT,
+                0.55,
+            );
+        }
+    }
 
-    // Tail outer envelope
-    acc.push_cylinder(tail_base, tail_tip, half_width * 0.34, half_width * 0.10, 8, 4, integument_color, ZoologicalAnatomicalLayer::ExternalIntegument, JOINT_TAIL_BASE, JOINT_TAIL_TIP, 0.5);
+    // Flight feathers for avian flight archetypes
+    if matches!(
+        archetype,
+        FaunaBiomechanicalArchetype::RaptorSoaring
+            | FaunaBiomechanicalArchetype::PasserinePsittacine
+    ) {
+        for side in [-1.0f32, 1.0] {
+            for feather in 0..6 {
+                let t = feather as f32 / 5.0;
+                let wrist = if side < 0.0 { wrist_l } else { wrist_r };
+                let elbow = if side < 0.0 { elbow_l } else { elbow_r };
+                let base = [
+                    wrist[0] * (1.0 - t * 0.35) + elbow[0] * t * 0.35,
+                    wrist[1] - 0.015,
+                    wrist[2] - body_len * t * 0.05,
+                ];
+                let tip = [
+                    side * half_width * morphology.shoulder_span * (1.35 + t * 0.48),
+                    wrist[1] - 0.025,
+                    wrist[2] - body_len * (0.10 + t * 0.16),
+                ];
+                acc.push_cylinder(
+                    base,
+                    tip,
+                    0.012,
+                    0.0015,
+                    6,
+                    2,
+                    integument_color,
+                    ZoologicalAnatomicalLayer::ExternalIntegument,
+                    JOINT_LEFT_WRIST_WING,
+                    JOINT_LEFT_ELBOW,
+                    0.8,
+                );
+            }
+        }
+    }
 
     let int_mat = make_pbr_material("mat_integument", integument_color, 0.82, 0.0);
     materials.push(int_mat);
@@ -1286,6 +2517,19 @@ pub fn build_scale5_vertebrate_anatomy_10d(
         "application/vnd.ecopunk.fauna-anatomy;version=1",
         "Apache-2.0",
     );
+
+    // Ensure all normals are strictly finite and unit-length for .10d FNRM validation
+    for n in &mut acc.normals {
+        let len_sq = n[0] * n[0] + n[1] * n[1] + n[2] * n[2];
+        if len_sq.is_finite() && len_sq > 1e-8 {
+            let inv = 1.0 / len_sq.sqrt();
+            n[0] *= inv;
+            n[1] *= inv;
+            n[2] *= inv;
+        } else {
+            *n = [0.0, 1.0, 0.0];
+        }
+    }
 
     let mut bytes = compile_mesh_to_10d_with_extras_and_frames(
         &mesh,

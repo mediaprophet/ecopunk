@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-29",
+  "pins": [
+    {
+      "sha256": "6d08ea7f8550d9505a39d1beb47bbdf5e98051f245221bcd919c6c2eab3f13e4",
+      "path": "C:/github/ecopunk/crates/ecopunk-terrain/src/zoological_anatomy.rs",
+      "scope": "Read ranges 1-85,173-215,275-676,768-833,951-1010,2214-2401,2549-2785; source tests and attachment/caller search only"
+    },
+    {
+      "sha256": "78299a1cabde15eb7c6d7d04a7eb7b131116bf18da32be4f2e91afbdac9695e3",
+      "path": "C:/github/ecopunk/crates/ecopunk-terrain/src/fauna_animation_rig.rs",
+      "scope": "Read joint constants and FaunaSkeletalRig10d/new 270-370; no full rig semantic audit"
+    },
+    {
+      "sha256": "6eeab4a4e64227b4cd61509c937f950eb05ead14b85ee8c8ca3e05d65898d3f1",
+      "path": "C:/github/ecopunk/crates/ecopunk-wasm/src/lib.rs",
+      "scope": "Read comparative anatomy caller326-359, colored-loader526-554,constructor texture setup; not full module audit"
+    },
+    {
+      "sha256": "34dd880db552aed31e8e55a3bc5bf4f7d4e468faac9688794f80a022058f2325",
+      "path": "C:/github/ecopunk/crates/ecopunk-wasm/src/texture_admission.rs",
+      "scope": "Read1-113; admission and source test definitions; no rerun"
+    },
+    {
+      "sha256": "2ae56c3f9a7f7e5549f72740c41734f0cb519cce3530e0bf1f4b2eadcc740943",
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/parametric_cad.rs",
+      "scope": "Read1-235,364-391; finite exact geometry semantics only"
+    },
+    {
+      "sha256": "0d0193c2617b9a396ffd345e5221fc867ef64cc326918fbb3070e5e172339736",
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/skeletal/authoring.rs",
+      "scope": "Read1-130; weights and remap behavior only"
+    },
+    {
+      "sha256": "148d3ca2f1586ec2c3f4c9b7815316b09a0af6ee0d761484c903f41ed7ba88d0",
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/render/surface_authoring.rs",
+      "scope": "Read1-130; map generator only"
+    },
+    {
+      "sha256": "e9db4c5057dec1e7c39c8d2bae08570b79c45fe390b67710c438f108283ec19a",
+      "path": "C:/github/poet/native/src/graphical/animated_rig_preview.rs",
+      "scope": "Read whole80-line frame adapter"
+    },
+    {
+      "sha256": "a68ae7f49022fd951995ac0a4a5c7e4d94a2844c1888c288b6741ec5d88dbc2e",
+      "path": "C:/github/poet/native/src/graphical/rig_binding/rig_candidate.rs",
+      "scope": "Read whole candidate staging adapter"
+    },
+    {
+      "sha256": "d9ba5b51e591874b3ef1d61cad6b2557afb90fc34a81e4ef971dbdd5e0f2fcd6",
+      "path": "C:/github/poet/native/src/graphical/rig_binding/mod.rs",
+      "scope": "Descriptor and admission types reviewed; not every submodule"
+    },
+    {
+      "sha256": "be77de89f8c7b6f03c5eb9cad9379e1831c1347abd131c00f9c16a0c148a0ca2",
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-27/human-authority-round1/swarm-composed-rig-check.log",
+      "scope": "Prior saved pass record only, not rerun"
+    },
+    {
+      "sha256": "3f15261b8462ec01cf88b9a95b88f4b30a968558c0a07ebb0386319a4a8caea3",
+      "path": "C:/github/ecopunk/docs/qa/implementation-2026-10-27/full-scope-round1/rig-gpu-check.log",
+      "scope": "Prior saved pass record only, not rerun"
+    },
+    {
+      "sha256": "c7e59efd07c50f241456b1a13a540ece542fae3e30c1f5211ccc2c2c2ced68c2",
+      "path": "C:/github/ecopunk/tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.rs",
+      "scope": "Whole newly authored staged adapter; source reviewed, not compiled/executed"
+    },
+    {
+      "sha256": "8d2a6a802681fecd3ae7bfad960544fed9a3da6863650d362cd211e7f8ac7537",
+      "path": "C:/github/ecopunk/tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+      "scope": "Whole newly authored editable species data; all numerical measurements estimates"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/sweep_extrusion.rs",
+      "sha256": "dac6ab22dc846f1b55bcec692c2d071f99ec92d677a9ef462fb4b5bdc532835f",
+      "scope": "Read1-177 and source test541-594: actual double-reflection frame implementation, no test rerun"
+    }
+  ],
+  "status": "source inspection and authored staging; no new execution",
+  "kind": "bounded-cad-anatomy-reuse-source-pins"
+}

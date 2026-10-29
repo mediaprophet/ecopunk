@@ -1,0 +1,27 @@
+{
+  "revision": "d72fec9533b97c6fbff951d6165d1753",
+  "build_record": "docs\\qa\\implementation-2026-10-29\\species-production-round1\\wasm-build-01.json",
+  "outputs": {
+    "viewer/model-revisions/d72fec9533b97c6fbff951d6165d1753/ecopunk_wasm_bg.wasm": "d72fec9533b97c6f34f8bfbff66d3ed9657ff2bc929559c5320deb2852e9a1f2",
+    "viewer/model-revisions/d72fec9533b97c6fbff951d6165d1753/ecopunk_wasm.js": "bff951d6165d1753b3adab45b12da2e18922060377db92765feae4fa32d61f58",
+    "viewer/model-revisions/d72fec9533b97c6fbff951d6165d1753/ecopunk_wasm.d.ts": "606a335657c318c599817a491dda5454699d4d961af82a96295e785563c7b844",
+    "viewer/model-revisions/d72fec9533b97c6fbff951d6165d1753/ecopunk_wasm_bg.wasm.d.ts": "dd1d942ecfcbaa953e1d0b8f46a50bd9356b70691a0274f3fc481c5fd4c4b3f0",
+    "viewer/model-revisions/d72fec9533b97c6fbff951d6165d1753/package.json": "3fbfa171a8f71efec8b6860b3763e0337c231f79c00defc1acd8a5340f88c37f"
+  },
+  "selected_source_sha256": {
+    "Cargo.lock": "38144732531dd34f878c4e801d652c059c3fe44ee7894c44a836e45c7e76e969",
+    "Cargo.toml": "c3dd88173048f4fcecc02df91317c6ef487adb5b0a137fa143f4758f600dba30",
+    "crates/ecopunk-terrain/Cargo.toml": "9e5542ee126b64c2b3a6cc9a5d092ea53c91427d641677e6a5156a6131038396",
+    "crates/ecopunk-terrain/src/species_review.rs": "020b2f8b514ffa0ce25355cc31a71f58b06355c51e9fd8f1fe701910619d7f39",
+    "crates/ecopunk-terrain/src/botanical_field_builder.rs": "2719330f5fd00e255ef49e5f330c6313ca48ff49d346a068e3864f363312b6d8",
+    "crates/ecopunk-terrain/src/zoological_loft_builder.rs": "75f56919ae0b0594a9b66fd970ca426686eb2aca9e1290d0558db58d716ff4f9",
+    "crates/ecopunk-terrain/src/zoological_loft_builder/swamp_wallaby_review.rs": "6f722431c28245fc93c156fcc6814658f4ea777eeccbd498088455655b3ebf54",
+    "crates/ecopunk-terrain/src/pbr_material_synth.rs": "8ccc98aa07657220137cca934b72ff721800668d124a3eed3681ae1f41c83ac9",
+    "crates/ecopunk-terrain/src/scene_builder_10d.rs": "e1d47ff66709aa8385af2a18d24020e90f04ed388269eaf118dfab2a9c2175de",
+    "crates/ecopunk-wasm/src/species_review_wasm.rs": "f75817420a8bcdbb3ad39a317daedd6247b85daf896bfdf7320f12a90a94488b",
+    "crates/ecopunk-wasm/src/lib.rs": "6eeab4a4e64227b4cd61509c937f950eb05ead14b85ee8c8ca3e05d65898d3f1",
+    "viewer/models.html": "4489dc21ac2f8916a53a8452fe1a89adfc31c966c409d082985875707cb1489f"
+  },
+  "scope": "Local review package; actual browser render and human acceptance remain separate",
+  "human_acceptance": "pending"
+}

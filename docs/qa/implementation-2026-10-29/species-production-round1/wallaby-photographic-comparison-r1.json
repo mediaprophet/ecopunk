@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-29",
+  "candidate": "swamp-wallaby-review-r1",
+  "working_taxon": "Wallabia bicolor",
+  "candidate_image": "assets/production-studies/swamp-wallaby-review-r1/previews/three-quarter-r1.png",
+  "candidate_image_sha256": "0429186ee796427eaaa41c56ac1ceca94ee1fcd698f66163d487d8d2a35ba52a",
+  "user_reference": "https://www.wildlifenomads.com/blog/wallaby-facts/",
+  "visually_inspected_references": [
+    {
+      "image": "https://www.wildlifenomads.com/wp-content/uploads/2026/04/close-up-head-Wallaby.webp",
+      "credit": "Cesar Medina Davila",
+      "scope": "Face, eyes, ear depth, coat and forelimbs; photograph not explicitly identified as swamp wallaby"
+    },
+    {
+      "image": "https://www.wildlifenomads.com/wp-content/uploads/2026/04/wallaby-in-the-wild.webp",
+      "credit": "Karolina Bagolova",
+      "scope": "Whole-body posture, continuous hindquarter silhouette and curving tail; feet partly obscured; photograph not explicitly identified as swamp wallaby"
+    }
+  ],
+  "taxon_specific_text_references": [
+    {
+      "url": "https://australian.museum/learn/animals/mammals/swamp-wallaby/",
+      "observed": "Small stocky body; dark brown fur; lighter rusty patches on belly, chest and ear bases"
+    },
+    {
+      "url": "https://www.nationalparks.nsw.gov.au/plants-and-animals/swamp-wallaby",
+      "observed": "Dark black-grey coat, light cheek stripe, yellow-to-red underside, long narrow feet"
+    }
+  ],
+  "observed_candidate_defects": [
+    "Bulbous paired thighs and abrupt body transitions",
+    "Simplified muzzle and protruding round nose; eyes need integrated anatomical shaping",
+    "Thin wedge-like ears lack cupped depth",
+    "Angular tail transitions rather than a continuous tapered curve",
+    "Smooth toy-like coat lacks the reference surface character and species-specific colour distribution",
+    "Feet and digits need anatomical definition"
+  ],
+  "limits": "References guide comparison; they are not measured geometry or permission to copy photographs into the asset. The generic wallaby article does not establish swamp-wallaby-specific reproductive, gait or dimensional parameters.",
+  "human_review": "revision_required",
+  "disposition": "User rejected r1 quality. No species package accepted; revised render and user/contractor review required."
+}

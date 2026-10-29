@@ -1,0 +1,26 @@
+// White-gum working taxon candidate, not a field-identified individual.
+// Adult dimensions are authored selections within published reference ranges.
+// Height, crown distribution, twig layout, pose and colour are artistic hypotheses.
+({
+ whole_tree:0.0,
+ tree_height_m:7.5,
+ stem_length_m:0.68,
+ stem_base_radius_m:0.0045,
+ stem_tip_radius_m:0.0010,
+ leaf_thickness_m:0.00026,
+ leaf_rows:60,
+ leaf_columns:16,
+ vein_pairs:7,
+ leaves:[
+  {at:0.12,side:-1.0,azimuth:0.10,length_m:0.162,width_m:0.022,petiole_m:0.024,roll:-0.48,tilt:-0.12,age:1.0},
+  {at:0.21,side:1.0,azimuth:0.33,length_m:0.145,width_m:0.019,petiole_m:0.021,roll:0.20,tilt:0.21,age:1.0},
+  {at:0.30,side:-1.0,azimuth:-0.24,length_m:0.182,width_m:0.025,petiole_m:0.028,roll:0.65,tilt:-0.18,age:1.0},
+  {at:0.38,side:1.0,azimuth:-0.16,length_m:0.156,width_m:0.020,petiole_m:0.022,roll:-0.31,tilt:0.07,age:1.0},
+  {at:0.48,side:-1.0,azimuth:0.46,length_m:0.138,width_m:0.018,petiole_m:0.019,roll:-0.57,tilt:0.30,age:1.0},
+  {at:0.57,side:1.0,azimuth:0.19,length_m:0.169,width_m:0.023,petiole_m:0.026,roll:0.43,tilt:-0.24,age:1.0},
+  {at:0.66,side:-1.0,azimuth:-0.35,length_m:0.121,width_m:0.017,petiole_m:0.018,roll:0.22,tilt:0.11,age:1.0},
+  {at:0.75,side:1.0,azimuth:-0.42,length_m:0.151,width_m:0.021,petiole_m:0.023,roll:-0.67,tilt:-0.15,age:1.0},
+  {at:0.83,side:-1.0,azimuth:0.27,length_m:0.110,width_m:0.016,petiole_m:0.016,roll:0.52,tilt:0.18,age:1.0},
+  {at:0.91,side:1.0,azimuth:0.04,length_m:0.132,width_m:0.018,petiole_m:0.020,roll:-0.24,tilt:-0.08,age:1.0}
+ ]
+});

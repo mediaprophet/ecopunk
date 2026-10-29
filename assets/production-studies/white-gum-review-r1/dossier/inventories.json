@@ -1,0 +1,290 @@
+{
+  "admission_negative_case": [],
+  "animal_behaviour": [],
+  "animal_interaction": [],
+  "animal_process": [],
+  "animal_relation": [],
+  "animal_state": [],
+  "attachment": [],
+  "avatar_action": [],
+  "avatar_behaviour": [],
+  "avatar_expression": [],
+  "avatar_variant": [],
+  "behaviour": [],
+  "behaviour_case": [],
+  "clip": [],
+  "compatible_variant": [],
+  "component": [
+    {
+      "description": "Authored 6m synthetic surface candidate; not identified specimen",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "whole-tree"
+    },
+    {
+      "description": "Swept basal root spurs; actual root anatomy missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "ground-collar"
+    },
+    {
+      "description": "Pale smooth trunk candidate with authored proportions",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "bole"
+    },
+    {
+      "description": "Five authored scaffolds using existing field collar computation",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "primary-boughs"
+    },
+    {
+      "description": "Two per primary scaffold",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "secondary-boughs"
+    },
+    {
+      "description": "Existing botanical shoot and adult leaf route",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "terminal-shoots"
+    },
+    {
+      "description": "Nominal 145mm by22mm with authored variation",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "adult-leaf-blades"
+    },
+    {
+      "description": "Prior oversized fan proxies removed for this candidate; replaced with attached real-size adult leaf sprays. Runtime verification pending.",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "inner-crown-fans"
+    },
+    {
+      "description": "Missing required diagnostic opposite juvenile foliage",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "juvenile-leaves"
+    },
+    {
+      "description": "Missing: buds/flowers/fruit/seed; no fabricated reproductive state",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "reproductive-organs"
+    },
+    {
+      "description": "Missing required root/anatomical model",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "subsurface-roots"
+    }
+  ],
+  "contact_case": [],
+  "conversion": [],
+  "corrective": [],
+  "damage_transition": [],
+  "device_profile": [],
+  "environment_case": [],
+  "environment_layer": [],
+  "environment_process": [],
+  "environment_scenario": [],
+  "environment_transition": [],
+  "failure_mode": [],
+  "film_action": [],
+  "film_shot": [],
+  "film_simulation": [],
+  "game_interaction": [],
+  "graph_partition": [],
+  "installation_case": [],
+  "interaction": [],
+  "life_stage": [],
+  "lifecycle_transition": [],
+  "locomotor_mode": [],
+  "lod": [],
+  "lod_transition": [],
+  "made_process": [],
+  "made_scenario": [],
+  "material_map": [],
+  "mechanism": [],
+  "media_resource": [],
+  "micro_lifecycle": [],
+  "micro_process": [],
+  "micro_structure": [],
+  "movement": [],
+  "movement_scenario": [],
+  "movement_state": [],
+  "operating_mode": [],
+  "organ": [],
+  "payload_type": [],
+  "phenology": [],
+  "physical_component": [],
+  "physical_damage_case": [],
+  "physical_facet": [],
+  "physical_system": [],
+  "placement_rule": [],
+  "plant_damage": [],
+  "plant_motion": [],
+  "plant_process": [],
+  "plant_relation": [],
+  "port": [],
+  "profile": [
+    {
+      "description": "Required high-grade film target, missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "film"
+    },
+    {
+      "description": "Required game target; current WASM candidate is unaccepted",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "open_world_game"
+    },
+    {
+      "description": "Required cartoon target, missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "cartoon"
+    }
+  ],
+  "qualification_case": [],
+  "qualification_run": [],
+  "query_case": [],
+  "relation_family": [],
+  "render_feature": [],
+  "representation": [
+    {
+      "description": "Current-browser surface candidate awaiting execution",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "wasm-whole-tree-candidate"
+    },
+    {
+      "description": "Required closeup still pending current-browser integration",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "adult-foliage-diagnostic"
+    },
+    {
+      "description": "Missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "film-master"
+    },
+    {
+      "description": "Missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "cartoon-derivative"
+    }
+  ],
+  "resource_process": [],
+  "review_domain": [],
+  "rig": [],
+  "rig_compatibility": [],
+  "rig_feature": [],
+  "scientific_model": [],
+  "scientific_scale": [],
+  "secondary_system": [],
+  "section_view": [],
+  "sound": [],
+  "sound_event": [],
+  "source": [],
+  "stimulus_response": [],
+  "surface": [
+    {
+      "description": "Pale authored surface, texturing/diagnostic review pending",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "smooth-bark"
+    },
+    {
+      "description": "Green authored surface; no optical measurements",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "adult-foliage"
+    },
+    {
+      "description": "Prior proxy surface removed from whitegum; replacement leaf-spray surface requires actual browser verification.",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "canopy-fan-surrogate"
+    }
+  ],
+  "surface_state": [],
+  "toon_action": [],
+  "toon_render_case": [],
+  "toon_rig_feature": [],
+  "toon_target": [],
+  "trait": [],
+  "transition": [],
+  "twin_model": [],
+  "variant": [],
+  "work_procedure": [],
+  "world_case": [],
+  "subject_identifier": [],
+  "identifier_mapping": [],
+  "source_document": [
+    {
+      "description": "Staged current botanical_field_builder adaptation",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "current-botanical-adaptation"
+    },
+    {
+      "description": "EUCLID and PlantNET source register",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "taxon-reference-register"
+    }
+  ],
+  "plant_organ": [
+    {
+      "description": "Adult leaf source constraint",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "adult-leaf"
+    },
+    {
+      "description": "Required, missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "juvenile-leaf"
+    },
+    {
+      "description": "Required three-bud diagnostic case, missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "bud-umbel"
+    },
+    {
+      "description": "Root knowledge and geometry missing",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "root"
+    }
+  ],
+  "scenario": [
+    {
+      "description": "Select candidate, orbit/zoom and inspect actual full tree",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "browser-whole-tree"
+    },
+    {
+      "description": "Select adult leaf and inspect attachment/source",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "browser-closeup"
+    },
+    {
+      "description": "Coordinator then Timothy/contractor review exact revision",
+      "compatibility_ref": "assets/production-studies/white-gum-review-r1/dossier/README.md",
+      "source_ref": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+      "id": "review-and-revise"
+    }
+  ]
+}

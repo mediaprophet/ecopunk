@@ -1,0 +1,50 @@
+// Swamp-wallaby-directed, synthetic standing study; NOT measured specimen geometry.
+// Every numerical dimension/color below is an editable artistic hypothesis in metres.
+// Reviewed descriptive constraints: stocky body, dark coat, rusty underside,
+// light cheek stripe and long narrow feet. Source mapping: dossier/references.md.
+// +Z is forward, +Y is up. Ground is y=0. No animation/rig is claimed.
+({
+  grid_x: 60, grid_y: 112, grid_z: 184,
+  blend_m: 0.025,
+  shapes: [
+    {name:"pelvis", x:0.0,y:0.40,z:-0.13, rx:0.17,ry:0.25,rz:0.22, tilt:0.18},
+    {name:"abdomen", x:0.0,y:0.56,z:-0.06, rx:0.15,ry:0.24,rz:0.18, tilt:0.26},
+    {name:"chest", x:0.0,y:0.73,z:0.035, rx:0.105,ry:0.19,rz:0.12, tilt:0.30},
+    {name:"neck", x:0.0,y:0.87,z:0.11, rx:0.075,ry:0.13,rz:0.085, tilt:0.30},
+    {name:"head", x:0.0,y:0.96,z:0.18, rx:0.075,ry:0.092,rz:0.11, tilt:-0.20},
+    {name:"muzzle", x:0.0,y:0.936,z:0.274, rx:0.046,ry:0.043,rz:0.09, tilt:-0.12},
+    {name:"left-haunch", x:-0.13,y:0.31,z:-0.055, rx:0.095,ry:0.18,rz:0.14, tilt:-0.30},
+    {name:"right-haunch", x:0.13,y:0.31,z:-0.055, rx:0.095,ry:0.18,rz:0.14, tilt:-0.30},
+    {name:"left-shin", x:-0.145,y:0.16,z:-0.10, rx:0.040,ry:0.13,rz:0.055, tilt:-0.26},
+    {name:"right-shin", x:0.145,y:0.16,z:-0.10, rx:0.040,ry:0.13,rz:0.055, tilt:-0.26},
+    {name:"left-foot", x:-0.145,y:0.040,z:0.02, rx:0.036,ry:0.040,rz:0.175, tilt:0.0},
+    {name:"right-foot", x:0.145,y:0.040,z:0.02, rx:0.036,ry:0.040,rz:0.175, tilt:0.0},
+    {name:"left-upper-arm", x:-0.102,y:0.67,z:0.13, rx:0.035,ry:0.105,rz:0.04, tilt:0.22},
+    {name:"right-upper-arm", x:0.102,y:0.67,z:0.13, rx:0.035,ry:0.105,rz:0.04, tilt:0.22},
+    {name:"left-forearm", x:-0.10,y:0.565,z:0.16, rx:0.024,ry:0.075,rz:0.028, tilt:0.26},
+    {name:"right-forearm", x:0.10,y:0.565,z:0.16, rx:0.024,ry:0.075,rz:0.028, tilt:0.26},
+    {name:"left-hand", x:-0.10,y:0.50,z:0.18, rx:0.023,ry:0.045,rz:0.027, tilt:0.12},
+    {name:"right-hand", x:0.10,y:0.50,z:0.18, rx:0.023,ry:0.045,rz:0.027, tilt:0.12},
+    {name:"left-ear", x:-0.055,y:1.105,z:0.135, rx:0.035,ry:0.122,rz:0.022, tilt:-0.16},
+    {name:"right-ear", x:0.055,y:1.105,z:0.135, rx:0.035,ry:0.122,rz:0.022, tilt:-0.16}
+  ],
+  tail: [
+    {x:0.0,y:0.30,z:-0.27,r:0.095},
+    {x:0.0,y:0.22,z:-0.39,r:0.073},
+    {x:0.0,y:0.14,z:-0.53,r:0.055},
+    {x:0.0,y:0.09,z:-0.68,r:0.038},
+    {x:0.0,y:0.067,z:-0.84,r:0.026},
+    {x:0.0,y:0.056,z:-1.00,r:0.015},
+    {x:0.0,y:0.055,z:-1.13,r:0.004}
+  ],
+  dorsal_r:0.095,dorsal_g:0.078,dorsal_b:0.065,
+  ventral_r:0.31,ventral_g:0.16,ventral_b:0.065,
+  cheek_r:0.49,cheek_g:0.39,cheek_b:0.25,
+  cameras: [
+    {name:"three-quarter",yaw:0.85,pitch:0.08,distance:2.7,tx:0.0,ty:0.60,tz:-0.30},
+    {name:"side",yaw:1.57079632679,pitch:0.0,distance:2.6,tx:0.0,ty:0.60,tz:-0.30},
+    {name:"front",yaw:0.0,pitch:0.0,distance:2.1,tx:0.0,ty:0.62,tz:0.0},
+    {name:"face-detail",yaw:0.75,pitch:0.02,distance:0.74,tx:0.0,ty:1.00,tz:0.18},
+    {name:"feet-tail-detail",yaw:1.15,pitch:0.24,distance:1.9,tx:0.0,ty:0.15,tz:-0.40}
+  ]
+});

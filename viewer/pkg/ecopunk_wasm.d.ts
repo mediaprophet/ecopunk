@@ -34,7 +34,13 @@ export class EcopunkPortal {
      * returning their `.qbc` bytecode verification receipt as JSON.
      */
     load_vibe_modules(continuum_drive_vibe: string, biological_lab_vibe: string): string;
-    constructor(canvas: HTMLCanvasElement);
+    /**
+     * Await `init_webgpu` before construction so the engine can adopt its
+     * pending GPU and admit the scene's required opaque colour textures.
+     * Unavailable backends and rejected texture uploads return an error.
+     */
+    constructor(canvas: HTMLCanvasElement, untextured_fallback?: boolean | null);
+    render_receipt(): any;
     /**
      * Orbit/zoom the `QualiaPortal` camera directly.
      */
@@ -96,10 +102,6 @@ export class QualiaHud {
      * Return an action ID for a button under the pointer, in canvas pixels.
      */
     hit_test(x: number, y: number): string;
-    /**
-     * Solves flex layout for all HUD items using the Etalon 2D vector HUD layout engine.
-     * Updates position and dimensions for auto-sized items (`w == 0.0` or `h == 0.0`).
-     */
     layout_items_flex(viewport_w: number, viewport_h: number): void;
     /**
      * Creates `QualiaHud` with the given state.
@@ -117,6 +119,12 @@ export class QualiaHud {
      * Use the same orbit camera as Portal to project world markers into HUD pixels.
      */
     set_camera_target(yaw: number, pitch: number, zoom: number, x: number, y: number, z: number): void;
+    /**
+     * Solves flex layout for all HUD items using the Etalon 2D vector HUD layout engine.
+     * Updates position and dimensions for auto-sized items (`w == 0.0` or `h == 0.0`).
+     * Replace the presentation document directly from binary W3C CBOR-LD (`0xD9 0x0501`).
+     */
+    set_document_cbor_ld(bytes: Uint8Array): void;
     /**
      * Replace the presentation document. Bounds and size are checked before adoption.
      */
@@ -764,8 +772,8 @@ export class QualiaPortal {
      */
     white_balance(): Float32Array;
     /**
-     * Write posed positions into one vertex span of the resident body mesh.
-     * Generic: any app can move a part over time without a full re-upload.
+     * Write posed XYZ triples into an authored scene span. Compact backends
+     * receive the replay mesh's mapped positions, never original offsets.
      */
     write_part_vertices(start: number, xyz: Float32Array): void;
 }
@@ -2577,7 +2585,8 @@ export interface InitOutput {
     readonly ecopunkportal_load_continuum_site_scene: (a: number, b: number) => [number, number, number, number];
     readonly ecopunkportal_load_dissection_scale: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => [number, number, number, number];
     readonly ecopunkportal_load_vibe_modules: (a: number, b: number, c: number, d: number, e: number) => [number, number, number, number];
-    readonly ecopunkportal_new: (a: any) => [number, number, number];
+    readonly ecopunkportal_new: (a: any, b: number) => [number, number, number];
+    readonly ecopunkportal_render_receipt: (a: number) => [number, number, number];
     readonly ecopunkportal_set_orbit_camera: (a: number, b: number, c: number, d: number, e: number, f: number, g: number) => [number, number];
     readonly ecopunkportal_step_and_render: (a: number, b: any, c: number, d: number, e: number, f: number, g: number, h: number, i: number, j: number, k: number, l: number) => [number, number, number, number];
     readonly ecopunkportal_tier: (a: number) => number;
@@ -2721,6 +2730,7 @@ export interface InitOutput {
     readonly qualiahud_paint: (a: number) => void;
     readonly qualiahud_set_camera_near_plane: (a: number, b: number) => [number, number];
     readonly qualiahud_set_camera_target: (a: number, b: number, c: number, d: number, e: number, f: number, g: number) => void;
+    readonly qualiahud_set_document_cbor_ld: (a: number, b: number, c: number) => [number, number];
     readonly qualiahud_set_document_json: (a: number, b: number, c: number) => [number, number];
     readonly qualiaportal_acoustic_enabled: (a: number) => number;
     readonly qualiaportal_acoustic_sab_byte_length: (a: number) => number;
@@ -2973,8 +2983,8 @@ export interface InitOutput {
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___js_sys_64cfc1635a58bad3___Function_fn_wasm_bindgen_c71fb624674b8a10___JsValue_____wasm_bindgen_c71fb624674b8a10___sys__Undefined___js_sys_64cfc1635a58bad3___Function_fn_wasm_bindgen_c71fb624674b8a10___JsValue_____wasm_bindgen_c71fb624674b8a10___sys__Undefined_______true_: (a: number, b: number, c: any, d: any) => void;
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___JsValue__core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true_: (a: number, b: number, c: any) => [number, number];
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true_: (a: number, b: number, c: any) => [number, number];
-    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__446: (a: number, b: number, c: any) => [number, number];
-    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__447: (a: number, b: number, c: any) => [number, number];
+    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__448: (a: number, b: number, c: any) => [number, number];
+    readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___wasm_bindgen_c71fb624674b8a10___sys__JsNullable_etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuError__GpuError___core_9b3796e30d99ddb7___result__Result_____wasm_bindgen_c71fb624674b8a10___JsError___true__449: (a: number, b: number, c: any) => [number, number];
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke___etalon_6fac445f12c503f___backend__webgpu__webgpu_sys__gen_GpuDeviceLostInfo__GpuDeviceLostInfo______true_: (a: number, b: number, c: any) => void;
     readonly wasm_bindgen_c71fb624674b8a10___convert__closures_____invoke_______true_: (a: number, b: number) => void;
     readonly __wbindgen_malloc: (a: number, b: number) => number;

@@ -81,4 +81,13 @@ mod tests {
         use qualia_core_db::specialized_libs::computational_geometry::surface_topology_qualification::{surface_qualification_bounds,qualify_surface_topology_into};
         let dims=[15usize,15,15];let origin=Point3::new(-3.57,-3.59,-3.53);let spacing=0.5;
         let center=Point3::new(0.0,0.0,0.0);let arms=[Point3::new(-1.4,0.3,1.2),Point3::new(1.3,0.1,1.3),Point3::new(0.0,-0.2,-1.7)];
-        let segments=[TaperedFieldSegment{a:center,b:arms[0],radius_a:0.58,radius_b:0.42},TaperedFieldSegment{a:center,b:arms[1],radius_a:0.58,radius_b:0.36},TaperedFieldSegment{a
+        let segments=[TaperedFieldSegment{a:center,b:arms[0],radius_a:0.58,radius_b:0.42},TaperedFieldSegment{a:center,b:arms[1],radius_a:0.58,radius_b:0.36},TaperedFieldSegment{a:center,b:arms[2],radius_a:0.58,radius_b:0.48}];
+        let mut samples=Vec::new();for z in 0..dims[2] {for y in 0..dims[1] {for x in 0..dims[0] {samples.push(Point3::new(origin.x+x as f64*spacing,origin.y+y as f64*spacing,origin.z+z as f64*spacing));}}}
+        let mut grid=vec![0.0;samples.len()];let count=tapered_branch_field_into(&samples,&segments,0.2,1e-6,1e-9,samples.len(),segments.len(),samples.len()*segments.len(),&mut grid).unwrap();assert_eq!(count,samples.len()*segments.len());
+        let b=tetra_surface_bounds(dims[0],dims[1],dims[2],100_000).unwrap();let mut vertices=vec![Point3::default();b.vertices];let mut triangles=vec![[0;3];b.triangles];let mut provenance=vec![[0usize;2];b.vertices];let mut slots=vec![TetraEdgeSlot::default();b.edge_slots];
+        let (nv,nt)=indexed_tetra_surface_into(&grid,dims,origin,Point3::new(spacing,spacing,spacing),0.0,100_000,10_000_000,1e-28,&mut vertices,&mut triangles,&mut provenance,&mut slots).unwrap();assert!(nv>0 && nt>0);
+        for end in arms {assert!(vertices[..nv].iter().any(|p| (p.x-end.x).powi(2)+(p.y-end.y).powi(2)+(p.z-end.z).powi(2)<1.0));}
+        let q=surface_qualification_bounds(nv as u32,nt).unwrap();let mut he=vec![HalfEdge::default();q.half_edges];let mut edges=vec![EdgeSlot::default();q.edge_slots];let mut starts=vec![0;q.vertex_starts];let mut visited=vec![false;q.visited_half_edges];let mut labels=vec![0;q.face_labels];let mut queue=vec![0;q.face_queue];
+        let receipt=qualify_surface_topology_into(nv as u32,&triangles[..nt],q.work,&mut he,&mut edges,&mut starts,&mut visited,&mut labels,&mut queue).unwrap();assert_eq!(receipt.component_count,1);
+    }
+}

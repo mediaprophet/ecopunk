@@ -1,0 +1,818 @@
+{
+  "coverage_limit": "All empty dimensions remain unresolved, never vacuous pass. Current finite candidate inventory does not exhaust known species anatomy, behaviour or lifecycle.",
+  "status": "r1 browser-rendered and rejected; r3 anatomical adapter/data staged, not executed by producer",
+  "inventories": {
+    "admission_negative_case": [],
+    "animal_behaviour": [
+      {
+        "source_ref": "dossier/references.md",
+        "id": "foraging",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Qualitative source-discovered behaviour; no authored operational model. Repertoire research remains incomplete."
+      },
+      {
+        "source_ref": "dossier/references.md",
+        "id": "solitary-activity",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Qualitative source-discovered behaviour; no authored operational model. Repertoire research remains incomplete."
+      },
+      {
+        "source_ref": "dossier/references.md",
+        "id": "evening-feeding-aggregation",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Qualitative source-discovered behaviour; no authored operational model. Repertoire research remains incomplete."
+      }
+    ],
+    "animal_interaction": [],
+    "animal_process": [],
+    "animal_relation": [],
+    "animal_state": [
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "authored-static-pose",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Static authored rest/inspection pose only; locomotion, development and social/reproductive states remain missing."
+      }
+    ],
+    "attachment": [],
+    "avatar_action": [],
+    "avatar_behaviour": [],
+    "avatar_expression": [],
+    "avatar_variant": [],
+    "behaviour": [],
+    "behaviour_case": [],
+    "clip": [],
+    "compatible_variant": [],
+    "component": [
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "pelvis",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "abdomen",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "chest",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "neck",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "head",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "muzzle",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "jaw",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-haunch",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-haunch",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-hindlimb",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-hindlimb",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-foot",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-foot",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-forelimb",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-forelimb",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-hand",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-hand",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-ear",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-ear",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "left-eye",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "right-eye",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "nose",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "tail",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Candidate exterior region/part; current rich builder plus staged species-specific adaptation. Internal anatomy and full semantic selection remain open."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-hand-digit-0"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-hand-digit-1"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-hand-digit-2"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-hand-digit-3"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-hand-digit-4"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-lateral-toe"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-medial-toe-1"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-medial-toe-2"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "left-eyelid-ridge"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-hand-digit-0"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-hand-digit-1"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-hand-digit-2"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-hand-digit-3"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-hand-digit-4"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-lateral-toe"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-medial-toe-1"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-medial-toe-2"
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "description": "Explicit staged external detail; authored geometry is unexecuted and species-specific anatomy remains unaccepted.",
+        "compatibility_ref": "dossier/inventory.json",
+        "id": "right-eyelid-ridge"
+      },
+      {
+        "id": "r3-axial-integument",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-cranial-and-rostral-envelope",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-nasal-planum",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-mandible",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-thigh-integument",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-calf-integument",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-hind-pes",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-principal-pes-digit",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-principal-pes-claw",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-lateral-pes-digit",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-medial-syndactyl-digit-2",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-medial-syndactyl-digit-3",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-upper-forelimb",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-forearm-and-palm",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-digit-1",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-claw-1",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-digit-2",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-claw-2",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-digit-3",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-claw-3",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-digit-4",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-claw-4",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-digit-5",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-manual-claw-5",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-tail-continuous-envelope",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-light-cheek-stripe",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-upper-eyelid",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-lower-eyelid",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-mouth-commissure",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-integrated-eye",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-naris",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-cupped-pinna",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-femur-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-tibia-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-femur-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-tibia-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-humerus-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-radius-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-humerus-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-radius-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-axial-lumbar",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-axial-thoracic",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-cervical",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-caudal-proximal",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-caudal-distal",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-quadriceps-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-quadriceps-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-gastrocnemius-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-gastrocnemius-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-brachial-r",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-brachial-l",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      },
+      {
+        "id": "r3-axial",
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_anatomical_r3.json",
+        "description": "Separately editable r3 anatomical source component; generated output, species fidelity, deformation and acceptance unassessed.",
+        "compatibility_ref": "tools/species-production/swamp-wallaby-review-r1/R3-INTEGRATION.md"
+      }
+    ],
+    "contact_case": [
+      {
+        "source_ref": "dossier/review.md",
+        "id": "left-foot-ground",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required visual/physical contact review; no dynamics or validated load-bearing claim."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "right-foot-ground",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required visual/physical contact review; no dynamics or validated load-bearing claim."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "tail-ground",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required visual/physical contact review; no dynamics or validated load-bearing claim."
+      }
+    ],
+    "conversion": [],
+    "corrective": [],
+    "damage_transition": [],
+    "device_profile": [],
+    "environment_case": [],
+    "environment_layer": [],
+    "environment_process": [],
+    "environment_scenario": [],
+    "environment_transition": [],
+    "failure_mode": [],
+    "film_action": [],
+    "film_shot": [],
+    "film_simulation": [],
+    "game_interaction": [],
+    "graph_partition": [],
+    "installation_case": [],
+    "interaction": [],
+    "life_stage": [],
+    "lifecycle_transition": [],
+    "locomotor_mode": [],
+    "lod": [],
+    "lod_transition": [],
+    "made_process": [],
+    "made_scenario": [],
+    "material_map": [],
+    "mechanism": [],
+    "media_resource": [],
+    "micro_lifecycle": [],
+    "micro_process": [],
+    "micro_structure": [],
+    "movement": [],
+    "movement_scenario": [],
+    "movement_state": [],
+    "operating_mode": [],
+    "organ": [],
+    "payload_type": [],
+    "phenology": [],
+    "physical_component": [],
+    "physical_damage_case": [],
+    "physical_facet": [],
+    "physical_system": [],
+    "placement_rule": [],
+    "plant_damage": [],
+    "plant_motion": [],
+    "plant_process": [],
+    "plant_relation": [],
+    "port": [],
+    "profile": [
+      {
+        "source_ref": "dossier/review.md",
+        "id": "film",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required complete-package target, not delivered by the single review specimen."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "open_world_game",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required complete-package target, not delivered by the single review specimen."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "cartoon",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required complete-package target, not delivered by the single review specimen."
+      }
+    ],
+    "qualification_case": [
+      {
+        "source_ref": "dossier/review.md",
+        "id": "three-quarter",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required actual browser review view, not yet captured."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "side",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required actual browser review view, not yet captured."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "front",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required actual browser review view, not yet captured."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "face-detail",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required actual browser review view, not yet captured."
+      },
+      {
+        "source_ref": "dossier/review.md",
+        "id": "feet-tail-detail",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Required actual browser review view, not yet captured."
+      }
+    ],
+    "qualification_run": [],
+    "query_case": [],
+    "relation_family": [],
+    "render_feature": [],
+    "representation": [
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "wasm-static-review",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Staged whole-body surface candidate for current browser renderer. Not executed or accepted."
+      }
+    ],
+    "resource_process": [],
+    "review_domain": [],
+    "rig": [],
+    "rig_compatibility": [],
+    "rig_feature": [],
+    "scientific_model": [],
+    "scientific_scale": [],
+    "secondary_system": [],
+    "section_view": [],
+    "sound": [],
+    "sound_event": [],
+    "source": [
+      {
+        "source_ref": "https://www.nationalparks.nsw.gov.au/plants-and-animals/swamp-wallaby",
+        "id": "npws-species-page",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Qualitative species/locality reference; photo rights not acquired."
+      },
+      {
+        "source_ref": "https://australian.museum/learn/animals/mammals/swamp-wallaby/",
+        "id": "am-species-page",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Independent museum description; measurements not calibrated to model."
+      }
+    ],
+    "stimulus_response": [],
+    "surface": [
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "coat-study",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Editable authored material/shading values; no measured spectra, fur groom or physical material claim."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "eye",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Editable authored material/shading values; no measured spectra, fur groom or physical material claim."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "nose-claws",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Editable authored material/shading values; no measured spectra, fur groom or physical material claim."
+      },
+      {
+        "source_ref": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs",
+        "id": "ear-inner",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Editable authored material/shading values; no measured spectra, fur groom or physical material claim."
+      }
+    ],
+    "surface_state": [],
+    "toon_action": [],
+    "toon_render_case": [],
+    "toon_rig_feature": [],
+    "toon_target": [],
+    "trait": [],
+    "transition": [],
+    "twin_model": [],
+    "variant": [
+      {
+        "source_ref": "dossier/references.md",
+        "id": "synthetic-unspecified-sex-stage",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Synthetic source geometry; sex/stage/individual not inferred. Does not discharge researched biological variant obligations."
+      }
+    ],
+    "work_procedure": [],
+    "world_case": [],
+    "subject_identifier": [
+      {
+        "source_ref": "README.md",
+        "id": "local-study-urn",
+        "compatibility_ref": "dossier/inventory.json",
+        "description": "Local synthetic study identifier; taxon concept authority unresolved."
+      }
+    ],
+    "identifier_mapping": []
+  },
+  "revision": "2026-10-29-r1"
+}

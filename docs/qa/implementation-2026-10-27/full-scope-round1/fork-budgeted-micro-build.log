@@ -1,0 +1,14 @@
+warning: variant `Connectivity` is never constructed
+  --> C:\github\ecopunk\tools\poet-foundation\full-scope\fork-budgeted-topology\surface_topology_qualification.rs:24:5
+   |
+18 | pub enum SurfaceQualificationError {
+   |          ------------------------- variant in this enum
+...
+24 |     Connectivity(ConnectivityError),
+   |     ^^^^^^^^^^^^
+   |
+   = note: `SurfaceQualificationError` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+

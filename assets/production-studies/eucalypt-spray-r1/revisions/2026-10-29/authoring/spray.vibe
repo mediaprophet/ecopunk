@@ -1,0 +1,25 @@
+// Authored illustrative branch study. Dimensions are design choices in metres.
+// This is not an identification, specimen record or validated biological model.
+({
+  stem_length_m: 0.76,
+  stem_base_radius_m: 0.0060,
+  stem_tip_radius_m: 0.0012,
+  leaf_thickness_m: 0.00032,
+  leaf_rows: 60,
+  leaf_columns: 16,
+  vein_pairs: 9,
+  leaves: [
+    {at:0.16,side:-1.0,length_m:0.185,width_m:0.031,roll:-0.24,tilt:-0.12,age:0.90},
+    {at:0.20,side: 1.0,length_m:0.205,width_m:0.035,roll: 0.15,tilt: 0.08,age:0.85},
+    {at:0.29,side:-1.0,length_m:0.213,width_m:0.034,roll: 0.20,tilt: 0.22,age:0.80},
+    {at:0.34,side: 1.0,length_m:0.191,width_m:0.030,roll:-0.37,tilt:-0.15,age:0.75},
+    {at:0.43,side:-1.0,length_m:0.196,width_m:0.031,roll:-0.17,tilt:-0.05,age:0.70},
+    {at:0.48,side: 1.0,length_m:0.174,width_m:0.027,roll: 0.27,tilt: 0.16,age:0.65},
+    {at:0.57,side:-1.0,length_m:0.164,width_m:0.026,roll: 0.32,tilt: 0.12,age:0.55},
+    {at:0.62,side: 1.0,length_m:0.151,width_m:0.025,roll:-0.19,tilt:-0.08,age:0.50},
+    {at:0.70,side:-1.0,length_m:0.142,width_m:0.024,roll:-0.39,tilt: 0.18,age:0.38},
+    {at:0.76,side: 1.0,length_m:0.124,width_m:0.023,roll: 0.22,tilt:-0.10,age:0.26},
+    {at:0.83,side:-1.0,length_m:0.095,width_m:0.018,roll: 0.29,tilt: 0.12,age:0.12},
+    {at:0.90,side: 1.0,length_m:0.077,width_m:0.016,roll:-0.21,tilt:-0.06,age:0.03}
+  ]
+});

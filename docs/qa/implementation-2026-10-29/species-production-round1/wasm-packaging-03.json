@@ -1,0 +1,25 @@
+{
+  "build_record": "wasm-build-03.json",
+  "command": [
+    "C:\\Users\\tim_h\\AppData\\Local\\.wasm-pack\\wasm-bindgen-ba0b07921e305a69\\wasm-bindgen.exe",
+    "--target",
+    "web",
+    "--typescript",
+    "--out-dir",
+    "C:\\github\\ecopunk\\target\\species-review-pkg",
+    "--out-name",
+    "ecopunk_wasm",
+    "C:\\github\\ecopunk\\target\\demo-wasm\\wasm32-unknown-unknown\\release\\ecopunk_wasm.wasm"
+  ],
+  "version": "wasm-bindgen 0.2.129",
+  "input_sha256": "4760ef01d7c120ae8cb312c61e0113829ae5cd7f559e2e7c002484930252b13b",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "scope": "Local binding packaging recovery; original wasm-pack failure retained",
+  "outputs": {
+    "ecopunk_wasm.js": "2810f4c440214a01fcf63fd7bfbdfd382af65cce55bc0d1418d1e655cbc9e24c",
+    "ecopunk_wasm_bg.wasm": "b9063fcebec7f91a20a828a1bde0c85fb55fa16b16a51c33a6519a03513d8b80",
+    "ecopunk_wasm.d.ts": "44d7b5035409367486afa298a1ffb146d5d0996aa8f5a90e0a4f81a1bdbeeedd"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Observation": "Build input manifest pins; full working-tree source closure is not inferred from Git HEAD",
+  "EcopunkHEAD": "c1ac16c33dceac75ab77893b9ecb5e59bf8d51fc",
+  "QualiaDBHEAD": "250b05683b29c5134247eb522fcd195a55f28ddf",
+  "EtalonLockRevision": "ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6",
+  "Rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "Pins": [
+    {
+      "Path": "C:\\github\\qualiaDB\\Cargo.toml",
+      "SHA256": "bcd94075a5c27307b9c9b74b651ab1ad3eab308e7902d4b3a4998ae20d08b9a8"
+    },
+    {
+      "Path": "C:\\github\\qualiaDB\\Cargo.lock",
+      "SHA256": "c36d73f8340aab4a549e1ed7a562471dd775b5e61fd5abd09e16de09757f7cf5"
+    },
+    {
+      "Path": "C:\\github\\qualiaDB\\crates\\qualia-core-db\\Cargo.toml",
+      "SHA256": "11066b05960be8eeca157067b1ce7507015680403c6408e3105d674b226e5b06"
+    },
+    {
+      "Path": "C:\\github\\qualiaDB\\crates\\vibe\\Cargo.toml",
+      "SHA256": "b52796567e54c9575fb7cb02da59906311c9bf1a2233dace9ac0dea8b72e265f"
+    },
+    {
+      "Path": "C:\\github\\ecopunk\\tools\\species-production\\build-native-dependencies.py",
+      "SHA256": "0b1857d9f68fa7a9eae6c5796acdefb763700ee50e5223c83d5ba907efb3be6d"
+    },
+    {
+      "Path": "C:\\github\\ecopunk\\docs\\planning\\tech\\assets\\model-production-template\\deliverables.json",
+      "SHA256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb"
+    }
+  ]
+}

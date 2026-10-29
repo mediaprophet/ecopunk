@@ -1,5 +1,7 @@
 # Ecopunk and Poet progress and accountability response
 
+**28 October supplement:** the requested [Poet continuity incident and remediation record](poet-continuity-incident-and-remediation.md) addresses the original Webizen/Poet interface, modular repository intent, current evidence limits and concrete adoption defect. Its [asset-production recovery outline](asset-production-recovery-outline.md) restores the existing TERN/RDF source pipeline to the delivery sequence. This supplement preserves the historical findings below rather than treating them as current completion evidence.
+
 Prepared 27 October 2026, Australia/Sydney, for Timothy. This answers the 75 questions in [the supplied request](C:/Users/tim_h/.codex/attachments/39b89566-6069-45c2-822c-3bc19089fe5e/Pasted%20text.txt). It is a bounded review of available conversation context, saved source, receipts and selected current state, not a reconstruction of every prior chat or operating-system event.
 
 The intended outcome remains an exceptional native Ecopunk authoring and asset pipeline serving game-demo. That outcome has **not been demonstrated**. There is useful saved implementation and selected passing software verification, but no accepted white-gum or wallaby package and no evidenced current native human contributor/reviewer trial.

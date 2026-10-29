@@ -1,0 +1,129 @@
+{
+  "parameters": [],
+  "parts": [
+    {
+      "base_color": [
+        0.92,
+        0.88,
+        0.82,
+        1.0
+      ],
+      "id": "branch",
+      "material_id": 8001,
+      "metallic": 0.0,
+      "parent": null,
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.86,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 81001,
+      "translation": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "triangles": 376,
+      "vertices": 190
+    },
+    {
+      "base_color": [
+        0.3,
+        0.62,
+        0.28,
+        1.0
+      ],
+      "id": "canopy/north",
+      "material_id": 8002,
+      "metallic": 0.0,
+      "parent": "branch",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.84,
+      "scale": [
+        1.18,
+        1.12,
+        0.78
+      ],
+      "semantic_id": 81002,
+      "translation": [
+        0.95,
+        0.12,
+        1.18
+      ],
+      "triangles": 252,
+      "vertices": 137
+    },
+    {
+      "base_color": [
+        0.3,
+        0.62,
+        0.28,
+        1.0
+      ],
+      "id": "canopy/south",
+      "material_id": 8002,
+      "metallic": 0.0,
+      "parent": "branch",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.84,
+      "scale": [
+        1.12,
+        1.06,
+        0.74
+      ],
+      "semantic_id": 81003,
+      "translation": [
+        -0.92,
+        -0.08,
+        1.14
+      ],
+      "triangles": 252,
+      "vertices": 137
+    },
+    {
+      "base_color": [
+        0.3,
+        0.62,
+        0.28,
+        1.0
+      ],
+      "id": "canopy/apex",
+      "material_id": 8002,
+      "metallic": 0.0,
+      "parent": "branch",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.84,
+      "scale": [
+        1.28,
+        1.22,
+        0.82
+      ],
+      "semantic_id": 81004,
+      "translation": [
+        0.04,
+        0.22,
+        1.42
+      ],
+      "triangles": 252,
+      "vertices": 137
+    }
+  ]
+}

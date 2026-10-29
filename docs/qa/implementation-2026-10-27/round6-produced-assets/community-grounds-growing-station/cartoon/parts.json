@@ -1,0 +1,6239 @@
+{
+  "parameters": [
+    [
+      "cabinet_depth",
+      0.66
+    ],
+    [
+      "cabinet_height",
+      0.48
+    ],
+    [
+      "cabinet_width",
+      0.64
+    ],
+    [
+      "channel_height",
+      0.115
+    ],
+    [
+      "channel_length",
+      2.24
+    ],
+    [
+      "channel_wall",
+      0.006
+    ],
+    [
+      "channel_width",
+      0.18
+    ],
+    [
+      "depth",
+      1.65
+    ],
+    [
+      "detail_segments",
+      12.0
+    ],
+    [
+      "height",
+      1.72
+    ],
+    [
+      "level_step",
+      0.4
+    ],
+    [
+      "lower_level",
+      0.65
+    ],
+    [
+      "ring_segments",
+      32.0
+    ],
+    [
+      "style_mode",
+      1.0
+    ],
+    [
+      "tube_segments",
+      8.0
+    ],
+    [
+      "width",
+      2.6
+    ]
+  ],
+  "parts": [
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "station",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": null,
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110000,
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/datum",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "station",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110001,
+      "translation": [
+        -1.3,
+        0.14,
+        -0.745
+      ],
+      "triangles": 20,
+      "vertices": 12
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/post-front",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110011,
+      "translation": [
+        0.1,
+        0.0,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "frame/left/foot-front",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110111,
+      "translation": [
+        0.1,
+        -0.125,
+        0.0
+      ],
+      "triangles": 128,
+      "vertices": 66
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/left/adjuster-front",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110211,
+      "translation": [
+        0.1,
+        -0.11,
+        0.0
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/post-rear",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110012,
+      "translation": [
+        0.1,
+        0.0,
+        1.49
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "frame/left/foot-rear",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110112,
+      "translation": [
+        0.1,
+        -0.125,
+        1.49
+      ],
+      "triangles": 128,
+      "vertices": 66
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/left/adjuster-rear",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110212,
+      "translation": [
+        0.1,
+        -0.11,
+        1.49
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/support-low",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110311,
+      "translation": [
+        0.1,
+        0.42500000000000004,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/support-mid",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110312,
+      "translation": [
+        0.1,
+        0.8250000000000001,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/support-high",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110313,
+      "translation": [
+        0.1,
+        1.225,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/left/cross-brace-a",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110410,
+      "translation": [
+        0.1,
+        -0.14,
+        0.73
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/left/cross-brace-b",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110411,
+      "translation": [
+        0.1,
+        -0.14,
+        0.73
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/gusset-front",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110511,
+      "translation": [
+        0.064,
+        0.1,
+        0.03
+      ],
+      "triangles": 20,
+      "vertices": 12
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/left/bolt-front",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110611,
+      "translation": [
+        0.05600000000000001,
+        0.145,
+        0.075
+      ],
+      "triangles": 28,
+      "vertices": 16
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/left/gusset-rear",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110512,
+      "translation": [
+        0.064,
+        0.1,
+        1.46
+      ],
+      "triangles": 20,
+      "vertices": 12
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/left/bolt-rear",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110612,
+      "translation": [
+        0.05600000000000001,
+        0.145,
+        1.505
+      ],
+      "triangles": 28,
+      "vertices": 16
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/post-front",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110031,
+      "translation": [
+        2.5,
+        0.0,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "frame/right/foot-front",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110131,
+      "translation": [
+        2.5,
+        -0.125,
+        0.0
+      ],
+      "triangles": 128,
+      "vertices": 66
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/right/adjuster-front",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110231,
+      "translation": [
+        2.5,
+        -0.11,
+        0.0
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/post-rear",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110032,
+      "translation": [
+        2.5,
+        0.0,
+        1.49
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "frame/right/foot-rear",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110132,
+      "translation": [
+        2.5,
+        -0.125,
+        1.49
+      ],
+      "triangles": 128,
+      "vertices": 66
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/right/adjuster-rear",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110232,
+      "translation": [
+        2.5,
+        -0.11,
+        1.49
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/support-low",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110331,
+      "translation": [
+        2.5,
+        0.42500000000000004,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/support-mid",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110332,
+      "translation": [
+        2.5,
+        0.8250000000000001,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/support-high",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110333,
+      "translation": [
+        2.5,
+        1.225,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/right/cross-brace-a",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110430,
+      "translation": [
+        2.5,
+        -0.14,
+        0.73
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/right/cross-brace-b",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110431,
+      "translation": [
+        2.5,
+        -0.14,
+        0.73
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/gusset-front",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110531,
+      "translation": [
+        2.464,
+        0.1,
+        0.03
+      ],
+      "triangles": 20,
+      "vertices": 12
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/right/bolt-front",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110631,
+      "translation": [
+        2.456,
+        0.145,
+        0.075
+      ],
+      "triangles": 28,
+      "vertices": 16
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/right/gusset-rear",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110532,
+      "translation": [
+        2.464,
+        0.1,
+        1.46
+      ],
+      "triangles": 20,
+      "vertices": 12
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "frame/right/bolt-rear",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110632,
+      "translation": [
+        2.456,
+        0.145,
+        1.505
+      ],
+      "triangles": 28,
+      "vertices": 16
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/rear-base",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110700,
+      "translation": [
+        0.0,
+        0.0,
+        1.49
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/front-header",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110701,
+      "translation": [
+        0.0,
+        1.52,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.48,
+        0.14,
+        0.025,
+        1.0
+      ],
+      "id": "frame/rear-header",
+      "material_id": 9001,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.78,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 110702,
+      "translation": [
+        0.0,
+        1.52,
+        1.49
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120000,
+      "translation": [
+        0.17999999999999994,
+        0.51,
+        0.08499999999999992
+      ],
+      "triangles": 220,
+      "vertices": 112
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-edge-left",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120010,
+      "translation": [
+        -0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-edge-right",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120011,
+      "translation": [
+        0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-end-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120012,
+      "translation": [
+        0.0,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-end-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120013,
+      "translation": [
+        0.0,
+        0.0625,
+        2.0958333333333337
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/endcap-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120014,
+      "translation": [
+        0.0,
+        0.0,
+        -0.009
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/endcap-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120015,
+      "translation": [
+        0.0,
+        0.0,
+        2.24
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/front-low/coupling-in",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120016,
+      "translation": [
+        0.0,
+        -0.014,
+        -0.052
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/front-low/coupling-out",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120017,
+      "translation": [
+        0.0,
+        -0.014,
+        2.249
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-low/netpot-collar-a",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120041,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.18666666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-bay-a",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120061,
+      "translation": [
+        0.0,
+        0.0625,
+        0.22916666666666663
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-low/netpot-collar-b",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120042,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.56
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-bay-b",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120062,
+      "translation": [
+        0.0,
+        0.0625,
+        0.6025
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-low/netpot-collar-c",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120043,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.9333333333333342
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-bay-c",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120063,
+      "translation": [
+        0.0,
+        0.0625,
+        0.9758333333333342
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-low/netpot-collar-d",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120044,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.3066666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-bay-d",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120064,
+      "translation": [
+        0.0,
+        0.0625,
+        1.3491666666666662
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-low/netpot-collar-e",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120045,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.6800000000000002
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-low/lid-bay-e",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120065,
+      "translation": [
+        0.0,
+        0.0625,
+        1.7225000000000001
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-low/netpot-collar-f",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 120046,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        2.053333333333334
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-front-low",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 130000,
+      "translation": [
+        0.06,
+        0.496,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-front-low",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 130100,
+      "translation": [
+        2.49,
+        0.496,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "services/valve-front-low",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 130200,
+      "translation": [
+        0.18,
+        0.496,
+        0.645
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.94,
+        0.32,
+        0.025,
+        1.0
+      ],
+      "id": "services/lever-front-low",
+      "material_id": 9007,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.76,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 130300,
+      "translation": [
+        0.18,
+        0.525,
+        0.625
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121000,
+      "translation": [
+        0.17999999999999994,
+        0.91,
+        0.3449999999999999
+      ],
+      "triangles": 220,
+      "vertices": 112
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-edge-left",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121010,
+      "translation": [
+        -0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-edge-right",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121011,
+      "translation": [
+        0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-end-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121012,
+      "translation": [
+        0.0,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-end-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121013,
+      "translation": [
+        0.0,
+        0.0625,
+        2.0958333333333337
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/endcap-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121014,
+      "translation": [
+        0.0,
+        0.0,
+        -0.009
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/endcap-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121015,
+      "translation": [
+        0.0,
+        0.0,
+        2.24
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/front-mid/coupling-in",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121016,
+      "translation": [
+        0.0,
+        -0.014,
+        -0.052
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/front-mid/coupling-out",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121017,
+      "translation": [
+        0.0,
+        -0.014,
+        2.249
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-mid/netpot-collar-a",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121041,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.18666666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-bay-a",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121061,
+      "translation": [
+        0.0,
+        0.0625,
+        0.22916666666666663
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-mid/netpot-collar-b",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121042,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.56
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-bay-b",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121062,
+      "translation": [
+        0.0,
+        0.0625,
+        0.6025
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-mid/netpot-collar-c",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121043,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.9333333333333342
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-bay-c",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121063,
+      "translation": [
+        0.0,
+        0.0625,
+        0.9758333333333342
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-mid/netpot-collar-d",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121044,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.3066666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-bay-d",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121064,
+      "translation": [
+        0.0,
+        0.0625,
+        1.3491666666666662
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-mid/netpot-collar-e",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121045,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.6800000000000002
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-mid/lid-bay-e",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121065,
+      "translation": [
+        0.0,
+        0.0625,
+        1.7225000000000001
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-mid/netpot-collar-f",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 121046,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        2.053333333333334
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-front-mid",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 131000,
+      "translation": [
+        0.06,
+        0.896,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-front-mid",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 131100,
+      "translation": [
+        2.49,
+        0.896,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "services/valve-front-mid",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 131200,
+      "translation": [
+        0.18,
+        0.896,
+        0.645
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.94,
+        0.32,
+        0.025,
+        1.0
+      ],
+      "id": "services/lever-front-mid",
+      "material_id": 9007,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.76,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 131300,
+      "translation": [
+        0.18,
+        0.925,
+        0.625
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122000,
+      "translation": [
+        0.17999999999999994,
+        1.31,
+        0.605
+      ],
+      "triangles": 220,
+      "vertices": 112
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-edge-left",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122010,
+      "translation": [
+        -0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-edge-right",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122011,
+      "translation": [
+        0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-end-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122012,
+      "translation": [
+        0.0,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-end-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122013,
+      "translation": [
+        0.0,
+        0.0625,
+        2.0958333333333337
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/endcap-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122014,
+      "translation": [
+        0.0,
+        0.0,
+        -0.009
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/endcap-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122015,
+      "translation": [
+        0.0,
+        0.0,
+        2.24
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/front-high/coupling-in",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122016,
+      "translation": [
+        0.0,
+        -0.014,
+        -0.052
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/front-high/coupling-out",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122017,
+      "translation": [
+        0.0,
+        -0.014,
+        2.249
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-high/netpot-collar-a",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122041,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.18666666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-bay-a",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122061,
+      "translation": [
+        0.0,
+        0.0625,
+        0.22916666666666663
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-high/netpot-collar-b",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122042,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.56
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-bay-b",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122062,
+      "translation": [
+        0.0,
+        0.0625,
+        0.6025
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-high/netpot-collar-c",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122043,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.9333333333333342
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-bay-c",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122063,
+      "translation": [
+        0.0,
+        0.0625,
+        0.9758333333333342
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-high/netpot-collar-d",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122044,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.3066666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-bay-d",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122064,
+      "translation": [
+        0.0,
+        0.0625,
+        1.3491666666666662
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-high/netpot-collar-e",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122045,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.6800000000000002
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/front-high/lid-bay-e",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122065,
+      "translation": [
+        0.0,
+        0.0625,
+        1.7225000000000001
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/front-high/netpot-collar-f",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/front-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 122046,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        2.053333333333334
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-front-high",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 132000,
+      "translation": [
+        0.06,
+        1.2960000000000003,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-front-high",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 132100,
+      "translation": [
+        2.49,
+        1.2960000000000003,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "services/valve-front-high",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 132200,
+      "translation": [
+        0.18,
+        1.2960000000000003,
+        0.645
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.94,
+        0.32,
+        0.025,
+        1.0
+      ],
+      "id": "services/lever-front-high",
+      "material_id": 9007,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.76,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 132300,
+      "translation": [
+        0.18,
+        1.3250000000000002,
+        0.625
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123000,
+      "translation": [
+        0.17999999999999994,
+        0.51,
+        1.4049999999999998
+      ],
+      "triangles": 220,
+      "vertices": 112
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-edge-left",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123010,
+      "translation": [
+        -0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-edge-right",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123011,
+      "translation": [
+        0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-end-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123012,
+      "translation": [
+        0.0,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-end-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123013,
+      "translation": [
+        0.0,
+        0.0625,
+        2.0958333333333337
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/endcap-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123014,
+      "translation": [
+        0.0,
+        0.0,
+        -0.009
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/endcap-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123015,
+      "translation": [
+        0.0,
+        0.0,
+        2.24
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/rear-low/coupling-in",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123016,
+      "translation": [
+        0.0,
+        -0.014,
+        -0.052
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/rear-low/coupling-out",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123017,
+      "translation": [
+        0.0,
+        -0.014,
+        2.249
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-low/netpot-collar-a",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123041,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.18666666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-bay-a",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123061,
+      "translation": [
+        0.0,
+        0.0625,
+        0.22916666666666663
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-low/netpot-collar-b",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123042,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.56
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-bay-b",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123062,
+      "translation": [
+        0.0,
+        0.0625,
+        0.6025
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-low/netpot-collar-c",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123043,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.9333333333333342
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-bay-c",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123063,
+      "translation": [
+        0.0,
+        0.0625,
+        0.9758333333333342
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-low/netpot-collar-d",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123044,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.3066666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-bay-d",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123064,
+      "translation": [
+        0.0,
+        0.0625,
+        1.3491666666666662
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-low/netpot-collar-e",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123045,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.6800000000000002
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-low/lid-bay-e",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123065,
+      "translation": [
+        0.0,
+        0.0625,
+        1.7225000000000001
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-low/netpot-collar-f",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-low",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 123046,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        2.053333333333334
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-rear-low",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 133000,
+      "translation": [
+        0.06,
+        0.496,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-rear-low",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 133100,
+      "translation": [
+        2.49,
+        0.496,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "services/valve-rear-low",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 133200,
+      "translation": [
+        0.18,
+        0.496,
+        0.845
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.94,
+        0.32,
+        0.025,
+        1.0
+      ],
+      "id": "services/lever-rear-low",
+      "material_id": 9007,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.76,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 133300,
+      "translation": [
+        0.18,
+        0.525,
+        0.865
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124000,
+      "translation": [
+        0.17999999999999994,
+        0.91,
+        1.145
+      ],
+      "triangles": 220,
+      "vertices": 112
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-edge-left",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124010,
+      "translation": [
+        -0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-edge-right",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124011,
+      "translation": [
+        0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-end-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124012,
+      "translation": [
+        0.0,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-end-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124013,
+      "translation": [
+        0.0,
+        0.0625,
+        2.0958333333333337
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/endcap-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124014,
+      "translation": [
+        0.0,
+        0.0,
+        -0.009
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/endcap-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124015,
+      "translation": [
+        0.0,
+        0.0,
+        2.24
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/rear-mid/coupling-in",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124016,
+      "translation": [
+        0.0,
+        -0.014,
+        -0.052
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/rear-mid/coupling-out",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124017,
+      "translation": [
+        0.0,
+        -0.014,
+        2.249
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-mid/netpot-collar-a",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124041,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.18666666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-bay-a",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124061,
+      "translation": [
+        0.0,
+        0.0625,
+        0.22916666666666663
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-mid/netpot-collar-b",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124042,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.56
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-bay-b",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124062,
+      "translation": [
+        0.0,
+        0.0625,
+        0.6025
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-mid/netpot-collar-c",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124043,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.9333333333333342
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-bay-c",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124063,
+      "translation": [
+        0.0,
+        0.0625,
+        0.9758333333333342
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-mid/netpot-collar-d",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124044,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.3066666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-bay-d",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124064,
+      "translation": [
+        0.0,
+        0.0625,
+        1.3491666666666662
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-mid/netpot-collar-e",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124045,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.6800000000000002
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-mid/lid-bay-e",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124065,
+      "translation": [
+        0.0,
+        0.0625,
+        1.7225000000000001
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-mid/netpot-collar-f",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-mid",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 124046,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        2.053333333333334
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-rear-mid",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 134000,
+      "translation": [
+        0.06,
+        0.896,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-rear-mid",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 134100,
+      "translation": [
+        2.49,
+        0.896,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "services/valve-rear-mid",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 134200,
+      "translation": [
+        0.18,
+        0.896,
+        0.845
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.94,
+        0.32,
+        0.025,
+        1.0
+      ],
+      "id": "services/lever-rear-mid",
+      "material_id": 9007,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.76,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 134300,
+      "translation": [
+        0.18,
+        0.925,
+        0.865
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        1.5707963267948966,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125000,
+      "translation": [
+        0.17999999999999994,
+        1.31,
+        0.885
+      ],
+      "triangles": 220,
+      "vertices": 112
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-edge-left",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125010,
+      "translation": [
+        -0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-edge-right",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125011,
+      "translation": [
+        0.0725,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-end-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125012,
+      "translation": [
+        0.0,
+        0.0625,
+        0.0
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-end-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125013,
+      "translation": [
+        0.0,
+        0.0625,
+        2.0958333333333337
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/endcap-in",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125014,
+      "translation": [
+        0.0,
+        0.0,
+        -0.009
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/endcap-out",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125015,
+      "translation": [
+        0.0,
+        0.0,
+        2.24
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/rear-high/coupling-in",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125016,
+      "translation": [
+        0.0,
+        -0.014,
+        -0.052
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "grow/rear-high/coupling-out",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125017,
+      "translation": [
+        0.0,
+        -0.014,
+        2.249
+      ],
+      "triangles": 26,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-high/netpot-collar-a",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125041,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.18666666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-bay-a",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125061,
+      "translation": [
+        0.0,
+        0.0625,
+        0.22916666666666663
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-high/netpot-collar-b",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125042,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.56
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-bay-b",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125062,
+      "translation": [
+        0.0,
+        0.0625,
+        0.6025
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-high/netpot-collar-c",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125043,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        0.9333333333333342
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-bay-c",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125063,
+      "translation": [
+        0.0,
+        0.0625,
+        0.9758333333333342
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-high/netpot-collar-d",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125044,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.3066666666666662
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-bay-d",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125064,
+      "translation": [
+        0.0,
+        0.0625,
+        1.3491666666666662
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-high/netpot-collar-e",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125045,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        1.6800000000000002
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.7,
+        0.88,
+        0.55,
+        1.0
+      ],
+      "id": "grow/rear-high/lid-bay-e",
+      "material_id": 9002,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.82,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125065,
+      "translation": [
+        0.0,
+        0.0625,
+        1.7225000000000001
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.016,
+        0.027,
+        0.022,
+        1.0
+      ],
+      "id": "grow/rear-high/netpot-collar-f",
+      "material_id": 9003,
+      "metallic": 0.0,
+      "parent": "grow/rear-high",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.72,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 125046,
+      "translation": [
+        0.0,
+        0.07150000000000001,
+        2.053333333333334
+      ],
+      "triangles": 512,
+      "vertices": 256
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-rear-high",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 135000,
+      "translation": [
+        0.06,
+        1.2960000000000003,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-rear-high",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 135100,
+      "translation": [
+        2.49,
+        1.2960000000000003,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "services/valve-rear-high",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 135200,
+      "translation": [
+        0.18,
+        1.2960000000000003,
+        0.845
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.94,
+        0.32,
+        0.025,
+        1.0
+      ],
+      "id": "services/lever-rear-high",
+      "material_id": 9007,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.76,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 135300,
+      "translation": [
+        0.18,
+        1.3250000000000002,
+        0.865
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/feed-trunk",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 136000,
+      "translation": [
+        0.06,
+        0.25,
+        0.745
+      ],
+      "triangles": 66,
+      "vertices": 66
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/return-trunk",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 136001,
+      "translation": [
+        2.438,
+        0.21,
+        0.745
+      ],
+      "triangles": 66,
+      "vertices": 66
+    },
+    {
+      "base_color": [
+        0.025,
+        0.22,
+        0.14,
+        1.0
+      ],
+      "id": "cabinet/left",
+      "material_id": 9005,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.8,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140000,
+      "translation": [
+        0.98,
+        0.175,
+        0.415
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.22,
+        0.14,
+        1.0
+      ],
+      "id": "cabinet/right",
+      "material_id": 9005,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.8,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140001,
+      "translation": [
+        1.62,
+        0.175,
+        0.415
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.22,
+        0.14,
+        1.0
+      ],
+      "id": "cabinet/floor",
+      "material_id": 9005,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.8,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140002,
+      "translation": [
+        1.3,
+        -0.065,
+        0.415
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.22,
+        0.14,
+        1.0
+      ],
+      "id": "cabinet/top",
+      "material_id": 9005,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.8,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140003,
+      "translation": [
+        1.3,
+        0.415,
+        0.415
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.22,
+        0.14,
+        1.0
+      ],
+      "id": "cabinet/back",
+      "material_id": 9005,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.8,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140004,
+      "translation": [
+        1.3,
+        -0.065,
+        1.075
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.008,
+        0.014,
+        0.012,
+        1.0
+      ],
+      "id": "cabinet/door-seal",
+      "material_id": 9009,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.86,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140005,
+      "translation": [
+        1.3,
+        -0.056,
+        0.40499999999999997
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.22,
+        0.14,
+        1.0
+      ],
+      "id": "cabinet/front-hatch",
+      "material_id": 9005,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.8,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140006,
+      "translation": [
+        1.3,
+        -0.05,
+        0.39699999999999996
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "cabinet/pull-handle",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140007,
+      "translation": [
+        1.3,
+        0.30999999999999994,
+        0.38999999999999996
+      ],
+      "triangles": 130,
+      "vertices": 78
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "cabinet/hinge-lower",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140008,
+      "translation": [
+        0.994,
+        0.02,
+        0.38999999999999996
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.35,
+        0.46,
+        0.49,
+        1.0
+      ],
+      "id": "cabinet/hinge-upper",
+      "material_id": 9004,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.7,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140009,
+      "translation": [
+        0.994,
+        0.3,
+        0.38999999999999996
+      ],
+      "triangles": 48,
+      "vertices": 26
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "cabinet/pump-body",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140010,
+      "translation": [
+        1.27,
+        0.04,
+        0.5349999999999999
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.67,
+        0.72,
+        0.6,
+        1.0
+      ],
+      "id": "cabinet/service-plaque",
+      "material_id": 9008,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        -1.5707963267948966,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.52,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140011,
+      "translation": [
+        1.3,
+        0.22499999999999998,
+        0.38699999999999996
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.008,
+        0.014,
+        0.012,
+        1.0
+      ],
+      "id": "cabinet/vent-a",
+      "material_id": 9009,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.86,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140021,
+      "translation": [
+        1.3,
+        0.025,
+        0.384
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.008,
+        0.014,
+        0.012,
+        1.0
+      ],
+      "id": "cabinet/vent-b",
+      "material_id": 9009,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.86,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140022,
+      "translation": [
+        1.3,
+        0.05,
+        0.384
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.008,
+        0.014,
+        0.012,
+        1.0
+      ],
+      "id": "cabinet/vent-c",
+      "material_id": 9009,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.86,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140023,
+      "translation": [
+        1.3,
+        0.075,
+        0.384
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.008,
+        0.014,
+        0.012,
+        1.0
+      ],
+      "id": "cabinet/vent-d",
+      "material_id": 9009,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.86,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 140024,
+      "translation": [
+        1.3,
+        0.1,
+        0.384
+      ],
+      "triangles": 204,
+      "vertices": 104
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/pump-discharge",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 141000,
+      "translation": [
+        1.3,
+        0.16,
+        0.745
+      ],
+      "triangles": 330,
+      "vertices": 198
+    },
+    {
+      "base_color": [
+        0.025,
+        0.24,
+        0.36,
+        1.0
+      ],
+      "id": "services/sump-return",
+      "material_id": 9006,
+      "metallic": 0.0,
+      "parent": "frame/datum",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "roughness": 0.75,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "semantic_id": 141001,
+      "translation": [
+        1.3,
+        0.17,
+        0.745
+      ],
+      "triangles": 264,
+      "vertices": 165
+    }
+  ]
+}

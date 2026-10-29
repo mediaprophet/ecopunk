@@ -188,4 +188,36 @@ mod tests {
     #[test]
     fn ill_conditioned_projection_refuses_with_caller_tolerance() {
         let segment=TaperedFieldSegment {a:Point3::new(0.0,0.0,0.0),b:Point3::new(4.0,4.0,0.0),radius_a:0.8,radius_b:0.8};
-        let sample=[Point3::new(1e16,-1e16+2.0
+        let sample=[Point3::new(1e16,-1e16+2.0,0.0)];let mut out=[77.0];
+        assert_eq!(tapered_branch_field_into(&sample,&[segment],0.0,1e-6,1e-8,1,1,1,&mut out),Err(TaperedFieldError::NumericPrecision));assert_eq!(out,[77.0]);
+        assert_eq!(tapered_branch_field_into(&sample,&[segment],0.0,1e-6,0.0,1,1,1,&mut out),Err(TaperedFieldError::InvalidInput));assert_eq!(out,[77.0]);
+    }
+    #[test]
+    fn subnormal_axes_refuse_before_writes() {
+        let tiny=TaperedFieldSegment {a:Point3::new(0.0,0.0,0.0),b:Point3::new(f64::from_bits(1),0.0,0.0),radius_a:1.0,radius_b:1.0};
+        let mut out=[77.0];
+        assert_eq!(tapered_branch_field_into(&[tiny.a],&[tiny],0.0,f64::from_bits(1),1e-9,1,1,1,&mut out),Err(TaperedFieldError::DegenerateSegment));assert_eq!(out,[77.0]);
+    }
+    #[test]
+    fn nonfinite_input_and_empty_inventories_refuse_without_writes() {
+        let points=[Point3::new(0.0,0.0,0.0),Point3::new(f64::NAN,0.0,0.0)];let valid=seg(0.4,0.2);let mut out=[77.0;2];
+        assert_eq!(tapered_branch_field_into(&points,&[valid],0.0,1e-6,1e-9,2,1,2,&mut out),Err(TaperedFieldError::InvalidInput));assert_eq!(out,[77.0;2]);
+        assert_eq!(tapered_branch_field_into(&points[..0],&[valid],0.0,1e-6,1e-9,2,1,2,&mut out),Err(TaperedFieldError::EmptySamples));assert_eq!(out,[77.0;2]);
+        assert_eq!(tapered_branch_field_into(&points[..1],&[],0.0,1e-6,1e-9,2,1,2,&mut out),Err(TaperedFieldError::EmptySegments));assert_eq!(out,[77.0;2]);
+        for (blend,min_len,tolerance) in [(f64::INFINITY,1e-6,1e-9),(0.0,f64::NAN,1e-9),(0.0,1e-6,f64::NAN)] {
+            assert_eq!(tapered_branch_field_into(&points[..1],&[valid],blend,min_len,tolerance,1,1,1,&mut out),Err(TaperedFieldError::InvalidInput));assert_eq!(out,[77.0;2]);
+        }
+    }
+    #[test]
+    fn bad_inputs_work_and_short_output_fail_before_any_write() {
+        let points=[Point3::new(0.0,0.0,0.0),Point3::new(0.0,1.0,0.0)];let good=seg(0.4,0.2);
+        let mut out=[77.0;2];let mut bad=good;bad.b=bad.a;
+        assert_eq!(tapered_branch_field_into(&points,&[good,bad],0.1,1e-6,1e-9,2,2,4,&mut out),Err(TaperedFieldError::DegenerateSegment));assert_eq!(out,[77.0;2]);
+        bad=good;bad.radius_b=f64::NAN;
+        assert_eq!(tapered_branch_field_into(&points,&[good,bad],0.1,1e-6,1e-9,2,2,4,&mut out),Err(TaperedFieldError::InvalidInput));assert_eq!(out,[77.0;2]);
+        assert_eq!(tapered_branch_field_into(&points,&[good],-1.0,1e-6,1e-9,2,1,2,&mut out),Err(TaperedFieldError::InvalidInput));assert_eq!(out,[77.0;2]);
+        assert_eq!(tapered_branch_field_into(&points,&[good],0.0,1e-6,1e-9,2,1,1,&mut out),Err(TaperedFieldError::WorkLimitExceeded));assert_eq!(out,[77.0;2]);
+        assert_eq!(tapered_branch_field_into(&points,&[good],0.0,1e-6,1e-9,2,1,2,&mut out[..1]),Err(TaperedFieldError::OutputTooSmall));assert_eq!(out,[77.0;2]);
+        assert_eq!(tapered_field_work(usize::MAX,2,usize::MAX,usize::MAX,usize::MAX),Err(TaperedFieldError::SizeOverflow));
+    }
+}

@@ -1,0 +1,27 @@
+# Tapered sampled-field operator — staged
+
+Status: frozen, independently source-reviewed, Rustfmt-parsed, **not compiled, installed or executed**. No Cargo or canonical changes by this worker. This is an optional QualiaDB caller-buffered field operator and a synthetic public-caller integration test, not an authored botanical fork, rendered asset, biological claim or HMC/Vibe/Poet workflow.
+
+## Numeric contract
+
+For each caller-supplied segment, project a point onto the segment, clamp to its endpoints, interpolate the explicit positive endpoint radii linearly, then compute distance to the projected center minus that radius. This is an implicit scalar field, **not an exact Euclidean signed-distance function** for varying radius; endpoint transitions are not claimed globally smooth. It is evaluated at caller-owned sample points and written into caller-owned scalar output, with no runtime heap allocation.
+
+All segments participate in an ordered pairwise global union with the explicit nonnegative blend. The operation can blend nonadjacent, graph-unrelated segments, and segment order affects the result; callers must decide intended adjacency, blend, units, topology, provenance and quality before using it. It does not generate a mesh, stable author/organ mapping, UV/tangent data or a biological representation.
+
+The candidate stages an additive `sdf_smooth_union_stable` in the existing QualiaDB `sdf_ops.rs` owner. It computes the same real-valued polynomial smooth minimum as the existing function through the stable `min - correction` form and leaves existing `sdf_smooth_union` and prior callers unchanged. The field uses the new owner, with extreme-magnitude public regression; output is still ordinary finite-precision arithmetic, not exact real arithmetic.
+
+Inputs and buffer sizes are preflighted before output writes; sample/segment counts and their checked product have explicit caller limits. Endpoints, samples, positive radii, minimum segment length, conditioning threshold and blend must be finite and inside the declared `1e100` envelope; subnormal or shorter-than-caller-selected axes refuse. Projection uses both endpoint-relative dot products and calculates the center/radius from the nearer endpoint to avoid loss at an extreme far endpoint. Exact endpoint selection preserves endpoint radii and centers; representationally collapsed interior centers/radii refuse. Caller must supply an absolute `projection_tolerance`; a scale-based rounding screen plus the endpoint-dot consistency residual can refuse during evaluation. The screen is conservative, **translation-dependent and not a certified floating-point error bound**; a loose tolerance can permit inaccurate outputs. A late numeric refusal may leave output scratch partially modified; publish only on `Ok`. No internal cancellation is supplied.
+
+The public test fixture covers endpoint-radius taper, constant-radius comparison to the existing capsule, ordered blend behavior, early no-write failures, large endpoint and inside-blend cancellation cases in both orders, subnormal axes, nonfinite input, and the reported ill-conditioned projection case. It also composes field → indexed tetra extraction → topology qualification on a synthetic three-arm field with explicit radii and blend, asserting a closed/connected indexed topology and points near the three arm ends. The latter does **not** prove no self-intersection, correct topology for all fields, UV/normal continuity, a scientifically valid tree or an artist-accepted image. Tests have not been executed; no claim is based on their source presence alone.
+
+## Exact candidates / preimages
+
+| Staged source | Intended target | Existing SHA-256 | Candidate SHA-256 |
+|---|---|---|---|
+| `sdf_ops.rs` | `C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/sdf_ops.rs` | `8878a47afb5ba7bf392c9addb3be62378ca5cab8f1409a6ba3264a783eb08877` | `ff4c6bfcb9f0601bb0452ee3c6d2b6e38973a211e5036254c47b7c2d5cba512b` |
+| `tapered_branch_field.rs` | `C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/tapered_branch_field.rs` | absent | `5a78f146f37ddb5f001dc089cee0fda545d39cc777e7e4f9f404e174eadc4058` |
+| `core_mod.rs` | `C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/computational_geometry/mod.rs` | `451dfbb940b6382564c16f87f22c0ae784d60f0f79d10fb6d6a4cb5a94de9a6d` | `712745423038c0f1cea9f1ec06874a5d69efec5e41c3246b9ec61361579a05c3` |
+| `poet_tapered_field_tests.rs` | `C:/github/poet/native/src/graphical/tapered_branch_field_public_tests.rs` | absent | `520003e9d4268232113dbf1dfc5abf6bdcea191b808d59d52deb096b8e5d90db` |
+| `poet_mod.rs` | `C:/github/poet/native/src/graphical/mod.rs` | `1e514037d05d804444eb200d8aedbc9da923b1ede031e6bd364f5bf75fcefa1c` | `3948528b12d63947ddb1e000f18ef8f04d5859b04b59e9ecc612ccce52414418` |
+
+Independent reviewers found and the staged source addresses: endpoint center/radius cancellation, subnormal axes, both outside- and inside-blend cancellation, and inconsistent two-ended projection on a high-dynamic-range cancellation example. Review of the latest tolerance screen and public call arity found no further definite defect by inspection; it does not certify an error bound. Coordinator must recheck preimages, merge shared module registration as needed, obtain independent final review, and own serial compilation/tests. No execution, native window, species production or artist/domain acceptance is claimed.

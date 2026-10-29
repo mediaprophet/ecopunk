@@ -1,0 +1,637 @@
+[INFO]: Checking for the Wasm target...
+[INFO]: Compiling to Wasm...
+   Compiling unicode-ident v1.0.27
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling cfg-if v1.0.5
+   Compiling wasm-bindgen-shared v0.2.129
+   Compiling syn v3.0.9
+   Compiling syn v2.0.119
+   Compiling once_cell v1.21.4
+   Compiling rustversion v1.0.23
+   Compiling autocfg v1.5.1
+   Compiling bumpalo v3.20.3
+   Compiling wasm-bindgen-macro-support v0.2.129
+   Compiling wasm-bindgen v0.2.129
+   Compiling typenum v1.20.1
+   Compiling libm v0.2.16
+   Compiling num-traits v0.2.19
+   Compiling wasm-bindgen-macro v0.2.129
+   Compiling serde_core v1.0.229
+   Compiling futures-core v0.3.34
+   Compiling zerocopy v0.8.63
+   Compiling pin-project-lite v0.2.17
+   Compiling zerocopy-derive v0.8.63
+   Compiling futures-task v0.3.34
+   Compiling slab v0.4.12
+   Compiling futures-util v0.3.34
+   Compiling js-sys v0.3.106
+   Compiling version_check v0.9.5
+   Compiling hybrid-array v0.4.15
+   Compiling serde v1.0.229
+   Compiling serde_derive v1.0.229
+   Compiling crypto-common v0.2.2
+   Compiling generic-array v0.14.7
+   Compiling bytemuck_derive v1.12.1
+   Compiling allocator-api2 v0.2.21
+   Compiling foldhash v0.2.0
+   Compiling hashbrown v0.17.1
+   Compiling bytemuck v1.25.2
+   Compiling subtle v2.6.1
+   Compiling ppv-lite86 v0.2.21
+   Compiling smallvec v1.16.3
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.12.1
+   Compiling zeroize_derive v1.5.0
+   Compiling equivalent v1.0.3
+   Compiling indexmap v2.14.2
+   Compiling zeroize v1.9.1
+   Compiling digest v0.10.7
+   Compiling getrandom v0.2.17
+   Compiling synstructure v0.14.0
+   Compiling cmov v0.5.4
+   Compiling ctutils v0.4.3
+   Compiling rand_core v0.6.4
+   Compiling num-integer v0.1.47
+   Compiling zerofrom-derive v0.1.8
+   Compiling thiserror v2.0.21
+   Compiling yoke-derive v0.8.4
+   Compiling zerofrom v0.1.8
+   Compiling thiserror-impl v2.0.21
+   Compiling cfg_aliases v0.2.2
+   Compiling foldhash v0.1.5
+   Compiling memchr v2.8.3
+   Compiling stable_deref_trait v1.2.1
+   Compiling yoke v0.8.3
+   Compiling bitflags v2.13.2
+   Compiling half v2.7.1
+   Compiling zerovec-derive v0.11.6
+   Compiling num-bigint v0.4.8
+   Compiling zerovec v0.11.8
+   Compiling rand_chacha v0.3.1
+   Compiling displaydoc v0.2.7
+   Compiling scopeguard v1.2.0
+   Compiling rustc-hash v1.1.0
+   Compiling parking_lot_core v0.9.12
+   Compiling naga-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling lock_api v0.4.14
+   Compiling rand v0.8.8
+   Compiling enum-ordinalize-derive v4.4.2
+   Compiling getrandom v0.3.4
+   Compiling log v0.4.34
+   Compiling const-oid v0.10.2
+   Compiling enum-ordinalize v4.4.2
+   Compiling digest v0.11.3
+   Compiling ark-std v0.6.0
+   Compiling hashbrown v0.15.5
+   Compiling naga v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling web-sys v0.3.106
+   Compiling inout v0.2.4
+   Compiling ahash v0.8.12
+   Compiling ark-serialize-derive v0.6.0
+   Compiling either v1.19.0
+   Compiling arrayvec v0.7.8
+   Compiling pastey v0.2.3
+   Compiling semver v1.0.28
+   Compiling itoa v1.0.18
+   Compiling unicode-width v0.2.2
+   Compiling termcolor v1.4.1
+   Compiling bit-vec v0.10.1
+   Compiling crossbeam-utils v0.8.23
+   Compiling fixedbitset v0.5.7
+   Compiling macro_rules_attribute-proc_macro v0.2.3
+   Compiling macro_rules_attribute v0.2.3
+   Compiling petgraph v0.8.3
+   Compiling bit-set v0.11.1
+   Compiling codespan-reporting v0.13.1
+   Compiling rustc_version v0.4.1
+   Compiling ark-serialize v0.6.0
+   Compiling ark-ff-macros v0.6.0
+   Compiling educe v0.6.0
+   Compiling tinystr v0.8.4
+   Compiling spirv v0.4.0+sdk-1.4.341.0
+   Compiling ark-ff-asm v0.6.0
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling raw-window-handle v0.6.2
+   Compiling static_assertions v1.1.0
+   Compiling zmij v1.0.23
+   Compiling etalon-types v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling icu_locale_core v2.3.0
+   Compiling ark-ff v0.6.0
+   Compiling rand_core v0.9.5
+   Compiling cipher v0.5.2
+   Compiling parking_lot v0.12.5
+   Compiling zerotrie v0.2.5
+   Compiling potential_utf v0.1.6
+   Compiling etalon v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling wasm-bindgen-futures v0.4.79
+   Compiling utf8_iter v1.0.4
+   Compiling simd-adler32 v0.3.10
+   Compiling keccak v0.1.6
+   Compiling litrs v1.0.1
+   Compiling icu_properties_data v2.3.0
+   Compiling icu_normalizer_data v2.3.0
+   Compiling serde_json v1.0.154
+   Compiling document-features v0.2.12
+   Compiling icu_collections v2.3.0
+   Compiling icu_provider v2.3.1
+   Compiling etalon-sync v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling ark-poly v0.6.0
+   Compiling rand_chacha v0.9.0
+   Compiling itertools v0.14.0
+   Compiling sha2 v0.10.9
+   Compiling num-complex v0.4.6
+   Compiling crc32fast v1.5.2
+   Compiling rand_core v0.10.1
+   Compiling crossbeam-epoch v0.9.21
+   Compiling anyhow v1.0.104
+   Compiling adler2 v2.0.1
+   Compiling profiling v1.0.18
+   Compiling rand v0.9.5
+   Compiling universal-hash v0.6.1
+   Compiling pulp v0.21.5
+   Compiling matrixmultiply v0.3.11
+   Compiling equator-macro v0.4.2
+   Compiling tracing-attributes v0.1.31
+   Compiling shlex v2.0.1
+   Compiling syn v1.0.109
+   Compiling paste v1.0.15
+   Compiling bytes v1.12.1
+   Compiling reborrow v0.5.5
+   Compiling tracing-core v0.1.36
+   Compiling num-bigint-dig v0.9.1
+   Compiling crossbeam-deque v0.8.8
+   Compiling find-msvc-tools v0.1.14
+   Compiling cc v1.8.0
+   Compiling tracing v0.1.44
+   Compiling equator v0.4.2
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling miniz_oxide v0.9.1
+   Compiling curve25519-dalek v5.0.0
+   Compiling num-iter v0.1.46
+   Compiling pulp v0.22.3
+   Compiling rio_api v0.8.6
+   Compiling getrandom v0.4.3
+   Compiling libc v0.2.191
+   Compiling rawpointer v0.2.1
+   Compiling cpubits v0.1.1
+   Compiling rayon-core v1.13.0
+   Compiling ciborium-io v0.2.2
+   Compiling ciborium-ll v0.2.2
+   Compiling flate2 v1.1.10
+   Compiling prost-derive v0.14.4
+   Compiling idna_adapter v1.2.2
+   Compiling blake3 v1.8.7
+   Compiling aligned-vec v0.6.4
+   Compiling ark-relations v0.6.0
+   Compiling miniz_oxide v0.8.9
+   Compiling chacha20 v0.10.2
+   Compiling ark-ec v0.6.0
+   Compiling sha3 v0.10.9
+   Compiling fdeflate v0.3.7
+   Compiling doc-comment v0.3.4
+   Compiling percent-encoding v2.3.2
+   Compiling pulp-wasm-simd-flag v0.1.1
+   Compiling byteorder v1.5.0
+   Compiling merlin v3.0.0
+   Compiling form_urlencoded v1.2.2
+   Compiling derivative v2.2.0
+   Compiling ark-snark v0.6.0
+   Compiling tfhe-ntt v0.6.1
+   Compiling idna v1.1.0
+   Compiling prost v0.14.4
+   Compiling fhe-util v0.1.1
+   Compiling ndarray v0.17.2
+   Compiling ciborium v0.2.2
+   Compiling polyval v0.7.3
+   Compiling fhe-traits v0.1.1
+   Compiling aead v0.6.1
+   Compiling sha2 v0.11.1
+   Compiling aho-corasick v1.1.5
+   Compiling blake2 v0.10.6
+   Compiling ark-crypto-primitives-macros v0.5.0
+   Compiling rio_turtle v0.8.6
+   Compiling ryu v1.0.23
+   Compiling ethnum v1.5.3
+   Compiling fastrand v2.5.0
+   Compiling rio_xml v0.8.6
+   Compiling oxilangtag v0.1.6
+   Compiling regex-syntax v0.8.11
+   Compiling unicode-xid v0.2.6
+   Compiling constant_time_eq v0.4.2
+   Compiling oxiri v0.2.11
+   Compiling signature v3.0.0
+   Compiling ed25519 v3.0.0
+   Compiling regex-automata v0.4.18
+   Compiling vibe v0.0.40 (C:\github\qualiaDB\crates\vibe)
+   Compiling tempfile v3.27.0
+   Compiling fhe-math v0.1.1
+   Compiling ark-crypto-primitives v0.6.0
+   Compiling ghash v0.6.0
+   Compiling qualia-app-contract v0.0.40 (C:\github\qualiaDB\crates\qualia-app-contract)
+   Compiling num_cpus v1.17.0
+   Compiling rand v0.10.3
+   Compiling rayon v1.12.0
+   Compiling url v2.5.8
+   Compiling aes v0.9.3
+   Compiling http v1.5.0
+   Compiling poly1305 v0.9.1
+   Compiling ctr v0.10.1
+   Compiling hmac v0.13.0
+   Compiling csv-core v0.1.13
+   Compiling quick-xml v0.36.2
+   Compiling serde-wasm-bindgen v0.6.5
+   Compiling chrono v0.4.45
+   Compiling uuid v1.28.0
+   Compiling sync_wrapper v1.0.2
+   Compiling keccak v0.2.2
+   Compiling bitflags v1.3.2
+   Compiling sponge-cursor v0.1.0
+   Compiling qualia-core-db v0.0.40 (C:\github\qualiaDB\crates\qualia-core-db)
+   Compiling hashbrown v0.14.5
+   Compiling hex v0.4.3
+   Compiling base64 v0.23.1
+   Compiling unsafe-libyaml v0.2.11
+   Compiling glam v0.15.2
+   Compiling twox-hash v2.1.5
+   Compiling lz4_flex v0.13.1
+   Compiling mikktspace v0.3.0
+   Compiling serde_yaml v0.9.34+deprecated
+   Compiling reqwest v0.13.5
+   Compiling qualia-cooperative-core v0.0.40 (C:\github\qualiaDB\crates\qualia-cooperative-core)
+   Compiling dashmap v6.2.1
+   Compiling sha3 v0.12.0
+   Compiling png v0.17.16
+   Compiling csv v1.4.0
+   Compiling hkdf v0.13.0
+   Compiling aes-gcm v0.11.1
+   Compiling chacha20poly1305 v0.11.0
+   Compiling fhe v0.1.1
+   Compiling jpeg-decoder v0.3.2
+   Compiling rand_distr v0.6.0
+   Compiling core_affinity v0.8.3
+   Compiling ark-groth16 v0.6.0
+   Compiling etalon-wgsl-forge v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling regex v1.13.1
+   Compiling ed25519-dalek v3.0.0
+   Compiling x25519-dalek v3.0.0
+   Compiling ark-bls12-381 v0.6.0
+   Compiling fips203 v0.4.3
+   Compiling fips204 v0.4.6
+   Compiling fips205 v0.4.1
+   Compiling etalon-agent v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-nquin v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling wgpu v30.0.0 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-tensor v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling etalon-render v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling crossbeam-channel v0.5.17
+   Compiling etalon-wasm v0.0.1 (https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d)
+   Compiling sha1 v0.11.0
+   Compiling futures-intrusive v0.5.0
+   Compiling quick-xml v0.41.0
+   Compiling serde_bytes v0.11.19
+   Compiling futures-channel v0.3.34
+   Compiling console_error_panic_hook v0.1.7
+   Compiling atoi v3.1.1
+   Compiling async-trait v0.1.92
+   Compiling pollster v1.0.1
+   Compiling minicbor v2.3.1
+   Compiling qualia-inference-kernel v0.0.40 (C:\github\qualiaDB\crates\qualia-inference-kernel)
+   Compiling fast_qr v0.13.1
+   Compiling rtrb v0.3.5
+   Compiling urlencoding v2.1.3
+   Compiling crc32c v0.6.8
+   Compiling webizen-render v0.0.40 (C:\github\qualiaDB\crates\webizen-render)
+   Compiling pxfm v0.1.30
+   Compiling moxcms v0.8.1
+warning: unused import: `QUINS_PER_BLOCK`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:22:43
+   |
+22 | use crate::{NQuin, PermissiveRoutingLane, QUINS_PER_BLOCK};
+   |                                           ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `bidx_blocks_for_hash_into`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\mod.rs:121:51
+    |
+121 | pub(crate) use index::{bidx_block_range_for_hash, bidx_blocks_for_hash_into};
+    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `validate::validate_volume_structure`
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\mod.rs:122:16
+    |
+122 | pub(crate) use validate::validate_volume_structure;
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `caps::experimental_features_allowed`
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\gpu_context.rs:25:16
+   |
+25 | pub(crate) use caps::experimental_features_allowed;
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   Compiling png v0.18.1
+   Compiling byteorder-lite v0.1.0
+   Compiling image v0.25.10
+   Compiling vibe-wasm v0.0.40 (C:\github\qualiaDB\crates\vibe-wasm)
+warning: function `validate_field_range_index` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\index.rs:118:15
+    |
+118 | pub(crate) fn validate_field_range_index(bytes: &[u8], expected_blocks: usize) -> io::Result<()> {
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `bidx_blocks_for_hash_into` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\index.rs:203:15
+    |
+203 | pub(crate) fn bidx_blocks_for_hash_into(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_postings_section` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\postings.rs:198:8
+    |
+198 | pub fn validate_postings_section(bytes: &[u8], expected_blocks: usize) -> io::Result<()> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `block_payload` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\postings.rs:259:8
+    |
+259 | pub fn block_payload<'a>(bytes: &'a [u8], block_index: usize) -> io::Result<&'a [u8]> {
+    |        ^^^^^^^^^^^^^
+
+warning: function `accumulate` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:322:4
+    |
+322 | fn accumulate(counts: &mut ClassificationCounts, quin: &NQuin) {
+    |    ^^^^^^^^^^
+
+warning: function `sanctuary_quin_count` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:346:4
+    |
+346 | fn sanctuary_quin_count(counts: &ClassificationCounts) -> u64 {
+    |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `decide` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\publication.rs:361:4
+    |
+361 | fn decide(
+    |    ^^^^^^
+
+warning: struct `Section` is never constructed
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:13:8
+   |
+13 | struct Section {
+   |        ^^^^^^^
+
+warning: function `invalid` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:19:4
+   |
+19 | fn invalid(message: impl Into<String>) -> io::Error {
+   |    ^^^^^^^
+
+warning: function `checked_usize` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:23:4
+   |
+23 | fn checked_usize(value: u64, name: &str) -> io::Result<usize> {
+   |    ^^^^^^^^^^^^^
+
+warning: function `section` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:27:4
+   |
+27 | fn section(
+   |    ^^^^^^^
+
+warning: function `validate_non_overlapping` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:50:4
+   |
+50 | fn validate_non_overlapping(sections: &[Option<Section>]) -> io::Result<()> {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_volume_structure` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\q42\volume\validate.rs:68:15
+   |
+68 | pub(crate) fn validate_volume_structure(header: &Q42VolumeHeader, bytes: &[u8]) -> io::Result<()> {
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `from_local` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\net\peer\fabric\evidence.rs:26:25
+   |
+24 | impl TransportWitness {
+   | --------------------- associated function in this implementation
+25 |     /// Builds `TransportWitness` from `local`.
+26 |     pub(crate) const fn from_local(
+   |                         ^^^^^^^^^^
+
+warning: constant `VIEWPORT_PIPELINES` is never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\poet_host\invoke\wgsl_forge_seam.rs:20:7
+   |
+20 | const VIEWPORT_PIPELINES: [&str; 8] = [
+   |       ^^^^^^^^^^^^^^^^^^
+
+warning: methods `organs_loaded` and `organs_refused` are never used
+  --> C:\github\qualiaDB\crates\qualia-core-db\src\render\portal\scene_mesh.rs:81:19
+   |
+57 | impl SceneMeshAccum {
+   | ------------------- methods in this implementation
+...
+81 |     pub(crate) fn organs_loaded(&self) -> u32 {
+   |                   ^^^^^^^^^^^^^
+...
+87 |     pub(crate) fn organs_refused(&self) -> u32 {
+   |                   ^^^^^^^^^^^^^^
+
+warning: function `compute_router_logits_from_raw` is never used
+   --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\moe_gguf.rs:283:15
+    |
+283 | pub(super) fn compute_router_logits_from_raw(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: method `dispatch_output_argmax_batched_async` is never used
+    --> C:\github\qualiaDB\crates\qualia-core-db\src\gguf_bridge\prefill_async.rs:1449:25
+     |
+   5 | impl QTensorEngine {
+     | ------------------ method in this implementation
+...
+1449 |     pub(crate) async fn dispatch_output_argmax_batched_async(
+     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `qualia-core-db` (lib) generated 22 warnings (run `cargo fix --lib -p qualia-core-db` to apply 4 suggestions)
+   Compiling qualia-sim v0.0.40 (C:\github\qualiaDB\crates\qualia-sim)
+   Compiling qualia-geospatial v0.0.40 (C:\github\qualiaDB\crates\qualia-geospatial)
+   Compiling ecopunk-terrain v0.1.0 (C:\github\ecopunk\crates\ecopunk-terrain)
+warning: unused import: `std::fs`
+  --> crates\ecopunk-terrain\src\botanical_anatomy.rs:77:5
+   |
+77 | use std::fs;
+   |     ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `std::io::Write`
+  --> crates\ecopunk-terrain\src\botanical_anatomy.rs:78:5
+   |
+78 | use std::io::Write;
+   |     ^^^^^^^^^^^^^^
+
+warning: unused import: `std::path::Path`
+  --> crates\ecopunk-terrain\src\botanical_anatomy.rs:79:5
+   |
+79 | use std::path::Path;
+   |     ^^^^^^^^^^^^^^^
+
+warning: unused import: `std::io`
+  --> crates\ecopunk-terrain\src\botanical_ontology_q42.rs:19:5
+   |
+19 | use std::io;
+   |     ^^^^^^^
+
+warning: unused import: `qualia_core_db::NQuin`
+  --> crates\ecopunk-terrain\src\botanical_ontology_q42.rs:24:5
+   |
+24 | use qualia_core_db::NQuin;
+   |     ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `qualia_core_db::QUINS_PER_BLOCK`
+  --> crates\ecopunk-terrain\src\botanical_ontology_q42.rs:25:5
+   |
+25 | use qualia_core_db::QUINS_PER_BLOCK;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `evaluate_pga_motor_oscillation`
+  --> crates\ecopunk-terrain\src\scene_builder_10d.rs:31:42
+   |
+31 |     encode_procedural_synthesis_section, evaluate_pga_motor_oscillation,
+   |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `EnvironmentProbeSet` and `EnvironmentProbe`
+  --> crates\ecopunk-terrain\src\scene_builder_10d.rs:58:5
+   |
+58 |     EnvironmentProbe, EnvironmentProbeSet,
+   |     ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `GpuJointMotorPair`, `GpuSkinnedVertex`, `evaluate_skinning_motor_palette_zero_heap`, and `gpu_shader_skin_vertex_reference`
+  --> crates\ecopunk-terrain\src\scene_builder_10d.rs:61:5
+   |
+61 |     evaluate_skinning_motor_palette_zero_heap, gpu_shader_skin_vertex_reference,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+62 |     GpuJointMotorPair, GpuSkinnedVertex,
+   |     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^
+
+warning: unused import: `qualia_core_db::render::skeletal::Motor`
+  --> crates\ecopunk-terrain\src\scene_builder_10d.rs:64:5
+   |
+64 | use qualia_core_db::render::skeletal::Motor;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `qualia_core_db::render::telemetry::SystemTelemetry`
+  --> crates\ecopunk-terrain\src\scene_builder_10d.rs:65:5
+   |
+65 | use qualia_core_db::render::telemetry::SystemTelemetry;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused variable: `sector_seed`
+    --> crates\ecopunk-terrain\src\scene_builder_10d.rs:2382:9
+     |
+2382 |     let sector_seed = match sector_id {
+     |         ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_sector_seed`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `sha256_pair` is never used
+   --> crates\ecopunk-terrain\src\scene_builder_10d.rs:157:4
+    |
+157 | fn sha256_pair(bytes: &[u8]) -> ([u8; 32], String) {
+    |    ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `encode_rgba8_to_png` is never used
+   --> crates\ecopunk-terrain\src\scene_builder_10d.rs:170:4
+    |
+170 | fn encode_rgba8_to_png(width: u32, height: u32, rgba: &[u8]) -> Vec<u8> {
+    |    ^^^^^^^^^^^^^^^^^^^
+
+warning: function `crc32_ieee` is never used
+   --> crates\ecopunk-terrain\src\scene_builder_10d.rs:178:4
+    |
+178 | fn crc32_ieee(bytes: &[u8]) -> u32 {
+    |    ^^^^^^^^^^
+
+warning: function `write_png_chunk` is never used
+   --> crates\ecopunk-terrain\src\scene_builder_10d.rs:193:4
+    |
+193 | fn write_png_chunk(out: &mut Vec<u8>, chunk_type: &[u8; 4], data: &[u8]) {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `zlib_compress_png_scanlines` is never used
+   --> crates\ecopunk-terrain\src\scene_builder_10d.rs:202:4
+    |
+202 | fn zlib_compress_png_scanlines(width: u32, height: u32, rgba: &[u8], use_sub_filter: bool) -> Vec<u8> {
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `encode_rgba8_frames_to_apng` is never used
+   --> crates\ecopunk-terrain\src\scene_builder_10d.rs:229:4
+    |
+229 | fn encode_rgba8_frames_to_apng(
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: multiple methods are never used
+    --> crates\ecopunk-terrain\src\scene_builder_10d.rs:480:8
+     |
+ 334 | impl SubmeshBuilder {
+     | ------------------- methods in this implementation
+...
+ 480 |     fn add_cescatti_canopy_with_leaf_blades(
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+ 531 |     fn add_falcate_leaf_blade(
+     |        ^^^^^^^^^^^^^^^^^^^^^^
+...
+ 604 |     fn add_rock_or_pebble(
+     |        ^^^^^^^^^^^^^^^^^^
+...
+ 669 |     fn add_cosserat_grass_tuft(
+     |        ^^^^^^^^^^^^^^^^^^^^^^^
+...
+ 727 |     fn add_tree_fern_or_grass_tree(
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+ 869 |     fn add_canopy_tree(
+     |        ^^^^^^^^^^^^^^^
+...
+1339 |     fn add_fauna_specimen(
+     |        ^^^^^^^^^^^^^^^^^^
+...
+1902 |     fn add_field_rover_4wd_local(&mut self, scale: f32) {
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+2296 |     fn add_ecologist_walker_local(&mut self, scale: f32) {
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `out_slice` is never used
+    --> crates\ecopunk-terrain\src\scene_builder_10d.rs:2360:4
+     |
+2360 | fn out_slice<T>(slice: &[T], len: usize) -> &[T] {
+     |    ^^^^^^^^^
+
+warning: `ecopunk-terrain` (lib) generated 20 warnings (run `cargo fix --lib -p ecopunk-terrain` to apply 12 suggestions)
+   Compiling ecopunk-wasm v0.1.0 (C:\github\ecopunk\crates\ecopunk-wasm)
+warning: constant `ROVER_WIDTH` is never used
+   --> crates\ecopunk-wasm\src\lib.rs:183:11
+    |
+183 |     const ROVER_WIDTH: f32 = 1.88;
+    |           ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `ecopunk-wasm` (lib) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 45m 46s
+[INFO]: Installing wasm-bindgen...
+[INFO]: Optional field missing from Cargo.toml: 'repository'. This is not necessary, but recommended
+[INFO]: License key is set in Cargo.toml but no LICENSE file(s) were found; Please add the LICENSE file(s) to your project directory
+[INFO]: :-) Done in 45m 54s
+[INFO]: :-) Your wasm pkg is ready to publish at C:\github\ecopunk\target\species-review-pkg.

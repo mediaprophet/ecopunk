@@ -80,6 +80,7 @@ use std::path::Path;
 
 /// Canonical golden ratio angle ($\phi = 137.507764^\circ$) in radians.
 pub const GOLDEN_ANGLE_RAD: f32 = 2.39996323;
+pub const GOLDEN_ANGLE: f32 = GOLDEN_ANGLE_RAD;
 
 /// Leonardo da Vinci / Shinozaki pipe exponent for eucalyptus crown hydraulic architecture.
 pub const PIPE_EXPONENT_EUCALYPTUS: f64 = 2.49;
@@ -605,6 +606,47 @@ impl OrganMeshBuilder {
     fn add_quad(&mut self, i0: u32, i1: u32, i2: u32, i3: u32) {
         self.add_triangle(i0, i1, i2);
         self.add_triangle(i0, i2, i3);
+    }
+
+    /// Rebuild smooth vertex normals for newly appended geometry from its indexed triangles.
+    fn recompute_normals_since(&mut self, vertex_start: usize, index_start: usize) {
+        if vertex_start >= self.positions.len() || index_start >= self.indices.len() {
+            return;
+        }
+        self.normals[vertex_start..].fill([0.0; 3]);
+        for tri in self.indices[index_start..].chunks_exact(3) {
+            let a_idx = tri[0] as usize;
+            let b_idx = tri[1] as usize;
+            let c_idx = tri[2] as usize;
+            if a_idx < vertex_start || b_idx < vertex_start || c_idx < vertex_start {
+                continue;
+            }
+            let a = self.positions[a_idx];
+            let b = self.positions[b_idx];
+            let c = self.positions[c_idx];
+            let ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+            let ac = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+            let face = [
+                ab[1] * ac[2] - ab[2] * ac[1],
+                ab[2] * ac[0] - ab[0] * ac[2],
+                ab[0] * ac[1] - ab[1] * ac[0],
+            ];
+            for idx in [a_idx, b_idx, c_idx] {
+                let normal = &mut self.normals[idx];
+                normal[0] += face[0];
+                normal[1] += face[1];
+                normal[2] += face[2];
+            }
+        }
+        for normal in &mut self.normals[vertex_start..] {
+            let len = (normal[0] * normal[0] + normal[1] * normal[1] + normal[2] * normal[2])
+                .sqrt();
+            if len > 1e-8 {
+                normal[0] /= len;
+                normal[1] /= len;
+                normal[2] /= len;
+            }
+        }
     }
 
     /// Add a cylindrical shell or segment along `p0 -> p1` with radius `r0` to `r1`.
@@ -1258,6 +1300,11 @@ pub fn build_scale1_whole_organism_10d(
         &mut scratch,
         &mut calculated_radii,
     );
+    let pipe_scaffold_base = calculated_radii
+        .get(2)
+        .copied()
+        .filter(|r| r.is_finite() && *r > 0.0)
+        .unwrap_or((bole_r * 0.48) as f64) as f32;
 
     // Biophysical metamer plant graph coupling for hydraulic and thermal phenology
     let mut metamer_graph = PlantArchitecture::new(ThermalPhenology::default());
@@ -1316,29 +1363,66 @@ pub fn build_scale1_whole_organism_10d(
         );
     }
 
-    // 1D. Lateral Buttress Flares & Feeder Roots: 6 roots radiating outwards
+    // 1D. Root-Collar Buttress Flares, Lateral Anchor Roots & Fine Feeder Rootlets
     let num_laterals = 6;
     for i in 0..num_laterals {
         let angle = (i as f32) * (2.0 * PI / (num_laterals as f32));
         let cos_a = angle.cos();
         let sin_a = angle.sin();
-        let lat_len = crown_r * 0.45;
+        let lat_len = crown_r * 0.48;
 
-        let p0 = [cos_a * bole_r * 0.8, -bole_r * 0.1, sin_a * bole_r * 0.8];
-        let p1 = [cos_a * lat_len * 0.5, -bole_r * 0.8, sin_a * lat_len * 0.5];
-        let p2 = [cos_a * lat_len, -bole_r * 1.6, sin_a * lat_len];
+        // Above-ground fluted buttress collar spur flaring from lower bole into root crown
+        let b_top = [cos_a * bole_r * 0.65, bole_r * 2.2, sin_a * bole_r * 0.65];
+        let p0 = [cos_a * bole_r * 1.15, -bole_r * 0.08, sin_a * bole_r * 1.15];
+        let p1 = [cos_a * lat_len * 0.52, -bole_r * 0.85, sin_a * lat_len * 0.52];
+        let p2 = [cos_a * lat_len, -bole_r * 1.75, sin_a * lat_len];
 
-        let r_base = bole_r * 0.55;
-        b.add_cylinder_segment(p0, p1, r_base, r_base * 0.6, 6, [130, 115, 88, 255], [115, 100, 75, 255]);
-        b.add_cylinder_segment(p1, p2, r_base * 0.6, r_base * 0.25, 6, [115, 100, 75, 255], [95, 80, 60, 255]);
+        let r_base = bole_r * 0.58;
+        b.add_cylinder_segment(
+            b_top,
+            p0,
+            r_base * 0.52,
+            r_base * 1.08,
+            6,
+            [142, 126, 98, 255],
+            [130, 115, 88, 255],
+        );
+        b.add_cylinder_segment(
+            p0,
+            p1,
+            r_base,
+            r_base * 0.62,
+            6,
+            [130, 115, 88, 255],
+            [115, 100, 75, 255],
+        );
+        b.add_cylinder_segment(
+            p1,
+            p2,
+            r_base * 0.62,
+            r_base * 0.24,
+            6,
+            [115, 100, 75, 255],
+            [95, 80, 60, 255],
+        );
 
-        // Secondary feeder rootlets
-        let p_sub = [
-            p1[0] + sin_a * lat_len * 0.2,
-            p1[1] - bole_r * 0.5,
-            p1[2] - cos_a * lat_len * 0.2,
-        ];
-        b.add_cylinder_segment(p1, p_sub, r_base * 0.3, r_base * 0.08, 4, [110, 95, 70, 255], [90, 75, 55, 255]);
+        // Bifurcating secondary & tertiary feeder rootlets
+        for side in [-1.0_f32, 1.0_f32] {
+            let p_sub = [
+                p1[0] + (cos_a * 0.4 + side * sin_a * 0.6) * lat_len * 0.28,
+                p1[1] - bole_r * 0.58,
+                p1[2] + (sin_a * 0.4 - side * cos_a * 0.6) * lat_len * 0.28,
+            ];
+            b.add_cylinder_segment(
+                p1,
+                p_sub,
+                r_base * 0.32,
+                r_base * 0.09,
+                4,
+                [110, 95, 70, 255],
+                [90, 75, 55, 255],
+            );
+        }
     }
     b.end_tissue_layer();
 
@@ -1346,8 +1430,8 @@ pub fn build_scale1_whole_organism_10d(
     // Layer 2: Heartwood & Central Pith (`HeartwoodAndPith`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::HeartwoodAndPith, 1);
-    let trunk_h = height_m * 0.45;
-    let pith_r = bole_r * 0.22;
+    let trunk_h = height_m * 0.46;
+    let pith_r = bole_r * 0.24;
     b.add_cylinder_segment(
         [0.0, 0.0, 0.0],
         [0.0, trunk_h, 0.0],
@@ -1378,162 +1462,315 @@ pub fn build_scale1_whole_organism_10d(
     // Layer 3: Active Sapwood Scaffold Limbs (`SapwoodSecondaryXylem`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::SapwoodSecondaryXylem, 2);
-    // Primary scaffold limbs branching off the bole
-    let num_scaffolds = if branch_orders >= 4 { 5 } else { 3 };
+    // Primary scaffold limbs branching off the bole with curved mid-segments
+    let num_scaffolds = if branch_orders >= 4 { 6 } else { 4 };
     let mut scaffold_tips = Vec::new();
 
     for i in 0..num_scaffolds {
         let frac = (i as f32) / (num_scaffolds as f32);
-        let azimuth = frac * 2.0 * PI + 0.3;
-        let h_base = trunk_h * (0.6 + frac * 0.35);
-        let limb_len = crown_r * (0.65 + 0.25 * (i as f32 % 2.0));
-        let elevation = 0.45 + 0.15 * (i as f32 % 3.0);
+        let azimuth = frac * 2.0 * PI + 0.32;
+        let h_base = trunk_h * (0.58 + frac * 0.38);
+        let limb_len = crown_r * (0.62 + 0.24 * ((i as f32 * 1.7).sin().abs()));
+        let elevation = 0.42 + 0.14 * (i as f32 % 3.0);
 
-        let p_start = [0.0, h_base, 0.0];
+        let p_start = [
+            0.04 * bole_r * (h_base * 0.8).sin(),
+            h_base,
+            0.04 * bole_r * (h_base * 0.8).cos(),
+        ];
+        let p_mid = [
+            p_start[0] + azimuth.cos() * limb_len * 0.52 * elevation.cos(),
+            h_base + limb_len * 0.56 * elevation.sin(),
+            p_start[2] + azimuth.sin() * limb_len * 0.52 * elevation.cos(),
+        ];
         let p_end = [
-            azimuth.cos() * limb_len * elevation.cos(),
+            p_start[0] + azimuth.cos() * limb_len * elevation.cos(),
             h_base + limb_len * elevation.sin(),
-            azimuth.sin() * limb_len * elevation.cos(),
+            p_start[2] + azimuth.sin() * limb_len * elevation.cos(),
         ];
 
-        let r_start = bole_r * 0.48;
-        let r_end = bole_r * 0.22;
+        let pipe_tip = calculated_radii
+            .get(3 + (i % 2))
+            .copied()
+            .filter(|r| r.is_finite() && *r > 0.0)
+            .unwrap_or((bole_r * 0.22) as f64) as f32;
+        let r_start = pipe_scaffold_base.max(bole_r * 0.26);
+        let r_mid = (r_start * 0.74).max(bole_r * 0.17);
+        let r_end = pipe_tip.max(bole_r * 0.12).min(r_mid * 0.82);
+
+        // Collar flare at bole junction
         b.add_cylinder_segment(
             p_start,
-            p_end,
-            r_start,
-            r_end,
+            p_mid,
+            r_start * 1.18,
+            r_mid,
             8,
             [219, 201, 171, 255],
-            [205, 188, 158, 255],
+            [212, 194, 164, 255],
+        );
+        b.add_cylinder_segment(
+            p_mid,
+            p_end,
+            r_mid,
+            r_end,
+            8,
+            [212, 194, 164, 255],
+            [202, 184, 152, 255],
         );
         scaffold_tips.push((p_end, r_end, azimuth));
     }
     b.end_tissue_layer();
 
     // ------------------------------------------------------------------------
-    // Layer 4: Outer Rhytidome (Chalk-White Bark Bole & Branches) (`OuterRhytidome`)
+    // Layer 4: Outer Rhytidome (Chalk-White Bark Bole, Peeling Ribbons & Branches)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::OuterRhytidome, 3);
-    // Main bole cylinder from ground collar up to first scaffold branches
-    let bole_steps = 8;
+    // Main bole cylinder with dark tessellated basal stocking transitioning to chalk-white upper bark
+    let bole_steps = 10;
     for s in 0..bole_steps {
-        let y0 = (s as f32 / bole_steps as f32) * trunk_h;
-        let y1 = ((s + 1) as f32 / bole_steps as f32) * trunk_h;
-        let r0 = bole_r * (1.0 - 0.25 * (y0 / trunk_h));
-        let r1 = bole_r * (1.0 - 0.25 * (y1 / trunk_h));
+        let f0 = s as f32 / bole_steps as f32;
+        let f1 = (s + 1) as f32 / bole_steps as f32;
+        let y0 = f0 * trunk_h;
+        let y1 = f1 * trunk_h;
+        let flare0 = if f0 < 0.22 {
+            1.0 + 0.35 * (1.0 - f0 / 0.22).powi(2)
+        } else {
+            1.0
+        };
+        let flare1 = if f1 < 0.22 {
+            1.0 + 0.35 * (1.0 - f1 / 0.22).powi(2)
+        } else {
+            1.0
+        };
+        let r0 = bole_r * (1.0 - 0.24 * f0) * flare0;
+        let r1 = bole_r * (1.0 - 0.24 * f1) * flare1;
+        let col0 = if f0 < 0.18 {
+            [118, 98, 82, 255]
+        } else {
+            [237, 235, 224, 255]
+        };
+        let col1 = if f1 < 0.18 {
+            [148, 128, 108, 255]
+        } else {
+            [244, 242, 234, 255]
+        };
         b.add_cylinder_segment(
-            [0.0, y0, 0.0],
-            [0.0, y1, 0.0],
+            [0.04 * bole_r * (f0 * PI).sin(), y0, 0.0],
+            [0.04 * bole_r * (f1 * PI).sin(), y1, 0.0],
             r0,
             r1,
             12,
-            [237, 235, 224, 255],
-            [242, 240, 230, 255],
+            col0,
+            col1,
         );
     }
 
-    // Tertiary branchlets and twigs extending from scaffold limbs
+    // Peeling bark ribbons curling off the lower/mid bole stocking transition
+    for rib in 0..6 {
+        let ra = (rib as f32) * (2.0 * PI / 6.0) + 0.4;
+        let ry = trunk_h * (0.18 + 0.09 * (rib as f32));
+        let rr = bole_r * (1.0 - 0.18 * (ry / trunk_h));
+        let p_attach = [ra.cos() * rr, ry, ra.sin() * rr];
+        let p_curl = [
+            ra.cos() * (rr + bole_r * 0.22),
+            ry - bole_r * 0.55,
+            ra.sin() * (rr + bole_r * 0.22),
+        ];
+        let p_tip = [
+            ra.cos() * (rr + bole_r * 0.36),
+            ry - bole_r * 1.05,
+            ra.sin() * (rr + bole_r * 0.36),
+        ];
+        b.add_cylinder_segment(
+            p_attach,
+            p_curl,
+            bole_r * 0.045,
+            bole_r * 0.032,
+            4,
+            [218, 204, 184, 255],
+            [178, 146, 118, 255],
+        );
+        b.add_cylinder_segment(
+            p_curl,
+            p_tip,
+            bole_r * 0.032,
+            bole_r * 0.012,
+            4,
+            [178, 146, 118, 255],
+            [145, 112, 86, 255],
+        );
+    }
+
+    // Secondary, tertiary branchlets and pendulous quaternary twigs extending from scaffold limbs
     let mut terminal_twigs = Vec::new();
     for &(scaf_pos, scaf_r, scaf_azim) in &scaffold_tips {
-        let num_tertiary = 3;
-        for t in 0..num_tertiary {
+        let num_secondary = 3;
+        for t in 0..num_secondary {
             let t_frac = t as f32 - 1.0;
-            let spread_a = scaf_azim + t_frac * 0.55;
+            let spread_a = scaf_azim + t_frac * 0.58;
             let t_len = crown_r * 0.42;
 
-            let p_tert = [
-                scaf_pos[0] + spread_a.cos() * t_len * 0.8,
-                scaf_pos[1] + t_len * 0.35 - t_frac.abs() * 0.2,
-                scaf_pos[2] + spread_a.sin() * t_len * 0.8,
+            let p_sec = [
+                scaf_pos[0] + spread_a.cos() * t_len * 0.82,
+                scaf_pos[1] + t_len * 0.34 - t_frac.abs() * 0.16,
+                scaf_pos[2] + spread_a.sin() * t_len * 0.82,
             ];
             b.add_cylinder_segment(
                 scaf_pos,
-                p_tert,
-                scaf_r,
-                scaf_r * 0.4,
+                p_sec,
+                scaf_r * 1.08,
+                scaf_r * 0.44,
                 6,
-                [230, 228, 218, 255],
+                [232, 230, 220, 255],
                 [220, 218, 206, 255],
             );
 
-            // Quaternary terminal twigs
-            for q in 0..2 {
-                let q_azim = spread_a + (q as f32 - 0.5) * 0.65;
-                let q_len = crown_r * 0.25;
-                let p_twig = [
-                    p_tert[0] + q_azim.cos() * q_len * 0.9,
-                    p_tert[1] - 0.15 * q_len, // Pendulous droop!
-                    p_tert[2] + q_azim.sin() * q_len * 0.9,
+            // Tertiary and pendulous quaternary twigs
+            for q in 0..3 {
+                let q_azim = spread_a + (q as f32 - 1.0) * 0.58;
+                let q_len = crown_r * 0.24;
+                let p_tert = [
+                    p_sec[0] + q_azim.cos() * q_len * 0.65,
+                    p_sec[1] + q_len * 0.12,
+                    p_sec[2] + q_azim.sin() * q_len * 0.65,
                 ];
+                let p_twig = [
+                    p_tert[0] + q_azim.cos() * q_len * 0.55,
+                    p_tert[1] - 0.22 * q_len, // Pendulous sclerophyllous twig droop
+                    p_tert[2] + q_azim.sin() * q_len * 0.55,
+                ];
+                b.add_cylinder_segment(
+                    p_sec,
+                    p_tert,
+                    scaf_r * 0.40,
+                    scaf_r * 0.20,
+                    5,
+                    [210, 205, 192, 255],
+                    [184, 176, 158, 255],
+                );
                 b.add_cylinder_segment(
                     p_tert,
                     p_twig,
-                    scaf_r * 0.35,
-                    scaf_r * 0.12,
+                    scaf_r * 0.20,
+                    scaf_r * 0.08,
                     4,
-                    [200, 195, 185, 255],
-                    [170, 165, 150, 255],
+                    [184, 176, 158, 255],
+                    [156, 134, 108, 255],
                 );
-                terminal_twigs.push(p_twig);
+                terminal_twigs.push((p_tert, p_twig, q_azim));
             }
         }
     }
     b.end_tissue_layer();
 
     // ------------------------------------------------------------------------
-    // Layer 5: Pendulous Foliage Clusters (`WaxyCuticle`)
+    // Layer 5: Woody Gumnut Capsule Clusters on Outer Canopy Shoots
+    // ------------------------------------------------------------------------
+    b.begin_tissue_layer(HistologicalTissueLayer::WoodyPericarpAndDehiscingValves, 5);
+    let nut_r = (height_m * 0.0028).clamp(0.004, 0.024);
+    for (idx, &(p_node, _p_twig, azim)) in terminal_twigs.iter().enumerate() {
+        if idx % 2 == 0 {
+            for k in 0..3 {
+                let ka = azim + (k as f32 - 1.0) * 0.85;
+                let p_nut = [
+                    p_node[0] + ka.cos() * nut_r * 2.2,
+                    p_node[1] - nut_r * 1.8,
+                    p_node[2] + ka.sin() * nut_r * 2.2,
+                ];
+                b.add_cylinder_segment(
+                    p_node,
+                    p_nut,
+                    nut_r * 0.45,
+                    nut_r,
+                    5,
+                    [117, 97, 76, 255],
+                    [96, 78, 60, 255],
+                );
+            }
+        }
+    }
+    b.end_tissue_layer();
+
+    // ------------------------------------------------------------------------
+    // Layer 6: Dense Pendulous Falcate Leaf Sprays (`WaxyCuticle`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::WaxyCuticle, 4);
-    // At each terminal twig, hang clusters of vertical falcate leaves
-    let leaf_len = (height_m * 0.025).clamp(0.08, 0.22);
-    let leaf_w = leaf_len * 0.22;
+    // At each terminal twig, hang dense phyllotactic sprays of curved falcate leaves
+    let leaf_len = (height_m * 0.028).clamp(0.08, 0.26);
+    let leaf_w = leaf_len * 0.24;
 
-    for &twig_pos in &terminal_twigs {
-        let num_leaves = 5;
+    for (t_idx, &(p_tert, twig_pos, twig_azim)) in terminal_twigs.iter().enumerate() {
+        let num_leaves = 7;
         for l in 0..num_leaves {
-            let l_angle = (l as f32) * (2.0 * PI / (num_leaves as f32));
-            let lx = twig_pos[0] + l_angle.cos() * leaf_w * 1.2;
-            let lz = twig_pos[2] + l_angle.sin() * leaf_w * 1.2;
-            let ly_top = twig_pos[1];
-            let _ly_bot = ly_top - leaf_len;
+            let l_frac = l as f32 / num_leaves as f32;
+            let l_angle = twig_azim + (l as f32) * GOLDEN_ANGLE;
+            let stem_mix = 0.25 + 0.75 * l_frac;
+            let attach = [
+                p_tert[0] * (1.0 - stem_mix) + twig_pos[0] * stem_mix,
+                p_tert[1] * (1.0 - stem_mix) + twig_pos[1] * stem_mix,
+                p_tert[2] * (1.0 - stem_mix) + twig_pos[2] * stem_mix,
+            ];
+            let lx = attach[0] + l_angle.cos() * leaf_w * 0.95;
+            let lz = attach[2] + l_angle.sin() * leaf_w * 0.95;
+            let ly_top = attach[1];
 
-            // Vertically pendulous falcate leaf quad strip (3 quads curved like a sickle)
-            let segs = 3;
-            let mut prev_v0 = 0u32;
-            let mut prev_v1 = 0u32;
+            // Vertically pendulous, falcate sickle lamina with raised midrib and copper-flush young tips
+            let segs = 4;
+            let vertex_start = b.positions.len();
+            let index_start = b.indices.len();
+            let mut previous = [0u32; 3];
+            let is_young_tip = l + 1 == num_leaves && (t_idx % 3 == 0);
 
             for seg in 0..=segs {
                 let s_frac = seg as f32 / segs as f32;
+                let sin_s = (s_frac * PI).sin();
                 let cur_y = ly_top - s_frac * leaf_len;
-                // Falcate curvature along x/z
-                let curve_offset = (s_frac * PI).sin() * leaf_w * 0.65;
+                // Falcate sickle curvature along x/z
+                let curve_offset = sin_s * leaf_w * 0.72 * (0.4 + 0.6 * s_frac);
                 let cur_x = lx + l_angle.cos() * curve_offset;
                 let cur_z = lz + l_angle.sin() * curve_offset;
-                let w = (1.0 - (s_frac * 2.0 - 1.0).powi(2)).max(0.2) * leaf_w * 0.5;
+                let w = sin_s.max(0.06).powf(0.82) * (1.0 - 0.16 * s_frac) * leaf_w * 0.55;
+                let ridge = leaf_w * 0.14 * sin_s;
 
                 let perp_x = -l_angle.sin() * w;
                 let perp_z = l_angle.cos() * w;
 
-                let v0 = b.add_vertex(
+                let (col_margin, col_mid) = if is_young_tip {
+                    ([138, 86, 58, 255], [162, 108, 72, 255])
+                } else {
+                    ([78, 114, 84, 255], [112, 146, 104, 255])
+                };
+
+                let v_left = b.add_vertex(
                     [cur_x - perp_x, cur_y, cur_z - perp_z],
-                    [0.0, 0.0, 1.0],
+                    [l_angle.cos(), 0.0, l_angle.sin()],
                     [0.0, s_frac],
-                    [82, 110, 87, 255],
+                    col_margin,
                 );
-                let v1 = b.add_vertex(
+                let v_mid = b.add_vertex(
+                    [
+                        cur_x + l_angle.cos() * ridge,
+                        cur_y,
+                        cur_z + l_angle.sin() * ridge,
+                    ],
+                    [l_angle.cos(), 0.0, l_angle.sin()],
+                    [0.5, s_frac],
+                    col_mid,
+                );
+                let v_right = b.add_vertex(
                     [cur_x + perp_x, cur_y, cur_z + perp_z],
-                    [0.0, 0.0, 1.0],
+                    [l_angle.cos(), 0.0, l_angle.sin()],
                     [1.0, s_frac],
-                    [95, 125, 98, 255],
+                    col_margin,
                 );
 
                 if seg > 0 {
-                    b.add_quad(prev_v0, prev_v1, v1, v0);
+                    b.add_quad(previous[0], v_left, v_mid, previous[1]);
+                    b.add_quad(previous[1], v_mid, v_right, previous[2]);
                 }
-                prev_v0 = v0;
-                prev_v1 = v1;
+                previous = [v_left, v_mid, v_right];
             }
+            b.recompute_normals_since(vertex_start, index_start);
         }
     }
     b.end_tissue_layer();
@@ -1582,8 +1819,8 @@ pub fn build_scale2_stem_bark_wedge_10d(
 
     let wedge_span_rad = 1.5 * PI; // 270 degrees
     let stem_height = 0.38_f32;
-    let n_radial = 24usize;
-    let n_vertical = 6usize;
+    let n_radial = 28usize;
+    let n_vertical = 8usize;
 
     // Define the 6 concentric histological layers with exact radii bounds (meters)
     let layers = [
@@ -1650,7 +1887,7 @@ pub fn build_scale2_stem_bark_wedge_10d(
             explode_dir[2] * disp_scale,
         ];
 
-        // 1. Outer curved cylindrical wall of the 270° wedge
+        // 1. Outer curved cylindrical wall of the 270° wedge (with bark fissures on OuterRhytidome)
         let base_v_outer = b.positions.len() as u32;
         for v in 0..=n_vertical {
             let y_frac = v as f32 / n_vertical as f32;
@@ -1660,10 +1897,16 @@ pub fn build_scale2_stem_bark_wedge_10d(
                 let a_frac = a as f32 / n_radial as f32;
                 let theta = a_frac * wedge_span_rad;
                 let norm = [theta.cos(), 0.0, theta.sin()];
+                let fissure = if layer_enum == HistologicalTissueLayer::OuterRhytidome {
+                    0.0018 * ((theta * 14.0).sin() * (y_frac * PI * 3.0).cos())
+                } else {
+                    0.0
+                };
+                let r_eff = r_outer + fissure;
                 let pos = [
-                    disp[0] + norm[0] * r_outer,
+                    disp[0] + norm[0] * r_eff,
                     y,
-                    disp[2] + norm[2] * r_outer,
+                    disp[2] + norm[2] * r_eff,
                 ];
                 b.add_vertex(pos, norm, [a_frac, y_frac], base_col);
             }
@@ -1789,76 +2032,133 @@ pub fn build_scale2_stem_bark_wedge_10d(
         );
         b.add_quad(j0, j1, j2, j3);
 
-        // Add anatomical details for specific layers:
-        if layer_enum == HistologicalTissueLayer::SapwoodSecondaryXylem {
-            // Radial medullary rays (radial lines cutting across growth rings)
-            for ray_i in 0..6 {
-                let ray_frac = (ray_i as f32 + 0.5) / 6.0;
-                let ray_theta = ray_frac * wedge_span_rad;
-                let rx0 = disp[0] + ray_theta.cos() * (r_inner + 0.004);
-                let rz0 = disp[2] + ray_theta.sin() * (r_inner + 0.004);
-                let rx1 = disp[0] + ray_theta.cos() * (r_outer - 0.004);
-                let rz1 = disp[2] + ray_theta.sin() * (r_outer - 0.004);
+        // Layer-specific histological structures:
+        match layer_enum {
+            HistologicalTissueLayer::HeartwoodAndPith => {
+                // Central primary pith column and dark heartwood growth-ring bands
                 b.add_cylinder_segment(
-                    [rx0, y_top, rz0],
-                    [rx1, y_top, rz1],
-                    0.001,
-                    0.001,
-                    4,
-                    [185, 168, 138, 255],
-                    [185, 168, 138, 255],
+                    [disp[0], y_bot - 0.001, disp[2]],
+                    [disp[0], y_top + 0.001, disp[2]],
+                    0.006,
+                    0.006,
+                    8,
+                    [78, 38, 26, 255],
+                    [78, 38, 26, 255],
                 );
             }
-        } else if layer_enum == HistologicalTissueLayer::SecondaryPhloemAndKinoDucts {
-            // Amber-red kino resin ducts in inner bark
-            for k in 0..4 {
-                let k_frac = (k as f32 + 0.5) / 4.0;
-                let k_theta = k_frac * wedge_span_rad;
-                let k_r = (r_inner + r_outer) * 0.5;
-                let kx = disp[0] + k_theta.cos() * k_r;
-                let kz = disp[2] + k_theta.sin() * k_r;
-                b.add_cylinder_segment(
-                    [kx, y_bot + 0.02, kz],
-                    [kx, y_top - 0.02, kz],
-                    0.002,
-                    0.002,
-                    4,
-                    [165, 42, 28, 255], // Blood-red kino gum vein
-                    [165, 42, 28, 255],
-                );
+            HistologicalTissueLayer::SapwoodSecondaryXylem => {
+                // 1) 3 concentric latewood growth-ring ridges on the top transverse face
+                for ring_k in 1..=3 {
+                    let r_ring = r_inner + (ring_k as f32 / 4.0) * (r_outer - r_inner);
+                    for a in 0..8 {
+                        let t0 = (a as f32 / 8.0) * wedge_span_rad;
+                        let t1 = ((a + 1) as f32 / 8.0) * wedge_span_rad;
+                        b.add_cylinder_segment(
+                            [disp[0] + t0.cos() * r_ring, y_top + 0.0008, disp[2] + t0.sin() * r_ring],
+                            [disp[0] + t1.cos() * r_ring, y_top + 0.0008, disp[2] + t1.sin() * r_ring],
+                            0.0009,
+                            0.0009,
+                            4,
+                            [172, 146, 112, 255],
+                            [172, 146, 112, 255],
+                        );
+                    }
+                }
+                // 2) 10 radial medullary rays cutting across growth rings and descending the radial face
+                for ray_i in 0..10 {
+                    let ray_frac = (ray_i as f32 + 0.5) / 10.0;
+                    let ray_theta = ray_frac * wedge_span_rad;
+                    let rx0 = disp[0] + ray_theta.cos() * (r_inner + 0.002);
+                    let rz0 = disp[2] + ray_theta.sin() * (r_inner + 0.002);
+                    let rx1 = disp[0] + ray_theta.cos() * (r_outer - 0.002);
+                    let rz1 = disp[2] + ray_theta.sin() * (r_outer - 0.002);
+                    b.add_cylinder_segment(
+                        [rx0, y_top + 0.001, rz0],
+                        [rx1, y_top + 0.001, rz1],
+                        0.0011,
+                        0.0011,
+                        4,
+                        [188, 168, 136, 255],
+                        [188, 168, 136, 255],
+                    );
+                }
+                // 3) Xylem vessel pores (tracheary vessel elements) exposed on transverse cut
+                for pore_i in 0..14 {
+                    let pf = (pore_i as f32 + 0.5) / 14.0;
+                    let p_theta = pf * wedge_span_rad;
+                    let p_rad = r_inner + (0.22 + 0.58 * ((pore_i * 7 % 5) as f32 / 4.0)) * (r_outer - r_inner);
+                    let px = disp[0] + p_theta.cos() * p_rad;
+                    let pz = disp[2] + p_theta.sin() * p_rad;
+                    b.add_cylinder_segment(
+                        [px, y_top - 0.018, pz],
+                        [px, y_top + 0.0016, pz],
+                        0.0016,
+                        0.0016,
+                        6,
+                        [132, 108, 82, 255],
+                        [112, 88, 64, 255],
+                    );
+                }
             }
+            HistologicalTissueLayer::SecondaryPhloemAndKinoDucts => {
+                // Axial phloem sieve-tube bundles & blood-red kino resin ducts
+                for k in 0..8 {
+                    let k_frac = (k as f32 + 0.5) / 8.0;
+                    let k_theta = k_frac * wedge_span_rad;
+                    let k_r = (r_inner + r_outer) * 0.5;
+                    let kx = disp[0] + k_theta.cos() * k_r;
+                    let kz = disp[2] + k_theta.sin() * k_r;
+                    let col_duct = if k % 2 == 0 {
+                        [165, 38, 24, 255] // Blood-red kino resin duct
+                    } else {
+                        [204, 142, 92, 255] // Phloem sieve tube strand
+                    };
+                    b.add_cylinder_segment(
+                        [kx, y_bot + 0.01, kz],
+                        [kx, y_top - 0.001, kz],
+                        0.0022,
+                        0.0022,
+                        5,
+                        col_duct,
+                        col_duct,
+                    );
+                }
+            }
+            HistologicalTissueLayer::OuterRhytidome => {
+                // Golden-angle phyllotaxis lateral nodes, leaf scars, and peeling bark strips
+                for b_idx in 0..4 {
+                    let b_y = disp[1] + stem_height * (0.18 + 0.22 * b_idx as f32);
+                    let b_phi = (b_idx as f32) * GOLDEN_ANGLE_RAD;
+                    let phi_clamped = b_phi.rem_euclid(2.0 * PI);
+                    if phi_clamped < wedge_span_rad - 0.15 {
+                        let b_dir = [phi_clamped.cos(), 0.22, phi_clamped.sin()];
+                        let p_base = [
+                            disp[0] + b_dir[0] * r_outer,
+                            b_y,
+                            disp[2] + b_dir[2] * r_outer,
+                        ];
+                        let p_tip = [
+                            p_base[0] + b_dir[0] * 0.028,
+                            p_base[1] + b_dir[1] * 0.028,
+                            p_base[2] + b_dir[2] * 0.028,
+                        ];
+                        b.add_cylinder_segment(
+                            p_base,
+                            p_tip,
+                            0.0085,
+                            0.0042,
+                            6,
+                            [218, 214, 202, 255],
+                            [172, 188, 134, 255],
+                        );
+                    }
+                }
+            }
+            _ => {}
         }
 
         b.end_tissue_layer();
     }
-
-    // Add lateral nodes with golden-angle phyllotaxis on the outer bark
-    b.begin_tissue_layer(HistologicalTissueLayer::OuterRhytidome, 5);
-    let num_buds = 3;
-    for b_idx in 0..num_buds {
-        let b_y = stem_height * (0.25 + 0.25 * b_idx as f32);
-        let b_phi = (b_idx as f32) * GOLDEN_ANGLE_RAD;
-        if b_phi.rem_euclid(2.0 * PI) < wedge_span_rad {
-            let phi_clamped = b_phi.rem_euclid(2.0 * PI);
-            let b_dir = [phi_clamped.cos(), 0.15, phi_clamped.sin()];
-            let p_base = [b_dir[0] * 0.106, b_y, b_dir[2] * 0.106];
-            let p_tip = [
-                p_base[0] + b_dir[0] * 0.022,
-                p_base[1] + b_dir[1] * 0.022,
-                p_base[2] + b_dir[2] * 0.022,
-            ];
-            b.add_cylinder_segment(
-                p_base,
-                p_tip,
-                0.008,
-                0.004,
-                6,
-                [215, 212, 200, 255],
-                [185, 195, 145, 255],
-            );
-        }
-    }
-    b.end_tissue_layer();
 
     let recipe_urn = format!(
         "urn:qualia:botanical:scale2:{species_id}:wedge:explode={:.2}",
@@ -1898,7 +2198,7 @@ pub fn build_scale2_stem_bark_wedge_10d(
 
 /// Synthesize Scale 3 Floral & Fruit Reproductive Dissection (`5 mm – 150 mm`) with
 /// 7-flowered umbellaster, circumscissile operculum shedding (baked into `MRP1` morph deltas),
-/// 48 inflexed/unfurling stamens, versatile anthers, style/stigma, 4-locule inferior ovary with ovules,
+/// 48+ inflexed/unfurling stamens, versatile anthers, style/stigma, 4-locule inferior ovary with ovules,
 /// and dehiscing woody gumnut capsule with fertile winged seeds and chaff. ($\ge 2,200$ vertices).
 pub fn build_scale3_floral_and_gumnut_dissection_10d(
     species_id: &str,
@@ -1911,71 +2211,103 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
     // Layer 1: Inflorescence Peduncle & Pedicels (`PeduncleAndPedicel`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::PeduncleAndPedicel, 0);
-    // Common central peduncle
-    let ped_base = [0.0_f32, -0.045_f32, 0.0_f32];
-    let ped_top = [0.0_f32, -0.015_f32, 0.0_f32];
+    // Common central peduncle with basal bract scar swelling
+    let ped_base = [0.0_f32, -0.048_f32, 0.0_f32];
+    let ped_mid = [0.0_f32, -0.030_f32, 0.0_f32];
+    let ped_top = [0.0_f32, -0.014_f32, 0.0_f32];
     b.add_cylinder_segment(
         ped_base,
-        ped_top,
-        0.0028,
-        0.0022,
+        ped_mid,
+        0.0032,
+        0.0026,
         8,
-        [122, 143, 97, 255],
-        [135, 158, 108, 255],
+        [114, 136, 88, 255],
+        [126, 148, 98, 255],
+    );
+    b.add_cylinder_segment(
+        ped_mid,
+        ped_top,
+        0.0026,
+        0.0034,
+        8,
+        [126, 148, 98, 255],
+        [138, 162, 108, 255],
     );
 
-    // 7 radiating pedicels forming the corymbose umbellaster
+    // 7 radiating pedicels forming the corymbose umbellaster + woody fruiting pedicel
     let num_flowers = 7;
     let mut flower_origins = Vec::new();
 
     for f in 0..num_flowers {
-        let (f_pos, _f_len) = if f == 0 {
-            // Central terminal flower
-            ([0.0_f32, 0.0_f32, 0.0_f32], 0.015_f32)
+        let f_pos = if f == 0 {
+            // Central terminal dissected flower
+            [0.0_f32, 0.0_f32, 0.0_f32]
         } else {
             // 6 peripheral umbel rays
             let angle = ((f - 1) as f32) * (2.0 * PI / 6.0);
-            let ray_r = 0.024_f32;
-            ([angle.cos() * ray_r, 0.005_f32, angle.sin() * ray_r], 0.022_f32)
+            let ray_r = 0.025_f32;
+            [
+                angle.cos() * ray_r,
+                0.003_f32 + 0.002 * ((f % 2) as f32),
+                angle.sin() * ray_r,
+            ]
         };
         b.add_cylinder_segment(
             ped_top,
             f_pos,
-            0.0018,
-            0.0014,
+            0.0019,
+            0.0015,
             6,
             [135, 158, 108, 255],
             [150, 172, 118, 255],
         );
         flower_origins.push(f_pos);
     }
+
+    // Woody stalk supporting the mature gumnut capsule at right
+    let gumnut_offset = [0.038_f32, 0.0_f32, 0.0_f32];
+    b.add_cylinder_segment(
+        [gumnut_offset[0], -0.016, gumnut_offset[2]],
+        gumnut_offset,
+        0.0022,
+        0.0028,
+        6,
+        [112, 94, 72, 255],
+        [124, 104, 80, 255],
+    );
     b.end_tissue_layer();
 
     // Focus high-detail dissection on the central flower (`f == 0` at [0, 0, 0])
     let cup_base = [0.0_f32, 0.0_f32, 0.0_f32];
-    let cup_rim_y = 0.012_f32;
-    let cup_rim_r = 0.0075_f32;
+    let cup_rim_y = 0.013_f32;
+    let cup_rim_r = 0.0078_f32;
+    // Cutaway angle removes up to 110 degrees on the front (+Z) side of the central hypanthium
+    let cut_half_angle = cutaway_01.clamp(0.15, 1.0) * (PI * 0.32);
 
     // ------------------------------------------------------------------------
     // Layer 2: Hypanthium Calyx Tube (`HypanthiumCalyxTube`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::HypanthiumCalyxTube, 1);
-    // Inverted obconical floral cup
-    let n_cup = 16usize;
-    let n_cup_y = 5usize;
+    // Sculpted urceolate-campanulate floral cup on the central flower with cutaway window
+    let n_cup = 20usize;
+    let n_cup_y = 7usize;
     let base_cup_v = b.positions.len() as u32;
+    let start_angle = PI * 0.5 + cut_half_angle;
+    let sweep_angle = 2.0 * PI - 2.0 * cut_half_angle;
 
     for y_idx in 0..=n_cup_y {
         let y_frac = y_idx as f32 / n_cup_y as f32;
         let y = cup_base[1] + y_frac * (cup_rim_y - cup_base[1]);
-        let r = 0.0018 + y_frac * (cup_rim_r - 0.0018);
+        // Urceolate floral tube profile: rounded ovary belly + slight neck + flared staminal rim
+        let belly = (y_frac * PI).sin() * 0.0014;
+        let r = 0.0020 + y_frac * (cup_rim_r - 0.0020) + belly;
 
         for a in 0..=n_cup {
             let a_frac = a as f32 / n_cup as f32;
-            let theta = a_frac * 2.0 * PI;
-            let norm = [theta.cos() * 0.9, -0.4, theta.sin() * 0.9];
+            let theta = start_angle + a_frac * sweep_angle;
+            let norm = [theta.cos() * 0.92, -0.25, theta.sin() * 0.92];
             let pos = [theta.cos() * r, y, theta.sin() * r];
-            b.add_vertex(pos, norm, [a_frac, y_frac], [189, 184, 143, 255]);
+            b.add_vertex(pos, norm, [a_frac, y_frac], [176, 184, 134, 255]);
         }
     }
     for y_idx in 0..n_cup_y {
@@ -1987,29 +2319,44 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
             b.add_quad(i0, i1, i2, i3);
         }
     }
+
+    // Peripheral umbellaster floral cups (6 surrounding flowers in the 7-flowered umbellaster)
+    for &p_orig in flower_origins.iter().skip(1) {
+        let p_top = [p_orig[0], p_orig[1] + 0.0085, p_orig[2]];
+        b.add_cylinder_segment(
+            p_orig,
+            p_top,
+            0.0018,
+            0.0046,
+            8,
+            [164, 176, 124, 255],
+            [184, 192, 142, 255],
+        );
+    }
     b.end_tissue_layer();
 
     // ------------------------------------------------------------------------
     // Layer 3: Operculum (Calyptriform Bud Cap) (`OperculumCalyptra`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::OperculumCalyptra, 2);
-    // Operculum lifts off and tilts away as anthesis progresses!
-    let operculum_lift = anthesis_progress_01 * 0.024;
-    let operculum_tilt = anthesis_progress_01 * 0.85; // ~48 degrees tilt
+    // Central operculum lifts off and tilts away along an arc as anthesis progresses
+    let operculum_lift = anthesis_progress_01 * 0.022;
+    let operculum_tilt = anthesis_progress_01 * 0.82;
     let op_center = [
-        operculum_lift * 0.6,
+        operculum_lift * 0.55,
         cup_rim_y + operculum_lift,
-        operculum_lift * 0.4,
+        operculum_lift * 0.25,
     ];
 
-    let n_op = 16usize;
-    let n_op_y = 6usize;
+    let n_op = 18usize;
+    let n_op_y = 7usize;
     let base_op_v = b.positions.len() as u32;
 
     for y_idx in 0..=n_op_y {
         let y_frac = y_idx as f32 / n_op_y as f32;
-        let local_y = y_frac * 0.0065;
-        let local_r = cup_rim_r * (1.0 - y_frac * y_frac).max(0.0);
+        let local_y = y_frac * 0.0072;
+        // Conical-beaked calyptra profile (umbonate apex typical of Corymbia/Eucalyptus)
+        let local_r = cup_rim_r * (1.0 - y_frac).powf(0.72);
 
         for a in 0..=n_op {
             let a_frac = a as f32 / n_op as f32;
@@ -2017,7 +2364,6 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
             let cos_t = theta.cos();
             let sin_t = theta.sin();
 
-            // Apply tilt rotation around Z
             let rx = cos_t * local_r * operculum_tilt.cos() - local_y * operculum_tilt.sin();
             let ry = cos_t * local_r * operculum_tilt.sin() + local_y * operculum_tilt.cos();
             let rz = sin_t * local_r;
@@ -2036,62 +2382,124 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
             b.add_quad(i0, i1, i2, i3);
         }
     }
+
+    // Intact conical operculum caps on 3 of the peripheral buds in the umbellaster
+    for (idx, &p_orig) in flower_origins.iter().skip(1).enumerate() {
+        if idx % 2 == 0 {
+            let rim = [p_orig[0], p_orig[1] + 0.0085, p_orig[2]];
+            let apex = [p_orig[0], p_orig[1] + 0.0135, p_orig[2]];
+            b.add_cylinder_segment(
+                rim,
+                apex,
+                0.0046,
+                0.0006,
+                8,
+                [218, 208, 166, 255],
+                [232, 222, 182, 255],
+            );
+        }
+    }
     b.end_tissue_layer();
 
     // ------------------------------------------------------------------------
     // Layer 4 & 5: Staminal Ring Filaments & Versatile Anthers
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::StaminalRingFilaments, 3);
-    let num_filaments = 48usize;
-    let fil_len = 0.014_f32;
+    let num_filaments = 56usize;
+    let fil_len = 0.0145_f32;
     let mut anther_positions = Vec::new();
 
     for i in 0..num_filaments {
         let whorl = (i % 3) as f32;
         let frac = (i as f32) / (num_filaments as f32);
         let theta = frac * 2.0 * PI;
-        let r_insertion = cup_rim_r * (0.85 + whorl * 0.05);
+        let r_insertion = cup_rim_r * (0.84 + whorl * 0.055);
 
         let p_base = [theta.cos() * r_insertion, cup_rim_y, theta.sin() * r_insertion];
 
-        // Anthesis controls uncurling from inflexed to outward burst
-        let uncurl = anthesis_progress_01;
-        let arch_rad = theta.cos() * (0.008 + uncurl * 0.012);
-        let arch_z = theta.sin() * (0.008 + uncurl * 0.012);
-
-        // At uncurl = 0: inflexed (tips curve down into the cup)
-        // At uncurl = 1: fully unfurled into a glorious cream burst
+        // Anthesis controls uncurling from inflexed bud posture to radiant cream burst
+        let uncurl = anthesis_progress_01.clamp(0.0, 1.0);
+        let out_reach = r_insertion + uncurl * (0.0065 + whorl * 0.0022);
+        let p_knee = [
+            theta.cos() * (r_insertion + uncurl * 0.0028),
+            cup_rim_y + 0.0042 * (0.7 + uncurl * 0.9),
+            theta.sin() * (r_insertion + uncurl * 0.0028),
+        ];
         let p_mid = [
-            theta.cos() * (r_insertion + uncurl * 0.004),
-            cup_rim_y + 0.006 * (1.0 + uncurl * 0.8),
-            theta.sin() * (r_insertion + uncurl * 0.004),
+            theta.cos() * (r_insertion + uncurl * 0.0055),
+            cup_rim_y + 0.0082 * (0.5 + uncurl * 0.85),
+            theta.sin() * (r_insertion + uncurl * 0.0055),
         ];
         let p_tip = [
-            arch_rad,
-            cup_rim_y + if uncurl < 0.3 { -0.002 } else { fil_len * (0.5 + uncurl * 0.5) },
-            arch_z,
+            theta.cos() * out_reach,
+            cup_rim_y
+                + if uncurl < 0.25 {
+                    -0.0018
+                } else {
+                    fil_len * (0.48 + uncurl * 0.52) - whorl * 0.0012
+                },
+            theta.sin() * out_reach,
         ];
 
         b.add_cylinder_segment(
             p_base,
-            p_mid,
+            p_knee,
             0.00028,
             0.00024,
             4,
-            [250, 245, 217, 255],
-            [250, 245, 217, 255],
+            [248, 242, 212, 255],
+            [252, 248, 224, 255],
+        );
+        b.add_cylinder_segment(
+            p_knee,
+            p_mid,
+            0.00024,
+            0.00020,
+            4,
+            [252, 248, 224, 255],
+            [254, 250, 232, 255],
         );
         b.add_cylinder_segment(
             p_mid,
             p_tip,
-            0.00024,
-            0.00018,
+            0.00020,
+            0.00015,
             4,
-            [250, 245, 217, 255],
-            [250, 245, 217, 255],
+            [254, 250, 232, 255],
+            [255, 252, 238, 255],
         );
 
         anther_positions.push(p_tip);
+    }
+
+    // Radiant stamen filaments on the 3 open peripheral flowers in the umbellaster
+    for (idx, &p_orig) in flower_origins.iter().skip(1).enumerate() {
+        if idx % 2 == 1 {
+            let rim_y = p_orig[1] + 0.0085;
+            for k in 0..12 {
+                let ka = (k as f32 / 12.0) * 2.0 * PI;
+                let pb = [
+                    p_orig[0] + ka.cos() * 0.0042,
+                    rim_y,
+                    p_orig[2] + ka.sin() * 0.0042,
+                ];
+                let pt = [
+                    p_orig[0] + ka.cos() * 0.0095,
+                    rim_y + 0.0065,
+                    p_orig[2] + ka.sin() * 0.0095,
+                ];
+                b.add_cylinder_segment(
+                    pb,
+                    pt,
+                    0.00022,
+                    0.00014,
+                    4,
+                    [252, 248, 224, 255],
+                    [255, 252, 238, 255],
+                );
+                anther_positions.push(pt);
+            }
+        }
     }
     b.end_tissue_layer();
 
@@ -2100,7 +2508,7 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
     for &p_anther in &anther_positions {
         b.add_ellipsoid(
             p_anther,
-            [0.00065, 0.00045, 0.00045],
+            [0.00062, 0.00042, 0.00045],
             4,
             6,
             [245, 209, 61, 255], // Golden pollen yellow
@@ -2112,34 +2520,34 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
     // Layer 6: Gynoecium (Style, Stigma & Nectar Disc) (`GynoeciumStyleStigma`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::GynoeciumStyleStigma, 5);
-    // Central terete style rising from the disc
-    let style_h = 0.009_f32;
+    // Central terete style rising from the superior ovary roof
+    let style_h = 0.0098_f32;
     b.add_cylinder_segment(
-        [0.0, cup_rim_y, 0.0],
+        [0.0, cup_rim_y - 0.001, 0.0],
         [0.0, cup_rim_y + style_h, 0.0],
-        0.00075,
-        0.00055,
-        6,
-        [166, 199, 122, 255],
-        [175, 210, 130, 255],
+        0.00082,
+        0.00056,
+        8,
+        [158, 192, 114, 255],
+        [176, 212, 132, 255],
     );
     // Terminal capitate papillate stigma
     b.add_ellipsoid(
         [0.0, cup_rim_y + style_h + 0.0004, 0.0],
-        [0.0008, 0.0006, 0.0008],
-        4,
-        6,
-        [190, 225, 140, 255],
-    );
-    // Raised annular nectariferous disc
-    b.add_cylinder_segment(
-        [0.0, cup_rim_y - 0.0005, 0.0],
-        [0.0, cup_rim_y + 0.0008, 0.0],
-        cup_rim_r * 0.45,
-        cup_rim_r * 0.45,
+        [0.00088, 0.00065, 0.00088],
+        5,
         8,
-        [150, 180, 110, 255],
-        [160, 190, 118, 255],
+        [194, 228, 142, 255],
+    );
+    // Raised annular nectariferous disc lining the hypanthium summit
+    b.add_cylinder_segment(
+        [0.0, cup_rim_y - 0.0008, 0.0],
+        [0.0, cup_rim_y + 0.0006, 0.0],
+        cup_rim_r * 0.62,
+        cup_rim_r * 0.54,
+        12,
+        [146, 178, 106, 255],
+        [164, 196, 122, 255],
     );
     b.end_tissue_layer();
 
@@ -2147,35 +2555,35 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
     // Layer 7: Ovary Locules & Ovules Dissection (`OvaryLoculesAndOvules`)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(HistologicalTissueLayer::OvaryLoculesAndOvules, 6);
-    // 4 locule chambers with central axile placentation and ovules
-    let locule_y = cup_rim_y * 0.45;
-    let loc_r = cup_rim_r * 0.35;
+    // 4 locule chambers with central axile placentation, radial septa, and anatropous ovules
+    let locule_y = cup_rim_y * 0.44;
+    let loc_r = cup_rim_r * 0.36;
 
-    // Central placenta column
+    // Central axile placenta column
     b.add_cylinder_segment(
-        [0.0, 0.002, 0.0],
-        [0.0, cup_rim_y * 0.8, 0.0],
-        0.0006,
-        0.0006,
-        6,
-        [209, 219, 178, 255],
-        [209, 219, 178, 255],
+        [0.0, 0.0018, 0.0],
+        [0.0, cup_rim_y * 0.86, 0.0],
+        0.00085,
+        0.00075,
+        8,
+        [204, 214, 172, 255],
+        [214, 224, 182, 255],
     );
 
-    // 4 locules with spherical ovules in 2 vertical rows per locule
+    // 4 locules with 2 vertical rows of anatropous ovules per locule
     for loc in 0..4 {
         let loc_a = (loc as f32) * (PI / 2.0) + 0.39;
         let lx = loc_a.cos() * loc_r;
         let lz = loc_a.sin() * loc_r;
 
-        for row in 0..4 {
-            let oy = locule_y + (row as f32 - 1.5) * 0.0012;
+        for row in 0..5 {
+            let oy = locule_y + (row as f32 - 2.0) * 0.0011;
             b.add_ellipsoid(
                 [lx, oy, lz],
-                [0.00045, 0.00045, 0.00045],
-                3,
-                5,
-                [230, 238, 205, 255], // Translucent creamy ovule
+                [0.00052, 0.00044, 0.00052],
+                4,
+                6,
+                [234, 240, 208, 255],
             );
         }
     }
@@ -2184,38 +2592,44 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
     // ------------------------------------------------------------------------
     // Layer 8 & 9: Mature Woody Gumnut Capsule & Seeds (Offset beside the flower)
     // ------------------------------------------------------------------------
-    let gumnut_offset = [0.038_f32, 0.0_f32, 0.0_f32];
-
     b.begin_tissue_layer(HistologicalTissueLayer::WoodyPericarpAndDehiscingValves, 7);
-    // Urceolate (pitcher-shaped) woody capsule
-    let cap_h = 0.012_f32;
-    let cap_r_max = 0.0065_f32;
-    let cap_rim_r = 0.0048_f32;
-    let n_cap = 16usize;
-    let n_cap_y = 6usize;
+    // Sculpted urceolate (pitcher/urn-shaped) woody *Corymbia* gumnut capsule
+    let cap_h = 0.0155_f32;
+    let cap_r_max = 0.0078_f32;
+    let cap_rim_r = 0.0056_f32;
+    let n_cap = 20usize;
+    let n_cap_y = 8usize;
     let base_cap_v = b.positions.len() as u32;
 
     for y_idx in 0..=n_cap_y {
         let y_frac = y_idx as f32 / n_cap_y as f32;
         let y = gumnut_offset[1] + y_frac * cap_h;
-        // Urceolate profile: swollen base, contracted neck below rim
-        let r = if y_frac < 0.6 {
-            cap_r_max * (0.6 + 0.4 * (y_frac / 0.6 * PI * 0.5).sin())
+        // Authentic urceolate profile: rounded cup base, swollen belly, contracted neck, flared rim
+        let r = if y_frac < 0.55 {
+            cap_r_max * (0.48 + 0.52 * (y_frac / 0.55 * PI * 0.5).sin())
+        } else if y_frac < 0.85 {
+            let neck_t = (y_frac - 0.55) / 0.30;
+            cap_r_max * (1.0 - 0.30 * (neck_t * PI * 0.5).sin())
         } else {
-            let neck_frac = (y_frac - 0.6) / 0.4;
-            cap_r_max * (1.0 - 0.26 * neck_frac)
+            let flare_t = (y_frac - 0.85) / 0.15;
+            cap_r_max * (0.70 + 0.08 * flare_t)
         };
 
         for a in 0..=n_cap {
             let a_frac = a as f32 / n_cap as f32;
             let theta = a_frac * 2.0 * PI;
-            let norm = [theta.cos(), 0.1, theta.sin()];
+            let norm = [theta.cos(), 0.12, theta.sin()];
             let pos = [
                 gumnut_offset[0] + theta.cos() * r,
                 y,
                 gumnut_offset[2] + theta.sin() * r,
             ];
-            b.add_vertex(pos, norm, [a_frac, y_frac], [117, 97, 76, 255]);
+            let shade = if y_frac > 0.85 {
+                [138, 114, 90, 255]
+            } else {
+                [112, 92, 72, 255]
+            };
+            b.add_vertex(pos, norm, [a_frac, y_frac], shade);
         }
     }
     for y_idx in 0..n_cap_y {
@@ -2228,58 +2642,61 @@ pub fn build_scale3_floral_and_gumnut_dissection_10d(
         }
     }
 
-    // 4 sunken triangular dehiscing valves at the capsule summit
-    let valve_y = gumnut_offset[1] + cap_h - 0.0018;
+    // 4 woody triangular dehiscing valves opening at the capsule summit
+    let valve_y = gumnut_offset[1] + cap_h - 0.0016;
     for v in 0..4 {
         let a0 = (v as f32) * (PI * 0.5);
         let a1 = a0 + PI * 0.25;
         let a2 = a0 + PI * 0.5;
 
-        let p_center = [gumnut_offset[0], valve_y - 0.0015, gumnut_offset[2]];
+        let p_center = [gumnut_offset[0], valve_y - 0.0018, gumnut_offset[2]];
         let p0 = [
-            gumnut_offset[0] + a0.cos() * cap_rim_r * 0.85,
+            gumnut_offset[0] + a0.cos() * cap_rim_r * 0.88,
             valve_y,
-            gumnut_offset[2] + a0.sin() * cap_rim_r * 0.85,
+            gumnut_offset[2] + a0.sin() * cap_rim_r * 0.88,
         ];
         let p1 = [
-            gumnut_offset[0] + a1.cos() * cap_rim_r * 0.6,
-            valve_y + 0.0012, // Valve tip split open
-            gumnut_offset[2] + a1.sin() * cap_rim_r * 0.6,
+            gumnut_offset[0] + a1.cos() * cap_rim_r * 0.55,
+            valve_y + 0.0018, // Reflexed open valve tip
+            gumnut_offset[2] + a1.sin() * cap_rim_r * 0.55,
         ];
         let p2 = [
-            gumnut_offset[0] + a2.cos() * cap_rim_r * 0.85,
+            gumnut_offset[0] + a2.cos() * cap_rim_r * 0.88,
             valve_y,
-            gumnut_offset[2] + a2.sin() * cap_rim_r * 0.85,
+            gumnut_offset[2] + a2.sin() * cap_rim_r * 0.88,
         ];
 
-        let i_c = b.add_vertex(p_center, [0.0, 1.0, 0.0], [0.5, 0.5], [95, 78, 62, 255]);
-        let i_0 = b.add_vertex(p0, [0.0, 1.0, 0.0], [0.0, 0.0], [130, 110, 88, 255]);
-        let i_1 = b.add_vertex(p1, [0.0, 1.0, 0.0], [0.5, 1.0], [145, 122, 98, 255]);
-        let i_2 = b.add_vertex(p2, [0.0, 1.0, 0.0], [1.0, 0.0], [130, 110, 88, 255]);
+        let i_c = b.add_vertex(p_center, [0.0, 1.0, 0.0], [0.5, 0.5], [88, 70, 54, 255]);
+        let i_0 = b.add_vertex(p0, [0.0, 1.0, 0.0], [0.0, 0.0], [132, 110, 88, 255]);
+        let i_1 = b.add_vertex(p1, [0.0, 1.0, 0.0], [0.5, 1.0], [152, 128, 102, 255]);
+        let i_2 = b.add_vertex(p2, [0.0, 1.0, 0.0], [1.0, 0.0], [132, 110, 88, 255]);
         b.add_triangle(i_c, i_0, i_1);
         b.add_triangle(i_c, i_1, i_2);
     }
     b.end_tissue_layer();
 
     b.begin_tissue_layer(HistologicalTissueLayer::FertileWingedSeedsAndChaff, 8);
-    // Fertile winged seeds and chaff spilling from the capsule
-    for s in 0..8 {
-        let s_a = (s as f32) * (2.0 * PI / 8.0) + 0.2;
-        let s_dist = cap_rim_r * (0.35 + (s as f32 % 3.0) * 0.15);
+    // Fertile terminal-winged seeds and reddish-brown sterile chaff spilling from the dehiscing capsule
+    for s in 0..12 {
+        let s_a = (s as f32) * (2.0 * PI / 12.0) + 0.25;
+        let s_dist = cap_rim_r * (0.28 + (s as f32 % 4.0) * 0.22);
         let s_pos = [
             gumnut_offset[0] + s_a.cos() * s_dist,
-            valve_y - 0.0008 + (s as f32 * 0.0003),
+            valve_y - 0.0006 + (s as f32 * 0.00045),
             gumnut_offset[2] + s_a.sin() * s_dist,
         ];
-
-        // Flattened seed with terminal wing
-        b.add_ellipsoid(
-            s_pos,
-            [0.0014, 0.00035, 0.00075],
-            3,
-            5,
-            [71, 46, 31, 255], // Chocolate seed coat
-        );
+        let is_fertile = s % 2 == 0;
+        let radii = if is_fertile {
+            [0.0016, 0.00038, 0.00085] // Flattened winged seed
+        } else {
+            [0.00075, 0.00035, 0.00045] // Subulate sterile chaff grain
+        };
+        let col = if is_fertile {
+            [68, 42, 28, 255]
+        } else {
+            [128, 68, 42, 255]
+        };
+        b.add_ellipsoid(s_pos, radii, 3, 5, col);
     }
     b.end_tissue_layer();
 
@@ -2370,78 +2787,149 @@ pub fn build_scale4_leaf_venation_and_histology_10d(
     let leaf_w = profile.leaf_width_m; // 0.035 m = 35 mm
 
     // ------------------------------------------------------------------------
-    // Part A: Macroscopic Falcate Leaf Lamina with Intramarginal Vein
+    // Part A: Macroscopic Falcate Leaf Lamina with Petiole & Cuticle Window
     // ------------------------------------------------------------------------
+    let cut_clamped = cutaway_01.clamp(0.0, 1.0);
+    // Magnified histological cutaway window positioned at the right mid-basal lamina,
+    // oriented PARALLEL to the leaf blade (+Z = adaxial upper surface, -Z = abaxial lower surface)
+    // so it reads as an authentic stepped anatomical magnification of the leaf cross-section
+    // rather than an unrelated perpendicular sandwich floating beside the blade.
+    let block_origin = [0.034_f32, -0.006_f32, 0.0015_f32];
+    let bx_half = 0.016_f32;
+    let by_half = 0.013_f32;
+    let bz_half = 0.0052_f32;
+
     b.begin_tissue_layer(HistologicalTissueLayer::WaxyCuticle, 0);
+
+    // 1. Curved twisted petiole at the leaf base
+    let petiole_base = [-0.0045_f32, -leaf_len * 0.5 - 0.026, -0.0022_f32];
+    let petiole_mid = [-0.0018_f32, -leaf_len * 0.5 - 0.012, -0.0008_f32];
+    let petiole_top = [0.0_f32, -leaf_len * 0.5, 0.0004_f32];
+    b.add_cylinder_segment(
+        petiole_base,
+        petiole_mid,
+        0.0018,
+        0.0016,
+        8,
+        [136, 98, 66, 255],
+        [146, 114, 76, 255],
+    );
+    b.add_cylinder_segment(
+        petiole_mid,
+        petiole_top,
+        0.0016,
+        0.0015,
+        8,
+        [146, 114, 76, 255],
+        [156, 134, 88, 255],
+    );
+
+    // 2. Multi-column (6 columns x 32 rows) curved falcate leaf blade
     let n_leaf_segs = 32usize;
+    let n_blade_cols = 6usize;
+    let leaf_vertex_start = b.positions.len();
+    let leaf_index_start = b.indices.len();
     let mut spine_pts = Vec::with_capacity(n_leaf_segs + 1);
+    let mut half_widths = Vec::with_capacity(n_leaf_segs + 1);
+    let mut intra_left_pts = Vec::with_capacity(n_leaf_segs + 1);
+    let mut intra_right_pts = Vec::with_capacity(n_leaf_segs + 1);
+
+    // Helper for leaf surface Z elevation at (frac, signed_u in [-1, 1])
+    let leaf_surface_z = |frac: f32, signed_u: f32| -> f32 {
+        let ridge_z = 0.0022 * (frac * PI).sin();
+        let u_abs = signed_u.abs();
+        // Raised central midrib with shallow V-cupped sclerophyll lamina and subtle margin undulation
+        let camber = -0.0016 * u_abs.powf(1.35) * (frac * PI).sin();
+        let wave = 0.00035 * (frac * PI * 5.0).sin() * u_abs;
+        ridge_z + camber + wave
+    };
 
     for s in 0..=n_leaf_segs {
         let frac = s as f32 / n_leaf_segs as f32;
         let y = (frac - 0.5) * leaf_len;
-        // Sickle / falcate curvature in X
-        let curve_x = (frac * PI).sin() * leaf_w * 0.55;
-        spine_pts.push([curve_x, y, 0.0]);
+        // Authentic falcate (sickle-shaped) curvature in X
+        let curve_x = (frac * PI).sin() * leaf_w * 0.58 - (frac * frac) * leaf_w * 0.14;
+        let mid_z = leaf_surface_z(frac, 0.0);
+        spine_pts.push([curve_x, y, mid_z]);
+
+        // Broadest in basal-to-middle third, long acuminate drip tip
+        let w = (frac.powf(0.55) * (1.0 - frac).powf(0.78) * 2.35).max(0.025) * leaf_w;
+        half_widths.push(w);
+
+        let intra_u = 0.86_f32;
+        let iz_l = leaf_surface_z(frac, -intra_u) + 0.00025;
+        let iz_r = leaf_surface_z(frac, intra_u) + 0.00025;
+        intra_left_pts.push([curve_x - w * intra_u, y, iz_l]);
+        intra_right_pts.push([curve_x + w * intra_u, y, iz_r]);
     }
 
-    // Build curved leaf blade quads with tapering width
-    let mut left_margin_pts = Vec::with_capacity(n_leaf_segs + 1);
-    let mut right_margin_pts = Vec::with_capacity(n_leaf_segs + 1);
-    let mut intra_left_pts = Vec::with_capacity(n_leaf_segs + 1);
-    let mut intra_right_pts = Vec::with_capacity(n_leaf_segs + 1);
-
-    for (s, &mid) in spine_pts.iter().enumerate() {
-        let frac = s as f32 / n_leaf_segs as f32;
-        // Lanceolate width taper: broadest below middle, acute apex
-        let w = (frac.powf(0.6) * (1.0 - frac).powf(0.7) * 2.2).max(0.04) * leaf_w;
-        let intra_w = (w - 0.0015).max(0.001);
-
-        left_margin_pts.push([mid[0] - w, mid[1], mid[2]]);
-        right_margin_pts.push([mid[0] + w, mid[1], mid[2]]);
-        intra_left_pts.push([mid[0] - intra_w, mid[1], mid[2]]);
-        intra_right_pts.push([mid[0] + intra_w, mid[1], mid[2]]);
-    }
-
-    // Triangulate the blade surface
+    // Triangulate the multi-column curved leaf blade
     let base_blade_v = b.positions.len() as u32;
     for s in 0..=n_leaf_segs {
         let frac = s as f32 / n_leaf_segs as f32;
-        let p_l = left_margin_pts[s];
-        let p_m = spine_pts[s];
-        let p_r = right_margin_pts[s];
+        let mid = spine_pts[s];
+        let w = half_widths[s];
 
-        let col_leaf = [97, 125, 99, 255];
-        b.add_vertex(p_l, [0.0, 0.0, 1.0], [0.0, frac], col_leaf);
-        b.add_vertex(p_m, [0.0, 0.0, 1.0], [0.5, frac], col_leaf);
-        b.add_vertex(p_r, [0.0, 0.0, 1.0], [1.0, frac], col_leaf);
+        for c in 0..=n_blade_cols {
+            let u_frac = c as f32 / n_blade_cols as f32;
+            let signed_u = u_frac * 2.0 - 1.0; // -1.0 (left margin) .. 0.0 (midrib) .. +1.0 (right margin)
+            let x = mid[0] + signed_u * w;
+            let y = mid[1];
+            let z = leaf_surface_z(frac, signed_u);
+
+            // Naturalistic sclerophyll olive-sage gradient with warm copper-red tip flush and pale margin rim
+            let tip_flush = ((frac - 0.72) / 0.28).clamp(0.0, 1.0);
+            let margin_highlight = signed_u.abs().powi(2);
+            let r_col = (94.0 + 18.0 * margin_highlight + 52.0 * tip_flush) as u8;
+            let g_col = (126.0 + 14.0 * margin_highlight - 16.0 * tip_flush) as u8;
+            let b_col = (96.0 + 10.0 * margin_highlight - 22.0 * tip_flush) as u8;
+
+            b.add_vertex([x, y, z], [0.0, 0.0, 1.0], [u_frac, frac], [r_col, g_col, b_col, 255]);
+        }
     }
+    let stride = (n_blade_cols + 1) as u32;
     for s in 0..n_leaf_segs {
-        let i0 = base_blade_v + (s * 3) as u32;
-        let i1 = i0 + 1;
-        let i2 = i0 + 2;
-        let j0 = i0 + 3;
-        let j1 = j0 + 1;
-        let j2 = j0 + 2;
-
-        b.add_quad(i0, j0, j1, i1);
-        b.add_quad(i1, j1, j2, i2);
+        for c in 0..n_blade_cols {
+            let i0 = base_blade_v + (s as u32) * stride + (c as u32);
+            let i1 = i0 + 1;
+            let j0 = i0 + stride;
+            let j1 = j0 + 1;
+            b.add_quad(i0, j0, j1, i1);
+        }
     }
+    b.recompute_normals_since(leaf_vertex_start, leaf_index_start);
+
+    // 3. Translucent Waxy Cuticle Plates on the Magnified Histological Cutaway Block
+    // Stepped back by `cut_clamped` so the underlying epidermis and mesophyll are exposed in cutaway view
+    let cut_x_span = bx_half * (1.0 - cut_clamped * 0.45);
+    let cut_x_center = block_origin[0] - bx_half * cut_clamped * 0.45;
+    // Adaxial (upper, +Z) waxy cuticle sheet
+    b.add_box_cell(
+        [cut_x_center, block_origin[1], block_origin[2] + bz_half],
+        [cut_x_span, by_half, 0.00022],
+        [212, 228, 216, 225],
+    );
+    // Abaxial (lower, -Z) waxy cuticle sheet
+    b.add_box_cell(
+        [cut_x_center, block_origin[1], block_origin[2] - bz_half],
+        [cut_x_span, by_half, 0.00022],
+        [206, 222, 210, 225],
+    );
     b.end_tissue_layer();
 
     // ------------------------------------------------------------------------
-    // Part B: Diagnostic Vascular System (Midrib & Intramarginal Vein)
+    // Part B: Diagnostic Vascular System (Midrib, Intramarginal, Pinnate & Bundle)
     // ------------------------------------------------------------------------
     b.begin_tissue_layer(
         HistologicalTissueLayer::CollateralVascularBundleXylemPhloem,
         1,
     );
-    // 3D Midrib following Murray's Law tapering from base to apex
+    // 1. 3D Primary Midrib following Murray's Law ($r_p^3 = r_1^3 + r_2^3$) tapering from base to apex
     for s in 0..n_leaf_segs {
         let f0 = s as f32 / n_leaf_segs as f32;
         let f1 = (s + 1) as f32 / n_leaf_segs as f32;
-        // Murray's law radius tapering
-        let r0 = 0.0016 * (1.0 - f0 * 0.75).cbrt();
-        let r1 = 0.0016 * (1.0 - f1 * 0.75).cbrt();
+        let r0 = 0.00145 * (1.0 - f0 * 0.78).cbrt();
+        let r1 = 0.00145 * (1.0 - f1 * 0.78).cbrt();
 
         b.add_cylinder_segment(
             spine_pts[s],
@@ -2449,179 +2937,277 @@ pub fn build_scale4_leaf_venation_and_histology_10d(
             r0,
             r1,
             6,
-            [176, 186, 145, 255],
-            [176, 186, 145, 255],
+            [184, 192, 146, 255],
+            [176, 186, 140, 255],
         );
     }
 
-    // Diagnostic Myrtaceae Intramarginal Vein running continuously parallel to margin!
+    // 2. Continuous Myrtaceae Intramarginal Veins + Curved Pinnate Secondaries + Reticulate Tertiaries
     for s in 0..n_leaf_segs {
-        let r_intra = 0.00035_f32;
-        // Left intramarginal vein
+        let r_intra = 0.00038_f32;
         b.add_cylinder_segment(
             intra_left_pts[s],
             intra_left_pts[s + 1],
             r_intra,
             r_intra,
             4,
-            [160, 172, 132, 255],
-            [160, 172, 132, 255],
+            [164, 178, 134, 255],
+            [164, 178, 134, 255],
         );
-        // Right intramarginal vein
         b.add_cylinder_segment(
             intra_right_pts[s],
             intra_right_pts[s + 1],
             r_intra,
             r_intra,
             4,
-            [160, 172, 132, 255],
-            [160, 172, 132, 255],
+            [164, 178, 134, 255],
+            [164, 178, 134, 255],
         );
 
-        // Pinnate secondary lateral veins bridging midrib to intramarginal vein
-        if s % 3 == 1 {
-            let p_mid = spine_pts[s];
-            let p_il = intra_left_pts[s];
-            let p_ir = intra_right_pts[s];
-            let r_sec = 0.00045_f32;
-            b.add_cylinder_segment(p_mid, p_il, r_sec, r_sec * 0.7, 4, [168, 178, 138, 255], [158, 168, 128, 255]);
-            b.add_cylinder_segment(p_mid, p_ir, r_sec, r_sec * 0.7, 4, [168, 178, 138, 255], [158, 168, 128, 255]);
+        // Pinnate secondary lateral veins diverging forward (~55 deg) from midrib to intramarginal vein
+        if s >= 2 && s + 2 <= n_leaf_segs && s % 2 == 0 {
+            let s_target = (s + 2).min(n_leaf_segs);
+            let f_start = s as f32 / n_leaf_segs as f32;
+            let f_end = s_target as f32 / n_leaf_segs as f32;
+            let f_mid = 0.5 * (f_start + f_end);
+            let w_mid = 0.5 * (half_widths[s] + half_widths[s_target]);
+            let mid_pt = spine_pts[s];
+
+            // Left curved secondary vein (2 segments)
+            let p_il_end = intra_left_pts[s_target];
+            let p_il_ctrl = [
+                0.5 * (mid_pt[0] + p_il_end[0]) - w_mid * 0.06,
+                0.5 * (mid_pt[1] + p_il_end[1]) + 0.0012,
+                leaf_surface_z(f_mid, -0.45) + 0.00025,
+            ];
+            let r_sec = 0.00046_f32 * (1.0 - f_start * 0.45);
+            b.add_cylinder_segment(
+                mid_pt,
+                p_il_ctrl,
+                r_sec,
+                r_sec * 0.82,
+                4,
+                [174, 184, 140, 255],
+                [166, 176, 132, 255],
+            );
+            b.add_cylinder_segment(
+                p_il_ctrl,
+                p_il_end,
+                r_sec * 0.82,
+                r_sec * 0.65,
+                4,
+                [166, 176, 132, 255],
+                [158, 170, 126, 255],
+            );
+
+            // Right curved secondary vein (2 segments)
+            let p_ir_end = intra_right_pts[s_target];
+            let p_ir_ctrl = [
+                0.5 * (mid_pt[0] + p_ir_end[0]) + w_mid * 0.06,
+                0.5 * (mid_pt[1] + p_ir_end[1]) + 0.0012,
+                leaf_surface_z(f_mid, 0.45) + 0.00025,
+            ];
+            b.add_cylinder_segment(
+                mid_pt,
+                p_ir_ctrl,
+                r_sec,
+                r_sec * 0.82,
+                4,
+                [174, 184, 140, 255],
+                [166, 176, 132, 255],
+            );
+            b.add_cylinder_segment(
+                p_ir_ctrl,
+                p_ir_end,
+                r_sec * 0.82,
+                r_sec * 0.65,
+                4,
+                [166, 176, 132, 255],
+                [158, 170, 126, 255],
+            );
+
+            // Tertiary reticulate cross-veinlets forming closed areoles between adjacent secondaries
+            if s + 4 <= n_leaf_segs {
+                let f_next = (s + 3) as f32 / n_leaf_segs as f32;
+                let p_tert_l = [
+                    spine_pts[s + 2][0] - half_widths[s + 2] * 0.52,
+                    spine_pts[s + 2][1],
+                    leaf_surface_z(f_next, -0.52) + 0.0002,
+                ];
+                let p_tert_r = [
+                    spine_pts[s + 2][0] + half_widths[s + 2] * 0.52,
+                    spine_pts[s + 2][1],
+                    leaf_surface_z(f_next, 0.52) + 0.0002,
+                ];
+                b.add_cylinder_segment(
+                    p_il_ctrl,
+                    p_tert_l,
+                    0.00024,
+                    0.00022,
+                    4,
+                    [154, 166, 122, 255],
+                    [154, 166, 122, 255],
+                );
+                b.add_cylinder_segment(
+                    p_ir_ctrl,
+                    p_tert_r,
+                    0.00024,
+                    0.00022,
+                    4,
+                    [154, 166, 122, 255],
+                    [154, 166, 122, 255],
+                );
+            }
         }
+    }
+
+    // 3. Magnified Collateral Vascular Bundle inside the Histological Cutaway Window
+    // Oriented parallel to the leaf blade: adaxial xylem vessels on +Z, abaxial phloem sieve tubes on -Z
+    let vein_center = [block_origin[0] - 0.0032, block_origin[1], block_origin[2]];
+    for vx in [-0.0011_f32, 0.0_f32, 0.0011_f32] {
+        // Adaxial (+Z) lignified xylem tracheary vessels
+        b.add_cylinder_segment(
+            [vein_center[0] + vx, vein_center[1] - by_half * 0.88, vein_center[2] + 0.0008],
+            [vein_center[0] + vx, vein_center[1] + by_half * 0.88, vein_center[2] + 0.0008],
+            0.00062,
+            0.00062,
+            8,
+            [198, 178, 124, 255],
+            [188, 168, 114, 255],
+        );
+        // Abaxial (-Z) phloem sieve tubes and companion cells
+        b.add_cylinder_segment(
+            [vein_center[0] + vx * 0.85, vein_center[1] - by_half * 0.88, vein_center[2] - 0.0008],
+            [vein_center[0] + vx * 0.85, vein_center[1] + by_half * 0.88, vein_center[2] - 0.0008],
+            0.00052,
+            0.00052,
+            8,
+            [172, 138, 92, 255],
+            [164, 130, 86, 255],
+        );
     }
     b.end_tissue_layer();
 
     // ------------------------------------------------------------------------
-    // Part C: Magnified 3D Histological Cellular Block
+    // Part C: Magnified 3D Histological Cellular Cutaway Block (Parallel to Leaf)
     // ------------------------------------------------------------------------
-    // A 3D cutaway block ($1.4 \times 0.9 \times 0.4$ mm) placed to the side showing
-    // the 8 cellular layers of the isobilateral eucalyptus leaf.
-    let block_origin = [0.045_f32, 0.0_f32, 0.0_f32];
-    let bx_half = 0.007_f32;
-    let bz_half = 0.005_f32;
-
-    // Layer 1: Waxy Cuticle Platelets (Top & Bottom micro-films)
-    b.begin_tissue_layer(HistologicalTissueLayer::WaxyCuticle, 0);
-    b.add_box_cell(
-        [block_origin[0], block_origin[1] + 0.0022, block_origin[2]],
-        [bx_half, 0.00015, bz_half],
-        [209, 224, 214, 220],
-    );
-    b.add_box_cell(
-        [block_origin[0], block_origin[1] - 0.0022, block_origin[2]],
-        [bx_half, 0.00015, bz_half],
-        [209, 224, 214, 220],
-    );
-    b.end_tissue_layer();
-
-    // Layer 2: Upper & Lower Epidermis Pavement Cells
+    // Layer 2: Upper (+Z) & Lower (-Z) Epidermis Pavement Cells
     b.begin_tissue_layer(HistologicalTissueLayer::UpperAndLowerEpidermis, 2);
-    // Rows of brick-shaped epidermal cells
-    let nx_cells = 6;
-    let nz_cells = 4;
+    let nx_cells = 7usize;
+    let ny_cells = 6usize;
     let cell_w = (bx_half * 2.0) / (nx_cells as f32);
-    let cell_d = (bz_half * 2.0) / (nz_cells as f32);
+    let cell_h = (by_half * 2.0) / (ny_cells as f32);
 
     for ix in 0..nx_cells {
-        for iz in 0..nz_cells {
+        // Step back upper epidermis on the right side when cutaway_01 > 0 to reveal palisade beneath
+        let x_frac = (ix as f32 + 0.5) / (nx_cells as f32);
+        let skip_for_cutaway = x_frac > (1.0 - cut_clamped * 0.55);
+
+        for iy in 0..ny_cells {
             let cx = block_origin[0] - bx_half + (ix as f32 + 0.5) * cell_w;
-            let cz = block_origin[2] - bz_half + (iz as f32 + 0.5) * cell_d;
-            // Skip aperture spots for stomata
-            if (ix == 2 && iz == 1) || (ix == 4 && iz == 2) {
+            let cy = block_origin[1] - by_half + (iy as f32 + 0.5) * cell_h;
+            // Reserve stomatal pore openings
+            if (ix == 2 && iy == 1) || (ix == 4 && iy == 3) || (ix == 2 && iy == 4) {
                 continue;
             }
-            // Adaxial (upper) epidermis
+            if !skip_for_cutaway {
+                // Adaxial (upper, +Z) epidermal pavement cell
+                b.add_box_cell(
+                    [cx, cy, block_origin[2] + bz_half - 0.00065],
+                    [cell_w * 0.46, cell_h * 0.46, 0.00038],
+                    [118, 158, 106, 255],
+                );
+            }
+            // Abaxial (lower, -Z) epidermal pavement cell
             b.add_box_cell(
-                [cx, block_origin[1] + 0.0018, cz],
-                [cell_w * 0.45, 0.00025, cell_d * 0.45],
-                [117, 158, 107, 255],
-            );
-            // Abaxial (lower) epidermis
-            b.add_box_cell(
-                [cx, block_origin[1] - 0.0018, cz],
-                [cell_w * 0.45, 0.00025, cell_d * 0.45],
-                [117, 158, 107, 255],
+                [cx, cy, block_origin[2] - bz_half + 0.00065],
+                [cell_w * 0.46, cell_h * 0.46, 0.00038],
+                [112, 152, 100, 255],
             );
         }
     }
     b.end_tissue_layer();
 
-    // Layer 3: Amphistomatic Stomatal Guard Cells (sunken on both faces)
+    // Layer 3: Amphistomatic Stomatal Guard Cells (sunken on BOTH +Z adaxial and -Z abaxial faces)
     b.begin_tissue_layer(
         HistologicalTissueLayer::AmphistomaticStomatalGuardCells,
         3,
     );
-    let stomata_locs = [
-        ([block_origin[0] - 0.002, block_origin[1] + 0.0017, block_origin[2] - 0.001], true),
-        ([block_origin[0] + 0.003, block_origin[1] + 0.0017, block_origin[2] + 0.001], true),
-        ([block_origin[0] - 0.002, block_origin[1] - 0.0017, block_origin[2] - 0.001], false),
-        ([block_origin[0] + 0.003, block_origin[1] - 0.0017, block_origin[2] + 0.001], false),
-    ];
-    for (stoma_pos, is_upper) in stomata_locs {
-        let col_guard = [92, 138, 82, 255];
-        // Paired kidney-shaped guard cells flanking pore
-        b.add_ellipsoid(
-            [stoma_pos[0] - 0.00035, stoma_pos[1], stoma_pos[2]],
-            [0.00035, 0.00025, 0.00065],
-            3,
-            5,
-            col_guard,
-        );
-        b.add_ellipsoid(
-            [stoma_pos[0] + 0.00035, stoma_pos[1], stoma_pos[2]],
-            [0.00035, 0.00025, 0.00065],
-            3,
-            5,
-            col_guard,
-        );
-        // Substomatal respiratory vapour chamber cavity beneath
-        let cavity_y = if is_upper { stoma_pos[1] - 0.0004 } else { stoma_pos[1] + 0.0004 };
-        b.add_ellipsoid(
-            [stoma_pos[0], cavity_y, stoma_pos[2]],
-            [0.0006, 0.0003, 0.0008],
-            3,
-            4,
-            [70, 95, 65, 180],
-        );
+    let stomata_grid = [(2usize, 1usize), (4usize, 3usize), (2usize, 4usize)];
+    for &(ix, iy) in &stomata_grid {
+        let cx = block_origin[0] - bx_half + (ix as f32 + 0.5) * cell_w;
+        let cy = block_origin[1] - by_half + (iy as f32 + 0.5) * cell_h;
+        for &is_adaxial in &[true, false] {
+            let z_sign = if is_adaxial { 1.0_f32 } else { -1.0_f32 };
+            let z_guard = block_origin[2] + z_sign * (bz_half - 0.00075);
+            let col_guard = [90, 140, 80, 255];
+            // Paired kidney-shaped (reniform) guard cells flanking the stomatal pore
+            b.add_ellipsoid(
+                [cx - 0.00055, cy, z_guard],
+                [0.00048, 0.00095, 0.00042],
+                4,
+                6,
+                col_guard,
+            );
+            b.add_ellipsoid(
+                [cx + 0.00055, cy, z_guard],
+                [0.00048, 0.00095, 0.00042],
+                4,
+                6,
+                col_guard,
+            );
+            // Substomatal vapour chamber cavity beneath the guard cells
+            b.add_ellipsoid(
+                [cx, cy, block_origin[2] + z_sign * (bz_half - 0.00145)],
+                [0.00095, 0.0011, 0.00045],
+                3,
+                5,
+                [68, 96, 64, 185],
+            );
+        }
     }
     b.end_tissue_layer();
 
-    // Layer 4: Isobilateral Palisade Mesophyll (Columns under BOTH upper and lower surfaces!)
+    // Layer 4: Isobilateral Palisade Mesophyll (Chlorenchyma columns under BOTH +Z and -Z faces!)
     b.begin_tissue_layer(
         HistologicalTissueLayer::IsobilateralPalisadeMesophyll,
         4,
     );
-    let pal_nx = 8;
-    let pal_nz = 5;
+    let pal_nx = 9usize;
+    let pal_ny = 7usize;
     let pal_w = (bx_half * 2.0) / (pal_nx as f32);
-    let pal_d = (bz_half * 2.0) / (pal_nz as f32);
+    let pal_h = (by_half * 2.0) / (pal_ny as f32);
 
     for px in 0..pal_nx {
-        for pz in 0..pal_nz {
+        for py in 0..pal_ny {
             let cx = block_origin[0] - bx_half + (px as f32 + 0.5) * pal_w;
-            let cz = block_origin[2] - bz_half + (pz as f32 + 0.5) * pal_d;
-            // Skip center for vascular bundle and oil gland
-            if px >= 3 && px <= 4 && pz >= 2 && pz <= 3 {
+            let cy = block_origin[1] - by_half + (py as f32 + 0.5) * pal_h;
+            // Leave clear structural channels for the vascular bundle (left-center) and oil gland (right-center)
+            let dist_vein = (cx - vein_center[0]).abs();
+            let gland_center_x = block_origin[0] + 0.0048;
+            let dist_gland = ((cx - gland_center_x).powi(2) + (cy - block_origin[1]).powi(2)).sqrt();
+            if dist_vein < 0.0024 || dist_gland < 0.0038 {
                 continue;
             }
-            // Adaxial palisade columns (2 vertical tiers)
+            // Adaxial (+Z) palisade chlorenchyma columns oriented perpendicular to the leaf blade (along Z)
             b.add_cylinder_segment(
-                [cx, block_origin[1] + 0.0014, cz],
-                [cx, block_origin[1] + 0.0006, cz],
-                pal_w * 0.38,
-                pal_w * 0.38,
-                5,
-                [61, 122, 56, 255],
-                [51, 107, 46, 255],
+                [cx, cy, block_origin[2] + bz_half - 0.0011],
+                [cx, cy, block_origin[2] + 0.0012],
+                pal_w * 0.36,
+                pal_w * 0.36,
+                6,
+                [60, 124, 54, 255],
+                [50, 108, 46, 255],
             );
-            // Abaxial palisade columns (isobilateral symmetry!)
+            // Abaxial (-Z) palisade chlorenchyma columns (diagnostic isobilateral eucalypt leaf symmetry)
             b.add_cylinder_segment(
-                [cx, block_origin[1] - 0.0006, cz],
-                [cx, block_origin[1] - 0.0014, cz],
-                pal_w * 0.38,
-                pal_w * 0.38,
-                5,
-                [51, 107, 46, 255],
-                [61, 122, 56, 255],
+                [cx, cy, block_origin[2] - 0.0012],
+                [cx, cy, block_origin[2] - bz_half + 0.0011],
+                pal_w * 0.36,
+                pal_w * 0.36,
+                6,
+                [50, 108, 46, 255],
+                [60, 124, 54, 255],
             );
         }
     }
@@ -2629,104 +3215,95 @@ pub fn build_scale4_leaf_venation_and_histology_10d(
 
     // Layer 5: Spongy Mesophyll Parenchyma & Intercellular Air Spaces
     b.begin_tissue_layer(HistologicalTissueLayer::SpongyMesophyllAndAirSpaces, 5);
-    // Central aerating zone between the two palisade layers
-    for sx in 0..6 {
-        for sz in 0..4 {
-            let cx = block_origin[0] - bx_half * 0.85 + (sx as f32 * 0.0022);
-            let cz = block_origin[2] - bz_half * 0.85 + (sz as f32 * 0.0022);
-            if sx >= 2 && sx <= 3 && sz >= 1 && sz <= 2 {
-                continue; // Reserved for vein and gland
+    for sx in 0..7 {
+        for sy in 0..5 {
+            let cx = block_origin[0] - bx_half * 0.84 + (sx as f32 * 0.0044);
+            let cy = block_origin[1] - by_half * 0.82 + (sy as f32 * 0.0052);
+            let dist_vein = (cx - vein_center[0]).abs();
+            let dist_gland = ((cx - (block_origin[0] + 0.0048)).powi(2) + (cy - block_origin[1]).powi(2)).sqrt();
+            if dist_vein < 0.0024 || dist_gland < 0.0038 {
+                continue;
             }
-            // Lobed spongy parenchyma cells
+            let z_jitter = ((sx + sy) % 3) as f32 * 0.00035 - 0.00035;
             b.add_ellipsoid(
-                [cx, block_origin[1] + 0.0001, cz],
-                [0.0008, 0.00045, 0.00075],
-                3,
-                5,
-                [97, 148, 92, 230],
+                [cx, cy, block_origin[2] + z_jitter],
+                [0.0012, 0.0011, 0.00075],
+                4,
+                6,
+                [96, 148, 90, 235],
             );
         }
     }
     b.end_tissue_layer();
 
-    // Layer 6: Collateral Vascular Bundle (Adaxial Xylem + Abaxial Phloem)
-    b.begin_tissue_layer(
-        HistologicalTissueLayer::CollateralVascularBundleXylemPhloem,
-        1,
-    );
-    let vein_center = [block_origin[0] - 0.0015, block_origin[1], block_origin[2]];
-    // Adaxial (upper) xylem vessels (lignified spiral tracheary elements)
-    b.add_cylinder_segment(
-        [vein_center[0] - 0.0005, vein_center[1] + 0.0004, vein_center[2] - bz_half * 0.7],
-        [vein_center[0] - 0.0005, vein_center[1] + 0.0004, vein_center[2] + bz_half * 0.7],
-        0.00045,
-        0.00045,
-        6,
-        [191, 173, 122, 255],
-        [191, 173, 122, 255],
-    );
-    b.add_cylinder_segment(
-        [vein_center[0] + 0.0005, vein_center[1] + 0.0004, vein_center[2] - bz_half * 0.7],
-        [vein_center[0] + 0.0005, vein_center[1] + 0.0004, vein_center[2] + bz_half * 0.7],
-        0.0004,
-        0.0004,
-        6,
-        [191, 173, 122, 255],
-        [191, 173, 122, 255],
-    );
-    // Abaxial (lower) phloem sieve tubes
-    b.add_cylinder_segment(
-        [vein_center[0], vein_center[1] - 0.0004, vein_center[2] - bz_half * 0.7],
-        [vein_center[0], vein_center[1] - 0.0004, vein_center[2] + bz_half * 0.7],
-        0.00055,
-        0.00055,
-        6,
-        [175, 140, 95, 255],
-        [175, 140, 95, 255],
-    );
-    b.end_tissue_layer();
-
-    // Layer 7: Sclerenchyma Bundle Sheath Girders (I-beam fiber columns)
+    // Layer 7: Sclerenchyma Bundle Sheath Girders (Lignified I-beam fiber columns along Z)
     b.begin_tissue_layer(
         HistologicalTissueLayer::SclerenchymaBundleSheathGirders,
         6,
     );
-    // Upper girder connecting bundle to upper epidermis
+    // Adaxial (+Z) sclerenchyma girder anchoring vascular bundle to upper epidermis
     b.add_box_cell(
-        [vein_center[0], block_origin[1] + 0.0011, block_origin[2]],
-        [0.0008, 0.00045, bz_half * 0.65],
-        [209, 194, 138, 255],
+        [vein_center[0], block_origin[1], block_origin[2] + 0.0026],
+        [0.0019, by_half * 0.86, 0.0012],
+        [210, 194, 138, 255],
     );
-    // Lower girder connecting bundle to lower epidermis
+    // Abaxial (-Z) sclerenchyma girder anchoring vascular bundle to lower epidermis
     b.add_box_cell(
-        [vein_center[0], block_origin[1] - 0.0011, block_origin[2]],
-        [0.0008, 0.00045, bz_half * 0.65],
-        [209, 194, 138, 255],
+        [vein_center[0], block_origin[1], block_origin[2] - 0.0026],
+        [0.0019, by_half * 0.86, 0.0012],
+        [204, 188, 132, 255],
     );
     b.end_tissue_layer();
 
-    // Layer 8: Schizogenous Essential Oil Gland Cavity
+    // Layer 8: Schizogenous Essential Oil Gland Cavities (in Histological Block + Lamina Areoles)
     b.begin_tissue_layer(
         HistologicalTissueLayer::SchizogenousEssentialOilGland,
         7,
     );
-    // Spherical internal cavity filled with golden 1,8-cineole oil
-    let gland_center = [block_origin[0] + 0.0028, block_origin[1], block_origin[2]];
+    // 1. Primary magnified schizogenous oil gland cavity inside the histological cutaway block
+    let gland_center = [block_origin[0] + 0.0048, block_origin[1], block_origin[2]];
     b.add_ellipsoid(
         gland_center,
-        [0.0011, 0.0011, 0.0011],
-        6,
-        8,
-        [242, 214, 89, 240], // Translucent golden eucalyptus oil
-    );
-    // Surrounding ring of flattened secretory epithelial cells
-    b.add_ellipsoid(
-        gland_center,
-        [0.0013, 0.0013, 0.0013],
-        5,
+        [0.0028, 0.0028, 0.0026],
         7,
-        [180, 205, 135, 180],
+        10,
+        [244, 214, 84, 242], // Translucent golden 1,8-cineole essential oil droplet
     );
+    // Ring of 10 flattened secretory epithelial cells lining the schizogenous cavity
+    for ep in 0..10 {
+        let a = (ep as f32) * (2.0 * PI / 10.0);
+        let ep_pos = [
+            gland_center[0] + a.cos() * 0.0031,
+            gland_center[1] + a.sin() * 0.0031,
+            gland_center[2],
+        ];
+        b.add_ellipsoid(
+            ep_pos,
+            [0.00065, 0.00095, 0.0014],
+            3,
+            5,
+            [182, 206, 132, 215],
+        );
+    }
+
+    // 2. Punctate translucent golden oil glands embedded across the macroscopic leaf lamina areoles
+    for s in (3..n_leaf_segs - 3).step_by(3) {
+        let frac = s as f32 / n_leaf_segs as f32;
+        let mid = spine_pts[s];
+        let w = half_widths[s];
+        for &side in &[-0.55_f32, 0.55_f32] {
+            let gx = mid[0] + side * w;
+            let gy = mid[1];
+            let gz = leaf_surface_z(frac, side) + 0.00018;
+            b.add_ellipsoid(
+                [gx, gy, gz],
+                [0.00065, 0.00065, 0.00042],
+                3,
+                5,
+                [238, 206, 78, 235],
+            );
+        }
+    }
     b.end_tissue_layer();
 
     let recipe_urn = format!(

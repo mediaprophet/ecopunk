@@ -1,0 +1,3650 @@
+{
+  "document_kind": "claim_ledger",
+  "schema_version": "ecopunk-model-claims-v2",
+  "catalogue": {
+    "id": "ecopunk-model-deliverables",
+    "version": "2026-10-24.2",
+    "sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb"
+  },
+  "subject": {
+    "entity_id": "urn:ecopunk:demo:2026-10-29:scale-4-archetype-0-state-0",
+    "dossier_id": "urn:ecopunk:dossier:demo:2026-10-29:scale-4-archetype-0-state-0",
+    "families": [],
+    "source_revision": "demo-working-source-2026-10-29; see rebuild receipt",
+    "corpus_revision": "",
+    "requirements_baseline_ref": "docs/planning/tech/assets/model-completion-claims.md",
+    "package_content_refs": [
+      "lab/scale-4-archetype-0-state-0.10d",
+      "knowledge.q42",
+      "sources/"
+    ],
+    "identifiers": [],
+    "identifier_mapping_refs": []
+  },
+  "reported_status": "incomplete",
+  "profiles": [
+    {
+      "id": "film",
+      "style": "",
+      "delivery_target": "",
+      "criteria_ref": "",
+      "status": "unassessed",
+      "representation_refs": []
+    },
+    {
+      "id": "open_world_game",
+      "style": "",
+      "delivery_target": "",
+      "criteria_ref": "",
+      "status": "unassessed",
+      "representation_refs": []
+    },
+    {
+      "id": "cartoon",
+      "style": "",
+      "delivery_target": "",
+      "criteria_ref": "",
+      "status": "unassessed",
+      "representation_refs": []
+    }
+  ],
+  "inventories": {
+    "admission_negative_case": [],
+    "animal_behaviour": [],
+    "animal_interaction": [],
+    "animal_process": [],
+    "animal_relation": [],
+    "animal_state": [],
+    "attachment": [],
+    "avatar_action": [],
+    "avatar_behaviour": [],
+    "avatar_expression": [],
+    "avatar_variant": [],
+    "behaviour": [],
+    "behaviour_case": [],
+    "clip": [],
+    "compatible_variant": [],
+    "component": [],
+    "contact_case": [],
+    "conversion": [],
+    "corrective": [],
+    "damage_transition": [],
+    "device_profile": [],
+    "environment_case": [],
+    "environment_layer": [],
+    "environment_process": [],
+    "environment_scenario": [],
+    "environment_transition": [],
+    "failure_mode": [],
+    "film_action": [],
+    "film_shot": [],
+    "film_simulation": [],
+    "game_interaction": [],
+    "graph_partition": [],
+    "installation_case": [],
+    "interaction": [],
+    "life_stage": [],
+    "lifecycle_transition": [],
+    "locomotor_mode": [],
+    "lod": [],
+    "lod_transition": [],
+    "made_process": [],
+    "made_scenario": [],
+    "material_map": [],
+    "mechanism": [],
+    "media_resource": [],
+    "micro_lifecycle": [],
+    "micro_process": [],
+    "micro_structure": [],
+    "movement": [],
+    "movement_scenario": [],
+    "movement_state": [],
+    "operating_mode": [],
+    "organ": [],
+    "payload_type": [],
+    "phenology": [],
+    "physical_component": [],
+    "physical_damage_case": [],
+    "physical_facet": [],
+    "physical_system": [],
+    "placement_rule": [],
+    "plant_damage": [],
+    "plant_motion": [],
+    "plant_process": [],
+    "plant_relation": [],
+    "port": [],
+    "profile": [
+      {
+        "id": "film",
+        "description": "Film delivery profile",
+        "source_ref": "",
+        "compatibility_ref": ""
+      },
+      {
+        "id": "open_world_game",
+        "description": "Open-world game delivery profile",
+        "source_ref": "",
+        "compatibility_ref": ""
+      },
+      {
+        "id": "cartoon",
+        "description": "Cartoon representation with declared film/realtime delivery",
+        "source_ref": "",
+        "compatibility_ref": ""
+      }
+    ],
+    "qualification_case": [],
+    "qualification_run": [],
+    "query_case": [],
+    "relation_family": [],
+    "render_feature": [],
+    "representation": [],
+    "resource_process": [],
+    "review_domain": [],
+    "rig": [],
+    "rig_compatibility": [],
+    "rig_feature": [],
+    "scientific_model": [],
+    "scientific_scale": [],
+    "secondary_system": [],
+    "section_view": [],
+    "sound": [],
+    "sound_event": [],
+    "source": [],
+    "stimulus_response": [],
+    "surface": [],
+    "surface_state": [],
+    "toon_action": [],
+    "toon_render_case": [],
+    "toon_rig_feature": [],
+    "toon_target": [],
+    "trait": [],
+    "transition": [],
+    "twin_model": [],
+    "variant": [],
+    "work_procedure": [],
+    "world_case": [],
+    "subject_identifier": [],
+    "identifier_mapping": []
+  },
+  "claims": [
+    {
+      "deliverable_id": "ID-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ID-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-11",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "KN-12",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "SRC-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GEO-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MAT-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FILM-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "GAME-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "TOON-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "RIG-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-11",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MOV-12",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-11",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-12",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-13",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "BHV-14",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FLORA-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "FAUNA-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-11",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MADE-12",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MICRO-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MICRO-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MICRO-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MICRO-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MICRO-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "MICRO-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ENV-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ENV-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ENV-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ENV-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ENV-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "ENV-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "HUM-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "HUM-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "HUM-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "HUM-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "HUM-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "HUM-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PHY-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "AUD-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "AUD-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "AUD-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "AUD-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "AUD-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "AUD-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-11",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "PKG-12",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-01",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-02",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-03",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-04",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-05",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-06",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-07",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-08",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-09",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    },
+    {
+      "deliverable_id": "QA-10",
+      "assessment": {
+        "applicability": "unassessed",
+        "applicability_rationale": "",
+        "applicability_authority_ref": "",
+        "claim_status": "unassessed",
+        "claim": "",
+        "claimant": "",
+        "evaluated_at": "",
+        "artifact_refs": [],
+        "evidence_refs": [],
+        "review_refs": [],
+        "blocked_by": [],
+        "remaining_work": "Unassessed: populate applicable inventories, deliver and evidence this requirement."
+      },
+      "cases": []
+    }
+  ],
+  "evidence_index": [],
+  "review_index": [],
+  "subject_specific_claims": [],
+  "native_gate_report_ref": ""
+}

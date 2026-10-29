@@ -1,0 +1,32 @@
+{
+  "kind": "source-inspection-pins",
+  "pins": [
+    {
+      "sha256": "4f1217eccf3a41c0da6dd60c5d1ca6ac26c69a85be6f7ece177139a11c32fb50",
+      "scope": "Lines 1-895 and function/caller inventory; detailed SDF/loft/ear/macropod branch inspection, not full module semantic audit",
+      "path": "crates/ecopunk-terrain/src/zoological_loft_builder.rs"
+    },
+    {
+      "sha256": "e1d47ff66709aa8385af2a18d24020e90f04ed388269eaf118dfab2a9c2175de",
+      "scope": "SubmeshBuilder definition and call-site search; not full module semantic audit",
+      "path": "crates/ecopunk-terrain/src/scene_builder_10d.rs"
+    },
+    {
+      "sha256": "b8393de2bd24bd793a331b3ecd4d857e7b472b99f2c67d0662b09a1163845a20",
+      "scope": "Full authored source or documented case/template record",
+      "path": "tools/species-production/swamp-wallaby-review-r1/swamp_wallaby_review_append.rs"
+    },
+    {
+      "sha256": "82303395af62410c46dc09e2194dc1be1600c4a5f777af2a6f599f2b01e5b819",
+      "scope": "Full authored source or documented case/template record",
+      "path": "docs/qa/implementation-2026-10-26/biological-reference/wallaby-cases.md"
+    },
+    {
+      "sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+      "scope": "Full authored source or documented case/template record",
+      "path": "docs/planning/tech/assets/model-production-template/deliverables.json"
+    }
+  ],
+  "qualification": "No build, asset export or execution performed by producer",
+  "observed_at": "2026-10-29T07:46:53.8434297Z"
+}

@@ -1,0 +1,31 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "--locked",
+    "--offline",
+    "-p",
+    "qualia-core-db",
+    "--lib",
+    "--no-default-features",
+    "--features",
+    "gpu-runtime,gpu-native-dx12,gpu-native-portable,wgsl-forge",
+    "--target-dir",
+    "C:\\github\\ecopunk\\target\\species-production-native",
+    "-j",
+    "2"
+  ],
+  "cwd": "C:\\github\\qualiaDB",
+  "start_utc": "2026-10-29T07:31:26.462583Z",
+  "target": "C:\\github\\ecopunk\\target\\species-production-native",
+  "log": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-29\\species-production-round1\\native-build-attempt-01.log",
+  "scope": "native dependency build only; no asset acceptance",
+  "environment_overrides": {
+    "CARGO_BUILD_JOBS": "2",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_DEV_INCREMENTAL": "false",
+    "CARGO_INCREMENTAL": "0"
+  },
+  "end_utc": "2026-10-29T07:32:22.648538Z",
+  "exit_code": 1
+}

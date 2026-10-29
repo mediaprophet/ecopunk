@@ -1,0 +1,75 @@
+{
+  "model": {
+    "bounds_max_m": [
+      4.289770126342773,
+      6.073654651641846,
+      4.556832790374756
+    ],
+    "bounds_min_m": [
+      -3.8147330284118652,
+      -0.07326638698577881,
+      -3.7392430305480957
+    ],
+    "dossier": "../assets/production-studies/white-gum-review-r1/dossier/claims.json",
+    "human_acceptance": "pending",
+    "id": "white-gum-review-r1",
+    "profiles": {
+      "cartoon": "incomplete",
+      "film": "incomplete",
+      "open_world_game": "incomplete"
+    },
+    "referent": "synthetic authored candidate; not an observed specimen",
+    "source_sha256": "2719330f5fd00e255ef49e5f330c6313ca48ff49d346a068e3864f363312b6d8",
+    "status": "candidate_awaiting_review",
+    "taxon": "Eucalyptus dalrympleana",
+    "title": "White gum — whole-tree candidate",
+    "triangle_count": 127280,
+    "vertex_count": 90942,
+    "view_scope": "static external form; movement and complete species package remain open"
+  },
+  "admission": {
+    "assets_loaded": 1,
+    "organs_loaded": 1,
+    "assets_refused": 0,
+    "organs_refused": 0,
+    "total_triangles": 127280,
+    "vertex_count": 90942,
+    "renderer": "webgpu",
+    "material_pipeline": true,
+    "materials_loaded": 2,
+    "material_ranges": 2,
+    "semantic_nodes": 0,
+    "uploaded": true,
+    "parts": [
+      {
+        "id": "white-gum-review-r1",
+        "vertex_start": 0,
+        "vertex_count": 90942
+      }
+    ]
+  },
+  "render": {
+    "renderer": "webgpu",
+    "vertex_count": 90942,
+    "index_count": 381840,
+    "frames_presented": 2931,
+    "uploaded": true,
+    "success": true
+  },
+  "camera": {
+    "yaw": 0.7,
+    "pitch": 0.12,
+    "distance": 3.307555490127704,
+    "target": [
+      0,
+      0,
+      0
+    ]
+  },
+  "canvas": {
+    "width": 1319,
+    "height": 702
+  },
+  "captured_utc": "2026-10-29T08:25:02.449Z",
+  "human_acceptance": "pending"
+}

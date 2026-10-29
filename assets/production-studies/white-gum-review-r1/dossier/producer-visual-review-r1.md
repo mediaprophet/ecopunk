@@ -1,0 +1,19 @@
+# Producer visual review — whole-tree r1
+
+Status: **rejected by Timothy; revised candidate required** (user decision relayed by the coordinating agent). This records an actual inspection of the supplied PNG, not a complete species acceptance or an independent reviewer decision.
+
+Inspected artifact: `previews/whole-tree-r1.png`, SHA-256 `612f1f86146eb26cb71ec3d24b37dd6a8f028d9b2a8c142740f1dfb3ab2e1f2a`. Parent reports WASM revision `d72fec9533b97c6fbff951d6165d1753`, 90,942 vertices / 127,280 triangles and full WebGPU/PBR admission. The producer did not execute those checks; source/runtime receipts remain coordinator-owned. The picture itself shows a whole tree, with small foliage and pale branching, rendered in the browser.
+
+| ID | Visible finding | Bounded remedy and required comparison |
+|---|---|---|
+| WG-VIS-01 | The tree occupies roughly 46% of the image height. Fine foliage becomes stippled at this framing. | Capture a closer whole-tree view and the integrated adult-foliage detail at readable scale. Use the same lighting and record camera parameters; do not diagnose all small detail artifacts as model failure from a distant view alone. |
+| WG-VIS-02 | Foliage concentrates in a few radial umbrella/starburst clusters. | Change the white-gum-only crown arrangement from many sprays sharing one attachment to lateral branchlets at distributed stations along actual secondary branches. Retain connected petioles and the current native field/sweep/leaf owners. Compare silhouettes and branch closeups; do not restore oversized fan proxies. |
+| WG-VIS-03 | Long thin drooping twig arcs surround the sparse crown and terminate with little visible foliage. | Reduce unleafed terminal lengths, distribute leaf-bearing shoots across intermediate branch stations and vary branching levels/angles. Density needs review from front/side/three-quarter views rather than simply increasing polygon count. |
+| WG-VIS-04 | Trunk and main branches look smooth and uniform. Bark variation is not readable in this capture. | First inspect a closer bark view. Then refine white-gum surface variation through the retained surface/material owners, with sourced smooth-bark/patch/ribbon distinctions. Do not substitute generic fibrous bark over the whole trunk. |
+| WG-VIS-05 | Basal spurs end as rounded bulb-like protrusions; no ground context establishes convincing root-collar contact. | Refine taper/attachment into the collar and capture it against a neutral ground reference. Do not claim the surface spurs are an anatomical root system. |
+
+The native helper experiment is not the output under review. The current browser candidate comes from the adapted later botanical field builder. Compared with the retained Talbingo scene, individual white-gum leaf dimensions and their attachments are more explicit in source; this isolated capture does **not** establish a superior or publishable whole-tree result.
+
+The later user correction supersedes a cosmetic crown/branch/collar refinement as the immediate next task. Reuse the existing authored botanical/root hierarchy and physics owners first; the concrete source trace and integration handoff is `tools/species-production/white-gum-review-r1/root-wind-reuse-trace.md`. The coordinator's comparison with identified young/mature E. dalrympleana photographs confirms the sparse starburst architecture fails even the young-tree reference. A revised exact artifact must receive coordinator review and Timothy/designated contractor review. Parent remains the shared-source and build owner. This note does not start a new build or authorize acceptance.
+
+Film, open-world-game and cartoon all remain incomplete. All 193 base catalogue IDs and TREE-01–13 remain open in [claims.json](claims.json); the applicable anatomy, juvenile/reproductive organs, movement, knowledge/resource and native-authoring obligations are not closed by this static view.

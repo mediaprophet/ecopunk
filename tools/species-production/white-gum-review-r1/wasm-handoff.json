@@ -1,0 +1,20 @@
+{
+  "source": "crates/ecopunk-terrain/src/botanical_field_builder.rs",
+  "source_sha256": "79f1994770d949d94eaa8c3ae2026e309acc4f45fe74c3386b83c0cdbedfe563",
+  "staged": "tools/species-production/white-gum-review-r1/botanical_field_builder.rs",
+  "entry": "build_white_gum_review_specimen(trunks, foliage)",
+  "units": "metres",
+  "origin": "ground collar",
+  "up": "+Y",
+  "authored_height_parameter_m": 6.0,
+  "expected_bounds": "Source-derived rough extent: x/z within +/-6 m, y -0.02..8 m. Runtime bounds must be computed from actual emitted vertices.",
+  "execution": "not_executed",
+  "review": "pending",
+  "acceptance": "pending_user_and_contractors",
+  "retired_approach": "Independent native helper remains scratch only; not the candidate route.",
+  "staged_sha256": "8667dfc8a2f86d0765a3f9683f41469803654c140dea173b0d0274c5ed66473d",
+  "crown": "160 connected source-level spray calls with18leaves each, plus original terminal sprays; no giant leaf-fan proxies for whitegum",
+  "pending": "Actual WASM compilation/selection/render, source-output-bound independent and user/contractor review",
+  "detail_entry": "build_white_gum_review_foliage_detail(trunks, foliage)",
+  "detail_snippet": "tools/species-production/white-gum-review-r1/foliage-detail-function.rs"
+}

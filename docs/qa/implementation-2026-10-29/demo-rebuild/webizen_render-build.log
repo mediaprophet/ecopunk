@@ -1,0 +1,8 @@
+error: unknown start of token: \
+  |
+  = note: this occurred on the command line: `--cfg=feature=\"qualia\"`
+
+error[E0765]: unterminated double quote string
+  |
+  = note: this occurred on the command line: `--cfg=feature=\"qualia\"`
+

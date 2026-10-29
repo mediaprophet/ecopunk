@@ -3,7 +3,9 @@
 //! dynamic hardware resource governor, and distributed display architectures.
 
 pub mod botanical_anatomy;
+pub mod botanical_field_builder;
 pub mod botanical_ontology_q42;
+pub mod cad_actors_corridor;
 pub mod display;
 pub mod e64;
 pub mod exploration_controller;
@@ -14,13 +16,21 @@ pub mod geospatial;
 pub mod governor;
 pub mod holosonic_soundscape;
 pub mod hud_studio;
+pub mod pbr_material_synth;
 pub mod physics_continuum;
 pub mod scene_builder_10d;
 pub mod scene_graph_10d;
 pub mod specimen;
+pub mod species_review;
+pub mod species_review_source;
+pub mod species_authored_review;
+pub mod white_gum_authored_review;
+pub mod swamp_wallaby_anatomical_r3;
 pub mod streaming_hydration;
+pub mod terrain_dag_sector;
 pub mod world_continuum;
 pub mod zoological_anatomy;
+pub mod zoological_loft_builder;
 
 pub use etalon;
 pub use etalon_agent;

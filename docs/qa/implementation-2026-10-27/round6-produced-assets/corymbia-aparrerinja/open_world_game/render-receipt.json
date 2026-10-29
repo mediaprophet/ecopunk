@@ -1,0 +1,95 @@
+{
+  "compiled_sha256": "253dfc241089ce33861577b2299ebb78234e0b19dbf49efbe49365031d6ac06a",
+  "hmc_sha256": "3cff2a7d77b1194ec502bc3e46d4d451582d06f3ced317d7ff79987e84105cbb",
+  "image_scope": "1280x720 (16:9) inspection views; not a master quality ceiling",
+  "images": [
+    {
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 4.199999809265137,
+        "pitch": 0.25999999046325684,
+        "target": [
+          0.0,
+          1.350000023841858,
+          0.0
+        ],
+        "yaw": 0.5799999833106995
+      },
+      "file": "images/hero.png",
+      "height": 720,
+      "rgba_sha256": "a055615361604489c839c9e94018c04ca0780e6ca2b0ad8e34ada768d6a58405",
+      "sha256": "23c71c0b071661c5e8abf378284a0beb3b9c0999cdacce2f9e9e28c803f13f13",
+      "width": 1280
+    },
+    {
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 4.199999809265137,
+        "pitch": 0.25999999046325684,
+        "target": [
+          0.0,
+          1.350000023841858,
+          0.0
+        ],
+        "yaw": 3.721592664718628
+      },
+      "file": "images/opposite.png",
+      "height": 720,
+      "rgba_sha256": "d200e8660414b70139b014a22d595890f845b4702148c91f5d735cc0a39a28b2",
+      "sha256": "7294613ecced335a465a9b155e74d4bab56afe5b6dd57e8258326759840e5cb2",
+      "width": 1280
+    },
+    {
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 1.850000023841858,
+        "pitch": 0.18000000715255737,
+        "target": [
+          0.0,
+          1.0499999523162842,
+          0.0
+        ],
+        "yaw": 0.41999998688697815
+      },
+      "file": "images/junction-closeup.png",
+      "height": 720,
+      "rgba_sha256": "5315bf6b33b8260f0495515e7b2256223bb0d13c190969e1e921347b9d2f8b16",
+      "sha256": "2e8dd69e2bd280d789ee64d65482adbc5d22867f2e14691b6ce5b4f4a866ec25",
+      "width": 1280
+    },
+    {
+      "aspect_ratio": "16:9",
+      "camera": {
+        "distance": 2.3499999046325684,
+        "pitch": 0.4399999976158142,
+        "target": [
+          0.0,
+          1.850000023841858,
+          0.0
+        ],
+        "yaw": 0.5
+      },
+      "file": "images/canopy-closeup.png",
+      "height": 720,
+      "rgba_sha256": "aeea252b57a5edf5ccf8a1b618e572876a340effa5b0b893e862dd7ec292d2a8",
+      "sha256": "c3c036daefd50120e9ccfd6ecb9a452762b3a9c3860491ab30b2f46e90e635b2",
+      "width": 1280
+    }
+  ],
+  "m64_sha256": "5b8abae68a20e273c0e31f6b2d8341a9dd285fb4a804d6f38ecbbfb10e0bd10e",
+  "m64_verification": {
+    "chunks": 1,
+    "record_crc_checked": 4096,
+    "records_without_checksum": 0,
+    "total_file_size": 262400,
+    "total_records": 4096,
+    "version": 3
+  },
+  "parts": 4,
+  "q42_blocks": 1,
+  "q42_quins": 15,
+  "q42_sha256": "7d143451e1cd8922fe613dee9477f2e00069e992dd34544c245096b64ac609c2",
+  "review_status": "pending",
+  "triangles": 1432,
+  "vertices": 4296
+}

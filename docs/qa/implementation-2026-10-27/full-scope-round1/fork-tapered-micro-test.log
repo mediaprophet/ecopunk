@@ -1,0 +1,24 @@
+
+running 19 tests
+test micro_public_tests::tests::bad_inputs_work_and_short_output_fail_before_any_write ... ok
+test micro_public_tests::tests::constant_radius_matches_existing_capsule_and_blend_is_ordered ... ok
+test micro_public_tests::tests::explicit_endpoint_radii_produce_declared_linear_profile ... ok
+test micro_public_tests::tests::extreme_endpoints_and_distant_union_preserve_representable_values ... ok
+test micro_public_tests::tests::ill_conditioned_projection_refuses_with_caller_tolerance ... ok
+test micro_public_tests::tests::nonfinite_input_and_empty_inventories_refuse_without_writes ... ok
+test micro_public_tests::tests::subnormal_axes_refuse_before_writes ... ok
+test micro_public_tests::tests::tapered_branch_field_extracts_one_closed_indexed_surface_for_synthetic_y ... ok
+test sdf_ops::tests::capsule_distance_is_exact_on_axis ... ok
+test sdf_ops::tests::metaball_inside_outside ... ok
+test sdf_ops::tests::rounded_box_faces_and_corners ... ok
+test sdf_ops::tests::smooth_union_is_c1_and_bounded ... ok
+test tapered_branch_field::tests::bad_inputs_work_and_short_output_fail_before_any_write ... ok
+test tapered_branch_field::tests::constant_radius_matches_existing_capsule_and_blend_is_ordered ... ok
+test tapered_branch_field::tests::explicit_endpoint_radii_produce_declared_linear_profile ... ok
+test tapered_branch_field::tests::extreme_endpoints_and_distant_union_preserve_representable_values ... ok
+test tapered_branch_field::tests::ill_conditioned_projection_refuses_with_caller_tolerance ... ok
+test tapered_branch_field::tests::nonfinite_input_and_empty_inventories_refuse_without_writes ... ok
+test tapered_branch_field::tests::subnormal_axes_refuse_before_writes ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.04s
+

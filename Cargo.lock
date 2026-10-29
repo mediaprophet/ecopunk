@@ -3640,6 +3640,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d55d956fa96f5ec02be2e13af0e20391a5aa83d6a074e3ad368959d0fab299ea"
 
 [[package]]
+name = "qualia-app-contract"
+version = "0.0.40"
+dependencies = [
+ "ciborium",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+]
+
+[[package]]
 name = "qualia-audio"
 version = "0.0.40"
 
@@ -3649,6 +3659,7 @@ version = "0.0.40"
 dependencies = [
  "chrono",
  "hex",
+ "qualia-app-contract",
  "serde",
  "serde_json",
  "sha2 0.11.1",
@@ -3719,6 +3730,7 @@ dependencies = [
  "jpeg-decoder",
  "js-sys",
  "keyring",
+ "keyring-core",
  "libc",
  "log",
  "lz4_flex",
@@ -3770,6 +3782,7 @@ dependencies = [
  "web-sys",
  "wgpu",
  "windows",
+ "windows-native-keyring-store",
  "x25519-dalek 3.0.0",
  "zeroize",
  "zstd",

@@ -1,0 +1,22 @@
+warning: function `sdf_smooth_intersect` is never used
+  --> C:\github\ecopunk\tools\poet-foundation\full-scope\fork-tapered-field\sdf_ops.rs:52:8
+   |
+52 | pub fn sdf_smooth_intersect(d1: f64, d2: f64, k: f64) -> f64 {
+   |        ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `sdf_smooth_subtract` is never used
+  --> C:\github\ecopunk\tools\poet-foundation\full-scope\fork-tapered-field\sdf_ops.rs:63:8
+   |
+63 | pub fn sdf_smooth_subtract(d1: f64, d2: f64, k: f64) -> f64 {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+warning: function `sdf_compose_smooth` is never used
+   --> C:\github\ecopunk\tools\poet-foundation\full-scope\fork-tapered-field\sdf_ops.rs:129:8
+    |
+129 | pub fn sdf_compose_smooth(d1: f64, d2: f64, op: SdfOp, k: f64) -> f64 {
+    |        ^^^^^^^^^^^^^^^^^^
+
+warning: 3 warnings emitted
+

@@ -18,6 +18,9 @@
 
 pub mod vibe_host;
 
+#[cfg(target_arch = "wasm32")]
+mod species_review_wasm;
+
 #[cfg(any(target_arch = "wasm32", test))]
 mod texture_admission;
 #[cfg(test)]
@@ -38,6 +41,9 @@ use ecopunk_terrain::scene_builder_10d::{
 };
 use ecopunk_terrain::world_continuum::{RegionalCorridorWorld, StudySiteId};
 use ecopunk_terrain::zoological_anatomy::build_scale5_vertebrate_anatomy_10d;
+use qualia_core_db::render::lighting::environment_lighting::{
+    EnvironmentProbe, EnvironmentProbeSet, ENVIRONMENT_SPECULAR_LEVELS,
+};
 use vibe::bytecode::{compile as compile_qbc, encode_chunk};
 use vibe::{eval_function, load_program, Env, Program, Value};
 
@@ -364,6 +370,146 @@ pub fn sector_key_for_study_site(site_index: u8) -> (&'static str, &'static str)
     }
 }
 
+/// Number of `f32` values per packed `EnvironmentProbe` record in `QualiaPortal::set_environment_probe_data`.
+pub const PORTAL_PROBE_RECORD_FLOATS: usize = 3 + 1 + 3 + ENVIRONMENT_SPECULAR_LEVELS * 3 + 3;
+
+/// Build a physically energy-conserving 2-probe `EnvironmentProbeSet` tuned per Australian sector:
+/// - Probe 0: Cool Zenith Sky Hemisphere fill (`dominant_direction = [0.0, 1.0, 0.0]`) with
+///   roughness-attenuated specular pyramid (`0..5`) so water, rover glass/paint, and waxy leaves
+///   catch crisp specular highlights while rough terrain soil and bark receive zero grazing haze.
+/// - Probe 1: Warm Australian Solar-Canopy / Ground Bounce (`dominant_direction` aligned with the
+///   sun/valley bounce) so shaded relief retains natural 3D depth without any additive gray veil.
+pub fn build_sector_environment_probe_set(sector_id: &str) -> EnvironmentProbeSet {
+    let (zenith_irr, zenith_spec0, bounce_irr, bounce_dir) = match sector_id {
+        "talbingo" => (
+            [0.34_f32, 0.42, 0.52],
+            [0.16_f32, 0.21, 0.27],
+            [0.32_f32, 0.28, 0.20],
+            [0.48_f32, 0.36, 0.44],
+        ),
+        "yarrangobilly" => (
+            [0.30_f32, 0.44, 0.52],
+            [0.15_f32, 0.22, 0.27],
+            [0.28_f32, 0.30, 0.26],
+            [-0.22_f32, 0.38, 0.56],
+        ),
+        "three_mile_dam" => (
+            [0.36_f32, 0.46, 0.58],
+            [0.18_f32, 0.23, 0.30],
+            [0.30_f32, 0.29, 0.22],
+            [0.48_f32, 0.35, 0.48],
+        ),
+        "sydney_sandstone" => (
+            [0.36_f32, 0.43, 0.50],
+            [0.17_f32, 0.20, 0.25],
+            [0.38_f32, 0.29, 0.19],
+            [0.40_f32, 0.38, 0.44],
+        ),
+        "noosa_headland" => (
+            [0.32_f32, 0.48, 0.58],
+            [0.17_f32, 0.24, 0.30],
+            [0.34_f32, 0.31, 0.24],
+            [0.32_f32, 0.40, 0.44],
+        ),
+        "jounama_karst" => (
+            [0.33_f32, 0.41, 0.52],
+            [0.16_f32, 0.20, 0.26],
+            [0.31_f32, 0.27, 0.22],
+            [0.44_f32, 0.36, 0.46],
+        ),
+        _ => (
+            [0.36_f32, 0.42, 0.50],
+            [0.17_f32, 0.20, 0.25],
+            [0.32_f32, 0.28, 0.22],
+            [0.42_f32, 0.45, 0.45],
+        ),
+    };
+
+    let make_specular_pyramid = |s0: [f32; 3]| -> [[f32; 3]; ENVIRONMENT_SPECULAR_LEVELS] {
+        [
+            s0,
+            [s0[0] * 0.65, s0[1] * 0.65, s0[2] * 0.65],
+            [s0[0] * 0.36, s0[1] * 0.36, s0[2] * 0.36],
+            [s0[0] * 0.16, s0[1] * 0.16, s0[2] * 0.16],
+            [s0[0] * 0.06, s0[1] * 0.06, s0[2] * 0.06],
+        ]
+    };
+
+    let mut set = EnvironmentProbeSet::new();
+    let _ = set.push(EnvironmentProbe {
+        position: [0.0, 0.65, 0.0],
+        radius: 14.0,
+        irradiance: zenith_irr,
+        specular_levels: make_specular_pyramid(zenith_spec0),
+        dominant_direction: [0.0, 1.0, 0.0],
+        valid: true,
+    });
+    let bounce_spec0 = [
+        zenith_spec0[0] * 0.72,
+        zenith_spec0[1] * 0.68,
+        zenith_spec0[2] * 0.58,
+    ];
+    let _ = set.push(EnvironmentProbe {
+        position: [0.0, -0.25, 0.0],
+        radius: 14.0,
+        irradiance: bounce_irr,
+        specular_levels: make_specular_pyramid(bounce_spec0),
+        dominant_direction: bounce_dir,
+        valid: true,
+    });
+    set
+}
+
+/// Pack the sector's `EnvironmentProbeSet` into the `25 × N` `f32` layout consumed by `QualiaPortal::set_environment_probe_data`.
+pub fn pack_sector_environment_probes(sector_id: &str) -> Vec<f32> {
+    let probes = build_sector_environment_probe_set(sector_id);
+    let slice = probes.as_slice();
+    let mut out = Vec::with_capacity(slice.len() * PORTAL_PROBE_RECORD_FLOATS);
+    for probe in slice {
+        if !probe.valid || probe.radius <= 0.0 {
+            continue;
+        }
+        out.extend_from_slice(&probe.position);
+        out.push(probe.radius);
+        out.extend_from_slice(&probe.irradiance);
+        for level in &probe.specular_levels {
+            out.extend_from_slice(level);
+        }
+        out.extend_from_slice(&probe.dominant_direction);
+    }
+    out
+}
+
+#[cfg(target_arch = "wasm32")]
+fn configure_default_scene_environment(
+    inner: &mut qualia_core_db::QualiaPortal,
+    sector_id: &str,
+    sun_dir: [f32; 3],
+    sky_preset: u32,
+    sun_intensity: f32,
+    ambient_intensity: f32,
+    exposure_ev: f32,
+) -> Result<(), JsValue> {
+    let packed_probes = pack_sector_environment_probes(sector_id);
+    // Bind the 2-probe sky/ground hemisphere set while keeping fallback_radiance strictly [0, 0, 0]
+    // so zero additive gray veil is ever added to fragments.
+    let _ = inner.set_environment_probe_data(&packed_probes, &[0.0, 0.0, 0.0])?;
+    inner.set_shadows_enabled(true);
+    inner.set_screen_space_ao_enabled(true);
+    inner.set_screen_space_ao(0.42, 0.58, 0.018);
+    inner.set_screen_space_ao_sample_count(12);
+    inner.set_sky_preset(sky_preset);
+    inner.set_lighting(
+        sun_dir[0],
+        sun_dir[1],
+        sun_dir[2],
+        sun_intensity,
+        ambient_intensity,
+    );
+    let _ = inner.set_exposure_compensation(exposure_ev);
+    Ok(())
+}
+
 #[cfg(target_arch = "wasm32")]
 #[wasm_bindgen]
 pub async fn init_webgpu(canvas: HtmlCanvasElement) -> Result<bool, JsValue> {
@@ -382,7 +528,16 @@ fn load_single_10d_colored(
     bytes: &[u8],
     asset_id: &str,
 ) -> Result<JsValue, JsValue> {
+    load_10d_resources_colored(inner, &[(asset_id, bytes)])
+}
+
+#[cfg(target_arch = "wasm32")]
+fn load_10d_resources_colored(
+    inner: &mut qualia_core_db::QualiaPortal,
+    assets: &[(&str, &[u8])],
+) -> Result<JsValue, JsValue> {
     let arr = js_sys::Array::new();
+    for &(asset_id, bytes) in assets {
     let obj = js_sys::Object::new();
     let u8_arr = js_sys::Uint8Array::from(bytes);
     js_sys::Reflect::set(&obj, &JsValue::from_str("id"), &JsValue::from_str(asset_id))?;
@@ -392,6 +547,7 @@ fn load_single_10d_colored(
     js_sys::Reflect::set(&obj, &JsValue::from_str("b"), &JsValue::from_f64(1.0))?;
     js_sys::Reflect::set(&obj, &JsValue::from_str("a"), &JsValue::from_f64(1.0))?;
     arr.push(&obj);
+    }
     inner.load_assets_colored(&arr)
 }
 
@@ -399,6 +555,7 @@ fn load_single_10d_colored(
 #[wasm_bindgen]
 pub struct EcopunkPortal {
     inner: qualia_core_db::QualiaPortal,
+    untextured_fallback: bool,
     session: ContinuumExplorationSession,
     vibe_host: EcopunkVibeHost,
     textures: Vec<ProceduralTextureAsset>,
@@ -418,8 +575,10 @@ pub struct EcopunkPortal {
     orbit_scale: f32,
     rover_vertex_start: u32,
     rover_local_positions: Vec<[f32; 3]>,
+    rover_pose_buffer: Vec<f32>,
     walker_vertex_start: u32,
     walker_local_positions: Vec<[f32; 3]>,
+    walker_pose_buffer: Vec<f32>,
     anim_time_s: f32,
 }
 
@@ -430,18 +589,31 @@ impl EcopunkPortal {
     /// pending GPU and admit the scene's required opaque colour textures.
     /// Unavailable backends and rejected texture uploads return an error.
     #[wasm_bindgen(constructor)]
-    pub fn new(canvas: HtmlCanvasElement) -> Result<EcopunkPortal, JsValue> {
+    pub fn new(canvas: HtmlCanvasElement, untextured_fallback: Option<bool>) -> Result<EcopunkPortal, JsValue> {
+        let untextured_fallback = untextured_fallback.unwrap_or(false);
         let mut inner = qualia_core_db::QualiaPortal::new(canvas)?;
+        // This host presents authored meshes. Keep semantic data available for
+        // picking without drawing the tensor sprites over the scene.
+        inner.set_tensor_projection_enabled(false);
+        inner.set_ambient_enabled(false);
         inner.set_preserve_authored_frame(false);
-        inner.set_shadows_enabled(true);
-        inner.set_screen_space_ao_enabled(true);
-        inner.set_screen_space_ao(0.38, 0.52, 0.020);
-        inner.set_sky_preset(1);
-        inner.set_lighting(0.48, 0.78, 0.44, 2.25, 0.78);
-        let _ = inner.set_exposure_compensation(0.35);
+        configure_default_scene_environment(
+            &mut inner,
+            "talbingo",
+            [0.48, 0.78, 0.44],
+            1,
+            1.56,
+            0.28,
+            0.06,
+        )?;
 
         let textures = build_procedural_textures();
-        texture_admission::admit_procedural_textures(&mut inner, &textures)?;
+        // WebGL2 uses the engine's vertex-colour path, which cannot admit the
+        // WebGPU material textures. That explicit compatibility choice must
+        // not be reported as successful texture admission.
+        if !untextured_fallback {
+            texture_admission::admit_procedural_textures(&mut inner, &textures)?;
+        }
 
         let world = RegionalCorridorWorld::new();
         let session = ContinuumExplorationSession::new(world);
@@ -449,6 +621,7 @@ impl EcopunkPortal {
 
         let portal = EcopunkPortal {
             inner,
+            untextured_fallback,
             session,
             vibe_host,
             textures,
@@ -468,8 +641,10 @@ impl EcopunkPortal {
             orbit_scale: 0.435,
             rover_vertex_start: 0,
             rover_local_positions: Vec::new(),
+            rover_pose_buffer: Vec::new(),
             walker_vertex_start: 0,
             walker_local_positions: Vec::new(),
+            walker_pose_buffer: Vec::new(),
             anim_time_s: 0.0,
         };
         Ok(portal)
@@ -509,6 +684,10 @@ impl EcopunkPortal {
     /// Return the active QualiaPortal render tier (2 = WebGPU, 1 = WebGL2, 0 = CPU fallback).
     pub fn tier(&self) -> u8 {
         self.inner.tier()
+    }
+
+    pub fn render_receipt(&self) -> Result<JsValue, JsValue> {
+        self.inner.body_render_receipt()
     }
 
     /// Admit an in-memory `.q42` semantic graph volume slice into `EcopunkVibeHost` (`LocalHost::with_q42_pack`).
@@ -562,11 +741,28 @@ impl EcopunkPortal {
             .map_err(|e| JsValue::from_str(&format!("build_sector_10d({sector_key}): {e}")))?;
 
         self.inner.set_preserve_authored_frame(false);
-        let _receipt =
-            load_single_10d_colored(&mut self.inner, &sector.scene_10d_bytes, sector.sector_id)?;
+        let _receipt = if self.untextured_fallback {
+            // Reuse the actual native water mesh when the specialized WebGPU
+            // water pass is unavailable; no browser geometry substitute.
+            load_10d_resources_colored(&mut self.inner, &[
+                (sector.sector_id, &sector.scene_10d_bytes),
+                ("https://ns.webizen.org/ecopunk/continuum_water", &sector.water_10d_bytes),
+            ])?
+        } else {
+            load_single_10d_colored(&mut self.inner, &sector.scene_10d_bytes, sector.sector_id)?
+        };
 
-        let min = sector.scene_bounds_min;
-        let max = sector.scene_bounds_max;
+        let mut min = sector.scene_bounds_min;
+        let mut max = sector.scene_bounds_max;
+        // Match the engine's one shared frame for all submitted assets.
+        if self.untextured_fallback {
+            for point in &sector.water_positions {
+                for axis in 0..3 {
+                    min[axis] = min[axis].min(point[axis]);
+                    max[axis] = max[axis].max(point[axis]);
+                }
+            }
+        }
         let gc = [
             (min[0] + max[0]) * 0.5,
             (min[1] + max[1]) * 0.5,
@@ -584,8 +780,10 @@ impl EcopunkPortal {
         self.orbit_scale = orbit_scale;
         self.rover_vertex_start = sector.rover_vertex_range.start as u32;
         self.rover_local_positions = sector.rover_local_positions.clone();
+        self.rover_pose_buffer.resize(self.rover_local_positions.len() * 3, 0.0);
         self.walker_vertex_start = sector.walker_vertex_range.start as u32;
         self.walker_local_positions = sector.walker_local_positions.clone();
+        self.walker_pose_buffer.resize(self.walker_local_positions.len() * 3, 0.0);
 
         let mut flat_water = Vec::with_capacity(sector.water_positions.len() * 3);
         for p in &sector.water_positions {
@@ -600,19 +798,19 @@ impl EcopunkPortal {
             sector.water_color[1],
             sector.water_color[2],
             sector.water_alpha,
-            0.015,
-            2.8,
+            0.014,
+            3.1,
             2,
         );
-        self.inner.set_sky_preset(sector.sky_preset);
-        self.inner.set_lighting(
-            sector.sun_dir[0],
-            sector.sun_dir[1],
-            sector.sun_dir[2],
-            2.25,
-            0.78,
-        );
-        let _ = self.inner.set_exposure_compensation(0.35);
+        configure_default_scene_environment(
+            &mut self.inner,
+            sector_key,
+            sector.sun_dir,
+            sector.sky_preset,
+            1.56,
+            0.28,
+            0.06,
+        )?;
 
         let norm_tx = (sector.cam_target[0] - gc[0]) * orbit_scale;
         let norm_ty = (sector.cam_target[1] - gc[1]) * orbit_scale;
@@ -641,6 +839,9 @@ impl EcopunkPortal {
             "vegetation_community": site_desc.vegetation_community,
             "geology_description": site_desc.geology_description,
             "sector_id": sector.sector_id,
+            "camera_yaw": sector.cam_yaw,
+            "camera_pitch": sector.cam_pitch,
+            "camera_zoom": sector.cam_zoom * orbit_scale,
             "scene_10d_bytes": sector.scene_10d_bytes.len(),
             "scene_crc32c": format!("0x{:08X}", sector.scene_crc32c),
             "vertex_count": sector.positions.len(),
@@ -687,9 +888,15 @@ impl EcopunkPortal {
         self.inner.set_preserve_authored_frame(false);
         let _ = load_single_10d_colored(&mut self.inner, &bytes_10d, "https://ns.webizen.org/ecopunk/dissection_organ")?;
         self.inner.set_water_geometry(&[], &[])?;
-        self.inner.set_sky_preset(1);
-        self.inner.set_lighting(0.42, 0.84, 0.45, 2.35, 0.84);
-        let _ = self.inner.set_exposure_compensation(0.40);
+        configure_default_scene_environment(
+            &mut self.inner,
+            "dissection_lab",
+            [0.42, 0.84, 0.45],
+            1,
+            1.62,
+            0.26,
+            0.08,
+        )?;
         self.inner
             .set_camera_target(0.62, 0.28, 1.85, 0.0, 0.0, 0.0)?;
 
@@ -861,17 +1068,16 @@ impl EcopunkPortal {
             let r_sy = ryaw.sin();
 
             if !self.rover_local_positions.is_empty() {
-                let mut posed_rover = Vec::with_capacity(self.rover_local_positions.len() * 3);
-                for lp in &self.rover_local_positions {
+                for (lp, posed) in self.rover_local_positions.iter().zip(self.rover_pose_buffer.chunks_exact_mut(3)) {
                     let wx = rx + lp[0] * r_cy + lp[2] * r_sy;
                     let wy = ry + lp[1];
                     let wz = rz - lp[0] * r_sy + lp[2] * r_cy;
-                    posed_rover.push((wx - self.orbit_gc[0]) * self.orbit_scale);
-                    posed_rover.push((wy - self.orbit_gc[1]) * self.orbit_scale);
-                    posed_rover.push((wz - self.orbit_gc[2]) * self.orbit_scale);
+                    posed.copy_from_slice(&[(wx - self.orbit_gc[0]) * self.orbit_scale,
+                        (wy - self.orbit_gc[1]) * self.orbit_scale,
+                        (wz - self.orbit_gc[2]) * self.orbit_scale]);
                 }
                 self.inner
-                    .write_part_vertices(self.rover_vertex_start, &posed_rover);
+                    .write_part_vertices(self.rover_vertex_start, &self.rover_pose_buffer);
             }
 
             // Map Ecologist Walker world displacement into local sector coordinates
@@ -898,17 +1104,16 @@ impl EcopunkPortal {
             let w_sy = wyaw.sin();
 
             if !self.walker_local_positions.is_empty() {
-                let mut posed_walker = Vec::with_capacity(self.walker_local_positions.len() * 3);
-                for lp in &self.walker_local_positions {
+                for (lp, posed) in self.walker_local_positions.iter().zip(self.walker_pose_buffer.chunks_exact_mut(3)) {
                     let pwx = wx + lp[0] * w_cy + lp[2] * w_sy;
                     let pwy = wy + lp[1];
                     let pwz = wz - lp[0] * w_sy + lp[2] * w_cy;
-                    posed_walker.push((pwx - self.orbit_gc[0]) * self.orbit_scale);
-                    posed_walker.push((pwy - self.orbit_gc[1]) * self.orbit_scale);
-                    posed_walker.push((pwz - self.orbit_gc[2]) * self.orbit_scale);
+                    posed.copy_from_slice(&[(pwx - self.orbit_gc[0]) * self.orbit_scale,
+                        (pwy - self.orbit_gc[1]) * self.orbit_scale,
+                        (pwz - self.orbit_gc[2]) * self.orbit_scale]);
                 }
                 self.inner
-                    .write_part_vertices(self.walker_vertex_start, &posed_walker);
+                    .write_part_vertices(self.walker_vertex_start, &self.walker_pose_buffer);
             }
 
             let (focus_x, focus_y, focus_z) = if snap.mode == ExplorationMode::RoverDriving {
@@ -919,8 +1124,22 @@ impl EcopunkPortal {
             let norm_tx = (focus_x - self.orbit_gc[0]) * self.orbit_scale;
             let norm_ty = (focus_y - self.orbit_gc[1]) * self.orbit_scale;
             let norm_tz = (focus_z - self.orbit_gc[2]) * self.orbit_scale;
+            // The follow target can sit beside a steep bank. Keep the orbit
+            // eye above the same ground sampler used by the actors, rather
+            // than letting a low requested pitch bury the camera in terrain.
+            let mut visible_pitch = cam_pitch.max(0.08);
+            for _ in 0..28 {
+                let eye = qualia_core_db::render::camera::orbit_eye_position_target(
+                    cam_yaw, visible_pitch, cam_zoom / self.orbit_scale,
+                    [focus_x, focus_y, focus_z],
+                );
+                let ground = sample_sector_elevation(self.active_sector_key,
+                    eye[0].clamp(-1.95, 1.95), eye[2].clamp(-1.95, 1.95), self.active_water_y);
+                if eye[1] >= ground + 0.06 || visible_pitch >= 1.4 { break; }
+                visible_pitch = (visible_pitch + 0.05).min(1.4);
+            }
             self.inner
-                .set_camera_target(cam_yaw, cam_pitch, cam_zoom, norm_tx, norm_ty, norm_tz)?;
+                .set_camera_target(cam_yaw, visible_pitch, cam_zoom, norm_tx, norm_ty, norm_tz)?;
         } else {
             self.inner
                 .set_camera_target(cam_yaw, cam_pitch, cam_zoom, 0.0, 0.0, 0.0)?;

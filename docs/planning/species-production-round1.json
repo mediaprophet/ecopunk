@@ -1,0 +1,77 @@
+{
+  "schema": "ecopunk-species-production-dispatch/v1",
+  "date": "2026-10-29",
+  "governing_plan": "docs/planning/implementation-plan.md",
+  "authorization": "Timothy requested continuation toward publishable quality with species agents, coordination review and his own review before acceptance; explicitly selected white gum and wallaby.",
+  "status": "production_active_acceptance_pending",
+  "export_priority": {
+    "target": "WASM",
+    "authority": "Timothy explicitly prioritized WASM export and excluded native-host restoration from the present critical path.",
+    "native_rebuild": "Stopped the owned process; preserve failure/interruption evidence. Do not restart for this round.",
+    "review": "Actual browser-rendered species candidates in the current Ecopunk application; coordinator review followed by Timothy's decision."
+  },
+  "current_quality_baseline": {
+    "user_correction": "Timothy rejected the prior GPT output and identified the later Gemini continuation preview as better. Review and extend that current work before advancing separate species candidates.",
+    "image": "assets/demo-rebuild-2026-10-29/previews/site-00-talbingo.png",
+    "sha256": "14de58937f581078cd515f072ba72f9d473e672a7a94ab07921b4df872afa408",
+    "scope": "User-preferred visual comparison, not final species or publication acceptance.",
+    "evidence_currency": "The earlier demo artifact-digests.tsv lists a different image hash. Its review evidence cannot be silently attributed to this later image.",
+    "active_scene_owners": [
+      "crates/ecopunk-terrain/src/botanical_field_builder.rs",
+      "crates/ecopunk-terrain/src/zoological_loft_builder.rs",
+      "crates/ecopunk-terrain/src/cad_actors_corridor.rs",
+      "crates/ecopunk-terrain/src/pbr_material_synth.rs",
+      "crates/ecopunk-terrain/src/scene_builder_10d.rs"
+    ],
+    "candidate_advancement": "Each species worker and independent reviewer must compare the actual current implementation and visible outputs, preserve improvements and explain the precise species adaptation. Separate simpler studies are not presumed improvements."
+  },
+  "shared_source_and_serial_execution_owner": "/root",
+  "independent_reviewer": "/root/coordination_review",
+  "human_acceptance_owner": "Timothy",
+  "publication_authorized": false,
+  "review_record": "docs/qa/implementation-2026-10-29/species-review-round1/coordinator-review.md",
+  "execution_evidence": "docs/qa/implementation-2026-10-29/species-production-round1/",
+  "catalogue": "docs/planning/tech/assets/model-production-template/deliverables.json",
+  "catalogue_version": "2026-10-24.2",
+  "catalogue_sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+  "acceptance_policy": {
+    "producer": "Editable candidate, evidence-linked constraints, inventories and complete claim ledger; no self-acceptance.",
+    "coordinator": "Independent source and actual-output review with defects and revision-bound disposition; revisions reopen affected reviews.",
+    "human": "Timothy reviews identified visible outputs and declared scope before acceptance. Missing decision remains pending.",
+    "domain": "Retain required scientific, rights, accessibility and audio review; do not infer these from agent or visual approval.",
+    "completion": "Film, open_world_game and cartoon remain separate required targets. A bounded candidate is incomplete until all applicable catalogue rows, expanded cases and reviews pass.",
+    "enforcement": "Recorded workflow and existing cooperating build lease; no claim of an installed native model-acceptance gate."
+  },
+  "jobs": [
+    {
+      "id": "SPECIES-WG-R1",
+      "agent": "/root/white_gum_production",
+      "subject": "White gum; evidence-selected Eucalyptus dalrympleana concept, not a verified local individual",
+      "state": "authoring_active",
+      "owned_paths": ["assets/production-studies/white-gum-review-r1/", "tools/species-production/white-gum-review-r1/"],
+      "reference": "docs/qa/implementation-2026-10-26/biological-reference/tree-cases.md",
+      "human_acceptance": "pending"
+    },
+    {
+      "id": "SPECIES-WB-R1",
+      "agent": "/root/wallaby_production",
+      "subject": "Swamp wallaby, Wallabia bicolor; distinct from the demo's Eastern Grey Kangaroo",
+      "state": "authoring_active",
+      "owned_paths": ["assets/production-studies/swamp-wallaby-review-r1/", "tools/species-production/swamp-wallaby-review-r1/"],
+      "reference": "docs/qa/implementation-2026-10-26/biological-reference/wallaby-cases.md",
+      "human_acceptance": "pending"
+    }
+  ],
+  "execution_policy": {
+    "workers_may_compile_or_export": false,
+    "coordinator_may_compile_and_export": true,
+    "dependency_build": "tools/species-production/build-wasm-review.py",
+    "target": "target/demo-wasm",
+    "parallel_build_jobs": 2,
+    "incremental": false,
+    "debug_information": false,
+    "lease": "target/coordination/native-check.lock",
+    "disk_guard": "tools/poet-foundation/biosphere-shared/disk_budget.py",
+    "product_route": "Preserve the improved scene and author species through existing builders into the Ecopunk WASM application. Browser-visible review is the immediate delivery; native host repair is outside this round's critical path."
+  }
+}

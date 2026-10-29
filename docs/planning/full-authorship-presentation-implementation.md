@@ -4,6 +4,8 @@
 
 The target is one usable **Poet** environment for people and authorized agents to create, inspect, revise, review, recover, package and present editable work through the native QualiaDB/Aether/Etalon/Webizen stack, with required WASM projections. Ecopunk must produce accepted high-grade masters and complete knowledge/resource embodiments; reviewed derivatives are then exercised in game-demo and people-led civics experiences. The original workspace, accessible interaction and media/document/data domains remain in scope. Separate source-suite applications, static renders, headless APIs and generated labels do not satisfy that outcome.
 
+**2026-10-28 execution annex:** [Botanical production through managed swarms](botanical-production-swarm-execution.md) provides the current bounded critical-path assignments, file ownership, coding/verification order and exit criteria. It uses the governing phases below and does not replace the wider authorship or complete-package scope.
+
 ## Scope and requirements baseline
 
 - [Full authorship/presentation audit](../qa/implementation-2026-10-27/full-authorship-presentation-audit/README.md), [authoring](../qa/implementation-2026-10-27/full-authorship-presentation-audit/authoring.md), [cooperation](../qa/implementation-2026-10-27/full-authorship-presentation-audit/cooperation.md), [presentation](../qa/implementation-2026-10-27/full-authorship-presentation-audit/presentation.md), and [restartable assignment map](../qa/implementation-2026-10-27/full-authorship-presentation-audit/dispatch-map.md) state the current bounded source/evidence audit and open outcomes.

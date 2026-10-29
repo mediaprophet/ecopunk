@@ -1,0 +1,48 @@
+warning: unused import: `ecopunk_terrain::botanical_ontology_q42::CANONICAL_ANATOMICAL_PINS`
+  --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:31:5
+   |
+31 | use ecopunk_terrain::botanical_ontology_q42::CANONICAL_ANATOMICAL_PINS;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `ContinuumExplorationSession`, `ExplorationMode`, and `ExplorationTickInput`
+  --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:33:5
+   |
+33 |     ContinuumExplorationSession, ExplorationMode, ExplorationTickInput,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `ProceduralTextureAsset`, `build_procedural_textures`, `build_sector_10d`, and `sample_sector_elevation`
+  --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:37:5
+   |
+37 |     build_procedural_textures, build_sector_10d, sample_sector_elevation, ProceduralTextureAsset,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `RegionalCorridorWorld` and `StudySiteId`
+  --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:39:40
+   |
+39 | use ecopunk_terrain::world_continuum::{RegionalCorridorWorld, StudySiteId};
+   |                                        ^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^
+
+warning: unused imports: `Env`, `Program`, and `eval_function`
+  --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:42:12
+   |
+42 | use vibe::{eval_function, load_program, Env, Program, Value};
+   |            ^^^^^^^^^^^^^                ^^^  ^^^^^^^
+
+warning: unused import: `crate::vibe_host::EcopunkVibeHost`
+  --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:49:5
+   |
+49 | use crate::vibe_host::EcopunkVibeHost;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `ROVER_WIDTH` is never used
+   --> C:\github\ecopunk\crates\ecopunk-wasm\src\lib.rs:177:11
+    |
+177 |     const ROVER_WIDTH: f32 = 1.88;
+    |           ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: 7 warnings emitted
+

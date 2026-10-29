@@ -1,0 +1,75 @@
+{
+  "model": {
+    "bounds_max_m": [
+      0.3045726716518402,
+      1.238251805305481,
+      0.39723628759384155
+    ],
+    "bounds_min_m": [
+      -0.3045726716518402,
+      0.010662464424967766,
+      -0.9521185755729675
+    ],
+    "dossier": "../assets/production-studies/swamp-wallaby-review-r1/dossier/claims.json",
+    "human_acceptance": "pending",
+    "id": "swamp-wallaby-review-r1",
+    "profiles": {
+      "cartoon": "incomplete",
+      "film": "incomplete",
+      "open_world_game": "incomplete"
+    },
+    "referent": "synthetic authored candidate; not an observed specimen",
+    "source_sha256": "6f722431c28245fc93c156fcc6814658f4ea777eeccbd498088455655b3ebf54",
+    "status": "candidate_awaiting_review",
+    "taxon": "Wallabia bicolor",
+    "title": "Swamp wallaby — standing candidate",
+    "triangle_count": 14068,
+    "vertex_count": 7231,
+    "view_scope": "static external form; movement and complete species package remain open"
+  },
+  "admission": {
+    "assets_loaded": 1,
+    "organs_loaded": 1,
+    "assets_refused": 0,
+    "organs_refused": 0,
+    "total_triangles": 14068,
+    "vertex_count": 7231,
+    "renderer": "webgpu",
+    "material_pipeline": true,
+    "materials_loaded": 1,
+    "material_ranges": 1,
+    "semantic_nodes": 0,
+    "uploaded": true,
+    "parts": [
+      {
+        "id": "swamp-wallaby-review-r1",
+        "vertex_start": 0,
+        "vertex_count": 7231
+      }
+    ]
+  },
+  "render": {
+    "renderer": "webgpu",
+    "vertex_count": 7231,
+    "index_count": 42204,
+    "frames_presented": 3644,
+    "uploaded": true,
+    "success": true
+  },
+  "camera": {
+    "yaw": 0.7,
+    "pitch": 0.12,
+    "distance": 3.2604307210812093,
+    "target": [
+      0,
+      0,
+      0
+    ]
+  },
+  "canvas": {
+    "width": 1319,
+    "height": 702
+  },
+  "captured_utc": "2026-10-29T08:26:38.137Z",
+  "human_acceptance": "pending"
+}

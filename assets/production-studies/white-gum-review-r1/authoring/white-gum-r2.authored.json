@@ -1,0 +1,4652 @@
+{
+  "source_version": "white-gum-authored-review-r2",
+  "botanical": {
+    "schema": "poet.botanical/v2",
+    "version": 2,
+    "part_id": "white-gum-structure",
+    "organs": [
+      {
+        "key": "collar",
+        "parent": null,
+        "position_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "key": "stem-1",
+        "parent": "collar",
+        "position_m": [
+          0,
+          0.38,
+          0
+        ]
+      },
+      {
+        "key": "stem-2",
+        "parent": "stem-1",
+        "position_m": [
+          0.03067,
+          0.95,
+          0.02742
+        ]
+      },
+      {
+        "key": "stem-3",
+        "parent": "stem-2",
+        "position_m": [
+          0.04489,
+          1.5,
+          0.03408
+        ]
+      },
+      {
+        "key": "stem-4",
+        "parent": "stem-3",
+        "position_m": [
+          0.03501,
+          1.95,
+          0.01496
+        ]
+      },
+      {
+        "key": "stem-5",
+        "parent": "stem-4",
+        "position_m": [
+          0.00635,
+          2.45,
+          -0.01549
+        ]
+      },
+      {
+        "key": "stem-6",
+        "parent": "stem-5",
+        "position_m": [
+          -0.02572,
+          2.95,
+          -0.03421
+        ]
+      },
+      {
+        "key": "stem-7",
+        "parent": "stem-6",
+        "position_m": [
+          -0.04399,
+          3.45,
+          -0.02705
+        ]
+      },
+      {
+        "key": "stem-8",
+        "parent": "stem-7",
+        "position_m": [
+          -0.03865,
+          3.95,
+          0.00059
+        ]
+      },
+      {
+        "key": "stem-9",
+        "parent": "stem-8",
+        "position_m": [
+          -0.01257,
+          4.45,
+          0.02778
+        ]
+      },
+      {
+        "key": "stem-10",
+        "parent": "stem-9",
+        "position_m": [
+          0.02025,
+          4.95,
+          0.03395
+        ]
+      },
+      {
+        "key": "stem-11",
+        "parent": "stem-10",
+        "position_m": [
+          0.04221,
+          5.4,
+          0.01442
+        ]
+      },
+      {
+        "key": "stem-12",
+        "parent": "stem-11",
+        "position_m": [
+          0.04152,
+          5.8,
+          -0.01601
+        ]
+      },
+      {
+        "key": "stem-13",
+        "parent": "stem-12",
+        "position_m": [
+          0.01855,
+          6.02,
+          -0.03433
+        ]
+      },
+      {
+        "key": "root-0-1",
+        "parent": "collar",
+        "position_m": [
+          0.22742,
+          -0.045,
+          0.03437
+        ]
+      },
+      {
+        "key": "root-0-2",
+        "parent": "root-0-1",
+        "position_m": [
+          0.78311,
+          -0.16,
+          0.11836
+        ]
+      },
+      {
+        "key": "root-0-3",
+        "parent": "root-0-2",
+        "position_m": [
+          1.63147,
+          -0.31,
+          0.24657
+        ]
+      },
+      {
+        "key": "root-0-fine-0",
+        "parent": "root-0-2",
+        "position_m": [
+          1.52151,
+          -0.4,
+          -0.16804
+        ]
+      },
+      {
+        "key": "root-0-fine-1",
+        "parent": "root-0-2",
+        "position_m": [
+          1.3349,
+          -0.4,
+          0.68651
+        ]
+      },
+      {
+        "key": "root-1-1",
+        "parent": "collar",
+        "position_m": [
+          0.09813,
+          -0.045,
+          0.20801
+        ]
+      },
+      {
+        "key": "root-1-2",
+        "parent": "root-1-1",
+        "position_m": [
+          0.37887,
+          -0.16,
+          0.80312
+        ]
+      },
+      {
+        "key": "root-1-3",
+        "parent": "root-1-2",
+        "position_m": [
+          0.78932,
+          -0.35,
+          1.67316
+        ]
+      },
+      {
+        "key": "root-1-fine-0",
+        "parent": "root-1-2",
+        "position_m": [
+          1.10672,
+          -0.4,
+          1.31183
+        ]
+      },
+      {
+        "key": "root-1-fine-1",
+        "parent": "root-1-2",
+        "position_m": [
+          0.19445,
+          -0.4,
+          1.67176
+        ]
+      },
+      {
+        "key": "root-2-1",
+        "parent": "collar",
+        "position_m": [
+          -0.13536,
+          -0.045,
+          0.18595
+        ]
+      },
+      {
+        "key": "root-2-2",
+        "parent": "root-2-1",
+        "position_m": [
+          -0.4096,
+          -0.16,
+          0.56271
+        ]
+      },
+      {
+        "key": "root-2-3",
+        "parent": "root-2-2",
+        "position_m": [
+          -0.85333,
+          -0.31,
+          1.17232
+        ]
+      },
+      {
+        "key": "root-2-fine-0",
+        "parent": "root-2-2",
+        "position_m": [
+          -0.48545,
+          -0.4,
+          1.25456
+        ]
+      },
+      {
+        "key": "root-2-fine-1",
+        "parent": "root-2-2",
+        "position_m": [
+          -1.07622,
+          -0.4,
+          0.76279
+        ]
+      },
+      {
+        "key": "root-3-1",
+        "parent": "collar",
+        "position_m": [
+          -0.22904,
+          -0.045,
+          0.02104
+        ]
+      },
+      {
+        "key": "root-3-2",
+        "parent": "root-3-1",
+        "position_m": [
+          -0.90818,
+          -0.16,
+          0.08342
+        ]
+      },
+      {
+        "key": "root-3-3",
+        "parent": "root-3-2",
+        "position_m": [
+          -1.89204,
+          -0.35,
+          0.17378
+        ]
+      },
+      {
+        "key": "root-3-fine-0",
+        "parent": "root-3-2",
+        "position_m": [
+          -1.65487,
+          -0.4,
+          0.60706
+        ]
+      },
+      {
+        "key": "root-3-fine-1",
+        "parent": "root-3-2",
+        "position_m": [
+          -1.68165,
+          -0.4,
+          -0.39979
+        ]
+      },
+      {
+        "key": "root-4-1",
+        "parent": "collar",
+        "position_m": [
+          -0.12069,
+          -0.045,
+          -0.19579
+        ]
+      },
+      {
+        "key": "root-4-2",
+        "parent": "root-4-1",
+        "position_m": [
+          -0.40299,
+          -0.16,
+          -0.65378
+        ]
+      },
+      {
+        "key": "root-4-3",
+        "parent": "root-4-2",
+        "position_m": [
+          -0.83956,
+          -0.31,
+          -1.36204
+        ]
+      },
+      {
+        "key": "root-4-fine-0",
+        "parent": "root-4-2",
+        "position_m": [
+          -1.07756,
+          -0.4,
+          -1.0209
+        ]
+      },
+      {
+        "key": "root-4-fine-1",
+        "parent": "root-4-2",
+        "position_m": [
+          -0.32814,
+          -0.4,
+          -1.41812
+        ]
+      },
+      {
+        "key": "root-5-1",
+        "parent": "collar",
+        "position_m": [
+          0.12941,
+          -0.045,
+          -0.19014
+        ]
+      },
+      {
+        "key": "root-5-2",
+        "parent": "root-5-1",
+        "position_m": [
+          0.47264,
+          -0.16,
+          -0.69441
+        ]
+      },
+      {
+        "key": "root-5-3",
+        "parent": "root-5-2",
+        "position_m": [
+          0.98467,
+          -0.35,
+          -1.44669
+        ]
+      },
+      {
+        "key": "root-5-fine-0",
+        "parent": "root-5-2",
+        "position_m": [
+          0.53777,
+          -0.4,
+          -1.53188
+        ]
+      },
+      {
+        "key": "root-5-fine-1",
+        "parent": "root-5-2",
+        "position_m": [
+          1.26915,
+          -0.4,
+          -0.96118
+        ]
+      },
+      {
+        "key": "descending-root-1",
+        "parent": "collar",
+        "position_m": [
+          0.03,
+          -0.38,
+          -0.02
+        ]
+      },
+      {
+        "key": "descending-root-2",
+        "parent": "descending-root-1",
+        "position_m": [
+          -0.07,
+          -0.82,
+          0.05
+        ]
+      },
+      {
+        "key": "descending-root-3",
+        "parent": "descending-root-2",
+        "position_m": [
+          -0.18,
+          -1.15,
+          0.12
+        ]
+      },
+      {
+        "key": "scaffold-0-1",
+        "parent": "stem-4",
+        "position_m": [
+          0.50655,
+          2.17618,
+          0.13536
+        ]
+      },
+      {
+        "key": "scaffold-0-2",
+        "parent": "scaffold-0-1",
+        "position_m": [
+          0.97808,
+          2.35733,
+          0.25577
+        ]
+      },
+      {
+        "key": "scaffold-0-3",
+        "parent": "scaffold-0-2",
+        "position_m": [
+          1.44962,
+          2.45738,
+          0.37617
+        ]
+      },
+      {
+        "key": "branchlet-0-0-1",
+        "parent": "scaffold-0-1",
+        "position_m": [
+          0.69702,
+          2.26782,
+          0.07435
+        ]
+      },
+      {
+        "key": "branchlet-0-0-2",
+        "parent": "branchlet-0-0-1",
+        "position_m": [
+          0.88748,
+          2.30395,
+          0.01334
+        ]
+      },
+      {
+        "key": "branchlet-0-0-3",
+        "parent": "branchlet-0-0-2",
+        "position_m": [
+          1.07795,
+          2.26147,
+          -0.04768
+        ]
+      },
+      {
+        "key": "branchlet-0-1-1",
+        "parent": "scaffold-0-2",
+        "position_m": [
+          1.12355,
+          2.3925,
+          0.45083
+        ]
+      },
+      {
+        "key": "branchlet-0-1-2",
+        "parent": "branchlet-0-1-1",
+        "position_m": [
+          1.26903,
+          2.39189,
+          0.64589
+        ]
+      },
+      {
+        "key": "branchlet-0-1-3",
+        "parent": "branchlet-0-1-2",
+        "position_m": [
+          1.4145,
+          2.34524,
+          0.84095
+        ]
+      },
+      {
+        "key": "branchlet-0-2-1",
+        "parent": "scaffold-0-3",
+        "position_m": [
+          1.69401,
+          2.54902,
+          0.22633
+        ]
+      },
+      {
+        "key": "branchlet-0-2-2",
+        "parent": "branchlet-0-2-1",
+        "position_m": [
+          1.9384,
+          2.58515,
+          0.0765
+        ]
+      },
+      {
+        "key": "branchlet-0-2-3",
+        "parent": "branchlet-0-2-2",
+        "position_m": [
+          2.18279,
+          2.54267,
+          -0.07334
+        ]
+      },
+      {
+        "key": "branchlet-0-3-1",
+        "parent": "scaffold-0-3",
+        "position_m": [
+          1.58752,
+          2.49255,
+          0.52103
+        ]
+      },
+      {
+        "key": "branchlet-0-3-2",
+        "parent": "branchlet-0-3-1",
+        "position_m": [
+          1.72542,
+          2.49194,
+          0.66588
+        ]
+      },
+      {
+        "key": "branchlet-0-3-3",
+        "parent": "branchlet-0-3-2",
+        "position_m": [
+          1.86332,
+          2.44529,
+          0.81074
+        ]
+      },
+      {
+        "key": "scaffold-1-1",
+        "parent": "stem-5",
+        "position_m": [
+          -0.44941,
+          2.66748,
+          0.30413
+        ]
+      },
+      {
+        "key": "scaffold-1-2",
+        "parent": "scaffold-1-1",
+        "position_m": [
+          -0.90517,
+          2.84166,
+          0.62375
+        ]
+      },
+      {
+        "key": "scaffold-1-3",
+        "parent": "scaffold-1-2",
+        "position_m": [
+          -1.36094,
+          2.93786,
+          0.94338
+        ]
+      },
+      {
+        "key": "branchlet-1-0-1",
+        "parent": "scaffold-1-1",
+        "position_m": [
+          -0.54068,
+          2.75912,
+          0.52048
+        ]
+      },
+      {
+        "key": "branchlet-1-0-2",
+        "parent": "branchlet-1-0-1",
+        "position_m": [
+          -0.63195,
+          2.79525,
+          0.73684
+        ]
+      },
+      {
+        "key": "branchlet-1-0-3",
+        "parent": "branchlet-1-0-2",
+        "position_m": [
+          -0.72322,
+          2.75277,
+          0.95319
+        ]
+      },
+      {
+        "key": "branchlet-1-1-1",
+        "parent": "scaffold-1-2",
+        "position_m": [
+          -1.18116,
+          2.87683,
+          0.60484
+        ]
+      },
+      {
+        "key": "branchlet-1-1-2",
+        "parent": "branchlet-1-1-1",
+        "position_m": [
+          -1.45714,
+          2.87622,
+          0.58593
+        ]
+      },
+      {
+        "key": "branchlet-1-1-3",
+        "parent": "branchlet-1-1-2",
+        "position_m": [
+          -1.73313,
+          2.82957,
+          0.56702
+        ]
+      },
+      {
+        "key": "branchlet-1-2-1",
+        "parent": "scaffold-1-3",
+        "position_m": [
+          -1.39154,
+          3.0295,
+          1.13394
+        ]
+      },
+      {
+        "key": "branchlet-1-2-2",
+        "parent": "branchlet-1-2-1",
+        "position_m": [
+          -1.42213,
+          3.06563,
+          1.3245
+        ]
+      },
+      {
+        "key": "branchlet-1-2-3",
+        "parent": "branchlet-1-2-2",
+        "position_m": [
+          -1.45273,
+          3.02315,
+          1.51506
+        ]
+      },
+      {
+        "key": "branchlet-1-3-1",
+        "parent": "scaffold-1-3",
+        "position_m": [
+          -1.59544,
+          2.97303,
+          0.95549
+        ]
+      },
+      {
+        "key": "branchlet-1-3-2",
+        "parent": "branchlet-1-3-1",
+        "position_m": [
+          -1.82995,
+          2.97242,
+          0.9676
+        ]
+      },
+      {
+        "key": "branchlet-1-3-3",
+        "parent": "branchlet-1-3-2",
+        "position_m": [
+          -2.06445,
+          2.92577,
+          0.97971
+        ]
+      },
+      {
+        "key": "scaffold-2-1",
+        "parent": "stem-6",
+        "position_m": [
+          -0.09809,
+          3.17618,
+          -0.53905
+        ]
+      },
+      {
+        "key": "scaffold-2-2",
+        "parent": "scaffold-2-1",
+        "position_m": [
+          -0.17047,
+          3.35733,
+          -1.04389
+        ]
+      },
+      {
+        "key": "scaffold-2-3",
+        "parent": "scaffold-2-2",
+        "position_m": [
+          -0.24284,
+          3.45738,
+          -1.54873
+        ]
+      },
+      {
+        "key": "branchlet-2-0-1",
+        "parent": "scaffold-2-1",
+        "position_m": [
+          -0.27033,
+          3.26782,
+          -0.74255
+        ]
+      },
+      {
+        "key": "branchlet-2-0-2",
+        "parent": "branchlet-2-0-1",
+        "position_m": [
+          -0.44256,
+          3.30395,
+          -0.94604
+        ]
+      },
+      {
+        "key": "branchlet-2-0-3",
+        "parent": "branchlet-2-0-2",
+        "position_m": [
+          -0.6148,
+          3.26147,
+          -1.14954
+        ]
+      },
+      {
+        "key": "branchlet-2-1-1",
+        "parent": "scaffold-2-2",
+        "position_m": [
+          -0.07522,
+          3.3925,
+          -1.20365
+        ]
+      },
+      {
+        "key": "branchlet-2-1-2",
+        "parent": "branchlet-2-1-1",
+        "position_m": [
+          0.02003,
+          3.39189,
+          -1.36341
+        ]
+      },
+      {
+        "key": "branchlet-2-1-3",
+        "parent": "branchlet-2-1-2",
+        "position_m": [
+          0.11527,
+          3.34524,
+          -1.52318
+        ]
+      },
+      {
+        "key": "branchlet-2-2-1",
+        "parent": "scaffold-2-3",
+        "position_m": [
+          -0.42591,
+          3.54902,
+          -1.68176
+        ]
+      },
+      {
+        "key": "branchlet-2-2-2",
+        "parent": "branchlet-2-2-1",
+        "position_m": [
+          -0.60898,
+          3.58515,
+          -1.81479
+        ]
+      },
+      {
+        "key": "branchlet-2-2-3",
+        "parent": "branchlet-2-2-2",
+        "position_m": [
+          -0.79205,
+          3.54267,
+          -1.94783
+        ]
+      },
+      {
+        "key": "branchlet-2-3-1",
+        "parent": "scaffold-2-3",
+        "position_m": [
+          -0.13471,
+          3.49255,
+          -1.79242
+        ]
+      },
+      {
+        "key": "branchlet-2-3-2",
+        "parent": "branchlet-2-3-1",
+        "position_m": [
+          -0.02659,
+          3.49194,
+          -2.03611
+        ]
+      },
+      {
+        "key": "branchlet-2-3-3",
+        "parent": "branchlet-2-3-2",
+        "position_m": [
+          0.08154,
+          3.44529,
+          -2.2798
+        ]
+      },
+      {
+        "key": "scaffold-3-1",
+        "parent": "stem-7",
+        "position_m": [
+          -0.06973,
+          3.65008,
+          0.49565
+        ]
+      },
+      {
+        "key": "scaffold-3-2",
+        "parent": "scaffold-3-1",
+        "position_m": [
+          -0.09547,
+          3.81033,
+          1.01835
+        ]
+      },
+      {
+        "key": "scaffold-3-3",
+        "parent": "scaffold-3-2",
+        "position_m": [
+          -0.12121,
+          3.89883,
+          1.54105
+        ]
+      },
+      {
+        "key": "branchlet-3-0-1",
+        "parent": "scaffold-3-1",
+        "position_m": [
+          0.01778,
+          3.74172,
+          0.6518
+        ]
+      },
+      {
+        "key": "branchlet-3-0-2",
+        "parent": "branchlet-3-0-1",
+        "position_m": [
+          0.10529,
+          3.77785,
+          0.80795
+        ]
+      },
+      {
+        "key": "branchlet-3-0-3",
+        "parent": "branchlet-3-0-2",
+        "position_m": [
+          0.19279,
+          3.73537,
+          0.9641
+        ]
+      },
+      {
+        "key": "branchlet-3-1-1",
+        "parent": "scaffold-3-2",
+        "position_m": [
+          -0.24057,
+          3.8455,
+          1.18075
+        ]
+      },
+      {
+        "key": "branchlet-3-1-2",
+        "parent": "branchlet-3-1-1",
+        "position_m": [
+          -0.38568,
+          3.84489,
+          1.34315
+        ]
+      },
+      {
+        "key": "branchlet-3-1-3",
+        "parent": "branchlet-3-1-2",
+        "position_m": [
+          -0.53078,
+          3.79824,
+          1.50556
+        ]
+      },
+      {
+        "key": "branchlet-3-2-1",
+        "parent": "scaffold-3-3",
+        "position_m": [
+          0.05383,
+          3.99047,
+          1.72864
+        ]
+      },
+      {
+        "key": "branchlet-3-2-2",
+        "parent": "branchlet-3-2-1",
+        "position_m": [
+          0.22886,
+          4.0266,
+          1.91623
+        ]
+      },
+      {
+        "key": "branchlet-3-2-3",
+        "parent": "branchlet-3-2-2",
+        "position_m": [
+          0.4039,
+          3.98412,
+          2.10381
+        ]
+      },
+      {
+        "key": "branchlet-3-3-1",
+        "parent": "scaffold-3-3",
+        "position_m": [
+          -0.22364,
+          3.934,
+          1.68785
+        ]
+      },
+      {
+        "key": "branchlet-3-3-2",
+        "parent": "branchlet-3-3-1",
+        "position_m": [
+          -0.32606,
+          3.93339,
+          1.83465
+        ]
+      },
+      {
+        "key": "branchlet-3-3-3",
+        "parent": "branchlet-3-3-2",
+        "position_m": [
+          -0.42849,
+          3.88674,
+          1.98145
+        ]
+      },
+      {
+        "key": "scaffold-4-1",
+        "parent": "stem-7",
+        "position_m": [
+          0.3647,
+          3.71533,
+          -0.28509
+        ]
+      },
+      {
+        "key": "scaffold-4-2",
+        "parent": "scaffold-4-1",
+        "position_m": [
+          0.77338,
+          3.92783,
+          -0.54314
+        ]
+      },
+      {
+        "key": "scaffold-4-3",
+        "parent": "scaffold-4-2",
+        "position_m": [
+          1.18207,
+          4.04519,
+          -0.80118
+        ]
+      },
+      {
+        "key": "branchlet-4-0-1",
+        "parent": "scaffold-4-1",
+        "position_m": [
+          0.45527,
+          3.80697,
+          -0.47374
+        ]
+      },
+      {
+        "key": "branchlet-4-0-2",
+        "parent": "branchlet-4-0-1",
+        "position_m": [
+          0.54585,
+          3.8431,
+          -0.66239
+        ]
+      },
+      {
+        "key": "branchlet-4-0-3",
+        "parent": "branchlet-4-0-2",
+        "position_m": [
+          0.63642,
+          3.80062,
+          -0.85104
+        ]
+      },
+      {
+        "key": "branchlet-4-1-1",
+        "parent": "scaffold-4-2",
+        "position_m": [
+          1.01823,
+          3.963,
+          -0.51441
+        ]
+      },
+      {
+        "key": "branchlet-4-1-2",
+        "parent": "branchlet-4-1-1",
+        "position_m": [
+          1.26309,
+          3.96239,
+          -0.48567
+        ]
+      },
+      {
+        "key": "branchlet-4-1-3",
+        "parent": "branchlet-4-1-2",
+        "position_m": [
+          1.50794,
+          3.91574,
+          -0.45694
+        ]
+      },
+      {
+        "key": "branchlet-4-2-1",
+        "parent": "scaffold-4-3",
+        "position_m": [
+          1.21752,
+          4.13683,
+          -0.96949
+        ]
+      },
+      {
+        "key": "branchlet-4-2-2",
+        "parent": "branchlet-4-2-1",
+        "position_m": [
+          1.25298,
+          4.17296,
+          -1.13779
+        ]
+      },
+      {
+        "key": "branchlet-4-2-3",
+        "parent": "branchlet-4-2-2",
+        "position_m": [
+          1.28843,
+          4.13048,
+          -1.3061
+        ]
+      },
+      {
+        "key": "branchlet-4-3-1",
+        "parent": "scaffold-4-3",
+        "position_m": [
+          1.39134,
+          4.08036,
+          -0.80185
+        ]
+      },
+      {
+        "key": "branchlet-4-3-2",
+        "parent": "branchlet-4-3-1",
+        "position_m": [
+          1.6006,
+          4.07975,
+          -0.80251
+        ]
+      },
+      {
+        "key": "branchlet-4-3-3",
+        "parent": "branchlet-4-3-2",
+        "position_m": [
+          1.80987,
+          4.0331,
+          -0.80318
+        ]
+      },
+      {
+        "key": "scaffold-5-1",
+        "parent": "stem-8",
+        "position_m": [
+          -0.4537,
+          4.19358,
+          -0.14548
+        ]
+      },
+      {
+        "key": "scaffold-5-2",
+        "parent": "scaffold-5-1",
+        "position_m": [
+          -0.86874,
+          4.38866,
+          -0.29156
+        ]
+      },
+      {
+        "key": "scaffold-5-3",
+        "parent": "scaffold-5-2",
+        "position_m": [
+          -1.28379,
+          4.49641,
+          -0.43763
+        ]
+      },
+      {
+        "key": "branchlet-5-0-1",
+        "parent": "scaffold-5-1",
+        "position_m": [
+          -0.68442,
+          4.28522,
+          -0.0935
+        ]
+      },
+      {
+        "key": "branchlet-5-0-2",
+        "parent": "branchlet-5-0-1",
+        "position_m": [
+          -0.91513,
+          4.32135,
+          -0.04152
+        ]
+      },
+      {
+        "key": "branchlet-5-0-3",
+        "parent": "branchlet-5-0-2",
+        "position_m": [
+          -1.14585,
+          4.27887,
+          0.01046
+        ]
+      },
+      {
+        "key": "branchlet-5-1-1",
+        "parent": "scaffold-5-2",
+        "position_m": [
+          -0.95532,
+          4.42383,
+          -0.43202
+        ]
+      },
+      {
+        "key": "branchlet-5-1-2",
+        "parent": "branchlet-5-1-1",
+        "position_m": [
+          -1.0419,
+          4.42322,
+          -0.57248
+        ]
+      },
+      {
+        "key": "branchlet-5-1-3",
+        "parent": "branchlet-5-1-2",
+        "position_m": [
+          -1.12848,
+          4.37657,
+          -0.71294
+        ]
+      },
+      {
+        "key": "branchlet-5-2-1",
+        "parent": "scaffold-5-3",
+        "position_m": [
+          -1.46353,
+          4.58805,
+          -0.34822
+        ]
+      },
+      {
+        "key": "branchlet-5-2-2",
+        "parent": "branchlet-5-2-1",
+        "position_m": [
+          -1.64327,
+          4.62418,
+          -0.25881
+        ]
+      },
+      {
+        "key": "branchlet-5-2-3",
+        "parent": "branchlet-5-2-2",
+        "position_m": [
+          -1.82301,
+          4.5817,
+          -0.1694
+        ]
+      },
+      {
+        "key": "branchlet-5-3-1",
+        "parent": "scaffold-5-3",
+        "position_m": [
+          -1.4311,
+          4.53158,
+          -0.62265
+        ]
+      },
+      {
+        "key": "branchlet-5-3-2",
+        "parent": "branchlet-5-3-1",
+        "position_m": [
+          -1.5784,
+          4.53097,
+          -0.80767
+        ]
+      },
+      {
+        "key": "branchlet-5-3-3",
+        "parent": "branchlet-5-3-2",
+        "position_m": [
+          -1.72571,
+          4.48432,
+          -0.9927
+        ]
+      },
+      {
+        "key": "scaffold-6-1",
+        "parent": "stem-9",
+        "position_m": [
+          0.30292,
+          4.65878,
+          0.26268
+        ]
+      },
+      {
+        "key": "scaffold-6-2",
+        "parent": "scaffold-6-1",
+        "position_m": [
+          0.61841,
+          4.826,
+          0.49757
+        ]
+      },
+      {
+        "key": "scaffold-6-3",
+        "parent": "scaffold-6-2",
+        "position_m": [
+          0.9339,
+          4.91835,
+          0.73247
+        ]
+      },
+      {
+        "key": "branchlet-6-0-1",
+        "parent": "scaffold-6-1",
+        "position_m": [
+          0.46041,
+          4.75042,
+          0.27531
+        ]
+      },
+      {
+        "key": "branchlet-6-0-2",
+        "parent": "branchlet-6-0-1",
+        "position_m": [
+          0.61791,
+          4.78655,
+          0.28793
+        ]
+      },
+      {
+        "key": "branchlet-6-0-3",
+        "parent": "branchlet-6-0-2",
+        "position_m": [
+          0.7754,
+          4.74407,
+          0.30056
+        ]
+      },
+      {
+        "key": "branchlet-6-1-1",
+        "parent": "scaffold-6-2",
+        "position_m": [
+          0.66612,
+          4.86117,
+          0.68379
+        ]
+      },
+      {
+        "key": "branchlet-6-1-2",
+        "parent": "branchlet-6-1-1",
+        "position_m": [
+          0.71383,
+          4.86056,
+          0.87001
+        ]
+      },
+      {
+        "key": "branchlet-6-1-3",
+        "parent": "branchlet-6-1-2",
+        "position_m": [
+          0.76153,
+          4.81391,
+          1.05623
+        ]
+      },
+      {
+        "key": "branchlet-6-2-1",
+        "parent": "scaffold-6-3",
+        "position_m": [
+          1.15747,
+          5.00999,
+          0.69639
+        ]
+      },
+      {
+        "key": "branchlet-6-2-2",
+        "parent": "branchlet-6-2-1",
+        "position_m": [
+          1.38105,
+          5.04612,
+          0.66031
+        ]
+      },
+      {
+        "key": "branchlet-6-2-3",
+        "parent": "branchlet-6-2-2",
+        "position_m": [
+          1.60462,
+          5.00364,
+          0.62423
+        ]
+      },
+      {
+        "key": "branchlet-6-3-1",
+        "parent": "scaffold-6-3",
+        "position_m": [
+          0.99115,
+          4.95352,
+          0.87973
+        ]
+      },
+      {
+        "key": "branchlet-6-3-2",
+        "parent": "branchlet-6-3-1",
+        "position_m": [
+          1.04841,
+          4.95291,
+          1.02699
+        ]
+      },
+      {
+        "key": "branchlet-6-3-3",
+        "parent": "branchlet-6-3-2",
+        "position_m": [
+          1.10566,
+          4.90626,
+          1.17426
+        ]
+      },
+      {
+        "key": "scaffold-7-1",
+        "parent": "stem-10",
+        "position_m": [
+          -0.31699,
+          5.12834,
+          0.15006
+        ]
+      },
+      {
+        "key": "scaffold-7-2",
+        "parent": "scaffold-7-1",
+        "position_m": [
+          -0.65422,
+          5.27116,
+          0.26618
+        ]
+      },
+      {
+        "key": "scaffold-7-3",
+        "parent": "scaffold-7-2",
+        "position_m": [
+          -0.99146,
+          5.35005,
+          0.38229
+        ]
+      },
+      {
+        "key": "branchlet-7-0-1",
+        "parent": "scaffold-7-1",
+        "position_m": [
+          -0.4324,
+          5.21998,
+          0.29301
+        ]
+      },
+      {
+        "key": "branchlet-7-0-2",
+        "parent": "branchlet-7-0-1",
+        "position_m": [
+          -0.5478,
+          5.25611,
+          0.43595
+        ]
+      },
+      {
+        "key": "branchlet-7-0-3",
+        "parent": "branchlet-7-0-2",
+        "position_m": [
+          -0.66321,
+          5.21363,
+          0.5789
+        ]
+      },
+      {
+        "key": "branchlet-7-1-1",
+        "parent": "scaffold-7-2",
+        "position_m": [
+          -0.85765,
+          5.30633,
+          0.19229
+        ]
+      },
+      {
+        "key": "branchlet-7-1-2",
+        "parent": "branchlet-7-1-1",
+        "position_m": [
+          -1.06108,
+          5.30572,
+          0.1184
+        ]
+      },
+      {
+        "key": "branchlet-7-1-3",
+        "parent": "branchlet-7-1-2",
+        "position_m": [
+          -1.26451,
+          5.25907,
+          0.04451
+        ]
+      },
+      {
+        "key": "branchlet-7-2-1",
+        "parent": "scaffold-7-3",
+        "position_m": [
+          -1.05567,
+          5.44169,
+          0.51896
+        ]
+      },
+      {
+        "key": "branchlet-7-2-2",
+        "parent": "branchlet-7-2-1",
+        "position_m": [
+          -1.11988,
+          5.47782,
+          0.65563
+        ]
+      },
+      {
+        "key": "branchlet-7-2-3",
+        "parent": "branchlet-7-2-2",
+        "position_m": [
+          -1.18408,
+          5.43534,
+          0.7923
+        ]
+      },
+      {
+        "key": "branchlet-7-3-1",
+        "parent": "scaffold-7-3",
+        "position_m": [
+          -1.17041,
+          5.38522,
+          0.34069
+        ]
+      },
+      {
+        "key": "branchlet-7-3-2",
+        "parent": "branchlet-7-3-1",
+        "position_m": [
+          -1.34935,
+          5.38461,
+          0.29909
+        ]
+      },
+      {
+        "key": "branchlet-7-3-3",
+        "parent": "branchlet-7-3-2",
+        "position_m": [
+          -1.5283,
+          5.33796,
+          0.2575
+        ]
+      },
+      {
+        "key": "scaffold-8-1",
+        "parent": "stem-11",
+        "position_m": [
+          0.07742,
+          5.57834,
+          -0.23982
+        ]
+      },
+      {
+        "key": "scaffold-8-2",
+        "parent": "scaffold-8-1",
+        "position_m": [
+          0.11263,
+          5.72116,
+          -0.49406
+        ]
+      },
+      {
+        "key": "scaffold-8-3",
+        "parent": "scaffold-8-2",
+        "position_m": [
+          0.14784,
+          5.80005,
+          -0.7483
+        ]
+      },
+      {
+        "key": "branchlet-8-0-1",
+        "parent": "scaffold-8-1",
+        "position_m": [
+          -0.00719,
+          5.66998,
+          -0.42808
+        ]
+      },
+      {
+        "key": "branchlet-8-0-2",
+        "parent": "branchlet-8-0-1",
+        "position_m": [
+          -0.0918,
+          5.70611,
+          -0.61634
+        ]
+      },
+      {
+        "key": "branchlet-8-0-3",
+        "parent": "branchlet-8-0-2",
+        "position_m": [
+          -0.17642,
+          5.66363,
+          -0.8046
+        ]
+      },
+      {
+        "key": "branchlet-8-1-1",
+        "parent": "scaffold-8-2",
+        "position_m": [
+          0.21768,
+          5.75633,
+          -0.59255
+        ]
+      },
+      {
+        "key": "branchlet-8-1-2",
+        "parent": "branchlet-8-1-1",
+        "position_m": [
+          0.32273,
+          5.75572,
+          -0.69104
+        ]
+      },
+      {
+        "key": "branchlet-8-1-3",
+        "parent": "branchlet-8-1-2",
+        "position_m": [
+          0.42778,
+          5.70907,
+          -0.78953
+        ]
+      },
+      {
+        "key": "branchlet-8-2-1",
+        "parent": "scaffold-8-3",
+        "position_m": [
+          0.04009,
+          5.89169,
+          -0.88645
+        ]
+      },
+      {
+        "key": "branchlet-8-2-2",
+        "parent": "branchlet-8-2-1",
+        "position_m": [
+          -0.06766,
+          5.92782,
+          -1.0246
+        ]
+      },
+      {
+        "key": "branchlet-8-2-3",
+        "parent": "branchlet-8-2-2",
+        "position_m": [
+          -0.17541,
+          5.88534,
+          -1.16275
+        ]
+      },
+      {
+        "key": "branchlet-8-3-1",
+        "parent": "scaffold-8-3",
+        "position_m": [
+          0.28043,
+          5.83522,
+          -0.90648
+        ]
+      },
+      {
+        "key": "branchlet-8-3-2",
+        "parent": "branchlet-8-3-1",
+        "position_m": [
+          0.41302,
+          5.83461,
+          -1.06466
+        ]
+      },
+      {
+        "key": "branchlet-8-3-3",
+        "parent": "branchlet-8-3-2",
+        "position_m": [
+          0.54561,
+          5.78796,
+          -1.22284
+        ]
+      },
+      {
+        "key": "scaffold-9-1",
+        "parent": "stem-12",
+        "position_m": [
+          0.05284,
+          5.92179,
+          0.14359
+        ]
+      },
+      {
+        "key": "scaffold-9-2",
+        "parent": "scaffold-9-1",
+        "position_m": [
+          0.06416,
+          6.01933,
+          0.30319
+        ]
+      },
+      {
+        "key": "scaffold-9-3",
+        "parent": "scaffold-9-2",
+        "position_m": [
+          0.07547,
+          6.0732,
+          0.46279
+        ]
+      },
+      {
+        "key": "branchlet-9-0-1",
+        "parent": "scaffold-9-1",
+        "position_m": [
+          0.13364,
+          6.01343,
+          0.25423
+        ]
+      },
+      {
+        "key": "branchlet-9-0-2",
+        "parent": "branchlet-9-0-1",
+        "position_m": [
+          0.21444,
+          6.04956,
+          0.36486
+        ]
+      },
+      {
+        "key": "branchlet-9-0-3",
+        "parent": "branchlet-9-0-2",
+        "position_m": [
+          0.29524,
+          6.00708,
+          0.4755
+        ]
+      },
+      {
+        "key": "branchlet-9-1-1",
+        "parent": "scaffold-9-2",
+        "position_m": [
+          -0.03122,
+          6.0545,
+          0.43989
+        ]
+      },
+      {
+        "key": "branchlet-9-1-2",
+        "parent": "branchlet-9-1-1",
+        "position_m": [
+          -0.1266,
+          6.05389,
+          0.57659
+        ]
+      },
+      {
+        "key": "branchlet-9-1-3",
+        "parent": "branchlet-9-1-2",
+        "position_m": [
+          -0.22198,
+          6.00724,
+          0.71328
+        ]
+      },
+      {
+        "key": "branchlet-9-2-1",
+        "parent": "scaffold-9-3",
+        "position_m": [
+          0.22566,
+          6.16484,
+          0.58929
+        ]
+      },
+      {
+        "key": "branchlet-9-2-2",
+        "parent": "branchlet-9-2-1",
+        "position_m": [
+          0.37585,
+          6.20097,
+          0.7158
+        ]
+      },
+      {
+        "key": "branchlet-9-2-3",
+        "parent": "branchlet-9-2-2",
+        "position_m": [
+          0.52604,
+          6.15849,
+          0.8423
+        ]
+      },
+      {
+        "key": "branchlet-9-3-1",
+        "parent": "scaffold-9-3",
+        "position_m": [
+          0.01109,
+          6.10837,
+          0.58372
+        ]
+      },
+      {
+        "key": "branchlet-9-3-2",
+        "parent": "branchlet-9-3-1",
+        "position_m": [
+          -0.05329,
+          6.10776,
+          0.70465
+        ]
+      },
+      {
+        "key": "branchlet-9-3-3",
+        "parent": "branchlet-9-3-2",
+        "position_m": [
+          -0.11767,
+          6.06111,
+          0.82558
+        ]
+      }
+    ],
+    "attractors_m": [],
+    "node_length_m": 0.12,
+    "kill_radius_m": 0.1,
+    "perception_radius_m": 0.5,
+    "cone_angle_rad": 1.5,
+    "max_iterations": 1,
+    "tip_radius_m": 0.007,
+    "pipe_exponent": 2,
+    "ring_slices": 12
+  },
+  "radii_m": [
+    0.205,
+    0.138,
+    0.12871,
+    0.11943,
+    0.11014,
+    0.10086,
+    0.09157,
+    0.08229,
+    0.073,
+    0.06371,
+    0.05443,
+    0.04514,
+    0.03586,
+    0.02657,
+    0.095,
+    0.047,
+    0.012,
+    0.0065,
+    0.0065,
+    0.095,
+    0.047,
+    0.012,
+    0.0065,
+    0.0065,
+    0.095,
+    0.047,
+    0.012,
+    0.0065,
+    0.0065,
+    0.095,
+    0.047,
+    0.012,
+    0.0065,
+    0.0065,
+    0.095,
+    0.047,
+    0.012,
+    0.0065,
+    0.0065,
+    0.095,
+    0.047,
+    0.012,
+    0.0065,
+    0.0065,
+    0.08,
+    0.04,
+    0.008,
+    0.0418,
+    0.0286,
+    0.0154,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.03952,
+    0.02704,
+    0.01456,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.03724,
+    0.02548,
+    0.01372,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.03496,
+    0.02392,
+    0.01288,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.03268,
+    0.02236,
+    0.01204,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.0304,
+    0.0208,
+    0.0112,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.02812,
+    0.01924,
+    0.01036,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.02584,
+    0.01768,
+    0.00952,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.02356,
+    0.01612,
+    0.00868,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.02128,
+    0.01456,
+    0.00784,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028,
+    0.01027,
+    0.00653,
+    0.0028
+  ],
+  "roles": [
+    "root_collar",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "trunk_metamer",
+    "lateral_root",
+    "lateral_root",
+    "lateral_root",
+    "secondary_root",
+    "secondary_root",
+    "lateral_root",
+    "lateral_root",
+    "lateral_root",
+    "secondary_root",
+    "secondary_root",
+    "lateral_root",
+    "lateral_root",
+    "lateral_root",
+    "secondary_root",
+    "secondary_root",
+    "lateral_root",
+    "lateral_root",
+    "lateral_root",
+    "secondary_root",
+    "secondary_root",
+    "lateral_root",
+    "lateral_root",
+    "lateral_root",
+    "secondary_root",
+    "secondary_root",
+    "lateral_root",
+    "lateral_root",
+    "lateral_root",
+    "secondary_root",
+    "secondary_root",
+    "primary_root_hypothesis",
+    "primary_root_hypothesis",
+    "primary_root_hypothesis",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "scaffold_branch",
+    "scaffold_branch",
+    "scaffold_branch",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet",
+    "secondary_branchlet"
+  ],
+  "sprays": [
+    {
+      "key": "shoot-0-0-0",
+      "edge_end": "branchlet-0-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.62941,
+        -0.08,
+        -0.77707
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 0
+    },
+    {
+      "key": "shoot-0-0-1",
+      "edge_end": "branchlet-0-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.94604,
+        -0.08,
+        0.32404
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 0.47
+    },
+    {
+      "key": "shoot-0-0-2",
+      "edge_end": "branchlet-0-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.62941,
+        -0.08,
+        -0.77707
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 0.94
+    },
+    {
+      "key": "shoot-0-0-3",
+      "edge_end": "branchlet-0-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.94604,
+        0.2,
+        0.32404
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 1.41
+    },
+    {
+      "key": "shoot-0-1-0",
+      "edge_end": "branchlet-0-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.93937,
+        -0.08,
+        0.3429
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 0.83
+    },
+    {
+      "key": "shoot-0-1-1",
+      "edge_end": "branchlet-0-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.0008,
+        -0.08,
+        1
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 1.3
+    },
+    {
+      "key": "shoot-0-1-2",
+      "edge_end": "branchlet-0-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.93937,
+        -0.08,
+        0.3429
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 1.77
+    },
+    {
+      "key": "shoot-0-1-3",
+      "edge_end": "branchlet-0-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.0008,
+        0.2,
+        1
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 2.24
+    },
+    {
+      "key": "shoot-0-2-0",
+      "edge_end": "branchlet-0-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.42666,
+        -0.08,
+        -0.90441
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 1.66
+    },
+    {
+      "key": "shoot-0-2-1",
+      "edge_end": "branchlet-0-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.99595,
+        -0.08,
+        0.08988
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 2.13
+    },
+    {
+      "key": "shoot-0-2-2",
+      "edge_end": "branchlet-0-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.42666,
+        -0.08,
+        -0.90441
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 2.6
+    },
+    {
+      "key": "shoot-0-2-3",
+      "edge_end": "branchlet-0-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.99595,
+        0.2,
+        0.08988
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 3.07
+    },
+    {
+      "key": "shoot-0-3-0",
+      "edge_end": "branchlet-0-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.97367,
+        -0.08,
+        0.22798
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 2.49
+    },
+    {
+      "key": "shoot-0-3-1",
+      "edge_end": "branchlet-0-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.1205,
+        -0.08,
+        0.99271
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 2.96
+    },
+    {
+      "key": "shoot-0-3-2",
+      "edge_end": "branchlet-0-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.97367,
+        -0.08,
+        0.22798
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 3.43
+    },
+    {
+      "key": "shoot-0-3-3",
+      "edge_end": "branchlet-0-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.1205,
+        0.2,
+        0.99271
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 3.9
+    },
+    {
+      "key": "shoot-1-0-0",
+      "edge_end": "branchlet-1-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.17981,
+        -0.08,
+        0.9837
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 2.73
+    },
+    {
+      "key": "shoot-1-0-1",
+      "edge_end": "branchlet-1-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.862,
+        -0.08,
+        0.50691
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 3.2
+    },
+    {
+      "key": "shoot-1-0-2",
+      "edge_end": "branchlet-1-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.17981,
+        -0.08,
+        0.9837
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 3.67
+    },
+    {
+      "key": "shoot-1-0-3",
+      "edge_end": "branchlet-1-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.862,
+        0.2,
+        0.50691
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 4.14
+    },
+    {
+      "key": "shoot-1-1-0",
+      "edge_end": "branchlet-1-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.87197,
+        -0.08,
+        0.48957
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 3.56
+    },
+    {
+      "key": "shoot-1-1-1",
+      "edge_end": "branchlet-1-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.7594,
+        -0.08,
+        -0.65063
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 4.03
+    },
+    {
+      "key": "shoot-1-1-2",
+      "edge_end": "branchlet-1-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.87197,
+        -0.08,
+        0.48957
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 4.5
+    },
+    {
+      "key": "shoot-1-1-3",
+      "edge_end": "branchlet-1-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.7594,
+        0.2,
+        -0.65063
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 4.97
+    },
+    {
+      "key": "shoot-1-2-0",
+      "edge_end": "branchlet-1-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.40849,
+        -0.08,
+        0.91276
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 4.39
+    },
+    {
+      "key": "shoot-1-2-1",
+      "edge_end": "branchlet-1-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.7168,
+        -0.08,
+        0.69728
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 4.86
+    },
+    {
+      "key": "shoot-1-2-2",
+      "edge_end": "branchlet-1-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.40849,
+        -0.08,
+        0.91276
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 5.33
+    },
+    {
+      "key": "shoot-1-2-3",
+      "edge_end": "branchlet-1-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.7168,
+        0.2,
+        0.69728
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 5.8
+    },
+    {
+      "key": "shoot-1-3-0",
+      "edge_end": "branchlet-1-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.80709,
+        -0.08,
+        0.59043
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 5.22
+    },
+    {
+      "key": "shoot-1-3-1",
+      "edge_end": "branchlet-1-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.83183,
+        -0.08,
+        -0.55504
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 5.69
+    },
+    {
+      "key": "shoot-1-3-2",
+      "edge_end": "branchlet-1-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.80709,
+        -0.08,
+        0.59043
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 6.16
+    },
+    {
+      "key": "shoot-1-3-3",
+      "edge_end": "branchlet-1-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.83183,
+        0.2,
+        -0.55504
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 6.63
+    },
+    {
+      "key": "shoot-2-0-0",
+      "edge_end": "branchlet-2-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.9587,
+        -0.08,
+        -0.28443
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 5.46
+    },
+    {
+      "key": "shoot-2-0-1",
+      "edge_end": "branchlet-2-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.06235,
+        -0.08,
+        -0.99805
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 5.93
+    },
+    {
+      "key": "shoot-2-0-2",
+      "edge_end": "branchlet-2-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.9587,
+        -0.08,
+        -0.28443
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 6.4
+    },
+    {
+      "key": "shoot-2-0-3",
+      "edge_end": "branchlet-2-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.06235,
+        0.2,
+        -0.99805
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 6.87
+    },
+    {
+      "key": "shoot-2-1-0",
+      "edge_end": "branchlet-2-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.04238,
+        -0.08,
+        -0.9991
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 6.29
+    },
+    {
+      "key": "shoot-2-1-1",
+      "edge_end": "branchlet-2-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.92369,
+        -0.08,
+        -0.38313
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 6.76
+    },
+    {
+      "key": "shoot-2-1-2",
+      "edge_end": "branchlet-2-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.04238,
+        -0.08,
+        -0.9991
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 7.23
+    },
+    {
+      "key": "shoot-2-1-3",
+      "edge_end": "branchlet-2-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.92369,
+        0.2,
+        -0.38313
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 7.7
+    },
+    {
+      "key": "shoot-2-2-0",
+      "edge_end": "branchlet-2-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.99883,
+        -0.08,
+        -0.04839
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 7.12
+    },
+    {
+      "key": "shoot-2-2-1",
+      "edge_end": "branchlet-2-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.2978,
+        -0.08,
+        -0.95463
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 7.59
+    },
+    {
+      "key": "shoot-2-2-2",
+      "edge_end": "branchlet-2-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.99883,
+        -0.08,
+        -0.04839
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 8.06
+    },
+    {
+      "key": "shoot-2-2-3",
+      "edge_end": "branchlet-2-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.2978,
+        0.2,
+        -0.95463
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 8.53
+    },
+    {
+      "key": "shoot-2-3-0",
+      "edge_end": "branchlet-2-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.16168,
+        -0.08,
+        -0.98684
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 7.95
+    },
+    {
+      "key": "shoot-2-3-1",
+      "edge_end": "branchlet-2-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.87119,
+        -0.08,
+        -0.49095
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 8.42
+    },
+    {
+      "key": "shoot-2-3-2",
+      "edge_end": "branchlet-2-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.16168,
+        -0.08,
+        -0.98684
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 8.89
+    },
+    {
+      "key": "shoot-2-3-3",
+      "edge_end": "branchlet-2-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.87119,
+        0.2,
+        -0.49095
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 9.36
+    },
+    {
+      "key": "shoot-3-0-0",
+      "edge_end": "branchlet-3-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.88699,
+        -0.08,
+        0.46178
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 8.19
+    },
+    {
+      "key": "shoot-3-0-1",
+      "edge_end": "branchlet-3-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.12884,
+        -0.08,
+        0.99166
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 8.66
+    },
+    {
+      "key": "shoot-3-0-2",
+      "edge_end": "branchlet-3-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.88699,
+        -0.08,
+        0.46178
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 9.13
+    },
+    {
+      "key": "shoot-3-0-3",
+      "edge_end": "branchlet-3-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.12884,
+        0.2,
+        0.99166
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 9.6
+    },
+    {
+      "key": "shoot-3-1-0",
+      "edge_end": "branchlet-3-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.14865,
+        -0.08,
+        0.98889
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 9.02
+    },
+    {
+      "key": "shoot-3-1-1",
+      "edge_end": "branchlet-3-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.97975,
+        -0.08,
+        0.20023
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 9.49
+    },
+    {
+      "key": "shoot-3-1-2",
+      "edge_end": "branchlet-3-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.14865,
+        -0.08,
+        0.98889
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 9.96
+    },
+    {
+      "key": "shoot-3-1-3",
+      "edge_end": "branchlet-3-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.97975,
+        0.2,
+        0.20023
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 10.43
+    },
+    {
+      "key": "shoot-3-2-0",
+      "edge_end": "branchlet-3-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.97134,
+        -0.08,
+        0.2377
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 9.85
+    },
+    {
+      "key": "shoot-3-2-1",
+      "edge_end": "branchlet-3-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.11057,
+        -0.08,
+        0.99387
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 10.32
+    },
+    {
+      "key": "shoot-3-2-2",
+      "edge_end": "branchlet-3-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.97134,
+        -0.08,
+        0.2377
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 10.79
+    },
+    {
+      "key": "shoot-3-2-3",
+      "edge_end": "branchlet-3-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.11057,
+        0.2,
+        0.99387
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 11.26
+    },
+    {
+      "key": "shoot-3-3-0",
+      "edge_end": "branchlet-3-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.0292,
+        -0.08,
+        0.99957
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 10.68
+    },
+    {
+      "key": "shoot-3-3-1",
+      "edge_end": "branchlet-3-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.94873,
+        -0.08,
+        0.31608
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 11.15
+    },
+    {
+      "key": "shoot-3-3-2",
+      "edge_end": "branchlet-3-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.0292,
+        -0.08,
+        0.99957
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 11.62
+    },
+    {
+      "key": "shoot-3-3-3",
+      "edge_end": "branchlet-3-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.94873,
+        0.2,
+        0.31608
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 12.09
+    },
+    {
+      "key": "shoot-4-0-0",
+      "edge_end": "branchlet-4-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.132,
+        -0.08,
+        -0.99125
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 10.92
+    },
+    {
+      "key": "shoot-4-0-1",
+      "edge_end": "branchlet-4-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.88552,
+        -0.08,
+        -0.4646
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 11.39
+    },
+    {
+      "key": "shoot-4-0-2",
+      "edge_end": "branchlet-4-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.132,
+        -0.08,
+        -0.99125
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 11.86
+    },
+    {
+      "key": "shoot-4-0-3",
+      "edge_end": "branchlet-4-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.88552,
+        0.2,
+        -0.4646
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 12.33
+    },
+    {
+      "key": "shoot-4-1-0",
+      "edge_end": "branchlet-4-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.89463,
+        -0.08,
+        -0.4468
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 11.75
+    },
+    {
+      "key": "shoot-4-1-1",
+      "edge_end": "branchlet-4-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.72703,
+        -0.08,
+        0.68661
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 12.22
+    },
+    {
+      "key": "shoot-4-1-2",
+      "edge_end": "branchlet-4-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.89463,
+        -0.08,
+        -0.4468
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 12.69
+    },
+    {
+      "key": "shoot-4-1-3",
+      "edge_end": "branchlet-4-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.72703,
+        0.2,
+        0.68661
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 13.16
+    },
+    {
+      "key": "shoot-4-2-0",
+      "edge_end": "branchlet-4-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.36384,
+        -0.08,
+        -0.93146
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 12.58
+    },
+    {
+      "key": "shoot-4-2-1",
+      "edge_end": "branchlet-4-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.7497,
+        -0.08,
+        -0.66178
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 13.05
+    },
+    {
+      "key": "shoot-4-2-2",
+      "edge_end": "branchlet-4-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.36384,
+        -0.08,
+        -0.93146
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 13.52
+    },
+    {
+      "key": "shoot-4-2-3",
+      "edge_end": "branchlet-4-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.7497,
+        0.2,
+        -0.66178
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 13.99
+    },
+    {
+      "key": "shoot-4-3-0",
+      "edge_end": "branchlet-4-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.83471,
+        -0.08,
+        -0.55069
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 13.41
+    },
+    {
+      "key": "shoot-4-3-1",
+      "edge_end": "branchlet-4-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.80399,
+        -0.08,
+        0.59464
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 13.88
+    },
+    {
+      "key": "shoot-4-3-2",
+      "edge_end": "branchlet-4-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.83471,
+        -0.08,
+        -0.55069
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 14.35
+    },
+    {
+      "key": "shoot-4-3-3",
+      "edge_end": "branchlet-4-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.80399,
+        0.2,
+        0.59464
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 14.82
+    },
+    {
+      "key": "shoot-5-0-0",
+      "edge_end": "branchlet-5-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.69556,
+        -0.08,
+        0.71846
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 13.65
+    },
+    {
+      "key": "shoot-5-0-1",
+      "edge_end": "branchlet-5-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.91374,
+        -0.08,
+        -0.40631
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 14.12
+    },
+    {
+      "key": "shoot-5-0-2",
+      "edge_end": "branchlet-5-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.69556,
+        -0.08,
+        0.71846
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 14.59
+    },
+    {
+      "key": "shoot-5-0-3",
+      "edge_end": "branchlet-5-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.91374,
+        0.2,
+        -0.40631
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 15.06
+    },
+    {
+      "key": "shoot-5-1-0",
+      "edge_end": "branchlet-5-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.90543,
+        -0.08,
+        -0.4245
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 14.48
+    },
+    {
+      "key": "shoot-5-1-1",
+      "edge_end": "branchlet-5-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.0875,
+        -0.08,
+        -0.99616
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 14.95
+    },
+    {
+      "key": "shoot-5-1-2",
+      "edge_end": "branchlet-5-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.90543,
+        -0.08,
+        -0.4245
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 15.42
+    },
+    {
+      "key": "shoot-5-1-3",
+      "edge_end": "branchlet-5-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.0875,
+        0.2,
+        -0.99616
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 15.89
+    },
+    {
+      "key": "shoot-5-2-0",
+      "edge_end": "branchlet-5-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.50485,
+        -0.08,
+        0.86321
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 15.31
+    },
+    {
+      "key": "shoot-5-2-1",
+      "edge_end": "branchlet-5-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.98413,
+        -0.08,
+        -0.17746
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 15.78
+    },
+    {
+      "key": "shoot-5-2-2",
+      "edge_end": "branchlet-5-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.50485,
+        -0.08,
+        0.86321
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 16.25
+    },
+    {
+      "key": "shoot-5-2-3",
+      "edge_end": "branchlet-5-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.98413,
+        0.2,
+        -0.17746
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 16.72
+    },
+    {
+      "key": "shoot-5-3-0",
+      "edge_end": "branchlet-5-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.94974,
+        -0.08,
+        -0.31305
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 16.14
+    },
+    {
+      "key": "shoot-5-3-1",
+      "edge_end": "branchlet-5-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.03238,
+        -0.08,
+        -0.99948
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 16.61
+    },
+    {
+      "key": "shoot-5-3-2",
+      "edge_end": "branchlet-5-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.94974,
+        -0.08,
+        -0.31305
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 17.08
+    },
+    {
+      "key": "shoot-5-3-3",
+      "edge_end": "branchlet-5-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.03238,
+        0.2,
+        -0.99948
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 17.55
+    },
+    {
+      "key": "shoot-6-0-0",
+      "edge_end": "branchlet-6-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.87758,
+        -0.08,
+        -0.47943
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 16.38
+    },
+    {
+      "key": "shoot-6-0-1",
+      "edge_end": "branchlet-6-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.75181,
+        -0.08,
+        0.65938
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 16.85
+    },
+    {
+      "key": "shoot-6-0-2",
+      "edge_end": "branchlet-6-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.87758,
+        -0.08,
+        -0.47943
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 17.32
+    },
+    {
+      "key": "shoot-6-0-3",
+      "edge_end": "branchlet-6-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.75181,
+        0.2,
+        0.65938
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 17.79
+    },
+    {
+      "key": "shoot-6-1-0",
+      "edge_end": "branchlet-6-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.73847,
+        -0.08,
+        0.67429
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 17.21
+    },
+    {
+      "key": "shoot-6-1-1",
+      "edge_end": "branchlet-6-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.37945,
+        -0.08,
+        0.92521
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 17.68
+    },
+    {
+      "key": "shoot-6-1-2",
+      "edge_end": "branchlet-6-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.73847,
+        -0.08,
+        0.67429
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 18.15
+    },
+    {
+      "key": "shoot-6-1-3",
+      "edge_end": "branchlet-6-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.37945,
+        0.2,
+        0.92521
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 18.62
+    },
+    {
+      "key": "shoot-6-2-0",
+      "edge_end": "branchlet-6-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.73847,
+        -0.08,
+        -0.67429
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 18.04
+    },
+    {
+      "key": "shoot-6-2-1",
+      "edge_end": "branchlet-6-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.88699,
+        -0.08,
+        0.46178
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 18.51
+    },
+    {
+      "key": "shoot-6-2-2",
+      "edge_end": "branchlet-6-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.73847,
+        -0.08,
+        -0.67429
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 18.98
+    },
+    {
+      "key": "shoot-6-2-3",
+      "edge_end": "branchlet-6-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.88699,
+        0.2,
+        0.46178
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 19.45
+    },
+    {
+      "key": "shoot-6-3-0",
+      "edge_end": "branchlet-6-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.81388,
+        -0.08,
+        0.58104
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 18.87
+    },
+    {
+      "key": "shoot-6-3-1",
+      "edge_end": "branchlet-6-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.26596,
+        -0.08,
+        0.96398
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 19.34
+    },
+    {
+      "key": "shoot-6-3-2",
+      "edge_end": "branchlet-6-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.81388,
+        -0.08,
+        0.58104
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 19.81
+    },
+    {
+      "key": "shoot-6-3-3",
+      "edge_end": "branchlet-6-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.26596,
+        0.2,
+        0.96398
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 20.28
+    },
+    {
+      "key": "shoot-7-0-0",
+      "edge_end": "branchlet-7-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.09904,
+        -0.08,
+        0.99508
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 19.11
+    },
+    {
+      "key": "shoot-7-0-1",
+      "edge_end": "branchlet-7-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.96852,
+        -0.08,
+        0.24895
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 19.58
+    },
+    {
+      "key": "shoot-7-0-2",
+      "edge_end": "branchlet-7-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.09904,
+        -0.08,
+        0.99508
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 20.05
+    },
+    {
+      "key": "shoot-7-0-3",
+      "edge_end": "branchlet-7-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.96852,
+        0.2,
+        0.24895
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 20.52
+    },
+    {
+      "key": "shoot-7-1-0",
+      "edge_end": "branchlet-7-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.9733,
+        -0.08,
+        0.22953
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 19.94
+    },
+    {
+      "key": "shoot-7-1-1",
+      "edge_end": "branchlet-7-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.55002,
+        -0.08,
+        -0.83515
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 20.41
+    },
+    {
+      "key": "shoot-7-1-2",
+      "edge_end": "branchlet-7-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.9733,
+        -0.08,
+        0.22953
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 20.88
+    },
+    {
+      "key": "shoot-7-1-3",
+      "edge_end": "branchlet-7-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.55002,
+        0.2,
+        -0.83515
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 21.35
+    },
+    {
+      "key": "shoot-7-2-0",
+      "edge_end": "branchlet-7-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.14033,
+        -0.08,
+        0.9901
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 20.77
+    },
+    {
+      "key": "shoot-7-2-1",
+      "edge_end": "branchlet-7-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.88158,
+        -0.08,
+        0.47203
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 21.24
+    },
+    {
+      "key": "shoot-7-2-2",
+      "edge_end": "branchlet-7-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.14033,
+        -0.08,
+        0.9901
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 21.71
+    },
+    {
+      "key": "shoot-7-2-3",
+      "edge_end": "branchlet-7-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.88158,
+        0.2,
+        0.47203
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 22.18
+    },
+    {
+      "key": "shoot-7-3-0",
+      "edge_end": "branchlet-7-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.93883,
+        -0.08,
+        0.34439
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 21.6
+    },
+    {
+      "key": "shoot-7-3-1",
+      "edge_end": "branchlet-7-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.64604,
+        -0.08,
+        -0.7633
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 22.07
+    },
+    {
+      "key": "shoot-7-3-2",
+      "edge_end": "branchlet-7-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.93883,
+        -0.08,
+        0.34439
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 22.54
+    },
+    {
+      "key": "shoot-7-3-3",
+      "edge_end": "branchlet-7-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.64604,
+        0.2,
+        -0.7633
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 23.01
+    },
+    {
+      "key": "shoot-8-0-0",
+      "edge_end": "branchlet-8-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.84276,
+        -0.08,
+        -0.53829
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 21.84
+    },
+    {
+      "key": "shoot-8-0-1",
+      "edge_end": "branchlet-8-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.2159,
+        -0.08,
+        -0.97642
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 22.31
+    },
+    {
+      "key": "shoot-8-0-2",
+      "edge_end": "branchlet-8-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.84276,
+        -0.08,
+        -0.53829
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 22.78
+    },
+    {
+      "key": "shoot-8-0-3",
+      "edge_end": "branchlet-8-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.2159,
+        0.2,
+        -0.97642
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 23.25
+    },
+    {
+      "key": "shoot-8-1-0",
+      "edge_end": "branchlet-8-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.23538,
+        -0.08,
+        -0.9719
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 22.67
+    },
+    {
+      "key": "shoot-8-1-1",
+      "edge_end": "branchlet-8-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.9936,
+        -0.08,
+        -0.11294
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 23.14
+    },
+    {
+      "key": "shoot-8-1-2",
+      "edge_end": "branchlet-8-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.23538,
+        -0.08,
+        -0.9719
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 23.61
+    },
+    {
+      "key": "shoot-8-1-3",
+      "edge_end": "branchlet-8-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.9936,
+        0.2,
+        -0.11294
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 24.08
+    },
+    {
+      "key": "shoot-8-2-0",
+      "edge_end": "branchlet-8-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.94656,
+        -0.08,
+        -0.32254
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 23.5
+    },
+    {
+      "key": "shoot-8-2-1",
+      "edge_end": "branchlet-8-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.02239,
+        -0.08,
+        -0.99975
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 23.97
+    },
+    {
+      "key": "shoot-8-2-2",
+      "edge_end": "branchlet-8-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.94656,
+        -0.08,
+        -0.32254
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 24.44
+    },
+    {
+      "key": "shoot-8-2-3",
+      "edge_end": "branchlet-8-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.02239,
+        0.2,
+        -0.99975
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 24.91
+    },
+    {
+      "key": "shoot-8-3-0",
+      "edge_end": "branchlet-8-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.11734,
+        -0.08,
+        -0.99309
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.022,
+      "leaf_count": 20,
+      "seed": 24.33
+    },
+    {
+      "key": "shoot-8-3-1",
+      "edge_end": "branchlet-8-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.97294,
+        -0.08,
+        -0.23108
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 24.8
+    },
+    {
+      "key": "shoot-8-3-2",
+      "edge_end": "branchlet-8-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.11734,
+        -0.08,
+        -0.99309
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 25.27
+    },
+    {
+      "key": "shoot-8-3-3",
+      "edge_end": "branchlet-8-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.97294,
+        0.2,
+        -0.23108
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 25.74
+    },
+    {
+      "key": "shoot-9-0-0",
+      "edge_end": "branchlet-9-0-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.9359,
+        -0.08,
+        0.35227
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 24.57
+    },
+    {
+      "key": "shoot-9-0-1",
+      "edge_end": "branchlet-9-0-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.0092,
+        -0.08,
+        0.99996
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 25.04
+    },
+    {
+      "key": "shoot-9-0-2",
+      "edge_end": "branchlet-9-0-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.9359,
+        -0.08,
+        0.35227
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 25.51
+    },
+    {
+      "key": "shoot-9-0-3",
+      "edge_end": "branchlet-9-0-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.0092,
+        0.2,
+        0.99996
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 25.98
+    },
+    {
+      "key": "shoot-9-1-0",
+      "edge_end": "branchlet-9-1-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.0292,
+        -0.08,
+        0.99957
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 25.4
+    },
+    {
+      "key": "shoot-9-1-1",
+      "edge_end": "branchlet-9-1-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.94873,
+        -0.08,
+        0.31608
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 25.87
+    },
+    {
+      "key": "shoot-9-1-2",
+      "edge_end": "branchlet-9-1-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        -0.0292,
+        -0.08,
+        0.99957
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 26.34
+    },
+    {
+      "key": "shoot-9-1-3",
+      "edge_end": "branchlet-9-1-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.94873,
+        0.2,
+        0.31608
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 26.81
+    },
+    {
+      "key": "shoot-9-2-0",
+      "edge_end": "branchlet-9-2-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.99281,
+        -0.08,
+        0.11971
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.139,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 26.23
+    },
+    {
+      "key": "shoot-9-2-1",
+      "edge_end": "branchlet-9-2-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.22875,
+        -0.08,
+        0.97348
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 26.7
+    },
+    {
+      "key": "shoot-9-2-2",
+      "edge_end": "branchlet-9-2-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.99281,
+        -0.08,
+        0.11971
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 27.17
+    },
+    {
+      "key": "shoot-9-2-3",
+      "edge_end": "branchlet-9-2-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        0.22875,
+        0.2,
+        0.97348
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 27.64
+    },
+    {
+      "key": "shoot-9-3-0",
+      "edge_end": "branchlet-9-3-2",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.09067,
+        -0.08,
+        0.99588
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.146,
+      "leaf_width_m": 0.023,
+      "leaf_count": 20,
+      "seed": 27.06
+    },
+    {
+      "key": "shoot-9-3-1",
+      "edge_end": "branchlet-9-3-2",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.90407,
+        -0.08,
+        0.42738
+      ],
+      "length_m": 0.46,
+      "leaf_length_m": 0.153,
+      "leaf_width_m": 0.019,
+      "leaf_count": 20,
+      "seed": 27.53
+    },
+    {
+      "key": "shoot-9-3-2",
+      "edge_end": "branchlet-9-3-3",
+      "edge_fraction": 0.28,
+      "direction": [
+        0.09067,
+        -0.08,
+        0.99588
+      ],
+      "length_m": 0.53,
+      "leaf_length_m": 0.16,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 28
+    },
+    {
+      "key": "shoot-9-3-3",
+      "edge_end": "branchlet-9-3-3",
+      "edge_fraction": 0.82,
+      "direction": [
+        -0.90407,
+        0.2,
+        0.42738
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.132,
+      "leaf_width_m": 0.021,
+      "leaf_count": 20,
+      "seed": 28.47
+    },
+    {
+      "key": "leader-shoot-10",
+      "edge_end": "stem-10",
+      "edge_fraction": 0.74,
+      "direction": [
+        0.42418,
+        0.4,
+        -0.90558
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.138,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 10
+    },
+    {
+      "key": "leader-shoot-11",
+      "edge_end": "stem-11",
+      "edge_fraction": 0.74,
+      "direction": [
+        0.2989,
+        0.4,
+        0.95429
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.138,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 11
+    },
+    {
+      "key": "leader-shoot-12",
+      "edge_end": "stem-12",
+      "edge_fraction": 0.74,
+      "direction": [
+        -0.86499,
+        0.4,
+        -0.50179
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.138,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 12
+    },
+    {
+      "key": "leader-shoot-13",
+      "edge_end": "stem-13",
+      "edge_fraction": 0.74,
+      "direction": [
+        0.97678,
+        0.4,
+        -0.21425
+      ],
+      "length_m": 0.39,
+      "leaf_length_m": 0.138,
+      "leaf_width_m": 0.02,
+      "leaf_count": 20,
+      "seed": 13
+    }
+  ]
+}
