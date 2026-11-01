@@ -1,0 +1,193 @@
+// r4 reference-led EDIT of the retained r3 species_asset, after the existing
+// motion-study cell where present. Identifier, all joint landmarks, rig hierarchy,
+// motion keys/contact targets, bones, muscles and unmentioned parts survive.
+// Pixel observations: reference-corpus/2026-11-01-online-r1/contact-sheet.jpg;
+// individual close inspections SWB-01, SWB-27 and SWB-28. These are authored
+// controls, not photogrammetry, specimen measurements or biological acceptance.
+species_asset = record.merge(species_asset, {
+ parameter_status: "Reference-led r4 edit of retained r3 synthetic study. All dimensions, skin influences, palette values and coat controls remain authored estimates, not measured individuals. Qualitative visual comparison to SWB-01..07, SWB-09..11, SWB-13..20 and SWB-25..31 in reference-review.csv; SWB-08 newborn and SWB-12/21/22/23/24 excluded from this coat/body-shape edit. Related photographic sequences are not independent specimens. No sex, age, locality, biological correctness, rendered quality or human acceptance inferred. Existing joint/contact coordinates and study motion retained. Film, game and cartoon packages incomplete.",
+ references: [
+  "https://australian.museum/learn/animals/mammals/swamp-wallaby/",
+  "https://www.nationalparks.nsw.gov.au/plants-and-animals/swamp-wallaby",
+  "https://www.wildlifenomads.com/blog/wallaby-facts/",
+  "https://commons.wikimedia.org/wiki/File:Black_Wallaby_(Wallabia_bicolor)_(10001189194).jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_-_Flickr_-_GregTheBusker_(1).jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_-_Flickr_-_GregTheBusker.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_(8025628411).jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_8944.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_and_Joey_Lisarow.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_at_Booderee_National_Park.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_Wallaby_Lisarow.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_wallaby,_2017.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp_wallaby,_Greater_Bendigo_NP.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp-Wallaby-Feeding-2,-Vic,-Jan.2008.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp-Wallaby-Feeding-3,-Vic,-Jan.2008.jpg",
+  "https://commons.wikimedia.org/wiki/File:Swamp-Wallaby-joey-Wallabia-bicolor.jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(24056019046).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(28627321798).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(32489139936).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(32580874581).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(32580880191).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(Swamp_Wallaby)_(4892763181).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_(Swamp_Wallaby),_Grampians_National_Park,_Victoria_Australia_(4892761585).jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_1.jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_Jenolan_Caves_portrait.jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_Jenolan_Caves.jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallaby_at_Phillip_Island_NR.jpg",
+  "https://commons.wikimedia.org/wiki/File:Wallaby_Camouflage.jpg"
+ ]
+});
+
+// SWB-01/09/27: fuller forequarter merging into a compact neck, with preserved
+// pelvis/leg rest landmarks. No change to sole offsets or hop-study contacts.
+species_asset = record.merge(species_asset, {
+ lofts: species_asset.lofts.map(|part| if part.id == "axial-integument" {
+  record.merge(part, {
+   sections: [
+    {center_m:[0,0.4,-0.26],radii_m:[0.008,0.02]},
+    {center_m:[0,0.44,-0.21],radii_m:[0.102,0.13]},
+    {center_m:[0,0.48,-0.12],radii_m:[0.137,0.166]},
+    {center_m:[0,0.515,-0.015],radii_m:[0.135,0.158]},
+    {center_m:[0,0.565,0.075],radii_m:[0.116,0.142]},
+    {center_m:[0,0.63,0.14],radii_m:[0.091,0.105]},
+    {center_m:[0,0.7,0.18],radii_m:[0.061,0.068]},
+    {center_m:[0,0.755,0.225],radii_m:[0.048,0.052]},
+    {center_m:[0,0.78,0.25],radii_m:[0.029,0.034]}
+   ],
+   skin_stations: [
+    {joints:[0,0],weights:[1,0]},
+    {joints:[0,0],weights:[1,0]},
+    {joints:[0,1],weights:[0.85,0.15]},
+    {joints:[1,1],weights:[1,0]},
+    {joints:[1,2],weights:[0.35,0.65]},
+    {joints:[2,2],weights:[1,0]},
+    {joints:[2,3],weights:[0.25,0.75]},
+    {joints:[3,4],weights:[0.7,0.3]},
+    {joints:[3,4],weights:[0.25,0.75]}
+   ]
+  })
+ } else { part })
+});
+
+// SWB-01/16/29: retain the long ground-trailing tail; slightly fuller proximal
+// taper rather than shortening it into the rejected r1 silhouette. Eight
+// explicit stations use all three retained tail controls (15,16,17).
+species_asset = record.merge(species_asset, {
+ lofts: species_asset.lofts.map(|part| if part.id == "tail-continuous-envelope" {
+  record.merge(part, {
+   sections: [
+    {center_m:[0,0.39,-0.23],radii_m:[0.070,0.073]},
+    {center_m:[0,0.32,-0.32],radii_m:[0.065,0.069]},
+    {center_m:[0,0.205,-0.42],radii_m:[0.050,0.054]},
+    {center_m:[0.008,0.12,-0.54],radii_m:[0.035,0.039]},
+    {center_m:[0.026,0.065,-0.68],radii_m:[0.022,0.026]},
+    {center_m:[0.05,0.043,-0.81],radii_m:[0.014,0.016]},
+    {center_m:[0.077,0.036,-0.94],radii_m:[0.008,0.009]},
+    {center_m:[0.1,0.036,-1.03],radii_m:[0.0005,0.0005]}
+   ],
+   skin_stations: [
+    {joints:[15,15],weights:[1,0]},
+    {joints:[15,16],weights:[0.85,0.15]},
+    {joints:[15,16],weights:[0.45,0.55]},
+    {joints:[16,16],weights:[1,0]},
+    {joints:[16,17],weights:[0.75,0.25]},
+    {joints:[16,17],weights:[0.35,0.65]},
+    {joints:[17,17],weights:[1,0]},
+    {joints:[17,17],weights:[1,0]}
+   ]
+  })
+ } else { part })
+});
+
+// SWB-13/27/28: continuous taper from a fuller rear cranium to a smaller dark
+// nasal surface, avoiding a separate bulbous nose. Eye/eyelid changes below
+// accompany the envelope so the detail is not just scaled independently.
+species_asset = record.merge(species_asset, {
+ lofts: species_asset.lofts.map(|part| if part.id == "cranial-and-rostral-envelope" {
+  record.merge(part, {sections:[
+   {center_m:[0,0.805,0.18],radii_m:[0.014,0.023]},
+   {center_m:[0,0.82,0.21],radii_m:[0.050,0.057]},
+   {center_m:[0,0.825,0.255],radii_m:[0.061,0.058]},
+   {center_m:[0,0.817,0.29],radii_m:[0.054,0.047]},
+   {center_m:[0,0.802,0.33],radii_m:[0.039,0.031]},
+   {center_m:[0,0.795,0.37],radii_m:[0.028,0.021]},
+   {center_m:[0,0.795,0.391],radii_m:[0.021,0.014]}
+  ]})
+ } else { if part.id == "nasal-planum" {
+  record.merge(part, {sections:[
+   {center_m:[0,0.802,0.373],radii_m:[0.024,0.014]},
+   {center_m:[0,0.802,0.387],radii_m:[0.025,0.014]},
+   {center_m:[0,0.799,0.4],radii_m:[0.019,0.011]},
+   {center_m:[0,0.796,0.405],radii_m:[0.006,0.004]}
+  ]})
+ } else { part } })
+});
+
+species_asset = record.merge(species_asset, {
+ ellipsoids: species_asset.ellipsoids.map(|part| if part.id == "integrated-eye" {
+  record.merge(part, {center_m:[0.058,0.827,0.297],radii_m:[0.010,0.012,0.016]})
+ } else { part }),
+ lofts: species_asset.lofts.map(|part| if part.id == "upper-eyelid" {
+  record.merge(part, {sections:[
+   {center_m:[0.057,0.824,0.280],radii_m:[0.0024,0.0024]},
+   {center_m:[0.063,0.838,0.289],radii_m:[0.0027,0.0027]},
+   {center_m:[0.064,0.840,0.303],radii_m:[0.0025,0.0025]},
+   {center_m:[0.057,0.829,0.315],radii_m:[0.0022,0.0022]}
+  ]})
+ } else { if part.id == "lower-eyelid" {
+  record.merge(part, {sections:[
+   {center_m:[0.057,0.824,0.280],radii_m:[0.0022,0.0022]},
+   {center_m:[0.062,0.816,0.290],radii_m:[0.0021,0.0021]},
+   {center_m:[0.063,0.816,0.303],radii_m:[0.0021,0.0021]},
+   {center_m:[0.057,0.829,0.315],radii_m:[0.0022,0.0022]}
+  ]})
+ } else { part } })
+});
+
+// SWB-01 has a stronger pale stripe than SWB-27/28: author a restrained variant,
+// not a universal white stripe or a raised thick tube across the face.
+species_asset = record.merge(species_asset, {
+ lofts: species_asset.lofts.map(|part| if part.id == "light-cheek-stripe" {
+  record.merge(part, {sections:[
+   {center_m:[0.058,0.803,0.248],radii_m:[0.0015,0.0028]},
+   {center_m:[0.058,0.792,0.28],radii_m:[0.0018,0.0032]},
+   {center_m:[0.049,0.788,0.313],radii_m:[0.0015,0.0028]},
+   {center_m:[0.034,0.79,0.347],radii_m:[0.0007,0.0014]}
+  ]})
+ } else { part }),
+ // Retain the existing small cupped shell; reduce height slightly and broaden
+ // it modestly rather than exaggerating already-long ears into rabbit spikes.
+ ears: species_asset.ears.map(|part| if part.id == "cupped-pinna" {
+  record.merge(part, {tip_m:[0.088,1.021,0.186],width_m:0.035,
+    cup_depth_m:0.010,thickness_m:0.0028})
+ } else { part }),
+ // Finer, denser short ribbons reduce broad opaque blades. Still a study groom;
+ // no strand shader, physical fur scattering or biological hair length claim.
+ coat: record.merge(species_asset.coat, {vertex_stride:3,length_m:0.0045,
+    width_m:0.00065,lift_m:0.0007,direction:[0,-0.55,-0.83]})
+});
+
+// SWB-01/09/27/28: charcoal/grizzled upper coat, warm but not uniformly orange
+// underside, restrained cheek value and dark ear interior/nose. These RGB
+// controls are a look-development choice, not colour measurements from photos.
+species_asset = record.merge(species_asset, {
+ palettes: species_asset.palettes.map(|p| if p.id == "dark-coat" {
+  record.merge(p,{dorsal:[0.065,0.066,0.062,1],flank:[0.13,0.125,0.109,1],
+    ventral:[0.255,0.19,0.12,1],roughness:0.94})
+ } else { if p.id == "face" {
+  record.merge(p,{dorsal:[0.095,0.099,0.092,1],flank:[0.145,0.145,0.13,1],
+    ventral:[0.23,0.195,0.145,1],roughness:0.91})
+ } else { if p.id == "cheek-stripe" {
+  record.merge(p,{dorsal:[0.22,0.215,0.18,1],flank:[0.25,0.235,0.19,1],
+    ventral:[0.22,0.205,0.165,1],roughness:0.94})
+ } else { p } } })
+});
+species_asset = record.merge(species_asset, {
+ palettes: species_asset.palettes.map(|p| if p.id == "ear-inner" {
+  record.merge(p,{dorsal:[0.055,0.047,0.038,1],flank:[0.09,0.072,0.05,1],
+    ventral:[0.065,0.052,0.039,1],roughness:0.96})
+ } else { if p.id == "nose-and-lips" {
+  record.merge(p,{dorsal:[0.022,0.021,0.019,1],flank:[0.03,0.028,0.025,1],
+    ventral:[0.02,0.019,0.017,1],roughness:0.32})
+ } else { p } })
+});

@@ -7,6 +7,16 @@ use qualia_core_db::specialized_libs::computational_geometry::{parametric_cad::b
 use qualia_core_db::specialized_libs::computational_geometry::{math_geometry::AffineFrame3, sweep_extrusion::compute_bishop_frames};
 use serde::{Deserialize, Serialize};
 use std::ops::Range;
+pub use crate::zoological_anatomy::NumericProfile;
+mod skin_profile;
+pub use skin_profile::SkinStation;
+mod loft_chain;
+pub use loft_chain::{LoftChain, LoftChainMember};
+mod groom;
+pub use groom::{Groom, GroomRegion, GroomReceipt};
+mod junctions;
+pub use junctions::{JunctionSet, JunctionRecipe, JunctionReceipt};
+pub use junctions::{prepare_junction_projection, qualify_junction_projection, JunctionProjection, JunctionProjectionReport};
 
 pub const DEFAULT_SOURCE: &str = include_str!("swamp_wallaby_anatomical_r3.json");
 pub const SOURCE_SCHEMA: &str = "ecopunk.anatomical-review-source/1";
@@ -20,6 +30,9 @@ pub struct Source {
     pub units: String,
     pub coordinate_frame: String,
     pub parameter_status: String,
+    /// Omission keeps legacy platform math; portability is explicit source lineage.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub numeric_profile: Option<NumericProfile>,
     pub references: Vec<String>,
     pub joints: Vec<JointLandmark>,
     pub palettes: Vec<Palette>,
@@ -29,6 +42,16 @@ pub struct Source {
     pub bones: Vec<Bone>,
     pub muscles: Vec<Muscle>,
     pub coat: Coat,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub groom: Option<Groom>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub surface_junctions: Option<JunctionSet>,
+    /// Explicit serial surface reconstruction; absent sources keep legacy geometry.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub loft_chains: Vec<LoftChain>,
+    /// Optional authored study motion; omitted for legacy static sources.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub motion: Option<crate::animal_motion::MotionSource>,
 }
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -45,6 +68,12 @@ pub struct Loft {
     pub id: String, pub material: usize, pub sections: Vec<Section>,
     pub joints: [usize; 2], pub mirror_joints: Option<[usize; 2]>,
     pub radial_segments: usize, pub subdivisions: usize, pub coat: bool,
+    /// Optional explicit section influences. Omission retains legacy endpoint blending.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub skin_stations: Option<Vec<SkinStation>>,
+    /// Explicit counterpart for mirrored geometry; joint identifiers are not inferred.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub mirror_skin_stations: Option<Vec<SkinStation>>,
 }
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -70,6 +99,8 @@ pub struct Candidate {
     pub osteology: AnatomyMeshAccumulator,
     pub myology: AnatomyMeshAccumulator,
     pub parts: Vec<Part>,
+    pub groom: Option<GroomReceipt>,
+    pub surface_junctions: Option<JunctionReceipt>,
     pub bounds_min_m: [f32; 3],
     pub bounds_max_m: [f32; 3],
 }
@@ -107,6 +138,7 @@ pub fn parse_source(json:&str)->Result<Source,String> {
     for l in &s.lofts {
         palette(&s,l.material)?;
         if l.sections.len()<2||l.sections.len()>64||!(8..=64).contains(&l.radial_segments)||!(1..=16).contains(&l.subdivisions)||!valid_joints(l.joints)||l.mirror_joints.map(|j|!valid_joints(j)).unwrap_or(false) { return Err(format!("Invalid loft {}",l.id)); }
+        skin_profile::validate(l,s.joints.len())?;
         for st in &l.sections { if !coordinate(&st.center_m)||!positive(&st.radii_m) {return Err(format!("Invalid section {}",l.id));} }
         for pair in l.sections.windows(2) { if dot(sub(pair[1].center_m,pair[0].center_m),sub(pair[1].center_m,pair[0].center_m))<1e-10 {return Err(format!("Coincident loft centres {}",l.id));} }
         estimate+=(l.sections.len()*l.subdivisions+1)*(l.radial_segments+1)*(if l.mirror_joints.is_some(){2}else{1});
@@ -118,9 +150,13 @@ pub fn parse_source(json:&str)->Result<Source,String> {
     for m in &s.muscles {if !nonzero_span(m.joints)||!positive(&m.radii_m)||!coordinate(&m.bow_m){return Err(format!("Invalid muscle {}",m.id));}}
     palette(&s,s.coat.material)?;
     if s.coat.vertex_stride<2||!positive(&[s.coat.length_m,s.coat.width_m,s.coat.lift_m])||!coordinate(&s.coat.direction)||dot(s.coat.direction,s.coat.direction)<1e-10||estimate>250_000 {return Err("Coat/mesh outside review budget".into());}
+    estimate=estimate.checked_add(loft_chain::validate(&s)?).ok_or("Loft chain estimate overflow")?;
+    estimate=estimate.checked_add(junctions::validate(&s)?).ok_or("Junction estimate overflow")?;
+    if estimate>250_000 {return Err("Combined loft/chain vertex reservation exceeded".into());}
     let detail=s.ellipsoids.len()*2*25*17+s.ears.len()*2*2*25*21;
     let coat_estimate=if s.coat.enabled{(estimate/s.coat.vertex_stride+s.lofts.len()*2)*5}else{0};
-    if estimate+detail+coat_estimate>750_000{return Err("Preflight skin/coat/detail vertex budget exceeded".into());}
+    let groom_estimate=groom::validate(&s)?;
+    if estimate+detail+coat_estimate+groom_estimate>750_000{return Err("Preflight skin/coat/detail/groom vertex budget exceeded".into());}
     let mut part_ids=std::collections::BTreeSet::new();
     for id in s.lofts.iter().map(|x|&x.id).chain(s.ellipsoids.iter().map(|x|&x.id)).chain(s.ears.iter().map(|x|&x.id)){if id.is_empty()||!part_ids.insert(id){return Err("Duplicate/empty geometry source identifier".into());}}
     Ok(s)
@@ -161,7 +197,7 @@ fn apply_bishop_sections(a:&mut AnatomyMeshAccumulator,rings:&[AnatomicalLoftRin
     for (r,(station,frame)) in rings.iter().zip(frames.iter()).enumerate(){
         let u=[frame.e0.x as f32,frame.e0.y as f32,frame.e0.z as f32];
         let v=[frame.e1.x as f32,frame.e1.y as f32,frame.e1.z as f32];
-        for col in 0..=radial{let theta=col as f32/radial as f32*core::f32::consts::TAU;let(ct,st)=(theta.cos(),theta.sin());let index=base+r*(radial+1)+col;
+        for col in 0..=radial{let theta=col as f32/radial as f32*core::f32::consts::TAU;let(ct,st)=(NumericProfile::cos(a.numeric_profile(),theta),NumericProfile::sin(a.numeric_profile(),theta));let index=base+r*(radial+1)+col;
             a.positions[index]=add(station.center,add(mul(u,station.radii[0]*ct),mul(v,station.radii[1]*st)));
             a.normals[index]=norm(add(mul(u,ct/station.radii[0]),mul(v,st/station.radii[1])));
         }
@@ -172,12 +208,18 @@ fn apply_bishop_sections(a:&mut AnatomyMeshAccumulator,rings:&[AnatomicalLoftRin
 /// Correct local triangle orientation against the owner's outward radial normals,
 /// then recompute area-weighted surface normals, including taper/cap geometry.
 fn finish_surface(a:&mut AnatomyMeshAccumulator,start_v:usize,start_i:usize) {
-    let fallback=a.normals[start_v..].to_vec();
     for tri in a.indices[start_i..].chunks_exact_mut(3) {
         let [i,j,k]=[tri[0]as usize,tri[1]as usize,tri[2]as usize];
         let n=cross(sub(a.positions[j],a.positions[i]),sub(a.positions[k],a.positions[i]));
         if dot(n,add(add(a.normals[i],a.normals[j]),a.normals[k]))<0.0 {tri.swap(1,2);}
     }
+    recompute_surface_normals(a,start_v,start_i);
+}
+
+/// Area-weighted normal accumulation without changing established topology.
+/// Legacy callers retain their orientation policy in finish_surface above.
+fn recompute_surface_normals(a:&mut AnatomyMeshAccumulator,start_v:usize,start_i:usize) {
+    let fallback=a.normals[start_v..].to_vec();
     for n in &mut a.normals[start_v..] {*n=[0.0;3];}
     for tri in a.indices[start_i..].chunks_exact(3) {
         let [i,j,k]=[tri[0]as usize,tri[1]as usize,tri[2]as usize];
@@ -201,13 +243,13 @@ fn ear_shell(a:&mut AnatomyMeshAccumulator,e:&Ear,source:&Source,sign:f32,parts:
     // All dimensions remain authored source values; no stock ear morph applied.
     for side in 0..2 {
         let v0=a.positions.len();let i0=a.indices.len();
-        for row in 0..=ROWS {let t=row as f32/ROWS as f32;let width=e.width_m*(core::f32::consts::PI*t).sin().max(0.015).powf(0.65);
+        for row in 0..=ROWS {let t=row as f32/ROWS as f32;let width=e.width_m*NumericProfile::pow(source.numeric_profile,NumericProfile::sin(source.numeric_profile,core::f32::consts::PI*t).max(0.015),0.65);
             for col in 0..=COLS {let u=col as f32/COLS as f32*2.0-1.0;
-                let cup=e.cup_depth_m*(1.0-u*u)*(core::f32::consts::PI*t).sin();
+                let cup=e.cup_depth_m*(1.0-u*u)*NumericProfile::sin(source.numeric_profile,core::f32::consts::PI*t);
                 let z=root[2]+(tip[2]-root[2])*t-cup-if side==1 {e.thickness_m}else{0.0};
                 let p=[root[0]+(tip[0]-root[0])*t+u*width,root[1]+(tip[1]-root[1])*t,z];
                 let material=if side==0 {inner}else{outer};
-                let mut color=material.flank;let rim=(u.abs()).powf(8.0);for c in 0..3 {color[c]=color[c]*(1.0-rim)+outer.dorsal[c]*rim;}
+                let mut color=material.flank;let rim=NumericProfile::pow(source.numeric_profile,u.abs(),8.0);for c in 0..3 {color[c]=color[c]*(1.0-rim)+outer.dorsal[c]*rim;}
                 push_vertex(a,p,[0.0,0.0,if side==0 {1.0}else{-1.0}],color,[col as f32/COLS as f32,t],e.joint);
             }
         }
@@ -223,12 +265,14 @@ fn ear_shell(a:&mut AnatomyMeshAccumulator,e:&Ear,source:&Source,sign:f32,parts:
 }
 
 pub fn build_from_json(json:&str)->Result<Candidate,String> {
-    let source=parse_source(json)?;let mut skin=AnatomyMeshAccumulator::new();let mut parts=Vec::new();let mut coat_ranges=Vec::new();
+    let source=parse_source(json)?;let mut skin=AnatomyMeshAccumulator::with_numeric_profile(source.numeric_profile);let mut parts=Vec::new();let mut coat_ranges=Vec::new();
     for l in &source.lofts {let p=palette(&source,l.material)?;
+        if loft_chain::contains(&source,&l.id) {continue;}
         for (sign,joints) in [(1.0,Some(l.joints)),(-1.0,l.mirror_joints)] {let Some(joints)=joints else{continue};
             let rings=sampled_sections(l,p,sign,joints)?;let v=skin.positions.len();let i=skin.indices.len();
             skin.push_countershaded_loft(&rings,l.radial_segments,Layer::ExternalIntegument,true);
             apply_bishop_sections(&mut skin,&rings,l.radial_segments,v)?;
+            skin_profile::apply(&mut skin,l,sign<0.0,v)?;
             let cap_start=v+rings.len()*(l.radial_segments+1);
             skin.normals[cap_start]=norm(sub(rings[0].center,rings[1].center));
             skin.normals[cap_start+1]=norm(sub(rings[rings.len()-1].center,rings[rings.len()-2].center));
@@ -239,6 +283,8 @@ pub fn build_from_json(json:&str)->Result<Candidate,String> {
             record(&mut parts,&skin,format!("{}:{}",l.id,sign),l.material,v,i);
         }
     }
+    loft_chain::append(&source,&mut skin,&mut parts,&mut coat_ranges)?;
+    let surface_junctions=junctions::apply(&source,&mut skin,&mut parts)?;
     for e in &source.ellipsoids {let p=palette(&source,e.material)?;
         for sign in [1.0,-1.0] {if sign<0.0&&!e.mirror{continue;}let v=skin.positions.len();let i=skin.indices.len();
             // Existing anatomy owner's ellipsoid, used only for the inset eyeball/naris.
@@ -261,13 +307,14 @@ pub fn build_from_json(json:&str)->Result<Candidate,String> {
             for tri in [[0,1,2],[1,3,2],[2,3,4]]{skin.indices.extend_from_slice(&[base+tri[0],base+tri[1],base+tri[2],base+tri[2],base+tri[1],base+tri[0]]);}
         }}record(&mut parts,&skin,"directional-short-coat-study".into(),c.material,v,i);
     }
-    let mut osteology=AnatomyMeshAccumulator::new();let mut myology=AnatomyMeshAccumulator::new();
+    let groom=groom::append(&source,&mut skin,&mut parts)?;
+    let mut osteology=AnatomyMeshAccumulator::with_numeric_profile(source.numeric_profile);let mut myology=AnatomyMeshAccumulator::with_numeric_profile(source.numeric_profile);
     for b in &source.bones {osteology.push_long_bone_with_epiphyses(source.joints[b.joints[0]].position_m,source.joints[b.joints[1]].position_m,b.shaft_radius_m,b.condyle_radius_m,[0.0;3],[0.76,0.72,0.60,1.0],Layer::Osteology,b.joints[0],b.joints[1]);}
     for m in &source.muscles {myology.push_fusiform_muscle(source.joints[m.joints[0]].position_m,source.joints[m.joints[1]].position_m,m.radii_m[0],m.radii_m[1],m.bow_m,[0.38,0.07,0.055,1.0],[0.76,0.72,0.61,1.0],Layer::MyologyAndTendons,m.joints[0],m.joints[1]);}
     let mut min=[f32::INFINITY;3];let mut max=[f32::NEG_INFINITY;3];
     for p in &skin.positions {for axis in 0..3{min[axis]=min[axis].min(p[axis]);max[axis]=max[axis].max(p[axis]);}}
     if skin.positions.len()>750_000||skin.positions.iter().flatten().any(|v|!v.is_finite()){return Err("Generated anatomy outside finite/budget contract".into());}
-    Ok(Candidate{source,skin,osteology,myology,parts,bounds_min_m:min,bounds_max_m:max})
+    Ok(Candidate{source,skin,osteology,myology,parts,groom,surface_junctions,bounds_min_m:min,bounds_max_m:max})
 }
 
 /// Static review projection only. Caller retains Candidate for editable/rig data.
@@ -279,3 +326,7 @@ pub fn build_swamp_wallaby_authored_review(source:&str)->Result<Candidate,String
 pub fn build_swamp_wallaby_review_specimen(body:&mut SubmeshBuilder) {
     let candidate=build_from_json(DEFAULT_SOURCE).expect("bundled anatomical review source must be valid");append_static_projection(&candidate,body);
 }
+
+#[cfg(test)]
+#[path = "swamp_wallaby_anatomical_r3/numeric_profile_tests.rs"]
+mod numeric_profile_tests;

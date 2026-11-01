@@ -1,0 +1,70 @@
+// Vibe 0.1: indexed immutable list reconstruction; no capturing lambdas.
+// Applies to the retained, pinned r3 + motion study list order; unedited records
+// and all unmentioned fields are copied from species_asset, never reauthored.
+// Same r4 palette values, one bounded map expression per palette.
+// This avoids the qualified syntax path limit without changing engine limits.
+species_asset = record.merge(species_asset, {
+ palettes: [
+  record.merge(species_asset.palettes[0], {dorsal:[0.065,0.066,0.062,1],flank:[0.13,0.125,0.109,1],
+    ventral:[0.255,0.19,0.12,1],roughness:0.94}),
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  record.merge(species_asset.palettes[2], {dorsal:[0.095,0.099,0.092,1],flank:[0.145,0.145,0.13,1],
+    ventral:[0.23,0.195,0.145,1],roughness:0.91}),
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  record.merge(species_asset.palettes[3], {dorsal:[0.22,0.215,0.18,1],flank:[0.25,0.235,0.19,1],
+    ventral:[0.22,0.205,0.165,1],roughness:0.94}),
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  record.merge(species_asset.palettes[6], {dorsal:[0.055,0.047,0.038,1],flank:[0.09,0.072,0.05,1],
+    ventral:[0.065,0.052,0.039,1],roughness:0.96}),
+  species_asset.palettes[7]
+ ]
+});
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  record.merge(species_asset.palettes[4], {dorsal:[0.022,0.021,0.019,1],flank:[0.03,0.028,0.025,1],
+    ventral:[0.02,0.019,0.017,1],roughness:0.32}),
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});

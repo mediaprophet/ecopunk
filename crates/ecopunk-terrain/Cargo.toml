@@ -7,10 +7,15 @@ description = "Ecopunk geospatial terrain, 10D manifold, e64 containers, resourc
 license = "Apache-2.0"
 
 [dependencies]
+# Explicit anatomy numeric profile; bounded sin/cos/pow paths use this pinned owner.
+# Preserve the existing resolved default/arch feature set; see numeric_profile.rs.
+libm = "=0.2.16"
 bytemuck = { workspace = true }
 crc32c = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
+ciborium = "0.2"
+timeline-editing = { path = "../../../hypermedia-libraries/crates/timeline-editing" }
 qualia-geospatial = { workspace = true }
 qualia-sim = { workspace = true }
 vibe = { workspace = true }

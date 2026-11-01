@@ -1,0 +1,87 @@
+// r5 authored refinement after r3 + motion + r4-shape + r4-surface.
+// Inspected actual r4 native three-quarter/side/front views and saved references.
+// CSV SWB-27 is the upright animal; SWB-28 is the close portrait (contact-sheet index27).
+// These are image-informed artistic estimates, not calibrated/specimen measurements.
+// All existing IDs, joint landmarks, motion keys and contact targets remain retained.
+// One indexed reconstruction per edit: no namespace capture inside Vibe0.1 lambdas.
+// Neutral grizzled greys unify body and limbs; retained undercoat warmth is restrained.
+species_asset = record.merge(species_asset, {
+ palettes: [
+  record.merge(species_asset.palettes[0], {dorsal:[0.15,0.16,0.15,1],flank:[0.24,0.25,0.23,1],ventral:[0.32,0.29,0.23,1],roughness:0.94}),
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  record.merge(species_asset.palettes[1], {dorsal:[0.14,0.145,0.135,1],flank:[0.22,0.225,0.205,1],ventral:[0.27,0.25,0.2,1],roughness:0.94}),
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  record.merge(species_asset.palettes[2], {dorsal:[0.17,0.175,0.165,1],flank:[0.28,0.285,0.26,1],ventral:[0.33,0.31,0.25,1],roughness:0.91}),
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  record.merge(species_asset.palettes[3], {dorsal:[0.34,0.335,0.29,1],flank:[0.37,0.365,0.32,1],ventral:[0.33,0.32,0.275,1],roughness:0.94}),
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  species_asset.palettes[7]
+ ]
+});
+
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  record.merge(species_asset.palettes[6], {dorsal:[0.065,0.052,0.037,1],flank:[0.09,0.075,0.055,1],ventral:[0.07,0.055,0.04,1],roughness:0.96}),
+  species_asset.palettes[7]
+ ]
+});
+
+species_asset = record.merge(species_asset, {
+ palettes: [
+  species_asset.palettes[0],
+  species_asset.palettes[1],
+  species_asset.palettes[2],
+  species_asset.palettes[3],
+  species_asset.palettes[4],
+  species_asset.palettes[5],
+  species_asset.palettes[6],
+  record.merge(species_asset.palettes[7], {dorsal:[0.055,0.055,0.05,1],flank:[0.075,0.075,0.067,1],ventral:[0.05,0.05,0.044,1],roughness:0.55})
+ ]
+});
+
+// Denser fine ribbons remain a study coat, not film fur or measured hair.
+species_asset = record.merge(species_asset, {coat:record.merge(species_asset.coat,{vertex_stride:2,length_m:0.0065,width_m:0.0005,lift_m:0.0011,direction:[0,-0.55,-0.83]})});

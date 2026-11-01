@@ -28,9 +28,11 @@
 <button id="zoom-in" aria-label="Zoom in">＋</button><button id="zoom-out" aria-label="Zoom out">−</button>
 <button id="save-image">Save image</button><a id="download-model" class="download" hidden>Download model (.10d)</a><button id="save-record" hidden>Save review record</button>
 <a id="download-source-bundle" class="download" hidden>Download editable review bundle (.hmc)</a>
+<label for="bundle-subject">Bundle subject</label><select id="bundle-subject"><option value="0">White gum</option><option value="1">Swamp wallaby</option></select>
+<button id="open-bundle">Open editable review bundle (.hmc)</button><input id="bundle-file" type="file" accept=".hmc" hidden>
 </div>
 <details id="source-panel" style="padding:12px 20px" hidden><summary>Editable model source</summary>
-<p><a id="authored-source-link" style="color:#bddab8">Open the model definition</a> · Changes below are evaluated by Vibe in this browser.</p>
+<p><a id="authored-source-link" style="color:#bddab8">Reference model definition</a> · Changes below are evaluated by Vibe in this browser. The bundle retains the actual source revisions.</p>
 <label for="source-cell">Source edit</label>
 <textarea id="source-cell" rows="6" spellcheck="false" style="display:block;width:100%;background:#102025;color:#edf1e9;font:13px monospace;padding:10px">= species_asset</textarea>
 <button id="apply-source">Apply source edit</button><p id="source-status" role="status"></p>
@@ -42,10 +44,12 @@ const status=document.getElementById('status'), metadata=document.getElementById
 let wasm,portal,initializing,active=false,subject=-1,yaw=.7,pitch=.12,distance=2.6,target=[0,0,0],downloadUrl,currentMeta,admission,awaitingFrame=false;
 let halfBounds=[.85,.85,.85],modelCenter=[0,0,0],modelScale=1,reviewManifest;
 let sourceSession,bundleUrl;
+let bundleReadGeneration=0,previewGeneration=0;
 const sourcePaths=['../assets/production-studies/white-gum-review-r1/authoring/white-gum-r2.vibe','../assets/production-studies/swamp-wallaby-review-r1/authoring/swamp-wallaby-r3.vibe'];
+function cancelBundleRead(){bundleReadGeneration++;document.getElementById('open-bundle').disabled=false;}
 const choose=id=>document.querySelectorAll('.model-buttons button').forEach(b=>b.setAttribute('aria-pressed',String(b.id===id)));
 document.getElementById('reload').onclick=()=>location.reload();
-function showImage(id,path,alt,text){active=false;image.src=path;image.alt=alt;image.hidden=false;canvas.hidden=true;status.textContent=text;caption.textContent=alt;metadata.textContent='';for(const control of ['download-model','download-source-bundle','save-record','source-panel'])document.getElementById(control).hidden=true;document.getElementById('details-link').href=id==='scene-reference'?'../assets/demo-rebuild-2026-10-29/previews/site-00-talbingo.png':'../assets/production-studies/eucalypt-spray-r1/revisions/2026-10-29/dossier/README.md';choose(id);}
+function showImage(id,path,alt,text){cancelBundleRead();document.getElementById('save-image').disabled=false;active=false;image.src=path;image.alt=alt;image.hidden=false;canvas.hidden=true;status.textContent=text;caption.textContent=alt;metadata.textContent='';for(const control of ['download-model','download-source-bundle','save-record','source-panel'])document.getElementById(control).hidden=true;document.getElementById('details-link').href=id==='scene-reference'?'../assets/demo-rebuild-2026-10-29/previews/site-00-talbingo.png':'../assets/production-studies/eucalypt-spray-r1/revisions/2026-10-29/dossier/README.md';choose(id);}
 document.getElementById('saved-study').onclick=()=>showImage('saved-study','../assets/production-studies/eucalypt-spray-r1/revisions/2026-10-29/hero.png','Earlier illustrative eucalypt branch — saved output, not a completed white-gum species.','Showing the saved branch image. New whole-tree candidate is a separate revision.');
 document.getElementById('scene-reference').onclick=()=>showImage('scene-reference','../assets/demo-rebuild-2026-10-29/previews/site-00-talbingo.png','Retained Talbingo render identified by Timothy as the better scene.','Visual comparison reference; preserved without alteration.');
 function resize(){const d=Math.min(devicePixelRatio||1,2);canvas.width=Math.max(1,Math.round(canvas.clientWidth*d));canvas.height=Math.max(1,Math.round(canvas.clientHeight*d));}
@@ -56,7 +60,7 @@ async function ensureEngine(){
   const manifest=await fetch('./model-review-manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Review manifest unavailable');return r.json()});
   reviewManifest=manifest;const base=manifest.package_base; wasm=await import(`${base}ecopunk_wasm.js?v=${manifest.revision}`);
   await wasm.default({module_or_path:`${base}ecopunk_wasm_bg.wasm?v=${manifest.revision}`});
-  canvas.hidden=false;image.hidden=true;resize();
+  resize();
   let gpu=false;try{gpu=await wasm.init_webgpu(canvas)}catch{} if(!gpu)wasm.init_webgl2(canvas);
   portal=new wasm.QualiaPortal(canvas);portal.set_preserve_authored_frame(false);
   portal.set_tensor_projection_enabled(false);portal.set_ambient_enabled(false);
@@ -67,6 +71,7 @@ async function ensureEngine(){
  })();try{await initializing}catch(e){initializing=null;throw e}
 }
 function load(bytes,id,meta,index){
+ retirePreview();
  const receipt=portal.load_assets_colored([{id,bytes,r:1,g:1,b:1,a:1}]);
  if(receipt.assets_refused||receipt.assets_loaded!==1)throw Error('Model was not fully admitted for rendering');
  subject=index;currentMeta=meta;admission=receipt;awaitingFrame=true;
@@ -77,25 +82,35 @@ function load(bytes,id,meta,index){
  metadata.textContent=`${meta.taxon}\n${Number(receipt.vertex_count).toLocaleString()} vertices · ${Number(receipt.total_triangles).toLocaleString()} source triangles\n${receipt.renderer} · ${receipt.material_pipeline?'PBR materials':'colour fallback'}\nSource ${meta.source_sha256.slice(0,16)}`;
  if(downloadUrl)URL.revokeObjectURL(downloadUrl);downloadUrl=URL.createObjectURL(new Blob([bytes],{type:'application/octet-stream'}));
  const link=document.getElementById('download-model');link.href=downloadUrl;link.download=id+'.10d';link.hidden=false;
- document.getElementById('save-record').hidden=false;
+ document.getElementById('save-record').hidden=false;document.getElementById('save-image').disabled=false;
+}
+function retirePreview(){
+ active=false;awaitingFrame=false;currentMeta=undefined;admission=undefined;previewGeneration++;
+ metadata.textContent='No current viewport receipt.';
+ caption.textContent='Preview update pending or unavailable; the last image does not verify the selected source.';
+ document.getElementById('save-record').hidden=true;document.getElementById('save-image').disabled=true;
+ document.getElementById('download-model').hidden=true;
 }
 async function showCandidate(index){
+ cancelBundleRead();const generation=bundleReadGeneration;let nextSession;
  status.textContent='Loading the species model…';
  try{await ensureEngine();
+  if(generation!==bundleReadGeneration)return;
   if(typeof wasm.build_species_review_asset!=='function')throw Error('The new species WASM build is still in progress. The saved branch and scene reference remain available.');
   let result;
   if(index<2&&typeof wasm.SpeciesReviewSession==='function'){
    const response=await fetch(sourcePaths[index],{cache:'no-store'});if(!response.ok)throw Error('Authored model source unavailable');
-   const nextSession=new wasm.SpeciesReviewSession(index);
-   try{result=nextSession.submit(await response.text(),0);}catch(error){nextSession.free();throw error;}
-   if(sourceSession)sourceSession.free();sourceSession=nextSession;
-   showAuthoredSource(result,index);
-  }else{result=wasm.build_species_review_asset(index);document.getElementById('source-panel').hidden=true;document.getElementById('download-source-bundle').hidden=true;}
+   const source=await response.text();if(generation!==bundleReadGeneration)return;
+   nextSession=new wasm.SpeciesReviewSession(index);result=nextSession.submit(source,0);
+  }else{result=wasm.build_species_review_asset(index);}
   load(result.bytes,result.metadata.id,result.metadata,index);
+  if(sourceSession)sourceSession.free();sourceSession=nextSession;nextSession=undefined;
+  if(sourceSession)showAuthoredSource(result,index);
+  else{document.getElementById('source-panel').hidden=true;document.getElementById('download-source-bundle').hidden=true;}
   choose(index===0?'white-gum':index===2?'white-gum-foliage':'wallaby');status.textContent='Model loaded · waiting for the first rendered frame.';
   caption.textContent=result.metadata.title+' · static external form; species package remains incomplete.';
   document.getElementById('details-link').href=result.metadata.dossier;
- }catch(e){status.textContent=String(e.message||e);if(!active){image.hidden=false;canvas.hidden=true;}}
+ }catch(e){if(nextSession)nextSession.free();if(generation!==bundleReadGeneration)return;status.textContent=String(e.message||e);if(!active){image.hidden=false;canvas.hidden=true;}}
 }
 function showAuthoredSource(result,index){
  if(bundleUrl)URL.revokeObjectURL(bundleUrl);bundleUrl=URL.createObjectURL(new Blob([result.bundle],{type:'application/octet-stream'}));
@@ -104,11 +119,46 @@ function showAuthoredSource(result,index){
  document.getElementById('source-status').textContent=`Source revision ${sourceSession.revision()} · geometry validated; human acceptance pending.`;
 }
 document.getElementById('apply-source').onclick=()=>{
- if(!sourceSession||!active||subject>1)return;
+ if(!sourceSession||subject>1)return;cancelBundleRead();
  const message=document.getElementById('source-status');
+ let submitted=false;
  try{const result=sourceSession.submit(document.getElementById('source-cell').value,sourceSession.revision());
-  load(result.bytes,result.metadata.id,result.metadata,subject);showAuthoredSource(result,subject);
- }catch(error){message.textContent='Edit refused; previous source retained. '+String(error.message||error);}
+  submitted=true;showAuthoredSource(result,subject);
+  load(result.bytes,result.metadata.id,result.metadata,subject);
+ }catch(error){
+  if(submitted){retirePreview();caption.textContent='The source revision is retained; the last preview does not verify that revision.';
+   message.textContent=`Source revision ${sourceSession.revision()} retained; preview or download preparation failed. `+String(error.message||error);
+  }else{message.textContent='Edit refused; previous source retained. '+String(error.message||error);}
+ }
+};
+document.getElementById('open-bundle').onclick=()=>document.getElementById('bundle-file').click();
+document.getElementById('bundle-file').onchange=async event=>{
+ const file=event.target.files[0];event.target.value='';if(!file)return;
+ const index=Number(document.getElementById('bundle-subject').value),generation=++bundleReadGeneration;
+ const button=document.getElementById('open-bundle');button.disabled=true;
+ let restored,reopened=false;
+ try{
+  if(file.size===0||file.size>128*1024*1024)throw Error('Review bundle must be between 1 byte and 128 MiB.');
+  status.textContent='Opening and checking the retained source and model…';
+  await ensureEngine();
+  if(typeof wasm.reopen_species_review_session!=='function')throw Error('This build does not yet include editable bundle reopening. The saved bundle is unchanged.');
+  const bytes=new Uint8Array(await file.arrayBuffer());
+  if(generation!==bundleReadGeneration)return;
+  restored=wasm.reopen_species_review_session(index,bytes);
+  load(restored.bytes,restored.metadata.id,restored.metadata,index);
+  const previous=sourceSession;sourceSession=restored.session;restored=undefined;reopened=true;
+  if(previous)previous.free();
+  showAuthoredSource({bundle:bytes,metadata:currentMeta},index);
+  choose(index===0?'white-gum':'wallaby');
+  document.getElementById('source-cell').value='= species_asset';
+  document.getElementById('details-link').href=currentMeta.dossier;
+  caption.textContent=currentMeta.title+' · reopened editable review candidate; acceptance pending.';
+  status.textContent='Source reopened · waiting for the rendered frame. Older generators and unsupported bundle resources require migration.';
+ }catch(error){
+  if(restored?.session)restored.session.free();
+  if(generation!==bundleReadGeneration)return;
+  status.textContent=(reopened?'Source reopened; review presentation could not finish: ':'Bundle refused: ')+String(error.message||error);
+ }finally{if(generation===bundleReadGeneration)button.disabled=false;}
 };
 document.getElementById('white-gum').onclick=()=>showCandidate(0);document.getElementById('wallaby').onclick=()=>showCandidate(1);
 document.getElementById('white-gum-foliage').onclick=()=>showCandidate(2);
@@ -118,7 +168,18 @@ document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.data
 document.getElementById('zoom-in').onclick=()=>distance=Math.max(.15,distance*.8);document.getElementById('zoom-out').onclick=()=>distance=Math.min(8,distance*1.25);
 let drag;canvas.onpointerdown=e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)};canvas.onpointermove=e=>{if(!drag)return;yaw+=(e.clientX-drag[0])*.006;pitch=Math.max(-1.2,Math.min(1.3,pitch+(e.clientY-drag[1])*.006));drag=[e.clientX,e.clientY]};canvas.onpointerup=canvas.onpointercancel=()=>drag=null;
 canvas.addEventListener('wheel',e=>{e.preventDefault();distance=Math.max(.15,Math.min(8,distance*Math.exp(e.deltaY*.001)))},{passive:false});
-let last=performance.now();function frame(t){if(active){try{portal.set_camera_target(yaw,pitch,distance,...target);portal.tick(canvas,Math.min(50,t-last));if(awaitingFrame){const rendered=portal.body_render_receipt();if(rendered.success){awaitingFrame=false;const full=admission.material_pipeline&&rendered.vertex_count===currentMeta.vertex_count&&rendered.index_count===currentMeta.triangle_count*3;status.textContent=reviewManifest.review_message||(full?'Rendered candidate · awaiting coordinator review and your decision.':'Rendered with a reduced or colour fallback · full material review remains pending.');}}}catch(e){active=false;status.textContent='Render failed: '+String(e)}}last=t;requestAnimationFrame(frame)}
+let last=performance.now();function frame(t){if(active){try{portal.set_camera_target(yaw,pitch,distance,...target);portal.tick(canvas,Math.min(50,t-last));if(awaitingFrame){const rendered=portal.body_render_receipt();if(rendered.success){awaitingFrame=false;const full=admission.material_pipeline&&rendered.vertex_count===currentMeta.vertex_count&&rendered.index_count===currentMeta.triangle_count*3;status.textContent=reviewManifest.review_message||(full?'Rendered candidate · awaiting coordinator review and your decision.':'Rendered with a reduced or colour fallback · full material review remains pending.');}}}catch(e){retirePreview();status.textContent='Render failed: '+String(e)}}last=t;requestAnimationFrame(frame)}
 document.getElementById('save-record').onclick=()=>{if(!active)return;const record={model:currentMeta,build:reviewManifest,admission,render:portal.body_render_receipt(),camera:{yaw,pitch,distance,target},canvas:{width:canvas.width,height:canvas.height},captured_utc:new Date().toISOString(),human_acceptance:currentMeta.human_acceptance||'pending'};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(record,null,2)],{type:'application/json'}));a.download=currentMeta.id+'-review.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
-document.getElementById('save-image').onclick=()=>{if(!active){const a=document.createElement('a');a.href=image.src;a.download=image.src.split('/').pop();a.click();return;}portal.tick(canvas,0);canvas.toBlob(blob=>{if(!blob){status.textContent='Image capture unavailable';return;}const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(subject===0?'white-gum':subject===1?'swamp-wallaby':'white-gum-foliage')+'-review.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png')};
+document.getElementById('save-image').onclick=()=>{
+ if(!active){if(image.hidden||document.getElementById('save-image').disabled)return;
+  const a=document.createElement('a');a.href=image.src;a.download=image.src.split('/').pop();a.click();return;}
+ const capturedId=currentMeta.id,selection=bundleReadGeneration,preview=previewGeneration;
+ try{portal.tick(canvas,0);}catch(error){retirePreview();status.textContent='Capture render failed: '+String(error);return;}
+ try{canvas.toBlob(blob=>{
+  if(!active||selection!==bundleReadGeneration||preview!==previewGeneration)return;
+  if(!blob){status.textContent='Image capture unavailable; no image saved.';return;}
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=capturedId+'-review.png';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+ },'image/png');}catch(error){status.textContent='Image capture failed: '+String(error);}
+};
 </script></body></html>

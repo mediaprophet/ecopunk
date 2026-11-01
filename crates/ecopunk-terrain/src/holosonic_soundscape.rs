@@ -32,6 +32,9 @@ use qualia_core_db::audio::scene_audio_graph::{
     SceneAudioBusGraph,
 };
 use qualia_core_db::render::pga::Motor;
+
+pub mod pcm;
+pub mod pcm_schedule;
 use qualia_core_db::sonic_token::SonicToken;
 
 /// Maximum obstacles tracked in the zero-heap soundscape scene.

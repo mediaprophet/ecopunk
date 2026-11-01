@@ -1,0 +1,17 @@
+module <https://webizen.org/ecopunk/source_terrain>;
+
+requires [
+    capability("capability.invoke"),
+    capability("TerrainSource.sample_local")
+];
+
+// The host first admits the actual M64 and its canonical .10d derivative.
+// Coordinates are metres: X east, Z south; origin is the first source cell.
+// Returns the rendered triangle's height/normal and exact source/surface hashes.
+// Outside-source queries fail rather than becoming a synthetic ground plane.
+fn sample_authored_placement(east_m: f64, south_m: f64) -> Record {
+    return capability.invoke("TerrainSource.sample_local", {
+        east_m: east_m,
+        south_m: south_m
+    });
+}

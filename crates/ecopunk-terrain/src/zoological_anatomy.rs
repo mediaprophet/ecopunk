@@ -15,6 +15,9 @@
 //! `MRP1` (costal respiration, gular vocalization, Achilles tendon strain), and `PROV`.
 //! Also provides zero-heap layer peeling and exploded-view cross-fading.
 
+mod numeric_profile;
+pub use numeric_profile::NumericProfile;
+
 use bytemuck;
 use serde::{Deserialize, Serialize};
 
@@ -304,15 +307,16 @@ fn lerp_rgba(a: [f32; 4], b: [f32; 4], t: f32) -> [f32; 4] {
 
 #[inline]
 fn sample_countershade(
+    profile: Option<NumericProfile>,
     dorsal: [f32; 4],
     flank: [f32; 4],
     ventral: [f32; 4],
     sin_theta: f32,
 ) -> [f32; 4] {
     if sin_theta >= 0.0 {
-        lerp_rgba(flank, dorsal, sin_theta.clamp(0.0, 1.0).powf(0.75))
+        lerp_rgba(flank, dorsal, NumericProfile::pow(profile, sin_theta.clamp(0.0, 1.0), 0.75))
     } else {
-        lerp_rgba(flank, ventral, (-sin_theta).clamp(0.0, 1.0).powf(0.70))
+        lerp_rgba(flank, ventral, NumericProfile::pow(profile, (-sin_theta).clamp(0.0, 1.0), 0.70))
     }
 }
 
@@ -320,6 +324,7 @@ fn sample_countershade(
 /// bicondylar long bones, curved costal rib arches, fusiform muscle bellies with tendons,
 /// internal viscera, and countershaded integument envelopes.
 pub struct AnatomyMeshAccumulator {
+    numeric_profile: Option<NumericProfile>,
     pub positions: Vec<[f32; 3]>,
     pub normals: Vec<[f32; 3]>,
     pub colors: Vec<[f32; 4]>,
@@ -334,7 +339,12 @@ type MeshAccumulator = AnatomyMeshAccumulator;
 
 impl AnatomyMeshAccumulator {
     pub fn new() -> Self {
+        Self::with_numeric_profile(None)
+    }
+
+    pub fn with_numeric_profile(numeric_profile: Option<NumericProfile>) -> Self {
         Self {
+            numeric_profile,
             positions: Vec::with_capacity(6400),
             normals: Vec::with_capacity(6400),
             colors: Vec::with_capacity(6400),
@@ -345,6 +355,11 @@ impl AnatomyMeshAccumulator {
             joint_weights: Vec::with_capacity(6400),
         }
     }
+
+    pub fn numeric_profile(&self) -> Option<NumericProfile> { self.numeric_profile }
+    fn sin(&self, x: f32) -> f32 { NumericProfile::sin(self.numeric_profile, x) }
+    fn cos(&self, x: f32) -> f32 { NumericProfile::cos(self.numeric_profile, x) }
+    fn pow(&self, x: f32, exponent: f32) -> f32 { NumericProfile::pow(self.numeric_profile, x, exponent) }
 
     /// Sweeps a multi-station anatomical loft with smooth Bishop-like frames, analytical normals,
     /// end caps, and dorsal–flank–ventral countershading.
@@ -408,8 +423,8 @@ impl AnatomyMeshAccumulator {
             for s in 0..=r_segs {
                 let u_uv = s as f32 / r_segs as f32;
                 let theta = u_uv * core::f32::consts::TAU;
-                let ct = theta.cos();
-                let st_sin = theta.sin();
+                let ct = self.cos(theta);
+                let st_sin = self.sin(theta);
 
                 let px = st.center[0] + ux * (rx * ct) + vx * (ry * st_sin);
                 let py = st.center[1] + uy * (rx * ct) + vy * (ry * st_sin);
@@ -421,6 +436,7 @@ impl AnatomyMeshAccumulator {
                 let nlen = (nx * nx + ny * ny + nz * nz).sqrt().max(1e-5);
 
                 let col = sample_countershade(
+                    self.numeric_profile,
                     st.dorsal_color,
                     st.flank_color,
                     st.ventral_color,
@@ -533,7 +549,7 @@ impl AnatomyMeshAccumulator {
 
         for i in 0..6 {
             let t = ts[i];
-            let arch = (t * core::f32::consts::PI).sin();
+            let arch = self.sin(t * core::f32::consts::PI);
             let col = if !(0.2..=0.8).contains(&t) {
                 cartilage_tint
             } else {
@@ -585,8 +601,8 @@ impl AnatomyMeshAccumulator {
 
         for (i, ring) in rings.iter_mut().enumerate() {
             let t = i as f32 / 5.0;
-            let arch_x = (t * core::f32::consts::PI).sin() * lateral_span;
-            let arch_z = (t * core::f32::consts::PI).sin() * (-0.015);
+            let arch_x = self.sin(t * core::f32::consts::PI) * lateral_span;
+            let arch_z = self.sin(t * core::f32::consts::PI) * (-0.015);
             let col = if t > 0.68 {
                 lerp_rgba(bone_color, cartilage_color, (t - 0.68) / 0.32)
             } else {
@@ -595,7 +611,7 @@ impl AnatomyMeshAccumulator {
             *ring = AnatomicalLoftRing {
                 center: [
                     spine_p[0] + (sternum_p[0] - spine_p[0]) * t + arch_x,
-                    spine_p[1] + (sternum_p[1] - spine_p[1]) * t.powf(0.85),
+                    spine_p[1] + (sternum_p[1] - spine_p[1]) * self.pow(t, 0.85),
                     spine_p[2] + (sternum_p[2] - spine_p[2]) * t + arch_z,
                 ],
                 radii: [rib_r * (0.85 + 0.25 * (1.0 - t)), rib_r * 0.68],
@@ -645,7 +661,14 @@ impl AnatomyMeshAccumulator {
 
         for (i, ring) in rings.iter_mut().enumerate() {
             let t = i as f32 / 6.0;
-            let fusiform = (t * core::f32::consts::PI).sin().powf(0.75);
+            // The analytic sine envelope is exactly zero at both attachments.
+            // f32 sin(PI) can be slightly negative; raising that rounding error
+            // to a fractional power produces NaNs in the terminal muscle ring.
+            let fusiform = if i == 0 || i == 6 {
+                0.0
+            } else {
+                self.pow(self.sin(t * core::f32::consts::PI), 0.75)
+            };
             let r_scale = 0.18 + 0.82 * fusiform;
             let tendon_blend = if t < 0.20 {
                 1.0 - (t / 0.20)
@@ -728,8 +751,8 @@ impl AnatomyMeshAccumulator {
 
             for s in 0..=r_segs {
                 let theta = (s as f32 / r_segs as f32) * core::f32::consts::TAU;
-                let cos_t = theta.cos();
-                let sin_t = theta.sin();
+                let cos_t = self.cos(theta);
+                let sin_t = self.sin(theta);
 
                 let normal = [
                     u_vec[0] * cos_t + v_vec[0] * sin_t,
@@ -783,13 +806,13 @@ impl AnatomyMeshAccumulator {
 
         for v in 0..=v_n {
             let phi = (v as f32 / v_n as f32) * core::f32::consts::PI;
-            let sin_phi = phi.sin();
-            let cos_phi = phi.cos();
+            let sin_phi = self.sin(phi);
+            let cos_phi = self.cos(phi);
 
             for u in 0..=u_n {
                 let theta = (u as f32 / u_n as f32) * core::f32::consts::TAU;
-                let cos_theta = theta.cos();
-                let sin_theta = theta.sin();
+                let cos_theta = self.cos(theta);
+                let sin_theta = self.sin(theta);
 
                 let nx = sin_phi * cos_theta;
                 let ny = cos_phi;

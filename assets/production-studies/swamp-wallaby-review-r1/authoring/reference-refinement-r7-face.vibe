@@ -1,0 +1,52 @@
+// R7 FACE: append after the eight retained R6 cells; do not replace them.
+// Image-informed authored estimates, not measured morphology or acceptance.
+// Revised after actual prefix10 R7 diagnostic: remove floating smile/rim cues.
+// Cheek support stays retained entirely subsurface; fur markings need surface colour.
+// Original IDs, source references, joints, motion/contact targets and section counts survive.
+species_asset = record.merge(species_asset, {lofts:[
+  species_asset.lofts[0],
+  record.merge(species_asset.lofts[1],{sections:[{center_m:[0,0.805,0.18],radii_m:[0.022,0.029]},{center_m:[0,0.822,0.21],radii_m:[0.051,0.054]},{center_m:[0,0.832,0.255],radii_m:[0.055,0.049]},{center_m:[0,0.825,0.295],radii_m:[0.047,0.04]},{center_m:[0,0.813,0.335],radii_m:[0.035,0.027]},{center_m:[0,0.805,0.37],radii_m:[0.027,0.019]},{center_m:[0,0.802,0.389],radii_m:[0.021,0.015]}]}),
+  record.merge(species_asset.lofts[2],{sections:[{center_m:[0,0.804,0.375],radii_m:[0.019,0.013]},{center_m:[0,0.804,0.386],radii_m:[0.023,0.014]},{center_m:[0,0.801,0.397],radii_m:[0.02,0.013]},{center_m:[0,0.796,0.403],radii_m:[0.011,0.008]}]}),
+  record.merge(species_asset.lofts[3],{sections:[{center_m:[0,0.803,0.245],radii_m:[0.024,0.016]},{center_m:[0,0.797,0.285],radii_m:[0.034,0.019]},{center_m:[0,0.795,0.333],radii_m:[0.026,0.012]},{center_m:[0,0.793,0.382],radii_m:[0.017,0.007]}]}),
+  species_asset.lofts[4],
+  species_asset.lofts[5],
+  species_asset.lofts[6],
+  species_asset.lofts[7],
+  species_asset.lofts[8],
+  species_asset.lofts[9],
+  species_asset.lofts[10],
+  species_asset.lofts[11],
+  species_asset.lofts[12],
+  species_asset.lofts[13],
+  species_asset.lofts[14],
+  species_asset.lofts[15],
+  species_asset.lofts[16],
+  species_asset.lofts[17],
+  species_asset.lofts[18],
+  species_asset.lofts[19],
+  species_asset.lofts[20],
+  species_asset.lofts[21],
+  species_asset.lofts[22],
+  species_asset.lofts[23],
+  species_asset.lofts[24],
+  record.merge(species_asset.lofts[25],{sections:[{center_m:[0.009,0.814,0.257],radii_m:[0.0007,0.0012]},{center_m:[0.012,0.809,0.286],radii_m:[0.0007,0.0012]},{center_m:[0.012,0.802,0.319],radii_m:[0.0007,0.0012]},{center_m:[0.008,0.798,0.35],radii_m:[0.0006,0.001]}]}),
+  record.merge(species_asset.lofts[26],{material:4,sections:[{center_m:[0.05,0.833,0.28],radii_m:[0.0009,0.0009]},{center_m:[0.057,0.844,0.289],radii_m:[0.0011,0.0011]},{center_m:[0.057,0.845,0.304],radii_m:[0.001,0.001]},{center_m:[0.05,0.833,0.314],radii_m:[0.0008,0.0008]}]}),
+  record.merge(species_asset.lofts[27],{material:4,sections:[{center_m:[0.05,0.833,0.28],radii_m:[0.0008,0.0008]},{center_m:[0.057,0.824,0.289],radii_m:[0.0009,0.0009]},{center_m:[0.057,0.824,0.304],radii_m:[0.0009,0.0009]},{center_m:[0.05,0.833,0.314],radii_m:[0.0008,0.0008]}]}),
+  record.merge(species_asset.lofts[28],{sections:[{center_m:[0.006,0.799,0.352],radii_m:[0.0004,0.0004]},{center_m:[0.009,0.796,0.368],radii_m:[0.00045,0.00045]},{center_m:[0.01,0.791,0.386],radii_m:[0.00045,0.00045]},{center_m:[0.004,0.79,0.397],radii_m:[0.00035,0.00035]}]})
+]});
+species_asset = record.merge(species_asset, {ellipsoids:[
+ record.merge(species_asset.ellipsoids[0], {center_m:[0.051,0.833,0.297],radii_m:[0.009,0.013,0.017]}),
+ record.merge(species_asset.ellipsoids[1], {center_m:[0.014,0.802,0.398],radii_m:[0.0045,0.003,0.002]})
+]});
+// Retain the pinna root and head joint; modestly narrower broad cupped ears.
+species_asset = record.merge(species_asset, {ears:[
+ record.merge(species_asset.ears[0], {tip_m:[0.081,0.958,0.193],width_m:0.034,cup_depth_m:0.014,thickness_m:0.0028})
+]});
+// Existing material identities: cheek3, nose/naris/mouth4, inset eye5.
+species_asset = record.merge(species_asset, {palettes:[
+ species_asset.palettes[0],species_asset.palettes[1],species_asset.palettes[2],
+ record.merge(species_asset.palettes[3],{dorsal:[0.245,0.24,0.212,1],flank:[0.285,0.28,0.245,1],ventral:[0.26,0.25,0.215,1],roughness:0.96}),
+ record.merge(species_asset.palettes[4],{dorsal:[0.014,0.016,0.015,1],flank:[0.02,0.022,0.021,1],ventral:[0.012,0.014,0.013,1],roughness:0.3}),
+ record.merge(species_asset.palettes[5],{dorsal:[0.009,0.008,0.006,1],flank:[0.014,0.012,0.009,1],ventral:[0.008,0.007,0.005,1],roughness:0.14}),
+ species_asset.palettes[6],species_asset.palettes[7]
+]});

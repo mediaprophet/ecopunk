@@ -2,6 +2,7 @@
 //! Foundational geospatial terrain, 10D manifolds, .e64 containers,
 //! dynamic hardware resource governor, and distributed display architectures.
 
+mod scene_mesh_buffer;
 pub mod botanical_anatomy;
 pub mod botanical_field_builder;
 pub mod botanical_ontology_q42;
@@ -24,10 +25,16 @@ pub mod specimen;
 pub mod species_review;
 pub mod species_review_source;
 pub mod species_authored_review;
+pub mod species_review_reopen;
+pub mod species_review_resources;
+pub mod species_hmc_review;
+pub mod wallaby_rig;
 pub mod white_gum_authored_review;
+pub use white_gum_authored_review::connected_review as white_gum_connected_review;
 pub mod swamp_wallaby_anatomical_r3;
 pub mod streaming_hydration;
 pub mod terrain_dag_sector;
+pub mod terrain_source;
 pub mod world_continuum;
 pub mod zoological_anatomy;
 pub mod zoological_loft_builder;
@@ -99,3 +106,16 @@ pub use zoological_anatomy::{
 };
 
 
+
+/// Bounded explicit incident-chain edits in retained full-tree review sources.
+pub mod tree_junction;
+pub mod animal_motion;
+pub mod animal_motion_review;
+pub mod species_playback;
+pub mod species_knowledge;
+#[cfg(test)]
+mod animal_motion_review_tests;
+#[cfg(test)]
+mod anatomy_producer_tests;
+pub mod smooth_collars;
+pub use white_gum_authored_review::tree_forks;

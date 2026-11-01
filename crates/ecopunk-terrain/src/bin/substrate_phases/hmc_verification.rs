@@ -32,7 +32,7 @@ use super::hmc_packing::PackHmcResult;
 use super::vibe_phase::VibePhaseResult;
 
 pub fn execute_hmc_verification_and_rendering(
-    root: &Path,
+    renders_dir: &Path,
     packed: &PackHmcResult,
     vibe_phase: &VibePhaseResult,
 ) -> io::Result<()> {
@@ -213,8 +213,9 @@ pub fn execute_hmc_verification_and_rendering(
         telemetry_hud.canvas.text_quad_count
     );
 
-    let renders_dir = root.join("assets").join("renders");
-    fs::create_dir_all(&renders_dir)?;
+    // Caller owns a fresh output revision; never reuse the historical shared
+    // assets/renders directory or overwrite its images.
+    fs::create_dir_all(renders_dir)?;
 
     let render_jobs = vec![
         ("01_talbingo_aerial_pbr.png", &packed.compiled_sectors["talbingo"], None),

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Ecopunk · Asset review</title>
+  <link rel="stylesheet" href="./showasset.css">
+</head>
+<body>
+  <header><a href="./showasset.html" class="brand">Ecopunk</a><h1>Asset review</h1><span class="badge">Candidate · human review pending</span><a href="./models.html">Model workspace</a></header>
+  <main>
+    <section class="stage" aria-label="Interactive asset review">
+      <div class="viewport" id="viewport">
+        <canvas id="canvas" hidden tabindex="0" aria-label="3D asset. Drag or use arrow keys to orbit; pinch, scroll or use zoom buttons."></canvas>
+        <div id="placeholder"><span class="eyebrow">Exact artifact, existing engine</span><p>Loading the selected asset…</p></div>
+        <span class="viewport-label" id="render-label">No current rendered evidence</span>
+      </div>
+      <div class="toolbar" aria-label="Camera and evidence controls">
+        <button data-view="fit" disabled>Fit</button><button data-view="front" disabled>Front</button><button data-view="side" disabled>Side</button>
+        <button id="zoom-in" disabled aria-label="Zoom in">＋</button><button id="zoom-out" disabled aria-label="Zoom out">−</button>
+        <button id="save-image" disabled>Save current image</button><button id="save-record" disabled>Save evidence record</button>
+      </div>
+      <p class="gesture">Drag to orbit · pinch or scroll to zoom · arrow keys to orbit. Display fitting leaves the downloaded source bytes unchanged.</p>
+      <p id="status" role="status" aria-live="polite">Preparing review…</p>
+    </section>
+    <aside>
+      <h2>Selected artifact</h2>
+      <form id="asset-form">
+        <label for="asset">Asset URL</label><input id="asset" name="asset" maxlength="4096" spellcheck="false" required>
+        <label for="expected-sha">Expected file SHA-256 <small>(optional; a pin, not approval)</small></label><input id="expected-sha" maxlength="64" spellcheck="false">
+        <label for="resource">HMC mesh resource <small>(explicit selection; pinned historical HMC only in this build)</small></label><input id="resource" maxlength="512" spellcheck="false" list="resource-options"><datalist id="resource-options"></datalist>
+        <button type="submit">Open selected artifact</button>
+      </form>
+      <div class="actions"><button id="copy-link" disabled>Copy pinned review link</button><a id="download" hidden>Download exact input</a></div>
+      <p id="history" class="notice">A loaded candidate is not an accepted master or complete species/environment package.</p>
+      <div id="historical-links" hidden><a id="production-receipt">Historical production receipt</a><a id="source-link">Historical editable Vibe source</a></div>
+      <dl id="facts"></dl>
+      <details><summary>Exact artifact and built-engine evidence</summary><pre id="receipt">No current evidence.</pre></details>
+      <p class="scope">This browser projection uses the retained QualiaDB WASM renderer and canonical readers. It does not execute packaged Vibe, adopt graphs, certify rights, or approve an asset. Native Poet and the latest staged work have separate qualification requirements.</p>
+    </aside>
+  </main>
+  <script type="module" src="./showasset.js"></script>
+</body>
+</html>

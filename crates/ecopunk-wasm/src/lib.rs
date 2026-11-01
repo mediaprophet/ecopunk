@@ -17,9 +17,16 @@
 //!   botanical/zoological educational dissection scales (`botanical_anatomy` + `zoological_anatomy`).
 
 pub mod vibe_host;
+mod terrain_source_host;
+#[cfg(target_arch = "wasm32")]
+mod terrain_source_wasm;
 
 #[cfg(target_arch = "wasm32")]
 mod species_review_wasm;
+#[cfg(target_arch = "wasm32")]
+mod species_motion_review_wasm;
+#[cfg(target_arch = "wasm32")]
+mod species_production_playback_wasm;
 
 #[cfg(any(target_arch = "wasm32", test))]
 mod texture_admission;
@@ -49,6 +56,8 @@ use vibe::{eval_function, load_program, Env, Program, Value};
 
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::prelude::*;
+#[cfg(target_arch = "wasm32")]
+use ecopunk_terrain::LocalHostQ42Ext;
 #[cfg(target_arch = "wasm32")]
 use web_sys::HtmlCanvasElement;
 
@@ -687,12 +696,16 @@ impl EcopunkPortal {
     }
 
     pub fn render_receipt(&self) -> Result<JsValue, JsValue> {
+        if self.active_experience == 3 {
+            return Err(JsValue::from_str("Presentation retired after incomplete replacement"));
+        }
         self.inner.body_render_receipt()
     }
 
     /// Admit an in-memory `.q42` semantic graph volume slice into `EcopunkVibeHost` (`LocalHost::with_q42_pack`).
     pub fn admit_q42_pack(&mut self, q42_bytes: &[u8]) -> usize {
-        self.vibe_host = EcopunkVibeHost::with_q42_pack(q42_bytes);
+        // Replacing graph input must not drop a separately admitted terrain.
+        self.vibe_host.local = vibe::LocalHost::with_q42_pack(q42_bytes);
         q42_bytes.len()
     }
 
@@ -740,6 +753,8 @@ impl EcopunkPortal {
         let sector = build_sector_10d(sector_key, sector_title, &self.textures, false)
             .map_err(|e| JsValue::from_str(&format!("build_sector_10d({sector_key}): {e}")))?;
 
+        self.vibe_host.clear_source_terrain();
+        self.active_experience = 3; // retired until replacement presentation succeeds
         self.inner.set_preserve_authored_frame(false);
         let _receipt = if self.untextured_fallback {
             // Reuse the actual native water mesh when the specialized WebGPU
@@ -873,8 +888,6 @@ impl EcopunkPortal {
         self.peel_01 = peel_01.clamp(0.0, 1.0);
         self.archetype_idx = archetype_idx;
         self.active_pin_index = pin_index as usize;
-        self.active_experience = 1;
-
         let (bytes_10d, mesh_meta) = build_dissection_scale_10d(
             s,
             self.session.loupe.explode_layers_01,
@@ -885,6 +898,8 @@ impl EcopunkPortal {
         )
         .map_err(|e| JsValue::from_str(&e))?;
 
+        self.vibe_host.clear_source_terrain();
+        self.active_experience = 3;
         self.inner.set_preserve_authored_frame(false);
         let _ = load_single_10d_colored(&mut self.inner, &bytes_10d, "https://ns.webizen.org/ecopunk/dissection_organ")?;
         self.inner.set_water_geometry(&[], &[])?;
@@ -899,6 +914,7 @@ impl EcopunkPortal {
         )?;
         self.inner
             .set_camera_target(0.62, 0.28, 1.85, 0.0, 0.0, 0.0)?;
+        self.active_experience = 1;
 
         let vibe_eval_json = if let Some(prog) = &self.lab_prog {
             let mut env = Env::default();
@@ -1007,6 +1023,9 @@ impl EcopunkPortal {
         cam_pitch: f32,
         cam_zoom: f32,
     ) -> Result<String, JsValue> {
+        if self.active_experience >= 2 {
+            return self.step_source_terrain(canvas, dt_ms, cam_yaw, cam_pitch, cam_zoom);
+        }
         let dt_s = (dt_ms * 0.001).clamp(1.0 / 240.0, 0.05);
 
         let tick_input = ExplorationTickInput {

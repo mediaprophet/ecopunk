@@ -1,0 +1,32 @@
+// Explicit authored study motion; values are controls, not observations.
+// The existing record.merge operator preserves every anatomy/source field.
+species_asset = record.merge(species_asset, {motion: {
+ schema:"ecopunk.authored-animal-motion/v1",status:"authored-study-not-observed",
+ frame:"authored-model-metres; +Y up; +Z front; rest-local wxyz joint deltas",units:"m,s,radian",
+ clips:[
+  {id:"head-look-study",duration_s:2.0,looping:true,tracks:[
+   {joint_id:"head",max_delta_angle_rad:0.7,keys:[
+    {time_s:0.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},
+    {time_s:0.5,rotation_wxyz:[0.96,0,0.28,0],translation_m:[0,0,0]},
+    {time_s:1.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},
+    {time_s:1.5,rotation_wxyz:[0.96,0,-0.28,0],translation_m:[0,0,0]},
+    {time_s:2.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]}]}],contacts:[]},
+  {id:"hop-step-study",duration_s:1.2,looping:false,tracks:[
+   {joint_id:"pelvis",max_delta_angle_rad:0.0,keys:[
+    {time_s:0.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},
+    {time_s:0.18,rotation_wxyz:[1,0,0,0],translation_m:[0,-0.01,0.02]},
+    {time_s:0.6,rotation_wxyz:[1,0,0,0],translation_m:[0,0.10,0.15]},
+    {time_s:1.02,rotation_wxyz:[1,0,0,0],translation_m:[0,-0.01,0.28]},
+    {time_s:1.2,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0.30]}]},
+   {joint_id:"left_hip",max_delta_angle_rad:0.7,keys:[{time_s:0.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},{time_s:0.6,rotation_wxyz:[0.96,-0.28,0,0],translation_m:[0,0,0]},{time_s:1.2,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]}]},
+   {joint_id:"right_hip",max_delta_angle_rad:0.7,keys:[{time_s:0.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},{time_s:0.6,rotation_wxyz:[0.96,-0.28,0,0],translation_m:[0,0,0]},{time_s:1.2,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]}]},
+   {joint_id:"left_knee",max_delta_angle_rad:1.4,keys:[{time_s:0.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},{time_s:0.6,rotation_wxyz:[0.8,0.6,0,0],translation_m:[0,0,0]},{time_s:1.2,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]}]},
+   {joint_id:"right_knee",max_delta_angle_rad:1.4,keys:[{time_s:0.0,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]},{time_s:0.6,rotation_wxyz:[0.8,0.6,0,0],translation_m:[0,0,0]},{time_s:1.2,rotation_wxyz:[1,0,0,0],translation_m:[0,0,0]}]}
+  ],contacts:[
+   {chain:["left_hip","left_knee","left_ankle"],start_s:0.0,end_s:0.18,attachment_local_m:[0,-0.08,0],target_model_m:[-0.155,0,-0.07],pole_model_m:[-0.155,0.25,0.3],min_knee_angle_rad:0.4,max_knee_angle_rad:2.9,tolerance_m:0.003},
+   {chain:["right_hip","right_knee","right_ankle"],start_s:0.0,end_s:0.18,attachment_local_m:[0,-0.08,0],target_model_m:[0.155,0,-0.07],pole_model_m:[0.155,0.25,0.3],min_knee_angle_rad:0.4,max_knee_angle_rad:2.9,tolerance_m:0.003},
+   {chain:["left_hip","left_knee","left_ankle"],start_s:1.02,end_s:1.2,attachment_local_m:[0,-0.08,0],target_model_m:[-0.155,0,0.23],pole_model_m:[-0.155,0.25,0.6],min_knee_angle_rad:0.4,max_knee_angle_rad:2.9,tolerance_m:0.003},
+   {chain:["right_hip","right_knee","right_ankle"],start_s:1.02,end_s:1.2,attachment_local_m:[0,-0.08,0],target_model_m:[0.155,0,0.23],pole_model_m:[0.155,0.25,0.6],min_knee_angle_rad:0.4,max_knee_angle_rad:2.9,tolerance_m:0.003}
+  ]}
+ ]
+}});

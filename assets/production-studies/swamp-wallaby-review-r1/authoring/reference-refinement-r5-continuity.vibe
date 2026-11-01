@@ -1,0 +1,12 @@
+// r5 authored refinement after r3 + motion + r4-shape + r4-surface.
+// Inspected actual r4 native three-quarter/side/front views and saved references.
+// CSV SWB-27 is the upright animal; SWB-28 is the close portrait (contact-sheet index27).
+// These are image-informed artistic estimates, not calibrated/specimen measurements.
+// All existing IDs, joint landmarks, motion keys and contact targets remain retained.
+// One indexed reconstruction per edit: no namespace capture inside Vibe0.1 lambdas.
+// Requires the new admitted loft_chains owner. Source records and identifiers survive.
+// Shared serial limb rings are distinct from a welded torso branch or accepted anatomy.
+species_asset = record.merge(species_asset, {loft_chains:[
+ {id:"hindlimb-continuous-study-r5",members:[{loft_id:"thigh-integument",first_section:0,last_section:3},{loft_id:"calf-integument",first_section:1,last_section:3},{loft_id:"hind-pes",first_section:1,last_section:5}],radial_segments:40,subdivisions:6},
+ {id:"forelimb-continuous-study-r5",members:[{loft_id:"upper-forelimb",first_section:0,last_section:2},{loft_id:"forearm-and-palm",first_section:1,last_section:4}],radial_segments:32,subdivisions:6}
+]});

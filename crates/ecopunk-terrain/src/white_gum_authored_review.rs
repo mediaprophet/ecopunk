@@ -6,6 +6,10 @@ use serde::Deserialize;
 use qualia_core_db::specialized_libs::computational_geometry::{Point2, Point3, math_geometry::AffineFrame3, sweep_extrusion::ExtrusionStation};
 use qualia_core_db::specialized_libs::computational_geometry::hard_cap_sweep::{hard_cap_sweep_counts, hard_cap_sweep_normals_into};
 use crate::scene_builder_10d::SubmeshBuilder;
+#[path = "white_gum_connected_review.rs"]
+pub mod connected_review;
+#[path = "tree_forks/mod.rs"]
+pub mod tree_forks;
 
 pub struct WhiteGumAuthoredReview {
     pub wood: SubmeshBuilder,
@@ -21,6 +25,12 @@ struct Source {
     radii_m: Vec<f32>,
     roles: Vec<String>,
     sprays: Vec<Spray>,
+    #[serde(default)]
+    connected_study: Option<connected_review::StudySpec>,
+    #[serde(default)]
+    chain_union: Option<crate::tree_junction::ChainUnionSpec>,
+    #[serde(default)]
+    all_forks: Option<tree_forks::AllForkSpec>,
 }
 // Field-compatible projection of the existing Poet botanical v2 recipe. This
 // browser adapter does not claim to run Poet's controller/validation pipeline.
@@ -79,17 +89,23 @@ fn append_hard_cap_chain(mesh:&mut SubmeshBuilder, axis:&[Point3], stations:&[Ex
     Ok(mapping)
 }
 
-/// Accepts the JSON-compatible `species_asset` binding from the Vibe source session.
-/// Model edits change runtime source; this function contains no baked model data.
-/// Returns scratch geometry only on success, with authored graph and range metadata.
-pub fn build_white_gum_authored_review(source: &str) -> Result<WhiteGumAuthoredReview,String> {
+struct ValidatedSource {
+    data: Source, parents: Vec<Option<usize>>, children: Vec<Vec<usize>>,
+    lookup: BTreeMap<String,usize>, total_leaves: usize,
+}
+fn read_source(source: &str) -> Result<ValidatedSource,String> {
     if source.len() > 512 * 1024 { return Err("White-gum source exceeds 512 KiB".into()); }
     let data: Source = serde_json::from_str(source).map_err(|e|format!("White-gum source: {e}"))?;
     let r=&data.botanical;
     let count=r.organs.len();
-    if data.source_version != "white-gum-authored-review-r2" || r.schema != "poet.botanical/v2" || r.version != 2 {
+    if !matches!(data.source_version.as_str(), "white-gum-authored-review-r2" | "white-gum-connected-study-v1" | "white-gum-chain-union-v1" | "white-gum-all-forks-v1")
+        || (data.source_version == "white-gum-connected-study-v1") != data.connected_study.is_some()
+        || (data.source_version == "white-gum-chain-union-v1") != data.chain_union.is_some()
+        || (data.source_version == "white-gum-all-forks-v1") != data.all_forks.is_some()
+        || r.schema != "poet.botanical/v2" || r.version != 2 {
         return Err("Unsupported authored review / botanical profile".into());
     }
+    if let Some(spec)=&data.all_forks {tree_forks::validate_spec(spec)?;}
     if !(2..=256).contains(&count) || data.radii_m.len()!=count || data.roles.len()!=count
         || data.sprays.len()>256 || !(5..=24).contains(&r.ring_slices) || !key_valid(&r.part_id) {
         return Err("Authored organ/profile working set refused".into());
@@ -141,13 +157,34 @@ pub fn build_white_gum_authored_review(source: &str) -> Result<WhiteGumAuthoredR
         total_leaves+=s.leaf_count;
     }
     if total_leaves>6144 { return Err("Leaf working set refused".into()); }
-
+    Ok(ValidatedSource {data,parents,children,lookup,total_leaves})
+}
+/// Legacy full-tree projection; source and output semantics remain unchanged.
+/// Connected studies use the explicit source profile and separate entry below.
+pub fn build_white_gum_authored_review(source: &str) -> Result<WhiteGumAuthoredReview,String> {
+    build_with_junction_limits(source,crate::tree_junction::TreeJunctionLimits::default())
+}
+/// Explicit caller limits for the optional retained full-tree two-chain union.
+pub fn build_with_junction_limits(source:&str,limits:crate::tree_junction::TreeJunctionLimits)->Result<WhiteGumAuthoredReview,String>{
+    build_with_all_fork_limits(source,limits,tree_forks::AllForkLimits::default(),&||false)
+}
+/// Host limits and cancellation apply to the complete all-fork transaction.
+/// Existing source profiles retain their previous generator and semantics.
+pub fn build_with_all_fork_limits(source:&str,limits:crate::tree_junction::TreeJunctionLimits,
+    fork_limits:tree_forks::AllForkLimits,cancelled:&dyn Fn()->bool)->Result<WhiteGumAuthoredReview,String>{
+    let validated=read_source(source)?;
+    let data=&validated.data;let parents=&validated.parents;let children=&validated.children;
+    let lookup=&validated.lookup;let total_leaves=validated.total_leaves;
+    if data.connected_study.is_some(){return Err("Connected study requires its explicit projection route".into());}
+    let r=&data.botanical;let count=r.organs.len();
     let mut wood=SubmeshBuilder::new();
     let mut foliage=SubmeshBuilder::new();
     let mut bindings=Vec::new();
+    let mut chain_spans=Vec::new();
     // Same chain partition as Poet botanical v2: start at root/fork and continue
     // through single-child nodes. Fork caps overlap; they are NOT a welded union.
     for child in 1..count {
+        if cancelled(){return Err("Authored tree projection cancelled".into());}
         let parent=parents[child].ok_or("Missing validated parent")?;
         if parent!=0 && children[parent].len()==1 { continue; }
         let mut chain=vec![parent,child];
@@ -169,9 +206,12 @@ pub fn build_white_gum_authored_review(source: &str) -> Result<WhiteGumAuthoredR
         let start=wood.positions.len(); let index_start=wood.indices.len();
         let source_vertices=append_hard_cap_chain(&mut wood,&axis,&stations,r.ring_slices,base,tip)?;
         if wood.positions.len()==start || wood.indices.len()==index_start { return Err("Core chain sweep refused authored axis".into()); }
+        chain_spans.push(tree_forks::ChainSpan{vertices:start..wood.positions.len(),indices:index_start..wood.indices.len(),
+            effective_radii_m:stations.iter().map(|s|s.scale_x).collect()});
         bindings.push(serde_json::json!({"kind":"chain","organ_keys":chain.iter().map(|&i|&r.organs[i].key).collect::<Vec<_>>(),"source_radii_m":chain.iter().map(|&i|data.radii_m[i]).collect::<Vec<_>>(),"effective_station_radii_m":stations.iter().map(|station|station.scale_x).collect::<Vec<_>>(),"radius_projection":"At a role-changing departure only, base radius is min(source parent radius, first child radius * 1.45); all remaining stations use source radius.","derivative_to_base_sweep_vertices":source_vertices,"normal_uv_scope":"Core hard-cap split normals; wall V and color follow station arc length; caps planar UV; longitudinal texture seam not yet split","wood_vertices":[start,wood.positions.len()],"wood_indices":[index_start,wood.indices.len()],"fork_surface":"separate_capped_chain"}));
     }
     for s in &data.sprays {
+        if cancelled(){return Err("Authored tree projection cancelled".into());}
         let end=lookup[&s.edge_end]; let parent=parents[end].ok_or("Invalid shoot edge")?;
         let a=r.organs[parent].position_m; let b=r.organs[end].position_m;
         let attach=[a[0]+(b[0]-a[0])*s.edge_fraction,a[1]+(b[1]-a[1])*s.edge_fraction,a[2]+(b[2]-a[2])*s.edge_fraction];
@@ -188,7 +228,7 @@ pub fn build_white_gum_authored_review(source: &str) -> Result<WhiteGumAuthoredR
             return Err("Generated authored projection failed finite/index/working-set bounds".into());
         }
     }
-    let metadata=serde_json::json!({
+    let mut metadata=serde_json::json!({
         "candidate":"white-gum-authored-review-r2","acceptance":"pending human and coordinator review",
         "authored_source":serde_json::from_str::<serde_json::Value>(source).map_err(|e|e.to_string())?,
         "source_binding":"runtime authored JSON / Vibe value; not an accepted Poet SourceSession",
@@ -201,5 +241,7 @@ pub fn build_white_gum_authored_review(source: &str) -> Result<WhiteGumAuthoredR
         "physics":{"root_soil_coupled":false,"wind_load_coupled":false,"metamer_graph_bound":false},
         "targets":{"film":"incomplete","open_world_game":"incomplete","cartoon":"incomplete"}
     });
+    if let Some(spec)=&data.chain_union {crate::tree_junction::apply(&mut wood,&foliage,&mut metadata,spec,limits)?;}
+    if let Some(spec)=&data.all_forks {tree_forks::apply(&mut wood,&foliage,&mut metadata,&validated,&chain_spans,spec,fork_limits,cancelled)?;}
     Ok(WhiteGumAuthoredReview{wood,foliage,metadata})
 }

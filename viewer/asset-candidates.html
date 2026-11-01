@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ecopunk · candidate review</title>
+<link rel="stylesheet" href="asset-candidates.css">
+<header><div><p class="eyebrow">ECOPUNK · SOURCE TO ASSET</p><h1>Candidate review</h1></div><span class="status">Human acceptance pending</span></header>
+<main>
+  <p id="message" role="status">Loading the pinned candidate inventory…</p>
+  <section class="package-summary" aria-label="Species package knowledge">
+    <h2>Species package</h2>
+    <p id="knowledge-status">Native package inventory has not been supplied. Q42 knowledge coverage is unverified.</p>
+    <p id="form-status">Sex characteristics, reproductive conditions, life stages and age coverage are unverified.</p>
+  </section>
+  <div class="review-mode" aria-label="Review mode">
+    <button id="mode-motion" disabled aria-pressed="false">Continuous HMC motion</button>
+    <button id="mode-snapshots" aria-pressed="true">Inspection snapshots</button>
+  </div>
+  <p id="motion-status" role="status">Continuous playback requires the current source-owned Rust engine; availability is being checked.</p>
+  <section id="motion-review" hidden aria-label="Source-owned HMC playback">
+    <div class="motion-toolbar">
+      <label>Authored clip<select id="motion-clip" disabled></select></label>
+      <button id="motion-play" disabled>Play</button><button id="motion-pause" disabled>Pause</button>
+      <label>Speed<select id="motion-rate" disabled><option value="half">½×</option><option value="normal" selected>1×</option><option value="double">2×</option></select></label>
+      <label class="check"><input id="motion-loop" type="checkbox" disabled>Loop</label>
+      <button id="motion-fit" disabled>Fit view</button>
+    </div>
+    <label for="motion-seek">Clip position <span id="motion-progress">Paused</span></label>
+    <input id="motion-seek" type="range" min="0" max="1000" value="0" disabled>
+    <div id="motion-stage"><canvas id="motion-canvas" hidden tabindex="0" aria-label="Source-owned motion review. Drag or arrow keys to orbit; pinch or scroll to zoom."></canvas></div>
+    <p class="scope">Drag to orbit · pinch or scroll to zoom. Rust owns source replay, clip time, contact-aware pose and complete mesh updates. Browser rendering, material appearance, audio and human acceptance have separate qualification.</p>
+    <p id="motion-identity" class="identity"></p>
+  </section>
+  <section id="snapshot-review" aria-label="Static inspection snapshots">
+  <section class="toolbar" aria-label="Candidate selection">
+    <label for="behaviour">Behaviour<select id="behaviour" disabled></select></label>
+    <label for="candidate">Sampled phase<select id="candidate" disabled></select></label>
+    <div class="step-controls"><button id="previous" disabled aria-label="Previous phase">← Previous</button><button id="next" disabled aria-label="Next phase">Next →</button></div>
+    <a id="open" target="_blank" rel="noopener">Open full viewer ↗</a>
+    <a id="download" download>Download .10d</a>
+  </section>
+  <p id="phase-status" role="status"></p>
+  <iframe id="preview" title="Selected Ecopunk asset with orbit and evidence controls" allow="fullscreen" referrerpolicy="same-origin"></iframe>
+  </section>
+  <details><summary>Artifact identity, editable sources and package</summary><p id="identity" class="identity"></p><ul id="sources"></ul></details>
+  <p class="scope">Motion phases are source-bound inspection snapshots. The editable rig and clips remain in the HMC. Film, open-world game and cartoon packages remain incomplete. Biological, device-render and visual acceptance require their own evidence.</p>
+</main>
+<script type="module" src="asset-candidates.js"></script>
+</html>

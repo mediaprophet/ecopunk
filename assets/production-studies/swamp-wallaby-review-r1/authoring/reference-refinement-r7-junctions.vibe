@@ -1,0 +1,38 @@
+// R7 editable torso/limb grafts for the retained R6 source, before R7 groom.
+// Exact sampled-grid ports, not a proximity Boolean or hidden torso replacement.
+// Windows/rotations were selected from retained R5 arrays (R6 same authored
+// dimensions) and actual R6 views. New geometry/intersections/poses still require
+// the native qualification and visual review after the complete coding freeze.
+// All original source parts, joints/contact targets, and prior cells survive.
+// 12 hip / 24 shoulder strips; explicit UV charts; no discarded skin influence.
+// This does not claim analytic C1, full-body closure, biological or cinema approval.
+// Revision02: first native candidate refused a shoulder self-intersection.
+// Move both torso shoulder ports two sampled rows proximally (30..38); retain
+// the same limb cut, joints, loss/angle policies and intersection qualification.
+// This separates a near-coincident 4.85mm attachment corner. Native retry required.
+// Revision03: row shift alone still folded. The actual R7 prefix arrays now
+// select distal limb row18 and corresponding cyclic offsets28/12, with 24
+// shoulder strips to resolve the longer bend under the SAME angle threshold.
+// Primary/mirror minimum endpoint gaps are now about94mm, four influences max.
+// Original limb records/joints remain; six more proximal rows become collar.
+// Revision04: the cubic family still folded internally. Explicit +/-X rest-space
+// interior bulge controls now use native degree-five Bezier elevation, keeping
+// endpoint tangents while allowing outward clearance. Actual peak displacement
+// is 0.625 times the nominal 0.06m vector. All geometric gates remain mandatory.
+species_asset = record.merge(species_asset, {surface_junctions:{
+ cold_bytes:536870912, work_units:1000000000,
+ recipes:[
+  {id:"hip-primary-r7",torso_loft:"axial-integument",limb_chain:"hindlimb-continuous-study-r5",mirrored:false,
+   body_rows:[8,18],body_column_start:39,body_column_count:10,limb_cut_row:12,rotation:31,subdivisions:12,
+   body_tangent_scale:1.5,limb_tangent_scale:1.5,material:0,max_influence_loss:0.0,min_boundary_normal_dot:0.8},
+  {id:"hip-mirror-r7",torso_loft:"axial-integument",limb_chain:"hindlimb-continuous-study-r5",mirrored:true,
+   body_rows:[8,18],body_column_start:23,body_column_count:10,limb_cut_row:12,rotation:19,subdivisions:12,
+   body_tangent_scale:1.5,limb_tangent_scale:1.5,material:0,max_influence_loss:0.0,min_boundary_normal_dot:0.8},
+  {id:"shoulder-primary-r7",torso_loft:"axial-integument",limb_chain:"forelimb-continuous-study-r5",mirrored:false,
+   body_rows:[30,38],body_column_start:42,body_column_count:8,limb_cut_row:18,rotation:28,subdivisions:24,interior_bulge_m:[0.06,0.0,0.0],
+   body_tangent_scale:1.5,limb_tangent_scale:1.5,material:0,max_influence_loss:0.0,min_boundary_normal_dot:0.8},
+  {id:"shoulder-mirror-r7",torso_loft:"axial-integument",limb_chain:"forelimb-continuous-study-r5",mirrored:true,
+   body_rows:[30,38],body_column_start:22,body_column_count:8,limb_cut_row:18,rotation:12,subdivisions:24,interior_bulge_m:[-0.06,0.0,0.0],
+   body_tangent_scale:1.5,limb_tangent_scale:1.5,material:0,max_influence_loss:0.0,min_boundary_normal_dot:0.8}
+ ]
+}});

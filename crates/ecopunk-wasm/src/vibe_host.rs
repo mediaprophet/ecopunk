@@ -14,6 +14,7 @@ use vibe::{Diagnostic, Host, LocalHost, Span, Value};
 pub struct EcopunkVibeHost {
     pub local: LocalHost,
     pub corridor: RegionalCorridorWorld,
+    pub(crate) source_terrain: Option<ecopunk_terrain::terrain_source::TerrainSurfaceScene>,
 }
 
 impl Default for EcopunkVibeHost {
@@ -27,6 +28,7 @@ impl EcopunkVibeHost {
         Self {
             local: LocalHost::default(),
             corridor: RegionalCorridorWorld::new(),
+            source_terrain: None,
         }
     }
 
@@ -35,6 +37,7 @@ impl EcopunkVibeHost {
         Self {
             local,
             corridor: RegionalCorridorWorld::new(),
+            source_terrain: None,
         }
     }
 }
@@ -96,6 +99,7 @@ impl Host for EcopunkVibeHost {
         span: Span,
     ) -> Result<Value, Diagnostic> {
         match id {
+            "TerrainSource.sample_local" => super::terrain_source_host::sample(self, args, span),
             "WorldContinuum.sample_elevation_normal" => {
                 let wx = f64_arg(args, "wx_m", 0.0) as f32;
                 let wz = f64_arg(args, "wz_m", 0.0) as f32;

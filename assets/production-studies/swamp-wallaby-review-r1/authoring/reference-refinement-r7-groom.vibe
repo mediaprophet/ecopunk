@@ -1,0 +1,30 @@
+// R7: append after retained R6 cells, R7 face/feet and four surface junctions.
+// Image-informed authoring, not measured hair/anatomical or acceptance evidence.
+// Follicles are sampled by triangle area, bent by Core CAD and inherit skin weights.
+// This is geometric coat detail, not a claim of hair scattering or dynamics.
+// Iteration2 follows actual R7D renders and the 24-photo comparison.
+// Palette1 is tail-and-limbs; palette2 is face; palette6 is inner ear.
+// Wider cards represent fibre clusters, not measured individual hair diameters.
+species_asset = record.merge(species_asset, {
+ palettes:[
+  record.merge(species_asset.palettes[0],{dorsal:[0.11,0.115,0.11,1],flank:[0.19,0.19,0.175,1],ventral:[0.34,0.26,0.15,1],roughness:0.94}),
+  record.merge(species_asset.palettes[1],{dorsal:[0.07,0.075,0.07,1],flank:[0.12,0.125,0.115,1],ventral:[0.16,0.15,0.12,1],roughness:0.94}),
+  record.merge(species_asset.palettes[2],{dorsal:[0.13,0.135,0.125,1],flank:[0.22,0.22,0.20,1],ventral:[0.33,0.29,0.20,1],roughness:0.94}),
+  species_asset.palettes[3],species_asset.palettes[4],species_asset.palettes[5],
+  record.merge(species_asset.palettes[6],{dorsal:[0.25,0.20,0.17,1],flank:[0.35,0.29,0.26,1],ventral:[0.30,0.25,0.22,1],roughness:0.94}),species_asset.palettes[7],species_asset.palettes[8],
+  record.merge(species_asset.palettes[0],{id:"body-fibres-r7",dorsal:[0.11,0.115,0.11,1],flank:[0.19,0.19,0.175,1],ventral:[0.34,0.26,0.15,1],roughness:0.94})
+ ],
+ coat:record.merge(species_asset.coat,{enabled:false}),
+ groom:{seed:2707,density_per_m2:20000,max_strands:32000,segments:2,
+  length_m:[0.008,0.022],width_m:[0.0005,0.001],lift_m:0.003,
+  direction:[0,-0.6,-0.8],guard_fraction:0.28,root_tone:1,tip_tone:1.9,
+  max_influence_loss:0.02,material:9,surface_materials:[0,1,2,3,6],
+  cold_bytes:67108864,work_units:100000000,
+  regions:[
+   {id:"short-facial-coat",surface_materials:[2,3],bounds_min_m:[-1,0.65,-1],bounds_max_m:[1,2,1],direction:[0,-0.25,-1],density_scale:1,length_scale:0.35,width_scale:0.7},
+   {id:"short-pinna-coat",surface_materials:[0,6],bounds_min_m:[-1,0.83,-1],bounds_max_m:[1,2,1],direction:[0,1,0],density_scale:2,length_scale:0.22,width_scale:0.55},
+   {id:"tail-flow",surface_materials:[1],bounds_min_m:[-2,-1,-2],bounds_max_m:[2,2,-0.24],direction:[0,-0.15,-1],density_scale:1,length_scale:0.55,width_scale:0.65},
+   {id:"lower-limb-coat",surface_materials:[1],bounds_min_m:[-2,-1,-2],bounds_max_m:[2,0.4,2],direction:[0,-1,0],density_scale:1,length_scale:0.45,width_scale:0.7}
+  ]
+ }
+});

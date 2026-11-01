@@ -1,0 +1,331 @@
+@prefix eco: <urn:ecopunk:species-review-knowledge:v1#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+# Technical source-review ontology; no measured biology or rights grant.
+eco:Ontology rdf:type owl:Ontology .
+eco:SpeciesStudy rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AssetResource rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredClip rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:CoverageClaim rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:ReviewStatus rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:SourceNamespaceDeclaration rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:claimStatus rdf:type rdf:Property ; rdfs:domain prov:Entity ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:hasResource rdf:type rdf:Property ; rdfs:domain eco:SpeciesStudy ; rdfs:range eco:AssetResource ; rdfs:isDefinedBy eco:Ontology .
+eco:hasClip rdf:type rdf:Property ; rdfs:domain eco:AssetResource ; rdfs:range eco:AuthoredClip ; rdfs:isDefinedBy eco:Ontology .
+eco:hasCoverageClaim rdf:type rdf:Property ; rdfs:domain eco:SpeciesStudy ; rdfs:range eco:CoverageClaim ; rdfs:isDefinedBy eco:Ontology .
+eco:coverageStatus rdf:type rdf:Property ; rdfs:domain eco:CoverageClaim ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:sourceNamespace rdf:type rdf:Property ; rdfs:domain eco:SourceNamespaceDeclaration ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredStudyUnaccepted rdf:type eco:ReviewStatus .
+eco:DeclaredUnaccepted rdf:type eco:ReviewStatus .
+eco:MissingOrUnassessed rdf:type eco:ReviewStatus .
+eco:ReferenceOnly rdf:type eco:ReviewStatus .
+eco:RdfSource rdf:type dct:FileFormat .
+eco:JsonCompatibilitySource rdf:type dct:FileFormat .
+eco:CsvSource rdf:type dct:FileFormat .
+eco:OtherDeclaredSource rdf:type dct:FileFormat .
+eco:HtmlSource rdf:type dct:FileFormat .
+
+# Authored model semantics: these describe the synthetic definition, never an
+# observed specimen or an automatically adopted external assertion.
+eco:AuthoredModelDefinition rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:EditableModelRepresentation rdf:type rdfs:Class ; rdfs:subClassOf eco:AssetResource ; rdfs:isDefinedBy eco:Ontology .
+eco:RequiredRepresentation rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredPart rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:LoftPart rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredPart ; rdfs:isDefinedBy eco:Ontology .
+eco:EllipsoidPart rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredPart ; rdfs:isDefinedBy eco:Ontology .
+eco:EarPart rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredPart ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredBotanicalOrgan rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredPart ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredFoliageSpray rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredPart ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredMaterial rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredJoint rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredBoneSpan rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredMuscleSpan rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredCoat rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredClipDefinition rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredMotionTrack rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredContactConstraint rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:CoordinateFrame rdf:type rdfs:Class ; rdfs:isDefinedBy eco:Ontology .
+eco:DeclaredPartRole rdf:type rdfs:Class ; rdfs:isDefinedBy eco:Ontology .
+eco:MigrationAuthority rdf:type rdfs:Class ; rdfs:isDefinedBy eco:Ontology .
+
+eco:hasModelDefinition rdf:type rdf:Property ; rdfs:domain eco:SpeciesStudy ; rdfs:range eco:AuthoredModelDefinition ; rdfs:isDefinedBy eco:Ontology .
+eco:realizesDefinition rdf:type rdf:Property ; rdfs:range prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:hasPart rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range eco:AuthoredPart ; rdfs:isDefinedBy eco:Ontology .
+eco:hasJoint rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:parentJoint rdf:type rdf:Property ; rdfs:domain eco:AuthoredJoint ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:parentOrgan rdf:type rdf:Property ; rdfs:domain eco:AuthoredBotanicalOrgan ; rdfs:range eco:AuthoredBotanicalOrgan ; rdfs:isDefinedBy eco:Ontology .
+eco:hasMaterial rdf:type rdf:Property ; rdfs:range eco:AuthoredMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:material rdf:type rdf:Property ; rdfs:range eco:AuthoredMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:innerMaterial rdf:type rdf:Property ; rdfs:range eco:AuthoredMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:hasAnatomySpan rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:startsAtJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:endsAtJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:influencedByJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:mirrorInfluencedByJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:hasCoat rdf:type rdf:Property ; rdfs:range eco:AuthoredCoat ; rdfs:isDefinedBy eco:Ontology .
+eco:hasTrack rdf:type rdf:Property ; rdfs:domain eco:AuthoredClip ; rdfs:range eco:AuthoredMotionTrack ; rdfs:isDefinedBy eco:Ontology .
+eco:targetsJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:hasContactConstraint rdf:type rdf:Property ; rdfs:domain eco:AuthoredClip ; rdfs:range eco:AuthoredContactConstraint ; rdfs:isDefinedBy eco:Ontology .
+eco:hipJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:kneeJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:ankleJoint rdf:type rdf:Property ; rdfs:range eco:AuthoredJoint ; rdfs:isDefinedBy eco:Ontology .
+eco:attachesToEdgeEnd rdf:type rdf:Property ; rdfs:domain eco:AuthoredFoliageSpray ; rdfs:range eco:AuthoredBotanicalOrgan ; rdfs:isDefinedBy eco:Ontology .
+eco:requiresRepresentation rdf:type rdf:Property ; rdfs:range eco:RequiredRepresentation ; rdfs:isDefinedBy eco:Ontology .
+eco:representationResource rdf:type rdf:Property ; rdfs:range eco:AssetResource ; rdfs:isDefinedBy eco:Ontology .
+eco:sourcePath rdf:type rdf:Property ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:sourceIdentifier rdf:type rdf:Property ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:declaredIdentifier rdf:type rdf:Property ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:declaredTaxonLabel rdf:type rdf:Property ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:hasSourceReference rdf:type rdf:Property ; rdfs:range eco:SourceNamespaceDeclaration ; rdfs:isDefinedBy eco:Ontology .
+eco:retainsCompatibilityResource rdf:type rdf:Property ; rdfs:range eco:AssetResource ; rdfs:isDefinedBy eco:Ontology .
+eco:remainingAuthority rdf:type rdf:Property ; rdfs:range eco:MigrationAuthority ; rdfs:isDefinedBy eco:Ontology .
+eco:coordinateFrame rdf:type rdf:Property ; rdfs:range eco:CoordinateFrame ; rdfs:isDefinedBy eco:Ontology .
+eco:attachmentFrame rdf:type rdf:Property ; rdfs:range eco:CoordinateFrame ; rdfs:isDefinedBy eco:Ontology .
+eco:targetFrame rdf:type rdf:Property ; rdfs:range eco:CoordinateFrame ; rdfs:isDefinedBy eco:Ontology .
+eco:rotationFrame rdf:type rdf:Property ; rdfs:range eco:CoordinateFrame ; rdfs:isDefinedBy eco:Ontology .
+eco:declaredRole rdf:type rdf:Property ; rdfs:range eco:DeclaredPartRole ; rdfs:isDefinedBy eco:Ontology .
+eco:unit rdf:type rdf:Property ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:knowledgeScope rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:representationStatus rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:deliveryProfile rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:rightsStatus rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:publicationStatus rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:parameterStatus rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:bindingStatus rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:constraintStatus rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:timeEncoding rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:radiusScope rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+eco:positionX rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:positionY rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:positionZ rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:radiusX rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:radiusY rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:radiusZ rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:sourceRadius rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:roughness rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:length rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:edgeFraction rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:leafLength rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:leafWidth rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:leafCount rdf:type rdf:Property ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:keyCount rdf:type rdf:Property ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:enabled rdf:type rdf:Property ; rdfs:range xsd:boolean ; rdfs:isDefinedBy eco:Ontology .
+eco:looping rdf:type rdf:Property ; rdfs:range xsd:boolean ; rdfs:isDefinedBy eco:Ontology .
+eco:declaresCoat rdf:type rdf:Property ; rdfs:range xsd:boolean ; rdfs:isDefinedBy eco:Ontology .
+eco:declaresMirror rdf:type rdf:Property ; rdfs:range xsd:boolean ; rdfs:isDefinedBy eco:Ontology .
+
+eco:YUpZFrontGroundZeroModelMetres rdf:type eco:CoordinateFrame .
+eco:AuthoredBotanicalModelMetres rdf:type eco:CoordinateFrame .
+eco:AnkleLocalMetres rdf:type eco:CoordinateFrame .
+eco:AuthoredModelMetres rdf:type eco:CoordinateFrame .
+eco:RestLocalWxyzDeltaRadians rdf:type eco:CoordinateFrame .
+eco:RootCollarRole rdf:type eco:DeclaredPartRole .
+eco:TrunkMetamerRole rdf:type eco:DeclaredPartRole .
+eco:ScaffoldBranchRole rdf:type eco:DeclaredPartRole .
+eco:SecondaryBranchletRole rdf:type eco:DeclaredPartRole .
+eco:LateralRootRole rdf:type eco:DeclaredPartRole .
+eco:SecondaryRootRole rdf:type eco:DeclaredPartRole .
+eco:PrimaryRootHypothesisRole rdf:type eco:DeclaredPartRole .
+eco:SourceReplayCompatibility rdf:type eco:MigrationAuthority .
+eco:TypedGeometryAdapter rdf:type eco:MigrationAuthority .
+eco:ReviewCompatibility rdf:type eco:MigrationAuthority .
+eco:AnatomyStreamsAndVertexBindings rdf:type eco:MigrationAuthority .
+eco:AuthoredModelSemantics rdf:type eco:ReviewStatus .
+eco:RightsUnassessed rdf:type eco:ReviewStatus .
+eco:RestrictedProjection rdf:type eco:ReviewStatus .
+eco:HostDeclaredPublicMetadata rdf:type eco:ReviewStatus .
+eco:AuthoredEstimatesNotMeasurements rdf:type eco:ReviewStatus .
+eco:SourceDeclaredPartBinding rdf:type eco:ReviewStatus .
+eco:AuthoredConstraintNotContactProof rdf:type eco:ReviewStatus .
+eco:ExactSecondsInRetainedSource rdf:type eco:ReviewStatus .
+eco:AuthoredSourceRadiiNotEffectiveMeshMeasurements rdf:type eco:ReviewStatus .
+eco:DeliveryProfile rdf:type rdfs:Class ; rdfs:isDefinedBy eco:Ontology .
+eco:Film rdf:type eco:DeliveryProfile .
+eco:OpenWorldGame rdf:type eco:DeliveryProfile .
+eco:Cartoon rdf:type eco:DeliveryProfile .
+eco:DeclaredModelFamily rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:DeclaredModelVariant rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:declaresFamily rdf:type rdf:Property ; rdfs:range eco:DeclaredModelFamily ; rdfs:isDefinedBy eco:Ontology .
+eco:hasDeclaredVariant rdf:type rdf:Property ; rdfs:domain eco:DeclaredModelFamily ; rdfs:range eco:DeclaredModelVariant ; rdfs:isDefinedBy eco:Ontology .
+eco:declaredKnowledgeResource rdf:type rdf:Property ; rdfs:range eco:AssetResource ; rdfs:isDefinedBy eco:Ontology .
+# Codes are exactly the current Core enum representations, not invented life
+# stages or proof of observed age/sex. The native family codec remains owner.
+eco:coreLifecycleStageCode rdf:type rdf:Property ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:corePhenotypeCode rdf:type rdf:Property ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:coreLodCode rdf:type rdf:Property ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:coreStructuralStateCode rdf:type rdf:Property ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:coreFamilySchemaSource rdf:type rdf:Property ; rdfs:range prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:coreLifecycleSchemaSource rdf:type rdf:Property ; rdfs:range prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:namespaceMethod rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:SourceDomainFallback rdf:type eco:ReviewStatus .
+eco:snapshotKind rdf:type rdf:Property ; rdfs:isDefinedBy eco:Ontology .
+eco:OwnedGraphExcludedBaseHmcSnapshot rdf:type eco:ReviewStatus .
+
+# Authored skin controls, not measured anatomical attachment/acceptance claims.
+# Raw source weights remain exact f32 values. The existing geometry owner
+# normalizes linear section interpolation, coalesces duplicate joints and
+# writes at most four canonical slots. No per-vertex measurement is asserted.
+eco:AuthoredSkinStation rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredSkinInfluence rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:SkinInterpolationPolicy rdf:type rdfs:Class ; rdfs:isDefinedBy eco:Ontology .
+eco:NormalizedLinearSectionFourSlotSkin rdf:type eco:SkinInterpolationPolicy .
+eco:skinInterpolationPolicy rdf:type rdf:Property ; rdfs:domain eco:AuthoredPart ; rdfs:range eco:SkinInterpolationPolicy ; rdfs:isDefinedBy eco:Ontology .
+eco:hasSkinStation rdf:type rdf:Property ; rdfs:domain eco:AuthoredPart ; rdfs:range eco:AuthoredSkinStation ; rdfs:isDefinedBy eco:Ontology .
+eco:hasMirrorSkinStation rdf:type rdf:Property ; rdfs:domain eco:AuthoredPart ; rdfs:range eco:AuthoredSkinStation ; rdfs:isDefinedBy eco:Ontology .
+eco:hasSkinInfluence rdf:type rdf:Property ; rdfs:domain eco:AuthoredSkinStation ; rdfs:range eco:AuthoredSkinInfluence ; rdfs:isDefinedBy eco:Ontology .
+eco:sectionIndex rdf:type rdf:Property ; rdfs:domain eco:AuthoredSkinStation ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:influenceSlot rdf:type rdf:Property ; rdfs:domain eco:AuthoredSkinInfluence ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:sourceSkinWeight rdf:type rdf:Property ; rdfs:domain eco:AuthoredSkinInfluence ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+
+# Authored generator recipe controls. These records state how serial source
+# sections are grouped and sampled; they do not assert anatomical continuity.
+eco:AuthoredSerialLoftChainRecipe rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredLoftChainMember rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredSerialRecipeNotBiologicalProof rdf:type eco:ReviewStatus .
+eco:hasLoftChainRecipe rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range eco:AuthoredSerialLoftChainRecipe ; rdfs:isDefinedBy eco:Ontology .
+eco:hasOrderedChainMember rdf:type rdf:Property ; rdfs:domain eco:AuthoredSerialLoftChainRecipe ; rdfs:range eco:AuthoredLoftChainMember ; rdfs:isDefinedBy eco:Ontology .
+eco:memberLoftPart rdf:type rdf:Property ; rdfs:domain eco:AuthoredLoftChainMember ; rdfs:range eco:LoftPart ; rdfs:isDefinedBy eco:Ontology .
+eco:recipeStatus rdf:type rdf:Property ; rdfs:domain eco:AuthoredSerialLoftChainRecipe ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:memberOrdinal rdf:type rdf:Property ; rdfs:domain eco:AuthoredLoftChainMember ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:firstSourceSectionInclusive rdf:type rdf:Property ; rdfs:domain eco:AuthoredLoftChainMember ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:lastSourceSectionInclusive rdf:type rdf:Property ; rdfs:domain eco:AuthoredLoftChainMember ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:radialSegments rdf:type rdf:Property ; rdfs:domain eco:AuthoredSerialLoftChainRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:subdivisions rdf:type rdf:Property ; rdfs:domain eco:AuthoredSerialLoftChainRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+
+# Authored arithmetic portability provenance. These facts identify a declared
+# generator method policy, not a cross-target output-equality receipt.
+eco:AuthoredNumericExecutionProfile rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:NumericMethodPolicy rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:declaresNumericExecutionProfile rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range eco:AuthoredNumericExecutionProfile ; rdfs:isDefinedBy eco:Ontology .
+eco:usesNumericMethodPolicy rdf:type rdf:Property ; rdfs:domain eco:AuthoredNumericExecutionProfile ; rdfs:range eco:NumericMethodPolicy ; rdfs:isDefinedBy eco:Ontology .
+eco:implementedBySoftware rdf:type rdf:Property ; rdfs:domain eco:NumericMethodPolicy ; rdfs:range prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:NumericFunctionScope rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:numericMethodScope rdf:type rdf:Property ; rdfs:domain eco:NumericMethodPolicy ; rdfs:range eco:NumericFunctionScope ; rdfs:isDefinedBy eco:Ontology .
+eco:numericProfileStatus rdf:type rdf:Property ; rdfs:domain eco:AuthoredNumericExecutionProfile ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:PortableSoftwareV1 rdf:type eco:AuthoredNumericExecutionProfile .
+eco:LibmBoundedAnatomySinCosPowV1 rdf:type eco:NumericMethodPolicy .
+eco:LibmBoundedAnatomySinCosPowV1 eco:implementedBySoftware <https://crates.io/crates/libm/0.2.16> ; eco:numericMethodScope eco:BoundedAnatomySinCosPow .
+eco:PortableSoftwareV1 eco:usesNumericMethodPolicy eco:LibmBoundedAnatomySinCosPowV1 ; eco:numericProfileStatus eco:SourceDeclaredMethodNotExecutionProof .
+eco:BoundedAnatomySinCosPow rdf:type eco:NumericFunctionScope .
+eco:SourceDeclaredMethodNotExecutionProof rdf:type eco:ReviewStatus .
+
+# Optional authored groom controls. All values remain source recipe facts; the
+# geometry owner may later execute them, but the projection itself is not a
+# groom receipt or biological observation. Binary64 parameters use the shared
+# native full-precision Q42 literal owner and are declared as xsd:double.
+eco:AuthoredGroomRecipe rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredGroomRegion rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredGroomMaterialBinding rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredGroomSurfaceMaterial rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredGroomMaterialBinding ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredGroomRegionSurfaceMaterial rdf:type rdfs:Class ; rdfs:subClassOf eco:AuthoredGroomMaterialBinding ; rdfs:isDefinedBy eco:Ontology .
+eco:SourceDeclaredGroomControlsNotExecutionProof rdf:type eco:ReviewStatus .
+eco:AuthoredGeometryMethod rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:GroomSamplingRule rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:GroomCurveRule rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:hasGroomRecipe rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range eco:AuthoredGroomRecipe ; rdfs:isDefinedBy eco:Ontology .
+eco:groomRecipeStatus rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:geometryMethod rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:AuthoredGeometryMethod ; rdfs:isDefinedBy eco:Ontology .
+eco:geometryOwner rdf:type rdf:Property ; rdfs:range prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AreaPointRegionRejectionNativeBezierFibresV1 rdf:type eco:AuthoredGeometryMethod .
+# Historical method identifier retained for prior source/Q42 records. New
+# recipes use point-region rejection and must not be labelled with this term.
+eco:AreaStratifiedNativeBezierFibresV1 rdf:type eco:AuthoredGeometryMethod .
+eco:AreaWeightedPointRegionRejectionBarycentricRoots rdf:type eco:GroomSamplingRule .
+eco:CubicBezierFibreCentreline rdf:type eco:GroomCurveRule .
+eco:ExplicitSampledSurfaceGraftV1 rdf:type eco:AuthoredGeometryMethod .
+eco:groomSamplingRule rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:GroomSamplingRule ; rdfs:isDefinedBy eco:Ontology .
+eco:groomCurveRule rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:GroomCurveRule ; rdfs:isDefinedBy eco:Ontology .
+eco:densityPerSquareMetre rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:maximumInfluenceLoss rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:hasGroomRegion rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:AuthoredGroomRegion ; rdfs:isDefinedBy eco:Ontology .
+eco:selectsSurfaceMaterial rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:AuthoredGroomSurfaceMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:selectsRegionSurfaceMaterial rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range eco:AuthoredGroomRegionSurfaceMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:authoredMaterial rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomMaterialBinding ; rdfs:range eco:AuthoredMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:groomMaterial rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range eco:AuthoredMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:maximumStrands rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:segmentsPerStrand rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:coldReservationBytes rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:workUnitBudget rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:regionOrdinal rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:materialOrdinal rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomSurfaceMaterial ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:seed rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:strandLengthMinimum rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:strandLengthMaximum rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:strandWidthMinimum rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:strandWidthMaximum rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:lengthUnit rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:widthUnit rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:lift rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:liftUnit rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:guardFraction rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:rootTone rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:tipTone rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRecipe ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsMinimumX rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsMinimumY rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsMinimumZ rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsMaximumX rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsMaximumY rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsMaximumZ rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:boundsUnit rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:directionX rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:directionY rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:directionZ rdf:type rdf:Property ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:densityScale rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:lengthScale rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+eco:widthScale rdf:type rdf:Property ; rdfs:domain eco:AuthoredGroomRegion ; rdfs:range xsd:float ; rdfs:isDefinedBy eco:Ontology .
+
+# Authored discrete surface-junction recipes. Source ports, sampling controls,
+# and quality/resource bounds do not establish execution, analytic C1
+# continuity, whole-body closure, or biological acceptance.
+# The optional degree-elevated cubic interior control is in source-rest model
+# displacement vector in metres. Its presence records authored method and
+# controls only; it does not establish clearance or surface continuity.
+eco:AuthoredSurfaceJunctionSet rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredSurfaceJunctionRecipe rdf:type rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:isDefinedBy eco:Ontology .
+eco:AuthoredJunctionControlsNotExecutionProof rdf:type eco:ReviewStatus .
+eco:DiscreteSampledGraftNotAnalyticContinuity rdf:type eco:ReviewStatus .
+eco:hasSurfaceJunctionSet rdf:type rdf:Property ; rdfs:domain eco:AuthoredModelDefinition ; rdfs:range eco:AuthoredSurfaceJunctionSet ; rdfs:isDefinedBy eco:Ontology .
+eco:hasJunctionRecipe rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionSet ; rdfs:range eco:AuthoredSurfaceJunctionRecipe ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionSetStatus rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionSet ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionRecipeStatus rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:torsoLoftPart rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:LoftPart ; rdfs:isDefinedBy eco:Ontology .
+eco:limbLoftChainRecipe rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:AuthoredSerialLoftChainRecipe ; rdfs:isDefinedBy eco:Ontology .
+eco:mirroredJunction rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:boolean ; rdfs:isDefinedBy eco:Ontology .
+eco:bodyRowStartInclusive rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:bodyRowEndInclusive rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:bodyColumnStartCyclic rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:bodyColumnCount rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:limbCutRow rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:ringRotation rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionSubdivisions rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:bodyTangentScale rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:limbTangentScale rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:maxJunctionInfluenceLoss rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:minBoundaryNormalDot rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionMaterial rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:AuthoredMaterial ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionColdReservationBytes rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionSet ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionWorkUnitBudget rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionSet ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionContinuityStatus rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:ReviewStatus ; rdfs:isDefinedBy eco:Ontology .
+eco:junctionMethod rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:AuthoredGeometryMethod ; rdfs:isDefinedBy eco:Ontology .
+eco:recipeOrdinal rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:integer ; rdfs:isDefinedBy eco:Ontology .
+eco:interiorBulgeMethod rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range eco:AuthoredGeometryMethod ; rdfs:isDefinedBy eco:Ontology .
+eco:interiorBulgeXMetres rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:interiorBulgeYMetres rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:interiorBulgeZMetres rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range xsd:double ; rdfs:isDefinedBy eco:Ontology .
+eco:interiorBulgeUnit rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:interiorBulgeFrame rdf:type rdf:Property ; rdfs:domain eco:AuthoredSurfaceJunctionRecipe ; rdfs:range rdfs:Resource ; rdfs:isDefinedBy eco:Ontology .
+eco:CubicInteriorUnmodified rdf:type eco:AuthoredGeometryMethod .
+eco:DegreeElevatedCubicModelVectorInteriorBulgeV1 rdf:type eco:AuthoredGeometryMethod .
+eco:Metre rdf:type rdfs:Resource .
+eco:SourceRestModelXYZ rdf:type rdfs:Resource .
+<urn:ecopunk:source-owner:ecopunk-terrain:swamp-wallaby-r3:groom> rdf:type prov:Entity .
+<urn:ecopunk:source-owner:ecopunk-terrain:swamp-wallaby-r3:junctions> rdf:type prov:Entity .
+
+<https://crates.io/crates/libm/0.2.16> rdf:type prov:Entity .
+
+

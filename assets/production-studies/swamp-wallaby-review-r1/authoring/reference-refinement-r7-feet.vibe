@@ -1,0 +1,45 @@
+// R7 FEET/PAWS: append after R7 face. All prior loft IDs and records survive.
+// Saved feeding/standing/side references inform broad dark digits and curved claws.
+// Values are authored artistic estimates, not measured specimens or locomotor proof.
+// All 21 joint landmarks, motion curves, sole offsets and contact targets remain unchanged.
+// Retain ankle section0/1 exactly. Existing hind chain still selects hind-pes1..5.
+// A separate explicit dark-paw palette avoids darkening the entire leg/forearm.
+species_asset = record.merge(species_asset, {palettes:[
+ species_asset.palettes[0],species_asset.palettes[1],species_asset.palettes[2],species_asset.palettes[3],
+ species_asset.palettes[4],species_asset.palettes[5],species_asset.palettes[6],species_asset.palettes[7],
+ {id:"dark-paw-r7",dorsal:[0.034,0.035,0.03,1],flank:[0.048,0.049,0.041,1],ventral:[0.034,0.033,0.029,1],roughness:0.87}
+]});
+species_asset = record.merge(species_asset, {lofts:[
+  species_asset.lofts[0],
+  species_asset.lofts[1],
+  species_asset.lofts[2],
+  species_asset.lofts[3],
+  species_asset.lofts[4],
+  species_asset.lofts[5],
+  record.merge(species_asset.lofts[6],{material:8,sections:[{center_m:[0.155,0.072,-0.085],radii_m:[0.02,0.022]},{center_m:[0.155,0.049,-0.04],radii_m:[0.032,0.028]},{center_m:[0.155,0.035,0.03],radii_m:[0.03,0.025]},{center_m:[0.155,0.034,0.12],radii_m:[0.028,0.023]},{center_m:[0.155,0.031,0.185],radii_m:[0.022,0.02]},{center_m:[0.155,0.029,0.215],radii_m:[0.014,0.013]}]}),
+  record.merge(species_asset.lofts[7],{material:8,sections:[{center_m:[0.155,0.03,0.185],radii_m:[0.024,0.021]},{center_m:[0.156,0.029,0.244],radii_m:[0.019,0.016]},{center_m:[0.157,0.024,0.282],radii_m:[0.012,0.01]}]}),
+  record.merge(species_asset.lofts[8],{sections:[{center_m:[0.157,0.026,0.278],radii_m:[0.0075,0.0065]},{center_m:[0.157,0.022,0.289],radii_m:[0.005,0.004]},{center_m:[0.157,0.014,0.298],radii_m:[0.001,0.001]}]}),
+  record.merge(species_asset.lofts[9],{material:8,sections:[{center_m:[0.173,0.034,0.155],radii_m:[0.011,0.012]},{center_m:[0.177,0.031,0.215],radii_m:[0.012,0.011]},{center_m:[0.18,0.025,0.251],radii_m:[0.008,0.007]}]}),
+  record.merge(species_asset.lofts[10],{material:8,sections:[{center_m:[0.138,0.032,0.105],radii_m:[0.004,0.004]},{center_m:[0.136,0.027,0.138],radii_m:[0.004,0.004]},{center_m:[0.134,0.022,0.159],radii_m:[0.0025,0.003]}]}),
+  record.merge(species_asset.lofts[11],{material:8,sections:[{center_m:[0.13,0.032,0.105],radii_m:[0.004,0.004]},{center_m:[0.128,0.027,0.138],radii_m:[0.004,0.004]},{center_m:[0.126,0.022,0.159],radii_m:[0.0025,0.003]}]}),
+  species_asset.lofts[12],
+  species_asset.lofts[13],
+  record.merge(species_asset.lofts[14],{material:8,sections:[{center_m:[0.0935,0.375,0.282],radii_m:[0.0055,0.006]},{center_m:[0.083,0.35,0.293],radii_m:[0.0052,0.0055]},{center_m:[0.083,0.343,0.305],radii_m:[0.0047,0.0048]},{center_m:[0.083,0.335,0.302],radii_m:[0.0034,0.0035]}]}),
+  record.merge(species_asset.lofts[15],{sections:[{center_m:[0.083,0.336,0.302],radii_m:[0.003,0.0028]},{center_m:[0.083,0.332,0.306],radii_m:[0.0022,0.002]},{center_m:[0.083,0.326,0.305],radii_m:[0.00065,0.00065]}]}),
+  record.merge(species_asset.lofts[16],{material:8,sections:[{center_m:[0.0985,0.375,0.282],radii_m:[0.0055,0.006]},{center_m:[0.093,0.35,0.293],radii_m:[0.0052,0.0055]},{center_m:[0.093,0.331,0.312],radii_m:[0.0047,0.0048]},{center_m:[0.093,0.323,0.309],radii_m:[0.0034,0.0035]}]}),
+  record.merge(species_asset.lofts[17],{sections:[{center_m:[0.093,0.324,0.309],radii_m:[0.003,0.0028]},{center_m:[0.093,0.32,0.313],radii_m:[0.0022,0.002]},{center_m:[0.093,0.314,0.312],radii_m:[0.00065,0.00065]}]}),
+  record.merge(species_asset.lofts[18],{material:8,sections:[{center_m:[0.1035,0.375,0.282],radii_m:[0.0055,0.006]},{center_m:[0.103,0.35,0.293],radii_m:[0.0052,0.0055]},{center_m:[0.103,0.328,0.314],radii_m:[0.0047,0.0048]},{center_m:[0.103,0.32,0.311],radii_m:[0.0034,0.0035]}]}),
+  record.merge(species_asset.lofts[19],{sections:[{center_m:[0.103,0.321,0.311],radii_m:[0.003,0.0028]},{center_m:[0.103,0.317,0.315],radii_m:[0.0022,0.002]},{center_m:[0.103,0.311,0.314],radii_m:[0.00065,0.00065]}]}),
+  record.merge(species_asset.lofts[20],{material:8,sections:[{center_m:[0.1085,0.375,0.282],radii_m:[0.0055,0.006]},{center_m:[0.113,0.35,0.293],radii_m:[0.0052,0.0055]},{center_m:[0.113,0.334,0.31],radii_m:[0.0047,0.0048]},{center_m:[0.113,0.326,0.307],radii_m:[0.0034,0.0035]}]}),
+  record.merge(species_asset.lofts[21],{sections:[{center_m:[0.113,0.327,0.307],radii_m:[0.003,0.0028]},{center_m:[0.113,0.323,0.311],radii_m:[0.0022,0.002]},{center_m:[0.113,0.317,0.31],radii_m:[0.00065,0.00065]}]}),
+  record.merge(species_asset.lofts[22],{material:8,sections:[{center_m:[0.1135,0.375,0.282],radii_m:[0.0055,0.006]},{center_m:[0.123,0.35,0.293],radii_m:[0.0052,0.0055]},{center_m:[0.123,0.348,0.301],radii_m:[0.0047,0.0048]},{center_m:[0.123,0.34,0.298],radii_m:[0.0034,0.0035]}]}),
+  record.merge(species_asset.lofts[23],{sections:[{center_m:[0.123,0.341,0.298],radii_m:[0.003,0.0028]},{center_m:[0.123,0.337,0.302],radii_m:[0.0022,0.002]},{center_m:[0.123,0.331,0.301],radii_m:[0.00065,0.00065]}]}),
+  species_asset.lofts[24],
+  species_asset.lofts[25],
+  species_asset.lofts[26],
+  species_asset.lofts[27],
+  species_asset.lofts[28],
+  {id:"lateral-pes-claw-r7",material:7,sections:[{center_m:[0.18,0.028,0.246],radii_m:[0.0055,0.0045]},{center_m:[0.181,0.022,0.258],radii_m:[0.004,0.003]},{center_m:[0.181,0.015,0.267],radii_m:[0.0009,0.0009]}],joints:[11,11],mirror_joints:[8,8],radial_segments:16,subdivisions:4,coat:false},
+  {id:"manual-palm-surface-r7",material:8,sections:[{center_m:[0.104,0.387,0.27],radii_m:[0.018,0.01]},{center_m:[0.104,0.376,0.28],radii_m:[0.023,0.012]},{center_m:[0.104,0.365,0.287],radii_m:[0.025,0.014]},{center_m:[0.104,0.354,0.293],radii_m:[0.02,0.011]}],joints:[20,20],mirror_joints:[14,14],radial_segments:24,subdivisions:4,coat:false}
+]});
+species_asset = record.merge(species_asset, {parameter_status:"Reference-led R7 face/feet second refinement after actual prefix10 three-view diagnostic failed visual review; retained live adult-form candidate references compared, with no age inferred from an image. Dimensions, colors, proportions and curvature remain authored estimates; no measured specimen, sex, age, rights grant, biomechanical validation or acceptance inferred. Existing joint landmarks, source references, motion and contact targets retained. Cheek support buried, mouth shortened, eye/lid pairing revised; overlapping foot masses reshaped and dark palm support added while all previous part IDs survive. Master and film/game/cartoon embodiments remain incomplete."});

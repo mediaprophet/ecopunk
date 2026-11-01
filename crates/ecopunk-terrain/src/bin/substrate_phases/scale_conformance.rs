@@ -1,6 +1,6 @@
 //! Fail-Closed QUDT Metric Scale Conformance Verification
 //!
-//! Asserts 1.0 world unit = 1.0 m SI (EPSG:5711 AHD) with fail-closed
+//! Checks declared 1.0 world unit = 1.0 m SI with fail-closed
 //! dimensional invariants across vehicles, flora, and fauna.
 
 use std::fs;
@@ -28,7 +28,7 @@ pub const CORYMBIA_DBH_M: f64 = 0.72;
 pub const CORYMBIA_WOOD_DENSITY_KG_M3: f64 = 880.0;
 
 pub fn verify_qudt_scale_and_build_receipt(
-    root: &Path,
+    _root: &Path,
     assets_dir: &Path,
     packs_dir: &Path,
     dem_receipt: &Value,
@@ -75,7 +75,8 @@ pub fn verify_qudt_scale_and_build_receipt(
     println!("[OK] Fail-Closed QUDT Metric Scale Conformance Verified (1.0 unit = 1.0 m SI)");
 
     let qudt_scale_conformance = json!({
-        "canonical_world_unit": "1.0 unit = 1.0 m (SI metre, EPSG:5711 AHD)",
+        "canonical_world_unit": "1.0 unit = 1.0 m (SI metre)",
+        "terrain_datum_scope": "Only dem_provenance_receipt.frame declares the admitted source datum; the unit invariants do not validate a vertical datum or transform generated sectors into that frame.",
         "qudt_unit_iri": "http://qudt.org/vocab/unit/M",
         "conformance_status": "CONFORMANT_FAIL_CLOSED_VERIFIED",
         "entities": {
@@ -134,7 +135,7 @@ pub fn verify_qudt_scale_and_build_receipt(
         "canonical_namespace": "https://webizen.org/",
         "ontology_namespace": "https://ns.webizen.org/",
         "pack_format": "HMC/QBDL v1",
-        "pack_file": "assets/packs/ecopunk-east-coast.hmc",
+        "pack_file": packs_dir.join("ecopunk-east-coast.hmc").to_string_lossy(),
         "q42_semantic_graphs": [
             "east_coast_australia.q42",
             "sem/east_coast_australia.q42",
@@ -189,11 +190,13 @@ pub fn verify_qudt_scale_and_build_receipt(
     let receipt_bytes = serde_json::to_vec_pretty(&compilation_receipt)?;
     fs::write(assets_dir.join("compilation_receipt.json"), &receipt_bytes)?;
     fs::write(packs_dir.join("compilation_receipt.json"), &receipt_bytes)?;
-    fs::write(root.join("compilation_receipt.json"), &receipt_bytes)?;
+    // Retain receipts within this output revision. The caller passes these
+    // exact bytes to the packer; a historical root receipt is never consulted.
     println!(
         "[OK] Wrote Compilation Receipt with QUDT Scale Conformance & Webizen Manifest: {}",
         assets_dir.join("compilation_receipt.json").display()
     );
+    println!("[OK] Pack revision receipt: {}", packs_dir.join("compilation_receipt.json").display());
 
     Ok((qudt_scale_conformance, webizen_hmc_manifest, receipt_bytes))
 }

@@ -1,0 +1,7 @@
+// Eighth authored cell, appended after the seven existing wallaby source cells.
+// r6 explicitly selects the software-backed arithmetic policy for portable
+// regeneration. This records authored method selection only; it is not a
+// cross-target byte-equality result, acceptance, or biological measurement.
+species_asset = record.merge(species_asset, {numeric_profile:"portable-software-v1"});
+
+
