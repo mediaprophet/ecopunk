@@ -136,7 +136,7 @@ execution and qualified scope. Universal superiority and old completion counts
 cannot substitute for actual reviewed Ecopunk content/runtime evidence.
 
 Follow the [environment/framework contract](docs/planning/tech/webizen-environment-framework.md):
-**Aether**, `C:/github/rust-app-framework`, is the controlled Dioxus fork; Webizen Desktop is
+**Aether**, `C:/github/aether`, is the controlled Dioxus fork; Webizen Desktop is
 the native launcher/host environment. Harmonised native and WASM applications
 share semantics, with authorized native services required per capability.
 WASM is a supported target. Declare its browser binding dependencies separately

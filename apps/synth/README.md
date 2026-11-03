@@ -98,7 +98,7 @@ qualia_mcp::authoring::serve(reader, writer, backend, Default::default())?;
 
 The native UI is an optional **agent supervision surface**, not Poet's human
 authoring design or an implemented cinema viewport. Its dependencies point at
-`C:/github/rust-app-framework` (Aether). The local Cargo package names remain
+`C:/github/aether` (Aether). The local Cargo package names remain
 `dioxus` and `dioxus-native`; their upstream web shell is not selected. The
 headless production command needs neither this UI nor an audio device.
 
