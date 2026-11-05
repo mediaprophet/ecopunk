@@ -15,7 +15,7 @@ crc32c = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 ciborium = "0.2"
-timeline-editing = { path = "../../../hypermedia-libraries/crates/timeline-editing" }
+timeline-editing = { git = "https://github.com/mediaprophet/hypermedia-production.git", branch = "0.0.40.8.1" }
 qualia-geospatial = { workspace = true }
 qualia-sim = { workspace = true }
 vibe = { workspace = true }
