@@ -1,0 +1,9 @@
+error[E0599]: no method named `map_err` found for type `bool` in the current scope
+   --> C:\github\ecopunk\assets\production-studies\eucalypt-spray-r1\authoring\generate.rs:174:111
+    |
+174 | ...pray.vibe","hero.png"]{read.verify_entry(name).map_err(|e|format!("HMC verify: {e:?}"))?;}
+    |                                                   ^^^^^^^ method not found in `bool`
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0599`.

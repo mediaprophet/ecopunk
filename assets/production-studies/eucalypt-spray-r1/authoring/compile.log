@@ -1,0 +1,14 @@
+error: extern location for qualia_core_db does not exist: C:\github\ecopunk\target\debug\deps\libqualia_core_db.rlib
+ --> C:\github\ecopunk\assets\production-studies\eucalypt-spray-r1\authoring\generate.rs:5:5
+  |
+5 | use qualia_core_db::{q_hash, NQuin};
+  |     ^^^^^^^^^^^^^^
+
+error: extern location for vibe does not exist: C:\github\ecopunk\target\debug\deps\libvibe-2937e95bb154f7f6.rlib
+  --> C:\github\ecopunk\assets\production-studies\eucalypt-spray-r1\authoring\generate.rs:11:5
+   |
+11 | use vibe::{Value, Budget, LocalHost, session::{SourceSession, SessionLimits}};
+   |     ^^^^
+
+error: aborting due to 2 previous errors
+

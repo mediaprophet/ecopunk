@@ -1,0 +1,4 @@
+// Highest authored geometry detail. Acceptance and film completeness remain open.
+poet_parameters={width:2.60,depth:1.65,height:1.72,channel_length:2.24,channel_width:0.18,channel_height:0.115,channel_wall:0.006,lower_level:0.64,level_step:0.40,cabinet_width:0.64,cabinet_height:0.48,cabinet_depth:0.66,detail_segments:16,ring_segments:48,tube_segments:12,style_mode:0};
+poet_parts=poet_rebuild_parts(poet_parameters);
+({parts:poet_parts});
