@@ -1,0 +1,76 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ecopunk-terrain",
+    "crates/ecopunk-wasm",
+]
+
+[workspace.dependencies]
+bytemuck = { version = "1.16", features = ["derive"] }
+crc32c = "0.6"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+qualia-core-db = { path = "../qualia-27062026/crates/qualia-core-db", default-features = false }
+qualia-geospatial = { path = "../qualia-27062026/crates/qualia-geospatial" }
+qualia-sim = { path = "../qualia-27062026/crates/qualia-sim" }
+vibe = { path = "../qualia-27062026/crates/vibe" }
+vibe-wasm = { path = "../qualia-27062026/crates/vibe-wasm" }
+webizen-render = { path = "../qualia-27062026/crates/webizen-render" }
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.6"
+js-sys = "0.3"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["console", "Window", "Document", "Element", "HtmlCanvasElement", "Performance"] }
+wgpu = { path = "../etalon/compat/wgpu", default-features = false }
+naga = { path = "../etalon/naga", features = ["wgsl-in", "spv-out", "msl-out", "hlsl-out"] }
+etalon = { path = "../etalon/etalon", default-features = false }
+etalon-agent = { path = "../etalon/crates/etalon-agent" }
+etalon-wgsl-forge = { path = "../etalon/crates/etalon-wgsl-forge", default-features = false }
+etalon-nquin = { path = "../etalon/crates/etalon-nquin" }
+etalon-tensor = { path = "../etalon/crates/etalon-tensor" }
+etalon-render = { path = "../etalon/crates/etalon-render", default-features = false }
+etalon-wasm = { path = "../etalon/crates/etalon-wasm" }
+rio_api = "0.8"
+rio_turtle = "0.8"
+sha2 = "0.10"
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+[patch.crates-io]
+naga = { path = "../etalon/naga" }
+
+[patch."https://github.com/mediaprophet/etalon.git"]
+etalon = { path = "../etalon/etalon" }
+etalon-agent = { path = "../etalon/crates/etalon-agent" }
+etalon-wgsl-forge = { path = "../etalon/crates/etalon-wgsl-forge" }
+etalon-nquin = { path = "../etalon/crates/etalon-nquin" }
+etalon-tensor = { path = "../etalon/crates/etalon-tensor" }
+etalon-render = { path = "../etalon/crates/etalon-render" }
+etalon-sim = { path = "../etalon/crates/etalon-sim" }
+etalon-signal = { path = "../etalon/crates/etalon-signal" }
+etalon-wasm = { path = "../etalon/crates/etalon-wasm" }
+etalon-model = { path = "../etalon/crates/etalon-model" }
+etalon-resources = { path = "../etalon/crates/etalon-resources" }
+etalon-inference-kernel = { path = "../etalon/crates/etalon-inference-kernel" }
+etalon-inference = { path = "../etalon/crates/etalon-inference" }
+etalon-inference-contract = { path = "../etalon/crates/etalon-inference-contract" }
+etalon-model-io = { path = "../etalon/crates/etalon-model-io" }
+etalon-inference-lab = { path = "../etalon/crates/etalon-inference-lab" }
+etalon-vibe = { path = "../etalon/crates/etalon-vibe" }
+etalon-diagnostics = { path = "../etalon/crates/etalon-diagnostics" }
+naga = { path = "../etalon/naga" }
+
+[patch."https://github.com/mediaprophet/vibe-script.git"]
+vibescript-abi = { path = "../qualia-27062026/crates/vibescript-abi" }
+
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.release]
+debug = 0
+lto = false
+codegen-units = 16
+opt-level = "s"
+incremental = false
+
+

@@ -1,0 +1,13 @@
+[package]
+name = "ecopunk-demo-build-support"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+crc32c = "0.6"
+
+[lib]
+path = "lib.rs"

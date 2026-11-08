@@ -1,0 +1,3709 @@
+{
+  "format": "ecopunk-production-packet-claims-template",
+  "version": "2026-10-25.3",
+  "requirement_document": "ecopunk-production-backlog.md",
+  "requirement_document_sha256": "5e46bafb76ff411d1495c33c2de7a37f3cb8932625f29d1f174f9210a2566163",
+  "status": "unassessed starter; no implementation or acceptance claimed",
+  "authoritative_record": "Qualified shared native Q42/provenance/review integration when implemented; this JSON is an authoring projection.",
+  "model_completion_contract": "assets/model-completion-claims.md",
+  "model_deliverables": "assets/model-production-template/deliverables.json",
+  "packets": [
+    {
+      "id": "ECO-001",
+      "priority": "P0",
+      "proposed_owner": "specification lead",
+      "actual_owner": null,
+      "dependencies": [],
+      "deliverable_and_acceptance": "Reconcile current requirements and superseded plans. Record Aether, separate Chora, developed Etalon, Webizen launcher, single Poet/Craft, full HMC and native/WASM targets; produce a versioned baseline and explicit unresolved decisions. VIBE-01 also baselines the proposed source-evaluated 0.2 language/REPL role, existing 0.1 contracts and explicit migration decisions.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-01",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": [
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-002",
+      "priority": "P0",
+      "proposed_owner": "architecture owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-001"
+      ],
+      "deliverable_and_acceptance": "Allocate existing graph/state, framework, host, graphics, authoring and cooperative/agreement owners. Reconcile license, Humanitarian Equity Framework, semantic-tokens-xec and QualiaDB instruments/project/finance/QDNF APIs. Distinguish people-led civics, government capacity, authorship, funding and authority; preserve Chora's boundary and originating contributions. AGR-01/02.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-01",
+        "AGR-02"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-003",
+      "priority": "P0",
+      "proposed_owner": "build/integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-001"
+      ],
+      "deliverable_and_acceptance": "Capture source revisions/dirty state, manifests/locks/features, artifact hashes and deployment origins, including licence/framework/token/instrument sources. Preserve user changes and historical passes. Distinguish current local, Git and deployed artifacts, draft/adopted terms and real versus example/fixture receipts. AGR-01.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-01",
+        "VIBE-01",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": [
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-004",
+      "priority": "P0",
+      "proposed_owner": "product/QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-001"
+      ],
+      "deliverable_and_acceptance": "Select high-grade reference subjects/place and a bounded civics case related to dev.civics.au, with intended game-demo use and Webizen workflow. Declare master quality separately from consumer native/WASM/device budgets, full scope, native services and offline expectations.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-005",
+      "priority": "P0",
+      "proposed_owner": "art direction/domain reviewers",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-001"
+      ],
+      "deliverable_and_acceptance": "Define accepted high-grade master references and observable criteria for species, things, places, film, game and cartoon. Specify derivative preservation/loss thresholds and intended shots; the community-grounds image informs composition, not factual taxonomy or engineering. Current demo fixtures cannot set the quality ceiling.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-006",
+      "priority": "P0",
+      "proposed_owner": "QA/render integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-003"
+      ],
+      "deliverable_and_acceptance": "Establish reproducible native capture and diagnostic fixtures: artifact/HMC IDs, camera, units, viewport, backend/device/driver, requested/enabled features, light/exposure/colour settings and actual results. Preserve browser evidence as its own target.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-007",
+      "priority": "P1",
+      "proposed_owner": "content/pipeline lead",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-002"
+      ],
+      "deliverable_and_acceptance": "Census every model/species/part/variant/scene/site and linked source contribution. Distinguish graph entries from produced models; retain author/origin/derivation, rights, paid/unpaid/self-funded or unknown status, compensation-pool references, targets and dispositions. Institutional adoption cannot erase earlier people-led work.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-008",
+      "priority": "P1",
+      "proposed_owner": "production/QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-007"
+      ],
+      "deliverable_and_acceptance": "Create subject dossiers from the 193-base catalogue and added REQ-QUAL/REQ-CIVICS cases; expand parts/profiles/clips/behaviours/scenarios plus applicable contribution, commercial-use, human-rights no-charge and discharge cases. Unknown inventories remain unassessed; empty arrays do not establish zero obligations.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-009",
+      "priority": "P0",
+      "proposed_owner": "capability/evidence lead",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-003"
+      ],
+      "deliverable_and_acceptance": "Build operation/backend evidence records and explain each quality/rights/compensation blocker by expected/observed result, actual artifact, verified/unknown cause, owner and remedy. Reconcile existing instrument/QDNF code; effort-minute plus capital-cent scores, URI lists, demos or queued events cannot certify monetary valuation, agreement or payment. AGR-01–06. VIBE-01/03 map actual parser/checker/evaluator/VM/host descriptor coverage and evidence; inventory is not a language conformance pass.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-01",
+        "AGR-02",
+        "AGR-03",
+        "AGR-04",
+        "AGR-05",
+        "AGR-06",
+        "VIBE-01",
+        "VIBE-03",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": [
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-010",
+      "priority": "P1",
+      "proposed_owner": "production coordinator",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-005",
+        "ECO-007"
+      ],
+      "deliverable_and_acceptance": "Assign actual owners/reviewers and bounded milestones, dependency/resources and acceptance. Keep model labour, upstream work and tool gaps visible; derive estimates from scoped work and throughput instead of invented dates.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-00",
+      "implementation_engine_packets": []
+    },
+    {
+      "id": "ECO-011",
+      "priority": "P0",
+      "proposed_owner": "dependency/integration owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-003"
+      ],
+      "deliverable_and_acceptance": "Resolve the actual Etalon/wgpu/Naga family across Ecopunk, QualiaDB, Aether, Webizen, Chora and Craft consumers. Compare Git/local/registry sources, compatibility facade versions and features; report duplicates and incompatible device/type boundaries.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-02",
+        "VIBE-03",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-012",
+      "priority": "P1",
+      "proposed_owner": "Etalon/evidence owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-011"
+      ],
+      "deliverable_and_acceptance": "Reconcile Etalon's 299 resolved TODOs and nine historically resolved gaps with current revision/evidence. Preserve valid passes, isolate changed/unsupported scopes, and avoid reimporting old bug lists as current defects.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-013",
+      "priority": "P0",
+      "proposed_owner": "Qualia/render integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-011",
+        "ECO-006"
+      ],
+      "deliverable_and_acceptance": "Trace the actual native frame from application and HMC through scene/material/shader/pass/resource APIs into Etalon submission/presentation. Record dormant, bypassed and active capabilities; a dependency declaration alone cannot close this task.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-014",
+      "priority": "P0",
+      "proposed_owner": "Etalon/renderer owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-013"
+      ],
+      "deliverable_and_acceptance": "Qualify required adapter/device/shader features and safe failures for the reference scene. Reuse existing validations; separate declared support from enabled/executed support. Keep HAL safety/validation contracts and unsupported-backend results truthful.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-015",
+      "priority": "P0",
+      "proposed_owner": "GPU/resource owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-013"
+      ],
+      "deliverable_and_acceptance": "Qualify engine/UI device, queue, surface, texture/buffer ownership and interop. Evidence must cover completion fences, leases, teardown, device loss and prevention of use-after-free; equal crate versions do not prove shared-device compatibility.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-016",
+      "priority": "P1",
+      "proposed_owner": "GPU/performance owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-015"
+      ],
+      "deliverable_and_acceptance": "Verify bounded allocations, staging/upload reuse, synchronization and job/queue budgets on the actual hot path. Report measured scope and overflows; do not generalize a zero-allocation kernel claim to the entire application.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-017",
+      "priority": "P1",
+      "proposed_owner": "renderer integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-014",
+        "ECO-015"
+      ],
+      "deliverable_and_acceptance": "Inventory scene hierarchy/instancing/culling/LOD/animation/deferred/volumetric/foliage/water routes against existing requirements. Enable and qualify the needed existing paths; extend only a demonstrated missing shared capability.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-018",
+      "priority": "P1",
+      "proposed_owner": "Etalon/WASM owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-013"
+      ],
+      "deliverable_and_acceptance": "Reconcile native/browser limits, error scopes, shader compiler/version, worker transport and feature differences with Etalon's existing implementations. Remove duplicate work only after evidence; qualify required target behaviour and honest degradation. VIBE-02/03 add exact language/profile/catalog versions, typed native/WASM operation coverage, grants and explicit unsupported behavior.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-02",
+        "VIBE-03",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-01",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-019",
+      "priority": "P2",
+      "proposed_owner": "Etalon/Qualia compute owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-013"
+      ],
+      "deliverable_and_acceptance": "Map graph/tensor/forge/EMF and other compute extensions to actual Ecopunk uses and ownership. Connect required operations with correct outputs/bounds; keep unrelated inference/research work outside the visual milestone's critical path.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-020",
+      "priority": "P2",
+      "proposed_owner": "R&D/evidence owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-012",
+        "ECO-014",
+        "ECO-018"
+      ],
+      "deliverable_and_acceptance": "Define property-specific correctness/performance comparisons for claimed advantages. Name workload, comparator revision, hardware, settings and limitations; publish a scoped capability matrix. Do not require universal superiority before content production.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07"
+      ]
+    },
+    {
+      "id": "ECO-021",
+      "priority": "P0",
+      "proposed_owner": "schema/format owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-002"
+      ],
+      "deliverable_and_acceptance": "Ratify HMC family descriptors and shared public APIs against existing codecs. Resolve QBDL/ZIP compatibility, roots/parts/extensions and versions without inventing a private codec; specify corrupt/missing/cyclic/incompatible cases. VIBE-09 retains script source/dialect/imports/catalog and optional AST/bytecode cache versions in the shared package contract.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "DOM-AX-7",
+        "G88",
+        "VIBE-09",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-022",
+      "priority": "P0",
+      "proposed_owner": "knowledge/domain owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-021"
+      ],
+      "deliverable_and_acceptance": "Define complete available species corpus inclusion, source/revision inventory, interpretation closure, conflicts/uncertainty, rights and reconciliation. All relevant held knowledge belongs in the identified full HMC, including knowledge unused by graphics.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-023",
+      "priority": "P0",
+      "proposed_owner": "made-world/domain owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-021"
+      ],
+      "deliverable_and_acceptance": "Ratify design/type versus manufactured instance, BOM/as-built parts, ports/connections, operation/capacity/observations, installation and maintenance/history. Keep people/social authority distinct from owned manufactured components.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-024",
+      "priority": "P0",
+      "proposed_owner": "identifiers/state owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-022",
+        "ECO-023"
+      ],
+      "deliverable_and_acceptance": "Support several identifiers for each topic/subject/entity/agent/actor, with scheme/source/authority, scope, provenance, validity and qualified mappings. Keep local record, part, master/derivative/release, agreement/instrument and allocation references distinct. Preserve state, source contribution and policy lineage without a global-one-identifier assumption. DOM-AX-7; G88; AGR-02/09/11; FUND-01.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-02",
+        "AGR-09",
+        "AGR-11",
+        "FUND-01",
+        "DOM-AX-7",
+        "G88"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-025",
+      "priority": "P0",
+      "proposed_owner": "source/codec owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-024"
+      ],
+      "deliverable_and_acceptance": "Qualify native high-grade source/HMC compilation and licence/instrument profile import/authoring against existing codecs/generators. Preserve source/operator, rights and derivation lineage; bind exact reviewed/adopted terms instead of activating repository drafts. Retain explicit conversion loss and no required JS/V8 exporter. AGR-04/09.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-04",
+        "AGR-09"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-026",
+      "priority": "P0",
+      "proposed_owner": "asset pipeline",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-024",
+        "ECO-007"
+      ],
+      "deliverable_and_acceptance": "Reconcile all existing manifest/resource hashes, lengths, file counts and rebuild instructions. Replace the absent build-entry reference with the actual qualified workflow; preserve original evidence and identify changed assets explicitly.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-027",
+      "priority": "P0",
+      "proposed_owner": "runtime/content integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-025"
+      ],
+      "deliverable_and_acceptance": "Make the reference runtime load the reviewed HMC/representation instead of regenerating unrelated scene/lab stand-ins. Prove exact resource identifiers in the frame, and eliminate untracked divergence among stored/native/browser routes.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-028",
+      "priority": "P0",
+      "proposed_owner": "admission/resource owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-027"
+      ],
+      "deliverable_and_acceptance": "Qualify root admission, verified dependency plans, bounded decode/residency and unload; distinguish complete distributed graph/resource contents from the resident working set. Missing resources and degraded depictions must remain visible.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-09",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-029",
+      "priority": "P1",
+      "proposed_owner": "graph/query/inspection owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-025"
+      ],
+      "deliverable_and_acceptance": "Demonstrate native offline HMC graph inspection/query and picking using the subject's scoped identifier set and source-qualified alternate/historical mappings. Preserve unknown/disputed mappings and distinguish names, referents, parts, releases and byte digests. Show multiple identifiers resolving as asserted without automatic equivalence or authority inference. DOM-AX-7; G88.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "DOM-AX-7",
+        "G88"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-030",
+      "priority": "P1",
+      "proposed_owner": "pipeline/recovery owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-028",
+        "ECO-029"
+      ],
+      "deliverable_and_acceptance": "Qualify native master-to-delivery derivation, incremental per-root updates, base-bound reduced exports, checkpoint/reopen, state migration and rollback. Record exact inputs/operators/settings/versions/output IDs and preservation criteria; stale/corrupt/incompatible changes retain the prior admitted subject and masters.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-031",
+      "priority": "P0",
+      "proposed_owner": "Aether/framework owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-002",
+        "ECO-011"
+      ],
+      "deliverable_and_acceptance": "Pin and qualify the controlled Aether source/features for the intended native path. Distinguish Blitz/Vello native from Wry/webview; no `desktop` feature or browser frame substitutes for native no-JS/V8 evidence.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-032",
+      "priority": "P1",
+      "proposed_owner": "Aether/Qualia renderer owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-031",
+        "ECO-014"
+      ],
+      "deliverable_and_acceptance": "Integrate real UI and specialised content with shared layout/input/scaling/accessibility and GPU ownership. Exercise resize, focus, device/surface loss and teardown; document unresolved native renderer features.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-033",
+      "priority": "P1",
+      "proposed_owner": "Webizen host owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-031"
+      ],
+      "deliverable_and_acceptance": "Recover useful Desktop/OS-shell services and implement the intended launcher: real app discovery/launch/focus, document/session restore, truthful health, tray/close/quit and owned versus external service lifetime.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-034",
+      "priority": "P0",
+      "proposed_owner": "host/app-contract/Vibe owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-033",
+        "ECO-021"
+      ],
+      "deliverable_and_acceptance": "Ratify revision-aware native project/document/command/job/role/review contracts and actual agreement/instrument entry points. Use existing cooperative records and one state owner; demonstrate shared brief/context, authorized contributor access, conflict resolution and recovery in IP-03 C1/C2/C5/C7. Bind policy and funding authority without a private replacement engine. VIBE-03/04/05/07 define persistent functions/modules, safe REPL mode selection, typed effects/jobs, revision-aware commands and durable recovery through the existing host.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-02",
+        "AGR-05",
+        "AGR-07",
+        "AGR-11",
+        "FUND-01",
+        "FUND-02",
+        "DOM-AX-7",
+        "G88",
+        "VIBE-03",
+        "VIBE-04",
+        "VIBE-05",
+        "VIBE-07",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-035",
+      "priority": "P1",
+      "proposed_owner": "Chora/host interface owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-031"
+      ],
+      "deliverable_and_acceptance": "Inventory Chora consumers, selected feature/dependency/notice closure and historical canvas references. Preserve its separate repository/workspace and prevent Qualia/Webizen dependency or implementation imports into the engine.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-036",
+      "priority": "P1",
+      "proposed_owner": "Chora/host interface owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-035"
+      ],
+      "deliverable_and_acceptance": "Specify and qualify generic embedding/C ABI plus external host adapters, runtime topology, event loop/render/input/resource lifetime and update compatibility. Resolve actual JS-profile requirements; do not count engine branding as native workflow proof.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-037",
+      "priority": "P1",
+      "proposed_owner": "Poet/framework owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-033",
+        "ECO-034"
+      ],
+      "deliverable_and_acceptance": "Supply harmonised native/WASM Poet semantics and authoritative document identifiers. Mount the recovered editor and demonstrate continuity from place/subject knowledge inspection to editable high-grade source and checkpointed output. Placeholder stages or separate Craft launches cannot establish the integrated experience. VIBE-08 qualifies one authored language/state contract across native and required WASM profiles.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-08",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-038",
+      "priority": "P1",
+      "proposed_owner": "Webizen/WASM owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-037"
+      ],
+      "deliverable_and_acceptance": "Implement and qualify native-provider discovery, version compatibility, scoped origin/app/session grants and typed jobs/data handles. Required unavailable operations stay held with a useful explanation; unaffected WASM-local work remains usable.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-08",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-039",
+      "priority": "P1",
+      "proposed_owner": "host/recovery owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-036",
+        "ECO-038"
+      ],
+      "deliverable_and_acceptance": "Exercise provider absence/revocation, disconnect/reconnect, cancellation, restart and ownership handoff. Preserve work, reconcile revisions and prevent duplicate effects or false commits.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-040",
+      "priority": "P2",
+      "proposed_owner": "release/framework owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-039",
+        "ECO-032"
+      ],
+      "deliverable_and_acceptance": "Qualify controlled framework/host/app upgrades with source provenance, version/schema matrix, migration and rollback. Retain useful services and data while delivering the reviewed launcher and editor experience.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-08",
+        "VIBE-11",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-041",
+      "priority": "P0",
+      "proposed_owner": "Poet recovery owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-007"
+      ],
+      "deliverable_and_acceptance": "Recover current/historical Poet UX, source and working host baselines, including agreement/licence builders, semantic-instrument bay, contribution/compensation views and funding controls. Preserve useful behaviour and lineage; distinguish live records/actions from static signing progress, sample prices and demo/reference state. AGR-08.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-08"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-042",
+      "priority": "P1",
+      "proposed_owner": "Craft migration owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-041"
+      ],
+      "deliverable_and_acceptance": "Expand the static manifest list into complete file/dependency/feature/build/assets/notices/history disposition maps. Account for duplicate build-tool names and workspace inheritance; identify every reusable engine and UI behaviour to port.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-043",
+      "priority": "P1",
+      "proposed_owner": "Craft migration owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-042"
+      ],
+      "deliverable_and_acceptance": "Stage a coherent namespaced `C:/github/craft` library workspace additively, retaining provenance/rollback. Reconcile consumers and actual builds when allocated; eleven copied apps or moved folders alone do not close consolidation.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-044",
+      "priority": "P0",
+      "proposed_owner": "Poet/Craft adapter owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-043",
+        "ECO-034"
+      ],
+      "deliverable_and_acceptance": "Connect actual native editing, source/context/parts, jobs, undo/checkpoint and project/instrument handoffs through public Vibe/Qualia APIs. Distinct authorized sessions must contribute/review the same identified source with retained history, conflict/cancellation safety, source round-trip and measured conversion loss. Required IP-03 C1–C7 cases cannot be satisfied by an API inventory. VIBE-04–07/09 qualify persistent multiline source evaluation, genuine async jobs and safe live revision edits without per-script Rust/Cargo/JS builds.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-02",
+        "AGR-03",
+        "AGR-04",
+        "AGR-05",
+        "AGR-11",
+        "FUND-01",
+        "DOM-AX-7",
+        "G88",
+        "VIBE-04",
+        "VIBE-05",
+        "VIBE-06",
+        "VIBE-07",
+        "VIBE-09",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-045",
+      "priority": "P1",
+      "proposed_owner": "Poet/native UI owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-044"
+      ],
+      "deliverable_and_acceptance": "Deliver usable graphical native Poet with real domain controls, viewport, tool chest, source/selection/inspector/timeline and accessible input. Port/recover required Craft and original Poet behavior. Pass IP-03 C3/C8 on the defined reference authoring work; unsupported required operators, CLI-only access, placeholder forms and separate app launching leave readiness open. VIBE-04/06/10 require source/REPL and graphical controls to share native reactive state, diagnostics, input and incremental preview.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-04",
+        "VIBE-06",
+        "VIBE-10",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-046",
+      "priority": "P1",
+      "proposed_owner": "geometry/Poet owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-045"
+      ],
+      "deliverable_and_acceptance": "Qualify organic modeling: curves/branches, surface/volume editing, remesh/retopology, UVs, subdivision/detail, foliage/groom needs, source/operator history and undo/reopen. Record missing kernel versus missing UI binding separately.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-047",
+      "priority": "P1",
+      "proposed_owner": "CAD/Poet owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-045"
+      ],
+      "deliverable_and_acceptance": "Qualify parametric solids/surfaces and assemblies, dimensional/constraint editing, part/joint IDs, BOM/ports and accurate export. CADCraft drafting/3D faces and VectorCraft revolve preview do not establish this result.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-048",
+      "priority": "P1",
+      "proposed_owner": "rig/motion/Poet owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-046"
+      ],
+      "deliverable_and_acceptance": "Qualify rig/skeleton/morph/skin authoring, constraints/IK, timeline/curves, contact/root motion, state/behaviour editing and preview. Retain editable sources, units/time and graph/component correspondence.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-049",
+      "priority": "P1",
+      "proposed_owner": "media/material/Poet owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-048",
+        "ECO-029"
+      ],
+      "deliverable_and_acceptance": "Integrate raster/RAW/vector/material/audio/film/document and agreement/instrument/contribution/compensation surfaces backed by real native records. Include provider allocation/period/residual controls with actual authority and state. Qualify editing, playback, colour/time, review and output handoffs; optional providers/tokens/transfers are separately allocated. AGR-04/07/08/11; FUND-04/05.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-04",
+        "AGR-07",
+        "AGR-08",
+        "AGR-11",
+        "FUND-04",
+        "FUND-05"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-050",
+      "priority": "P1",
+      "proposed_owner": "authoring/pipeline QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-047",
+        "ECO-049"
+      ],
+      "deliverable_and_acceptance": "Demonstrate IP-03 C1–C8: actual authorized contributor/reviewer contexts jointly author, revise, undo, checkpoint/reopen, review and reproduce the defined organism/assembly/place source-to-HMC result through native Poet/Craft. Verify conflict/restart/error handling and attribution. If required operations or cooperative usability fail, the stack is not ready for this production scope; finish the named ENG blocker. VIBE-05–07/10 include a live function/material/behaviour edit, invalid submission, conflict, late job and restart; retain exact source/HMC evidence with no per-script host rebuild.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-05",
+        "VIBE-06",
+        "VIBE-07",
+        "VIBE-10",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-03",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-051",
+      "priority": "P0",
+      "proposed_owner": "look development/renderer",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-005",
+        "ECO-014"
+      ],
+      "deliverable_and_acceptance": "Define calibrated neutral-light and intended-scene fixtures with shared camera/exposure/colour configuration. Isolate tone map, bloom, ambient/direct light and texture fallback causes; record actual native/browser differences before choosing fixes.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-052",
+      "priority": "P0",
+      "proposed_owner": "materials/integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-051",
+        "ECO-027"
+      ],
+      "deliverable_and_acceptance": "Replace modulo texture-role assignment and category-wide material reuse with semantic surface bindings. Verify colour/normal/roughness/metal/occlusion/opacity/emission roles, spaces, mip semantics and part IDs against the loaded resources.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-053",
+      "priority": "P0",
+      "proposed_owner": "renderer diagnostics",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-051",
+        "ECO-052"
+      ],
+      "deliverable_and_acceptance": "Surface upload/material/shader/exposure errors and resource residency/defer/fallback receipts. Deliberately missing/wrong-role resources must be diagnosable; never describe a neutral fallback as a fully textured surface.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-054",
+      "priority": "P1",
+      "proposed_owner": "colour/render owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-053"
+      ],
+      "deliverable_and_acceptance": "Qualify colour transfer, linear/spectral interpretation, normal/tangent orientation, map packing and output transforms at agreed tolerances. Preserve semantic/spectral data; compare matched settings and expose unsupported profiles.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-055",
+      "priority": "P1",
+      "proposed_owner": "lighting/renderer",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-053"
+      ],
+      "deliverable_and_acceptance": "Qualify existing direct/environment lighting, shadows/bias, AO/contact and reflections on real surfaces and scale. Fix demonstrated faults; spectral/clustered/deferred source existence alone is not active-frame evidence.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-02",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-056",
+      "priority": "P1",
+      "proposed_owner": "botanical tech art/renderer",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-053"
+      ],
+      "deliverable_and_acceptance": "Qualify leaf geometry or cards, two-sided normals/transmission, alpha coverage/mips, shadows and wind attachment. Check silhouettes and stability over distance; support the chosen representation before expanding foliage production.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-057",
+      "priority": "P1",
+      "proposed_owner": "materials/technical artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-055",
+        "ECO-056"
+      ],
+      "deliverable_and_acceptance": "Author native-editable bark/leaf/wood, fur/skin/eye, cloth, rock/soil, paint/metal/rubber/glass and water materials at target distances. Preserve real references/derivation; greater texture resolution cannot replace distinct surface response.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-058",
+      "priority": "P1",
+      "proposed_owner": "water/environment/renderer",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-057"
+      ],
+      "deliverable_and_acceptance": "Qualify shallow/deep response, shoreline wetness, ordering/depth, reflections/refraction and motion in native scenes. Allocate additional fluid/optical capability only where the approved visual/physical target requires it.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-059",
+      "priority": "P1",
+      "proposed_owner": "film/stylisation owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-054",
+        "ECO-057"
+      ],
+      "deliverable_and_acceptance": "Qualify high-grade master rendering and required film shading/groom/displacement/transparency, sampling/passes and designed cartoon treatment. Keep master fidelity independent of delivery resolution/device budget; specify missing operations explicitly. A film editor or merely high-poly mesh cannot establish the render path.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-060",
+      "priority": "P1",
+      "proposed_owner": "art reviewer/render QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-051",
+        "ECO-059"
+      ],
+      "deliverable_and_acceptance": "Review matched neutral and scene turntables/closeups plus moving light/camera on actual runtime outputs. Resolve clipping, washed-out detail, seams, aliasing and inconsistent surfaces; bind approval to settings/artifacts and target.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-04",
+        "ENG-06"
+      ]
+    },
+    {
+      "id": "ECO-061",
+      "priority": "P0",
+      "proposed_owner": "biological reference/domain team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-005",
+        "ECO-022"
+      ],
+      "deliverable_and_acceptance": "Select identified tree/understorey and animal reference species; assemble diagnostic references, scale/anatomy/lifecycle/repertoire inventory and rights. Unknowns/conflicts remain explicit; species labels cannot stand in for modeled diagnostic traits.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-062",
+      "priority": "P1",
+      "proposed_owner": "botanical artist/procedural author",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-061",
+        "ECO-046"
+      ],
+      "deliverable_and_acceptance": "Build the hero tree's root flare/taper/unions, branching/twigs, crown gaps, characteristic asymmetry and species-specific leaf-bearing structure. Retain editable/procedural sources; remove near-view opaque crown substitutes and misplaced oversized leaves.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-063",
+      "priority": "P1",
+      "proposed_owner": "botanical/material artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-062",
+        "ECO-052"
+      ],
+      "deliverable_and_acceptance": "Finish leaves, bark/wood, reproductive organs, tissue transitions and per-part surfaces/UVs. Review unlabelled silhouette and neutral-light trunk/leaf/flower/fruit closeups at each approved scale.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-064",
+      "priority": "P2",
+      "proposed_owner": "botanical/ecology team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-063"
+      ],
+      "deliverable_and_acceptance": "Produce evidenced age/season/health/growth/reproductive variants, shrubs/grass/sedges, litter/deadwood and species-specific diversity. Changes must affect meaningful structure and habitat use, not just palette/modulo archetype choice.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-065",
+      "priority": "P1",
+      "proposed_owner": "creature artist/anatomist",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-061",
+        "ECO-046"
+      ],
+      "deliverable_and_acceptance": "Build the hero animal's coherent skull/muzzle/ears, trunk/pelvis/limb/feet/tail anatomy, deformation topology and part hierarchy. Confirm scale and unlabelled species recognition; generic capsules remain blockouts until reviewed.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-066",
+      "priority": "P1",
+      "proposed_owner": "creature/anatomy/material team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-065",
+        "ECO-063"
+      ],
+      "deliverable_and_acceptance": "Finish coat/groom/eyes/nose/claws and coherent skin/muscle/bone/organ depictions appropriate to the species. Validate alignment, diagnostic differences and tissue surfaces; exploded views must start from a coherent intact body.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-067",
+      "priority": "P1",
+      "proposed_owner": "scientific visualisation/domain team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-061",
+        "ECO-048"
+      ],
+      "deliverable_and_acceptance": "Produce declared organ/tissue/cellular/molecular or other supported scale representations with evidence, units and epistemic status. Do not claim cell/organ fidelity from a differently sized primitive or label.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-068",
+      "priority": "P1",
+      "proposed_owner": "technical art/domain QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-063",
+        "ECO-067"
+      ],
+      "deliverable_and_acceptance": "Link whole/part/scale representations and graph annotations, accurate cuts/explodes and compatible LODs. Picking/labels highlight the actual identified structure and preserve state across representation changes.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-069",
+      "priority": "P2",
+      "proposed_owner": "species corpus/content teams",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-022",
+        "ECO-061"
+      ],
+      "deliverable_and_acceptance": "Apply equivalent dossiers to every scoped flora/fauna/funga/microbial subject and knowledge partition. Preserve full available corpus/provenance, non-visual facts and relations; record explicit production backlog and missing evidence by entity.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-070",
+      "priority": "P1",
+      "proposed_owner": "biological/visual reviewers",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-064",
+        "ECO-066",
+        "ECO-068",
+        "ECO-069"
+      ],
+      "deliverable_and_acceptance": "Verify declared reference species masters and their film/game/cartoon forms for diagnostic truth, form/material/motion quality, uncertainty and full graph/resources. Compare derivative preservation with the accepted source; record scientific and visual review separately. Counts, labels and illustrative images cannot close these cases.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-071",
+      "priority": "P0",
+      "proposed_owner": "design/domain references",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-005",
+        "ECO-023"
+      ],
+      "deliverable_and_acceptance": "Census vehicles, trailers, structures, tools and infrastructure from actual scope and reference scenes. Select vehicle and workshop/site-system reference assemblies; record engineered versus illustrative design, dimensions, provenance and operating assumptions.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-072",
+      "priority": "P1",
+      "proposed_owner": "vehicle/CAD artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-071",
+        "ECO-047"
+      ],
+      "deliverable_and_acceptance": "Produce editable vehicle/trailer assemblies with correct proportions, bevels, glazing/interior as scoped, wheels/tyres/suspension, lights, doors and service parts. Separate material/part IDs and review contact, articulation and closeups.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-073",
+      "priority": "P1",
+      "proposed_owner": "architectural/CAD artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-071",
+        "ECO-047"
+      ],
+      "deliverable_and_acceptance": "Produce workshop/building/site assemblies with structure/envelope/openings, joints, accessible spaces, interiors and services at required detail. Preserve dimensions/BOM/as-built distinctions and editable source, not only an exterior shell.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-074",
+      "priority": "P1",
+      "proposed_owner": "systems/CAD/domain team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-072",
+        "ECO-073"
+      ],
+      "deliverable_and_acceptance": "Define ports, installation, constraints, utilities, storage and resource/energy/material flows between assemblies. Test incompatible connections, capacities, insufficient inputs and stale observations without conflating graph assertions with working simulation.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-075",
+      "priority": "P2",
+      "proposed_owner": "infrastructure/tool artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-073"
+      ],
+      "deliverable_and_acceptance": "Produce scoped solar/storage/charging, water filtration, hydroponics/reed beds, nursery, maker/repair/library equipment and other scene things. Each gets its own design/instance/part/operation dossier and all required quality profiles.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-076",
+      "priority": "P1",
+      "proposed_owner": "character/rights team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-005",
+        "ECO-046"
+      ],
+      "deliverable_and_acceptance": "Author reference people with credible proportions, hands/feet/face, clothing/equipment and appropriate representation rights. Keep human identifiers/authority distinct from owned scene props and use approved reference/provenance.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-077",
+      "priority": "P1",
+      "proposed_owner": "character/material artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-076"
+      ],
+      "deliverable_and_acceptance": "Finish face/skin/eyes/hair/cloth/equipment materials, deformation sources and required film/game/cartoon depictions. Review silhouette, expression and closeup deformation with explicit target/style criteria.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-078",
+      "priority": "P1",
+      "proposed_owner": "functional/domain authors",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-074",
+        "ECO-075"
+      ],
+      "deliverable_and_acceptance": "Specify operation, failure, damage, repair, replaceable parts, maintenance, wear and history for things/systems. Preserve design versus observed instance state and govern resource changes; decorative animation does not prove operation.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-079",
+      "priority": "P1",
+      "proposed_owner": "technical art/CAD QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-072",
+        "ECO-073"
+      ],
+      "deliverable_and_acceptance": "Derive game LODs/collision/occluders and other film/cartoon depictions from accepted high-grade assemblies or approved shared sources, preserving semantic parts/ports/function. Record source/output identifiers, measured loss, scale/topology/UV criteria and intended-shot visual review. Keep masters editable and unchanged by reduction.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-080",
+      "priority": "P1",
+      "proposed_owner": "design/visual/domain reviewers",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-074",
+        "ECO-077",
+        "ECO-078",
+        "ECO-079"
+      ],
+      "deliverable_and_acceptance": "Review complete reference artefact/human dossiers across declared targets with credible assembly, materials, articulation and scope-appropriate functional evidence. Record unavailable/incomplete cases rather than approving by screenshot alone.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-03",
+        "ENG-04",
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ]
+    },
+    {
+      "id": "ECO-081",
+      "priority": "P0",
+      "proposed_owner": "animation/domain lead",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-048"
+      ],
+      "deliverable_and_acceptance": "Inventory every applicable clip/action, state, transition, contact, lifecycle stage, interaction and variant/rig/profile compatibility. Define observable movement/behaviour scenarios including abort/interruption/failure; unknown repertoire remains open.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-082",
+      "priority": "P1",
+      "proposed_owner": "creature rigger/animator",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-081",
+        "ECO-065"
+      ],
+      "deliverable_and_acceptance": "Author skin/morph/constraints and full scoped animal repertoire: breathing/idle, locomotion/speeds/turns, feeding, resting, grooming, reproduction/parental/defensive actions as applicable. Validate balance, foot/tail contact, secondary motion and transitions.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-083",
+      "priority": "P1",
+      "proposed_owner": "botanical animation/growth team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-081",
+        "ECO-062"
+      ],
+      "deliverable_and_acceptance": "Author supported wind/branch/leaf response, growth/phenology, flowering/fruit/seed and damage/recovery states. Separate scientifically evidenced dynamics from illustrative motion; preserve attachment, tissue/part continuity and time units.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-084",
+      "priority": "P1",
+      "proposed_owner": "character/vehicle animators",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-081",
+        "ECO-074"
+      ],
+      "deliverable_and_acceptance": "Author human locomotion/handling/tool-use, vehicle steering/suspension/doors and machine operation appropriate to scope. Validate reach/grips, sit/stand/enter/exit, contacts and interruption across required rigs/profiles.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-085",
+      "priority": "P1",
+      "proposed_owner": "behaviour/Vibe/domain authors",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-082",
+        "ECO-083",
+        "ECO-084"
+      ],
+      "deliverable_and_acceptance": "Implement shared governed state/action orchestration with sensed conditions, ecological/social/functional interactions and lawful authority. Distinguish canned clip presentation from behaviour decisions and authoritative simulated state.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-086",
+      "priority": "P1",
+      "proposed_owner": "physics/runtime integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-085",
+        "ECO-015"
+      ],
+      "deliverable_and_acceptance": "Qualify existing world transforms, collision, ground contact, root motion, IK and relevant dynamics on real models. Replace per-frame monolithic rebuilds with supported instances/updates; extend solver APIs only for demonstrated requirements.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-087",
+      "priority": "P1",
+      "proposed_owner": "audio/domain/Poet owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-085",
+        "ECO-048"
+      ],
+      "deliverable_and_acceptance": "Inventory and author calls, environmental/operating sounds, foley, event timing, loops, variations and rights. Qualify editable sources and audible playback; headless transport success alone cannot prove an audio engine.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-088",
+      "priority": "P1",
+      "proposed_owner": "physical/domain simulation owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-086"
+      ],
+      "deliverable_and_acceptance": "Qualify required vehicle/ground/water/plant/system coupling, loads, constraints and resource flows with units/bounds. Keep observation, prediction and illustrative effects distinct; document unsupported realism rather than inventing telemetry.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-089",
+      "priority": "P1",
+      "proposed_owner": "audio/runtime owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-088"
+      ],
+      "deliverable_and_acceptance": "Qualify positional audio, emitter/listener movement, attenuation/occlusion, mixing and audiovisual timing through existing capabilities. Include missing-device, cancellation and reduced-sensory/accessibility behaviour.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-090",
+      "priority": "P1",
+      "proposed_owner": "motion/domain/audio reviewers",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-087",
+        "ECO-089"
+      ],
+      "deliverable_and_acceptance": "Review every expanded required action/transition/interaction/profile case in continuous runtime sequences. Reject sliding, interpenetration, stale bounds/normals, broken contacts and ungrounded sound; record human/domain review and exact remaining cases.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-04",
+      "implementation_engine_packets": [
+        "ENG-05",
+        "ENG-07",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-091",
+      "priority": "P0",
+      "proposed_owner": "world/camera integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-005",
+        "ECO-027"
+      ],
+      "deliverable_and_acceptance": "Unify physical units, coordinate/geospatial frames, per-site origin, camera/movement and actor scale. Verify distances and bounds end to end; remove unexplained scale multipliers and inconsistent normalisation.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-092",
+      "priority": "P1",
+      "proposed_owner": "environment/geospatial team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-091"
+      ],
+      "deliverable_and_acceptance": "Author a high-grade place master from identified terrain/hydro/routes/structures/ecology references, or declare an illustrative/fictional composition. Qualify recognisable distinguishing features and scale before deriving consumer resources; a generic analytic valley and regional label cannot satisfy a real-place case.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-093",
+      "priority": "P1",
+      "proposed_owner": "environment artists",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-092"
+      ],
+      "deliverable_and_acceptance": "Compose foreground/middle/backdrop, paths, shore transitions, rocks, ground materials, litter and understorey with ecological placement. Review density, silhouette rhythm, grounding and subject visibility at walk and overview distances.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-094",
+      "priority": "P1",
+      "proposed_owner": "environment/system designers",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-092",
+        "ECO-071"
+      ],
+      "deliverable_and_acceptance": "Compose the high-grade place and people-led civics case: baseline problem, needs/resources, possible responses/tradeoffs/opportunities and observable consequences. Distinguish government civic roles and actual paid/unpaid contributions. Where cooperative use is in scope, demonstrate bounded commercial cost recovery and permitted human-rights no-charge treatment through existing policies.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-095",
+      "priority": "P1",
+      "proposed_owner": "ecological/scene integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-070",
+        "ECO-080"
+      ],
+      "deliverable_and_acceptance": "Populate the place with identified high-grade subjects and approved delivery representations, ecologically and functionally appropriate placement and meaningful variants. Verify scale/material/behaviour continuity and scenario readability; graph catalogue size cannot establish rendered diversity or coherent place identifiers.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-096",
+      "priority": "P1",
+      "proposed_owner": "botanical lab/interaction team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-091",
+        "ECO-068"
+      ],
+      "deliverable_and_acceptance": "Fit camera/composition to whole tree, stem, leaf, reproductive organ and microscopic views. Provide truthful cuts/explodes, scale bars and anchored highlights; preserve subject identifiers and avoid clipping beneath UI.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-097",
+      "priority": "P1",
+      "proposed_owner": "zoological lab/interaction team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-091",
+        "ECO-066"
+      ],
+      "deliverable_and_acceptance": "Present coherent intact animal first, with readable deliberate tissue layers/sections and species-specific anatomy. Fit each state to the viewport and distinguish illustrated anatomy from validated scientific structure.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-098",
+      "priority": "P1",
+      "proposed_owner": "UX/accessibility team",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-096",
+        "ECO-097"
+      ],
+      "deliverable_and_acceptance": "Make Poet/viewer content prominent with collapsible responsive controls, keyboard/focus, readable labels, reduced motion and accessible selection. World/lab state must switch cleanly; labels must resolve to visible identified structures.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-099",
+      "priority": "P1",
+      "proposed_owner": "interaction/runtime owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-098",
+        "ECO-044"
+      ],
+      "deliverable_and_acceptance": "Route selection, cuts/sliders, camera and transforms through shared commands/state and incremental jobs. Avoid full world/mesh generation for a highlight or orbit; qualify cancellation/stale results and measured interactive responsiveness. VIBE-05/06 qualify bounded script scheduling, clocked updates, safe reload and host jobs rather than duplicate JS state or per-interaction builds.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "VIBE-05",
+        "VIBE-06",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-100",
+      "priority": "P1",
+      "proposed_owner": "art/domain/UX reviewers",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-093",
+        "ECO-094",
+        "ECO-095",
+        "ECO-099",
+        "ECO-090"
+      ],
+      "deliverable_and_acceptance": "Review high-grade place/master views and actual game-demo derivatives across overview/walk/closeup/lab and supported viewports. Users must recognise subjects/context, inspect linked knowledge, understand the bounded civics case and reach Poet editing/scenario alternatives with preserved identifiers. Bind visual/domain/UX acceptance to actual artifacts.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-06",
+      "implementation_engine_packets": [
+        "ENG-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-10"
+      ]
+    },
+    {
+      "id": "ECO-101",
+      "priority": "P0",
+      "proposed_owner": "performance/QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-006",
+        "ECO-051"
+      ],
+      "deliverable_and_acceptance": "Set per-target budgets for startup/decode/upload/first present, interaction and steady frame-time distribution, memory/allocations/streaming and power where relevant. Record device/display/settings and distinguish measurements from targets.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-05",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-102",
+      "priority": "P1",
+      "proposed_owner": "scene/GPU performance",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-101",
+        "ECO-090"
+      ],
+      "deliverable_and_acceptance": "Measure active scene instance, skin/morph, culling, LOD, draw and update paths with reviewed content. Optimize identified bottlenecks, not proxy counts; include populated scenes and camera movement.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-05",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-103",
+      "priority": "P1",
+      "proposed_owner": "resource/streaming owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-101",
+        "ECO-030"
+      ],
+      "deliverable_and_acceptance": "Qualify graph/resource working sets, async decode/upload, prefetch, eviction, bounded queues and cancellation during traversal. Verify HMC integrity/rights and complete-package identifiers survive partial residency.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-05",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-104",
+      "priority": "P1",
+      "proposed_owner": "LOD/technical art",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-102"
+      ],
+      "deliverable_and_acceptance": "Qualify reproducible master-to-device LOD/texture/rig and selected representation derivations using measured error plus required semantic/functional preservation. Compare silhouettes, materials, wind/motion, picks and scenario clues in intended shots; preserve master sources and report targets whose budgets cannot meet acceptance.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-05",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-105",
+      "priority": "P1",
+      "proposed_owner": "runtime/recovery QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-103"
+      ],
+      "deliverable_and_acceptance": "Stress corrupt/missing inputs, device/resource loss, out-of-budget load, suspend/resume and long sessions. Retain admitted content/work, release resources and expose useful failures; no fabricated readiness or completion.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-05",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-106",
+      "priority": "P1",
+      "proposed_owner": "native platform QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-032",
+        "ECO-105"
+      ],
+      "deliverable_and_acceptance": "Qualify supported native backends/hardware/display scales with the actual Aether/Etalon/Qualia path and dependency profile. Record unsupported hardware and scoped fallback limitations without introducing a required JS/V8 substitute.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-05",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-107",
+      "priority": "P1",
+      "proposed_owner": "WASM/platform QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-038",
+        "ECO-106"
+      ],
+      "deliverable_and_acceptance": "Qualify supported browser/WASM-local/native-assisted modes with exact artifact, binding, origin/isolation, worker/transport, adapter and native provider requirements. A native capture cannot prove browser behaviour.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-108",
+      "priority": "P1",
+      "proposed_owner": "host/application recovery QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-107",
+        "ECO-089"
+      ],
+      "deliverable_and_acceptance": "Exercise provider loss/revocation, tab/window closure, cancellation, service restart, reconnect and audio/device interruptions with pending edits/jobs. Verify state reconciliation and no duplicate side effects or leaked work.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-07",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-109",
+      "priority": "P2",
+      "proposed_owner": "scale/performance QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-104",
+        "ECO-105"
+      ],
+      "deliverable_and_acceptance": "Qualify crowded habitats, large assemblies/corpora, concurrent editing/jobs and long-duration traversal. Preserve reference visual/scientific criteria while meeting declared budgets; record capacity limits and controlled degradation.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-110",
+      "priority": "P1",
+      "proposed_owner": "performance/release owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-108",
+        "ECO-109"
+      ],
+      "deliverable_and_acceptance": "Produce a target/version evidence matrix of correctness, visual quality, latency/resource budgets and recovery. Link regressions to content/path/dependency changes and retain valid prior results; avoid repeated broad tests without cause.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-01",
+        "ENG-07",
+        "ENG-11"
+      ]
+    },
+    {
+      "id": "ECO-111",
+      "priority": "P0",
+      "proposed_owner": "claims/Q42 owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-008",
+        "ECO-030"
+      ],
+      "deliverable_and_acceptance": "Implement authoritative native claim/evidence/review and project/finance/QDNF linkage. Retain unit-qualified valuation, contribution/pool IDs, operative agreements/instruments, provider allocations, periods, receipts, no-charge/waiver/discharge and residual states separately. Reuse capped owners and history; exported JSON/instructions do not enforce runtime accounting. AGR-03/05/06/11; FUND-02/03.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-03",
+        "AGR-05",
+        "AGR-06",
+        "AGR-11",
+        "FUND-02",
+        "FUND-03"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-08",
+      "implementation_engine_packets": [
+        "ENG-09",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-112",
+      "priority": "P0",
+      "proposed_owner": "validation/agent integration",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-111"
+      ],
+      "deliverable_and_acceptance": "Enforce deliverable/case/authority/evidence coverage and native unit-safe agreement/compensation/credit rules. Qualify commercial/human-rights, partial/final/zero-cost/gifted, cap/duplicate/reversal, funded drawdown/no-overdraft, period rollover, residual return/delegation and malformed/stale/token/unsupported-rail cases. No false adoption, assent, payment or human review. AGR-03/05–07/11; FUND-02–06. VIBE-11 adds exact language/profile requirement and case claims; docs, fixture counts or version constants cannot certify operational completion.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-03",
+        "AGR-05",
+        "AGR-06",
+        "AGR-07",
+        "AGR-11",
+        "FUND-02",
+        "FUND-03",
+        "FUND-04",
+        "FUND-05",
+        "FUND-06",
+        "VIBE-11",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-08",
+      "implementation_engine_packets": [
+        "ENG-09",
+        "ENG-12",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-113",
+      "priority": "P0",
+      "proposed_owner": "package/release validation",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-112"
+      ],
+      "deliverable_and_acceptance": "Bind package/task release checks to content IDs and external receipts without circular hashes. Qualify native admission and actual agreement/credit/obligation/settlement evidence, preserving private source records and prior claims. Missing/invalid cases return incomplete; fixtures and in-process results cannot certify external transfers. AGR-05/06/09/11; FUND-03/04.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-05",
+        "AGR-06",
+        "AGR-09",
+        "AGR-11",
+        "FUND-03",
+        "FUND-04"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-08",
+      "implementation_engine_packets": [
+        "ENG-09",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-114",
+      "priority": "P1",
+      "proposed_owner": "production/domain/visual QA",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-050",
+        "ECO-060",
+        "ECO-070",
+        "ECO-080",
+        "ECO-090",
+        "ECO-100",
+        "ECO-110",
+        "ECO-113"
+      ],
+      "deliverable_and_acceptance": "Review selected high-grade reference subjects/place and required derivatives against all expanded catalogue and added master/lineage/place/scenario/experience cases. Film/game/cartoon, full knowledge/sources, motion/media and operational scope must pass independently; list every remaining ID and actual consumer-use evidence.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-11",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-115",
+      "priority": "P1",
+      "proposed_owner": "native release owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-114"
+      ],
+      "deliverable_and_acceptance": "Prepare native high-grade masters and reviewed derivatives with complete HMCs, editable sources, notices, attribution, operative terms and contribution/pool/allocation lineage as applicable. Preserve exact master/output/runtime IDs and source rights. Bind actual adopted agreements and verified events; reduced exports declare coverage. AGR-09/11.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-09",
+        "AGR-11"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-11",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-116",
+      "priority": "P1",
+      "proposed_owner": "WASM/host release owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-115",
+        "ECO-040"
+      ],
+      "deliverable_and_acceptance": "Qualify actual game-demo civics use and Webizen/Poet native/WASM continuity, including relevant instrument/project funding/period/usage/residual cases and recovery. Record local/assisted operation and real provider/rail status; unavailable live settlement cannot be relabelled completed. Publication and real financial actions remain separately allocated. AGR-08–11; FUND-06. VIBE-08/11 preserve explicit native/WASM language semantics, grants, source/live-edit/job state and disconnect/rejoin evidence.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-08",
+        "AGR-09",
+        "AGR-10",
+        "AGR-11",
+        "FUND-06",
+        "VIBE-08",
+        "VIBE-11",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-11",
+        "ENG-12",
+        "ENG-13"
+      ]
+    },
+    {
+      "id": "ECO-117",
+      "priority": "P2",
+      "proposed_owner": "content production lead",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-115"
+      ],
+      "deliverable_and_acceptance": "Turn accepted families and native workflows into reproducible authoring recipes and review examples. Expand the model/species/thing census in bounded batches; every item retains its full dossier and three profiles.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-118",
+      "priority": "P2",
+      "proposed_owner": "tool/stack owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-117",
+        "ECO-116"
+      ],
+      "deliverable_and_acceptance": "Automate repetitive native source/derive/validate/review preparation through qualified Vibe/Poet/Craft interfaces. Preserve artist control, provenance and human judgments; procedural generation alone cannot auto-approve output quality.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-119",
+      "priority": "P2",
+      "proposed_owner": "maintenance/release owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-118"
+      ],
+      "deliverable_and_acceptance": "Define change-impact/requalification for graph/models/tools, agreements/instruments, valuation policy, period/allocation grants and settlement events. Preserve originating contributions, unused provider funds, legitimate outstanding costs, discharged ancestors and auditable corrections through restart, policy, derivative/adoption and provider changes. AGR-06/09/11; FUND-03/04.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-06",
+        "AGR-09",
+        "AGR-11",
+        "FUND-03",
+        "FUND-04"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12"
+      ]
+    },
+    {
+      "id": "ECO-120",
+      "priority": "P2",
+      "proposed_owner": "product/R&D/production owners",
+      "actual_owner": null,
+      "dependencies": [
+        "ECO-119"
+      ],
+      "deliverable_and_acceptance": "Review scoped master/derivative/platform and civics/Webizen outcomes with preserved authorship and paid/unpaid history. Demonstrate a useful SDGs-work agreement/instrument case, fair valuation, bounded commercial/no-charge treatment and provider-directed funded allocations/period residuals. Report exact passed/open scope; do not certify exploitation eradicated or payments made from source/fixtures alone. AGR-10/11; FUND-06. VIBE-11 requires explicit compatible source migration and actually qualified language/profile release evidence; optional bytecode work cannot block unrelated first-output cases.",
+      "status": "open",
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "detailed_requirement_refs": [
+        "AGR-10",
+        "AGR-11",
+        "FUND-06",
+        "VIBE-11",
+        "G89"
+      ],
+      "disposition_notes": null,
+      "case_inventory_status": "unassessed",
+      "cases": [],
+      "milestone_results": [],
+      "implementation_phase": "IP-09",
+      "implementation_engine_packets": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-11",
+        "ENG-12",
+        "ENG-13"
+      ]
+    }
+  ],
+  "supporting_requirement_documents": [
+    {
+      "path": "high-grade-production-and-civics-experience.md",
+      "sha256": "6f9bc0a6b5886aa8fcfd9fed561f38b74595575248fd382b616af42ab0a8527e"
+    },
+    {
+      "path": "cooperative-layer.md",
+      "sha256": "04a256cc34537b77290f981f28b4cb7b363038efcafd37c10bde333ec070775d"
+    },
+    {
+      "path": "compensation.md",
+      "sha256": "f1f400e503fffdb8adf36476ffa05b5eb2422d33da287791b7877d044c3940ca"
+    },
+    {
+      "path": "contribution-chains.md",
+      "sha256": "187418d2827f6de1a91601308a186d351c8d1f02032303c6c551a75ab40ff0a1"
+    },
+    {
+      "path": "semantic-agreements-and-compensation.md",
+      "sha256": "5b3b9167c2a04f74f54babe4d343c2a527d3099b101fb106a5da6166e38c4d22"
+    },
+    {
+      "path": "credit-allocations-and-periodic-reconciliation.md",
+      "sha256": "00cac35fcb76fe5b7ae7de0e084fb06fba861444bc5d16b6705cb8c0530d8107"
+    },
+    {
+      "path": "interpretation-frameworks.md",
+      "sha256": "3480663ac5afea54aeea4061cfbe1779d688baa7ca10d7402e46ac69cc5638b4"
+    },
+    {
+      "path": "../domain-model.md",
+      "sha256": "2c041cfaa55aec5c8b9c78bb7d5ddc15c49e0bd6228496d07bfbf8e1b11f0f98"
+    },
+    {
+      "path": "vibescript-0.2-specification.md",
+      "sha256": "ee0587138902b581b6557eefeb4100a210ac3eebf169f3078e37f8cab864f843"
+    },
+    {
+      "path": "vibescript-0.2-repl-and-host-contract.md",
+      "sha256": "a2425c4be577590b2eb9652ee1ffd4a430d2fefae6fc099102422ca14784c693"
+    },
+    {
+      "path": "vibescript-0.2-source-and-conformance.md",
+      "sha256": "e270456e12aab024872b867b7d2f0dbf53fb89555e3c924018cb8b438274f2da"
+    },
+    {
+      "path": "vibescript-0.2.ebnf",
+      "sha256": "057e84b650e29513875a1096b4f32930d0c8d3c079d8d9b004d94a9444ef40ae"
+    },
+    {
+      "path": "vibescript-0.2-source-baseline.json",
+      "sha256": "69b3a41cd2cf09792a1b82ffe16e6398fca31a409ea20d894c7dacd2a1d1263d"
+    },
+    {
+      "path": "vibescript-0.2-claims.template.json",
+      "sha256": "6804054cab837884f680ad55415ce2bbcf85f55c9de9cc2d0886de90c7d39032"
+    },
+    {
+      "path": "../implementation-dispatch.md",
+      "sha256": "332c83d6b5a6a6ad40d9df564e36466abe5f2e0522af713e31eadbef03134ac1"
+    },
+    {
+      "path": "../implementation-agent-roles.json",
+      "sha256": "9d75e295e7e2746a56e770a891166b00bda23ef81e87598abb816b7bcb4960a4"
+    },
+    {
+      "path": "../implementation-queue.json",
+      "sha256": "3e733e050497d9da81c77f75be2755af44d98bf56ec52e3cc3f530e1b3ed16f5"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/README.md",
+      "sha256": "a0159d39e9e48a1cf9c1cc66847287eec5fe9cbfae0abfcf9b4e95ced1d6d023"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/latest-source-snapshot.json",
+      "sha256": "7ead90592e857bc47179c6137d1feae95d9c0a135fac3242f419dca901ddfd98"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/authentication/contract.md",
+      "sha256": "2fcc084c503d83f99ae38bf1065e85ed4d4ff7de11eb5e7b2bd07dcd6c945183"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/authentication/save-receipt.json",
+      "sha256": "ea469792e52482f3566f91360db96ab39fc876e3a1111c4a17aab87cbca94ac1"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/hmc/source-transitions.json",
+      "sha256": "b2d6baca91e9bec838b14cc78618c4252a32cfeee6b04fc1f5616ec097376386"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/hmc/checks.json",
+      "sha256": "f2dcb2355efd6878a7fef254645e5db1405849b30bf75d036b06b7def28a2120"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/hmc/README.md",
+      "sha256": "820a650f76cdbc6e4b608e08969f10dc2bff0fdc11b4311c4d77e244cb6efaea"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/authentication/README.md",
+      "sha256": "c85afe990502e0f3e4e06db8eb7567d522ba5289d2f0a7dada4249b019f399c8"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/review/README.md",
+      "sha256": "c8e9a8ec6c0c6d6bd272704ad887b8379ec3622124c6ea16c2d5d7a6f9d4d9af"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/review/reviewed-inputs.json",
+      "sha256": "8c1c26527ed4a998395f14a00a3e1809299fcbdcb9fb27c3efb276ef48178419"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/native-check-corrected.json",
+      "sha256": "42e9537a026d6e2c4218f73bd6af55240e093577ee5ebcc58f41593cb4a11234"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/direct-cli/130ad0c42d5e/checks.json",
+      "sha256": "e73de6a45460d826327ddb28fbcc84354a42bcb3807628b05b7af2503212d3d8"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/direct-cli/130ad0c42d5e/artifact.json",
+      "sha256": "4dc8663e3c3807fda869830843d408dfeb9ff94c495345bc6904d34959cc3b61"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-4/engine-handoff-saved.json",
+      "sha256": "267115fdc5d26f49f6ec054d6f4dacf28279e666f34d17665aa9811f711e3428"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/README.md",
+      "sha256": "26564e6ecfd65744b03e9f700ba819180149c321c06016c652482098213daa0e"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/latest-source-snapshot.json",
+      "sha256": "5c7f468947b7c2ca272f3331bd5630ab114aae066d4cc8813650aad77017d5c5"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/source-snapshots/2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc.json",
+      "sha256": "2e7ab1b867bfa3ac4e5ed49f8dd2d99e46e27113a77fdf7a0752cb9a3263f1bc"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/enrollment/README.md",
+      "sha256": "d025b7ead8421cd152711aa64c85366bd93ef5416a33a397034f8d3c062e270a"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/native-entry/README.md",
+      "sha256": "98215be434e26d1f206a1fb10ae9e2af86c004822491ce20e179b4f99a486937"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/native-entry/operator-workflow.md",
+      "sha256": "d49ec63e3adb4662e6742a3ed55f576288cca4c7d4398270af37f111c660b8cd"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/workflow/README.md",
+      "sha256": "8c60e4fd916f4cb548d962d443cb8b9dd1459a1205845395431b39953e8eba11"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/review/README.md",
+      "sha256": "a76105851302fb41373bad18985e78f5389bcd17f8d19792b886994ca93dca79"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/review/reviewed-inputs.json",
+      "sha256": "6cb9cdadc5daad78f784b2021026f3ea6cdf6b7745f315254b38ebdc0b6c2245"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/inventory/README.md",
+      "sha256": "eb74bc2d987147308a4155e7975ce24a52bd917fd44347d34862cf5fe3cde4de"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/native-check-initial.json",
+      "sha256": "7842957d916604fe0a2b9685f146870524fcb9e6549a17c219337ebc69806b1d"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/native-check-integrated.json",
+      "sha256": "bd2377471a64b1efe69c6ffd6da8ee2c8d9904bd2971a18db28f8aef05d13c42"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/poet-lock-reconciled.json",
+      "sha256": "9ffc65fa988e438651dd416723846082709c24b5bdf44279c72cf06a2155bae8"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/network-sandbox-proof.json",
+      "sha256": "4e6b2e8e06aff046ea1f6fb808c3e9806b3a31f6d3a35a046679c6847c7f96b7"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/network-native-proof.json",
+      "sha256": "8d54ce60e612f1045840c539e495f4472cac51614edb3c37b1ef9b61ef4dd41c"
+    },
+    {
+      "path": "../../qa/implementation-2026-10-25/batch-5/network-restricted-results/core-final.json",
+      "sha256": "74355b8ffb5db3db03bb7335b1799fd99e0b21efa61438cd66e95987a8df4fb9"
+    }
+  ],
+  "implementation_plan": {
+    "path": "../implementation-plan.md",
+    "version": "0.6",
+    "sha256": "62303e796003c13779f04f041ac0047bea641fde02428e3a4670f084b88e65e2",
+    "semantics": "Acceptance dependencies for declared cases; primary task homes preserve all detailed dependencies. Payment rails are later support work. IP-03 C1–C8 is the cooperative-production readiness gate.",
+    "phases": [
+      {
+        "id": "IP-00",
+        "title": "Defined production brief and records",
+        "dependencies": [],
+        "status": "open"
+      },
+      {
+        "id": "IP-01",
+        "title": "Verified stack and capability path",
+        "dependencies": [
+          "IP-00"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-02",
+        "title": "Native source/HMC/frame correctness",
+        "dependencies": [
+          "IP-00",
+          "IP-01"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-03",
+        "title": "Usable cooperative native authoring",
+        "dependencies": [
+          "IP-00",
+          "IP-01",
+          "IP-02"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-04",
+        "title": "Exceptional high-grade reference masters",
+        "dependencies": [
+          "IP-02",
+          "IP-03"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-05",
+        "title": "Complete embodiments and reviewed derivatives",
+        "dependencies": [
+          "IP-02",
+          "IP-04"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-06",
+        "title": "Actual game-demo place and civics use",
+        "dependencies": [
+          "IP-02",
+          "IP-05"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-07",
+        "title": "Webizen/native/WASM harmonisation",
+        "dependencies": [
+          "IP-03",
+          "IP-06"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-08",
+        "title": "Native claims/agreement/credit qualification",
+        "dependencies": [
+          "IP-00",
+          "IP-02",
+          "IP-03"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "IP-09",
+        "title": "Accepted release and controlled expansion",
+        "dependencies": [
+          "IP-04",
+          "IP-05",
+          "IP-06",
+          "IP-07",
+          "IP-08"
+        ],
+        "status": "open"
+      }
+    ]
+  },
+  "model_catalogue": {
+    "id": "ecopunk-model-deliverables",
+    "version": "2026-10-24.2",
+    "sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb",
+    "claim_schema": "ecopunk-model-claims-v2"
+  },
+  "vibescript_contract": {
+    "path": "vibescript-0.2-claims.template.json",
+    "version": "2026-10-24.1",
+    "sha256": "6804054cab837884f680ad55415ce2bbcf85f55c9de9cc2d0886de90c7d39032",
+    "status": "proposed vibe-0.2; implementation remains vibe-0.1; no conformance execution",
+    "requirement_count": 24,
+    "case_count": 32,
+    "work_packet_count": 11,
+    "engine_packet": "ENG-13",
+    "engine_requirement": "G89"
+  }
+}

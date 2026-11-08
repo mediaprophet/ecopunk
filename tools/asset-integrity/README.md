@@ -1,0 +1,9 @@
+# Asset metadata integrity auditor
+
+Run `cargo run --offline --manifest-path tools/asset-integrity/Cargo.toml -- assets/models/corymbia-aparrerinja/model-set.json`. The tool writes deterministic JSON to stdout. Exit codes: 0 means all referenced files match recorded metadata, 1 means the manifest was readable but has validation or integrity issues, and 2 means invocation, manifest-read, or schema failure.
+
+This audits only `ecopunk-model-review-v1` file metadata: each model/component `file` + `sha256` + `bytes`, plus graph `source` + `sourceSha256` + `sourceBytes` and `volume` + `volumeSha256` + `volumeBytes`. It does not decode HMC/Q42/10D, establish completeness, enforce native claims, or imply human acceptance. It never repairs files or metadata.
+
+Safety bounds are explicit: manifest at most 4 MiB, each actual regular resource at most 512 MiB, aggregate distinct canonical-path resource bytes at most 2 GiB. Paths must be nonempty slash-separated paths with no empty, dot, parent, colon, drive/absolute, or backslash forms; canonical targets must stay under the canonical manifest directory. Files are hashed once per canonical path with a 64 KiB streaming buffer and an allowance-plus-one read cap. Findings are stored once per resource/declaration; each reference points to its canonical resource outcome. Canonical paths do not identify hard-link-equivalent files.
+
+The audit is a bounded local snapshot check. It checks regular-file metadata before opening, rechecks the opened handle, and detects observed size changes while hashing. Canonicalize-before-open and path-based postchecks still have a filesystem TOCTOU window; same-length content replacement and hostile concurrent mutation are not proven race-proof. This is not a security sandbox or native admission/completion gate.

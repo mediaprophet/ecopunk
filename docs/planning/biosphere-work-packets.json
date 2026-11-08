@@ -1,0 +1,2290 @@
+{
+  "schema": "ecopunk-scoped-work-packets/v2",
+  "current_species_production_round": "docs/planning/species-production-round1.json",
+  "date": "2026-10-26",
+  "scope": "User resumed bounded native Poet implementation on 2026-10-26. POET-MOTION-W1 selected software cases are saved and verified; other assignments retain explicit states and original IP/ECO requirements.",
+  "governing_plan": "docs/planning/implementation-plan.md",
+  "baseline_inventory": "docs/qa/implementation-2026-10-26/biosphere-integration-review/requested-source-inventory.json",
+  "slots": {
+    "total": 4,
+    "coordinator": 1,
+    "workers_max": 3
+  },
+  "canonical_shared_mutations_owner": "Root W3 round1: shared contracts/registrations/Poet integration, reviewed canonical saves and all serial checks. Workers stage disjoint candidates only.",
+  "serial_lease_helper": "tools/poet-foundation/biosphere-shared/serial_check.py",
+  "lease_enforcement": "Cooperating future callers only; historical runners and arbitrary other cargo processes are not covered.",
+  "packets": [
+    {
+      "id": "BS-01",
+      "status": "selected_increments_active",
+      "depends_on": [],
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "role": "Metadata and fixture worker; supervisor owns semantic/API decisions",
+      "objective": "Pin existing Q42/resource/cue descriptor fixtures, source rights, identifiers, units, frames and independent expected query answers.",
+      "acceptance": "BGS-01/02/03/04; fixture schema review; no invented biology or graph store",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-01",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-01",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-01\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-01\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Only active round1 increments are dispatched; full packet acceptance remains open.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-10",
+      "status": "selected_increments_active",
+      "depends_on": [
+        "BS-01"
+      ],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Native botanical graph/runtime engineer",
+      "objective": "Use existing colonization/radii/turtle and reviewed sim-side development owners; stable organ source edit and recovery.",
+      "acceptance": "BGS-Q1/Q7; actual kernel, graph/part continuity, native output, rejection and replay",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-10",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Only active round1 increments are dispatched; full packet acceptance remains open.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-20",
+      "status": "selected_increments_active",
+      "depends_on": [
+        "BS-01"
+      ],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Native anatomy/rig integration engineer",
+      "objective": "Use existing skeletal/weight/player/animated uploads for connected mesh and editable rig/clip state.",
+      "acceptance": "BGS-Q2/Q7; actual animated mesh/frame and edit/reopen; no physiological validity inferred",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-20",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Only active round1 increments are dispatched; full packet acceptance remains open.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-30",
+      "status": "implementation_prepared_inactive",
+      "depends_on": [
+        "BS-01"
+      ],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Q42/HMC selection and lifetime engineer",
+      "objective": "Select typed dependency closure through native graph pages and authenticated installed resources; lazy bounded access.",
+      "acceptance": "BGS-Q3/Q4/Q7; exact read ranges/bytes, unrelated data untouched, cancellation, integrity and CPU/GPU bounds",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-30",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-30",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-30\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-30\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Not dispatched in this bounded wave. Implementation direction has resumed; relevant contracts, exact ownership, source permissions and coordinator activation are still required.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-40",
+      "status": "implementation_prepared_inactive",
+      "depends_on": [
+        "BS-01"
+      ],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Typed EMF/environmental runtime engineer",
+      "objective": "Reuse spectral/physical/audio/model owners under physically typed descriptors and evidenced response semantics.",
+      "acceptance": "BGS-Q5/Q6/Q7; units/basis/model validity and causal state trace; unknown receivers stay unknown",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-40",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-40",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-40\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-40\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Not dispatched in this bounded wave. Implementation direction has resumed; relevant contracts, exact ownership, source permissions and coordinator activation are still required.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-50",
+      "status": "implementation_prepared_inactive",
+      "depends_on": [
+        "BS-10",
+        "BS-20",
+        "BS-30"
+      ],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Native authoring integration engineer with coordinator",
+      "objective": "Native graph/part/query/magnifier and operator controls, current-authority actions, durable source/resource recovery.",
+      "acceptance": "BGS-Q1/Q2/Q3/Q4/Q7/Q8 as scoped; actual native source/output/HMC, no fabricated human acceptance",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-50",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-50",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-50\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-50\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Not dispatched in this bounded wave. Implementation direction has resumed; relevant contracts, exact ownership, source permissions and coordinator activation are still required.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-60",
+      "status": "implementation_prepared_inactive",
+      "depends_on": [
+        "BS-30"
+      ],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Authenticated remote acquisition engineer",
+      "objective": "Reuse trusted descriptor/transport/codec owners, honest verification granularity and selected dependency acquisition.",
+      "acceptance": "BGS-Q3/Q4/Q7; corrupt/wrong-root/missing-proof refusal and measured selected transfer",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-60",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-60",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-60\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-60\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "may_run_cargo_when_activated": false,
+      "current_scope_blocker": "Not dispatched in this bounded wave. Implementation direction has resumed; relevant contracts, exact ownership, source permissions and coordinator activation are still required.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    },
+    {
+      "id": "BS-90",
+      "status": "selected_increments_active",
+      "depends_on": [],
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "role": "Integration coordinator and independent review",
+      "objective": "Apply a coherent reviewed source set, own serial checks to exit and reconcile receipts/human/domain limits.",
+      "acceptance": "Relevant packet cases + frozen source pin, actual nonzero selected tests, source unchanged, outputs and remaining IDs",
+      "owned_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-90",
+      "owned_evidence_directory": "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-shared\\BS-90",
+      "may_edit_canonical_sources": false,
+      "may_run_cargo": false,
+      "handoff_file": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-90\\handoff.json",
+      "patch_manifest": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-90\\manifest.json",
+      "must_read": [
+        "AGENTS.md",
+        "docs/planning/implementation-plan.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/README.md",
+        "docs/planning/delivery-revision-and-agent-handoff.md"
+      ],
+      "checks": "No Cargo/engine checks by worker; coordinator reviews ownership, applies exact preimage-pinned files and selects meaningful serial checks.",
+      "required_handoff_fields": [
+        "status",
+        "source_preimages",
+        "staged_after_hashes",
+        "modified_paths",
+        "api_assumptions",
+        "command_and_pid_or_none",
+        "process_exit_or_running",
+        "evidence_paths",
+        "failed_or_unrun_cases",
+        "remaining_ids",
+        "next_bounded_action",
+        "blocker_kind_and_owner",
+        "reentry_condition",
+        "evidence_levels",
+        "process_owner_and_resume_proof_or_none"
+      ],
+      "note": "Coordinator installs reviewed files only after ownership agreement; every shared manifest/lock/module/dispatch/controller patch is exclusively coordinator-owned. No source mutation during checks. Run after any coherent group, not only at end.",
+      "may_run_cargo_when_activated": true,
+      "current_scope_blocker": "Only active round1 increments are dispatched; full packet acceptance remains open.",
+      "activation_requirements": [
+        "Resumed implementation direction is satisfied; explicit dispatch for this packet remains required",
+        "Relevant research/API decisions resolved",
+        "Exact canonical file/symbol ownership and current preimage hashes approved by coordinator",
+        "Meaningful check selection and one coordinator/process owner",
+        "Applicable source-root permissions for the concrete change"
+      ],
+      "evidence_states": {
+        "applied": "pending",
+        "compiled": "pending",
+        "executed": "pending",
+        "runtime_or_rendered": "pending",
+        "independent_technical_review": "pending",
+        "domain_review": "pending",
+        "human_acceptance": "pending",
+        "source_present": "See cited existing-work audit; qualify each required operation, not whole packet."
+      }
+    }
+  ],
+  "current_mode": "native_controller_rights_cooperation_round1_verification",
+  "status_vocabulary": {
+    "research_ready": "May perform the named read-only study and write only assigned documents under current user direction.",
+    "research_working": "A named agent is actually working; handoff records scope/process.",
+    "research_delivered": "Documents saved, source scope pinned; no implementation or acceptance implied.",
+    "research_reviewed": "Supervisor checked source/requirements and integrated the findings.",
+    "implementation_prepared_inactive": "Future job; not currently authorized for activation by this research-only instruction.",
+    "staged": "Patch exists but canonical source not changed.",
+    "applied": "Canonical bytes saved; no execution claim.",
+    "verified_scoped": "Named command/exit/artifact supports only the recorded scope.",
+    "needs_contract": "Explicit unresolved contract with owner, evidence and re-entry condition.",
+    "failed": "Named attempted check failed; preserve output and remedy.",
+    "superseded": "Retained history replaced by identified later evidence; not deleted.",
+    "product_accepted": "Actual required human/domain/release gates passed; no agent self-award."
+  },
+  "future_serial_cargo_owner": "BS-90 when implementation is activated",
+  "research_packets": [
+    {
+      "id": "R-01",
+      "status": "research_ready",
+      "role": "Biological brief and source/corpus researcher",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "objective": "Reconcile existing Kosciuszko mountain-white-gum and swamp-wallaby references into a proposed brief: subjects/taxon concepts, actual reference/corpus rights, stage/organ/action inventories, measurement unknowns, scientific/visual review and film/game/cartoon targets. No invented biology or approvals.",
+      "governing_ids": [
+        "IP-00",
+        "ECO-005",
+        "ECO-022",
+        "ECO-061",
+        "TREE-01–13",
+        "WALLABY-01–16"
+      ],
+      "inputs": [
+        "docs/qa/implementation-2026-10-26/biological-reference/tree-cases.md",
+        "docs/qa/implementation-2026-10-26/biological-reference/wallaby-cases.md",
+        "docs/planning/tech/assets/species-embodiment-spec.md",
+        "docs/planning/tech/high-grade-production-and-civics-experience.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-01\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-01\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "read_policy": "Local source/reference reconciliation; if new factual verification is needed use primary botanical/NPWS sources and record exact access/rights limits. No downloads of restricted media or paid calls.",
+      "depends_on": [],
+      "review_after_available": [],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Exact scoped source/evidence study and actionable proposed contract/handoff; no implementation, runtime or human acceptance claim. Root reviews before central integration.",
+      "assignment_prompt": "You are assigned R-01: Biological brief and source/corpus researcher. Current user direction is research and documentation only. Read C:/github/ecopunk/AGENTS.md, docs/planning/implementation-plan.md, docs/planning/delivery-revision-and-agent-handoff.md and this register. Objective: Reconcile existing Kosciuszko mountain-white-gum and swamp-wallaby references into a proposed brief: subjects/taxon concepts, actual reference/corpus rights, stage/organ/action inventories, measurement unknowns, scientific/visual review and film/game/cartoon targets. No invented biology or approvals. Immutable starting references: C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\tree-cases.md; C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\wallaby-cases.md; C:\\github\\ecopunk\\docs\\planning\\tech\\assets\\species-embodiment-spec.md; C:\\github\\ecopunk\\docs\\planning\\tech\\high-grade-production-and-civics-experience.md. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-01\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-01\\handoff.json; do not edit central plans, registries or engine sources. Local source/reference reconciliation; if new factual verification is needed use primary botanical/NPWS sources and record exact access/rights limits. No downloads of restricted media or paid calls. Reuse previous source reads; inspect the unresolved operation and its actual owner/caller/tests rather than restarting a broad audit. Record exact read ranges and SHA256, what is source-present/bound/executed or unknown, relevant prior receipts, proposed minimal contract and exact future ownership, open decisions with owner/re-entry condition, requirement IDs and next bounded action. Source tests are not executed evidence; labels/signatures/receipts are not actual adoption/human review. All sibling repositories are read-only. No Cargo, builds/tests/exports, GUI/Computer Use, source relocation, dependency/lock edits, commits/publication, payments or paid providers. Process state is none unless explicitly documented; do not start a check. Preserve existing work. Findings are proposals, not product/model acceptance; human oversight and corrections remain legitimate. Before writing, inspect any existing handoff at your exact output path; record assigned agent/assigner. Do not overwrite another active owner or infer takeover from age. Reconcile ownership or take another assigned job. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "supplied_specification_findings": [
+        "BR-12",
+        "BR-13",
+        "BR-14"
+      ]
+    },
+    {
+      "id": "R-02",
+      "status": "research_ready",
+      "role": "Botanical source/state contract researcher",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Reconcile persistent organ identifiers, existing metamer/leaf solver state, botanical quins, source recipe overrides, units/quantization and restart state. Separate authored master path from development simulation. Propose exact smallest BS-10 child ownership/contracts and positive/negative/recovery cases without coding.",
+      "governing_ids": [
+        "IP-01",
+        "IP-03",
+        "BS-01",
+        "BS-10A–E",
+        "BGS-Q1"
+      ],
+      "inputs": [
+        "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+        "C:/github/qualiaDB/crates/qualia-sim/src/metamer_fspm.rs",
+        "C:/github/qualiaDB/crates/qualia-sim/src/leaf_biophysics.rs",
+        "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/botany.rs",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-02\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-02\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "read_policy": "Read-only canonical code/fixtures/tests and prior receipts. No network required; search only unresolved binding/serialization/caller edges.",
+      "depends_on": [],
+      "review_after_available": [],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Exact scoped source/evidence study and actionable proposed contract/handoff; no implementation, runtime or human acceptance claim. Root reviews before central integration.",
+      "assignment_prompt": "You are assigned R-02: Botanical source/state contract researcher. Current user direction is research and documentation only. Read C:/github/ecopunk/AGENTS.md, docs/planning/implementation-plan.md, docs/planning/delivery-revision-and-agent-handoff.md and this register. Objective: Reconcile persistent organ identifiers, existing metamer/leaf solver state, botanical quins, source recipe overrides, units/quantization and restart state. Separate authored master path from development simulation. Propose exact smallest BS-10 child ownership/contracts and positive/negative/recovery cases without coding. Immutable starting references: C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\native-route-study.md; C:\\github\\qualiaDB\\crates\\qualia-sim\\src\\metamer_fspm.rs; C:\\github\\qualiaDB\\crates\\qualia-sim\\src\\leaf_biophysics.rs; C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\modalities\\botany.rs. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-02\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-02\\handoff.json; do not edit central plans, registries or engine sources. Read-only canonical code/fixtures/tests and prior receipts. No network required; search only unresolved binding/serialization/caller edges. Reuse previous source reads; inspect the unresolved operation and its actual owner/caller/tests rather than restarting a broad audit. Record exact read ranges and SHA256, what is source-present/bound/executed or unknown, relevant prior receipts, proposed minimal contract and exact future ownership, open decisions with owner/re-entry condition, requirement IDs and next bounded action. Source tests are not executed evidence; labels/signatures/receipts are not actual adoption/human review. All sibling repositories are read-only. No Cargo, builds/tests/exports, GUI/Computer Use, source relocation, dependency/lock edits, commits/publication, payments or paid providers. Process state is none unless explicitly documented; do not start a check. Preserve existing work. Findings are proposals, not product/model acceptance; human oversight and corrections remain legitimate. Before writing, inspect any existing handoff at your exact output path; record assigned agent/assigner. Do not overwrite another active owner or infer takeover from age. Reconcile ownership or take another assigned job. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "supplied_specification_findings": [
+        "BR-05",
+        "BR-07",
+        "BR-08"
+      ]
+    },
+    {
+      "id": "R-03",
+      "status": "research_ready",
+      "role": "Anatomical mesh/rig preservation researcher",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Reconcile existing sealed .10d/SKL1/player/animated-upload and portal actor examples with native Poet assembly expansion, normals/UV/weight lineage, material refusals and guarded HMC retention. Define BS-20 child contracts and exact expected edit/replay outputs. No replacement codec/player/writer.",
+      "governing_ids": [
+        "IP-03",
+        "BS-01",
+        "BS-20A–E",
+        "BGS-Q2"
+      ],
+      "inputs": [
+        "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+        "C:/github/qualiaDB/crates/qualia-core-db/src/container_10d/skeletal_section/mod.rs",
+        "C:/github/qualiaDB/crates/qualia-core-db/src/render/skeletal/player.rs",
+        "C:/github/poet/native/src/graphical/assembly/admission.rs",
+        "C:/github/poet/native/src/graphical/checkpoints/typed_10d/payload.rs",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-03\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-03\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "read_policy": "Read-only source and existing tests/receipts. No network required. Follow the declared vertex/resource correspondence, not every renderer module.",
+      "depends_on": [],
+      "review_after_available": [],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Exact scoped source/evidence study and actionable proposed contract/handoff; no implementation, runtime or human acceptance claim. Root reviews before central integration.",
+      "assignment_prompt": "You are assigned R-03: Anatomical mesh/rig preservation researcher. Current user direction is research and documentation only. Read C:/github/ecopunk/AGENTS.md, docs/planning/implementation-plan.md, docs/planning/delivery-revision-and-agent-handoff.md and this register. Objective: Reconcile existing sealed .10d/SKL1/player/animated-upload and portal actor examples with native Poet assembly expansion, normals/UV/weight lineage, material refusals and guarded HMC retention. Define BS-20 child contracts and exact expected edit/replay outputs. No replacement codec/player/writer. Immutable starting references: C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\native-route-study.md; C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\container_10d\\skeletal_section\\mod.rs; C:\\github\\qualiaDB\\crates\\qualia-core-db\\src\\render\\skeletal\\player.rs; C:\\github\\poet\\native\\src\\graphical\\assembly\\admission.rs; C:\\github\\poet\\native\\src\\graphical\\checkpoints\\typed_10d\\payload.rs. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-03\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-03\\handoff.json; do not edit central plans, registries or engine sources. Read-only source and existing tests/receipts. No network required. Follow the declared vertex/resource correspondence, not every renderer module. Reuse previous source reads; inspect the unresolved operation and its actual owner/caller/tests rather than restarting a broad audit. Record exact read ranges and SHA256, what is source-present/bound/executed or unknown, relevant prior receipts, proposed minimal contract and exact future ownership, open decisions with owner/re-entry condition, requirement IDs and next bounded action. Source tests are not executed evidence; labels/signatures/receipts are not actual adoption/human review. All sibling repositories are read-only. No Cargo, builds/tests/exports, GUI/Computer Use, source relocation, dependency/lock edits, commits/publication, payments or paid providers. Process state is none unless explicitly documented; do not start a check. Preserve existing work. Findings are proposals, not product/model acceptance; human oversight and corrections remain legitimate. Before writing, inspect any existing handoff at your exact output path; record assigned agent/assigner. Do not overwrite another active owner or infer takeover from age. Reconcile ownership or take another assigned job. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "supplied_specification_findings": [
+        "BR-05",
+        "BR-09"
+      ]
+    },
+    {
+      "id": "R-04",
+      "status": "research_ready",
+      "role": "Native graph/resource-selection researcher",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Define one Q42 query-to-selected-resource operation over authenticated installed HMC using existing root/query/lexicon/typed resolver/read APIs. Declare verification granularity, closure, no-match scan budget, cancellation, CPU/GPU lifetime, offline/rights and exact read-set oracle; separate remote proof work.",
+      "governing_ids": [
+        "IP-02",
+        "IP-03",
+        "BS-30",
+        "BS-60",
+        "BGS-Q3",
+        "BGS-Q4",
+        "BGS-Q7"
+      ],
+      "inputs": [
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/graph-streaming-reuse.md",
+        "docs/planning/tech/pack-delivery.md",
+        "docs/planning/tech/assets/asset-package-spec.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-04\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-04\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "read_policy": "Read-only existing Q42/HMC/resource callers and receipts; no network acquisition or Cargo. Do not repeat full inventory.",
+      "depends_on": [],
+      "review_after_available": [],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Exact scoped source/evidence study and actionable proposed contract/handoff; no implementation, runtime or human acceptance claim. Root reviews before central integration.",
+      "assignment_prompt": "You are assigned R-04: Native graph/resource-selection researcher. Current user direction is research and documentation only. Read C:/github/ecopunk/AGENTS.md, docs/planning/implementation-plan.md, docs/planning/delivery-revision-and-agent-handoff.md and this register. Objective: Define one Q42 query-to-selected-resource operation over authenticated installed HMC using existing root/query/lexicon/typed resolver/read APIs. Declare verification granularity, closure, no-match scan budget, cancellation, CPU/GPU lifetime, offline/rights and exact read-set oracle; separate remote proof work. Immutable starting references: C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\graph-streaming-reuse.md; C:\\github\\ecopunk\\docs\\planning\\tech\\pack-delivery.md; C:\\github\\ecopunk\\docs\\planning\\tech\\assets\\asset-package-spec.md; C:\\github\\ecopunk\\docs\\planning\\tech\\biosphere-graph-spectra-and-streaming.md. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-04\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-04\\handoff.json; do not edit central plans, registries or engine sources. Read-only existing Q42/HMC/resource callers and receipts; no network acquisition or Cargo. Do not repeat full inventory. Reuse previous source reads; inspect the unresolved operation and its actual owner/caller/tests rather than restarting a broad audit. Record exact read ranges and SHA256, what is source-present/bound/executed or unknown, relevant prior receipts, proposed minimal contract and exact future ownership, open decisions with owner/re-entry condition, requirement IDs and next bounded action. Source tests are not executed evidence; labels/signatures/receipts are not actual adoption/human review. All sibling repositories are read-only. No Cargo, builds/tests/exports, GUI/Computer Use, source relocation, dependency/lock edits, commits/publication, payments or paid providers. Process state is none unless explicitly documented; do not start a check. Preserve existing work. Findings are proposals, not product/model acceptance; human oversight and corrections remain legitimate. Before writing, inspect any existing handoff at your exact output path; record assigned agent/assigner. Do not overwrite another active owner or infer takeover from age. Reconcile ownership or take another assigned job. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "supplied_specification_findings": [
+        "BR-01",
+        "BR-02",
+        "BR-03",
+        "BR-04",
+        "BR-06"
+      ]
+    },
+    {
+      "id": "R-05",
+      "status": "research_ready",
+      "role": "Typed EMF/cue contract researcher",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Map one supported existing spectral/physical/audio case from quantity/basis/calibration/source/receiver through public operator and native presentation. Preserve original data/unknown bands and separate sonification from measured/species response. Define scoped BS-40 contract, not full-spectrum or physiology claims.",
+      "governing_ids": [
+        "IP-01",
+        "IP-03",
+        "BS-40",
+        "BGS-Q5",
+        "BGS-Q6"
+      ],
+      "inputs": [
+        "docs/qa/implementation-2026-10-26/biosphere-integration-review/emf-source-inventory.md",
+        "docs/planning/tech/tensor-10d.md",
+        "docs/planning/tech/biosphere-graph-spectra-and-streaming.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-05\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-05\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "read_policy": "Read-only source and primary technical references only if essential; no data acquisition, provider/model calls or runtime. Existing native EMF remains the framework.",
+      "depends_on": [],
+      "review_after_available": [],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Exact scoped source/evidence study and actionable proposed contract/handoff; no implementation, runtime or human acceptance claim. Root reviews before central integration.",
+      "assignment_prompt": "You are assigned R-05: Typed EMF/cue contract researcher. Current user direction is research and documentation only. Read C:/github/ecopunk/AGENTS.md, docs/planning/implementation-plan.md, docs/planning/delivery-revision-and-agent-handoff.md and this register. Objective: Map one supported existing spectral/physical/audio case from quantity/basis/calibration/source/receiver through public operator and native presentation. Preserve original data/unknown bands and separate sonification from measured/species response. Define scoped BS-40 contract, not full-spectrum or physiology claims. Immutable starting references: C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biosphere-integration-review\\emf-source-inventory.md; C:\\github\\ecopunk\\docs\\planning\\tech\\tensor-10d.md; C:\\github\\ecopunk\\docs\\planning\\tech\\biosphere-graph-spectra-and-streaming.md. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-05\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-05\\handoff.json; do not edit central plans, registries or engine sources. Read-only source and primary technical references only if essential; no data acquisition, provider/model calls or runtime. Existing native EMF remains the framework. Reuse previous source reads; inspect the unresolved operation and its actual owner/caller/tests rather than restarting a broad audit. Record exact read ranges and SHA256, what is source-present/bound/executed or unknown, relevant prior receipts, proposed minimal contract and exact future ownership, open decisions with owner/re-entry condition, requirement IDs and next bounded action. Source tests are not executed evidence; labels/signatures/receipts are not actual adoption/human review. All sibling repositories are read-only. No Cargo, builds/tests/exports, GUI/Computer Use, source relocation, dependency/lock edits, commits/publication, payments or paid providers. Process state is none unless explicitly documented; do not start a check. Preserve existing work. Findings are proposals, not product/model acceptance; human oversight and corrections remain legitimate. Before writing, inspect any existing handoff at your exact output path; record assigned agent/assigner. Do not overwrite another active owner or infer takeover from age. Reconcile ownership or take another assigned job. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "supplied_specification_findings": [
+        "BR-05",
+        "BR-07",
+        "BR-11",
+        "BR-12"
+      ]
+    },
+    {
+      "id": "R-06",
+      "status": "research_ready",
+      "role": "Evidence and handoff reconciliation reviewer",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "objective": "Map current C1–C8 and relevant FND/BS cases to exact source/output/receipt/human-review evidence, current hashes, missing artifacts and proposed ownership. Reconcile links/versions without rerunning commands. Review new R-01–05 handoffs as they arrive and distinguish not-found evidence from missing implementation.",
+      "governing_ids": [
+        "IP-00",
+        "IP-03-C1–C8",
+        "FND-01–06",
+        "BS-90"
+      ],
+      "inputs": [
+        "docs/planning/delivery-revision-and-agent-handoff.md",
+        "docs/qa/implementation-2026-10-26/round9/progress.md",
+        "docs/qa/implementation-2026-10-26/biological-reference/execution.md",
+        "docs/qa/implementation-2026-10-26/documentation-revision/delegation-review.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-06\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-06\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "read_policy": "File reading, hashes, JSON/document consistency only. No engine build/test/render; missing or stale evidence stays explicit.",
+      "depends_on": [],
+      "review_after_available": [
+        "R-01",
+        "R-02",
+        "R-03",
+        "R-04",
+        "R-05"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Exact scoped source/evidence study and actionable proposed contract/handoff; no implementation, runtime or human acceptance claim. Root reviews before central integration.",
+      "assignment_prompt": "You are assigned R-06: Evidence and handoff reconciliation reviewer. Current user direction is research and documentation only. Read C:/github/ecopunk/AGENTS.md, docs/planning/implementation-plan.md, docs/planning/delivery-revision-and-agent-handoff.md and this register. Objective: Map current C1–C8 and relevant FND/BS cases to exact source/output/receipt/human-review evidence, current hashes, missing artifacts and proposed ownership. Reconcile links/versions without rerunning commands. Review new R-01–05 handoffs as they arrive and distinguish not-found evidence from missing implementation. Immutable starting references: C:\\github\\ecopunk\\docs\\planning\\delivery-revision-and-agent-handoff.md; C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\round9\\progress.md; C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\biological-reference\\execution.md; C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\delegation-review.md. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-06\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\documentation-revision\\jobs\\R-06\\handoff.json; do not edit central plans, registries or engine sources. File reading, hashes, JSON/document consistency only. No engine build/test/render; missing or stale evidence stays explicit. Reuse previous source reads; inspect the unresolved operation and its actual owner/caller/tests rather than restarting a broad audit. Record exact read ranges and SHA256, what is source-present/bound/executed or unknown, relevant prior receipts, proposed minimal contract and exact future ownership, open decisions with owner/re-entry condition, requirement IDs and next bounded action. Source tests are not executed evidence; labels/signatures/receipts are not actual adoption/human review. All sibling repositories are read-only. No Cargo, builds/tests/exports, GUI/Computer Use, source relocation, dependency/lock edits, commits/publication, payments or paid providers. Process state is none unless explicitly documented; do not start a check. Preserve existing work. Findings are proposals, not product/model acceptance; human oversight and corrections remain legitimate. Before writing, inspect any existing handoff at your exact output path; record assigned agent/assigner. Do not overwrite another active owner or infer takeover from age. Reconcile ownership or take another assigned job. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "supplied_specification_findings": [
+        "BR-01–16"
+      ]
+    }
+  ],
+  "implementation_subjobs": [
+    {
+      "id": "BS-10A",
+      "parent": "BS-10",
+      "status": "implementation_active_bounded_round1",
+      "title": "Identified botanical source contract",
+      "depends_on": [
+        "BS-01"
+      ],
+      "research_contract_owner": "R-02",
+      "proposed_exclusive_surface": "Existing identified source/part schemas and botanical projection; contract only before source changes.",
+      "canonical_write_grant": "Root applies reviewed preimage-pinned candidates; workers stage only under their active job allowlist.",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-10-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10A",
+      "may_run_cargo": false,
+      "activation_contract": "docs/planning/biosphere-authoring-round1.md"
+    },
+    {
+      "id": "BS-10B",
+      "parent": "BS-10",
+      "status": "implementation_active_bounded_round1",
+      "title": "Checked graph/radius native adapter",
+      "depends_on": [
+        "BS-10A"
+      ],
+      "research_contract_owner": "R-02",
+      "proposed_exclusive_surface": "Proposed botanical_graph_host.rs and tests only; shared GeometryHost dispatch/registration owned by BS-90.",
+      "canonical_write_grant": "Root applies reviewed preimage-pinned candidates; workers stage only under their active job allowlist.",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-10-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10B",
+      "may_run_cargo": false,
+      "activation_contract": "docs/planning/biosphere-authoring-round1.md"
+    },
+    {
+      "id": "BS-10C",
+      "parent": "BS-10",
+      "status": "implementation_active_bounded_round1",
+      "title": "Usable organ authoring",
+      "depends_on": [
+        "BS-10A",
+        "BS-10B"
+      ],
+      "research_contract_owner": "R-02",
+      "proposed_exclusive_surface": "Dedicated botanical source/control adapter over existing geometry/material/UV; shared authoring/controller owned by BS-90.",
+      "canonical_write_grant": "Root applies reviewed preimage-pinned candidates; workers stage only under their active job allowlist.",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-10-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10C",
+      "may_run_cargo": false,
+      "activation_contract": "docs/planning/biosphere-authoring-round1.md"
+    },
+    {
+      "id": "BS-10D",
+      "parent": "BS-10",
+      "status": "implementation_prepared_inactive",
+      "title": "Botanical package and cooperative replay",
+      "depends_on": [
+        "BS-10C",
+        "BS-30"
+      ],
+      "research_contract_owner": "R-02",
+      "proposed_exclusive_surface": "Dedicated resource-binding/recovery fixtures over existing CheckpointService; shared compile/checkpoint schema owned by BS-90.",
+      "canonical_write_grant": "none during current research-only instruction; exact absolute files/symbols and preimages must be frozen on activation",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-10-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10D",
+      "may_run_cargo": false
+    },
+    {
+      "id": "BS-10E",
+      "parent": "BS-10",
+      "status": "implementation_prepared_inactive",
+      "title": "Development state projection",
+      "depends_on": [
+        "BS-10A"
+      ],
+      "research_contract_owner": "R-02",
+      "proposed_exclusive_surface": "Sim/host-side checked full-state adapter and botanical quin projection; no Core-to-sim dependency. Does not serially block authored master route.",
+      "canonical_write_grant": "none during current research-only instruction; exact absolute files/symbols and preimages must be frozen on activation",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-10-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-10E",
+      "may_run_cargo": false
+    },
+    {
+      "id": "BS-20A",
+      "parent": "BS-20",
+      "status": "implementation_active_bounded_round1",
+      "title": "Bound rig/source admission",
+      "depends_on": [
+        "BS-01"
+      ],
+      "research_contract_owner": "R-03",
+      "proposed_exclusive_surface": "Dedicated rig_binding/admission adapter over existing SKL1; shared part/source schema owned by BS-90.",
+      "canonical_write_grant": "Root applies reviewed preimage-pinned candidates; workers stage only under their active job allowlist.",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-20-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20A",
+      "may_run_cargo": false,
+      "activation_contract": "docs/planning/biosphere-authoring-round1.md"
+    },
+    {
+      "id": "BS-20B",
+      "parent": "BS-20",
+      "status": "implementation_active_bounded_round1",
+      "title": "Weight and topology correspondence",
+      "depends_on": [
+        "BS-20A"
+      ],
+      "research_contract_owner": "R-03",
+      "proposed_exclusive_surface": "Dedicated lineage/correction adapter and fixtures; shared spatial/UV assembly integration owned by BS-90.",
+      "canonical_write_grant": "Root applies reviewed preimage-pinned candidates; workers stage only under their active job allowlist.",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-20-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20B",
+      "may_run_cargo": false,
+      "activation_contract": "docs/planning/biosphere-authoring-round1.md"
+    },
+    {
+      "id": "BS-20C",
+      "parent": "BS-20",
+      "status": "implementation_active_bounded_round1",
+      "title": "Animated native preview",
+      "depends_on": [
+        "BS-20A",
+        "BS-20B"
+      ],
+      "research_contract_owner": "R-03",
+      "proposed_exclusive_surface": "Dedicated animated preview adapter over existing SkeletalPlayer/frame upload; shared viewport/picking/lifetime integration owned by BS-90.",
+      "canonical_write_grant": "Root applies reviewed preimage-pinned candidates; workers stage only under their active job allowlist.",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-20-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20C",
+      "may_run_cargo": false,
+      "activation_contract": "docs/planning/biosphere-authoring-round1.md"
+    },
+    {
+      "id": "BS-20D",
+      "parent": "BS-20",
+      "status": "implementation_prepared_inactive",
+      "title": "Rigged package rebuild",
+      "depends_on": [
+        "BS-20A",
+        "BS-20B",
+        "BS-30"
+      ],
+      "research_contract_owner": "R-03",
+      "proposed_exclusive_surface": "Dedicated rig resource/recovery adapter with existing .10d/HMC owners; preserve MAT4 refusal and complete dependent sections.",
+      "canonical_write_grant": "none during current research-only instruction; exact absolute files/symbols and preimages must be frozen on activation",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-20-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20D",
+      "may_run_cargo": false
+    },
+    {
+      "id": "BS-20E",
+      "parent": "BS-20",
+      "status": "implementation_prepared_inactive",
+      "title": "Native author/reviewer rig use",
+      "depends_on": [
+        "BS-20C",
+        "BS-20D"
+      ],
+      "research_contract_owner": "R-03",
+      "proposed_exclusive_surface": "Dedicated rig/weight/clip controls and workflow evidence; shared UI/controller authority integration owned by BS-90.",
+      "canonical_write_grant": "none during current research-only instruction; exact absolute files/symbols and preimages must be frozen on activation",
+      "source_study": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md",
+      "acceptance_ref": "docs/qa/implementation-2026-10-26/documentation-revision/native-route-study.md#bs-20-split-into-reviewable-future-subjobs",
+      "proposed_staging_directory": "C:\\github\\ecopunk\\tools\\poet-foundation\\biosphere-shared\\work\\BS-20E",
+      "may_run_cargo": false
+    }
+  ],
+  "parent_rollup": {
+    "BS-10": {
+      "authored_tree_route": [
+        "BS-10A",
+        "BS-10B",
+        "BS-10C",
+        "BS-10D"
+      ],
+      "separate_development_state_case": "BS-10E",
+      "rule": "BS-10E is nonblocking for authored static/developmental form authoring but remains open for claimed dynamic development; no overall packet/species completion inferred from one accepted route."
+    },
+    "BS-20": {
+      "rule": "Engineering codec/rig/preview/reopen checks do not accept anatomy, all motion/contact cases or human workflow. Preserve all applicable child/package obligations."
+    }
+  },
+  "evidence_status_values": [
+    "unassessed",
+    "pending",
+    "blocked",
+    "passed_scoped",
+    "failed",
+    "not_applicable_with_reason"
+  ],
+  "assignment_rule": "Different concurrent workers take different research jobs. First read any existing handoff, record assigned agent/assigner and ownership; do not overwrite another active owner or auto-steal stale-looking work. Central queue/plan updates remain coordinator-owned. This is a cooperating-agent protocol, not a technical lock. PA-R jobs extend full Poet scope beyond CAD; prepared availability is not a dispatch. Their research outputs have separate directories from R jobs. Semantic/authority decisions require the capable reviewer; metadata inventory workers do not choose replacement engines.",
+  "poet_research_packets": [
+    {
+      "id": "PA-R01",
+      "capability_case": "PA-01",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Shared authoring contract reconciliation",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Resolve existing Poet IntentBus/ContextRef/registry and qualia-app-contract AppAdapter/descriptor/target/session/job/delegation compatibility. Trace actual caller, domain session, revision, authority, undo, serialization and cancellation semantics. Reject unimplemented success defaults. Produce proposed adapter admission cases and exact future symbol ownership; do not invent a second contract crate.",
+      "governing_ids": [
+        "PC-04",
+        "TOOL-01",
+        "TOOL-02",
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/qualia-app-contract-source-review.json",
+        "C:/github/poet",
+        "C:/github/qualiaDB/crates/qualia-app-contract",
+        "docs/planning/tech/poet-capability-adaptation-guide.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/ecosystem-examples.coverage.json",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R01\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R01\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R01: Shared authoring contract reconciliation. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Resolve existing Poet IntentBus/ContextRef/registry and qualia-app-contract AppAdapter/descriptor/target/session/job/delegation compatibility. Trace actual caller, domain session, revision, authority, undo, serialization and cancellation semantics. Reject unimplemented success defaults. Produce proposed adapter admission cases and exact future symbol ownership; do not invent a second contract crate. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md; docs/qa/implementation-2026-10-26/poet-tooling-review/qualia-app-contract-source-review.json; C:/github/poet; C:/github/qualiaDB/crates/qualia-app-contract. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R01\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R01\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture. The additional EffectCraft source review at C:/github/ecopunk/docs/qa/implementation-2026-10-26/effectcraft-review/README.md is input for this existing job; reuse it rather than repeating the audit. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      },
+      "supplied_specification_findings": [
+        "BR-02",
+        "BR-05",
+        "BR-15"
+      ]
+    },
+    {
+      "id": "PA-R02",
+      "capability_case": "PA-02",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Workspace and full interaction inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "objective": "Inventory the original and current Poet workspace itself: Tool Chest, Construct/Manifold/container routing, shared selection/context, palette, panels, inspectors/timelines and saved layouts across the eight UI interaction categories. Define the common item-level row schema and map the existing eleven source-family pointers. Family-specific jobs own their editor operation inventories; do not repeat them here or attempt a whole-suite audit. Record implemented/held/unassessed/loss dispositions. No semantic/API redesign; stronger coordinator reviews mapping.",
+      "governing_ids": [
+        "PC-01",
+        "PC-05",
+        "TOOL-02",
+        "TOOL-03",
+        "IP-03 C1",
+        "IP-03 C3",
+        "IP-03 C8"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+        "C:/github/poet",
+        "docs/planning/tech/poet-ui-recovery/ui-function-inventory.json",
+        "docs/planning/tech/poet-capability-adaptation-guide.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/ui-functions.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R02\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R02\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R02: Workspace and full interaction inventory. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Inventory the original and current Poet workspace itself: Tool Chest, Construct/Manifold/container routing, shared selection/context, palette, panels, inspectors/timelines and saved layouts across the eight UI interaction categories. Define the common item-level row schema and map the existing eleven source-family pointers. Family-specific jobs own their editor operation inventories; do not repeat them here or attempt a whole-suite audit. Record implemented/held/unassessed/loss dispositions. No semantic/API redesign; stronger coordinator reviews mapping. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md; C:/github/poet; docs/planning/tech/poet-ui-recovery/ui-function-inventory.json. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R02\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R02\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. For this workspace-only PA-R02 job, cross-owner/adapter sections cite the existing review and PA-R01 handoff when available and list unresolved UI requirements only. Do not repeat domain engine comparison or redesign the common adapter. Family-specific item inventories stay with their owning jobs. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture. The additional EffectCraft source review at C:/github/ecopunk/docs/qa/implementation-2026-10-26/effectcraft-review/README.md is input for this existing job; reuse it rather than repeating the audit. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      },
+      "supplied_specification_findings": [
+        "BR-12",
+        "BR-15"
+      ]
+    },
+    {
+      "id": "PA-R03",
+      "capability_case": "PA-03",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Raster and RAW authoring contract",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Trace one layered-image and RAW-reference-to-material workflow against existing source engines and Qualia vision/media owners. Specify selection/masks/edits/history, color and data-map roles, calibration/provenance, native preview, serialization/reopen/export and authorized agent commands. Keep photographic development separate from scene lighting. Inventory remaining operations without presuming new image math.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-06",
+        "PA-03"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+        "C:/github/poet-photocraft",
+        "C:/github/poet-lightcraft",
+        "C:/github/qualiaDB/crates/qualia-vision",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R03\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R03\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R03: Raster and RAW authoring contract. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Trace one layered-image and RAW-reference-to-material workflow against existing source engines and Qualia vision/media owners. Specify selection/masks/edits/history, color and data-map roles, calibration/provenance, native preview, serialization/reopen/export and authorized agent commands. Keep photographic development separate from scene lighting. Inventory remaining operations without presuming new image math. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md; C:/github/poet-photocraft; C:/github/poet-lightcraft; C:/github/qualiaDB/crates/qualia-vision. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R03\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R03\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R04",
+      "capability_case": "PA-04",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Vector and plate interaction inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "objective": "Map actual path/artboard/layer/text/symbol/appearance editing and history to Poet vector canvas, contextual controls and agent operations. Pin dimensions, source-linked labels, editable reopen and export loss cases. Distinguish Enhanced Metafile from physical EMF and projected revolve from solid anatomy. Stronger reviewer owns geometry/transaction contract decisions.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-03",
+        "TOOL-06",
+        "PA-04"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+        "C:/github/poet-vectorcraft",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R04\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R04\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R04: Vector and plate interaction inventory. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Map actual path/artboard/layer/text/symbol/appearance editing and history to Poet vector canvas, contextual controls and agent operations. Pin dimensions, source-linked labels, editable reopen and export loss cases. Distinguish Enhanced Metafile from physical EMF and projected revolve from solid anatomy. Stronger reviewer owns geometry/transaction contract decisions. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md; C:/github/poet-vectorcraft. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R04\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R04\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R05",
+      "capability_case": "PA-05",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Audio session and playback contract",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Trace native and headless session edits, routing/history and device/block transport into existing Qualia audio/media owners. Specify track/clip/spectral/mixer/MIDI/emitter commands and controls, sample/time/units, actual playback oracle, save/reopen and job cancellation. Do not count dropped headless transport as playback or semantic classification as an audible mix.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-09",
+        "PA-05"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+        "C:/github/poet-soundcraft",
+        "C:/github/qualiaDB/crates/qualia-audio",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R05\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R05\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R05: Audio session and playback contract. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Trace native and headless session edits, routing/history and device/block transport into existing Qualia audio/media owners. Specify track/clip/spectral/mixer/MIDI/emitter commands and controls, sample/time/units, actual playback oracle, save/reopen and job cancellation. Do not count dropped headless transport as playback or semantic classification as an audible mix. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md; C:/github/poet-soundcraft; C:/github/qualiaDB/crates/qualia-audio. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R05\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R05\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R06",
+      "capability_case": "PA-06",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Film and composition contract",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Trace timeline/composition/grade/caption/audio session commands, render/export job and codec registration against identified scene-frame producers. Specify rational frame/sample time, color/passes/lineage, native editing controls, source recovery and headless parity with genuine cancellation outcomes. Do not replace scene rendering with NLE or claim all codecs supported. Include EffectCraft layer/keyframe/effect composition as distinct from FilmCraft NLE and Qualia scene rendering. Specify one bounded editable composition user/agent, undo, package/reopen and review case using actual existing host patterns; do not import the whole Boa/egui host.",
+      "governing_ids": [
+        "PC-06",
+        "PC-07",
+        "TOOL-09",
+        "TOOL-10",
+        "PA-06"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+        "C:/github/poet-filmcraft",
+        "C:/github/qualiaDB/crates/webizen-render",
+        "docs/planning/tech/poet-capability-adaptation-guide.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/engine-authoring.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/source-admission.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/ui-functions.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R06\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R06\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R06: Film and composition contract. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Trace timeline/composition/grade/caption/audio session commands, render/export job and codec registration against identified scene-frame producers. Specify rational frame/sample time, color/passes/lineage, native editing controls, source recovery and headless parity with genuine cancellation outcomes. Do not replace scene rendering with NLE or claim all codecs supported. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md; C:/github/poet-filmcraft; C:/github/qualiaDB/crates/webizen-render. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R06\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R06\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture. The additional EffectCraft source review at C:/github/ecopunk/docs/qa/implementation-2026-10-26/effectcraft-review/README.md is input for this existing job; reuse it rather than repeating the audit. For this composition job, use the worked example in the adaptation guide and distinguish FilmCraft NLE, EffectCraft layers/effects and Qualia scene rendering; no whole-host/Boa/egui import. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      },
+      "supplied_specification_findings": [
+        "BR-08",
+        "BR-09",
+        "BR-15"
+      ]
+    },
+    {
+      "id": "PA-R07",
+      "capability_case": "PA-07",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Text and PDF editing/review contract",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Trace rich-text session/history/protection/layout and PDF annotation/form/action owners and callers beyond prior API sampling. Define native document/selection/keyboard/IME/accessibility and reviewer controls, authoritative source/open/save/reopen, permitted agent edits, exact export losses and signed-document handling. Office content remains related to Q42, not its authority replacement.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-02",
+        "TOOL-11",
+        "TOOL-12",
+        "PA-07"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+        "C:/github/poet-wordcraft",
+        "C:/github/poet-pdfcraft",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R07\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R07\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R07: Text and PDF editing/review contract. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Trace rich-text session/history/protection/layout and PDF annotation/form/action owners and callers beyond prior API sampling. Define native document/selection/keyboard/IME/accessibility and reviewer controls, authoritative source/open/save/reopen, permitted agent edits, exact export losses and signed-document handling. Office content remains related to Q42, not its authority replacement. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md; C:/github/poet-wordcraft; C:/github/poet-pdfcraft. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R07\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R07\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R08",
+      "capability_case": "PA-08",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Grid and formula authoring contract",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Trace workbook/session/cell-range edit, formula recalculation, protection, undo/reopen and actual UI/agent dispatch owners. Specify native grid/formula-bar/selection/chart/data operations, units/type preservation and explicit Q42 links. Reuse the current engine and audited numerical/logic owners only where semantics match; no duplicate formula evaluator or private claim store.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-02",
+        "TOOL-11",
+        "PA-08"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+        "C:/github/poet-gridcraft",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R08\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R08\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R08: Grid and formula authoring contract. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Trace workbook/session/cell-range edit, formula recalculation, protection, undo/reopen and actual UI/agent dispatch owners. Specify native grid/formula-bar/selection/chart/data operations, units/type preservation and explicit Q42 links. Reuse the current engine and audited numerical/logic owners only where semantics match; no duplicate formula evaluator or private claim store. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md; C:/github/poet-gridcraft. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R08\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R08\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R09",
+      "capability_case": "PA-09",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Presentation and storyboard interaction inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "objective": "Inventory actual slide/object/text/layout/theme/master/notes/media/transition and presenter controls against headless session methods. Map native Poet surfaces, shortcuts/accessibility, open/save/export and editable scene/media links. Stronger reviewer decides adapter/history/transaction semantics; headless rendering does not demonstrate a native presenter.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-02",
+        "TOOL-09",
+        "TOOL-10",
+        "PA-09"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+        "C:/github/poet-deckcraft",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R09\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R09\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R09: Presentation and storyboard interaction inventory. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Inventory actual slide/object/text/layout/theme/master/notes/media/transition and presenter controls against headless session methods. Map native Poet surfaces, shortcuts/accessibility, open/save/export and editable scene/media links. Stronger reviewer decides adapter/history/transaction semantics; headless rendering does not demonstrate a native presenter. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md; C:/github/poet-deckcraft. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R09\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R09\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R10",
+      "capability_case": "PA-10",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Optional generation assistance admission contract",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Study provider request/queue/result/reference/library/account boundaries without executing them. Specify optional native capability, budget/authority/provider disclosure, uploads/provenance, result/rejection/recovery and true cancel semantics within the current Poet document. Keep editable source and rights/review requirements independent of generated image/video/3D labels. No mandatory provider dependency or paid call.",
+      "governing_ids": [
+        "PC-06",
+        "TOOL-01",
+        "TOOL-02",
+        "TOOL-12",
+        "PA-10"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+        "C:/github/poet-artcraft",
+        "docs/planning/tech/poet-capability-adaptation-guide.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R10\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R10\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R10: Optional generation assistance admission contract. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Study provider request/queue/result/reference/library/account boundaries without executing them. Specify optional native capability, budget/authority/provider disclosure, uploads/provenance, result/rejection/recovery and true cancel semantics within the current Poet document. Keep editable source and rights/review requirements independent of generated image/video/3D labels. No mandatory provider dependency or paid call. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md; C:/github/poet-artcraft. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R10\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R10\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      }
+    },
+    {
+      "id": "PA-R11",
+      "capability_case": "PA-11",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Spatial/CAD/organic authoring reconciliation",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Reuse existing biosphere R-02/R-03 and BS-10/20 subjob findings rather than duplicate their plant/rig source audit. Reconcile existing CAD constraint/drafting and current native profile/material/UV/detail operators with those contracts, selection/direct manipulation, knowledge/part lineage and package preservation. Identify exact remaining UI/adapter seams; no replacement solver, rig, mesh codec or blanket source move.",
+      "governing_ids": [
+        "PC-07",
+        "TOOL-03",
+        "TOOL-04",
+        "TOOL-05",
+        "TOOL-07",
+        "TOOL-08",
+        "TOOL-11",
+        "PA-11"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+        "C:/github/poet-cadcraft",
+        "C:/github/poet",
+        "docs/planning/biosphere-work-packets.json",
+        "docs/planning/tech/poet-capability-adaptation-guide.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R11\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R11\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R11: Spatial/CAD/organic authoring reconciliation. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Reuse existing biosphere R-02/R-03 and BS-10/20 subjob findings rather than duplicate their plant/rig source audit. Reconcile existing CAD constraint/drafting and current native profile/material/UV/detail operators with those contracts, selection/direct manipulation, knowledge/part lineage and package preservation. Identify exact remaining UI/adapter seams; no replacement solver, rig, mesh codec or blanket source move. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md; docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md; C:/github/poet-cadcraft; C:/github/poet; docs/planning/biosphere-work-packets.json. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R11\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R11\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      },
+      "supplied_specification_findings": [
+        "BR-02",
+        "BR-07",
+        "BR-08",
+        "BR-09"
+      ]
+    },
+    {
+      "id": "PA-R12",
+      "capability_case": "PA-12",
+      "status": "research_ready",
+      "dispatch_status": "prepared; not assigned or executed",
+      "role": "Cross-domain human and agent qualification plan",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "objective": "Independently reconcile selected domain handoffs into actual native user and agent operation parity, shared context/revisions, contribution/reviewer authority, cross-document dependency/undo boundaries, job/stale/error recovery, accessibility and durable source/package oracles. Map existing receipts and missing IP-03 C1-C8 cases. Never infer human approval from actor fields, signatures, MCP or UI automation. Separate full-product parity from the bounded biological workflow.",
+      "governing_ids": [
+        "PC-05",
+        "PC-06",
+        "PC-08",
+        "TOOL-12",
+        "IP-03 C1-C8",
+        "PA-12"
+      ],
+      "inputs": [
+        "docs/planning/tech/poet-comprehensive-authoring-review.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md",
+        "docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md",
+        "docs/planning/tech/poet-ui-recovery/ui-function-inventory.json",
+        "docs/planning/delivery-revision-and-agent-handoff.md",
+        "docs/planning/tech/poet-capability-adaptation-guide.md",
+        "docs/qa/implementation-2026-10-26/effectcraft-review/README.md",
+        "docs/planning/tech/biosphere-algorithms-specification-review.md"
+      ],
+      "owned_output_files": [
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R12\\findings.md",
+        "C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R12\\handoff.json"
+      ],
+      "may_edit_canonical_sources": false,
+      "may_edit_shared_plans": false,
+      "may_run_cargo": false,
+      "may_run_gui_or_providers": false,
+      "depends_on": [],
+      "review_after_available": [
+        "PA-R01",
+        "PA-R02",
+        "PA-R03",
+        "PA-R04",
+        "PA-R05",
+        "PA-R06",
+        "PA-R07",
+        "PA-R08",
+        "PA-R09",
+        "PA-R10",
+        "PA-R11"
+      ],
+      "required_handoff_template": "docs/planning/agent-handoff.template.json",
+      "acceptance": "Bounded source-pinned findings, explicit unknowns, complete selected workflow/UI dispositions and proposed minimal contract/ownership. Coordinator review required; no runtime/native human or model acceptance implied.",
+      "assignment_prompt": "Assigned PA-R12: Cross-domain human and agent qualification plan. Research/documentation only. Read C:/github/ecopunk/AGENTS.md, the governing implementation plan, comprehensive authoring review and this exact register entry. Objective: Independently reconcile selected domain handoffs into actual native user and agent operation parity, shared context/revisions, contribution/reviewer authority, cross-document dependency/undo boundaries, job/stale/error recovery, accessibility and durable source/package oracles. Map existing receipts and missing IP-03 C1-C8 cases. Never infer human approval from actor fields, signatures, MCP or UI automation. Separate full-product parity from the bounded biological workflow. Inputs: docs/planning/tech/poet-comprehensive-authoring-review.md; docs/qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md; docs/qa/implementation-2026-10-26/poet-tooling-review/media-tools.md; docs/qa/implementation-2026-10-26/poet-tooling-review/document-data-tools.md; docs/planning/tech/poet-ui-recovery/ui-function-inventory.json; docs/planning/delivery-revision-and-agent-handoff.md. Write ONLY C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R12\\findings.md and C:\\github\\ecopunk\\docs\\qa\\implementation-2026-10-26\\poet-tooling-review\\jobs\\PA-R12\\handoff.json. Before writing inspect the existing handoff and reconcile any active owner; never infer takeover from age. Record assigned agent/assigner and current source hashes/read ranges, implementation/API/caller/prior-execution distinctions, exact UI operation inventory and unknowns, existing QualiaDB owner comparison, license/notice/dependency boundaries, proposed minimal adapter/workflow contract and future exact file/symbol ownership, failed/unrun cases, requirement IDs, next action and blocker owner/re-entry condition. Use the shared handoff template. Reuse prior reads; inspect only unresolved bodies and consumers. All sibling source repositories are read-only. No Cargo/build/test/export, GUI/Computer Use, providers, source moves, canonical or shared plan/registry/lock edits, commits/publication or payments. Source tests are not executed evidence and no DTO/receipt establishes authentication or human acceptance. Output is a proposal for coordinator review, not implementation or product/model acceptance. Current scope does not auto-activate implementation. Bound new implementation-body reads to eight files for the selected seam; reuse earlier evidence, label uncovered operations and propose a bounded follow-up if needed. Family inventories are shared inputs to PA-R02/12, not duplicated audits. Use C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md to name the existing requirement and one actual ecosystem implementation/caller example, state its limitations and domain-specific changes; do not transplant the source app architecture. The additional EffectCraft source review at C:/github/ecopunk/docs/qa/implementation-2026-10-26/effectcraft-review/README.md is input for this existing job; reuse it rather than repeating the audit. Also read C:/github/ecopunk/docs/planning/tech/biosphere-algorithms-specification-review.md and only the domain findings relevant to this job. Use its pinned original as proposed input, not authority to remove M64, reuse occupied section tags, adopt unverified physics/rights/performance claims or replace the phase order. Reuse the saved source excerpts and inspect only unresolved seams. Broader obligations remain visible; no new all-domain prerequisite or duplicated audit is introduced.",
+      "read_budget": {
+        "new_implementation_body_files_max": 8,
+        "scope": "One selected domain workflow or shared seam plus operation/UI catalogue references; reuse already pinned reads. Record uncovered operations for scoped follow-up, never infer absence. Shared-contract or coordinator review may revise this budget explicitly, not silently restart a whole-repository audit."
+      },
+      "supplied_specification_findings": [
+        "BR-12",
+        "BR-13",
+        "BR-15",
+        "BR-16"
+      ]
+    }
+  ],
+  "poet_authoring_contract": "docs/planning/tech/poet-comprehensive-authoring-review.md",
+  "additional_source_admissions": [
+    {
+      "source_root": "C:/github/storytold/effectcraft-main",
+      "source_review": "docs/qa/implementation-2026-10-26/effectcraft-review/README.md",
+      "adaptation_guide": "docs/planning/tech/poet-capability-adaptation-guide.md",
+      "status": "Bounded source-review input; selected key/property workflow adapted in POET-MOTION-W1, with canonical Vibe easing reused. No full EffectCraft implementation/host port claimed.",
+      "expands_existing_cases": [
+        "PA-01",
+        "PA-02",
+        "PA-06",
+        "PA-12",
+        "PC-04",
+        "PC-06",
+        "TOOL-09",
+        "TOOL-10"
+      ],
+      "preserves_historical_eleven_root_inventory": true
+    }
+  ],
+  "biosphere_specification_review": {
+    "source_document": "docs/Biosphere algorithms Specifications.md",
+    "source_sha256": "883fe0ecf692d6a9b6d55870ef28c729df125fc550e5f506e20343176d5c5afc",
+    "review": "docs/planning/tech/biosphere-algorithms-specification-review.md",
+    "evidence_index": "docs/qa/implementation-2026-10-26/biosphere-specification-review/README.md",
+    "status": "review input; original preserved; proposed claims/format layouts not automatically adopted",
+    "findings": "BR-01 through BR-16 with TECH/ALG/SCI detail",
+    "governing_order_unchanged": true,
+    "implementation_activated": false,
+    "v2_source": "docs/planning/tech/Biosphere algorithms Specifications v2.md",
+    "v2_sha256": "986da7a1c23319a272481a78e5161b5b68d11d6aa5adb291771b92550dbf5d07",
+    "v2_review": "docs/qa/implementation-2026-10-26/poet-motion-integration/v2-review.md"
+  },
+  "poet_swarm_plan": "docs/planning/poet-authoring-swarm-phases.md",
+  "active_implementation_waves": [
+    {
+      "id": "POET-MOTION-W1",
+      "status": "bounded_software_cases_verified_overall_foundation_open",
+      "governing_phase": "IP-03",
+      "related_cases": [
+        "PA-01",
+        "PA-02",
+        "PA-06",
+        "PA-11",
+        "PA-12",
+        "PC-04",
+        "PC-06",
+        "TOOL-09",
+        "TOOL-12"
+      ],
+      "coordinator": "/root",
+      "source_owner": "C:/github/poet/native",
+      "scope": "Editable keyed material factors in existing source session, native controls and same-owner MCP, explicit sample/apply, undo/HMC recovery; no continuous playback or full compositor claim.",
+      "model_profile": "Hold/Linear/CubicInOut; integer milliseconds 0..86,400,000; at most 64 keys/material and 8 tracks; finite linear factors 0..1.",
+      "workers": [
+        {
+          "id": "motion-domain",
+          "agent": "/root/poet_full_authoring",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
+          "output": "tools/poet-foundation/motion-integration/work/authoring",
+          "status": "integrated_selected_checks_passed; canonical receipts include coordinator fixture corrections"
+        },
+        {
+          "id": "motion-controls",
+          "agent": "/root/poet_motion_controls",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
+          "output": "tools/poet-foundation/motion-integration/work/controls",
+          "status": "integrated_selected_checks_passed; canonical receipts include coordinator fixture corrections"
+        },
+        {
+          "id": "motion-integration-tests",
+          "agent": "/root/biosphere_science_review",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
+          "output": "tools/poet-foundation/motion-integration/work/integration-tests",
+          "status": "integrated_selected_checks_passed; canonical receipts include coordinator fixture corrections"
+        },
+        {
+          "id": "source-and-plan-metadata",
+          "agent": "/root/media_tooling_review and /root/document_tooling_review, separate earlier/later slots",
+          "model": "gpt-6-luna",
+          "effort": "medium",
+          "output": "separate source-reuse report/v2-review/swarm-plan outputs",
+          "status": "complete_inputs_not_product_acceptance"
+        }
+      ],
+      "concurrency": "Root plus at most 3 workers; metadata and review jobs ran in separate slots/rounds.",
+      "shared_files_owner": "/root only",
+      "canonical_install_receipt": "docs/qa/implementation-2026-10-26/poet-motion-integration/applied-source.json",
+      "check_process": "One root serial Cargo lease; no source edits while running.",
+      "checks": "13 focused cases passed, exit 0; native graphical poet binary build exit 0. No GUI/human/domain acceptance. See verification receipt for retries and scope.",
+      "asset_production": "HOLD",
+      "human_acceptance": "unassessed",
+      "usage_metrics": "unknown; no per-agent token/currency figures returned by collaboration tools",
+      "verification": "docs/qa/implementation-2026-10-26/poet-motion-integration/verification.json",
+      "native_binary": "C:/github/ecopunk/target/debug/poet.exe",
+      "next_bounded_action": "Freeze one W2 image/texture/effect operation contract and disjoint file allowlists using existing Photo/Effect and Qualia owners; prepare independent W3 botanical/fauna contracts without requiring full compositor parity. No automatic asset-production release.",
+      "remaining_qualification": [
+        "Human/current-window review",
+        "Linked-resource closure beyond inline material fixture",
+        "Simultaneous distinct-principal cooperation unqualified; authority instance has one active session",
+        "Full IP-03 C1-C8 and production quality gates remain open"
+      ]
+    },
+    {
+      "id": "POET-TEXTURE-W2",
+      "status": "selected_software_component_gpu_recovery_gates_verified_human_review_open",
+      "governing_phase": "IP-03",
+      "related_cases": [
+        "PA-03",
+        "PA-06",
+        "PA-11",
+        "PA-12",
+        "PC-06",
+        "TOOL-06"
+      ],
+      "coordinator": "/root",
+      "source_owner": "C:/github/poet/native",
+      "contract": "tools/poet-foundation/texture-effects/CONTRACT.md",
+      "scope": "Versioned non-destructive ordered post-composite effects on existing imported Paint recipe, native controls and admitted MCP, actual pixel/source/history/HMC evidence. Canonical Qualia image filters reused.",
+      "workers": [
+        {
+          "lane": "domain",
+          "model": "gpt-6.1-sol",
+          "effort": "medium",
+          "ownership": "Contract domain row; staged only",
+          "agent": "/root/w2_effect_domain",
+          "handoff": "tools/poet-foundation/texture-effects/work/domain/handoff.json",
+          "status": "integrated_selected_tests_passed; root final receipts authoritative"
+        },
+        {
+          "lane": "controls",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
+          "ownership": "Contract controls row; staged only",
+          "agent": "/root/w2_effect_controls",
+          "handoff": "tools/poet-foundation/texture-effects/work/controls/handoff.json",
+          "status": "integrated_selected_tests_passed; root final receipts authoritative"
+        },
+        {
+          "lane": "integration-tests",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
+          "ownership": "Contract integration-tests row; staged only",
+          "agent": "/root/w2_effect_integration",
+          "handoff": "tools/poet-foundation/texture-effects/work/integration-tests/handoff.json",
+          "status": "integrated_selected_tests_passed; root final receipts authoritative"
+        },
+        {
+          "lane": "reuse-trace",
+          "model": "gpt-6-luna",
+          "effort": "medium",
+          "status": "completed_in_earlier_slot",
+          "output": "tools/poet-foundation/texture-effects/work/report.md"
+        }
+      ],
+      "shared_files_owner": "/root",
+      "checks": "Current source:271 library tests passed,0failed,10defaultignored. Seven applicableGPUcases explicitlypassed (baseline1,material/viewport4,mapsUV1,effectfreshprocess1);3realmountedcomponentcasespassed;nativebuildexit0. FirstGPUfixturelockfailurepreservedandcorrected byproperlifetimescope, notguardremoval.",
+      "usage_metrics": "unknown; capacity-error turns and recovery routes recorded, no per-agent token/currency totals available",
+      "asset_production": "HOLD",
+      "human_acceptance": "unassessed",
+      "deferred_functionality": "tools/poet-foundation/texture-effects/work/deferred-functionality.json",
+      "evidence_index": "docs/qa/implementation-2026-10-26/poet-texture-effects/README.md",
+      "canonical_install_receipt": "docs/qa/implementation-2026-10-26/poet-texture-effects/applied-source.json",
+      "check_process": {
+        "owner": "POET-TEXTURE-W2-GPU",
+        "state": "all root-owned component/GPU/library/build commands completed; no check process retained"
+      },
+      "deferred_functionality_note": "User specifically requested no-op/ignored functionality to be implemented or tracked: 15 source-pinned PA-03 subcases deferred, with owners/remedies/oracles; not silently marked working.",
+      "prior_check": {
+        "exit": 101,
+        "passed": 266,
+        "failed": 2,
+        "ignored": 9,
+        "cause": "Internally tagged unit enum derived Deserialize accepted extra fields; exact domain/MCP refusal tests caught it. Strict empty-struct helper decoder saved; tests not weakened.",
+        "log": "docs/qa/implementation-2026-10-26/poet-texture-effects/check-attempt-1.log"
+      },
+      "verification": "docs/qa/implementation-2026-10-26/poet-texture-effects/verification.json",
+      "native_binary": "C:/github/ecopunk/target/debug/poet.exe",
+      "diagnostic_evidence": "docs/qa/implementation-2026-10-26/poet-texture-effects/diagnostic/README.md",
+      "next_bounded_action": "Reuse all fifteen completed image cases; active W3 round1 covers cooperative sessions, botanical and rig bindings. Human/window and broader production profile gates stay open.",
+      "remaining_qualification": [
+        "Actual native-window layout/accessibility and human acceptance; mounted real component event flows now pass",
+        "Separate actual human/reviewer/domain approval; whole IP-03 C1-C8 remains open",
+        "Broader image/compositor/RAW/ICC/linear-light profiles",
+        "Three unrun biological/reference parent/child GPU diagnostics outside selected W2; seven applicable explicit GPU cases passed",
+        "Simultaneous distinct-principal cooperation remains unqualified"
+      ],
+      "remaining_gate_contract": "tools/poet-foundation/texture-effects/GPU-QUALIFICATION.md",
+      "gpu_workers": [
+        {
+          "job": "gates",
+          "agent": "/root/w2_remaining_gates",
+          "model": "gpt-6-luna",
+          "effort": "medium",
+          "status": "bounded_reconciliation_complete"
+        },
+        {
+          "job": "session-gpu",
+          "agent": "/root/w2_retained_gpu_recovery",
+          "model": "gpt-6-sol",
+          "effort": "high",
+          "status": "staged_reviewed_unrun"
+        },
+        {
+          "job": "component",
+          "agent": "/root/w2_component_recovery",
+          "model": "gpt-6-sol",
+          "effort": "high",
+          "status": "staged_reviewed_unrun"
+        }
+      ],
+      "capacity_failures": [
+        "/root/w2_retained_gpu: gpt-6.1-sol at capacity, no source reported",
+        "/root/w2_component_flow: gpt-6.1-sol at capacity after partial test harness; preserved and resumed by recovery worker"
+      ],
+      "baseline_gpu": {
+        "session_id": 58623,
+        "exit": 0,
+        "passed": 1,
+        "changed_pixels_paint": 2304,
+        "changed_pixels_procedural": 2304,
+        "log": "docs/qa/implementation-2026-10-26/poet-texture-effects/gpu-qualification/baseline-gpu.log"
+      },
+      "gpu_qualification_evidence": "docs/qa/implementation-2026-10-26/poet-texture-effects/gpu-qualification/README.md",
+      "gpu_qualification_results": {
+        "component": {
+          "session_id": 28052,
+          "exit": 0,
+          "passed": 3
+        },
+        "baseline": {
+          "session_id": 58623,
+          "exit": 0,
+          "passed": 1
+        },
+        "native_material_viewport": {
+          "session_id": 87057,
+          "exit": 0,
+          "passed": 4
+        },
+        "maps_uv": {
+          "session_id": 20869,
+          "exit": 0,
+          "passed": 1
+        },
+        "retained_effect_fresh_process": {
+          "session_id": 92095,
+          "exit": 0,
+          "passed": 1
+        },
+        "library": {
+          "session_id": 91552,
+          "exit": 0,
+          "passed": 271,
+          "failed": 0,
+          "default_ignored": 10
+        },
+        "first_gpu_attempt": {
+          "session_id": 16570,
+          "exit": 101,
+          "cause": "Parent fixture retained journal-owning authority snapshots; scoped parent lifetime fixed without changing journal locking or GPU oracles."
+        },
+        "native_rebuild": {
+          "session_id": 64078,
+          "exit": 0
+        }
+      },
+      "gpu_qualification_source_receipt": "docs/qa/implementation-2026-10-26/poet-texture-effects/gpu-qualification/applied-source.json",
+      "latest_verification": "docs/qa/implementation-2026-10-26/poet-texture-effects/gpu-qualification/verification.json",
+      "completed_image_cases": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json"
+    },
+    {
+      "id": "POET-BIOSPHERE-W3-R1",
+      "status": "selected_software_increments_saved_native_library_verified_parent_gates_open",
+      "contract": "docs/planning/biosphere-authoring-round1.md",
+      "governing_phase": "IP-03",
+      "jobs": [
+        {
+          "id": "W3R1-AUTH",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
+          "status": "core_sessions_and_poet_selection_verified_human_delegation_hierarchy_open",
+          "scope": "NativeAuthority simultaneous bounded authenticated sessions",
+          "assigned_agent": "/root/w3r1_auth",
+          "worker_state": "returned_scoped_work_root_reviewed_and_saved"
+        },
+        {
+          "id": "W3R1-BOTANY",
+          "model": "gpt-6-sol",
+          "effort": "high",
+          "status": "typed_native_mcp_source_history_hmc_reopen_verified_selected_profile_only",
+          "scope": "BS-10A/B/C source graph and organ authoring integration",
+          "assigned_agent": "/root/w3r1_botany",
+          "worker_state": "returned_scoped_work_root_reviewed_and_saved"
+        },
+        {
+          "id": "W3R1-RIG",
+          "model": "gpt-6-sol",
+          "effort": "high",
+          "status": "checked_core_player_adapter_verified_native_resource_authoring_viewport_integration_open",
+          "scope": "BS-20A/B/C bound rig admission and existing player/frame integration",
+          "assigned_agent": "/root/w3r1_rig",
+          "worker_state": "returned_scoped_work_root_reviewed_and_saved"
+        }
+      ],
+      "coordinator": "root",
+      "cargo": "root only, serial lease",
+      "concurrency": "root plus at most3 workers",
+      "asset_production": "HOLD",
+      "human_acceptance": "UNASSESSED",
+      "usage_metrics": "unknown",
+      "evidence": "docs/qa/implementation-2026-10-26/biosphere-authoring-round1/README.md",
+      "updated_local_date": "2026-10-27",
+      "verification": {
+        "poet_native_library": {
+          "passed": 307,
+          "failed": 0,
+          "ignored": 13
+        },
+        "core_authority_focused": {
+          "passed": 31,
+          "failed": 0
+        },
+        "core_regression_historical_inputs": {
+          "passed": 9878,
+          "failed": 0,
+          "ignored": 4
+        },
+        "dependency_qualification": "Vibe source changed outside this wave after Core harness build; whole current-stack gate remains open",
+        "evidence": "docs/qa/implementation-2026-10-26/biosphere-authoring-round1/verification.json"
+      }
+    }
+  ],
+  "image_function_completion": {
+    "status": "all_15_implemented_and_engineering_verified",
+    "ids": [
+      "PA-03-FILTER-GAUSSIAN-BLUR",
+      "PA-03-FILTER-SHARPEN",
+      "PA-03-FILTER-HUE-ROTATE",
+      "PA-03-FILTER-EMBOSS",
+      "PA-03-COMPOSITE-MULTIPLY",
+      "PA-03-COMPOSITE-SCREEN",
+      "PA-03-COMPOSITE-OVERLAY",
+      "PA-03-COMPOSITE-SOFTLIGHT",
+      "PA-03-COMPOSITE-HARDLIGHT",
+      "PA-03-COMPOSITE-COLOR-DODGE",
+      "PA-03-COMPOSITE-COLOR-BURN",
+      "PA-03-COMPOSITE-DIFFERENCE",
+      "PA-03-COMPOSITE-EXCLUSION",
+      "PA-03-COMPOSITE-MASK",
+      "PA-03-COMPOSITE-OFFSET"
+    ],
+    "contract": "tools/poet-foundation/image-completion/CONTRACT.md",
+    "owner": "Root reviews and saves preimage-pinned Core/Poet changes; all Cargo runs serial",
+    "workers": [
+      {
+        "lane": "filters",
+        "model": "gpt-6-sol",
+        "effort": "high"
+      },
+      {
+        "lane": "composite",
+        "model": "gpt-6-sol",
+        "effort": "medium"
+      },
+      {
+        "lane": "reuse",
+        "model": "gpt-6-luna",
+        "effort": "medium"
+      },
+      {
+        "lane": "poet-domain",
+        "model": "gpt-6-sol",
+        "effort": "high"
+      },
+      {
+        "lane": "controls",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "recovery": "gpt-6-sol capacity failure; partial work retained"
+      },
+      {
+        "lane": "workflow",
+        "model": "gpt-6-sol",
+        "effort": "high"
+      },
+      {
+        "lane": "component",
+        "model": "gpt-6-sol",
+        "effort": "medium"
+      },
+      {
+        "lane": "claims metadata",
+        "model": "gpt-6-luna",
+        "effort": "medium",
+        "review": "Initial old-staging references rejected; corrected candidate draft retained and superseded by final root evidence"
+      },
+      {
+        "lane": "mesh failure read-only review",
+        "model": "gpt-6-sol",
+        "effort": "medium"
+      },
+      {
+        "lane": "optional CUDA availability guard",
+        "model": "gpt-6-sol",
+        "effort": "medium"
+      }
+    ],
+    "concurrency": "Root plus at most three workers, dispatched in disjoint rounds",
+    "asset_production": "HOLD",
+    "usage_metrics": "unknown",
+    "evidence": "docs/qa/implementation-2026-10-26/image-completion",
+    "passed": {
+      "core_initial": 15,
+      "poet_library": 289,
+      "poet_default_ignored": 12,
+      "new_mounted_component_cases": 9,
+      "legacy_signed_gpu_and_child": 1,
+      "new_positive_gpu_and_child": 1,
+      "core_final": 20,
+      "new_gpu_refusal_rebuild": 1,
+      "native_build": 1,
+      "core_library": 9869,
+      "core_library_ignored": 4,
+      "new_gpu_offsets_isolated": 1
+    },
+    "pending": [],
+    "native_window_human_acceptance": "UNASSESSED",
+    "failure_history": [
+      {
+        "log": "gpu-attempt-1.log",
+        "result": "Positive workflow passed; refusal fixture incorrectly inspected held execution. Repaired to prove authorized rebuild without weakening context oracle."
+      },
+      {
+        "log": "core-owner-library.log",
+        "result": "Existing FIEL test-module path error; corrected one path attribute; failed compilation cancelled after diagnostic to avoid waste."
+      },
+      {
+        "log": "poet-attempt-1.log",
+        "result": "Missing comma in mechanical fixture default update; corrected before full 289-pass run."
+      }
+    ],
+    "source_integrity": "31 saved canonical files match reviewed candidates",
+    "additional_repairs": [
+      "Existing FIEL test-module path",
+      "Existing source-carrier test borrow lifetime",
+      "Optional CUDA driver absence returns GpuUnavailable",
+      "Shared-tree q42 catalogue imports existing canonical CRC-32C",
+      "Shared-tree HMAC constructors qualify KeyInit"
+    ],
+    "peer_delivery": "One full-suite receive timeout; isolated test passed; cause unconfirmed in mesh-review.md",
+    "report": "docs/qa/implementation-2026-10-26/image-completion/README.md",
+    "claims": "docs/qa/implementation-2026-10-26/image-completion/completion-claims.json",
+    "verification": "docs/qa/implementation-2026-10-26/image-completion/verification.json",
+    "remaining_foundation_gates": [
+      "Native-window/human usability and domain acceptance",
+      "Larger and transparent/HDR production profiles beyond current admitted Paint profile",
+      "Legacy untrusted constructor/mask allocation API hardening PA-03-API-ALLOCATION-HARDENING",
+      "Peer delivery reliability observation: one earlier timeout, isolated and later full run passed; cause unconfirmed",
+      "CUDA hardware qualification unavailable; guarded optional-backend handling is not CUDA execution evidence",
+      "All other original IP-03 C1-C8 and model-dossier obligations remain governed by the consolidated plan"
+    ]
+  },
+  "human_principal_agent_authority": {
+    "contract": "docs/planning/tech/human-principal-agent-authority.md",
+    "required_ids": [
+      "AUTH-H1",
+      "AUTH-H2",
+      "AUTH-H3",
+      "AUTH-H4",
+      "AUTH-H5",
+      "AUTH-H6"
+    ],
+    "parent_gates": [
+      "IP-03 C2",
+      "IP-03 C4",
+      "IP-03 C5",
+      "IP-03 C7"
+    ],
+    "state": "source_audit_and_contract_recorded_runtime_hierarchy_not_implemented",
+    "asset_production": "HOLD",
+    "repairs": [
+      "AUTH-H2-V1",
+      "AUTH-H2-V2",
+      "AUTH-H2-V3",
+      "AUTH-H3-V1"
+    ]
+  },
+  "interim_preparation": {
+    "contract": "docs/planning/interim-production-readiness.md",
+    "cases": "docs/planning/interim-production-readiness-cases.json",
+    "evidence_gaps": "docs/qa/implementation-2026-10-27/interim-preparation/reference-evidence-gaps.md",
+    "scope": "Documentation and assignment preparation only; no production/no native qualification",
+    "worker": {
+      "agent": "/root/interim_reference_inventory",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "status": "returned_root_reviewed"
+    },
+    "code_and_build_resume": "After Timothy readiness notice, recheck current capability/API owners before source changes and serial checks",
+    "asset_production": "HOLD"
+  },
+  "post_update_qualification": {
+    "date": "2026-10-27",
+    "authority": "Timothy confirmed major VibeScript/related updates done and authorised testing",
+    "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md",
+    "state": "selected_software_repairs_verified_operator_and_model_gates_open",
+    "coordinator": "/root",
+    "cargo_policy": "Serial lease, offline/locked, no duplicate native library run",
+    "asset_production": "HOLD",
+    "human_operator_trial_executed": false,
+    "findings": [
+      {
+        "id": "VQ-01",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe effect/catalogue owner",
+        "governing_work": [
+          "VIBE-03",
+          "REQ-VIBE-007"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Pure checker acceptance of task.spawn; registry mutation established separately by source.",
+        "initial_state": "unmet_negative_criterion",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-02",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe scheduler/native host owner",
+        "governing_work": [
+          "VIBE-03",
+          "VIBE-05",
+          "AUTH-H3"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Integer status exposes another synthetic environment result; no human/NativeAuthority bypass claimed.",
+        "initial_state": "reproduced_public_api_isolation_gap",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-03",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe evaluator/bytecode/host owner",
+        "governing_work": [
+          "VIBE-05",
+          "VIBE-09"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "AST await and explicit task.await differ on caller environment.",
+        "initial_state": "reproduced_context_difference",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-04",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe task lifecycle owner",
+        "governing_work": [
+          "VIBE-05"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Own completed task reawait with supplied timeout flag refuses committed result.",
+        "initial_state": "reproduced_terminal_outcome_refusal",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-05",
+        "state": "truthful_refusal_and_integrity_verified_proof_provider_open",
+        "owner": "Vibe crypto/descriptor catalogue owner",
+        "governing_work": [
+          "VIBE-03",
+          "REQ-VIBE-022"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Commitment registration verifies without evaluating predicate truth; no cryptographic ZK-break claim.",
+        "initial_state": "unmet_predicate_semantics_criterion",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-06",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe content-addressing owner",
+        "governing_work": [
+          "VIBE-09"
+        ],
+        "evidence": "runtime-probes-attempt3.json",
+        "scope": "Changed candidate source refused; not full package/dependency/remote qualification.",
+        "initial_state": "passed_scoped",
+        "initial_evidence": "runtime-probes-attempt2.log"
+      },
+      {
+        "id": "VQ-07",
+        "state": "repaired_verified_scoped",
+        "owner": "Vibe deontic runtime/performance owner",
+        "governing_work": [
+          "REQ-VIBE-008",
+          "VIBE-11"
+        ],
+        "evidence": "vibe-repaired-package-attempt4.json",
+        "scope": "Strict <1000ns hard-stop timing:1000ns initial,1100ns isolated. Threshold unchanged; cause not established.",
+        "initial_state": "failed_debug_timing_twice",
+        "initial_evidence": "vibe-package.log; vibe-timing-isolated.log"
+      }
+    ],
+    "implementation_authority": "Timothy requested resolving problems through code for an excellent error and warning free solution",
+    "repair_tracks": [
+      {
+        "owner": "qualification_runtime_recheck",
+        "scope": "Vibe task scope/context/effects/terminal ownership; no shared manifests",
+        "staging": "tools/poet-foundation/post-update-qualification/repairs/runtime",
+        "status": "saved_and_verified_scoped",
+        "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md"
+      },
+      {
+        "owner": "qualification_poet_compatibility",
+        "scope": "Core store stamp contention and native intent/source vs preview status",
+        "staging": "tools/poet-foundation/post-update-qualification/repairs/store",
+        "status": "saved_and_verified_scoped",
+        "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md"
+      },
+      {
+        "owner": "qualification_test_map",
+        "scope": "Deontic timing, truthful predicate/commitment API, selected compiler warnings",
+        "staging": "tools/poet-foundation/post-update-qualification/repairs/quality",
+        "status": "saved_and_verified_scoped",
+        "evidence": "docs/qa/implementation-2026-10-27/post-update-qualification/README.md"
+      }
+    ],
+    "verified_runtime": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/vibe-repaired-package-attempt4.json",
+      "unit_passed": 1020,
+      "integration_passed": 269,
+      "compiler_warnings": 0
+    },
+    "verified_core": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/core-publication-executed.json",
+      "passed": 52,
+      "failed": 0,
+      "compiler_warnings": 0,
+      "other_core_cases_filtered": 9864
+    },
+    "remaining_limits": [
+      "Synchronous local AST tasks; no asynchronous suspension or remote/provider qualification",
+      "Unsupported ZK APIs refuse; an admitted proof provider remains open",
+      "Runtime scope is not human-principal delegation or AUTH-H2-H6 acceptance",
+      "Legacy invalid cached bytecode requires regeneration from preserved source",
+      "Native operator/human acceptance and IP-03 C1-C8 remain open"
+    ],
+    "verified_native": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/poet-native-repaired-attempt3.json",
+      "passed": 399,
+      "failed": 0,
+      "ignored": 13,
+      "compiler_warnings": 0,
+      "library_test_execution": "normal parallel"
+    },
+    "verified_gpu": {
+      "record": "docs/qa/implementation-2026-10-27/post-update-qualification/poet-native-gpu-executed.json",
+      "workflows_passed": 1,
+      "compiler_warnings": 0,
+      "fresh_process_reopen": true,
+      "parent_final_and_child_png_identical": true
+    },
+    "final_summary": "docs/qa/implementation-2026-10-27/post-update-qualification/verified-summary.json",
+    "future_dispatch_rules": [
+      "Lower-cost workers: inventories, evidence mapping and narrowly specified mechanical edits; root reviews all saved candidates",
+      "Stronger runtime/UI workers: effect and capability semantics, concurrency/lifetimes, API schemas, cfg-dependent Rust behavior and full call-site/test review",
+      "Review an entire affected fixture before a build; keep applied manifests immutable and use a new follow-up receipt",
+      "One coordinator owns canonical saves and serial Cargo; zero-test selection and compiler warnings cannot qualify a test run"
+    ],
+    "first_output_gate_scope": "Retain governing IP-03/operator and human-authority acceptance; do not automatically add unrelated later async, provider or proof expansion as a first-output requirement"
+  },
+  "native_controller_rights_round1": {
+    "date": "2026-10-27",
+    "authority": "Timothy requested remaining native contributor/reviewer and human-agent authority work plus current asset-production blocker audit",
+    "state": "saved_shared_policy_verified_core_and_native_pending",
+    "human_verification_dependency_correction": "No new personhood/provider service is a prerequisite to direct project/controller-admitted authoring; delegation requirements apply to the route relying on them",
+    "asset_production": "HOLD",
+    "evidence": "docs/qa/implementation-2026-10-27/human-authority-round1/README.md",
+    "blocker_audit": "docs/qa/implementation-2026-10-27/human-authority-round1/asset-production-blockers.md",
+    "blocker_register": "docs/qa/implementation-2026-10-27/human-authority-round1/blocker-register.json",
+    "saved_manifest": "tools/poet-foundation/human-authority-round1/reviewed-round-manifest.installed.json",
+    "canonical_paths": 27,
+    "shared_policy_tests": {
+      "record": "cooperative-delegation.json",
+      "passed": 143,
+      "failed": 0,
+      "compiler_warnings": 0
+    },
+    "selected_work": [
+      {
+        "ids": [
+          "AUTH-H2-V2",
+          "AUTH-H3",
+          "AUTH-H5"
+        ],
+        "scope": "signed controller-delegation candidate inspection and honest attribution; no durable adopted delegated-session or effect authority claim",
+        "status": "saved_core_verification_pending"
+      },
+      {
+        "ids": [
+          "AUTH-H3-V1"
+        ],
+        "scope": "QDNF issue-time scope/operation/validity-start/per-permit ceiling; native immutable-session binding uses bounded install",
+        "status": "saved_core_verification_pending"
+      },
+      {
+        "ids": [
+          "IP-03 C4",
+          "IP-03 C8"
+        ],
+        "scope": "native exact-source/package contribution and pending-request controls; human usability acceptance remains separate",
+        "status": "saved_native_verification_pending"
+      }
+    ],
+    "next_scope_limits": [
+      "Durable delegation adoption/revocation, delegated leaf authentication and commit/publication dispatch remain open",
+      "Known-control conflict detection is not proof of independent humans or adopted review enforcement",
+      "Per-permit ceilings are not shared aggregate budget consumption",
+      "Missing human/domain acceptance is not proof that direct authoring is technically impossible"
+    ],
+    "agents": [
+      {
+        "role": "shared runtime/authority implementation",
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      {
+        "role": "native cooperation controls and independent QDNF review",
+        "model": "gpt-6.1-sol",
+        "effort": "medium"
+      },
+      {
+        "role": "source/evidence blocker inventory",
+        "model": "gpt-6-luna",
+        "effort": "medium"
+      }
+    ],
+    "coordinator_only": [
+      "canonical integration and saves",
+      "shared module/Cargo/lock changes",
+      "serial Cargo checks and evidence",
+      "review before completion claims"
+    ]
+  }
+}

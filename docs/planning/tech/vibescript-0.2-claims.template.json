@@ -1,0 +1,1252 @@
+{
+  "format": "vibescript-language-profile-claims-template",
+  "version": "2026-10-24.1",
+  "status": "unassessed starter; proposed specification only; no release or implementation completion",
+  "dialect": "proposed vibe-0.2",
+  "pinned_documents": [
+    {
+      "path": "vibescript-0.2-specification.md",
+      "sha256": "ee0587138902b581b6557eefeb4100a210ac3eebf169f3078e37f8cab864f843"
+    },
+    {
+      "path": "vibescript-0.2-repl-and-host-contract.md",
+      "sha256": "a2425c4be577590b2eb9652ee1ffd4a430d2fefae6fc099102422ca14784c693"
+    },
+    {
+      "path": "vibescript-0.2-source-and-conformance.md",
+      "sha256": "e270456e12aab024872b867b7d2f0dbf53fb89555e3c924018cb8b438274f2da"
+    },
+    {
+      "path": "vibescript-0.2.ebnf",
+      "sha256": "057e84b650e29513875a1096b4f32930d0c8d3c079d8d9b004d94a9444ef40ae"
+    },
+    {
+      "path": "vibescript-0.2-source-baseline.json",
+      "sha256": "69b3a41cd2cf09792a1b82ffe16e6398fca31a409ea20d894c7dacd2a1d1263d"
+    }
+  ],
+  "completion_rule": "Every applicable requirement and expanded case needs explicit result/source/profile/effect/evidence/review claims. N/A needs an applicable profile rule or authorized decision. Required product cases cannot be waived by selecting a smaller profile. No invented run, receipt, human review or version-only completion. This authoring projection is not an installed gate.",
+  "requirements": [
+    {
+      "id": "REQ-VIBE-001",
+      "acceptance_subject": "JavaScript-replacement role and source execution without per-script build.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-001",
+        "VBC-031"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-002",
+      "acceptance_subject": "Independent version/profile negotiation and pinned legacy dialect.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-002",
+        "VBC-029"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-003",
+      "acceptance_subject": "Complete lexical/grammar and locale/security contract.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-003",
+        "VBC-004",
+        "VBC-026"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-004",
+      "acceptance_subject": "Typed values, numeric rules, strings, containers and conversions.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-005",
+        "VBC-006",
+        "VBC-007",
+        "VBC-009"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-005",
+      "acceptance_subject": "Lexical scope, functions, patterns, control flow and bounded recursion.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-004",
+        "VBC-008",
+        "VBC-009",
+        "VBC-019"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-006",
+      "acceptance_subject": "Offline pinned modules and explicit load/run/activation.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-002",
+        "VBC-010",
+        "VBC-019"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-007",
+      "acceptance_subject": "Transitive effect checks and independently enforced scoped grants.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-010",
+        "VBC-011",
+        "VBC-012",
+        "VBC-022"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-008",
+      "acceptance_subject": "Parser/evaluator/host budgets and hot/cold separation.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-008",
+        "VBC-013",
+        "VBC-024"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-009",
+      "acceptance_subject": "Snapshot graph queries, atomic revisions and typed receipts.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-014",
+        "VBC-030"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-010",
+      "acceptance_subject": "Multiple subject identifiers and qualified mappings through HMC.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-015",
+        "VBC-030"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-011",
+      "acceptance_subject": "Reactive dependency/cycle/effect activation rules.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-016"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-012",
+      "acceptance_subject": "Shared native/WASM presentation, commands and input/accessibility.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-017",
+        "VBC-031"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-013",
+      "acceptance_subject": "Explicit clocks, seeds, animation and bounded simulation hooks.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-018",
+        "VBC-030"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-014",
+      "acceptance_subject": "Persistent multiline REPL and parse-before-execute diagnostics.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-001",
+        "VBC-019",
+        "VBC-020"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-015",
+      "acceptance_subject": "Checked live edits, state migration, stale-result protection/recovery.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-001",
+        "VBC-020",
+        "VBC-021",
+        "VBC-023",
+        "VBC-025"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-016",
+      "acceptance_subject": "Real async suspension, jobs/cancellation and bounded streams.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-022",
+        "VBC-023",
+        "VBC-028"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-017",
+      "acceptance_subject": "Versioned typed capability descriptors and opaque resource lifetime.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-012",
+        "VBC-020",
+        "VBC-024"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-018",
+      "acceptance_subject": "Cooperative source/roles/review/conflicts and reproducible jobs.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-025",
+        "VBC-031"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-019",
+      "acceptance_subject": "Structured diagnostics, language services and inspectable evidence.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-003",
+        "VBC-026",
+        "VBC-032"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-020",
+      "acceptance_subject": "Native, WASM-local and assisted portability/disconnect qualification.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-027",
+        "VBC-028"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-021",
+      "acceptance_subject": "Source/HMC provenance, manifests and optional cache/VM parity.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-003",
+        "VBC-029"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-022",
+      "acceptance_subject": "Registered domain semantics, disclosure and agreement distinctions.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-012",
+        "VBC-030"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-023",
+      "acceptance_subject": "Explicit 0.1 migration, source/tool preservation and rollback.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-002",
+        "VBC-006",
+        "VBC-029"
+      ]
+    },
+    {
+      "id": "REQ-VIBE-024",
+      "acceptance_subject": "Exact claims coverage and real Poet/Ecopunk authoring demonstration.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "result_claim": null,
+      "source_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "case_refs": [
+        "VBC-031",
+        "VBC-032"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "VBC-001",
+      "expected_proof": "Evaluate changed arithmetic/function/UI source on an installed native host with no per-script Cargo/Rust/JS/WASM build.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-001",
+        "REQ-VIBE-014",
+        "REQ-VIBE-015"
+      ]
+    },
+    {
+      "id": "VBC-002",
+      "expected_proof": "Explicit 0.1/0.2/profile/import negotiation, unknown version rejection and legacy semantic preservation.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-002",
+        "REQ-VIBE-006",
+        "REQ-VIBE-023"
+      ]
+    },
+    {
+      "id": "VBC-003",
+      "expected_proof": "Unicode/BOM/newline/comment/escape/locale/token boundary/security and source-span round-trips.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-003",
+        "REQ-VIBE-019",
+        "REQ-VIBE-021"
+      ]
+    },
+    {
+      "id": "VBC-004",
+      "expected_proof": "Complete grammar examples, rejection of malformed/unknown syntax and all referenced production coverage.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-003",
+        "REQ-VIBE-005"
+      ]
+    },
+    {
+      "id": "VBC-005",
+      "expected_proof": "Integer extrema/overflow/division/remainder, aliases, precision conversions and NaN/finite-schema behavior.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-004"
+      ]
+    },
+    {
+      "id": "VBC-006",
+      "expected_proof": "Bool-only 0.2 conditions and short circuit; legacy truthiness stays explicitly pinned.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-004",
+        "REQ-VIBE-023"
+      ]
+    },
+    {
+      "id": "VBC-007",
+      "expected_proof": "Unicode string length/index, list/record bounds, duplicate keys, immutable aliases and typed updates.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-004"
+      ]
+    },
+    {
+      "id": "VBC-008",
+      "expected_proof": "Functions/locals/returns/patterns/exhaustiveness, recursive limits and noncapturing lambda restrictions.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-005",
+        "REQ-VIBE-008"
+      ]
+    },
+    {
+      "id": "VBC-009",
+      "expected_proof": "Some/None versus null, Ok/Err payloads and compatible/incompatible `?`.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-004",
+        "REQ-VIBE-005"
+      ]
+    },
+    {
+      "id": "VBC-010",
+      "expected_proof": "Offline pinned imports, export scope/cycle errors and load without running effects/hooks.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-006",
+        "REQ-VIBE-007"
+      ]
+    },
+    {
+      "id": "VBC-011",
+      "expected_proof": "Pure/Hot/Cold/Async/External transitive and dynamic-call effects; unknown binding cannot acquire authority.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-007"
+      ]
+    },
+    {
+      "id": "VBC-012",
+      "expected_proof": "Grant absence/scope/expiry/revocation, denied disclosure and malicious schema/handle rejection.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-007",
+        "REQ-VIBE-017",
+        "REQ-VIBE-022"
+      ]
+    },
+    {
+      "id": "VBC-013",
+      "expected_proof": "Parser/loop/stack/workspace/job/stream budgets, host cold/hot limits and safe exhaustion.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-008"
+      ]
+    },
+    {
+      "id": "VBC-014",
+      "expected_proof": "One graph snapshot, stage/validate/commit, stale revisions/conflicts and unforgeable receipt meaning.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-009"
+      ]
+    },
+    {
+      "id": "VBC-015",
+      "expected_proof": "Several subject identifiers and disputed/historical mappings survive Vibe → host → HMC → query/picking.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-010"
+      ]
+    },
+    {
+      "id": "VBC-016",
+      "expected_proof": "Reactive propagation/order/cycles; repeated view rendering does not rerun effect cells.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-011"
+      ]
+    },
+    {
+      "id": "VBC-017",
+      "expected_proof": "Native controls/viewport/input/accessibility and WASM projection share typed state/commands.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-012"
+      ]
+    },
+    {
+      "id": "VBC-018",
+      "expected_proof": "Clock/seed/tween/hooks, pause/resume and replay with external observations recorded.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-013"
+      ]
+    },
+    {
+      "id": "VBC-019",
+      "expected_proof": "Multiline, incomplete/invalid distinction and variable/function/import persistence over submissions.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-005",
+        "REQ-VIBE-006",
+        "REQ-VIBE-014"
+      ]
+    },
+    {
+      "id": "VBC-020",
+      "expected_proof": "Parse mode selected before execution; one effectful request is not repeated on failure/fallback/reconnect.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-014",
+        "REQ-VIBE-015",
+        "REQ-VIBE-017"
+      ]
+    },
+    {
+      "id": "VBC-021",
+      "expected_proof": "Compatible/incompatible live edits, migration, safe activation, no duplicate hooks/resource leaks and previous source recovery.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-015"
+      ]
+    },
+    {
+      "id": "VBC-022",
+      "expected_proof": "Real await suspension, responsive UI, typed result and resumed authority/revision checks.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-016",
+        "REQ-VIBE-007"
+      ]
+    },
+    {
+      "id": "VBC-023",
+      "expected_proof": "Job cancellation/completion race, late result, progress, stream backpressure/disposal and indeterminate recovery.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-016",
+        "REQ-VIBE-015"
+      ]
+    },
+    {
+      "id": "VBC-024",
+      "expected_proof": "Descriptor/call parity for shorthand/named invoke, typed resources, bounds/lifetime/device-loss recovery.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-017",
+        "REQ-VIBE-008"
+      ]
+    },
+    {
+      "id": "VBC-025",
+      "expected_proof": "Two contributor/reviewer contexts, shared revisions/conflict/undo, durable checkpoint/restart/rejoin.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-018",
+        "REQ-VIBE-015"
+      ]
+    },
+    {
+      "id": "VBC-026",
+      "expected_proof": "Formatter/type/effect/completion/diagnostic tooling preserves source meaning and links results to exact source.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-019",
+        "REQ-VIBE-003"
+      ]
+    },
+    {
+      "id": "VBC-027",
+      "expected_proof": "Native/WASM-local equivalent core results and explicit unsupported/held required operations.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-020"
+      ]
+    },
+    {
+      "id": "VBC-028",
+      "expected_proof": "Assisted provider negotiation/grants/disconnect/reconnect without duplicate effects or lost source.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-020",
+        "REQ-VIBE-016"
+      ]
+    },
+    {
+      "id": "VBC-029",
+      "expected_proof": "Source/AST/HMC provenance and cache invalidation; optional VM subset differential results and pre-execution path selection.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-021",
+        "REQ-VIBE-002",
+        "REQ-VIBE-023"
+      ]
+    },
+    {
+      "id": "VBC-030",
+      "expected_proof": "Domain units/frames/laws/modal/disclosure/instrument results preserve evidence and authority distinctions.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-022",
+        "REQ-VIBE-010",
+        "REQ-VIBE-013",
+        "REQ-VIBE-009"
+      ]
+    },
+    {
+      "id": "VBC-031",
+      "expected_proof": "Actual native Poet reference-asset authoring/live edit/cooperative review → reproducible HMC and accepted derivative, IP-03 C1–C8.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-024",
+        "REQ-VIBE-001",
+        "REQ-VIBE-012",
+        "REQ-VIBE-018"
+      ]
+    },
+    {
+      "id": "VBC-032",
+      "expected_proof": "Claim gate rejects missing/stale/duplicate/fabricated scope/results/human review; every applicable requirement/case has an evidenced disposition.",
+      "applicability": "unassessed",
+      "status": "unassessed",
+      "profile_refs": [],
+      "input_refs": [],
+      "expected_result": null,
+      "actual_result": null,
+      "source_target_dependency_refs": [],
+      "effect_receipt_refs": [],
+      "evidence_refs": [],
+      "review_refs": [],
+      "remaining_cases": [],
+      "disposition_notes": null,
+      "requirement_refs": [
+        "REQ-VIBE-024",
+        "REQ-VIBE-019"
+      ]
+    }
+  ],
+  "work_packets": [
+    {
+      "id": "VIBE-01",
+      "dependencies": [],
+      "deliverable": "Language/Qualia/Poet owners: baseline exact source, catalog/tool paths, grammar/type/effect/runtime coverage and accepted compatibility decisions; ratify version/profile boundary. REQ-001–006/022/023.",
+      "allocation": "IP-00; ECO-001/003/009; ENG-13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-02",
+      "dependencies": [
+        "VIBE-01"
+      ],
+      "deliverable": "Parser/checker owners: canonical complete grammar/lexical policy, AST/schema/source mappings, type/control semantics, diagnostics and parser Complete/Incomplete/Invalid. REQ-003–006/019/023.",
+      "allocation": "IP-01; ECO-011/018; ENG-13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-03",
+      "dependencies": [
+        "VIBE-01"
+      ],
+      "deliverable": "Host/catalog owners: typed descriptors, versions/effects/grants, resource lifetime and budgets; map actual native/WASM bindings before adding missing ones. REQ-002/007–010/017/020/022.",
+      "allocation": "IP-01; ECO-009/012/018/034; ENG-02/07/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-04",
+      "dependencies": [
+        "VIBE-02",
+        "VIBE-03"
+      ],
+      "deliverable": "Evaluator/Poet owners: persistent multiline sessions, functions/modules, safe mode selection, one execution attempt, revision history and structured errors. REQ-005/006/014/019.",
+      "allocation": "IP-03; ECO-034/044/045; ENG-08/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-05",
+      "dependencies": [
+        "VIBE-03",
+        "VIBE-04"
+      ],
+      "deliverable": "Runtime/job owners: real futures/continuations, cancellation/progress/streams, rechecked authority, stale results and external receipt recovery. REQ-008/009/015–017.",
+      "allocation": "IP-03; ECO-034/044/050; ENG-07/09/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-06",
+      "dependencies": [
+        "VIBE-04",
+        "VIBE-05"
+      ],
+      "deliverable": "Reactive/UI/framework owners: cell graph, native presentation/input, explicit effect activation, clock/tween behavior, transactional live edits and state migration. REQ-011–015/019.",
+      "allocation": "IP-03; ECO-044/045/050; ENG-08/10/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-07",
+      "dependencies": [
+        "VIBE-03",
+        "VIBE-06"
+      ],
+      "deliverable": "Cooperative/Poet owners: authoritative shared source, revisions/roles/review/undo, checkpoints/restart/rejoin; preserve contributions/terms. REQ-009/010/018/022.",
+      "allocation": "IP-03; ECO-034/044/050; ENG-09/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-08",
+      "dependencies": [
+        "VIBE-02",
+        "VIBE-03",
+        "VIBE-06"
+      ],
+      "deliverable": "WASM/host owners: qualify shared local semantics and assisted provider version/grant/job/disconnect behavior. REQ-012/020. Required cases remain open until delivered.",
+      "allocation": "IP-07; ECO-037/038/040/116; ENG-08/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-09",
+      "dependencies": [
+        "VIBE-02",
+        "VIBE-03"
+      ],
+      "deliverable": "Format/runtime owners: source/AST/HMC manifests, cache invalidation, optional VM differential tests on supported subset and safe AST selection. REQ-002/006/021/023.",
+      "allocation": "IP-02/03 source/package cases; ECO-021/028/044; ENG-02/11/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-10",
+      "dependencies": [
+        "VIBE-06",
+        "VIBE-07",
+        "VIBE-09"
+      ],
+      "deliverable": "Production/QA/domain reviewers: real no-build native Poet authoring loop on the defined reference source with conflict/invalid edit/late job/restart and exact HMC reproduction. REQ-001/024 plus used domain cases.",
+      "allocation": "IP-03 C1–C8; ECO-045/050; ENG-03–09/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    },
+    {
+      "id": "VIBE-11",
+      "dependencies": [
+        "VIBE-07",
+        "VIBE-08",
+        "VIBE-09",
+        "VIBE-10"
+      ],
+      "deliverable": "Language/independent QA: native/WASM profile conformance and claim coverage, source/API migration and release notes; only then label a qualified 0.2 release. REQ-001–024.",
+      "allocation": "IP-07/09; ECO-040/112/116/120; ENG-12/13",
+      "status": "open",
+      "actual_owner": null,
+      "result_claim": null,
+      "evidence_refs": [],
+      "review_refs": []
+    }
+  ]
+}

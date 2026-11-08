@@ -1,0 +1,58 @@
+# Heliophysics, Space Weather, and TERN OzFlux Micrometeorology RDF
+# Compliant with W3C Turtle 1.1, SOSA/SSN, QUDT 2.1, and TERN Ecosystem Processes.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix qudt: <http://qudt.org/2.1/schema/qudt/> .
+@prefix tern: <https://w3id.org/tern/ontologies/tern/> .
+@prefix helio: <urn:qualia:heliophysics:> .
+@prefix ozflux: <urn:qualia:ozflux:> .
+
+# Solar Cycle 25 & Magnetospheric Coupling
+helio:solar_cycle_25 a sosa:FeatureOfInterest ;
+    rdfs:label "Schwabe 11-Year Solar Cycle 25 & Hale 22-Year Magnetic Cycle"@en ;
+    helio:schwabe_period_years "11.05"^^xsd:decimal ;
+    helio:hale_period_years "22.10"^^xsd:decimal ;
+    helio:total_solar_irradiance_wm2 "1361.4"^^xsd:decimal ;
+    helio:solar_wind_speed_kms "425.0"^^xsd:decimal ;
+    helio:solar_wind_proton_density_cm3 "6.8"^^xsd:decimal ;
+    helio:imf_bz_nt "-1.8"^^xsd:decimal ;
+    helio:planetary_kp_index "2.67"^^xsd:decimal ;
+    helio:f107_radio_flux_sfu "168.0"^^xsd:decimal ;
+    helio:surface_uvb_erythemal_index "9.4"^^xsd:decimal .
+
+# TERN OzFlux Tumbarumba / Bago Wet Sclerophyll Flux Tower
+ozflux:tumbarumba_flux_tower a sosa:Platform , tern:FluxTower ;
+    rdfs:label "TERN OzFlux Tumbarumba Wet Eucalypt SuperSite (AU-Tum)"@en ;
+    ozflux:site_code "AU-Tum" ;
+    ozflux:latitude "-35.6566"^^xsd:decimal ;
+    ozflux:longitude "148.1517"^^xsd:decimal ;
+    ozflux:elevation_m "1200"^^xsd:integer ;
+    ozflux:canopy_height_m "42.0"^^xsd:decimal ;
+    ozflux:mean_annual_precip_mm "1420"^^xsd:integer ;
+    ozflux:net_ecosystem_exchange_umol_m2_s "-14.8"^^xsd:decimal ;
+    ozflux:latent_heat_flux_wm2 "215.0"^^xsd:decimal ;
+    ozflux:sensible_heat_flux_wm2 "145.0"^^xsd:decimal ;
+    ozflux:vapor_pressure_deficit_kpa "1.15"^^xsd:decimal .
+
+# Nimmo / Kiandra Subalpine Cold-Air Drainage & Frost Hollow Micrometeorology
+ozflux:kiandra_frost_hollow_station a sosa:Platform , tern:MicroclimateStation ;
+    rdfs:label "Kiandra / Three Mile Dam Subalpine Cold-Air Drainage Basin"@en ;
+    ozflux:latitude "-35.8825"^^xsd:decimal ;
+    ozflux:longitude "148.4610"^^xsd:decimal ;
+    ozflux:elevation_m "1410"^^xsd:integer ;
+    ozflux:nocturnal_inversion_strength_k "9.5"^^xsd:decimal ;
+    ozflux:katabatic_drainage_velocity_ms "2.4"^^xsd:decimal ;
+    ozflux:frost_days_per_year "165"^^xsd:integer ;
+    ozflux:snowpack_peak_swe_mm "380"^^xsd:integer .
+
+# Cumberland Plain / Blue Mountains Sandstone Flux Station
+ozflux:blue_mountains_sandstone_station a sosa:Platform , tern:FluxTower ;
+    rdfs:label "Blue Mountains Hawkesbury Escarpment Eucalyptus Optical Station"@en ;
+    ozflux:latitude "-33.7150"^^xsd:decimal ;
+    ozflux:longitude "150.3120"^^xsd:decimal ;
+    ozflux:elevation_m "640"^^xsd:integer ;
+    ozflux:biogenic_voc_isoprene_ppb "4.2"^^xsd:decimal ;
+    ozflux:rayleigh_mie_blue_haze_aod550 "0.145"^^xsd:decimal .

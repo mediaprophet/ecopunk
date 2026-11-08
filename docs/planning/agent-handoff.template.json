@@ -1,0 +1,112 @@
+{
+  "schema": "ecopunk-agent-handoff/v1",
+  "job_id": "",
+  "status": "research_working",
+  "mode": "research_documentation_only",
+  "requirements": [],
+  "owned_output_files": [],
+  "source_reads": [
+    {
+      "path": "",
+      "sha256": "",
+      "ranges": [],
+      "symbols": [],
+      "assessment": "source read only; no execution inferred"
+    }
+  ],
+  "reused_evidence": [
+    {
+      "path": "",
+      "source_or_output_pin": "",
+      "scope": "",
+      "execution_status": "not rerun"
+    }
+  ],
+  "findings": [],
+  "proposed_contract": [],
+  "future_canonical_ownership": [],
+  "commands_and_results": [],
+  "evidence_levels": {
+    "source_present": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "applied": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "compiled": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "executed": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "runtime_or_rendered": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "independent_technical_review": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "domain_review": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    },
+    "human_acceptance": {
+      "status": "pending",
+      "evidence_ref": "",
+      "reason": ""
+    }
+  },
+  "process": {
+    "state": "none",
+    "owner": "",
+    "command": null,
+    "pid": null,
+    "session": null,
+    "start_utc": null,
+    "cwd": null,
+    "log": null,
+    "exit_code": null,
+    "resume_proof": null
+  },
+  "open_items": [
+    {
+      "id": "",
+      "kind": "research_question",
+      "owner": "",
+      "evidence": "",
+      "next_action": "",
+      "reentry_condition": ""
+    }
+  ],
+  "next_bounded_action": "",
+  "review_surface": [],
+  "model_or_package_completion_claim": false,
+  "evidence_status_values": [
+    "unassessed",
+    "pending",
+    "blocked",
+    "passed_scoped",
+    "failed",
+    "not_applicable_with_reason"
+  ],
+  "evidence_status_rules": "Each status requires scope and evidence; not_applicable_with_reason requires an applicable rule/reason. Product acceptance requires actual applicable human/domain/release gates and cannot be inferred from scoped software passes.",
+  "assignment": {
+    "assigned_agent": "",
+    "assigned_by": "",
+    "assigned_at_utc": "",
+    "handoff_owner": "",
+    "existing_handoff_disposition": "Read existing output before writing; do not overwrite another active owner or infer takeover from age."
+  }
+}

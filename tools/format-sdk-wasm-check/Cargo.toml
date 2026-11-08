@@ -1,0 +1,19 @@
+[package]
+name = "ecopunk-format-sdk-wasm-check"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+qualia-core-db = { path = "../../../qualiaDB/crates/qualia-core-db", default-features = false, features = ["profile_target_1024", "portal"] }
+qualia-geospatial = { path = "../../../qualiaDB/crates/qualia-geospatial" }
+
+[patch.crates-io]
+wgpu = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+naga = { git = "https://github.com/mediaprophet/etalon.git", branch = "qualia-main" }
+
+[profile.dev]
+debug = 0
+incremental = false

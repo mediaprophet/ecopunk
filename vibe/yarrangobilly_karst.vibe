@@ -1,0 +1,14 @@
+module <https://webizen.org/ecopunk/modules/yarrangobilly_karst>;
+
+pure fn karst_profile() -> Record {
+    return {
+        sectorId: "yarrangobilly",
+        strata: "Silurian Limestone (Yarrangobilly Limestone Member)",
+        elevationM: 945.0,
+        thermalSpringCelsius: 27.0,
+        calciteSaturationSi: 0.42,
+        caveDepthM: 65.0,
+        faunaDenning: "Vombatus ursinus",
+        soilPh: 7.8
+    };
+}

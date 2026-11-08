@@ -1,0 +1,114 @@
+{
+  "format": "ecopunk-agent-role-routing",
+  "version": "2026-10-26.3",
+  "principles": [
+    "Choose a bounded job before spawning; do not give a worker an entire programme.",
+    "Read applicable instructions and exact source; no JS substitute or unqualified upstream rewrite.",
+    "Respect disjoint owned files and allowed commands; human acceptance is never delegated to a model.",
+    "Escalate uncertainty with concrete evidence; do not substitute repeated retries or a larger model for missing authority.",
+    "No commits, publishing, paid provider calls, transfers or broad destructive operations.",
+    "Retain ownership of a running check until its result is recorded or supervisor access to its session is verified; do not finish with an unverified live-session handoff.",
+    "On model-capacity failure preserve source/log/command state; resume the existing process before considering a new invocation. Do not duplicate expensive builds.",
+    "Before proposing a gap/replacement trace existing current cross-crate implementation, public owner, caller, source tests and prior receipts; unreviewed code is not missing functionality.",
+    "Current documentation-only direction controls over earlier implementation dispatch text; preserve completed source/evidence and do not activate prepared jobs automatically.",
+    "Human corrections, cost concerns and requests for evidence are legitimate oversight; reconcile them against original product requirements and actual evidence.",
+    "Bounded research writes only named findings/handoff files; central plans and shared job register have one integration owner."
+  ],
+  "roles": [
+    {
+      "id": "inventory",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "jobs": "Bounded inventories, hashes, declarative-source extraction and deterministic consistency checks",
+      "must_escalate": "Semantic ambiguity, source changes, native/renderer authority or unverifiable acceptance",
+      "acceptance": "Exact inputs/digests, typed findings, count reconciliation and explicit unknowns"
+    },
+    {
+      "id": "bounded_tools",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "high",
+      "jobs": "Small native metadata tools with explicit input/output/schema and resource limits",
+      "must_escalate": "New engine semantics, unsafe FFI, cryptography design, complex concurrency or unresolved format contract",
+      "acceptance": "Reviewed focused code, failure-path tests, real CLI results and no unrequested asset rewrite"
+    },
+    {
+      "id": "engine_integration",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "jobs": "Etalon/Qualia resource/render/API integration and bounded native correctness fixes",
+      "must_escalate": "Architecture ownership or source/license boundary conflict",
+      "acceptance": "Public API provenance, meaningful native/WASM checks and explicit unrun GPU cases"
+    },
+    {
+      "id": "language_runtime",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "jobs": "Vibe parser/checker/evaluator, REPL, effects, host jobs and safe live-edit integration",
+      "must_escalate": "Canonical effect/authority gap; do not invent an app-local second interpreter/checker",
+      "acceptance": "Regression tests, dialect compatibility, no duplicate effects and exact session/host behavior"
+    },
+    {
+      "id": "authoring_tools",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "jobs": "Poet/internal reusable MIT libraries/Aether domain editing, state, undo, cooperative revisions and recovery; historical suite names are source/migration references.",
+      "must_escalate": "Missing general engine operator or conflicting canonical state owner",
+      "acceptance": "Real native editing and IP-03 cases; a CLI or API inventory cannot pass usability"
+    },
+    {
+      "id": "asset_production",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "jobs": "Editable organism/thing/place source, surfaces, rig/motion and reviewed target derivation",
+      "must_escalate": "Missing tool operation, factual uncertainty, source rights or required human/domain acceptance",
+      "acceptance": "All model deliverable/case claims, actual source/HMC/runtime lineage and human visual/domain review"
+    },
+    {
+      "id": "cooperative_records",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "jobs": "Native source/contribution/role/review/identifier integration; later agreement/credit adapters",
+      "must_escalate": "Unadopted terms, unclear authority, units, real settlement or legal interpretation",
+      "acceptance": "Canonical owners, revision/authority tests, preserved unpaid contributions, no invented adoption/payment"
+    },
+    {
+      "id": "independent_review",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "jobs": "Review another worker patch and required negative/concurrency/authority cases",
+      "must_escalate": "Missing execution proof or human acceptance; author cannot self-award those",
+      "acceptance": "Specific source comments/findings, actual independent checks and remaining scope"
+    },
+    {
+      "id": "architecture_escalation",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "jobs": "Only an unresolved concrete architecture question after source evidence and bounded attempts",
+      "must_escalate": "Missing user authority cannot be solved by changing models",
+      "acceptance": "Question, examined evidence, proposed contract/tradeoffs and owned implementation boundary"
+    }
+  ],
+  "handoff_required": [
+    "job_id",
+    "owned_files",
+    "source_and_requirement_refs",
+    "allowed_commands",
+    "changed_files",
+    "actual_commands_and_results",
+    "evidence_refs",
+    "remaining_cases",
+    "review_requirements",
+    "current_task_mode",
+    "exact_read_scope_and_source_pins",
+    "evidence_levels_separately",
+    "blocker_owner_and_reentry_condition",
+    "process_owner_state_and_resume_proof_or_none",
+    "next_bounded_action",
+    "user_reviewable_artifact_paths"
+  ],
+  "supervisor": "Root reviews integration, updates scoped execution evidence and keeps broad packet/model/language claims open until complete.",
+  "pricing_note": "Relative model routing only; no live price quotation or fixed spend guarantee.",
+  "current_mode": "Research/documentation revision; implementation roles are routing references, not activated jobs.",
+  "current_job_register": "biosphere-work-packets.json",
+  "handoff_template": "agent-handoff.template.json"
+}

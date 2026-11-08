@@ -1,0 +1,142 @@
+{
+  "format": "vibescript-source-audit-baseline",
+  "version": "2026-10-24.1",
+  "date": "2026-10-24",
+  "status": "read-only static baseline; no implementation/conformance execution",
+  "observed_language_version": "vibe-0.1",
+  "observed_host_version": "vibe-host-0.1",
+  "proposed_language_version": "vibe-0.2",
+  "repository_metadata_status": "Git could not change to sibling repository directory: permission denied. HEAD/dirty state not established; per-file SHA256 pins below are authoritative for this inspection.",
+  "files": [
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/lib.rs",
+      "sha256": "3684ae4b5607f18fa62abf5db92af22349244cfdf3a45c549868b103f823fc60",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/README.md",
+      "sha256": "a274fa8007d132aa550893630ed5d068e55cb75a85d3a14244851bb457c9fc1d",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/grammar/vibe-0.1.ebnf",
+      "sha256": "edd7afa865780b701e558f334e9d8321c35b778ba93c7db22c68b03975d1386d",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/lex.rs",
+      "sha256": "e917f95d19dd1b7bb84bbb4e059aa9f7ca19dbcb3ed2e69f21584e800bf5244d",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/ast.rs",
+      "sha256": "94e8933fea27b5463450f0114e5cf52aec381bd9a8c753c1e3bb0537fea4c5f6",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/types.rs",
+      "sha256": "5fa65160abac8166767c590f3a5c026275c3b45c7e3c66fcedf9122779331c2e",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/value.rs",
+      "sha256": "e820d8cbea4eeb8dbe9ba1059bf5d296b4208b9f33cc9a3b4fc9b2ba5bbbb8bb",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/check.rs",
+      "sha256": "a21ce3cbc373a4e9f912763bf548c0a9c8390697e063d8c5f7e9ab6f03f32381",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/effects.rs",
+      "sha256": "1b4d5d5dccf2f6c5ec20f2aed974bd598980e002bc4fa57a8327b80b5045fac3",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/budget.rs",
+      "sha256": "4ef550326f7cd96036964eadd85876b2d4f0353365c52016029589ba5ea91ed7",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/error.rs",
+      "sha256": "d2ed45a7f13e206ba92d57ec6e6c2f5f52e882cebd4dd5242d1bfda5448f7c45",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/parse/items.rs",
+      "sha256": "c271e23c9cd7e9934484e7a4fd1e5b110a4fdd0bede9a6e686c32e34b0af1001",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/parse/preamble.rs",
+      "sha256": "929624c76e31d10510eafc4190aa932ef91b6ad0e222873c95c07927e6dfeac3",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/parse/cond.rs",
+      "sha256": "82a3d01b3237ee2e402fb70eb6999c7c29409c9dda96027b7d7d33187cd9107a",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/mod.rs",
+      "sha256": "d61b472dfea82e7299dad38ccc9d219b0d2d1dc62c7411423e790a71e5c5c453",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/program.rs",
+      "sha256": "8122a571cc61bf99a2809d77c745ae8e7e62d820d6fa068f2c464dfece7cea38",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/expr.rs",
+      "sha256": "d4cb9a7f245089f773bfe2702c9920089be7727039594fc189e014bbaae33d7f",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/eval/call.rs",
+      "sha256": "ece99a466212406f9a6c8d837ae63c02b0db910d0e39608d54d6f9067445ab04",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/bytecode/mod.rs",
+      "sha256": "416c21e4ef09acad3efcc9f21c6857f8e3265115d4b9099c2bf1f9929d402ff2",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/crates/vibe/src/bind/host.rs",
+      "sha256": "3522f0e151de2f123fd7a64626daa18dc7884ba81bcc8af6450eec4c71e0a0d8",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/qualiaDB/docs/manuals/standards/vibescript-core.md",
+      "sha256": "c5b5297c837e623acacc49ac83b2e66a06853151b005d3a40ed486f8d2f7091e",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/poet/native/src/main.rs",
+      "sha256": "6e800cc9b549366307c15613c962bdf81ad8e10f098c5aff076ecd2b4d867986",
+      "evidence_kind": "source presence/static inspection; no execution"
+    },
+    {
+      "path": "C:/github/poet/native/src/repl.rs",
+      "sha256": "2e95f923a5e4e89f0de1ae47960a5ec136a6f396cf7a7cef0cc9798284b6bd19",
+      "evidence_kind": "source presence/static inspection; no execution"
+    }
+  ],
+  "corpus": {
+    "vibe_fixtures": 166,
+    "integration_test_sources": 8,
+    "execution_status": "not run"
+  },
+  "tooling_path_checks": [
+    {
+      "exists": false,
+      "path": "C:/Projects/vibe-script"
+    },
+    {
+      "exists": false,
+      "path": "C:/github/vibe-script"
+    }
+  ]
+}

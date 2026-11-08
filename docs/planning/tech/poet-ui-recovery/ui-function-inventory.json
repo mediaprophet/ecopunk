@@ -1,0 +1,921 @@
+{
+  "schema": "ecopunk-poet-ui-migration-inventory-v1",
+  "revision": "2026-10-26.3",
+  "status": "Original 30 parity rows retained, plus eight pending EffectCraft UI-category rows. Source findings are not native integration/runtime/human acceptance.",
+  "scope": "Eleven historical poet-*craft roots plus additional EffectCraft source at C:/github/storytold/effectcraft-main. Representative coverage only, not complete UI parity.",
+  "governing_contract": "../poet-craft-consolidation.md sections 3-6 and ../poet-comprehensive-authoring-review.md; internal Poet functionality, not independent suite products.",
+  "manifest_inventory_ref": "../craft-consolidation/source-inventory.json",
+  "manifest_inventory_note": "Existing source snapshot enumerates 324 manifests across eleven repos (271 crate-tree candidates). Those are manifest candidates, not UI function counts or validated dependencies.",
+  "common_target_contract": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+  "required_item_level_categories": [
+    "commands",
+    "panels",
+    "gestures",
+    "shortcuts",
+    "context menus",
+    "dialogs",
+    "views",
+    "accessibility behavior"
+  ],
+  "coverage_caveats": [
+    "Every individual command id/alias, menu entry, panel/module, gesture/modifier/focus transition, shortcut, context menu, dialog, view/state, and accessibility behavior still needs a lossless row.",
+    "UI parity pages are source-maintained estimates with different dates/targets/methods; their percentages are not combined or treated as proof.",
+    "No source history/dirty-state baseline, full file list, full dependency graph, build, app execution, GUI acceptance, or matching interaction study was done in this inventory.",
+    "Selected file indexes are real source units but not complete UI source-family inventories; generated/ignored/local-only plan files may contain additional behavior.",
+    "All feature dispositions remain pending until a Poet target control is implemented and verified against source behavior and persistence/accessibility contracts."
+  ],
+  "apps": [
+    {
+      "id": "artcraft",
+      "repo": "poet-artcraft",
+      "role": "image/video generation and media creation shell",
+      "manifest_candidates": 39,
+      "ui_doc": "README.md and frontend app source (no docs/ui-parity.md found)",
+      "ui_roots": [
+        "frontend/apps/artcraft/app/src/"
+      ],
+      "registries": [
+        "frontend/apps/artcraft/app/src/config/appMenu.tsx::appMenu",
+        "artcraft-native/src/app.rs"
+      ],
+      "source_units": [
+        "frontend/apps/artcraft/app/src/config/appMenu.tsx",
+        "frontend/apps/artcraft/app/src/components/generation-feed/DesktopGenerationGallery.tsx",
+        "frontend/apps/artcraft/app/src/components/generation-feed/DesktopCreatePageShell.tsx",
+        "frontend/apps/artcraft/app/src/root.tsx"
+      ],
+      "technology": "React/TypeScript frontend + Tauri/Rust host; source migration reference only",
+      "repo_root": "C:/github/poet-artcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "cadcraft",
+      "repo": "poet-cadcraft",
+      "role": "CAD/drafting, selection, snaps and parametric constraints",
+      "manifest_candidates": 17,
+      "ui_doc": "docs/ui-parity.md; docs/geometry-parity.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/menus.rs::MENUS/UI_COMMANDS",
+        "crates/engine/src/cmd/::CommandSpec"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/canvas.rs",
+        "crates/ui-egui/src/parametric.rs",
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/dialogs.rs",
+        "crates/engine/src/select.rs",
+        "crates/engine/src/snap.rs",
+        "crates/engine/src/cmd/constraints.rs"
+      ],
+      "technology": "Rust/egui UI; CAD snap/sketch evidence is 2D-focused; 3D object snaps are documented missing",
+      "repo_root": "C:/github/poet-cadcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "deckcraft",
+      "repo": "poet-deckcraft",
+      "role": "presentation/deck authoring",
+      "manifest_candidates": 28,
+      "ui_doc": "docs/ui-parity.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/ribbon.rs",
+        "crates/ui-egui/src/menus.rs::menu_tree",
+        "crates/ui-egui/src/dialogs.rs"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/canvas.rs",
+        "crates/ui-egui/src/ribbon.rs",
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/dialogs.rs",
+        "crates/ui-egui/src/sorter.rs",
+        "crates/ui-egui/src/panes.rs"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-deckcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "filmcraft",
+      "repo": "poet-filmcraft",
+      "role": "film/video sequence, timeline, monitor and audio editing",
+      "manifest_candidates": 50,
+      "ui_doc": "docs/ui-parity.md; docs/keyboard.md; docs/monitors.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/panels/timeline.rs",
+        "crates/engine/src/"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/panels/timeline.rs",
+        "crates/ui-egui/src/panels/monitor_view.rs",
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/panels/clip_dialogs.rs",
+        "crates/ui-egui/src/panels/audio_fx_editor.rs"
+      ],
+      "technology": "Rust/egui UI; web package also has web JS/worklets",
+      "repo_root": "C:/github/poet-filmcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "gridcraft",
+      "repo": "poet-gridcraft",
+      "role": "spreadsheet/grid and data calculation",
+      "manifest_candidates": 17,
+      "ui_doc": "docs/ui-parity.md; docs/parity-checklist.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/ribbon.rs",
+        "crates/engine/src/cmd/"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/editor.rs",
+        "crates/ui-egui/src/ribbon.rs",
+        "crates/ui-egui/src/dialogs.rs",
+        "crates/ui-egui/src/panes.rs",
+        "crates/engine/src/selection.rs",
+        "crates/engine/src/cmd/"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-gridcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "lightcraft",
+      "repo": "poet-lightcraft",
+      "role": "photo library, develop controls, masks and image views",
+      "manifest_candidates": 29,
+      "ui_doc": "docs/ui-parity.md; docs/parity-checklist.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/develop/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/menus.rs::UI_COMMANDS",
+        "crates/ui-egui/src/shortcuts.rs::ALIASES",
+        "crates/develop/src/controls.rs"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/shortcuts.rs",
+        "crates/ui-egui/src/panels/",
+        "crates/develop/src/controls.rs"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-lightcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "pdfcraft",
+      "repo": "poet-pdfcraft",
+      "role": "PDF page viewing, annotation and document tools",
+      "manifest_candidates": 36,
+      "ui_doc": "docs/ui-parity.md; docs/file-format-parity.md; docs/gaps.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/engine/src/commands.rs::command registry",
+        "crates/ui-egui/src/panels.rs"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/canvas.rs",
+        "crates/ui-egui/src/panels.rs",
+        "crates/ui-egui/src/dialogs.rs",
+        "crates/ui-egui/src/zoom_snap.rs",
+        "crates/engine/src/commands.rs"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-pdfcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "photocraft",
+      "repo": "poet-photocraft",
+      "role": "raster image editing, layers, selection, masks and brush tools",
+      "manifest_candidates": 36,
+      "ui_doc": "docs/ui-parity.md; docs/context-menu-parity.md; docs/brush-parity.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/engine/src/commands.rs::command registry",
+        "crates/ui-egui/src/state.rs::Tool",
+        "crates/ui-egui/src/panels.rs::TOOL_SECTIONS"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/canvas.rs",
+        "crates/ui-egui/src/state.rs",
+        "crates/ui-egui/src/panels.rs",
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/dialogs.rs",
+        "crates/engine/src/commands.rs"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-photocraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "soundcraft",
+      "repo": "poet-soundcraft",
+      "role": "audio sessions, tracks, MIDI/score and mixing",
+      "manifest_candidates": 21,
+      "ui_doc": "docs/ui-parity.md; docs/plugin-parity.md; docs/control-protocol.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/shortcuts.rs",
+        "crates/engine/src/"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/panels.rs",
+        "crates/ui-egui/src/midi_editor.rs",
+        "crates/ui-egui/src/video_track.rs",
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/shortcuts.rs"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-soundcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "vectorcraft",
+      "repo": "poet-vectorcraft",
+      "role": "vector paths, pen, shapes, selection and effects",
+      "manifest_candidates": 30,
+      "ui_doc": "docs/ui-parity.md; docs/type-parity.md; docs/effects-parity.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/tools/src/"
+      ],
+      "registries": [
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/shortcuts.rs",
+        "crates/tools/src/"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/canvas.rs",
+        "crates/ui-egui/src/shortcuts.rs",
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/panels/properties.rs",
+        "crates/tools/src/pen.rs"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-vectorcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "wordcraft",
+      "repo": "poet-wordcraft",
+      "role": "word-processing, text/layout, tables and document views",
+      "manifest_candidates": 21,
+      "ui_doc": "docs/ui-parity.md; docs/typing-parity.md; docs/layout-parity.md",
+      "ui_roots": [
+        "crates/ui-egui/src/",
+        "crates/engine/src/"
+      ],
+      "registries": [
+        "crates/engine/src/cmd/::CommandSpec",
+        "crates/ui-egui/src/lib.rs::UI_COMMANDS"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/ribbon.rs",
+        "crates/ui-egui/src/canvas.rs",
+        "crates/ui-egui/src/dialogs.rs",
+        "crates/ui-egui/src/file_dialogs.rs",
+        "crates/engine/src/cmd/"
+      ],
+      "technology": "Rust/egui UI",
+      "repo_root": "C:/github/poet-wordcraft",
+      "manifest_count_basis": "2026-10-24 static Cargo manifest candidate inventory only; not a UI-feature count or complete source-file inventory",
+      "migration_disposition": "pending",
+      "inventory_scope_note": "Selected source units and documented feature families only; not an exhaustive UI/function list. Every source command, panel, gesture, shortcut, context menu, dialog, view and accessibility behaviour still requires item-level reconciliation."
+    },
+    {
+      "id": "effectcraft",
+      "repo": "storytold/effectcraft-main",
+      "repo_root": "C:/github/storytold/effectcraft-main",
+      "role": "compositing/motion graphics/layers/keyframes/effects; internal Poet capability source",
+      "manifest_candidates": 38,
+      "manifest_count_basis": "2026-10-26 independent static visible manifest inventory, separate from historical eleven-root snapshot",
+      "ui_doc": "docs/ui-parity.md and selected actual UI/registry source; see review coverage",
+      "ui_roots": [
+        "crates/ui-egui/src/"
+      ],
+      "registries": [
+        "crates/engine/src/commands/mod.rs",
+        "crates/ui-egui/src/menus.rs"
+      ],
+      "source_units": [
+        "crates/ui-egui/src/menus.rs",
+        "crates/ui-egui/src/panels/timeline.rs",
+        "crates/ui-egui/src/panels/properties.rs",
+        "crates/ui-egui/src/panels/graph.rs",
+        "crates/engine/src/commands/frontend.rs",
+        "crates/engine/src/commands/effect.rs",
+        "crates/engine/src/render_queue.rs",
+        "crates/engine/src/history.rs"
+      ],
+      "technology": "Rust/egui/eframe source app; Boa JS host and registry-wgpu boundary require adaptation",
+      "migration_disposition": "pending",
+      "review_ref": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md",
+      "inventory_scope_note": "Representative source bodies and eight UI-category coverage states, not exhaustive UI/function parity; no native Poet compositor evidenced."
+    }
+  ],
+  "coverage_family_rows": [
+    {
+      "id": "CROSS-commands",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain commands",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every command, action id, palette entry, menu item and alias must map to one Poet versioned command.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-panels",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain panels",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every panel, dock, inspector, timeline, property sheet and contextual tool palette must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-gestures",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain gestures",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every pointer/touch gesture, selection mode, handle, modifier, preview/commit/cancel and focus behavior must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-shortcuts",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain shortcuts",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every default/custom key binding, chord, temporary tool and platform variation must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-context_menus",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain context_menus",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every context-menu location, item, enablement state and shortcut must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-dialogs",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain dialogs",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every modal/modeless dialog, pane and form flow must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-views",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain views",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every document/page/canvas/grid/monitor/timeline/library view and view-state transition must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CROSS-accessibility",
+      "source_app": "all_11_apps",
+      "feature": "Cross-domain accessibility",
+      "origin_path": "per-app ui_doc + ui_roots listed in apps[]",
+      "origin_symbol": "per-app command/panel/gesture/shortcut/context-menu/dialog/view/accessibility registries; specific member list not yet reconciled",
+      "source_behavior_evidence": "Every keyboard-only, screen-reader/accessibility-tree, focus, text scale, contrast, reduced motion and assistive behavior must be mapped.",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Produce item-level rows for all 11 repos; preserve source IDs/aliases and compatibility. Keep one selected document and authoritative edit/session; no parallel Craft state or foreign shell.",
+      "priority_evidence": "../poet-craft-consolidation.md §3-6 (lossless inventory; PC-01/02/04/05/06); human directive to preserve every useful Craft UI/UX behavior.",
+      "migration_disposition": "pending",
+      "disposition_basis": "This row is a coverage obligation, not a claim of exhaustive item-level coverage."
+    },
+    {
+      "id": "CAD-3D-01",
+      "source_app": "cadcraft",
+      "feature": "CAD selection and selection-set context",
+      "origin_path": "C:/github/poet-cadcraft/crates/engine/src/select.rs",
+      "origin_symbol": "select_window, select_fence",
+      "source_behavior_evidence": "The engine has window/crossing and fence selection operations; source parity documents CAD selection behavior. This surface is 2D drawing selection, not native 3D assembly-part picking.",
+      "poet_target": "Poet Construct / spatial3d Manifold / 3D ContentContainer; selection context feeds existing assembly inspector and shared command target.",
+      "dependency_or_port_seam": "Need common selected-part identity, hierarchical parent/child selection, multi-select semantics, focus, undo and source-revision binding across Poet views.",
+      "priority_evidence": "Growing-station authored assembly has a root, frame and subassemblies; source confirms part IDs and hierarchy.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "CAD-3D-02",
+      "source_app": "cadcraft",
+      "feature": "Transform handles, numeric TRS and drag lifecycle",
+      "origin_path": "C:/github/poet/native/src/graphical/authoring/controls.rs; C:/github/poet/native/src/graphical/authoring/mod.rs; C:/github/poet-cadcraft/crates/ui-egui/src/canvas.rs",
+      "origin_symbol": "AuthoringEdit::Transform; PartView; CAD canvas/grips (2D)",
+      "source_behavior_evidence": "Poet native controls expose numeric parent-relative translation/rotation/scale edits; CAD interaction docs cover 2D grips and selection. No 3D gizmo gesture contract is established.",
+      "poet_target": "Same Poet spatial3d ContentContainer and inspector: a shared selected-part context with gesture begin/preview/commit/cancel, numeric fields and undo.",
+      "dependency_or_port_seam": "Porting requires one native command/state protocol and presentation adapters; add actual 3D axis/plane gizmo, snapping and keyboard modifier behavior. Existing CAD UI is egui-specific and 2D.",
+      "priority_evidence": "Growing-station uses parent-relative transforms and requires repeatable part placement/fit review.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "CAD-3D-03",
+      "source_app": "cadcraft",
+      "feature": "Object snap, grid snap and tracked constraints",
+      "origin_path": "C:/github/poet-cadcraft/crates/engine/src/snap.rs; C:/github/poet-cadcraft/crates/ui-egui/src/parametric.rs; C:/github/poet-cadcraft/docs/ui-parity.md",
+      "origin_symbol": "osnap, grid_snap; constraint glyph/dimension editing",
+      "source_behavior_evidence": "Source includes OSNAP/grid snap and 2D parametric-constraint overlays/editing. CAD UI parity explicitly says 3D object snaps are absent (docs/ui-parity.md, OSNAPZ row).",
+      "poet_target": "Poet spatial3d Manifold contextual snap/constraint inspector and shared gesture/command model, scoped to an authored part/sketch.",
+      "dependency_or_port_seam": "Need 3D coordinate frames, plane selection, constraint solver contract, snap candidates and source-authoritative edit transaction; do not imply existing 2D constraints solve station geometry.",
+      "priority_evidence": "Growing station requires accurate channel/opening/port placement; synthetic dimensions need source-linked verification.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "CAD-3D-04",
+      "source_app": "cadcraft",
+      "feature": "Sketch plane and profile/constraint editing",
+      "origin_path": "C:/github/poet-cadcraft/crates/ui-egui/src/parametric.rs; C:/github/poet-cadcraft/crates/constraints/src/lib.rs",
+      "origin_symbol": "parametric constraint display/editor; geometric solver",
+      "source_behavior_evidence": "Source exposes 2D sketch/drawing constraints and a parameter editor; plane-aware 3D sketch workflow not evidenced.",
+      "poet_target": "Poet spatial3d content with a sketch/profile subview and geometry/property inspector; profile edits dispatch via the same accepted Vibe source session.",
+      "dependency_or_port_seam": "Need plane/coordinate context, sketch dimensions and constraints tied to assembly source revision; do not create separate CAD document state.",
+      "priority_evidence": "The source master uses profile sweeps and parameterized sections; sketch/profile inspection is directly relevant to channels, rails and pipe paths.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "CAD-3D-05",
+      "source_app": "cadcraft",
+      "feature": "Material inspector, UV and surface-map controls",
+      "origin_path": "C:/github/poet/native/src/graphical/authoring/controls.rs; C:/github/poet/native/src/graphical/materials.rs; C:/github/poet/native/src/graphical/assembly/compile.rs",
+      "origin_symbol": "AuthoringEdit::Material; material_from_value; compile_assembly",
+      "source_behavior_evidence": "Poet native controls expose factor-only shared material editing; material parser rejects texture bindings; assembly compiler writes native .10d UV/MAT sections. This is already a 3D UI function but not integrated with the WASM Tool Chest and not full material authoring.",
+      "poet_target": "Poet spatial3d ContentContainer material inspector linked to selected part/material; existing Tool Chest command and native canonical MaterialRecord/HMC path.",
+      "dependency_or_port_seam": "Need shared versioned material edit command, selected-part context, texture/UV controls, image provenance, color-space and factor validation; preserve one session/source. Existing browser material editor is DOM-bound and not the native widget.",
+      "priority_evidence": "Growing station has nine source material IDs and distinct wood/metal/rubber/cabinet visual roles; source-only palette is not quality evidence.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "PHOTO-01",
+      "source_app": "photocraft",
+      "feature": "Raster layer/tool canvas, selection transform and masks",
+      "origin_path": "C:/github/poet-photocraft/crates/ui-egui/src/state.rs; C:/github/poet-photocraft/crates/ui-egui/src/panels.rs; C:/github/poet-photocraft/crates/ui-egui/src/canvas.rs",
+      "origin_symbol": "Tool; TOOL_SECTIONS; image canvas",
+      "source_behavior_evidence": "PhotoCraft UI parity documents a large toolbox, direct manipulation, selection, transforms, crop, panels and mask tools; its own measured readiness is partial.",
+      "poet_target": "Poet image/material ContentContainer plus image inspector/toolbox, contextual selection and shared source/revision commands.",
+      "dependency_or_port_seam": "Extract editing semantics/history and command models; do not bring egui shell or provider/account state into Poet.",
+      "priority_evidence": "Growing-station material maps and source review may require native image/material editing, but no texture authoring is in current first-slice source.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "VECTOR-01",
+      "source_app": "vectorcraft",
+      "feature": "Pen anchors, handles, modifier gestures and smart guides",
+      "origin_path": "C:/github/poet-vectorcraft/crates/tools/src/pen.rs; C:/github/poet-vectorcraft/crates/ui-egui/src/canvas.rs; C:/github/poet-vectorcraft/crates/ui-egui/src/shortcuts.rs",
+      "origin_symbol": "pen tool state; vector canvas/shortcuts",
+      "source_behavior_evidence": "UI parity describes anchors, curve handles, shift/alt/space gestures, selection and snapping; source docs mark several interactions partial.",
+      "poet_target": "Poet vector ContentContainer/tool set with same selection/context protocol and native path renderer.",
+      "dependency_or_port_seam": "Extract gesture state transitions and accessible keyboard alternatives; replace app-specific egui window/menu chrome with Poet presentation.",
+      "priority_evidence": "Potential future diagram/section/exploded/system representations; not required to fabricate vector source now.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "FILM-01",
+      "source_app": "filmcraft",
+      "feature": "Timeline clip selection, trimming, track editing and cancel gestures",
+      "origin_path": "C:/github/poet-filmcraft/crates/ui-egui/src/panels/timeline.rs; C:/github/poet-filmcraft/docs/ui-parity.md",
+      "origin_symbol": "timeline panel; Selection/Track Select/Ripple/Rolling/Razor tools",
+      "source_behavior_evidence": "Parity doc inventories timeline tools and notes remaining drag/cancel/trim gaps; it is a source/documented behavior statement, not independent parity verification.",
+      "poet_target": "Poet shared stage/timeline/sequence and render/output views; selected HMC asset/animation clip context belongs to current Construct.",
+      "dependency_or_port_seam": "Extract timeline/editor state/commands; preserve rational time and source/dependency links; native/WASM UI adapters remain separate.",
+      "priority_evidence": "All three asset profiles and motion/clip evidence are required by the model contract.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "FILM-02",
+      "source_app": "filmcraft",
+      "feature": "Program/effect monitor, keyframes and context menus",
+      "origin_path": "C:/github/poet-filmcraft/crates/ui-egui/src/panels/monitor_view.rs; C:/github/poet-filmcraft/crates/ui-egui/src/panels/clip_dialogs.rs",
+      "origin_symbol": "monitor view; clip dialogs",
+      "source_behavior_evidence": "FilmCraft parity describes monitor handles, effect controls/keyframes, project views, dialogs and incomplete direct transform handles.",
+      "poet_target": "Poet spatial/film ContentContainer plus shared inspector and timeline; no film app shell embedded.",
+      "dependency_or_port_seam": "Need same document/part selection and command revision, native render preview/output ownership and accessibility mapping.",
+      "priority_evidence": "Film profile is mandatory for the station dossier; source preset alone is not a film representation.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "LIGHT-01",
+      "source_app": "lightcraft",
+      "feature": "Photo library grid/detail/compare views and filmstrip",
+      "origin_path": "C:/github/poet-lightcraft/crates/ui-egui/src/panels/; C:/github/poet-lightcraft/docs/ui-parity.md",
+      "origin_symbol": "31 panel modules; view model",
+      "source_behavior_evidence": "Parity doc describes Photo Grid, Detail, Compare, Survey, Before/After, People, slideshow and second-window views; this is a source-based summary with open gaps.",
+      "poet_target": "Poet image ContentContainer, library/asset browser manifold view and provenance-aware inspection.",
+      "dependency_or_port_seam": "Map catalog operations separately from current document edits; retain user-owned view state without becoming a second asset source.",
+      "priority_evidence": "Need source/material browsing and image review within the same Poet project, not a mandatory standalone LightCraft window.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "LIGHT-02",
+      "source_app": "lightcraft",
+      "feature": "Develop sliders, crop/transform and masking tools",
+      "origin_path": "C:/github/poet-lightcraft/crates/develop/src/controls.rs; C:/github/poet-lightcraft/crates/ui-egui/src/menus.rs",
+      "origin_symbol": "develop controls; UI_COMMANDS",
+      "source_behavior_evidence": "Parity doc details develop controls, crop handles, transform and range masks with remaining tool/depth gaps.",
+      "poet_target": "Poet image/material inspector and image ContentContainer using shared selection, history and commands.",
+      "dependency_or_port_seam": "Need domain engine/session extraction plus explicit color-space and nondestructive edit semantics.",
+      "priority_evidence": "Station material/image inputs may need texture-map editing; no such maps are currently claimed.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "SOUND-01",
+      "source_app": "soundcraft",
+      "feature": "Track/MIDI/score editor and event selection",
+      "origin_path": "C:/github/poet-soundcraft/crates/ui-egui/src/midi_editor.rs; C:/github/poet-soundcraft/crates/ui-egui/src/video_track.rs",
+      "origin_symbol": "MIDI editor; video/audio track panels",
+      "source_behavior_evidence": "Source UI includes track and MIDI/score editors; parity docs identify track, plugin and keyboard behavior plus gaps.",
+      "poet_target": "Poet audio ContentContainer, shared timeline and event/emitter inspector.",
+      "dependency_or_port_seam": "Extract DSP/session and event-edit commands with rational time; retain device/audio host ownership and capability gating.",
+      "priority_evidence": "Sound remains a named asset-production domain under Poet consolidation; not part of current station first slice.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "SOUND-02",
+      "source_app": "soundcraft",
+      "feature": "Mixer, plugin controls, shortcuts and accessibility behavior",
+      "origin_path": "C:/github/poet-soundcraft/crates/ui-egui/src/panels.rs; C:/github/poet-soundcraft/crates/ui-egui/src/shortcuts.rs",
+      "origin_symbol": "panel and shortcut registries",
+      "source_behavior_evidence": "UI parity and plugin parity enumerate panels/controls/shortcuts and dependency-specific plugin surfaces.",
+      "poet_target": "Poet audio inspector/mixer panels, command palette and accessible command adapters.",
+      "dependency_or_port_seam": "Record every panel/control/shortcut and required plugin boundary; do not import runtime caches or provider secrets.",
+      "priority_evidence": "Source consolidation §4 explicitly retains audio tracks, sources, events and mixing.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "ART-01",
+      "source_app": "artcraft",
+      "feature": "Image/video/audio generation menu and creation gallery",
+      "origin_path": "C:/github/poet-artcraft/frontend/apps/artcraft/app/src/config/appMenu.tsx; C:/github/poet-artcraft/frontend/apps/artcraft/app/src/components/generation-feed/DesktopGenerationGallery.tsx",
+      "origin_symbol": "appMenu entries; DesktopGenerationGallery",
+      "source_behavior_evidence": "The React menu source lists text-to-image, image-to-video, create-audio and image-to-3D routes; this is UI presence only, not generated asset rights/quality.",
+      "poet_target": "Poet image/video/audio ContentContainers and generation tools dispatched through capability-scoped Vibe/IntentBus commands and project provenance.",
+      "dependency_or_port_seam": "Provider operations require explicit authorization, provenance, rights and opt-in host capability; keep React/Tauri frontend as reference rather than required runtime.",
+      "priority_evidence": "Generated outputs cannot replace editable accepted masters or contributor/reviewer source lineage.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "WORD-01",
+      "source_app": "wordcraft",
+      "feature": "Document canvas selection, typing and layout commands",
+      "origin_path": "C:/github/poet-wordcraft/crates/ui-egui/src/canvas.rs; C:/github/poet-wordcraft/crates/engine/src/cmd/",
+      "origin_symbol": "document canvas; CommandSpec registry",
+      "source_behavior_evidence": "WordCraft docs map text selection, keyboard typing, object selection, rulers and document layout to commands and parity cases.",
+      "poet_target": "Poet document ContentContainer, existing CML/document models, command palette and text/structure inspector.",
+      "dependency_or_port_seam": "Map input/focus/IME/undo/accessibility behavior to Vibe and shared document/session APIs; no second document state.",
+      "priority_evidence": "Poet’s existing product is hypermedia/document authoring; text and structured metadata must remain first-class.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "WORD-02",
+      "source_app": "wordcraft",
+      "feature": "Ribbon, dialogs, task panes, context menus and accessibility",
+      "origin_path": "C:/github/poet-wordcraft/crates/ui-egui/src/ribbon.rs; C:/github/poet-wordcraft/crates/ui-egui/src/dialogs.rs; C:/github/poet-wordcraft/docs/ui-parity.md",
+      "origin_symbol": "ribbon command IDs; Dialog enum",
+      "source_behavior_evidence": "UI parity lists ribbon controls, numerous dialogs, task panes, on-canvas objects and access gaps; exact item-level behavior remains to reconcile.",
+      "poet_target": "Poet Tool Chest, command menu/palette, content inspector and accessible dialog/command flows.",
+      "dependency_or_port_seam": "Preserve all existing command ids, shortcuts, document compatibility, keyboard-only and screen-reader behavior.",
+      "priority_evidence": "Consolidation §4 requires word/PDF/grid/deck functions integrated into Poet content surfaces.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "PDF-01",
+      "source_app": "pdfcraft",
+      "feature": "PDF page canvas, zoom/navigation and selection",
+      "origin_path": "C:/github/poet-pdfcraft/crates/ui-egui/src/canvas.rs; C:/github/poet-pdfcraft/crates/ui-egui/src/zoom_snap.rs",
+      "origin_symbol": "PDF canvas; zoom/pager interaction",
+      "source_behavior_evidence": "Parity doc catalogs page view, zoom, navigation and document tabs; visible 62.5% view-checklist breadth figure is historic to the source doc.",
+      "poet_target": "Poet PDF/document ContentContainer with linked page/resource navigation and command-driven inspection.",
+      "dependency_or_port_seam": "Reuse page/render/format engines only through verified API boundaries; map persistent selection/annotation context.",
+      "priority_evidence": "PDF remains an explicitly named medium under consolidation §4.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "PDF-02",
+      "source_app": "pdfcraft",
+      "feature": "Thumbnails/bookmarks/comments/forms and annotation panels",
+      "origin_path": "C:/github/poet-pdfcraft/crates/ui-egui/src/panels.rs; C:/github/poet-pdfcraft/docs/ui-parity.md",
+      "origin_symbol": "panel registry",
+      "source_behavior_evidence": "Parity doc reports thumbnails/bookmarks/attachments/layers/comments/fields/signatures, plus absent/partial destinations/tags/content panels.",
+      "poet_target": "Poet document inspector and contextual panels tied to selected page/resource in one session.",
+      "dependency_or_port_seam": "Need accessibly navigable panel models, document persistence and provenance-aware annotation commands.",
+      "priority_evidence": "PDF evidence can be an output derivative but does not replace editable master sources.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "GRID-01",
+      "source_app": "gridcraft",
+      "feature": "Cell/row/column multi-selection, formula bar and inline editing",
+      "origin_path": "C:/github/poet-gridcraft/crates/ui-egui/src/editor.rs; C:/github/poet-gridcraft/crates/ui-egui/src/ribbon.rs",
+      "origin_symbol": "grid editor/formula bar",
+      "source_behavior_evidence": "Parity doc describes grid selection, fill, move/copy, formula references, autocomplete and missing interaction nuances.",
+      "poet_target": "Poet grid/spreadsheet ContentContainer and data/table inspector; same selected cell/range context flows to commands.",
+      "dependency_or_port_seam": "Extract selection/clipboard/formula interactions and workbook model; ensure native/WASM input, focus and accessibility.",
+      "priority_evidence": "Consolidation §4 keeps grid/cell editing semantics, not a generic replacement form.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "GRID-02",
+      "source_app": "gridcraft",
+      "feature": "Ribbon, cell/header/tab context menus and dialogs",
+      "origin_path": "C:/github/poet-gridcraft/crates/ui-egui/src/ribbon.rs; C:/github/poet-gridcraft/crates/ui-egui/src/dialogs.rs; C:/github/poet-gridcraft/docs/ui-parity.md",
+      "origin_symbol": "ribbon and context-menu item definitions",
+      "source_behavior_evidence": "Parity doc lists 258/290 command matches and 16 cell context items, with other menu/dialog gaps.",
+      "poet_target": "Poet Tool Chest/command palette + grid-specific menus, inspector and accessible dialogs.",
+      "dependency_or_port_seam": "Need command-level mapping across UI/CLI/MCP plus shortcut and file persistence parity.",
+      "priority_evidence": "Cell and table editing is an explicit Poet media capability in consolidation §4.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "DECK-01",
+      "source_app": "deckcraft",
+      "feature": "Slide canvas, object select/move/resize/rotate and guides",
+      "origin_path": "C:/github/poet-deckcraft/crates/ui-egui/src/canvas.rs; C:/github/poet-deckcraft/docs/ui-parity.md",
+      "origin_symbol": "slide canvas direct manipulation",
+      "source_behavior_evidence": "Parity doc describes object selection/handles, marquee, multi-select, smart guides and snap-to-grid.",
+      "poet_target": "Poet presentation/deck ContentContainer with shared selection and transform commands.",
+      "dependency_or_port_seam": "Map gestures into common begin/preview/commit/cancel and source-aware undo; avoid deck-specific shell.",
+      "priority_evidence": "Presentation remains an explicit hypermedia content type in Poet consolidation §4.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "DECK-02",
+      "source_app": "deckcraft",
+      "feature": "Slide sorter, animation pane, ribbon and dialogs",
+      "origin_path": "C:/github/poet-deckcraft/crates/ui-egui/src/sorter.rs; C:/github/poet-deckcraft/crates/ui-egui/src/ribbon.rs; C:/github/poet-deckcraft/crates/ui-egui/src/dialogs.rs",
+      "origin_symbol": "slide sorter; animation pane; dialog registry",
+      "source_behavior_evidence": "Parity doc describes slide sorter, animation pane and roughly 27 dialogs with some placeholders/gaps.",
+      "poet_target": "Poet stage/timeline, deck content body, inspector and command menu.",
+      "dependency_or_port_seam": "Need timeline/event compatibility, keyboard and accessibility interaction map, document/hypermedia package preservation.",
+      "priority_evidence": "Consolidation §4 assigns deck functions to existing Poet content/toolset surfaces.",
+      "migration_disposition": "pending",
+      "disposition_basis": "Source/docs indexed; no end-to-end migration or parity evidence established by this inventory."
+    },
+    {
+      "id": "EFFECT-commands",
+      "source_app": "effectcraft",
+      "feature": "commands",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-panels",
+      "source_app": "effectcraft",
+      "feature": "panels",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-gestures",
+      "source_app": "effectcraft",
+      "feature": "gestures",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-shortcuts",
+      "source_app": "effectcraft",
+      "feature": "shortcuts",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-context-menus",
+      "source_app": "effectcraft",
+      "feature": "context menus",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-dialogs",
+      "source_app": "effectcraft",
+      "feature": "dialogs",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-views",
+      "source_app": "effectcraft",
+      "feature": "views",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    },
+    {
+      "id": "EFFECT-accessibility-behavior",
+      "source_app": "effectcraft",
+      "feature": "accessibility behavior",
+      "origin_path": "C:/github/storytold/effectcraft-main; exact files/ranges in ui-functions.coverage.json",
+      "origin_symbol": "Selected representative source/caller evidence; item-level inventory incomplete",
+      "source_behavior_evidence": "../../../qa/implementation-2026-10-26/effectcraft-review/ui-functions.md#governing-ui-category-coverage",
+      "poet_target": "Poet unified interface: existing observer/agent Construct scope and selected project context + suitable Manifold + ContentContainer and current selected-document/part context; same native session/source revision; Tool Chest/command palette/contextual controls and inspector/timeline as applicable. Integrate features into Poet, not separate app shells.",
+      "dependency_or_port_seam": "Requirements-first internal compositor/domain adapter; source UI is a reference, not standalone product. Preserve unsupported/unknown cases and existing ecosystem owners.",
+      "priority_evidence": "../poet-capability-adaptation-guide.md; PA-01/02/06/12, PC-04/06, TOOL-09/10",
+      "migration_disposition": "pending",
+      "disposition_basis": "No integrated operation or human acceptance claimed. Context-menu/dialog details and accessibility unassessed."
+    }
+  ],
+  "required_shared_poet_hooks": [
+    "Construct/context: wasm/src/tool_chest/core/construct.rs::ConstructSeed",
+    "Manifold/layout: wasm/src/tool_chest/core/registry.rs::ManifoldSeed",
+    "Typed surface: wasm/src/tool_chest/core/registry.rs::SeedContainer/ContainerKind",
+    "Tools/commands: wasm/src/tool_chest/core/tool.rs::Tool/ToolMetadata; registry/toolbox/tool_chain",
+    "Dispatch: wasm/src/tool_chest/core/intent_bus.rs::VibeScriptPayload/IntentBus; native and WASM adapters must remain host-specific",
+    "Existing product UI: Poet wasm/src/browser/manifolds, container_views, spec_tools, menus/toolbars, docks, command palette; map function into these semantics and native Aether projection, not parallel Craft window state"
+  ],
+  "station_first_slice": {
+    "status": "Historical bounded equipment qualification, retained; not the full authoring product or current primary biology scope.",
+    "features": [
+      "CAD-3D-01",
+      "CAD-3D-02",
+      "CAD-3D-03",
+      "CAD-3D-04",
+      "CAD-3D-05"
+    ],
+    "current_source_and_evidence_refs": [
+      "../../../qa/implementation-2026-10-26/round9/progress.md",
+      "../../../qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md"
+    ],
+    "remaining": "Native gizmo/sketch/context, full multidocument/media controls, selected biological rig/organ and source preservation, actual human/agent and contributor/reviewer acceptance remain open."
+  },
+  "historical_station_first_slice_2026_10_25": {
+    "priority": "P0 bounded authoring slice for the selected growing station; UI parity proof remains pending",
+    "features": [
+      "CAD-3D-01",
+      "CAD-3D-02",
+      "CAD-3D-03",
+      "CAD-3D-04",
+      "CAD-3D-05"
+    ],
+    "already_built_poet_hooks": [
+      "native/src/graphical/authoring/controls.rs::assembly part select; AuthoringEdit::Transform; AuthoringEdit::Material; Compile source, materials and parts into HMC controls",
+      "native/src/graphical/authoring/mod.rs::PartView/AuthoringView/AuthoringEdit",
+      "native/src/graphical/assembly/{admission,compile,render}.rs and native/src/graphical/materials.rs; canonical QualiaDB MaterialRecord/.10d UV/MAT/HMC reuse",
+      "wasm/src/tool_chest/core::{construct,registry,tool,intent_bus}.rs shared context/tool/intent layer; no native adapter integrated here yet"
+    ],
+    "important_limits": [
+      "CADCraft selection/snap/parametric sources are primarily 2D; CAD docs specifically list 3D object snaps as missing.",
+      "Poet native part selection and numeric TRS/material controls are already source-present, but there is no qualified common WASM/native 3D selection/gizmo interaction contract in this inventory.",
+      "Current Poet material authoring is factor-only and rejects texture bindings; .10d UV section compilation is present, UV/material-map editing UI is not established.",
+      "No plane-based 3D sketch, 3D constraints/snap solver, textured surface workflow, integrated Tool Chest route, or accepted growing-station user workflow is claimed."
+    ]
+  },
+  "current_reconciliation": {
+    "review_ref": "../../../qa/implementation-2026-10-26/poet-tooling-review/poet-authoring.md",
+    "comprehensive_scope_ref": "../poet-comprehensive-authoring-review.md",
+    "native_shared_intent_bus": "Implemented for selected authenticated source/spatial actions; old absence statement superseded.",
+    "native_material_uv": "Current maps/UV/atlas/detail operations exist; old factor-only finding superseded for those selected operations.",
+    "workspace": "Original Construct/Studio seed reused; list/partial containers are not complete native Manifold or media/document editors.",
+    "app_contract": "Existing qualia-app-contract types/trait need compatibility and functional conformance review; default methods are not proof.",
+    "parity_status": "All 30 original feature-family dispositions preserved pending; selected source/test evidence does not pass lossless UI parity."
+  },
+  "additional_source_review": "../../../qa/implementation-2026-10-26/effectcraft-review/README.md",
+  "historical_counts": {
+    "snapshot": "2026-10-26.2",
+    "apps": 11,
+    "representative_pending_rows": 30
+  }
+}

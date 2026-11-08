@@ -1,0 +1,15 @@
+module <https://webizen.org/ecopunk/modules/talbingo_ecosystem>;
+
+pure fn ecosystem_profile() -> Record {
+    return {
+        sectorId: "talbingo",
+        biome: "Temperate Riverine Montane Valley",
+        baseElevationM: 385.0,
+        waterLevelM: 383.8,
+        riverFlowM3S: 42.5,
+        dominantCanopy: "Eucalyptus camaldulensis",
+        dominantFauna: "Macropus giganteus",
+        soilTexture: "Silty alluvial loam",
+        slgaDepthM: 1.85
+    };
+}

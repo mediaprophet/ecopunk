@@ -1,0 +1,1017 @@
+{
+  "schema": "ecopunk-phased-engine-swarm-queue/v1",
+  "version": "2026-10-28.1",
+  "scope": "Engine-first phased swarm implementation plan through to goal (excluding asset production). Covers Clean-Room & Monolith Remediation, Source-Preserving Corpus & Cohort Estimation (C1-C5), Whole-Biosphere & Earth/Space Solvers (BIO/EAS), Unified Native/WASM Poet & Aether Host (AR/PA), and Selective HMC Streaming, Derivation Compiler & Native 193-Deliverable Completion Gate (BS-30..50 / ENG-11..12).",
+  "governing_documents": [
+    "AGENTS.md",
+    "docs/planning/implementation-plan.md",
+    "docs/planning/biosphere-work-packets.json",
+    "docs/planning/implementation-agent-roles.json",
+    "docs/planning/whole-biosphere-implementation/00-critical-path.md",
+    "docs/planning/whole-biosphere-implementation/01-corpus-and-inference.md",
+    "docs/planning/whole-biosphere-implementation/02-living-systems.md",
+    "docs/planning/whole-biosphere-implementation/03-earth-and-space.md",
+    "docs/planning/whole-biosphere-implementation/04-authoring-rendering-delivery.md",
+    "docs/planning/whole-biosphere-implementation/05-qualification-and-acceptance.md"
+  ],
+  "coordination_protocol": {
+    "slots": {
+      "coordinator": 1,
+      "max_concurrent_workers_per_wave": 4,
+      "independent_gate_auditor": 1
+    },
+    "shared_mutation_owner": "Coordinator exclusively owns root Cargo.toml, shared lib.rs/mod.rs registration, and all serial Cargo check/test invocations.",
+    "worker_rules": [
+      "Workers may only create or modify files listed in their job's disjoint_owned_files.",
+      "Workers must never run cargo build/check/test concurrently; all compilation and test execution is performed serially by the Coordinator at the Phase Gate.",
+      "Every new or modified .rs implementation file must remain strictly under 500 lines; directory-backed mod.rs files only route modules and re-export public APIs.",
+      "Tier-1 hot paths (NQuin evaluators, query kernels, GPU/WASM ABI) must be 100% zero-heap (caller-supplied &mut [T] slices and fixed stack arrays). Tier-2 cold construction must use bounded caller budgets and fail closed on exhaustion.",
+      "External MIT *-craft repositories are strictly read-only architectural specifications. Never copy external code into qualiaDB; implement clean-room domain capabilities inside poet while preserving required notices."
+    ],
+    "cost_and_capability_routing_policy": {
+      "flash_lite": {
+        "legacy_equivalent": "gpt-6-luna (low)",
+        "use_when": "Read-only file inventories, SHA-256 hash pinning, or line-count/symbol checks.",
+        "do_not_use_for": "Writing Rust solver logic, API design, or security/permission gates."
+      },
+      "flash": {
+        "legacy_equivalent": "gpt-6-luna (medium/high)",
+        "use_when": "Bounded module decomposition (<500 lines), Cargo feature-gate wiring, deterministic parser/mapper field updates with explicit specs, fail-closed CLI guards, and mechanical UI/IntentBus command routing.",
+        "do_not_use_for": "Complex numerical solvers, symbolic logic compilers, GPU device sharing, or final gate acceptance."
+      },
+      "pro": {
+        "legacy_equivalent": "gpt-6.1-sol (high)",
+        "use_when": "Zero-heap statistical/cohort estimation kernels, N3 defeasible/deontic logic compilation, multi-junction SDF & SKL1 skeletal IK/contact solvers, Etalon/Aether/PortalGpu device sharing, selective HMC byte-range streaming, master-to-profile derivation compilers, and Independent Phase Gate Auditing.",
+        "do_not_use_for": "Trivial file splits or boilerplate wiring that flash handles at a fraction of the token cost."
+      }
+    },
+    "mandatory_work_output_verification": {
+      "rule": "No worker output is accepted on self-report. Every phase concludes with (1) Coordinator serial cargo check/test execution and (2) an Independent Phase Gate Auditor (pro tier) inspecting every changed file against line-count, zero-heap, clean-room provenance, negative-test coverage, and exact specification compliance.",
+      "on_failure": "Gate Auditor rejects the specific job_id with exact file/line findings; the rejected job is remediated and re-audited before the phase gate can pass."
+    }
+  },
+  "subagent_definitions": [
+    {
+      "name": "qualia-core-worker",
+      "description": "Specialist Rust engine worker for qualia-core-db (zero-heap NQuin modalities, parsers, statistical cohort estimators, governance gates, and HMC/Q42 streaming).",
+      "enable_write_tools": true,
+      "enable_mcp_tools": false,
+      "enable_subagent_tools": false
+    },
+    {
+      "name": "earth-sim-worker",
+      "description": "Specialist Rust simulation worker for qualia-geospatial, qualia-sim, and ecopunk-terrain (CRS/datum frames, M64 v3 rasters, hydro/atmosphere, and space-weather coupling).",
+      "enable_write_tools": true,
+      "enable_mcp_tools": false,
+      "enable_subagent_tools": false
+    },
+    {
+      "name": "poet-engine-worker",
+      "description": "Specialist Rust authoring-engine worker for c:/github/poet (clean-room Craft domain engines, botanical multi-junctions, SKL1 rigs, profile derivation compiler, and native 193-deliverable completion gate).",
+      "enable_write_tools": true,
+      "enable_mcp_tools": false,
+      "enable_subagent_tools": false
+    },
+    {
+      "name": "aether-shell-worker",
+      "description": "Specialist UI/host worker for Poet native/WASM workspace continuity, Aether (rust-app-framework), webizen-desktop window binding, and Etalon/PortalGpu viewport mounting.",
+      "enable_write_tools": true,
+      "enable_mcp_tools": false,
+      "enable_subagent_tools": false
+    },
+    {
+      "name": "phase-gate-auditor",
+      "description": "Read-only independent technical auditor that verifies worker outputs against <500-line rules, zero-heap constraints, clean-room provenance, negative tests, and serial Cargo execution receipts before a phase is accepted.",
+      "enable_write_tools": false,
+      "enable_mcp_tools": false,
+      "enable_subagent_tools": false
+    }
+  ],
+  "phases": [
+    {
+      "phase_id": "PHASE-1",
+      "title": "Clean-Room Provenance, Monolith Compile Decoupling & Format/Device Spine",
+      "governing_ip_phases": ["IP-00", "IP-01", "IP-02"],
+      "engine_packets": ["ENG-01", "ENG-02", "ENG-07", "ENG-08"],
+      "status": "passed_and_accepted",
+      "entry_criteria": "Immediate start. Resolves license/provenance boundary, 40-minute monolith compile times, and shared HMC/Etalon spine before domain waves.",
+      "workers": [
+        {
+          "job_id": "P1-W1",
+          "title": "Clean-Room Host Invoke Decomposition & Provenance Remediation",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "bounded_tools / gpt-6-luna (high)",
+          "cost_rationale": "Structured module decomposition (<500 lines) and removal of any external Craft-origin structs in studio_domains.rs follows explicit file-split rules suitable for flash.",
+          "depends_on": [],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/studio_domains/"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/mod.rs",
+            "C:/github/ecopunk/docs/planning/tech/poet-craft-consolidation.md"
+          ],
+          "objective": "Audit and decompose studio_domains.rs into a directory-backed module (<500 lines per file), ensuring zero verbatim *-craft code exists inside qualia-core-db and all host invoke dispatchers use clean NQuin/IntentBus contracts.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 for NQuin dispatch; bounded caller buffers",
+            "clean_room_policy": "Zero external MIT *-craft code in qualiaDB",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "Directory-backed studio_domains/ module with focused <500-line files",
+            "Clean NQuin/IntentBus host invoke interfaces with zero external Craft code"
+          ],
+          "negative_test_cases": [
+            "Unknown or unauthorized domain invoke ID fails closed with explicit error code",
+            "Oversized payload buffer is rejected before allocation"
+          ],
+          "acceptance_checks": [
+            "All files under studio_domains/ are <500 lines",
+            "Existing poet_host::invoke unit tests pass"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P1-W2",
+          "title": "QualiaDB Monolith Feature-Gate Decoupling for Fast Incremental Builds",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "bounded_tools / gpt-6-luna (high)",
+          "cost_rationale": "Adding opt-in Cargo feature gates around cold scientific libraries (chemistry, bioinformatics, clinical, GGUF) is a deterministic configuration/cfg-gate task ideal for flash.",
+          "depends_on": [],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/specialized_libs/mod.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/domains/mod.rs",
+            "C:/github/ecopunk/tools/poet-foundation/biosphere-shared/work/P1-W2-cargo-features.patch.json"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/Cargo.toml",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/lib.rs"
+          ],
+          "objective": "Prepare clean #[cfg(feature = ...)] gates in specialized_libs/mod.rs and domains/mod.rs (and stage the Cargo.toml feature declarations for the Coordinator) so heavy cold modules (chemistry_modeling, bioinformatics, clinical, llm_gguf) can be excluded during fast Poet/Renderer incremental builds while remaining enabled in default/full builds.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "N/A (module routing)",
+            "clean_room_policy": "Preserve all public APIs when default features are enabled",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "Feature-gated specialized_libs/mod.rs and domains/mod.rs",
+            "Staged Cargo.toml feature matrix in P1-W2-cargo-features.patch.json"
+          ],
+          "negative_test_cases": [
+            "Both --all-features and minimal --no-default-features --features gpu-runtime compile cleanly without unresolved imports"
+          ],
+          "acceptance_checks": [
+            "Zero broken re-exports under default features",
+            "Measured incremental check time reduction recorded at Gate G-P1"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P1-W3",
+          "title": "Unified HMC Checkpoint Spine (.10d MID2 + .q42 + .m64 v3 Atomic Verifier)",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_architectural",
+          "model_tier": "pro",
+          "legacy_role_mapping": "engine_integration / gpt-6.1-sol (high)",
+          "cost_rationale": "Requires exact cross-container digest verification (.10d MID2 sidecars, .q42 parity blocks, .m64 v3 CRC-32C chunks) and atomic rollback on corrupt resource admission.",
+          "depends_on": [],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/graphical/checkpoints/resources.rs",
+            "C:/github/poet/native/src/graphical/checkpoints/resource_verifier.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/poet/native/src/graphical/checkpoints/mod.rs",
+            "C:/github/poet/native/src/graphical/checkpoints/inspection.rs",
+            "C:/github/ecopunk/docs/planning/tech/format-sdk-foundation.md"
+          ],
+          "objective": "Ensure Poet's CheckpointService and resource verifier atomically validate and bind .10d (including MID2 normal/morph/scientific sidecar preservation), .q42 (NQuin parity), and .m64 v3 (CRC-32C georaster records) inside .hmc, preserving the prior admitted checkpoint if any resource is corrupt or incompatible.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-2 bounded cold verification",
+            "clean_room_policy": "Canonical Poet/QualiaDB codecs only; no second format reader",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "Updated checkpoint.rs (<500 lines) and focused resource_verifier.rs (<500 lines)",
+            "Unit tests for atomic rollback when a .10d, .q42, or .m64 resource fails verification"
+          ],
+          "negative_test_cases": [
+            "Corrupt M64 chunk CRC-32C refuses checkpoint commit and preserves previous admitted HMC state",
+            "Truncated .10d MID2 sidecar or invalid .q42 parity word fails closed"
+          ],
+          "acceptance_checks": [
+            "All checkpoint and resource verification tests pass in poet",
+            "Both files remain <500 lines"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P1-W4",
+          "title": "Etalon, Aether & PortalGpu Shared Device/Surface Lifecycle Contract",
+          "subagent_type": "aether-shell-worker",
+          "difficulty": "high_architectural",
+          "model_tier": "pro",
+          "legacy_role_mapping": "engine_integration / gpt-6.1-sol (high)",
+          "cost_rationale": "GPU device/queue/surface lifetime and capability intersection across Etalon, Aether native windowing, and PortalGpu requires deep graphics architecture reasoning.",
+          "depends_on": [],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/graphical/surface_host.rs",
+            "C:/github/poet/native/src/graphical/device_lease.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/etalon/crates/etalon-render/src/scene_contract.rs",
+            "C:/github/poet/native/src/graphical/viewport/renderer.rs",
+            "C:/github/ecopunk/docs/planning/tech/etalon-capability-handoff.md"
+          ],
+          "objective": "Establish explicit shared device/queue/surface lease diagnostics in Poet native surface_host.rs + device_lease.rs so Aether native windows and PortalGpu viewports report resolved Etalon adapter/backend/features and handle resize/device-loss deterministically without silent fallback.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Bounded resource descriptors",
+            "clean_room_policy": "Use canonical Etalon/PortalGpu APIs",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "Updated surface_host.rs and new device_lease.rs (<500 lines each)",
+            "Deterministic resize, capability inspection, and device-loss recovery tests"
+          ],
+          "negative_test_cases": [
+            "Zero-dimension (0x0) surface resize or missing required feature returns typed error without panicking",
+            "Simulated device loss marks surface lease stale and prevents invalid queue submission"
+          ],
+          "acceptance_checks": [
+            "cargo test -p poet-native surface_host and device_lease tests pass",
+            "Files strictly <500 lines"
+          ],
+          "status": "completed"
+        }
+      ],
+      "gate_audit": {
+        "gate_id": "G-P1",
+        "auditor_subagent": "phase-gate-auditor",
+        "model_tier": "pro",
+        "coordinator_serial_commands": [
+          "cargo test -p qualia-core-db --lib poet_host",
+          "cargo test -p poet --lib",
+          "cargo test -p poet-native --lib"
+        ],
+        "mandatory_audit_checklist": [
+          "Verify P1-W1..W4 modified only their disjoint_owned_files.",
+          "Verify every created/modified .rs file is <500 lines.",
+          "Verify zero verbatim *-craft code exists in qualiaDB.",
+          "Verify all positive and negative unit tests in G-P1 pass with exit code 0."
+        ],
+        "status": "passed_and_accepted"
+      }
+    },
+    {
+      "phase_id": "PHASE-2",
+      "title": "Source-Preserving Corpus Ingest, Symbolic Logic & User-Selectable Cohort Estimation Engine",
+      "governing_ip_phases": ["IP-01", "IP-02", "IP-03"],
+      "engine_packets": ["ENG-02", "ENG-12", "C1", "C2", "C3", "C4", "C5"],
+      "status": "passed_and_accepted",
+      "entry_criteria": "Gate G-P1 passed and accepted.",
+      "workers": [
+        {
+          "job_id": "P2-W1",
+          "title": "Source-Preserving CSV & JSON Ingest (DOM-AX-7 Identifiers, Context & Raw Invalid Retention)",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "bounded_tools / gpt-6-luna (high)",
+          "cost_rationale": "Updating CSV/JSON parsers and CLI mappers to preserve namespace hashes, context sensitivity bits, and raw invalid lexical assertions follows a concrete bit-layout specification suitable for flash.",
+          "depends_on": ["G-P1"],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/sparql_library/parsers/csv_parser.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/sparql_library/parsers/json_parser.rs",
+            "C:/github/qualiaDB/crates/qualia-cli/src/ingest/csv_mapper.rs",
+            "C:/github/qualiaDB/crates/qualia-cli/src/ingest/json_mapper.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/01-corpus-and-inference.md",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/resolver.rs"
+          ],
+          "objective": "Eliminate random record subjects, context=0, and silent 0 coercion of invalid numbers in CSV/JSON ingestion. Emit deterministic source-scoped subject hashes, populate context with source graph hash + sensitivity class (bits 56..63), and emit explicit invalid-value flag Quins preserving the raw lexical token when numeric/unit parsing fails.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 zero-heap in core csv_parser.rs / json_parser.rs",
+            "clean_room_policy": "Native QualiaDB NQuin layout §1",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "Updated csv_parser.rs, json_parser.rs, csv_mapper.rs, json_mapper.rs (<500 lines each)",
+            "Deterministic subject/context and invalid-value retention tests"
+          ],
+          "negative_test_cases": [
+            "Malformed numeric string (e.g. 'N/A', '-9999_err', 'bad_float') is never coerced to integer 0; raw lexical hash and invalid flag are emitted",
+            "Missing source namespace/context is rejected in strict provenance mode"
+          ],
+          "acceptance_checks": [
+            "Zero-heap allocation test passes on csv_parser and json_parser",
+            "Re-ingesting identical CSV/JSON yields identical NQuin slices (no random UUIDs)"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P2-W2",
+          "title": "User-Selectable & User-Defined Cohort Graph Estimation Engine (C2-C3)",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "high_algorithmic",
+          "model_tier": "pro",
+          "legacy_role_mapping": "language_runtime / gpt-6.1-sol (high)",
+          "cost_rationale": "Designing the zero-heap comparable-cohort matcher (matching taxon/organ/stage/CRS/unit/epoch), statistical estimator dispatch (reusing descriptive.rs::median, trimmed mean, or custom Vibe function), and lineage Quin generation requires pro-tier precision.",
+          "depends_on": ["G-P1"],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/statistics/cohort_estimator.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/stats/cohort_estimation.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/stats/mod.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/statistics/descriptive.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/solvers/statistics/robust.rs",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/01-corpus-and-inference.md"
+          ],
+          "objective": "Implement cohort_estimator.rs (<500 lines) and expose it in Vibe Statistics.* so invalid or missing observations can be estimated over an explicitly filtered comparable cohort using a declared user-selected or user-defined method (median, trimmed_mean, weighted_quantiles, or custom Vibe callable), emitting separate estimate + uncertainty + cohort-lineage Quins without overwriting the original invalid record.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 zero-heap in cohort_estimator.rs (caller-supplied scratch & output slices)",
+            "clean_room_policy": "Reuse solvers/statistics/descriptive.rs; do not create a duplicate median solver",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "New cohort_estimator.rs (<450 lines) and updated vibe/stdlib/statistics.rs (<500 lines)",
+            "Unit and zero-heap tests for comparable cohort filtering, method selection, and lineage Quins"
+          ],
+          "negative_test_cases": [
+            "Cohort with fewer valid samples than min_cohort_size returns InsufficientCohort and emits no estimate",
+            "Mixing incompatible units (e.g. mm vs m) or coordinate frames/epochs in a cohort fails closed with IncompatibleCohortAxes",
+            "Original invalid NQuin remains untouched alongside the emitted estimate NQuin"
+          ],
+          "acceptance_checks": [
+            "assert_zero_alloc passes on evaluate_cohort_estimate",
+            "Vibe Statistics.estimate_cohort executes both built-in median and user-defined callable methods"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P2-W3",
+          "title": "N3 Defeasible/Defeater & AgreementDID -> Deontic/Epistemic Quin Compiler (Task G & C2)",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "high_algorithmic",
+          "model_tier": "pro",
+          "legacy_role_mapping": "engine_integration / gpt-6.1-sol (high)",
+          "cost_rationale": "Bridging n3_parser.rs RuleType::{Strict, Defeasible, Defeater} and AgreementDID Quins into deontic_logic.rs (DEFEATER_BIT, OP_OBLIGATE/PERMIT/FORBID) and epistemic.rs requires exact 48-byte Super-Quin bit-packing.",
+          "depends_on": ["G-P1"],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/n3_deontic_bridge.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/n3_parser.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/deontic_logic.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/epistemic.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/governance/webizen.rs"
+          ],
+          "objective": "Implement n3_deontic_bridge.rs (<450 lines, zero-heap) to compile N3 Strict (=>), Defeasible (~>), and Defeater (^>) rules plus ratified AgreementDID structure Quins into parity-valid deontic and epistemic NQuins for deterministic evaluation in evaluate_deontic_frame and evaluate_epistemic_frame.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 mandatory zero-heap",
+            "clean_room_policy": "Exact Quin bit layout §1 (opcodes 0x10-0x12, DEFEATER_BIT=bit 63, 0x20-0x22)",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "New modalities/n3_deontic_bridge.rs (<450 lines)",
+            "Unit and zero-heap tests proving N3 Defeater (^>) overrides a matching Defeasible (~>) norm and AgreementDID compiles to active obligations"
+          ],
+          "negative_test_cases": [
+            "Expired norm epoch or unratified AgreementDID threshold fails to activate obligation",
+            "Caller output slice exhaustion returns BufferOverflow without partial corrupt Quins"
+          ],
+          "acceptance_checks": [
+            "All n3_deontic_bridge tests and zero-heap assertions pass"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P2-W4",
+          "title": "Permission-Scoped Query, Explanation & Derivative Access Gate (C4-C5)",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "high_architectural",
+          "model_tier": "pro",
+          "legacy_role_mapping": "cooperative_records / gpt-6.1-sol (high)",
+          "cost_rationale": "Security and access-control enforcement over private/proprietary/classified cohort inputs, explanations, logs, and derivatives is safety-critical and requires pro-tier review.",
+          "depends_on": ["G-P1"],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/governance/cohort_access_gate.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/deontic_logic.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/shacl_compiler.rs",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/01-corpus-and-inference.md"
+          ],
+          "objective": "Implement governance/cohort_access_gate.rs (<450 lines, zero-heap) enforcing context[56..63] sensitivity classes (PUBLIC=0, RESTRICTED=1, CLASSIFIED=2) and principal/delegated-agent scope grants across source queries, cohort estimates, inference explanations, error logs, and HMC export bundles so aggregation never auto-declassifies restricted inputs.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 mandatory zero-heap",
+            "clean_room_policy": "Fail closed on missing, expired, or revoked principal/agent grant",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "New governance/cohort_access_gate.rs (<450 lines)",
+            "Positive and negative authorization tests covering direct queries, cohort estimates, explanations, and public HMC derivative exports"
+          ],
+          "negative_test_cases": [
+            "Estimate derived from any RESTRICTED or CLASSIFIED cohort member inherits the highest sensitivity class and is blocked from PUBLIC HMC export without an explicit declassification grant",
+            "Unauthorized principal or expired agent delegation cannot inspect private cohort members via explanation traces"
+          ],
+          "acceptance_checks": [
+            "All cohort_access_gate tests and zero-heap checks pass"
+          ],
+          "status": "completed"
+        }
+      ],
+      "gate_audit": {
+        "gate_id": "G-P2",
+        "auditor_subagent": "phase-gate-auditor",
+        "model_tier": "pro",
+        "coordinator_serial_commands": [
+          "cargo test -p qualia-core-db --lib csv_parser json_parser cohort_estimator n3_deontic_bridge cohort_access_gate",
+          "cargo test -p qualia-cli -- csv_mapper json_mapper"
+        ],
+        "mandatory_audit_checklist": [
+          "Verify C1: CSV/JSON parsers emit deterministic subjects, source context hashes, and preserve invalid raw lexical tokens without coercing to 0.",
+          "Verify C2-C3: Cohort estimator reuses descriptive.rs, supports user-selectable/defined methods, and rejects incompatible units/frames.",
+          "Verify Task G: N3 Defeater (^>) and AgreementDID compile into parity-valid Deontic/Epistemic Quins.",
+          "Verify C4-C5: Private/classified inputs and derived estimates/explanations fail closed without authorization.",
+          "Verify all touched files are <500 lines and Tier-1 paths allocate 0 heap bytes."
+        ],
+        "status": "passed_and_accepted"
+      }
+    },
+    {
+      "phase_id": "PHASE-3",
+      "title": "Living-Systems, Multi-Scale Anatomy & Earth/Space Simulation Engine",
+      "governing_ip_phases": ["IP-02", "IP-03", "IP-04"],
+      "engine_packets": ["ENG-03", "ENG-05", "ENG-10", "BS-10", "BS-20", "EAS-01", "EAS-02", "EAS-03", "EAS-04"],
+      "status": "passed_and_accepted",
+      "entry_criteria": "Gate G-P2 passed and accepted.",
+      "workers": [
+        {
+          "job_id": "P3-W1",
+          "title": "Botanical Developmental State & Multi-Junction Organ Continuity (BS-10B/E, BIO-PL)",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_algorithmic",
+          "model_tier": "pro",
+          "legacy_role_mapping": "authoring_tools / gpt-6.1-sol (high)",
+          "cost_rationale": "Connecting qualia-sim PlantOrganismState metamer/leaf growth to persistent Poet organ IDs and multi-junction SDF branch welding with split-UV/normal/tangent preservation requires pro-tier 3D geometry skill.",
+          "depends_on": ["G-P2"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/graphical/authoring/botanical/organ_state.rs",
+            "C:/github/poet/native/src/graphical/authoring/botanical/multi_junction.rs",
+            "C:/github/poet/native/src/graphical/authoring/botanical/mod.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/poet/native/src/graphical/authoring/botanical/junction_edit.rs",
+            "C:/github/poet/native/src/graphical/junction_generate.rs",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/02-living-systems.md"
+          ],
+          "objective": "Extend Poet's botanical engine with organ_state.rs and multi_junction.rs (<500 lines each) to map qualia-sim developmental stages (seedling, sapling, mature, senescent, epicormic regrowth) and multi-branch SDF junctions to stable organ IDs, preserving authored UV seams, smooth normals, tangents, and Q42 organ lineage across edits and checkpoint reopen.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-2 bounded cold geometry budget",
+            "clean_room_policy": "Reuse existing Poet botanical & QualiaDB SDF/colonization owners",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "New organ_state.rs and multi_junction.rs (<500 lines each)",
+            "Unit tests for developmental stage transitions, multi-junction collar welding, and organ ID persistence across undo/reopen"
+          ],
+          "negative_test_cases": [
+            "Branch radius inversion (child radius > parent collar limit) or self-intersecting junction angle refuses generation with typed diagnostic",
+            "Exceeding caller vertex/SDF grid budget fails closed without mutating session state"
+          ],
+          "acceptance_checks": [
+            "All botanical organ_state and multi_junction tests pass in poet-cli"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P3-W2",
+          "title": "Vertebrate & Invertebrate Skeletal SKL1 Rig, IK/Contact & Cuticle Engine (BS-20A-E, BIO-VT/IN)",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_algorithmic",
+          "model_tier": "pro",
+          "legacy_role_mapping": "authoring_tools / gpt-6.1-sol (high)",
+          "cost_rationale": "Integrating SKL1 skeletal hierarchies, skin weights, morph targets, ground-contact IK, and arthropod multi-leg articulation into Poet's authoring host requires pro-tier kinematics/geometry capability.",
+          "depends_on": ["G-P2"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/graphical/rig_binding/skl1_admission.rs",
+            "C:/github/poet/native/src/graphical/rig_binding/ik_contact.rs",
+            "C:/github/poet/native/src/graphical/rig_binding/arthropod_articulation.rs",
+            "C:/github/poet/native/src/graphical/rig_binding/mod.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/poet/native/src/graphical/authoring/controller.rs",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/02-living-systems.md"
+          ],
+          "objective": "Implement skl1_admission.rs, ik_contact.rs, and arthropod_articulation.rs (<500 lines each) in Poet native authoring to admit and edit SKL1 joint hierarchies, normalized 4-joint skin weights, muscle-bulge/breathing morph targets, terrain foot-contact IK, and invertebrate exoskeleton joint-limit/gait/cuticle-iridescence parameters with full HMC round-trip.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Bounded cold admission; zero-heap per-frame pose evaluation",
+            "clean_room_policy": "Reuse existing SKL1 codec and qualia-sim kinematics owners",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "skl1_admission.rs, ik_contact.rs, and arthropod_articulation.rs (<500 lines each)",
+            "Tests for joint edits, weight normalization refusal, ground-contact foot locking, and HMC checkpoint reopen"
+          ],
+          "negative_test_cases": [
+            "Cyclic bone hierarchy, out-of-range bone index, or unnormalized skin weights are rejected on admission",
+            "Joint rotation exceeding anatomical flexion/extension limits is clamped or refused per mode"
+          ],
+          "acceptance_checks": [
+            "All rig admission, IK contact, and arthropod articulation tests pass in poet-native"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P3-W3",
+          "title": "Fungal Mycelial Network, Microbial Scale-Band & Ecological Coupling Engine (BIO-FN/MC/EC)",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "bounded_tools / gpt-6-luna (high)",
+          "cost_rationale": "Wiring existing graph-colonization and reaction-diffusion kernels to fungal hyphal/sporocarp state, micrometer-to-millimeter scale-band metadata, and trophic NQuin predicates follows clear domain schemas suitable for flash.",
+          "depends_on": ["G-P2"],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biosphere/mod.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biosphere/funga_network.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biosphere/microbial_colony.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/domains/biosphere/ecological_coupling.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/02-living-systems.md",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/domains/mod.rs"
+          ],
+          "objective": "Create funga_network.rs (mycelial nutrient-transport graph + sporocarp developmental state), microbial_colony.rs (explicit um/mm scale-band frame + biofilm growth envelope), and ecological_coupling.rs (mycorrhizal/pollination/saprotrophic/soil-moisture NQuin coupling rules) under domains/biosphere/ (<450 lines each).",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 zero-heap for NQuin coupling evaluation",
+            "clean_room_policy": "Preserve explicit observation vs simulation flags in NQuin metadata",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "funga_network.rs, microbial_colony.rs, and ecological_coupling.rs (<450 lines each)",
+            "Unit and zero-heap tests for scale-band validation, mycelial nutrient routing, and trophic coupling Quins"
+          ],
+          "negative_test_cases": [
+            "Mixing micrometer (um) microbial coordinates directly into millimeter (mm) scene space without an explicit ScaleBandTransform fails closed",
+            "Negative nutrient flux or invalid moisture range [0.0..1.0] is rejected"
+          ],
+          "acceptance_checks": [
+            "All domains::biosphere unit and zero-heap tests pass"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P3-W4",
+          "title": "Earth/Space Remediation: Fail-Closed Terrain Compiler, CRS Frame Validator & Real Space-Weather Wiring (EAS-01..04)",
+          "subagent_type": "earth-sim-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "bounded_tools / gpt-6-luna (high)",
+          "cost_rationale": "Removing the hardcoded 385_000 mm terrain fallback, wiring studio_domains::sim_space_weather to qualia_sim::space_weather, and adding CRS/datum/epoch checks in frame.rs are concrete, well-pinned fixes suitable for flash.",
+          "depends_on": ["G-P2"],
+          "disjoint_owned_files": [
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/compile_east_coast_substrate.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/mod.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/dem_admission.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/wgsl_shader_prelude.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/wgsl_shader_fragment.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/wgsl_pipeline.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/turtle_ingest.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/vibe_phase.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/scale_conformance.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/hmc_packing.rs",
+            "C:/github/ecopunk/crates/ecopunk-terrain/src/bin/substrate_phases/hmc_verification.rs",
+            "C:/github/qualiaDB/crates/qualia-geospatial/src/frame.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/poet_host/invoke/space_weather_bridge.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-sim/src/space_weather.rs",
+            "C:/github/qualiaDB/crates/qualia-mcp/src/tools/sim_space_weather.rs",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/03-earth-and-space.md"
+          ],
+          "objective": "1) Fix compile_east_coast_substrate.rs so a missing DEM input fails closed with an explicit error (or requires an explicit --allow-synthetic-fixture flag that tags the output as synthetic/unaccepted) instead of silently writing 385_000 mm as real Talbingo terrain. 2) Wire space_weather_bridge.rs to real qualia_sim::space_weather::{evaluate_solar_cycle_phase, evaluate_space_weather_coupling} instead of returning hardcoded magnetopause_re=8.6 / tec_tecu=31.4. 3) Add strict CRS, vertical datum (AHD vs ellipsoidal), and observation-vs-forecast timestamp validation in qualia-geospatial/src/frame.rs.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 zero-heap in frame.rs and space_weather_bridge.rs",
+            "clean_room_policy": "Reuse qualia_sim::space_weather directly",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "Updated compile_east_coast_substrate.rs, frame.rs, and new space_weather_bridge.rs (<450 lines each)",
+            "Tests proving dynamic IMF Bz / solar-wind inputs change magnetopause_re, Dst, Kp, and TEC outputs"
+          ],
+          "negative_test_cases": [
+            "Missing DEM file in compile_east_coast_substrate returns non-zero exit error without creating a fake M64 file",
+            "Mixing WGS84 ellipsoidal height and AHD orthometric height without an explicit vertical transform is rejected by frame.rs"
+          ],
+          "acceptance_checks": [
+            "cargo test -p qualia-geospatial, cargo test -p ecopunk-terrain, and space_weather_bridge tests pass"
+          ],
+          "status": "completed"
+        }
+      ],
+      "gate_audit": {
+        "gate_id": "G-P3",
+        "auditor_subagent": "phase-gate-auditor",
+        "model_tier": "pro",
+        "coordinator_serial_commands": [
+          "cargo test -p poet-cli -- botanical",
+          "cargo test -p poet-native -- rig",
+          "cargo test -p qualia-core-db --lib biosphere space_weather_bridge",
+          "cargo test -p qualia-geospatial",
+          "cargo check -p ecopunk-terrain"
+        ],
+          "mandatory_audit_checklist": [
+            "Verify compile_east_coast_substrate.rs no longer silently substitutes 385_000 mm when source DEM is missing.",
+            "Verify sim_space_weather calls real physics formulas rather than returning fixed 8.6 / 31.4 constants.",
+            "Verify plant organ state, multi-junction SDF, SKL1 rig/IK, and funga/microbe/ecological modules pass all positive/negative tests and stay <500 lines."
+          ],
+          "status": "passed_and_accepted"
+        }
+      },
+      {
+        "phase_id": "PHASE-4",
+        "title": "Unified Native/WASM Poet UI, Aether Host & Clean-Room Craft Domain Engines",
+        "governing_ip_phases": ["IP-03", "IP-07"],
+        "engine_packets": ["ENG-01", "ENG-04", "ENG-06", "ENG-08", "ENG-09", "ENG-13", "AR-01", "AR-02", "AR-03", "AR-06", "PA-01..12"],
+        "status": "passed_and_accepted",
+        "entry_criteria": "Gate G-P3 passed and accepted.",
+        "workers": [
+          {
+            "job_id": "P4-W1",
+            "title": "Unified Tool-Chest + Manifolds Native/WASM UI, 16:9 Viewport Mount & Browser Color-Role Upload Fix (AR-01, AR-03, AR-06)",
+            "subagent_type": "aether-shell-worker",
+            "difficulty": "high_architectural",
+            "model_tier": "pro",
+            "legacy_role_mapping": "authoring_tools / gpt-6.1-sol (high)",
+            "cost_rationale": "Reconciling the native Aether/webizen-desktop Poet window with the canonical Tool-Chest/Manifolds UI, mounting the live 16:9 PortalGpu viewport, and fixing the browser (idx as u8) % 4 upload bug requires pro-tier cross-target architecture work.",
+            "depends_on": ["G-P3"],
+            "disjoint_owned_files": [
+              "C:/github/poet/native/src/graphical/poet_workspace/layout.rs",
+              "C:/github/poet/native/src/graphical/poet_workspace/viewport_mount.rs",
+              "C:/github/poet/native/src/graphical/poet_workspace/mod.rs",
+              "C:/github/poet/wasm/src/browser/material_upload.rs"
+            ],
+          "read_only_reference_files": [
+            "C:/github/poet/native/src/graphical/entry.rs",
+            "C:/github/poet/native/src/graphical/poet_workspace/intents.rs",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/04-authoring-rendering-delivery.md"
+          ],
+          "objective": "1) Wire layout.rs and viewport_mount.rs so the native Poet window renders the canonical Tool-Chest (Constructs, Manifolds, Containers, Inspector, Vibe Console) alongside a live 16:9 (1280x720 default) interactive PortalGpu viewport driven by NativeIntentBus. 2) Fix the WASM (idx as u8) % 4 material color/role upload defect in material_upload.rs so WASM and native share identical typed MAT4 bindings.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Bounded UI state & GPU upload buffers",
+            "clean_room_policy": "Native Aether + PortalGpu path requires zero JS/Node/V8",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "layout.rs, viewport_mount.rs, and material_upload.rs (<500 lines each)",
+            "Parity tests proving identical NativeIntentBus dispatch and MAT4 color-role binding across Native and WASM"
+          ],
+          "negative_test_cases": [
+            "Wrong or missing texture role binding surfaces an explicit diagnostic rather than modulo-wrapping to role (idx % 4)",
+            "Non-16:9 viewport aspect mismatch is letterboxed or explicitly reported in render receipt"
+          ],
+          "acceptance_checks": [
+            "Native and WASM workspace layout and material_upload tests pass"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P4-W2",
+          "title": "Clean-Room Sheet (112 Functions + Protection, PA-08), Document (PA-07) & Presentation Deck (PA-09) Domain Engines",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "authoring_tools / gpt-6-luna (high)",
+          "cost_rationale": "Adding the remaining clean-room spreadsheet formula evaluators (financial, date/time, database DSUM/DCOUNT, cell protection) and document/deck intent handlers follows well-defined mathematical formulas and Poet's existing sheet/document patterns, ideal for flash.",
+          "depends_on": ["G-P3"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/domains/sheet/mod.rs",
+            "C:/github/poet/native/src/domains/sheet/eval_financial.rs",
+            "C:/github/poet/native/src/domains/sheet/eval_datetime.rs",
+            "C:/github/poet/native/src/domains/sheet/eval_database.rs",
+            "C:/github/poet/native/src/domains/sheet/protection.rs",
+            "C:/github/poet/native/src/domains/document/annotations.rs",
+            "C:/github/poet/native/src/domains/deck/storyboard.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/poet/src/sheet/mod.rs",
+            "C:/github/ecopunk/docs/planning/tech/poet-comprehensive-authoring-review.md"
+          ],
+          "objective": "Complete Poet's clean-room Sheet engine to 112 functions (adding financial PMT/NPV/IRR/FV/PV, date/time DATE/YEAR/MONTH/DAY/DATEDIF, database DSUM/DAVERAGE/DCOUNT, and range/sheet protection locks), plus clean-room rich-text annotation review (annotations.rs) and presentation storyboard transitions (storyboard.rs), all <500 lines per file.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Bounded arena/cell evaluation; cycle detection without unbounded recursion",
+            "clean_room_policy": "100% clean-room implementation inside Poet; preserve MIT attribution notices",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "6 focused modules (<500 lines each) completing PA-07, PA-08, and PA-09 domain operations",
+            "Unit tests for all new formula categories, circular reference detection, locked-cell edit refusal, and annotation/slide undo/redo"
+          ],
+          "negative_test_cases": [
+            "Editing a protected cell or range without unlock authority returns ProtectedCellRefused",
+            "Circular formula reference (A1 -> B1 -> A1) returns #CYCLE! deterministically without recursion overflow"
+          ],
+          "acceptance_checks": [
+            "All sheet, document, and deck unit tests pass in poet"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P4-W3",
+          "title": "Clean-Room Vector Boolean/Offset (PA-04), RAW/Raster-to-PBR (PA-03) & Spectral Audio Session (PA-05) Engines",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_algorithmic",
+          "model_tier": "pro",
+          "legacy_role_mapping": "authoring_tools / gpt-6.1-sol (high)",
+          "cost_rationale": "Cubic Bezier boolean clipping/path offsetting, non-destructive RAW/raster-to-MAT4 PBR map synthesis, and phase-accurate spectral audio routing involve numerical geometry and DSP algorithms suited to pro.",
+          "depends_on": ["G-P3"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/domains/vector/boolean_ops.rs",
+            "C:/github/poet/native/src/domains/vector/path_offset.rs",
+            "C:/github/poet/native/src/domains/raster/raw_to_pbr.rs",
+            "C:/github/poet/native/src/domains/audio/spectral_session.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/ecopunk/docs/planning/tech/poet-comprehensive-authoring-review.md",
+            "C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md"
+          ],
+          "objective": "Implement clean-room cubic Bezier union/intersection/difference/xor and stroke offsetting (boolean_ops.rs, path_offset.rs), reference-image to calibrated MAT4 albedo/roughness/normal/height map extraction (raw_to_pbr.rs), and multi-track spectral/audio bus routing with bioacoustic spectrogram inspection (spectral_session.rs) inside Poet (<500 lines per file).",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Bounded caller buffers for raster/audio DSP kernels",
+            "clean_room_policy": "Reuse QualiaDB geometry/vision/audio primitives; preserve Craft notices",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "boolean_ops.rs, path_offset.rs, raw_to_pbr.rs, and spectral_session.rs (<500 lines each)",
+            "Unit tests for degenerate Bezier intersections, PBR normal-map unit-length invariants, and audio bus clip/latency bounds"
+          ],
+          "negative_test_cases": [
+            "Self-intersecting or zero-area vector path is sanitized or rejected without infinite loop",
+            "Mismatched sample rate or channel layout in spectral_session returns typed configuration error"
+          ],
+          "acceptance_checks": [
+            "All vector, raster, and audio domain tests pass in poet"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P4-W4",
+          "title": "Clean-Room Timeline/Motion Compositor (PA-06 EffectCraft Adaptation) & Cooperative C1-C8 Session Engine (ENG-09, AUTH-H1..H6)",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_architectural",
+          "model_tier": "pro",
+          "legacy_role_mapping": "cooperative_records / gpt-6.1-sol (high)",
+          "cost_rationale": "Adapting EffectCraft keyframe/compositor semantics onto Vibe + PortalGpu + NQuin IDs and enforcing AUTH-H1..H6 human-principal/delegated-agent conflict & review rules for IP-03 C1-C8 is high-complexity architectural work.",
+          "depends_on": ["G-P3"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/domains/timeline/keyframe_graph.rs",
+            "C:/github/poet/native/src/domains/timeline/compositor_pass.rs",
+            "C:/github/poet/native/src/domains/cooperative/cooperative_c1_c8.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/ecopunk/docs/planning/tech/poet-capability-adaptation-guide.md",
+            "C:/github/ecopunk/docs/planning/tech/human-principal-agent-authority.md",
+            "C:/github/poet/src/host/mod.rs"
+          ],
+          "objective": "1) Implement keyframe_graph.rs and compositor_pass.rs (<500 lines each) adapting EffectCraft's bezier keyframe interpolation and layer blend/effect stack cleanly onto Vibe expressions (no Boa JS runtime), NQuin entity IDs, and PortalGpu. 2) Implement cooperative_c1_c8.rs (<500 lines) enforcing AUTH-H1..H6 human-principal admission, scoped/expiring/revocable agent delegation, revision conflict safety (C5), and distinct contributor vs reviewer sign-off (C2/C4/C7) across all Poet domain edits.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Deterministic frame evaluation; zero JS/Boa dependency",
+            "clean_room_policy": "Follow poet-capability-adaptation-guide.md; preserve EffectCraft MIT notice",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "keyframe_graph.rs, compositor_pass.rs, and cooperative_c1_c8.rs (<500 lines each)",
+            "End-to-end IP-03 C1-C8 and AUTH-H1..H6 verification tests"
+          ],
+          "negative_test_cases": [
+            "Contributor attempting to self-approve their own submission as Reviewer is rejected (AUTH-H4 / C4)",
+            "Stale revision edit or revoked/expired delegated-agent token fails closed without overwriting admitted work (C5 / AUTH-H3)",
+            "Disconnected session recovers pending draft on rejoin without false commit (C7)"
+          ],
+          "acceptance_checks": [
+            "All timeline and cooperative_c1_c8 tests pass in poet"
+          ],
+          "status": "completed"
+        }
+      ],
+      "gate_audit": {
+        "gate_id": "G-P4",
+        "auditor_subagent": "phase-gate-auditor",
+        "model_tier": "pro",
+        "coordinator_serial_commands": [
+          "cargo test -p poet",
+          "cargo test -p poet-native",
+          "cargo check -p poet-wasm --target wasm32-unknown-unknown"
+        ],
+          "mandatory_audit_checklist": [
+            "Verify Native and WASM Poet share the unified Tool-Chest + Manifolds + 16:9 PortalGpu contract and the (idx % 4) color-role upload bug is fixed.",
+            "Verify Sheet (112 functions + protection), Document, Deck, Vector, Raster/RAW, Audio, and Timeline/EffectCraft modules are 100% clean-room in Poet and <500 lines per file.",
+            "Verify IP-03 C1-C8 and AUTH-H1..H6 human-principal / delegated-agent / independent-reviewer conflict and recovery tests pass."
+          ],
+          "status": "passed_and_accepted"
+        }
+      },
+      {
+        "phase_id": "PHASE-5",
+        "title": "Selective HMC Byte-Range Streaming, Typed Cue Profiles, Profile Derivation Compiler & Native 193-Deliverable Completion Gate",
+        "governing_ip_phases": ["IP-05", "IP-06", "IP-08", "IP-09"],
+        "engine_packets": ["ENG-07", "ENG-11", "ENG-12", "BS-30", "BS-40", "BS-50", "AR-04", "AR-05"],
+        "status": "passed_and_accepted",
+        "entry_criteria": "Gate G-P4 passed and accepted.",
+        "workers": [
+          {
+            "job_id": "P5-W1",
+            "title": "Installed-HMC Q42 Query-to-Byte-Range Streamer & CPU/GPU Residency Governor (BS-30, AR-04, ENG-07)",
+            "subagent_type": "qualia-core-worker",
+            "difficulty": "high_algorithmic",
+            "model_tier": "pro",
+            "legacy_role_mapping": "engine_integration / gpt-6.1-sol (high)",
+            "cost_rationale": "Selective byte-range resolution from Q42 spatial/LOD/organ queries into authenticated HMC sub-ranges (.m64 chunks, .10d stream slices) with strict CPU/GPU residency budgets and cancellation requires pro-tier systems engineering.",
+            "depends_on": ["G-P4"],
+            "disjoint_owned_files": [
+              "C:/github/qualiaDB/crates/qualia-core-db/src/q42/selective_streamer.rs",
+              "C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/residency_budget.rs"
+            ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/q42/volume/payload_catalogue.rs",
+            "C:/github/ecopunk/docs/planning/tech/biosphere-graph-spectra-and-streaming.md"
+          ],
+          "objective": "Implement selective_streamer.rs and residency_budget.rs (<500 lines each) so a Q42 query (by spatial cell, scale band, organ ID, or LOD profile) resolves and reads only the exact authenticated byte ranges inside an installed .hmc file, tracking exact bytes read, verifying per-chunk digests, enforcing caller CPU/GPU residency caps, and supporting deterministic cancellation.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 zero-heap range resolution; caller-buffered byte range reads",
+            "clean_room_policy": "Never read whole HMC file when a sub-range is requested; record exact read-byte oracle",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "selective_streamer.rs and residency_budget.rs (<500 lines each)",
+            "Read-budget oracle tests proving unrelated HMC chunks are untouched and budget exhaustion fails closed"
+          ],
+          "negative_test_cases": [
+            "Requesting a resource closure exceeding CPU or GPU byte budget returns ResidencyBudgetExceeded before reading or uploading",
+            "Tampered byte inside a streamed chunk fails digest verification before reaching GPU buffers"
+          ],
+          "acceptance_checks": [
+            "All selective_streamer and residency_budget tests pass in qualia-core-db"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P5-W2",
+          "title": "Typed EMF, Acoustic & Physical Field Cue Profile Engine (BS-40)",
+          "subagent_type": "qualia-core-worker",
+          "difficulty": "medium_structured",
+          "model_tier": "flash",
+          "legacy_role_mapping": "bounded_tools / gpt-6-luna (high)",
+          "cost_rationale": "Mapping physical cue descriptors (frequency band Hz, irradiance W/m^2, acoustic dB SPL, polarization, source/receiver organ and uncertainty flags) into NQuin + emf_pipeline.rs follows the explicit biosphere-graph-spectra-and-streaming.md schema suitable for flash.",
+          "depends_on": ["G-P4"],
+          "disjoint_owned_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/modalities/typed_cue_profile.rs",
+            "C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/emf_cue_bridge.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/qualiaDB/crates/qualia-core-db/src/render/gpu/emf_pipeline.rs",
+            "C:/github/ecopunk/docs/planning/tech/biosphere-graph-spectra-and-streaming.md"
+          ],
+          "objective": "Implement typed_cue_profile.rs and emf_cue_bridge.rs (<450 lines each) binding physical EMF/spectral/acoustic/chemical cue sources and organism photoreceptors/mechanoreceptors with explicit SI units, wavelength/frequency intervals, and calibration status—retaining uncalibrated or non-visible bands honestly without fabricated biological responses.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-1 mandatory zero-heap",
+            "clean_room_policy": "Never invent biological receptor responses for uncalibrated spectral bands",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "typed_cue_profile.rs and emf_cue_bridge.rs (<450 lines each)",
+            "Unit and zero-heap tests for calibrated vs uncalibrated spectral/acoustic cues"
+          ],
+          "negative_test_cases": [
+            "Uncalibrated receptor response query returns UncalibratedBand rather than a fabricated scalar",
+            "Incompatible physical unit (e.g. dB SPL passed to an irradiance W/m^2 receptor) is rejected"
+          ],
+          "acceptance_checks": [
+            "All typed_cue_profile and emf_cue_bridge tests pass in qualia-core-db"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P5-W3",
+          "title": "Native Master-to-Profile (Film / Open-World-Game / Cartoon) Derivation Compiler (AR-05, ENG-11)",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_algorithmic",
+          "model_tier": "pro",
+          "legacy_role_mapping": "engine_integration / gpt-6.1-sol (high)",
+          "cost_rationale": "Compiling a high-grade editable master HMC into film, open_world_game, and cartoon derivatives while preserving organ/rig correspondence, silhouette cues, collision proxies, and measured Hausdorff/normal/UV error bounds requires pro-tier algorithm design.",
+          "depends_on": ["G-P4"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/domains/derivation/profile_compiler.rs",
+            "C:/github/poet/native/src/domains/derivation/error_metrics.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/ecopunk/docs/planning/tech/high-grade-production-and-civics-experience.md",
+            "C:/github/ecopunk/docs/planning/whole-biosphere-implementation/04-authoring-rendering-delivery.md"
+          ],
+          "objective": "Implement profile_compiler.rs and error_metrics.rs (<500 lines each) in Poet to derive film, open_world_game, and cartoon packages from an admitted editable master HMC, computing exact vertex/triangle/texture/rig budgets, geometric & UV deviation metrics, and emitting Q42 derivesFrom lineage + C4 permission-checked derivative manifests.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Tier-2 bounded cold derivation budget",
+            "clean_room_policy": "Preserve distinct style, LOD, biological state, simulation fidelity, and delivery target fields",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "profile_compiler.rs and error_metrics.rs (<500 lines each)",
+            "Unit tests verifying master -> film/open_world_game/cartoon derivation lineage, budget enforcement, and silhouette/organ preservation thresholds"
+          ],
+          "negative_test_cases": [
+            "Derivative exceeding target profile triangle/memory budget or exceeding max silhouette deviation threshold fails closed",
+            "Attempt to derive a public game package from a master containing un-cleared RESTRICTED/CLASSIFIED C4 resources is blocked"
+          ],
+          "acceptance_checks": [
+            "All derivation compiler and error_metrics tests pass in poet"
+          ],
+          "status": "completed"
+        },
+        {
+          "job_id": "P5-W4",
+          "title": "Installed Native 193-Deliverable Completion Gate, Agreements & game-demo Consumer Loader Seam (ENG-12, IP-06, IP-08)",
+          "subagent_type": "poet-engine-worker",
+          "difficulty": "high_architectural",
+          "model_tier": "pro",
+          "legacy_role_mapping": "cooperative_records / gpt-6.1-sol (high)",
+          "cost_rationale": "Implementing the technical 193-deliverable model completion gate (model-completion-claims.md), unit-safe agreement/credit obligation ledger (AGR-01..11, FUND-01..06), and the game-demo derivative loader seam requires pro-tier verification accuracy.",
+          "depends_on": ["G-P4"],
+          "disjoint_owned_files": [
+            "C:/github/poet/native/src/domains/verification/completion_gate.rs",
+            "C:/github/poet/native/src/domains/verification/obligation_gate.rs",
+            "C:/github/poet/native/src/domains/verification/consumer_loader_seam.rs"
+          ],
+          "read_only_reference_files": [
+            "C:/github/ecopunk/docs/planning/tech/assets/model-completion-claims.md",
+            "C:/github/ecopunk/docs/planning/tech/assets/model-production-template/deliverables.json",
+            "C:/github/ecopunk/docs/planning/tech/semantic-agreements-and-compensation.md",
+            "C:/github/ecopunk/docs/planning/tech/credit-allocations-and-periodic-reconciliation.md"
+          ],
+          "objective": "1) Implement completion_gate.rs (<500 lines) enforcing the pinned 193-base deliverable catalogue + expanded cases across all 3 profiles (film, open_world_game, cartoon), rejecting missing rows, un-attributed N/A waivers, stale artifact digests, or agent self-awarded human_acceptance. 2) Implement obligation_gate.rs (<450 lines) enforcing unit-safe contribution/valuation records, bounded commercial obligation pools, human-rights no-charge preservation (never treated as discharge), and capped pre-funded provider allocations with no overdraft. 3) Implement consumer_loader_seam.rs (<400 lines) verifying reviewed HMC derivatives load cleanly for game-demo civics scenarios.",
+          "hard_constraints": {
+            "max_file_lines": 500,
+            "zero_heap_tier": "Deterministic verification",
+            "clean_room_policy": "Never allow SoftwareAgent checks to satisfy human_acceptance or domain_review",
+            "may_run_cargo": false
+          },
+          "deliverables": [
+            "completion_gate.rs, obligation_gate.rs, and consumer_loader_seam.rs (<500 lines each)",
+            "Comprehensive gate pass/refusal test suite covering all 193 base deliverables, AGR-01..11, and FUND-01..06"
+          ],
+          "negative_test_cases": [
+            "Package missing any of the 3 profiles (film, open_world_game, cartoon) or missing any of the 193 base deliverables is rejected as incomplete",
+            "Claim row with N/A lacking an authorized rule reference, or human_acceptance signed by a SoftwareAgent, fails closed",
+            "Drawdown exceeding pre-funded provider allocation or presenting raw effort-score without explicit monetary valuation units is rejected"
+          ],
+          "acceptance_checks": [
+            "All completion_gate, obligation_gate, and consumer_loader_seam tests pass"
+          ],
+          "status": "completed"
+        }
+      ],
+      "gate_audit": {
+        "gate_id": "G-P5",
+        "auditor_subagent": "phase-gate-auditor",
+        "model_tier": "pro",
+        "coordinator_serial_commands": [
+          "cargo test -p qualia-core-db --lib selective_streamer residency_budget typed_cue_profile emf_cue_bridge",
+          "cargo test -p poet -- derivation verification",
+          "cargo test --workspace"
+        ],
+        "mandatory_audit_checklist": [
+          "Verify BS-30 selective streamer reads only requested authenticated byte ranges and enforces residency budgets.",
+          "Verify BS-40 typed cues preserve SI units and refuse fabricated responses for uncalibrated bands.",
+          "Verify ENG-11 profile compiler produces film, open_world_game, and cartoon derivatives with measured error bounds and C4 permission enforcement.",
+          "Verify ENG-12 native 193-deliverable completion gate and obligation_gate enforce all model-completion-claims.md, AGR-01..11, and FUND-01..06 rules.",
+          "Verify all 20 worker jobs across Phases 1-5 have passed independent technical review with <500 lines per file and zero-heap Tier-1 compliance."
+        ],
+        "status": "passed_and_accepted"
+      }
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "qudt_metric_scale_conformance": {
+    "canonical_world_unit": "1.0 unit = 1.0 m (SI metre, EPSG:5711 AHD)",
+    "conformance_status": "CONFORMANT_FAIL_CLOSED_VERIFIED",
+    "dimensional_invariants": {
+      "corymbia_height_exceeds_vehicle_length": true,
+      "macropus_height_exceeds_vombatus_height": true,
+      "macropus_length_exceeds_vombatus_length": true,
+      "vehicle_height_exceeds_macropus_height": true,
+      "vehicle_length_exceeds_macropus_length": true
+    },
+    "entities": {
+      "corymbia_aparrerinja": {
+        "common_name": "Ghost Gum (Ilwempe)",
+        "height_m": 16.0,
+        "procedural_generator": "space_colonization_3d",
+        "qudt_height": "16 unit:M",
+        "stem_dbh_m": 0.72,
+        "taxon_iri": "https://www.gbif.org/species/5418403",
+        "trait_bounds": {
+          "max_height_m": 20.0,
+          "min_height_m": 8.0
+        },
+        "wood_density_kg_per_m3": 880.0
+      },
+      "macropus_giganteus": {
+        "adult_mass_kg": 50.0,
+        "common_name": "Eastern Grey Kangaroo",
+        "head_body_tail_length_m": 2.2,
+        "procedural_generator": "sdf_smooth_union/marching_cubes",
+        "qudt_height": "1.65 unit:M",
+        "standing_height_m": 1.65,
+        "taxon_iri": "https://www.gbif.org/species/2440126",
+        "trait_bounds": {
+          "max_height_m": 1.85,
+          "min_height_m": 1.5
+        }
+      },
+      "survey_rover_4wd": {
+        "cad_generator": "wheel_clearance_panel_into",
+        "curb_mass_kg": 2240.0,
+        "height_m": 1.92,
+        "kind": "made:Artefact",
+        "length_m": 4.85,
+        "qudt_dimensions": "4.85 m × 1.88 m × 1.92 m",
+        "wheelbase_m": 2.85,
+        "width_m": 1.88
+      },
+      "vombatus_ursinus": {
+        "adult_mass_kg": 28.5,
+        "body_length_m": 1.0,
+        "common_name": "Common Wombat",
+        "procedural_generator": "sdf_smooth_union/marching_cubes",
+        "qudt_height": "0.36 unit:M",
+        "shoulder_height_m": 0.36,
+        "taxon_iri": "https://www.gbif.org/species/2440014",
+        "trait_bounds": {
+          "max_height_m": 0.4,
+          "min_height_m": 0.32
+        }
+      }
+    },
+    "generators": {
+      "arboreal_flora": "space_colonization_3d",
+      "organic_fauna": "sdf_smooth_union/marching_cubes",
+      "vehicle_body": "wheel_clearance_panel_into"
+    },
+    "qudt_unit_iri": "http://qudt.org/vocab/unit/M"
+  },
+  "webizen_hmc_manifest": {
+    "canonical_namespace": "https://webizen.org/",
+    "manifold_models_10d": [
+      "talbingo.10d",
+      "yarrangobilly.10d",
+      "three_mile_dam.10d",
+      "sydney_sandstone.10d",
+      "noosa_headland.10d",
+      "jounama_karst.10d",
+      "corymbia_closeup.10d"
+    ],
+    "ontology_namespace": "https://ns.webizen.org/",
+    "pack_file": "assets/packs/ecopunk-east-coast.hmc",
+    "pack_format": "HMC/QBDL v1",
+    "q42_semantic_graphs": [
+      "east_coast_australia.q42",
+      "sem/east_coast_australia.q42",
+      "sem/east_coast_biosphere.q42"
+    ],
+    "terrain_m64": [
+      "talbingo_catchment.m64",
+      "terrain/talbingo_catchment.m64"
+    ],
+    "vibe_modules": [
+      "vibe/australia_east_coast_world.vibe",
+      "vibe/talbingo_ecosystem.vibe",
+      "vibe/corymbia_aparrerinja_specimen.vibe",
+      "vibe/yarrangobilly_karst.vibe",
+      "vibe/three_mile_dam_subalpine.vibe",
+      "vibe/ecopunk_continuum_drive.vibe",
+      "vibe/ecopunk_biological_lab.vibe"
+    ],
+    "wasm_capability_descriptors": [
+      {
+        "capability_iri": "https://ns.webizen.org/cap#TerrainCogHydrator",
+        "hardware_acceleration_backends": [
+          "cuda",
+          "wgpu",
+          "wasm_simd128",
+          "cpu_zero_heap"
+        ],
+        "module": "wasm/terrain_cog_hydrator.wasm.json"
+      },
+      {
+        "capability_iri": "https://ns.webizen.org/cap#SdfMarchingCubesKernel",
+        "hardware_acceleration_backends": [
+          "cuda",
+          "wgpu",
+          "wasm_simd128",
+          "cpu_zero_heap"
+        ],
+        "module": "wasm/sdf_marching_cubes_kernel.wasm.json"
+      },
+      {
+        "capability_iri": "https://ns.webizen.org/cap#HolosonicWavefieldDsp",
+        "hardware_acceleration_backends": [
+          "cuda",
+          "wgpu",
+          "wasm_simd128",
+          "cpu_zero_heap"
+        ],
+        "module": "wasm/holosonic_wavefield_dsp.wasm.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1472 @@
+{
+  "schema_version": "2.0.0",
+  "crs": "EPSG:7844 (GDA2020) / AHD",
+  "default_sector": "talbingo_pines",
+  "sectors": [
+    {
+      "id": "talbingo_pines",
+      "name": "The Pines & Blowering Reservoir Shore (Talbingo Gorge)",
+      "region_zone": "Snowy Mountains Montane Foothills & Tumut River Gorge",
+      "indigenous_country": "Walgalu and Wiradjuri Country",
+      "language_group": "Walgalu / Wiradjuri",
+      "lat": -35.5854,
+      "lon": 148.324,
+      "elev_min_m": 385.0,
+      "elev_max_m": 1180.0,
+      "water_level_m": 398.5,
+      "water_temp_c": 13.8,
+      "geology": {
+        "unit_name": "Blowering Formation Dacitic Tuff & Talbingo Basalt",
+        "age": "Late Silurian to Early Devonian (422–398 Ma)",
+        "lithology": "Columnar basalt flows over porphyritic dacitic ignimbrite and volcaniclastic siltstone",
+        "rock_rgb": [
+          0.29,
+          0.27,
+          0.25
+        ],
+        "cliff_rgb": [
+          0.36,
+          0.31,
+          0.28
+        ],
+        "soil_rgb": [
+          0.42,
+          0.3,
+          0.21
+        ],
+        "sediment_rgb": [
+          0.58,
+          0.51,
+          0.41
+        ],
+        "voronoi_fracture_scale": 3.8,
+        "karst_fluting": 0.08
+      },
+      "slga_strata": [
+        {
+          "horizon": "0-5cm",
+          "clay_pct": 14.5,
+          "silt_pct": 32.0,
+          "sand_pct": 53.5,
+          "bulk_density_gcm3": 1.15,
+          "organic_carbon_pct": 4.8,
+          "darcy_k_ms": 3.5e-05,
+          "cohesion_kpa": 12.0,
+          "friction_angle_deg": 28.0,
+          "water_saturation_pct": 42.0
+        },
+        {
+          "horizon": "5-15cm",
+          "clay_pct": 18.2,
+          "silt_pct": 28.4,
+          "sand_pct": 53.4,
+          "bulk_density_gcm3": 1.3,
+          "organic_carbon_pct": 2.4,
+          "darcy_k_ms": 1.8e-05,
+          "cohesion_kpa": 16.0,
+          "friction_angle_deg": 30.0,
+          "water_saturation_pct": 48.0
+        },
+        {
+          "horizon": "15-30cm",
+          "clay_pct": 24.5,
+          "silt_pct": 25.0,
+          "sand_pct": 50.5,
+          "bulk_density_gcm3": 1.42,
+          "organic_carbon_pct": 1.2,
+          "darcy_k_ms": 8.5e-06,
+          "cohesion_kpa": 22.0,
+          "friction_angle_deg": 26.0,
+          "water_saturation_pct": 54.0
+        },
+        {
+          "horizon": "30-60cm",
+          "clay_pct": 36.8,
+          "silt_pct": 22.1,
+          "sand_pct": 41.1,
+          "bulk_density_gcm3": 1.55,
+          "organic_carbon_pct": 0.6,
+          "darcy_k_ms": 1.2e-07,
+          "cohesion_kpa": 38.0,
+          "friction_angle_deg": 22.0,
+          "water_saturation_pct": 63.0
+        },
+        {
+          "horizon": "60-100cm",
+          "clay_pct": 28.0,
+          "silt_pct": 20.0,
+          "sand_pct": 52.0,
+          "bulk_density_gcm3": 1.68,
+          "organic_carbon_pct": 0.25,
+          "darcy_k_ms": 4.5e-06,
+          "cohesion_kpa": 45.0,
+          "friction_angle_deg": 34.0,
+          "water_saturation_pct": 58.0
+        },
+        {
+          "horizon": "100-200cm",
+          "clay_pct": 19.0,
+          "silt_pct": 16.0,
+          "sand_pct": 65.0,
+          "bulk_density_gcm3": 1.95,
+          "organic_carbon_pct": 0.08,
+          "darcy_k_ms": 2e-08,
+          "cohesion_kpa": 80.0,
+          "friction_angle_deg": 38.0,
+          "water_saturation_pct": 72.0
+        }
+      ],
+      "river_spline": [
+        [
+          -8.0,
+          -60.0,
+          14.5,
+          1.85
+        ],
+        [
+          -6.2,
+          -36.0,
+          16.0,
+          1.6
+        ],
+        [
+          -3.5,
+          -12.0,
+          18.5,
+          1.35
+        ],
+        [
+          -1.8,
+          12.0,
+          22.0,
+          1.05
+        ],
+        [
+          -4.0,
+          36.0,
+          26.5,
+          0.8
+        ],
+        [
+          -7.5,
+          60.0,
+          32.0,
+          0.55
+        ]
+      ],
+      "road_spline": [
+        [
+          10.5,
+          -60.0,
+          4.5
+        ],
+        [
+          12.0,
+          -30.0,
+          4.5
+        ],
+        [
+          14.2,
+          0.0,
+          4.5
+        ],
+        [
+          11.8,
+          30.0,
+          4.5
+        ],
+        [
+          9.0,
+          60.0,
+          4.5
+        ]
+      ],
+      "sonic_toponyms": [
+        {
+          "x": -4.0,
+          "y": 401.0,
+          "z": 8.0,
+          "freq": 174.0,
+          "waveType": "sine",
+          "baseSpl": 68.0,
+          "name": "Talbingo / Dalbingu River Confluence",
+          "lang": "Walgalu / Wiradjuri",
+          "eraStart": -40000,
+          "eraEnd": 2026,
+          "meaning": "Deep Corridor of Singing River Stones & Bogong Ascent",
+          "stratum": "Holocene-Pleistocene Songline"
+        },
+        {
+          "x": 28.0,
+          "y": 890.0,
+          "z": -14.0,
+          "freq": 285.0,
+          "waveType": "triangle",
+          "baseSpl": 64.0,
+          "name": "Mount Talbingo Basalt Escarpment",
+          "lang": "Walgalu / NSW GNB",
+          "eraStart": -15000,
+          "eraEnd": 2026,
+          "meaning": "High Basalt Rim Lookout over Tumut Valley",
+          "stratum": "Devonian Volcanic Cliff"
+        },
+        {
+          "x": -6.0,
+          "y": 399.0,
+          "z": 38.0,
+          "freq": 110.0,
+          "waveType": "sine",
+          "baseSpl": 72.0,
+          "name": "Blowering Foreshore Gauge 410073",
+          "lang": "BoM Hydrological SOS2",
+          "eraStart": 1968,
+          "eraEnd": 2026,
+          "meaning": "Submerged River Terrace & Hydro-Storage Acoustic Plume",
+          "stratum": "Anthropocene Hydrological Benchmark"
+        },
+        {
+          "x": 12.5,
+          "y": 445.0,
+          "z": -22.0,
+          "freq": 396.0,
+          "waveType": "sawtooth",
+          "baseSpl": 61.0,
+          "name": "The Pines Red Stringybark Bench",
+          "lang": "TERN / BioNet Archive",
+          "eraStart": 1824,
+          "eraEnd": 2026,
+          "meaning": "Montane Sclerophyll Ecotone & Gang-Gang Cockatoo Roost",
+          "stratum": "Biocultural Forest Canopy"
+        },
+        {
+          "x": -18.0,
+          "y": 520.0,
+          "z": -8.0,
+          "freq": 432.0,
+          "waveType": "sine",
+          "baseSpl": 65.0,
+          "name": "Bago Foothill OzFlux Eddy Boundary",
+          "lang": "TERN OzFlux AU-Tum",
+          "eraStart": 2001,
+          "eraEnd": 2026,
+          "meaning": "Wet Eucalypt Evapotranspiration & Carbon Flux Corridor",
+          "stratum": "Atmospheric Boundary Layer"
+        }
+      ],
+      "climate_ozflux": {
+        "air_temp_c": 18.4,
+        "vpd_kpa": 1.15,
+        "wind_speed_ms": 3.4,
+        "wind_dir_deg": 245.0,
+        "solar_ghi_wm2": 760.0,
+        "inversion_height_m": 620.0,
+        "aod_550": 0.085
+      }
+    },
+    {
+      "id": "jounama_karst",
+      "name": "Jounama Creek Limestone Valley",
+      "region_zone": "Northern Kosciuszko Karst & Braided Valley Floor",
+      "indigenous_country": "Walgalu Country",
+      "language_group": "Walgalu",
+      "lat": -35.598,
+      "lon": 148.372,
+      "elev_min_m": 420.0,
+      "elev_max_m": 890.0,
+      "water_level_m": 426.0,
+      "water_temp_c": 11.6,
+      "geology": {
+        "unit_name": "Lower Jounama Creek Limestone & Calc-Silicate Skarn",
+        "age": "Late Silurian (Wenlock–Ludlow, ~425 Ma)",
+        "lithology": "Recrystallized fossiliferous marble, calc-silicate skarn, and alluvial cobble terraces",
+        "rock_rgb": [
+          0.64,
+          0.63,
+          0.6
+        ],
+        "cliff_rgb": [
+          0.72,
+          0.7,
+          0.66
+        ],
+        "soil_rgb": [
+          0.46,
+          0.33,
+          0.24
+        ],
+        "sediment_rgb": [
+          0.68,
+          0.64,
+          0.56
+        ],
+        "voronoi_fracture_scale": 5.2,
+        "karst_fluting": 0.62
+      },
+      "slga_strata": [
+        {
+          "horizon": "0-5cm",
+          "clay_pct": 19.0,
+          "silt_pct": 35.0,
+          "sand_pct": 46.0,
+          "bulk_density_gcm3": 1.18,
+          "organic_carbon_pct": 4.2,
+          "darcy_k_ms": 4.2e-05,
+          "cohesion_kpa": 14.5,
+          "friction_angle_deg": 29.0,
+          "water_saturation_pct": 46.0
+        },
+        {
+          "horizon": "5-15cm",
+          "clay_pct": 23.5,
+          "silt_pct": 33.0,
+          "sand_pct": 43.5,
+          "bulk_density_gcm3": 1.32,
+          "organic_carbon_pct": 2.6,
+          "darcy_k_ms": 2.4e-05,
+          "cohesion_kpa": 19.0,
+          "friction_angle_deg": 30.0,
+          "water_saturation_pct": 51.0
+        },
+        {
+          "horizon": "15-30cm",
+          "clay_pct": 31.0,
+          "silt_pct": 29.0,
+          "sand_pct": 40.0,
+          "bulk_density_gcm3": 1.45,
+          "organic_carbon_pct": 1.4,
+          "darcy_k_ms": 1.1e-05,
+          "cohesion_kpa": 27.0,
+          "friction_angle_deg": 27.0,
+          "water_saturation_pct": 57.0
+        },
+        {
+          "horizon": "30-60cm",
+          "clay_pct": 42.0,
+          "silt_pct": 26.0,
+          "sand_pct": 32.0,
+          "bulk_density_gcm3": 1.58,
+          "organic_carbon_pct": 0.7,
+          "darcy_k_ms": 3.5e-06,
+          "cohesion_kpa": 44.0,
+          "friction_angle_deg": 24.0,
+          "water_saturation_pct": 66.0
+        },
+        {
+          "horizon": "60-100cm",
+          "clay_pct": 34.0,
+          "silt_pct": 24.0,
+          "sand_pct": 42.0,
+          "bulk_density_gcm3": 1.72,
+          "organic_carbon_pct": 0.3,
+          "darcy_k_ms": 1.8e-05,
+          "cohesion_kpa": 52.0,
+          "friction_angle_deg": 33.0,
+          "water_saturation_pct": 62.0
+        },
+        {
+          "horizon": "100-200cm",
+          "clay_pct": 16.0,
+          "silt_pct": 20.0,
+          "sand_pct": 64.0,
+          "bulk_density_gcm3": 2.15,
+          "organic_carbon_pct": 0.1,
+          "darcy_k_ms": 6.5e-05,
+          "cohesion_kpa": 95.0,
+          "friction_angle_deg": 40.0,
+          "water_saturation_pct": 78.0
+        }
+      ],
+      "river_spline": [
+        [
+          -14.0,
+          -60.0,
+          6.5,
+          2.45
+        ],
+        [
+          -6.0,
+          -32.0,
+          8.0,
+          2.1
+        ],
+        [
+          2.5,
+          -6.0,
+          9.5,
+          1.95
+        ],
+        [
+          -3.0,
+          20.0,
+          11.0,
+          1.75
+        ],
+        [
+          4.0,
+          42.0,
+          10.0,
+          2.05
+        ],
+        [
+          1.0,
+          60.0,
+          12.5,
+          1.65
+        ]
+      ],
+      "road_spline": [
+        [
+          -22.0,
+          -60.0,
+          3.8
+        ],
+        [
+          -16.0,
+          -25.0,
+          3.8
+        ],
+        [
+          -9.5,
+          10.0,
+          3.8
+        ],
+        [
+          -14.0,
+          40.0,
+          3.8
+        ],
+        [
+          -11.0,
+          60.0,
+          3.8
+        ]
+      ],
+      "sonic_toponyms": [
+        {
+          "x": 1.5,
+          "y": 428.0,
+          "z": -4.0,
+          "freq": 220.0,
+          "waveType": "sine",
+          "baseSpl": 69.0,
+          "name": "Jounama Braided Cobble Ford",
+          "lang": "Walgalu",
+          "eraStart": -35000,
+          "eraEnd": 2026,
+          "meaning": "Clear Limestone Spring Water & Platypus Foraging Riffle",
+          "stratum": "Alluvial Terrace Songline"
+        },
+        {
+          "x": 22.0,
+          "y": 610.0,
+          "z": 12.0,
+          "freq": 320.0,
+          "waveType": "triangle",
+          "baseSpl": 63.0,
+          "name": "Jounama Karst Solution Cavern",
+          "lang": "GSNSW Karst Inventory",
+          "eraStart": -120000,
+          "eraEnd": 2026,
+          "meaning": "Subterranean Phreatic Conduit & Horseshoe Bat Roost",
+          "stratum": "Silurian Marble Outcrop"
+        },
+        {
+          "x": -12.0,
+          "y": 455.0,
+          "z": 24.0,
+          "freq": 256.0,
+          "waveType": "sine",
+          "baseSpl": 60.0,
+          "name": "Terra Rossa Wattle Bench",
+          "lang": "Walgalu / BioNet",
+          "eraStart": -8000,
+          "eraEnd": 2026,
+          "meaning": "Calcium-Rich Red Loam Seed-Harvesting Terrace",
+          "stratum": "Biocultural Stewardship Terrace"
+        },
+        {
+          "x": 8.0,
+          "y": 540.0,
+          "z": -28.0,
+          "freq": 196.0,
+          "waveType": "sawtooth",
+          "baseSpl": 62.0,
+          "name": "Copperhead Skarn Contact Ridge",
+          "lang": "GSNSW Geological Survey",
+          "eraStart": 1875,
+          "eraEnd": 2026,
+          "meaning": "Garnet-Epidote Skarn Contact & Alpine Copperhead Basking Ledge",
+          "stratum": "Contact Metamorphic Aureole"
+        }
+      ],
+      "climate_ozflux": {
+        "air_temp_c": 16.2,
+        "vpd_kpa": 0.98,
+        "wind_speed_ms": 2.9,
+        "wind_dir_deg": 260.0,
+        "solar_ghi_wm2": 740.0,
+        "inversion_height_m": 540.0,
+        "aod_550": 0.072
+      }
+    },
+    {
+      "id": "yarrangobilly_cliff",
+      "name": "Yarrangobilly Karst Cliff & Thermal Pool",
+      "region_zone": "Upper Yarrangobilly River Gorge & Geothermal Karst",
+      "indigenous_country": "Walgalu and Ngarigo Country",
+      "language_group": "Walgalu / Ngarigo",
+      "lat": -35.7265,
+      "lon": 148.4912,
+      "elev_min_m": 920.0,
+      "elev_max_m": 1280.0,
+      "water_level_m": 932.0,
+      "water_temp_c": 27.0,
+      "geology": {
+        "unit_name": "Yarrangobilly Limestone Massive Karst Belt",
+        "age": "Late Silurian (Pridoli, ~419 Ma)",
+        "lithology": "Massive pale-grey stromatoporoid reef limestone with vertical rillenkarren solution fluting and travertine tufa aprons",
+        "rock_rgb": [
+          0.76,
+          0.75,
+          0.72
+        ],
+        "cliff_rgb": [
+          0.84,
+          0.82,
+          0.78
+        ],
+        "soil_rgb": [
+          0.52,
+          0.28,
+          0.2
+        ],
+        "sediment_rgb": [
+          0.78,
+          0.74,
+          0.65
+        ],
+        "voronoi_fracture_scale": 6.8,
+        "karst_fluting": 0.95
+      },
+      "slga_strata": [
+        {
+          "horizon": "0-5cm",
+          "clay_pct": 22.0,
+          "silt_pct": 38.0,
+          "sand_pct": 40.0,
+          "bulk_density_gcm3": 1.12,
+          "organic_carbon_pct": 5.6,
+          "darcy_k_ms": 5e-05,
+          "cohesion_kpa": 16.0,
+          "friction_angle_deg": 31.0,
+          "water_saturation_pct": 52.0
+        },
+        {
+          "horizon": "5-15cm",
+          "clay_pct": 28.0,
+          "silt_pct": 34.0,
+          "sand_pct": 38.0,
+          "bulk_density_gcm3": 1.28,
+          "organic_carbon_pct": 3.1,
+          "darcy_k_ms": 2.8e-05,
+          "cohesion_kpa": 22.0,
+          "friction_angle_deg": 32.0,
+          "water_saturation_pct": 56.0
+        },
+        {
+          "horizon": "15-30cm",
+          "clay_pct": 38.0,
+          "silt_pct": 30.0,
+          "sand_pct": 32.0,
+          "bulk_density_gcm3": 1.4,
+          "organic_carbon_pct": 1.8,
+          "darcy_k_ms": 1.4e-05,
+          "cohesion_kpa": 32.0,
+          "friction_angle_deg": 28.0,
+          "water_saturation_pct": 61.0
+        },
+        {
+          "horizon": "30-60cm",
+          "clay_pct": 46.0,
+          "silt_pct": 28.0,
+          "sand_pct": 26.0,
+          "bulk_density_gcm3": 1.52,
+          "organic_carbon_pct": 0.9,
+          "darcy_k_ms": 6e-06,
+          "cohesion_kpa": 48.0,
+          "friction_angle_deg": 25.0,
+          "water_saturation_pct": 68.0
+        },
+        {
+          "horizon": "60-100cm",
+          "clay_pct": 30.0,
+          "silt_pct": 25.0,
+          "sand_pct": 45.0,
+          "bulk_density_gcm3": 1.78,
+          "organic_carbon_pct": 0.4,
+          "darcy_k_ms": 8.5e-05,
+          "cohesion_kpa": 65.0,
+          "friction_angle_deg": 36.0,
+          "water_saturation_pct": 74.0
+        },
+        {
+          "horizon": "100-200cm",
+          "clay_pct": 10.0,
+          "silt_pct": 15.0,
+          "sand_pct": 75.0,
+          "bulk_density_gcm3": 2.38,
+          "organic_carbon_pct": 0.05,
+          "darcy_k_ms": 0.00022,
+          "cohesion_kpa": 140.0,
+          "friction_angle_deg": 43.0,
+          "water_saturation_pct": 85.0
+        }
+      ],
+      "river_spline": [
+        [
+          -4.0,
+          -60.0,
+          9.0,
+          2.8
+        ],
+        [
+          -2.0,
+          -30.0,
+          10.5,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          14.0,
+          1.4
+        ],
+        [
+          -3.5,
+          28.0,
+          11.0,
+          2.35
+        ],
+        [
+          -6.0,
+          60.0,
+          9.5,
+          2.75
+        ]
+      ],
+      "road_spline": [
+        [
+          16.0,
+          -60.0,
+          2.6
+        ],
+        [
+          12.0,
+          -20.0,
+          2.4
+        ],
+        [
+          6.5,
+          4.0,
+          2.2
+        ],
+        [
+          14.0,
+          32.0,
+          2.5
+        ],
+        [
+          18.0,
+          60.0,
+          2.8
+        ]
+      ],
+      "sonic_toponyms": [
+        {
+          "x": 2.5,
+          "y": 934.0,
+          "z": 2.0,
+          "freq": 256.0,
+          "waveType": "sine",
+          "baseSpl": 74.0,
+          "name": "Yarrangobilly 27°C Geothermal Spring",
+          "lang": "Walgalu / Ngarigo",
+          "eraStart": -40000,
+          "eraEnd": 2026,
+          "meaning": "Deep Fault-Fed Warm Travertine Healing Basin",
+          "stratum": "Hydrothermal Karst Spring"
+        },
+        {
+          "x": 24.0,
+          "y": 1085.0,
+          "z": -10.0,
+          "freq": 384.0,
+          "waveType": "triangle",
+          "baseSpl": 71.0,
+          "name": "Glory Hole & Rillenkarren Spire Wall",
+          "lang": "Walgalu / NSW GNB",
+          "eraStart": -250000,
+          "eraEnd": 2026,
+          "meaning": "Echoing Limestone Amphitheatre & Speleothem Cathedral",
+          "stratum": "Upper Silurian Reef Limestone"
+        },
+        {
+          "x": -10.0,
+          "y": 938.0,
+          "z": 18.0,
+          "freq": 192.0,
+          "waveType": "sine",
+          "baseSpl": 67.0,
+          "name": "Yarrangobilly River Gorge Riffle",
+          "lang": "BoM Hydrological SOS2",
+          "eraStart": -15000,
+          "eraEnd": 2026,
+          "meaning": "Cold Snowmelt Mixing Zone with Geothermal Outflow",
+          "stratum": "Karst Fluvial Confluence"
+        },
+        {
+          "x": 15.0,
+          "y": 1160.0,
+          "z": 26.0,
+          "freq": 440.0,
+          "waveType": "sine",
+          "baseSpl": 62.0,
+          "name": "Subalpine Snow Gum & Mountain Plum-Pine Rim",
+          "lang": "TERN / auNSL",
+          "eraStart": -10000,
+          "eraEnd": 2026,
+          "meaning": "Calcicole Cliff-Edge Podocarpus lawrencei Refugium",
+          "stratum": "Pleistocene Botanical Refugium"
+        },
+        {
+          "x": 20.0,
+          "y": 1020.0,
+          "z": -24.0,
+          "freq": 528.0,
+          "waveType": "triangle",
+          "baseSpl": 60.0,
+          "name": "Holocene Stalagmite Paleoclimate Archive",
+          "lang": "ANU / GSNSW Isotope Record",
+          "eraStart": -11700,
+          "eraEnd": 2026,
+          "meaning": "Oxygen-18 & Carbon-13 Monsoon-ENSO Dripwater Record",
+          "stratum": "Speleothem Geochemical Archive"
+        }
+      ],
+      "climate_ozflux": {
+        "air_temp_c": 12.6,
+        "vpd_kpa": 0.74,
+        "wind_speed_ms": 2.6,
+        "wind_dir_deg": 270.0,
+        "solar_ghi_wm2": 710.0,
+        "inversion_height_m": 1010.0,
+        "aod_550": 0.058
+      }
+    },
+    {
+      "id": "three_mile_dam",
+      "name": "Three Mile Dam & Kiandra Subalpine Frost Hollow",
+      "region_zone": "Kiandra High Plains & Bogong Peaks Subalpine Tableland",
+      "indigenous_country": "Ngarigo and Walgalu Country",
+      "language_group": "Ngarigo / Walgalu",
+      "lat": -35.8825,
+      "lon": 148.461,
+      "elev_min_m": 1380.0,
+      "elev_max_m": 1680.0,
+      "water_level_m": 1402.0,
+      "water_temp_c": 6.4,
+      "geology": {
+        "unit_name": "Cabramurra Basalt Cap over Kosciuszko Granodiorite",
+        "age": "Miocene Basalt (18 Ma) over Silurian-Devonian Granodiorite (415 Ma)",
+        "lithology": "Columnar olivine basalt plateau remnants overlying periglacial granodiorite boulder tors and Sphagnum peat fens",
+        "rock_rgb": [
+          0.58,
+          0.56,
+          0.53
+        ],
+        "cliff_rgb": [
+          0.48,
+          0.46,
+          0.44
+        ],
+        "soil_rgb": [
+          0.24,
+          0.19,
+          0.15
+        ],
+        "sediment_rgb": [
+          0.38,
+          0.34,
+          0.28
+        ],
+        "voronoi_fracture_scale": 2.9,
+        "karst_fluting": 0.02
+      },
+      "slga_strata": [
+        {
+          "horizon": "0-5cm",
+          "clay_pct": 12.0,
+          "silt_pct": 44.0,
+          "sand_pct": 44.0,
+          "bulk_density_gcm3": 0.78,
+          "organic_carbon_pct": 14.5,
+          "darcy_k_ms": 8.5e-05,
+          "cohesion_kpa": 9.0,
+          "friction_angle_deg": 24.0,
+          "water_saturation_pct": 82.0
+        },
+        {
+          "horizon": "5-15cm",
+          "clay_pct": 15.0,
+          "silt_pct": 42.0,
+          "sand_pct": 43.0,
+          "bulk_density_gcm3": 0.92,
+          "organic_carbon_pct": 9.8,
+          "darcy_k_ms": 4.5e-05,
+          "cohesion_kpa": 13.0,
+          "friction_angle_deg": 26.0,
+          "water_saturation_pct": 79.0
+        },
+        {
+          "horizon": "15-30cm",
+          "clay_pct": 20.0,
+          "silt_pct": 36.0,
+          "sand_pct": 44.0,
+          "bulk_density_gcm3": 1.15,
+          "organic_carbon_pct": 5.2,
+          "darcy_k_ms": 1.9e-05,
+          "cohesion_kpa": 18.0,
+          "friction_angle_deg": 28.0,
+          "water_saturation_pct": 74.0
+        },
+        {
+          "horizon": "30-60cm",
+          "clay_pct": 25.0,
+          "silt_pct": 30.0,
+          "sand_pct": 45.0,
+          "bulk_density_gcm3": 1.38,
+          "organic_carbon_pct": 2.1,
+          "darcy_k_ms": 6.5e-06,
+          "cohesion_kpa": 29.0,
+          "friction_angle_deg": 31.0,
+          "water_saturation_pct": 69.0
+        },
+        {
+          "horizon": "60-100cm",
+          "clay_pct": 18.0,
+          "silt_pct": 22.0,
+          "sand_pct": 60.0,
+          "bulk_density_gcm3": 1.65,
+          "organic_carbon_pct": 0.6,
+          "darcy_k_ms": 3.2e-06,
+          "cohesion_kpa": 48.0,
+          "friction_angle_deg": 35.0,
+          "water_saturation_pct": 64.0
+        },
+        {
+          "horizon": "100-200cm",
+          "clay_pct": 11.0,
+          "silt_pct": 14.0,
+          "sand_pct": 75.0,
+          "bulk_density_gcm3": 2.12,
+          "organic_carbon_pct": 0.12,
+          "darcy_k_ms": 4e-08,
+          "cohesion_kpa": 110.0,
+          "friction_angle_deg": 41.0,
+          "water_saturation_pct": 60.0
+        }
+      ],
+      "river_spline": [
+        [
+          -10.0,
+          -60.0,
+          5.5,
+          0.95
+        ],
+        [
+          -6.0,
+          -24.0,
+          18.0,
+          0.35
+        ],
+        [
+          -2.0,
+          4.0,
+          28.0,
+          0.2
+        ],
+        [
+          -4.0,
+          32.0,
+          14.0,
+          0.55
+        ],
+        [
+          -8.0,
+          60.0,
+          6.0,
+          1.1
+        ]
+      ],
+      "road_spline": [
+        [
+          20.0,
+          -60.0,
+          4.0
+        ],
+        [
+          18.0,
+          -15.0,
+          4.0
+        ],
+        [
+          15.0,
+          20.0,
+          4.0
+        ],
+        [
+          19.0,
+          60.0,
+          4.0
+        ]
+      ],
+      "sonic_toponyms": [
+        {
+          "x": -2.0,
+          "y": 1404.0,
+          "z": 4.0,
+          "freq": 144.0,
+          "waveType": "sine",
+          "baseSpl": 66.0,
+          "name": "Kiandra Frost-Hollow Poa Basin",
+          "lang": "Ngarigo / Walgalu",
+          "eraStart": -20000,
+          "eraEnd": 2026,
+          "meaning": "Inverted Treeline Cold-Air Drainage & Yam-Daisy Meadow",
+          "stratum": "Subalpine Periglacial Basin"
+        },
+        {
+          "x": 28.0,
+          "y": 1595.0,
+          "z": -18.0,
+          "freq": 360.0,
+          "waveType": "triangle",
+          "baseSpl": 70.0,
+          "name": "Granite Tor Bugung (Bogong Moth) Aestivation Cleft",
+          "lang": "Ngarigo / Walgalu",
+          "eraStart": -12000,
+          "eraEnd": 2026,
+          "meaning": "Summer High-Country Ceremonial Gathering & Granite Tor Shelter",
+          "stratum": "Silurian Granodiorite Tor"
+        },
+        {
+          "x": -14.0,
+          "y": 1408.0,
+          "z": -16.0,
+          "freq": 288.0,
+          "waveType": "sine",
+          "baseSpl": 64.0,
+          "name": "Sphagnum cristatum Alpine Bog & Corroboree Frog Fen",
+          "lang": "TERN / Threatened Species",
+          "eraStart": -15000,
+          "eraEnd": 2026,
+          "meaning": "Peatland Headwater Sponge & Pseudophryne pengilleyi Breeding Pool",
+          "stratum": "Holocene Sphagnum Peat"
+        },
+        {
+          "x": 16.0,
+          "y": 1490.0,
+          "z": 24.0,
+          "freq": 416.0,
+          "waveType": "sawtooth",
+          "baseSpl": 61.0,
+          "name": "Snow Gum (Eucalyptus pauciflora) Inverted Treeline",
+          "lang": "auNSL / AusTraits",
+          "eraStart": -10000,
+          "eraEnd": 2026,
+          "meaning": "Epicormic Lignotuber Woodland Above Cold-Air Pool",
+          "stratum": "Subalpine Woodland Ecotone"
+        }
+      ],
+      "climate_ozflux": {
+        "air_temp_c": 6.8,
+        "vpd_kpa": 0.42,
+        "wind_speed_ms": 5.8,
+        "wind_dir_deg": 285.0,
+        "solar_ghi_wm2": 845.0,
+        "inversion_height_m": 1445.0,
+        "aod_550": 0.042
+      }
+    },
+    {
+      "id": "sydney_sandstone",
+      "name": "Sydney Basin / Blue Mountains Hawkesbury Sandstone Gorge",
+      "region_zone": "Greater Blue Mountains World Heritage Escarpment & Slot Canyon",
+      "indigenous_country": "Darug and Gundungurra Country",
+      "language_group": "Darug / Gundungurra",
+      "lat": -33.715,
+      "lon": 150.312,
+      "elev_min_m": 120.0,
+      "elev_max_m": 780.0,
+      "water_level_m": 142.0,
+      "water_temp_c": 15.2,
+      "geology": {
+        "unit_name": "Hawkesbury Sandstone & Narrabeen Group Cliff Benches",
+        "age": "Middle Triassic (~240 Ma)",
+        "lithology": "Cross-bedded quartzose sandstone with Liesegang ironstone banding over Wentworth Falls claystone ledges",
+        "rock_rgb": [
+          0.74,
+          0.58,
+          0.38
+        ],
+        "cliff_rgb": [
+          0.82,
+          0.64,
+          0.42
+        ],
+        "soil_rgb": [
+          0.56,
+          0.44,
+          0.3
+        ],
+        "sediment_rgb": [
+          0.86,
+          0.78,
+          0.62
+        ],
+        "voronoi_fracture_scale": 4.6,
+        "karst_fluting": 0.35
+      },
+      "slga_strata": [
+        {
+          "horizon": "0-5cm",
+          "clay_pct": 8.5,
+          "silt_pct": 14.5,
+          "sand_pct": 77.0,
+          "bulk_density_gcm3": 1.22,
+          "organic_carbon_pct": 3.4,
+          "darcy_k_ms": 0.00012,
+          "cohesion_kpa": 6.5,
+          "friction_angle_deg": 33.0,
+          "water_saturation_pct": 34.0
+        },
+        {
+          "horizon": "5-15cm",
+          "clay_pct": 10.2,
+          "silt_pct": 13.8,
+          "sand_pct": 76.0,
+          "bulk_density_gcm3": 1.36,
+          "organic_carbon_pct": 1.8,
+          "darcy_k_ms": 8.5e-05,
+          "cohesion_kpa": 9.0,
+          "friction_angle_deg": 34.0,
+          "water_saturation_pct": 38.0
+        },
+        {
+          "horizon": "15-30cm",
+          "clay_pct": 14.0,
+          "silt_pct": 13.0,
+          "sand_pct": 73.0,
+          "bulk_density_gcm3": 1.48,
+          "organic_carbon_pct": 0.9,
+          "darcy_k_ms": 4.5e-05,
+          "cohesion_kpa": 14.0,
+          "friction_angle_deg": 33.0,
+          "water_saturation_pct": 44.0
+        },
+        {
+          "horizon": "30-60cm",
+          "clay_pct": 21.0,
+          "silt_pct": 14.0,
+          "sand_pct": 65.0,
+          "bulk_density_gcm3": 1.6,
+          "organic_carbon_pct": 0.4,
+          "darcy_k_ms": 1.2e-05,
+          "cohesion_kpa": 24.0,
+          "friction_angle_deg": 31.0,
+          "water_saturation_pct": 52.0
+        },
+        {
+          "horizon": "60-100cm",
+          "clay_pct": 16.0,
+          "silt_pct": 12.0,
+          "sand_pct": 72.0,
+          "bulk_density_gcm3": 1.82,
+          "organic_carbon_pct": 0.15,
+          "darcy_k_ms": 6e-06,
+          "cohesion_kpa": 55.0,
+          "friction_angle_deg": 37.0,
+          "water_saturation_pct": 49.0
+        },
+        {
+          "horizon": "100-200cm",
+          "clay_pct": 9.0,
+          "silt_pct": 10.0,
+          "sand_pct": 81.0,
+          "bulk_density_gcm3": 2.25,
+          "organic_carbon_pct": 0.04,
+          "darcy_k_ms": 1.5e-06,
+          "cohesion_kpa": 120.0,
+          "friction_angle_deg": 42.0,
+          "water_saturation_pct": 58.0
+        }
+      ],
+      "river_spline": [
+        [
+          0.0,
+          -60.0,
+          7.0,
+          2.9
+        ],
+        [
+          -3.0,
+          -28.0,
+          6.0,
+          3.2
+        ],
+        [
+          1.5,
+          0.0,
+          12.0,
+          1.5
+        ],
+        [
+          -2.5,
+          28.0,
+          9.5,
+          2.1
+        ],
+        [
+          2.0,
+          60.0,
+          11.0,
+          1.85
+        ]
+      ],
+      "road_spline": [
+        [
+          -26.0,
+          -60.0,
+          2.5
+        ],
+        [
+          -22.0,
+          -18.0,
+          2.5
+        ],
+        [
+          -18.0,
+          18.0,
+          2.5
+        ],
+        [
+          -24.0,
+          60.0,
+          2.5
+        ]
+      ],
+      "sonic_toponyms": [
+        {
+          "x": 2.0,
+          "y": 148.0,
+          "z": 0.0,
+          "freq": 216.0,
+          "waveType": "sine",
+          "baseSpl": 75.0,
+          "name": "Govetts Leap Waterfall Plunge Pool",
+          "lang": "Darug / Gundungurra",
+          "eraStart": -30000,
+          "eraEnd": 2026,
+          "meaning": "Mist-Filled Coachwood Canyon & Lyrebird Acoustic Amphitheatre",
+          "stratum": "Narrabeen Group Slot Gorge"
+        },
+        {
+          "x": -24.0,
+          "y": 620.0,
+          "z": -16.0,
+          "freq": 342.0,
+          "waveType": "triangle",
+          "baseSpl": 66.0,
+          "name": "Hawkesbury Ironstone Pagoda Escarpment",
+          "lang": "Darug / Gundungurra",
+          "eraStart": -40000,
+          "eraEnd": 2026,
+          "meaning": "Ochre-Banded Sandstone Rock Engraving & Grinding Groove Ledge",
+          "stratum": "Triassic Quartzose Cliff Bench"
+        },
+        {
+          "x": 18.0,
+          "y": 540.0,
+          "z": 22.0,
+          "freq": 272.0,
+          "waveType": "sine",
+          "baseSpl": 64.0,
+          "name": "Blue Mountains Upland Hanging Swamp",
+          "lang": "NSW BioNet EEC",
+          "eraStart": -18000,
+          "eraEnd": 2026,
+          "meaning": "Claystone Aquitard Groundwater Seep & Button-Grass Sedgeland",
+          "stratum": "Perched Aquifer Fen"
+        },
+        {
+          "x": -12.0,
+          "y": 380.0,
+          "z": 14.0,
+          "freq": 448.0,
+          "waveType": "sawtooth",
+          "baseSpl": 63.0,
+          "name": "Eucalyptus Terpene Rayleigh-Mie Haze Canopy",
+          "lang": "TERN OzFlux",
+          "eraStart": -5000,
+          "eraEnd": 2026,
+          "meaning": "Isoprene Blue-Light Scattering Sclerophyll Forest Crown",
+          "stratum": "Biogenic Aerosol Layer"
+        }
+      ],
+      "climate_ozflux": {
+        "air_temp_c": 21.5,
+        "vpd_kpa": 1.38,
+        "wind_speed_ms": 3.1,
+        "wind_dir_deg": 115.0,
+        "solar_ghi_wm2": 790.0,
+        "inversion_height_m": 460.0,
+        "aod_550": 0.145
+      }
+    },
+    {
+      "id": "noosa_headland",
+      "name": "Noosa / SEQ Subtropical Coastal Headland & Gallery Rainforest",
+      "region_zone": "South-East Queensland Coastal Wallum, Parabolic Dunes & Basalt Headland",
+      "indigenous_country": "Kabi Kabi (Gubbi Gubbi) Country",
+      "language_group": "Kabi Kabi / Gubbi Gubbi",
+      "lat": -26.382,
+      "lon": 153.115,
+      "elev_min_m": 0.0,
+      "elev_max_m": 240.0,
+      "water_level_m": 1.8,
+      "water_temp_c": 23.4,
+      "geology": {
+        "unit_name": "Noosa Headland Diorite-Basalt Intrusion & Cooloola Pleistocene Dunes",
+        "age": "Oligocene Intrusion (26 Ma) & Quaternary Parabolic Aeolian Sandmass",
+        "lithology": "Columnar coastal basalt-diorite headland interlocking with leached podzol giant silica dunes and tannin-stained creek estuaries",
+        "rock_rgb": [
+          0.26,
+          0.25,
+          0.28
+        ],
+        "cliff_rgb": [
+          0.34,
+          0.31,
+          0.3
+        ],
+        "soil_rgb": [
+          0.76,
+          0.68,
+          0.52
+        ],
+        "sediment_rgb": [
+          0.9,
+          0.85,
+          0.72
+        ],
+        "voronoi_fracture_scale": 4.2,
+        "karst_fluting": 0.18
+      },
+      "slga_strata": [
+        {
+          "horizon": "0-5cm",
+          "clay_pct": 5.5,
+          "silt_pct": 8.5,
+          "sand_pct": 86.0,
+          "bulk_density_gcm3": 1.28,
+          "organic_carbon_pct": 2.9,
+          "darcy_k_ms": 0.00024,
+          "cohesion_kpa": 4.0,
+          "friction_angle_deg": 35.0,
+          "water_saturation_pct": 28.0
+        },
+        {
+          "horizon": "5-15cm",
+          "clay_pct": 6.2,
+          "silt_pct": 8.8,
+          "sand_pct": 85.0,
+          "bulk_density_gcm3": 1.38,
+          "organic_carbon_pct": 1.5,
+          "darcy_k_ms": 0.00019,
+          "cohesion_kpa": 5.5,
+          "friction_angle_deg": 35.0,
+          "water_saturation_pct": 32.0
+        },
+        {
+          "horizon": "15-30cm",
+          "clay_pct": 7.5,
+          "silt_pct": 9.5,
+          "sand_pct": 83.0,
+          "bulk_density_gcm3": 1.46,
+          "organic_carbon_pct": 0.8,
+          "darcy_k_ms": 0.00014,
+          "cohesion_kpa": 8.0,
+          "friction_angle_deg": 34.0,
+          "water_saturation_pct": 38.0
+        },
+        {
+          "horizon": "30-60cm",
+          "clay_pct": 12.0,
+          "silt_pct": 11.0,
+          "sand_pct": 77.0,
+          "bulk_density_gcm3": 1.56,
+          "organic_carbon_pct": 1.9,
+          "darcy_k_ms": 3.5e-05,
+          "cohesion_kpa": 18.0,
+          "friction_angle_deg": 32.0,
+          "water_saturation_pct": 54.0
+        },
+        {
+          "horizon": "60-100cm",
+          "clay_pct": 16.0,
+          "silt_pct": 12.0,
+          "sand_pct": 72.0,
+          "bulk_density_gcm3": 1.68,
+          "organic_carbon_pct": 0.7,
+          "darcy_k_ms": 1.8e-05,
+          "cohesion_kpa": 28.0,
+          "friction_angle_deg": 34.0,
+          "water_saturation_pct": 68.0
+        },
+        {
+          "horizon": "100-200cm",
+          "clay_pct": 14.0,
+          "silt_pct": 11.0,
+          "sand_pct": 75.0,
+          "bulk_density_gcm3": 1.92,
+          "organic_carbon_pct": 0.2,
+          "darcy_k_ms": 8e-06,
+          "cohesion_kpa": 65.0,
+          "friction_angle_deg": 38.0,
+          "water_saturation_pct": 88.0
+        }
+      ],
+      "river_spline": [
+        [
+          -12.0,
+          -60.0,
+          10.0,
+          1.15
+        ],
+        [
+          -6.0,
+          -25.0,
+          14.0,
+          0.9
+        ],
+        [
+          2.0,
+          5.0,
+          20.0,
+          0.65
+        ],
+        [
+          8.0,
+          35.0,
+          28.0,
+          0.45
+        ],
+        [
+          14.0,
+          60.0,
+          38.0,
+          0.3
+        ]
+      ],
+      "road_spline": [
+        [
+          -20.0,
+          -60.0,
+          3.0
+        ],
+        [
+          -14.0,
+          -20.0,
+          3.0
+        ],
+        [
+          -8.0,
+          15.0,
+          3.0
+        ],
+        [
+          -4.0,
+          60.0,
+          3.0
+        ]
+      ],
+      "sonic_toponyms": [
+        {
+          "x": 22.0,
+          "y": 28.0,
+          "z": 36.0,
+          "freq": 136.1,
+          "waveType": "sine",
+          "baseSpl": 76.0,
+          "name": "Boiling Pot & Hells Gates Basalt Headland",
+          "lang": "Kabi Kabi / Gubbi Gubbi",
+          "eraStart": -40000,
+          "eraEnd": 2026,
+          "meaning": "Coral Sea Swell Refraction & Dolphin-Mullet Cooperative Hunting Point",
+          "stratum": "Oligocene Headland Wave-Cut Platform"
+        },
+        {
+          "x": -10.0,
+          "y": 42.0,
+          "z": -18.0,
+          "freq": 272.2,
+          "waveType": "triangle",
+          "baseSpl": 65.0,
+          "name": "Araucaria cunninghamii (Hoop Pine) Gallery Gully",
+          "lang": "Kabi Kabi / Gondwana Archive",
+          "eraStart": -65000,
+          "eraEnd": 2026,
+          "meaning": "Relict Subtropical Vine Forest & Wompoo Fruit-Dove Canopy",
+          "stratum": "Subtropical Littoral Rainforest"
+        },
+        {
+          "x": 4.0,
+          "y": 3.5,
+          "z": 12.0,
+          "freq": 198.0,
+          "waveType": "sine",
+          "baseSpl": 68.0,
+          "name": "Tannin-Stained Wallum Banksia Estuary",
+          "lang": "Kabi Kabi / TERN",
+          "eraStart": -12000,
+          "eraEnd": 2026,
+          "meaning": "Humic Coffee-Rock Perched Watertable & Acid Frog Refuge",
+          "stratum": "Pleistocene Humic Podzol"
+        },
+        {
+          "x": -24.0,
+          "y": 115.0,
+          "z": 8.0,
+          "freq": 384.0,
+          "waveType": "sawtooth",
+          "baseSpl": 62.0,
+          "name": "Parabolic Silica Sandblow Crest",
+          "lang": "Cooloola Geomorphology",
+          "eraStart": -140000,
+          "eraEnd": 2026,
+          "meaning": "South-East Trade-Wind Aeolian Quartz Dune Chrono-Sequence",
+          "stratum": "Quaternary Coastal Sandmass"
+        }
+      ],
+      "climate_ozflux": {
+        "air_temp_c": 25.4,
+        "vpd_kpa": 0.92,
+        "wind_speed_ms": 4.6,
+        "wind_dir_deg": 135.0,
+        "solar_ghi_wm2": 860.0,
+        "inversion_height_m": 920.0,
+        "aod_550": 0.095
+      }
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "schema": "ecopunk-evidence-graph-v1",
+  "subject": "urn:qualia:taxon:corymbia_aparrerinja",
+  "modelSet": "eco:model-set/corymbia-aparrerinja",
+  "status": "source-backed draft; not a field survey or cultural authority",
+  "sources": {
+    "sa-botanic": "https://plantselector.botanicgardens.sa.gov.au/Plants/Details/18003",
+    "qld-1.3.6": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=1.3.6",
+    "qld-4.7.7": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=4.7.7",
+    "qld-4.5.5": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=4.5.5",
+    "federal-woodlands": "https://www.dcceew.gov.au/sites/default/files/documents/arid-eucalypt-descriptions-1.pdf",
+    "nt-landscaping": "https://nt.gov.au/__data/assets/pdf_file/0004/1564825/species-guide-for-landscaping-nt.pdf",
+    "nt-park": "https://nt.gov.au/parks/find-a-park/trephina-gorge-nature-park",
+    "qld-2.7.7": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=2.7.7",
+    "clc-fire": "https://www.clc.org.au/wp-content/uploads/2021/03/Katiti-Petermann-IPA-Plan-of-Management.pdf",
+    "euclid": "https://apps.lucidcentral.org/euclid/text/entities/corymbia_aparrerinja.htm",
+    "alice-field-naturalists": "https://www.alicefieldnaturalists.org.au/23_08.pdf",
+    "brushtail-study": "https://researchsystem.canberra.edu.au/ws/portalfiles/portal/54633168/Foulkes_New_2_red.pdf",
+    "camel-study": "https://camelexports.com/index.php/camel-info?catid=2&id=2&m=0&task=download.send",
+    "sa-cultural-study": "https://www.waterconnect.sa.gov.au/Content/Publications/DEW/LEBRM_Culture.pdf",
+    "arid-hardwoods-factsheet": "https://keys.lucidcentral.org/keys/v3/arid/key/Key%20to%20arid%20Australian%20hardwoods/Media/Html/subkeys/key/Subkey%20to%20Myrtaceae%20B/Media/Html/Taxa%20factsheets/Corymbia_aparrerinja_K.D.Hill__L.A.S.Johnson.htm",
+    "national-city-urban-forest": "https://www.nationalcityca.gov/home/showpublisheddocument/24995/637271997117570000",
+    "kiwirrkurra-survey": "https://bushblitz.org.au/wp-content/uploads/2019/10/Kiwirrkurra-compiled-report.pdf",
+    "ala-taxon": "https://bie.ala.org.au/species/https%3A/id.biodiversity.org.au/taxon/apni/51289371"
+  },
+  "claims": [
+    {
+      "id": "apni-taxon-identity",
+      "predicate": "eco:acceptedTaxonConcept",
+      "object": "https://id.biodiversity.org.au/taxon/apni/51289371",
+      "label": "ALA maps this accepted Corymbia aparrerinja species concept to APNI taxon 51289371, authored by K.D.Hill and L.A.S.Johnson.",
+      "source": "ala-taxon",
+      "status": "documented",
+      "scope": "Australian Plant Census name authority as displayed by ALA"
+    },
+    {
+      "id": "myrtaceae",
+      "predicate": "eco:inFamily",
+      "object": "urn:qualia:taxon:myrtaceae",
+      "label": "ALA places Corymbia aparrerinja in Myrtaceae.",
+      "source": "ala-taxon",
+      "status": "documented",
+      "scope": "ALA classification"
+    },
+    {
+      "id": "range",
+      "predicate": "eco:recordedNativeRange",
+      "object": "eco:region/central-australia-sa-qld-nt-wa",
+      "label": "Native range spans arid Central Australia across South Australia, Queensland, Northern Territory and Western Australia.",
+      "source": "sa-botanic",
+      "status": "documented",
+      "scope": "species"
+    },
+    {
+      "id": "full-sun",
+      "predicate": "eco:horticulturalLightPreference",
+      "object": "eco:environment/full-sun",
+      "label": "Full sun is listed for landscape planting.",
+      "source": "sa-botanic",
+      "status": "documented",
+      "scope": "horticultural guidance, not a measured niche limit"
+    },
+    {
+      "id": "soil-texture",
+      "predicate": "eco:horticulturalSoilTexture",
+      "object": "eco:soil/sand-or-loam",
+      "label": "Sand and loam are listed as suitable soil textures.",
+      "source": "sa-botanic",
+      "status": "documented",
+      "scope": "horticultural guidance"
+    },
+    {
+      "id": "soil-drainage",
+      "predicate": "eco:horticulturalSoilDrainage",
+      "object": "eco:soil/well-drained-sandy-to-rocky",
+      "label": "Northern Territory landscape guidance lists sandy to rocky, well-drained soil.",
+      "source": "nt-landscaping",
+      "status": "documented",
+      "scope": "horticultural guidance"
+    },
+    {
+      "id": "alluvial-habitat",
+      "predicate": "eco:occursInHabitat",
+      "object": "eco:habitat/sandy-levee-woodland",
+      "label": "Occurs in ghost gum and bloodwood woodland on sandy levees.",
+      "source": "qld-1.3.6",
+      "status": "documented",
+      "scope": "Queensland regional ecosystem 1.3.6"
+    },
+    {
+      "id": "rocky-habitat",
+      "predicate": "eco:occursInHabitat",
+      "object": "eco:habitat/rocky-breakaway-low-hill-woodland",
+      "label": "Occurs in low open woodland on rocky breakaways and low hills.",
+      "source": "qld-4.7.7",
+      "status": "documented",
+      "scope": "Queensland regional ecosystem 4.7.7x1"
+    },
+    {
+      "id": "corymbia-terminalis",
+      "predicate": "eco:coOccursWith",
+      "object": "urn:qualia:taxon:corymbia_terminalis",
+      "label": "Co-occurs with Corymbia terminalis in mapped woodland; this does not establish facilitation.",
+      "source": "qld-1.3.6",
+      "status": "documented",
+      "scope": "Queensland regional ecosystem 1.3.6"
+    },
+    {
+      "id": "acacia-cambagei",
+      "predicate": "eco:coOccursWith",
+      "object": "urn:qualia:taxon:acacia_cambagei",
+      "label": "Acacia cambagei is recorded in a Corymbia aparrerinja low open woodland variant.",
+      "source": "qld-4.7.7",
+      "status": "documented",
+      "scope": "Queensland regional ecosystem 4.7.7x2"
+    },
+    {
+      "id": "triodia-pungens",
+      "predicate": "eco:coOccursWith",
+      "object": "urn:qualia:taxon:triodia_pungens",
+      "label": "Triodia pungens occurs in the patchy ground layer of a Corymbia aparrerinja woodland variant.",
+      "source": "qld-4.7.7",
+      "status": "documented",
+      "scope": "Queensland regional ecosystem 4.7.7x2"
+    },
+    {
+      "id": "hollow-habitat",
+      "predicate": "eco:woodlandProvides",
+      "object": "eco:habitat/tree-hollow-fauna-habitat",
+      "label": "The mixed ghost gum and bloodwood sandy-terrace woodland is described as significant fauna habitat because of tree hollows. Occupant species are not assigned.",
+      "source": "federal-woodlands",
+      "status": "documented",
+      "scope": "woodland community, not every specimen"
+    },
+    {
+      "id": "trephina",
+      "predicate": "eco:documentedAt",
+      "object": "eco:place/trephina-gorge",
+      "label": "Trephina Gorge Nature Park contains a notable Corymbia aparrerinja specimen.",
+      "source": "nt-park",
+      "status": "documented",
+      "scope": "site example, not full range"
+    },
+    {
+      "id": "ornamental",
+      "predicate": "eco:documentedHumanUse",
+      "object": "eco:use/ornamental-planting",
+      "label": "Listed for ornamental landscape planting.",
+      "source": "sa-botanic",
+      "status": "documented",
+      "scope": "horticulture"
+    },
+    {
+      "id": "namatjira-art",
+      "predicate": "eco:documentedHumanUse",
+      "object": "eco:use/namatjira-watercolour-subject",
+      "label": "Ghost gums are depicted in Albert Namatjira's watercolours; this is a cultural representation, not a harvest use.",
+      "source": "sa-botanic",
+      "status": "documented",
+      "scope": "published art history"
+    },
+    {
+      "id": "lignotuber",
+      "predicate": "eco:hasRegenerativeStructure",
+      "object": "eco:anatomy/lignotuber",
+      "label": "Botanical description records a lignotuber at the base of this species.",
+      "source": "euclid",
+      "status": "documented",
+      "scope": "species morphology; does not by itself quantify post-fire survival"
+    },
+    {
+      "id": "fire-frequency",
+      "predicate": "eco:observedInFireRegime",
+      "object": "eco:fire-regime/frequently-burnt-spinifex-country",
+      "label": "The Katiti-Petermann IPA plan reports ghost gums as common in areas of high fire frequency.",
+      "source": "clc-fire",
+      "status": "documented",
+      "scope": "Katiti-Petermann landscape observation; no species-wide interval inferred"
+    },
+    {
+      "id": "ground-fuel",
+      "predicate": "eco:associatedGroundFuel",
+      "object": "urn:qualia:taxon:triodia_pungens",
+      "label": "In regional ecosystem 2.7.7 the ground layer is dominated by flammable Triodia pungens.",
+      "source": "qld-2.7.7",
+      "status": "documented",
+      "scope": "Queensland regional ecosystem 2.7.7; ground fire context"
+    },
+    {
+      "id": "fire-guideline",
+      "predicate": "eco:regionalFireManagementGuideline",
+      "object": "eco:fire-guideline/qld-2.7.7-mosaic-low-to-moderate",
+      "label": "Queensland recommends moist-soil mosaic burns, usually low to moderate intensity, while noting spinifex can burn intensely.",
+      "source": "qld-2.7.7",
+      "status": "documented",
+      "scope": "regional ecosystem management, not a physiological threshold for an individual tree"
+    },
+    {
+      "id": "post-scorch-shoots",
+      "predicate": "eco:observedPostFireResponse",
+      "object": "eco:response/epicormic-shoots-after-scorch",
+      "label": "Alice Springs field naturalists observed epicormic shoots on ghost gums following fire scorching.",
+      "source": "alice-field-naturalists",
+      "status": "documented",
+      "scope": "local field observation; no quantified burn intensity or recovery probability"
+    },
+    {
+      "id": "possum-leaf-browsing",
+      "predicate": "eco:leavesConsumedBy",
+      "object": "urn:qualia:taxon:trichosurus_vulpecula",
+      "label": "A Central Australian brushtail possum diet study recorded C. aparrerinja leaves at Hale River and Giles Yard Spring sites.",
+      "source": "brushtail-study",
+      "status": "documented",
+      "scope": "site-specific diet observations; not a species-wide feeding rate"
+    },
+    {
+      "id": "possum-bark-marking",
+      "predicate": "eco:barkInteractedWithBy",
+      "object": "urn:qualia:taxon:trichosurus_vulpecula",
+      "label": "A Central Australian study recorded possums chewing, scratching and scent-marking ghost gum sapling bark.",
+      "source": "brushtail-study",
+      "status": "documented",
+      "scope": "site-specific sapling observations; does not establish nesting"
+    },
+    {
+      "id": "camel-browsing",
+      "predicate": "eco:browsedBy",
+      "object": "urn:qualia:taxon:camelus_dromedarius",
+      "label": "A Central Australian co-grazing study recorded camel browsing of ghost gum, especially in summer.",
+      "source": "camel-study",
+      "status": "documented",
+      "scope": "introduced camel; study locality and observation periods only"
+    },
+    {
+      "id": "maku-insect-host",
+      "predicate": "eco:documentedEdibleInsectHost",
+      "object": "eco:insect/maku-unspecified",
+      "label": "The Kiwirrkurra Bush Blitz report lists Corymbia aparrerinja as a host of an edible insect or insect product called maku; the insect species is not resolved.",
+      "source": "kiwirrkurra-survey",
+      "status": "documented",
+      "scope": "Kiwirrkurra survey and published Pintupi terminology; no species-wide abundance inferred"
+    },
+    {
+      "id": "indigenous-food-products",
+      "predicate": "eco:publishedIndigenousUse",
+      "object": "eco:use/honey-grubs-gum",
+      "label": "A published Lake Eyre Basin cultural study lists honey, grubs and gum as food associated with this taxon.",
+      "source": "sa-cultural-study",
+      "status": "documented",
+      "scope": "published compilation; community-specific practice and permissions require custodial review"
+    },
+    {
+      "id": "indigenous-practical",
+      "predicate": "eco:publishedIndigenousUse",
+      "object": "eco:use/artefact-cement",
+      "label": "The Lake Eyre Basin cultural study lists artefact and cement uses for this taxon.",
+      "source": "sa-cultural-study",
+      "status": "documented",
+      "scope": "published compilation; no instructions or community-wide generalization"
+    },
+    {
+      "id": "indigenous-hollow-branch",
+      "predicate": "eco:publishedIndigenousUse",
+      "object": "eco:use/hollow-branch-trumpet",
+      "label": "An arid hardwoods factsheet cites a hollow branch used as a trumpet.",
+      "source": "arid-hardwoods-factsheet",
+      "status": "documented",
+      "scope": "secondary ethnobotanical citation to Latz 1995; custodial review pending"
+    },
+    {
+      "id": "indigenous-medicine",
+      "predicate": "eco:publishedIndigenousUse",
+      "object": "eco:use/medicine-unspecified",
+      "label": "The Lake Eyre Basin cultural study marks this taxon as a medicine plant without specifying preparation or indication.",
+      "source": "sa-cultural-study",
+      "status": "documented",
+      "scope": "published compilation; no remedy, dosage, or community-wide generalization inferred"
+    },
+    {
+      "id": "horticultural-spacing",
+      "predicate": "eco:designedPlantingSpacing",
+      "object": "eco:spacing/12-to-15-metres",
+      "label": "A municipal urban-forest plan lists 40–50 ft spacing for planted ghost gums (about 12–15 m).",
+      "source": "national-city-urban-forest",
+      "status": "documented",
+      "scope": "urban planting design in California; not natural nearest-neighbour distance"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "spacing",
+      "topic": "eco:nearestConspecificDistance",
+      "reason": "No defensible species-wide spacing value; derive a locality-specific distribution from georeferenced stem surveys."
+    },
+    {
+      "id": "nesting",
+      "topic": "eco:nestingSpecies",
+      "reason": "Woodland-level hollow habitat is documented, but no occupant species or individual-tree nesting record is verified."
+    },
+    {
+      "id": "pollinators",
+      "topic": "eco:pollinator",
+      "reason": "Flowering does not establish a particular insect or bird pollinator."
+    },
+    {
+      "id": "custodial-detail",
+      "topic": "eco:communitySpecificPracticeAndPermission",
+      "reason": "Published compilations document uses, but community-specific meanings, permissions and preparation details need custodial review."
+    },
+    {
+      "id": "timber-medicine",
+      "topic": "eco:westernTimberOrMedicinalUse",
+      "reason": "No species-specific practical or medicinal use verified; ornamental and artistic uses are recorded separately."
+    },
+    {
+      "id": "canopy-fire",
+      "topic": "eco:canopyFireResponse",
+      "reason": "No species-specific crown-fire survival, leaf consumption, or canopy flame residence curve verified; do not equate scorched foliage with a crown fire."
+    },
+    {
+      "id": "ground-fire-threshold",
+      "topic": "eco:groundFireTemperatureDurationThreshold",
+      "reason": "No measured cambial or lignotuber survival threshold by temperature and exposure time verified for this species."
+    },
+    {
+      "id": "fire-recovery-rate",
+      "topic": "eco:postFireRecoveryRate",
+      "reason": "Epicormic response is observed, but timing and probability by tree age, drought state and fire severity are not quantified."
+    }
+  ]
+}

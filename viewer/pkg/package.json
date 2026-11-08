@@ -1,0 +1,20 @@
+{
+  "name": "ecopunk-wasm",
+  "type": "module",
+  "collaborators": [
+    "Timothy Charles Holborn <timothy.holborn@gmail.com>"
+  ],
+  "description": "QualiaDB + VibeScript WASM engine shell for Ecopunk 26.5km World Continuum & 5-Scale Biological Dissection Lab",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "files": [
+    "ecopunk_wasm_bg.wasm",
+    "ecopunk_wasm.js",
+    "ecopunk_wasm.d.ts"
+  ],
+  "main": "ecopunk_wasm.js",
+  "types": "ecopunk_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

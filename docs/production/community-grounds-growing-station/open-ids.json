@@ -1,0 +1,1452 @@
+{
+  "schema": "ecopunk-model-open-ids.v1",
+  "subject": "CGE-DOSSIER:CGGS-01",
+  "dossier": "community-grounds-growing-station-v0.1",
+  "catalogue": {
+    "id": "ecopunk-model-deliverables",
+    "version": "2026-10-24.2",
+    "sha256": "c0cb76151bf5d0776afaae4d59d7427efb65633bf359d3f4c2bda83c361c91cb"
+  },
+  "reported_status": "incomplete",
+  "base_deliverable_count": 193,
+  "subject_specific_count": 8,
+  "open_claim_count": 201,
+  "base_deliverable_ids": [
+    "ID-01",
+    "ID-02",
+    "ID-03",
+    "ID-04",
+    "ID-05",
+    "ID-06",
+    "ID-07",
+    "ID-08",
+    "KN-01",
+    "KN-02",
+    "KN-03",
+    "KN-04",
+    "KN-05",
+    "KN-06",
+    "KN-07",
+    "KN-08",
+    "KN-09",
+    "KN-10",
+    "KN-11",
+    "KN-12",
+    "SRC-01",
+    "SRC-02",
+    "SRC-03",
+    "SRC-04",
+    "SRC-05",
+    "SRC-06",
+    "SRC-07",
+    "SRC-08",
+    "GEO-01",
+    "GEO-02",
+    "GEO-03",
+    "GEO-04",
+    "GEO-05",
+    "GEO-06",
+    "GEO-07",
+    "GEO-08",
+    "GEO-09",
+    "GEO-10",
+    "MAT-01",
+    "MAT-02",
+    "MAT-03",
+    "MAT-04",
+    "MAT-05",
+    "MAT-06",
+    "MAT-07",
+    "MAT-08",
+    "MAT-09",
+    "MAT-10",
+    "FILM-01",
+    "FILM-02",
+    "FILM-03",
+    "FILM-04",
+    "FILM-05",
+    "FILM-06",
+    "FILM-07",
+    "FILM-08",
+    "FILM-09",
+    "GAME-01",
+    "GAME-02",
+    "GAME-03",
+    "GAME-04",
+    "GAME-05",
+    "GAME-06",
+    "GAME-07",
+    "GAME-08",
+    "GAME-09",
+    "GAME-10",
+    "TOON-01",
+    "TOON-02",
+    "TOON-03",
+    "TOON-04",
+    "TOON-05",
+    "TOON-06",
+    "TOON-07",
+    "TOON-08",
+    "RIG-01",
+    "RIG-02",
+    "RIG-03",
+    "RIG-04",
+    "RIG-05",
+    "RIG-06",
+    "RIG-07",
+    "RIG-08",
+    "RIG-09",
+    "RIG-10",
+    "MOV-01",
+    "MOV-02",
+    "MOV-03",
+    "MOV-04",
+    "MOV-05",
+    "MOV-06",
+    "MOV-07",
+    "MOV-08",
+    "MOV-09",
+    "MOV-10",
+    "MOV-11",
+    "MOV-12",
+    "BHV-01",
+    "BHV-02",
+    "BHV-03",
+    "BHV-04",
+    "BHV-05",
+    "BHV-06",
+    "BHV-07",
+    "BHV-08",
+    "BHV-09",
+    "BHV-10",
+    "BHV-11",
+    "BHV-12",
+    "BHV-13",
+    "BHV-14",
+    "FLORA-01",
+    "FLORA-02",
+    "FLORA-03",
+    "FLORA-04",
+    "FLORA-05",
+    "FLORA-06",
+    "FLORA-07",
+    "FLORA-08",
+    "FAUNA-01",
+    "FAUNA-02",
+    "FAUNA-03",
+    "FAUNA-04",
+    "FAUNA-05",
+    "FAUNA-06",
+    "FAUNA-07",
+    "FAUNA-08",
+    "MADE-01",
+    "MADE-02",
+    "MADE-03",
+    "MADE-04",
+    "MADE-05",
+    "MADE-06",
+    "MADE-07",
+    "MADE-08",
+    "MADE-09",
+    "MADE-10",
+    "MADE-11",
+    "MADE-12",
+    "MICRO-01",
+    "MICRO-02",
+    "MICRO-03",
+    "MICRO-04",
+    "MICRO-05",
+    "MICRO-06",
+    "ENV-01",
+    "ENV-02",
+    "ENV-03",
+    "ENV-04",
+    "ENV-05",
+    "ENV-06",
+    "HUM-01",
+    "HUM-02",
+    "HUM-03",
+    "HUM-04",
+    "HUM-05",
+    "HUM-06",
+    "PHY-01",
+    "PHY-02",
+    "PHY-03",
+    "PHY-04",
+    "PHY-05",
+    "PHY-06",
+    "PHY-07",
+    "PHY-08",
+    "AUD-01",
+    "AUD-02",
+    "AUD-03",
+    "AUD-04",
+    "AUD-05",
+    "AUD-06",
+    "PKG-01",
+    "PKG-02",
+    "PKG-03",
+    "PKG-04",
+    "PKG-05",
+    "PKG-06",
+    "PKG-07",
+    "PKG-08",
+    "PKG-09",
+    "PKG-10",
+    "PKG-11",
+    "PKG-12",
+    "QA-01",
+    "QA-02",
+    "QA-03",
+    "QA-04",
+    "QA-05",
+    "QA-06",
+    "QA-07",
+    "QA-08",
+    "QA-09",
+    "QA-10"
+  ],
+  "subject_specific_ids": [
+    "CGGS-01",
+    "CGGS-02",
+    "CGGS-03",
+    "CGGS-04",
+    "CGGS-05",
+    "CGGS-06",
+    "CGGS-07",
+    "CGGS-08"
+  ],
+  "open_claim_ids": [
+    "ID-01",
+    "ID-02",
+    "ID-03",
+    "ID-04",
+    "ID-05",
+    "ID-06",
+    "ID-07",
+    "ID-08",
+    "KN-01",
+    "KN-02",
+    "KN-03",
+    "KN-04",
+    "KN-05",
+    "KN-06",
+    "KN-07",
+    "KN-08",
+    "KN-09",
+    "KN-10",
+    "KN-11",
+    "KN-12",
+    "SRC-01",
+    "SRC-02",
+    "SRC-03",
+    "SRC-04",
+    "SRC-05",
+    "SRC-06",
+    "SRC-07",
+    "SRC-08",
+    "GEO-01",
+    "GEO-02",
+    "GEO-03",
+    "GEO-04",
+    "GEO-05",
+    "GEO-06",
+    "GEO-07",
+    "GEO-08",
+    "GEO-09",
+    "GEO-10",
+    "MAT-01",
+    "MAT-02",
+    "MAT-03",
+    "MAT-04",
+    "MAT-05",
+    "MAT-06",
+    "MAT-07",
+    "MAT-08",
+    "MAT-09",
+    "MAT-10",
+    "FILM-01",
+    "FILM-02",
+    "FILM-03",
+    "FILM-04",
+    "FILM-05",
+    "FILM-06",
+    "FILM-07",
+    "FILM-08",
+    "FILM-09",
+    "GAME-01",
+    "GAME-02",
+    "GAME-03",
+    "GAME-04",
+    "GAME-05",
+    "GAME-06",
+    "GAME-07",
+    "GAME-08",
+    "GAME-09",
+    "GAME-10",
+    "TOON-01",
+    "TOON-02",
+    "TOON-03",
+    "TOON-04",
+    "TOON-05",
+    "TOON-06",
+    "TOON-07",
+    "TOON-08",
+    "RIG-01",
+    "RIG-02",
+    "RIG-03",
+    "RIG-04",
+    "RIG-05",
+    "RIG-06",
+    "RIG-07",
+    "RIG-08",
+    "RIG-09",
+    "RIG-10",
+    "MOV-01",
+    "MOV-02",
+    "MOV-03",
+    "MOV-04",
+    "MOV-05",
+    "MOV-06",
+    "MOV-07",
+    "MOV-08",
+    "MOV-09",
+    "MOV-10",
+    "MOV-11",
+    "MOV-12",
+    "BHV-01",
+    "BHV-02",
+    "BHV-03",
+    "BHV-04",
+    "BHV-05",
+    "BHV-06",
+    "BHV-07",
+    "BHV-08",
+    "BHV-09",
+    "BHV-10",
+    "BHV-11",
+    "BHV-12",
+    "BHV-13",
+    "BHV-14",
+    "FLORA-01",
+    "FLORA-02",
+    "FLORA-03",
+    "FLORA-04",
+    "FLORA-05",
+    "FLORA-06",
+    "FLORA-07",
+    "FLORA-08",
+    "FAUNA-01",
+    "FAUNA-02",
+    "FAUNA-03",
+    "FAUNA-04",
+    "FAUNA-05",
+    "FAUNA-06",
+    "FAUNA-07",
+    "FAUNA-08",
+    "MADE-01",
+    "MADE-02",
+    "MADE-03",
+    "MADE-04",
+    "MADE-05",
+    "MADE-06",
+    "MADE-07",
+    "MADE-08",
+    "MADE-09",
+    "MADE-10",
+    "MADE-11",
+    "MADE-12",
+    "MICRO-01",
+    "MICRO-02",
+    "MICRO-03",
+    "MICRO-04",
+    "MICRO-05",
+    "MICRO-06",
+    "ENV-01",
+    "ENV-02",
+    "ENV-03",
+    "ENV-04",
+    "ENV-05",
+    "ENV-06",
+    "HUM-01",
+    "HUM-02",
+    "HUM-03",
+    "HUM-04",
+    "HUM-05",
+    "HUM-06",
+    "PHY-01",
+    "PHY-02",
+    "PHY-03",
+    "PHY-04",
+    "PHY-05",
+    "PHY-06",
+    "PHY-07",
+    "PHY-08",
+    "AUD-01",
+    "AUD-02",
+    "AUD-03",
+    "AUD-04",
+    "AUD-05",
+    "AUD-06",
+    "PKG-01",
+    "PKG-02",
+    "PKG-03",
+    "PKG-04",
+    "PKG-05",
+    "PKG-06",
+    "PKG-07",
+    "PKG-08",
+    "PKG-09",
+    "PKG-10",
+    "PKG-11",
+    "PKG-12",
+    "QA-01",
+    "QA-02",
+    "QA-03",
+    "QA-04",
+    "QA-05",
+    "QA-06",
+    "QA-07",
+    "QA-08",
+    "QA-09",
+    "QA-10",
+    "CGGS-01",
+    "CGGS-02",
+    "CGGS-03",
+    "CGGS-04",
+    "CGGS-05",
+    "CGGS-06",
+    "CGGS-07",
+    "CGGS-08"
+  ],
+  "claim_dispositions": [
+    {
+      "id": "ID-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ID-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-11",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "KN-12",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "SRC-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GEO-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MAT-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FILM-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "GAME-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "TOON-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "RIG-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-11",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MOV-12",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-11",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-12",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-13",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "BHV-14",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FLORA-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "FAUNA-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-11",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MADE-12",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MICRO-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MICRO-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MICRO-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MICRO-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MICRO-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "MICRO-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ENV-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ENV-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ENV-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ENV-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ENV-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "ENV-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "HUM-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "HUM-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "HUM-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "HUM-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "HUM-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "HUM-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PHY-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "AUD-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "AUD-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "AUD-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "AUD-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "AUD-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "AUD-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-11",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "PKG-12",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-09",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "QA-10",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-01",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-02",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-03",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-04",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-05",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-06",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-07",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    },
+    {
+      "id": "CGGS-08",
+      "applicability": "unassessed",
+      "claim_status": "unassessed"
+    }
+  ],
+  "expanded_case_count": 0,
+  "expanded_cases_status": "Not enumerated; required inventory and case expansion remain open, not satisfied vacuously.",
+  "profiles": [
+    {
+      "id": "film",
+      "status": "unassessed"
+    },
+    {
+      "id": "open_world_game",
+      "status": "unassessed"
+    },
+    {
+      "id": "cartoon",
+      "status": "unassessed"
+    }
+  ],
+  "completion_boundary": "All listed claims are retained from the pinned ledger. No N/A, satisfied or model-complete disposition is invented; all three profiles remain unassessed.",
+  "source_pin": {
+    "path": "assets/reference/community-grounds-growing-station/master.vibe",
+    "revision": "0.2",
+    "bytes": 15690,
+    "sha256": "8aac87e9f98dc305ea85d45f2ebae19aba5fbd9323c165f160c83bb46ce89a63"
+  }
+}

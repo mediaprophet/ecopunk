@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecopunk | Interactive WASM preview</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-dark: #07100f;
+      --panel-bg: rgba(13, 24, 23, 0.94);
+      --panel-border: rgba(174, 199, 185, 0.2);
+      --accent-cyan: #9bd6c0;
+      --accent-emerald: #82d5aa;
+      --accent-amber: #f2c77b;
+      --text-main: #edf3ed;
+      --text-dim: #b2c0b7;
+      --focus: #f7d98c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      width: 100%; height: 100%; min-height: 100%; overflow: hidden;
+      background: var(--bg-dark); color: var(--text-main);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    #qualia-canvas {
+      position: fixed; inset: 0; width: 100%; height: 100%; display: block;
+      z-index: 1; cursor: grab;
+      touch-action: none;
+    }
+    #qualia-canvas:active { cursor: grabbing; }
+    .hud-layer {
+      position: fixed; inset: 0; pointer-events: none; z-index: 10;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      grid-template-columns: minmax(265px, 310px) minmax(0, 1fr) minmax(280px, 340px);
+      padding: 14px; gap: 12px;
+      pointer-events: none;
+    }
+    .panel {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      padding: 0;
+      pointer-events: auto;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.42);
+      overflow-y: auto;
+      max-height: calc(100dvh - 120px);
+      scrollbar-color: #53665d transparent;
+      scrollbar-width: thin;
+    }
+    .topbar {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      padding: 11px 14px;
+    }
+    .brand {
+      display: flex; flex-direction: column; gap: 2px;
+      min-width: 180px;
+    }
+    .brand h1 {
+      font-size: 15px; letter-spacing: 0.015em;
+      color: var(--text-main); font-weight: 720;
+    }
+    .brand span { font-size: 12px; color: var(--text-dim); }
+    .exp-tabs { display: flex; gap: 7px; flex-wrap: wrap; }
+    button, select {
+      min-height: 44px;
+      min-height: 40px;
+      background: rgba(28, 42, 37, 0.92);
+      color: var(--text-main);
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      padding: 8px 11px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    button:hover, select:hover, summary:hover {
+      border-color: var(--accent-cyan);
+      background-color: rgba(155, 214, 192, 0.12);
+    }
+    button.active, button[aria-pressed="true"] {
+      background: rgba(130, 213, 170, 0.16);
+      border-color: var(--accent-emerald);
+      color: #a8edc5;
+    }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    button:focus:not(:focus-visible), select:focus:not(:focus-visible) { outline: none; }
+    details.panel { padding: 0; }
+    details.panel > summary {
+      position: sticky; top: 0; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      min-height: 46px; padding: 10px 13px;
+      color: var(--text-main); font-size: 13px; font-weight: 700;
+      background: rgba(13, 24, 23, 0.98);
+      border-bottom: 1px solid transparent;
+      cursor: pointer; list-style: none;
+    }
+    details.panel > summary::-webkit-details-marker { display: none; }
+    details.panel > summary::after { content: "＋"; color: var(--accent-cyan); font-size: 16px; }
+    details.panel[open] > summary { border-bottom-color: var(--panel-border); }
+    details.panel[open] > summary::after { content: "−"; }
+    .panel-content { padding: 12px 14px 14px; }
+    .provenance { margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--panel-border); }
+    .provenance a { color: var(--accent-cyan); }
+    .provenance > summary { padding: 8px 2px; color: var(--text-dim); font-size: 12px; font-weight: 650; cursor: pointer; }
+    .provenance > summary::marker { color: var(--accent-cyan); }
+    .provenance p { margin: 8px 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+    .provenance-values { margin: 8px 0; }
+    .badge {
+      display: inline-block; padding: 5px 9px; border-radius: 999px;
+      font-size: 11px; font-weight: 650;
+      background: rgba(130, 213, 170, 0.12); color: #a8edc5;
+      border: 1px solid rgba(130, 213, 170, 0.32);
+    }
+    .section-title {
+      font-size: 12px; letter-spacing: 0.01em;
+      color: var(--accent-cyan); margin: 14px 0 7px; font-weight: 700;
+      border-bottom: 1px solid rgba(155, 214, 192, 0.2); padding-bottom: 5px;
+    }
+    .section-title:first-child { margin-top: 0; }
+    .kv-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px;
+      font-size: 12px;
+    }
+    .kv-grid .k { color: var(--text-dim); }
+    .kv-grid .v { color: #f5f5ed; font-weight: 620; text-align: right; overflow-wrap: anywhere; }
+    .slider-row {
+      display: flex; flex-direction: column; gap: 3px; margin: 7px 0;
+      font-size: 12px;
+    }
+    .slider-row label {
+      display: flex; justify-content: space-between; color: var(--text-dim);
+    }
+    .slider-row input[type=range] { width: 100%; min-height: 44px; accent-color: var(--accent-cyan); }
+    .movement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; margin-bottom: 8px; }
+    .movement-grid .exp-btn { min-height: 44px; padding: 6px; font-size: 12px; }
+    .scale-btn-list, .site-btn-list, .pin-btn-list {
+      display: flex; flex-direction: column; gap: 5px; margin-top: 6px;
+    }
+    .scale-btn-list button, .site-btn-list button, .pin-btn-list button {
+      text-align: left; width: 100%; min-height: 44px; font-size: 12px; padding: 7px 9px;
+    }
+    .formula-box {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; color: #f6d891;
+      background: rgba(245, 158, 11, 0.09);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 8px; padding: 9px; margin: 7px 0;
+    }
+    .summary-box {
+      font-size: 12px; line-height: 1.5; color: #d1dbd3;
+      background: rgba(28, 42, 37, 0.58);
+      border-radius: 8px; padding: 9px; margin: 7px 0;
+    }
+    .bottombar {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px 18px; flex-wrap: wrap;
+      padding: 9px 13px; font-size: 11px; color: var(--text-dim);
+    }
+    .bottombar span { min-width: 0; }
+    .mobile-help { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @media (max-width: 1050px) {
+      .hud-layer { grid-template-columns: minmax(245px, 290px) minmax(0, 1fr); }
+      .topbar { grid-column: 1 / -1; }
+      #right-panel { grid-column: 2; grid-row: 2; justify-self: end; width: min(310px, 100%); }
+      #left-panel { grid-column: 1; grid-row: 2; width: min(290px, 100%); }
+    }
+    @media (max-width: 700px) {
+      #qualia-canvas { top: 238px; bottom: 110px; height: calc(100dvh - 348px); }
+      .hud-layer { display: block; padding: 8px; }
+      .topbar { position: absolute; top: 8px; left: 8px; right: 8px; padding: 9px 10px; gap: 8px; }
+      .brand { min-width: 0; flex: 1 1 180px; }
+      .brand h1 { font-size: 14px; }
+      .brand span { font-size: 11px; }
+      .exp-tabs { order: 3; flex: 1 1 100%; }
+      .exp-tabs button { flex: 1 1 130px; min-height: 44px; padding: 7px; font-size: 12px; }
+      .exp-tabs #btn-dismount { flex: 1 1 180px; }
+      .exp-tabs #btn-zoom-in, .exp-tabs #btn-zoom-out { flex: 0 0 44px; }
+      .topbar > div:last-child { align-self: flex-start; }
+      .panel { max-height: min(44dvh, 380px); }
+      #left-panel, #right-panel { position: absolute; width: min(460px, calc(100vw - 16px)); }
+      #left-panel { top: 190px; left: 8px; }
+      #right-panel { right: 8px; bottom: 58px; }
+      #left-panel:not([open]), #right-panel:not([open]) { overflow: hidden; }
+      #left-panel[open], #right-panel[open] { z-index: 2; }
+      .panel-content { padding: 10px 12px 12px; }
+      .bottombar { position: absolute; bottom: 8px; left: 8px; right: 8px; display: grid; grid-template-columns: 1fr; gap: 2px; }
+      .desktop-help { display: none; }
+      .mobile-help { display: inline; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="qualia-canvas" tabindex="0" aria-describedby="canvas-help" aria-label="Interactive illustrative Ecopunk scene. Drag to orbit and use the controls to explore the WASM preview."></canvas>
+  <p class="sr-only" id="canvas-help">Focus this scene to use W, A, S, D, Shift, E and F. Drag to orbit and use the wheel to zoom.</p>
+
+  <div class="hud-layer">
+    <!-- TOP BAR -->
+    <div class="panel topbar">
+      <div class="brand">
+        <h1>Ecopunk scene preview</h1>
+        <span class="badge" id="preview-status" role="status" aria-live="polite">Loading Ecopunk scene…</span>
+      </div>
+      <div class="exp-tabs">
+        <a href="/viewer/models.html" style="color:#d6e8d4;padding:8px 12px">Model review</a>
+        <button id="btn-exp-continuum" class="active" aria-pressed="true">Corridor scene</button>
+        <button id="btn-exp-lab" aria-pressed="false">Scale inspection [F]</button>
+        <button id="btn-dismount" aria-label="Toggle walking and vehicle mode">Toggle walk / vehicle [E]</button>
+        <button id="btn-zoom-in" aria-label="Zoom in">＋</button>
+        <button id="btn-zoom-out" aria-label="Zoom out">−</button>
+      </div>
+    </div>
+
+    <details class="panel" id="left-panel" open>
+      <summary>Explore and inspect</summary>
+      <div class="panel-content">
+      <div id="continuum-controls">
+        <div class="section-title">Explore the corridor</div>
+        <div class="site-btn-list" id="site-btn-list"></div>
+
+        <div class="section-title">Movement controls</div>
+        <div class="movement-grid">
+          <span></span>
+          <button class="exp-btn" data-hold-key="w" aria-label="Move forward (W)">▲ Forward [W]</button>
+          <span></span>
+          <button class="exp-btn" data-hold-key="a" aria-label="Move left (A)">◀ Left [A]</button>
+          <button class="exp-btn" data-hold-key="s" aria-label="Move backward (S)">▼ Back [S]</button>
+          <button class="exp-btn" data-hold-key="d" aria-label="Move right (D)">▶ Right [D]</button>
+        </div>
+        <div class="summary-box">
+          <b>W / S</b>: Move forward / back<br/>
+          <b>A / D</b>: Turn or strafe<br/>
+          <b>Shift</b>: Sprint / boost<br/>
+          <b>[E]</b>: Toggle walking / vehicle mode<br/>
+          <b>[F]</b>: Switch to scale inspection<br/>
+          <b>Drag / wheel</b>: Orbit / zoom the view
+        </div>
+      </div>
+
+      <div id="lab-controls" style="display:none;">
+        <div class="section-title">Inspect by scale</div>
+        <div class="scale-btn-list" id="scale-btn-list">
+          <button data-scale="1" class="active" aria-pressed="true">Scale 1 · Organism form</button>
+          <button data-scale="2" aria-pressed="false">Scale 2 · Stem and bark</button>
+          <button data-scale="3" aria-pressed="false">Scale 3 · Flower and fruit</button>
+          <button data-scale="4" aria-pressed="false">Scale 4 · Venation and cells</button>
+          <button data-scale="5" aria-pressed="false">Scale 5 · Vertebrate preset</button>
+        </div>
+
+        <div class="section-title">View adjustments</div>
+        <div class="slider-row">
+          <label for="slider-explode"><span>Layer separation</span><span id="val-explode">0.25</span></label>
+          <input type="range" id="slider-explode" min="0" max="1" step="0.02" value="0.25" aria-valuetext="0.25" />
+        </div>
+        <div class="slider-row">
+          <label for="slider-cutaway"><span>Cutaway position</span><span id="val-cutaway">0.35</span></label>
+          <input type="range" id="slider-cutaway" min="0" max="1" step="0.02" value="0.35" aria-valuetext="0.35" />
+        </div>
+        <div class="slider-row">
+          <label for="slider-anthesis"><span>Flower adjustment</span><span id="val-anthesis">0.65</span></label>
+          <input type="range" id="slider-anthesis" min="0" max="1" step="0.02" value="0.65" aria-valuetext="0.65" />
+        </div>
+        <div class="slider-row">
+          <label for="slider-peel"><span>Layer reveal</span><span id="val-peel">0.68</span></label>
+          <input type="range" id="slider-peel" min="0" max="1" step="0.02" value="0.68" aria-valuetext="0.68" />
+        </div>
+        <div class="slider-row">
+          <label for="select-archetype"><span>Scale 5 preset</span></label>
+          <select id="select-archetype">
+            <option value="0">Macropus giganteus (Eastern Grey Kangaroo)</option>
+            <option value="1">Vombatus ursinus (Common Wombat)</option>
+            <option value="2">Ornithorhynchus anatinus (Platypus)</option>
+            <option value="3">Aquila audax (Wedge-Tailed Eagle)</option>
+            <option value="4">Phascolarctos cinereus (Koala)</option>
+          </select>
+        </div>
+      </div>
+      </div>
+    </details>
+
+    <!-- CENTER VIEWPORT SPACER -->
+    <div style="pointer-events:none;"></div>
+
+    <details class="panel" id="right-panel" open>
+      <summary>Inspect</summary>
+      <div class="panel-content">
+      <div class="summary-box" id="scene-error" hidden>
+        <p id="scene-error-message" role="alert"></p>
+        <button id="btn-retry-scene">Reload scene</button>
+      </div>
+      <div class="section-title">Scene values</div>
+      <div class="kv-grid" id="telemetry-kv">
+        <span class="k">Mode</span><span class="v" id="tel-mode">—</span>
+        <span class="k">Scene distance</span><span class="v" id="tel-corridor">—</span>
+          <span class="k">Elevation value (AHD)</span><span class="v" id="tel-elev">—</span>
+        <span class="k">Movement speed</span><span class="v" id="tel-speed">—</span>
+        <span class="k">Sinkage value</span><span class="v" id="tel-sinkage">—</span>
+        <span class="k">Scene label</span><span class="v" id="tel-site">—</span>
+        <span class="k">Mesh counts</span><span class="v" id="tel-mesh">—</span>
+      </div>
+
+      <div class="section-title" id="context-heading">Callouts</div>
+      <div class="pin-btn-list" id="pin-btn-list"></div>
+
+      <div class="section-title" id="details-heading">Selected callout details</div>
+      <div class="kv-grid">
+        <span class="k">Identifier</span><span class="v" id="pin-curie">—</span>
+        <span class="k">Term</span><span class="v" id="pin-term">—</span>
+      </div>
+      <div class="formula-box" id="pin-formula">
+        Waiting for demo callout data.
+      </div>
+      <div class="summary-box" id="pin-summary">
+        Choose a scale and callout to inspect the text supplied by the preview.
+      </div>
+      <div class="summary-box" id="pin-custodial" style="border-left: 3px solid var(--accent-amber);">
+        Cultural interpretation pending source and knowledge-holder review.
+      </div>
+      <details class="provenance" id="provenance-panel">
+        <summary>Preview provenance and runtime</summary>
+        <div class="summary-box">
+          <p>This browser route loads <code>viewer/pkg/ecopunk_wasm.js</code> and <code>viewer/pkg/ecopunk_wasm_bg.wasm</code>, then fetches <code>vibe/ecopunk_continuum_drive.vibe</code> and <code>vibe/ecopunk_biological_lab.vibe</code> for <code>EcopunkPortal</code>.</p>
+          <p>The page does not call HMC package admission. Scene labels, values and callout descriptions are supplied by the preview.</p>
+          <p><a id="download-demo-pack" download>Native demo resources (HMC)</a> · <a id="download-demo-inventory">Asset inventory (TSV)</a></p>
+        </div>
+        <p id="wasm-status-line" role="status" aria-live="polite">Starting the browser WASM preview…</p>
+        <span class="badge" id="portal-tier-badge" aria-live="polite">Connecting…</span>
+        <div class="kv-grid provenance-values">
+          <span class="k">Loaded module bytes</span><span class="v" id="tel-qbc">—</span>
+          <span class="k">Presented mesh</span><span class="v" id="rendered-mesh">—</span>
+        </div>
+        <p id="vibe-eval-receipt">Waiting for the preview to report loaded Vibe modules.</p>
+        <label for="graphics-mode">Graphics mode</label>
+        <select id="graphics-mode"><option value="auto">Automatic · full materials when available</option><option value="webgl2">Compatibility · vertex colours</option></select>
+      </details>
+      </div>
+    </details>
+
+    <!-- BOTTOM BAR -->
+    <div class="panel bottombar">
+      <span class="desktop-help">Drag to orbit · wheel to zoom · W/A/S/D to move · F to inspect by scale</span>
+      <span class="mobile-help">Drag to orbit · ＋ / − to zoom · Explore for movement</span>
+    </div>
+  </div>
+
+  <script type="module">
+    document.getElementById('btn-retry-scene').addEventListener('click', () => location.reload());
+    async function startDemo() {
+    const BASE = window.location.pathname.includes('/viewer/') ? '..' : '.';
+    const ASSET_REVISION = '0f6e6ffdcb54ba57e79a149daeac5fb3';
+    document.getElementById('download-demo-pack').href = `${BASE}/assets/demo-rebuild-2026-10-29/ecopunk-demo.hmc`;
+    document.getElementById('download-demo-inventory').href = `${BASE}/assets/demo-rebuild-2026-10-29/inventory.tsv`;
+    const wasmModuleUrl = `${BASE}/viewer/pkg/ecopunk_wasm.js?v=${ASSET_REVISION}`;
+    const wasmBgUrl = `${BASE}/viewer/pkg/ecopunk_wasm_bg.wasm?v=${ASSET_REVISION}`;
+    const compactLayout = window.matchMedia('(max-width: 1050px)');
+    if (compactLayout.matches) {
+      document.getElementById('left-panel').open = false;
+      document.getElementById('right-panel').open = false;
+    }
+    const panels = ['left-panel', 'right-panel'].map(id => document.getElementById(id));
+    compactLayout.addEventListener('change', event => { if (event.matches) panels.forEach(panel => panel.open = false); });
+    panels.forEach(panel => panel.addEventListener('toggle', () => {
+      if (compactLayout.matches && panel.open) panels.filter(other => other !== panel).forEach(other => other.open = false);
+    }));
+
+    const SITES = [
+      { idx: 0, label: "Scene 1 · km 0.0 — The Pines Foreshore" },
+      { idx: 1, label: "Scene 2 · km 1.8 — Humes Crossing Alluvial Flats" },
+      { idx: 2, label: "Scene 3 · km 4.2 — Jounama Creek & Bogong Tors" },
+      { idx: 3, label: "Scene 4 · km 9.5 — Yarrangobilly Karst & Pool" },
+      { idx: 4, label: "Scene 5 · km 13.0 — O'Hares Alpine Ash Forest" },
+      { idx: 5, label: "Scene 6 · km 17.5 — Three Mile Dam Snow Gum Bog" },
+      { idx: 6, label: "Scene 7 · km 22.0 — Sydney Hawkesbury Sandstone" },
+      { idx: 7, label: "Scene 8 · km 26.5 — Noosa Pandanus Basalt Headland" }
+    ];
+
+    const canvas = document.getElementById('qualia-canvas');
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(1, Math.floor(canvas.clientWidth * dpr));
+      canvas.height = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const wasm = await import(wasmModuleUrl);
+    await wasm.default({ module_or_path: wasmBgUrl });
+
+    const graphicsMode = document.getElementById('graphics-mode');
+    graphicsMode.value = new URLSearchParams(location.search).get('graphics') === 'webgl2' ? 'webgl2' : 'auto';
+    graphicsMode.addEventListener('change', () => {
+      const next = new URL(location.href);
+      if (graphicsMode.value === 'webgl2') next.searchParams.set('graphics', 'webgl2');
+      else next.searchParams.delete('graphics');
+      location.href = next.href;
+    });
+    let webgpuOk = false;
+    let webglError = '';
+    if (graphicsMode.value === 'auto') try {
+      webgpuOk = await wasm.init_webgpu(canvas);
+    } catch (_) {
+      webgpuOk = false;
+    }
+    if (!webgpuOk) {
+      try { wasm.init_webgl2(canvas); } catch (error) { webglError = String(error); }
+    }
+
+    let portal;
+    try {
+      portal = new wasm.EcopunkPortal(canvas, !webgpuOk);
+    } catch (error) {
+      // Display the native/WASM constructor's admission error without replacing
+      // its decision or leaving the surface indefinitely marked as connecting.
+      document.getElementById('portal-tier-badge').textContent = 'Scene initialization failed';
+      const statusLine = document.getElementById('wasm-status-line');
+      statusLine.textContent = `Unable to start scene: ${webglError || String(error)}`;
+      statusLine.setAttribute('role', 'alert');
+      document.getElementById('preview-status').textContent = 'Scene could not start · open Inspect for details';
+      document.getElementById('right-panel').open = true;
+      throw error;
+    }
+    document.getElementById('portal-tier-badge').textContent = webgpuOk ? 'Full materials' : 'Compatibility · vertex colours';
+
+    // Load & compile the two canonical vibe-0.1 modules into .qbc bytecode inside WASM
+    const [driveVibeText, labVibeText] = await Promise.all([
+      fetch(`${BASE}/vibe/ecopunk_continuum_drive.vibe`).then(r => r.text()),
+      fetch(`${BASE}/vibe/ecopunk_biological_lab.vibe`).then(r => r.text())
+    ]);
+    const vibeReceipt = JSON.parse(portal.load_vibe_modules(driveVibeText, labVibeText));
+    document.getElementById('tel-qbc').textContent =
+      `${vibeReceipt.continuum_drive_qbc_bytes + vibeReceipt.biological_lab_qbc_bytes} B (.qbc)`;
+    document.getElementById('vibe-eval-receipt').textContent =
+      `VibeScript ${vibeReceipt.vibe_language} loaded · ${vibeReceipt.catalog_invoke_id_count} catalog invoke IDs reported`;
+    document.getElementById('wasm-status-line').textContent =
+      `Browser WASM initialized · ${vibeReceipt.continuum_drive_qbc_bytes + vibeReceipt.biological_lab_qbc_bytes} bytes of Vibe modules reported`;
+
+    // State for camera & controls
+    let camYaw = 0.28;
+    let camPitch = 0.26;
+    let camZoom = 1.35;
+    let dragging = false;
+    let lastX = 0, lastY = 0;
+    const zoomBy = factor => { camZoom = Math.max(0.12, Math.min(6.5, camZoom * factor)); };
+    document.getElementById('btn-zoom-in').addEventListener('click', () => zoomBy(0.85));
+    document.getElementById('btn-zoom-out').addEventListener('click', () => zoomBy(1.18));
+
+    canvas.addEventListener('pointerdown', (e) => {
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      camYaw += dx * 0.0075;
+      camPitch = Math.max(-1.25, Math.min(1.35, camPitch + dy * 0.0065));
+    });
+    canvas.addEventListener('pointerup', () => { dragging = false; });
+    canvas.addEventListener('pointercancel', () => { dragging = false; });
+    canvas.addEventListener('lostpointercapture', () => { dragging = false; });
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      zoomBy(Math.exp(e.deltaY * 0.001));
+    }, { passive: false });
+
+    const keys = new Set();
+    window.addEventListener('keydown', (e) => {
+      if (e.altKey || e.ctrlKey || e.metaKey || e.target.closest('button, input, select, summary')) return;
+      const k = e.key.toLowerCase();
+      if (e.repeat && (k === 'e' || k === 'f')) return;
+      keys.add(k);
+      if (k === 'e') {
+        portal.toggle_dismount();
+      } else if (k === 'f') {
+        switchExperience(activeExp === 0 ? 1 : 0);
+      }
+    });
+    window.addEventListener('keyup', (e) => keys.delete(e.key.toLowerCase()));
+    window.addEventListener('blur', () => { keys.clear(); dragging = false; });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) keys.clear(); });
+
+    let activeExp = 0;
+    let activeScale = 1;
+    let activePinIdx = 0;
+    let activeSiteIdx = 0;
+
+    // Populate demo-provided scene labels.
+    const siteListEl = document.getElementById('site-btn-list');
+    SITES.forEach((s) => {
+      const btn = document.createElement('button');
+      btn.textContent = s.label;
+      const selected = s.idx === 0;
+      btn.classList.toggle('active', selected);
+      btn.setAttribute('aria-pressed', String(selected));
+      btn.addEventListener('click', () => {
+        Array.from(siteListEl.children).forEach((c) => {
+          c.classList.remove('active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        const info = JSON.parse(portal.load_continuum_site_scene(s.idx));
+        activeSiteIdx = s.idx;
+        renderSceneContext(info);
+        document.getElementById('tel-mesh').textContent =
+          `${info.vertex_count.toLocaleString()} v / ${info.triangle_count.toLocaleString()} t`;
+      });
+      siteListEl.appendChild(btn);
+    });
+
+    function renderSceneContext(info) {
+      camYaw = info.camera_yaw;
+      camPitch = info.camera_pitch;
+      camZoom = info.camera_zoom;
+      document.getElementById('pin-btn-list').replaceChildren();
+      document.getElementById('pin-curie').textContent = info.sector_id;
+      document.getElementById('pin-term').textContent = info.site_name;
+      document.getElementById('pin-formula').textContent = 'Illustrative scene metadata; field and source verification pending.';
+      document.getElementById('pin-summary').textContent = `${info.vegetation_community} · ${info.geology_description}`;
+      document.getElementById('pin-custodial').textContent = 'Cultural interpretation pending source and knowledge-holder review.';
+    }
+
+    function renderPinCards(res) {
+      const pinListEl = document.getElementById('pin-btn-list');
+      pinListEl.innerHTML = '';
+      (res.scale_pins || []).forEach((pin, idx) => {
+        const b = document.createElement('button');
+        b.textContent = `[${pin.ontology_curie}] ${pin.scientific_term}`;
+        const selected = idx === (activePinIdx % Math.max(1, res.scale_pins.length));
+        b.classList.toggle('active', selected);
+        b.setAttribute('aria-pressed', String(selected));
+        b.addEventListener('click', () => {
+          activePinIdx = idx;
+          if (activeExp === 1) {
+            refreshLabDissection();
+          } else {
+            renderPinCards(JSON.parse(portal.get_scale_pins_json(activeScale, activePinIdx)));
+          }
+        });
+        pinListEl.appendChild(b);
+      });
+
+      if (res.selected_pin) {
+        document.getElementById('pin-curie').textContent = res.selected_pin.ontology_curie;
+        document.getElementById('pin-term').textContent = res.selected_pin.scientific_term;
+        document.getElementById('pin-formula').textContent = res.selected_pin.biophysical_formula;
+        document.getElementById('pin-summary').textContent = res.selected_pin.educational_summary;
+        document.getElementById('pin-custodial').textContent =
+          'Cultural interpretation pending source and knowledge-holder review.';
+      }
+    }
+
+    function refreshLabDissection() {
+      const explode = parseFloat(document.getElementById('slider-explode').value);
+      const cutaway = parseFloat(document.getElementById('slider-cutaway').value);
+      const anthesis = parseFloat(document.getElementById('slider-anthesis').value);
+      const peel = parseFloat(document.getElementById('slider-peel').value);
+      const arch = parseInt(document.getElementById('select-archetype').value, 10);
+
+      document.getElementById('val-explode').textContent = explode.toFixed(2);
+      document.getElementById('val-cutaway').textContent = cutaway.toFixed(2);
+      document.getElementById('val-anthesis').textContent = anthesis.toFixed(2);
+      document.getElementById('val-peel').textContent = peel.toFixed(2);
+      document.getElementById('slider-explode').setAttribute('aria-valuetext', explode.toFixed(2));
+      document.getElementById('slider-cutaway').setAttribute('aria-valuetext', cutaway.toFixed(2));
+      document.getElementById('slider-anthesis').setAttribute('aria-valuetext', anthesis.toFixed(2));
+      document.getElementById('slider-peel').setAttribute('aria-valuetext', peel.toFixed(2));
+
+      const res = JSON.parse(
+        portal.load_dissection_scale(activeScale, explode, cutaway, anthesis, peel, arch, activePinIdx)
+      );
+      if (res.mesh_10d) {
+        document.getElementById('tel-mesh').textContent =
+          `${res.mesh_10d.vertex_count.toLocaleString()} v / ${res.mesh_10d.triangle_count.toLocaleString()} t (.10d)`;
+      }
+      renderPinCards(res);
+      if (res.vibe_evaluation && res.vibe_evaluation.floral_anthesis) {
+        const fa = res.vibe_evaluation.floral_anthesis;
+        document.getElementById('vibe-eval-receipt').textContent =
+          `Preview calculation · scale ${activeScale} · reported flower adjustment: ${Number(fa.operculum_lift_mm || 0).toFixed(1)} mm; ${Number(fa.stamen_unfold_deg || 0).toFixed(1)}°`;
+      }
+    }
+
+    function switchExperience(exp) {
+      activeExp = exp;
+      document.getElementById('context-heading').textContent = exp === 0 ? 'Scene context' : 'Callouts';
+      document.getElementById('details-heading').textContent = exp === 0 ? 'Scene details' : 'Selected callout details';
+      document.querySelectorAll('#telemetry-kv > span').forEach((span, index) => { span.hidden = exp === 1 && index < 12; });
+      document.getElementById('btn-exp-continuum').classList.toggle('active', exp === 0);
+      document.getElementById('btn-exp-lab').classList.toggle('active', exp === 1);
+      document.getElementById('btn-exp-continuum').setAttribute('aria-pressed', String(exp === 0));
+      document.getElementById('btn-exp-lab').setAttribute('aria-pressed', String(exp === 1));
+      document.getElementById('continuum-controls').style.display = exp === 0 ? 'block' : 'none';
+      document.getElementById('lab-controls').style.display = exp === 1 ? 'block' : 'none';
+      if (exp === 0) {
+        camYaw = -0.38;
+        camPitch = 0.56;
+        camZoom = 0.46;
+        const info = JSON.parse(portal.load_continuum_site_scene(activeSiteIdx));
+        renderSceneContext(info);
+        document.getElementById('tel-mesh').textContent =
+          `${info.vertex_count.toLocaleString()} v / ${info.triangle_count.toLocaleString()} t (.10d)`;
+      } else {
+        camYaw = 0.62;
+        camPitch = 0.28;
+        camZoom = 2.55;
+        refreshLabDissection();
+      }
+    }
+
+    document.getElementById('btn-exp-continuum').addEventListener('click', () => switchExperience(0));
+    document.getElementById('btn-exp-lab').addEventListener('click', () => switchExperience(1));
+    document.getElementById('btn-dismount').addEventListener('click', () => portal.toggle_dismount());
+
+    document.querySelectorAll('[data-hold-key]').forEach((btn) => {
+      const k = btn.getAttribute('data-hold-key');
+      btn.addEventListener('pointerdown', (e) => { e.preventDefault(); keys.add(k); });
+      btn.addEventListener('pointerup', () => keys.delete(k));
+      btn.addEventListener('pointerleave', () => keys.delete(k));
+      btn.addEventListener('pointercancel', () => keys.delete(k));
+      btn.addEventListener('keydown', event => {
+        if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); keys.add(k); }
+      });
+      btn.addEventListener('keyup', event => {
+        if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); keys.delete(k); }
+      });
+      btn.addEventListener('blur', () => keys.delete(k));
+      // Assistive activation sends a semantic click without a pointer hold.
+      btn.addEventListener('click', event => {
+        if (event.detail === 0) { keys.add(k); setTimeout(() => keys.delete(k), 180); }
+      });
+    });
+
+    document.querySelectorAll('#scale-btn-list button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#scale-btn-list button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('#scale-btn-list button').forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        activeScale = parseInt(btn.getAttribute('data-scale'), 10);
+        activePinIdx = 0;
+        refreshLabDissection();
+      });
+    });
+
+    ['slider-explode', 'slider-cutaway', 'slider-anthesis', 'slider-peel', 'select-archetype'].forEach((id) => {
+      document.getElementById(id).addEventListener('input', refreshLabDissection);
+    });
+
+    // Populate initial callout pins and load Site 0 once.
+    renderPinCards(JSON.parse(portal.get_scale_pins_json(1, 0)));
+    switchExperience(0);
+
+    let nextRendererReceiptMs = 0;
+    let firstPresentation = true;
+    let lastTime = performance.now();
+    function frame(now) {
+      const dtMs = Math.min(50.0, Math.max(1.0, now - lastTime));
+      lastTime = now;
+
+      const fwd = (keys.has('w') || keys.has('arrowup') ? 1.0 : 0.0) - (keys.has('s') || keys.has('arrowdown') ? 1.0 : 0.0);
+      const str = (keys.has('d') || keys.has('arrowright') ? 1.0 : 0.0) - (keys.has('a') || keys.has('arrowleft') ? 1.0 : 0.0);
+      const brake = keys.has(' ') ? 1.0 : 0.0;
+      const sprint = keys.has('shift');
+
+      try {
+        const telJson = portal.step_and_render(
+          canvas, dtMs, fwd, str, brake, fwd, str, sprint, camYaw, camPitch, camZoom
+        );
+        const tel = JSON.parse(telJson);
+        if (now >= nextRendererReceiptMs) {
+          const receipt = portal.render_receipt();
+          const materials = receipt.renderer === 'webgpu' && webgpuOk ? 'full materials' : 'compatibility vertex colours';
+          document.getElementById('portal-tier-badge').textContent = `${receipt.renderer} · ${receipt.success ? materials : 'waiting for scene presentation'}`;
+          document.getElementById('rendered-mesh').textContent = `${receipt.vertex_count.toLocaleString()} v / ${Math.floor(receipt.index_count / 3).toLocaleString()} t`;
+          if (receipt.success && firstPresentation) {
+            document.getElementById('preview-status').textContent = `${webgpuOk ? 'Illustrative' : 'Compatibility'} preview · source and content review pending`;
+            firstPresentation = false;
+          }
+          nextRendererReceiptMs = now + 1000;
+        }
+        document.getElementById('tel-mode').textContent = tel.mode;
+        document.getElementById('tel-corridor').textContent = `${Number(tel.corridor_km || 0).toFixed(2)} km`;
+        document.getElementById('tel-elev').textContent = `${Number(tel.elevation_ahd_m || 0).toFixed(1)} m AHD`;
+        document.getElementById('tel-speed').textContent = `${Number(tel.rover_speed_kmh || 0).toFixed(1)} km/h`;
+        document.getElementById('tel-sinkage').textContent = `${Number(tel.soil_sinkage_mm || 0).toFixed(1)} mm`;
+        document.getElementById('tel-site').textContent = tel.nearest_site_name || 'Talbingo';
+      } catch (err) {
+        console.error('QualiaPortal step_and_render error:', err);
+        document.getElementById('preview-status').textContent = 'Scene paused after a graphics error · open Inspect';
+        document.getElementById('wasm-status-line').textContent = `Scene presentation failed: ${String(err)}. Use Reload scene to retry.`;
+        document.getElementById('scene-error-message').textContent = `Scene presentation failed: ${String(err)}`;
+        document.getElementById('scene-error').hidden = false;
+        document.getElementById('right-panel').open = true;
+        return;
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    }
+    startDemo().catch(error => {
+      const status = document.getElementById('wasm-status-line');
+      if (!status.textContent.startsWith('Unable to start scene:')) status.textContent = `Unable to start scene: ${String(error)}`;
+      status.setAttribute('role', 'alert');
+      document.getElementById('scene-error-message').textContent = status.textContent;
+      document.getElementById('scene-error').hidden = false;
+      document.getElementById('preview-status').textContent = 'Scene could not start · open Inspect for details';
+      document.getElementById('right-panel').open = true;
+      console.error('Ecopunk initialization failed:', error);
+    });
+  </script>
+</body>
+</html>

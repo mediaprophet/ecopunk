@@ -1,0 +1,368 @@
+{
+  "document_kind": "trial_preparation_template",
+  "schema": "ecopunk-native-authoring-trial-preparation/v1",
+  "date": "2026-10-27",
+  "governing_plan": "docs/planning/implementation-plan.md",
+  "instructions": "docs/planning/interim-production-readiness.md",
+  "not_a_model_ledger": true,
+  "not_a_native_gate": true,
+  "execution_performed": false,
+  "asset_production": "HOLD",
+  "source_code_changes_allowed": false,
+  "cargo_allowed": false,
+  "resume_condition": "Timothy confirms VibeScript/Poet updates ready, then reconcile changed APIs/capabilities and source/build inputs before dispatch",
+  "run_id": null,
+  "build_bindings": {},
+  "project_bindings": {},
+  "actor_bindings": [],
+  "required_actor_roles": [
+    "human_principal",
+    "human_contributor",
+    "delegated_agent",
+    "reviewer"
+  ],
+  "review_policy_ref": null,
+  "criteria_bindings": {},
+  "profiles": [
+    {
+      "id": "film",
+      "status": "unassessed",
+      "criteria_ref": null,
+      "artifact_refs": []
+    },
+    {
+      "id": "open_world_game",
+      "status": "unassessed",
+      "criteria_ref": null,
+      "artifact_refs": []
+    },
+    {
+      "id": "cartoon",
+      "status": "unassessed",
+      "criteria_ref": null,
+      "artifact_refs": []
+    }
+  ],
+  "human_acceptance": "unassessed",
+  "completion_rule": "All applicable operational cases require actual execution, current source/output/authority bindings and required human review. No software result, document or self-assigned waiver establishes human/domain/model acceptance. Full model completion remains governed by the 193-row catalogue and expanded claims.",
+  "cases": [
+    {
+      "id": "T00",
+      "depends_on": [],
+      "requirement_refs": [
+        "IP-03",
+        "AUTH-H1"
+      ],
+      "required_evidence": [
+        "updated source/build/backend manifest",
+        "approved brief and criteria",
+        "working-copy inputs and digests",
+        "operator/control bindings",
+        "authority and review policy"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C1",
+      "depends_on": [
+        "T00"
+      ],
+      "requirement_refs": [
+        "IP-03 C1"
+      ],
+      "required_evidence": [
+        "same brief/reference/task revisions in two actual contexts",
+        "part/profile inventory",
+        "review state"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C2",
+      "depends_on": [
+        "C1"
+      ],
+      "requirement_refs": [
+        "IP-03 C2",
+        "AUTH-H2",
+        "AUTH-H3",
+        "AUTH-H5"
+      ],
+      "required_evidence": [
+        "adopted human-to-agent chain and actual key/session evidence",
+        "role/action/scope/expiry/budget decisions",
+        "forbidden action and same-control reviewer cases"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C3",
+      "depends_on": [
+        "C2"
+      ],
+      "requirement_refs": [
+        "IP-03 C3",
+        "TREE-03–08",
+        "WALLABY-04–09"
+      ],
+      "required_evidence": [
+        "actual native controls and admitted agent route",
+        "source/geometry/surface/rig changes",
+        "native preview and named-part continuity",
+        "retained unrelated state"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C4",
+      "depends_on": [
+        "C3"
+      ],
+      "requirement_refs": [
+        "IP-03 C4"
+      ],
+      "required_evidence": [
+        "attributed contribution and review",
+        "source/resource history",
+        "checkpoint/undo/rebuild/reopen",
+        "actual work status without false payment"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C5",
+      "depends_on": [
+        "C2",
+        "C3"
+      ],
+      "requirement_refs": [
+        "IP-03 C5",
+        "AUTH-H4"
+      ],
+      "required_evidence": [
+        "stale revision/conflict refusal",
+        "late result across actor change withheld",
+        "cancel/forbidden edit preserves work and drafts",
+        "honest post-effect reconciliation"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C6",
+      "depends_on": [
+        "C4",
+        "C5"
+      ],
+      "requirement_refs": [
+        "IP-03 C6",
+        "REQ-SP-001–008"
+      ],
+      "required_evidence": [
+        "source-to-HMC/output reproduction",
+        "complete corpus/resource reconciliation versus selected working set",
+        "controlled invalid-resource refusal",
+        "actual package/output identifiers"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C7",
+      "depends_on": [
+        "C4",
+        "C5"
+      ],
+      "requirement_refs": [
+        "IP-03 C7",
+        "AUTH-H3",
+        "AUTH-H6"
+      ],
+      "required_evidence": [
+        "fresh authentication after restart",
+        "source/resource/pending-work/review recovery",
+        "revoked ancestor/expired path refusal",
+        "no restored authority from checkpoint"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "C8",
+      "depends_on": [
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ],
+      "requirement_refs": [
+        "IP-03 C8"
+      ],
+      "required_evidence": [
+        "actual operator task/error-recovery observations",
+        "help/accessibility/performance results against approved criteria",
+        "required human acceptance references"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-03_qualification",
+      "requires_production_authorisation": false,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "V01",
+      "depends_on": [
+        "T00",
+        "C8"
+      ],
+      "requirement_refs": [
+        "TREE-03–07",
+        "TREE-10–11",
+        "WALLABY-04–06"
+      ],
+      "required_evidence": [
+        "identified rights-appropriate references",
+        "whole/part/close-study camera and light settings",
+        "visual/domain findings tied to exact output/state"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-04_or_later_review",
+      "requires_production_authorisation": true,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "V02",
+      "depends_on": [
+        "V01"
+      ],
+      "requirement_refs": [
+        "TREE-08",
+        "WALLABY-07–09"
+      ],
+      "required_evidence": [
+        "actual motion/contact/deformation evidence",
+        "normal/UV/material/attachment continuity",
+        "authored assumptions versus observations"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-04_or_later_review",
+      "requires_production_authorisation": true,
+      "new_preproduction_requirement": false
+    },
+    {
+      "id": "V03",
+      "depends_on": [
+        "V01",
+        "V02"
+      ],
+      "requirement_refs": [
+        "TREE-09–13",
+        "WALLABY-10–16",
+        "REQ-CIVICS-001"
+      ],
+      "required_evidence": [
+        "separate film/game/cartoon reviews and derivation",
+        "qualified part/knowledge queries",
+        "actual bounded civics comprehension review"
+      ],
+      "status": "unassessed",
+      "actual_bindings": {},
+      "evidence_refs": [],
+      "software_review_refs": [],
+      "human_review_refs": [],
+      "findings": [],
+      "remaining_work": [],
+      "phase": "IP-04_or_later_review",
+      "requires_production_authorisation": true,
+      "new_preproduction_requirement": false
+    }
+  ],
+  "production_authorisation_ref": null
+}

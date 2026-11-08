@@ -1,0 +1,40 @@
+{
+  "taxonId": "urn:qualia:taxon:corymbia_aparrerinja",
+  "scientificName": "Corymbia aparrerinja",
+  "austraitsProfile": {
+    "life_form": "tree",
+    "plant_height_max_m": 20.0,
+    "plant_height_typical_m": 15.0,
+    "stem_diameter_max_m": 1.10,
+    "wood_density_kg_per_m3": 880.0,
+    "leaf_type": "simple",
+    "leaf_arrangement": "alternate",
+    "leaf_shape": "lanceolate_falcate",
+    "leaf_length_mean_mm": 120.0,
+    "leaf_width_mean_mm": 18.0,
+    "specific_leaf_area_m2_per_kg": 6.8,
+    "leaf_dry_matter_content_mg_per_g": 520.0,
+    "bark_type": "smooth_powdery",
+    "bark_color": "chalk_white_to_cream",
+    "bark_thickness_mean_mm": 11.0,
+    "fire_response": "resprouter_lignotuberous",
+    "dispersal_syndrome": "gravity_wind",
+    "seed_mass_mean_mg": 4.2,
+    "photosynthetic_pathway": "C3",
+    "root_depth_max_m": 18.0,
+    "drought_tolerance_rating": "extreme_hyperarid_adapted"
+  },
+  "climate_envelope": {
+    "biomes": [
+      "IUCN:T4.4 Arid and semi-arid subtropical woodlands",
+      "IBRA:MacDonnell Ranges (MAC)",
+      "IBRA:Burt Plain (BRT)",
+      "IBRA:Finke (FIN)",
+      "IBRA:Great Sandy Desert (GSD)"
+    ],
+    "mean_annual_precipitation_mm_min": 150.0,
+    "mean_annual_precipitation_mm_max": 380.0,
+    "temperature_annual_min_c": -5.0,
+    "temperature_annual_max_c": 48.0
+  }
+}

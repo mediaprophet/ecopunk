@@ -1,0 +1,33 @@
+[package]
+name = "ecopunk-wasm"
+version = "0.1.0"
+edition = "2021"
+authors = ["Timothy Charles Holborn <timothy.holborn@gmail.com>"]
+description = "QualiaDB + VibeScript WASM engine shell for Ecopunk 26.5km World Continuum & 5-Scale Biological Dissection Lab"
+license = "Apache-2.0"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+bytemuck = { workspace = true }
+crc32c = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+vibe = { workspace = true }
+vibe-wasm = { workspace = true }
+qualia-geospatial = { workspace = true }
+qualia-sim = { workspace = true }
+ecopunk-terrain = { path = "../ecopunk-terrain" }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+qualia-core-db = { workspace = true, features = ["profile_target_1024", "zk-culling", "gpu-runtime", "gpu-native-dx12", "wgsl-forge", "privacy-he"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+qualia-core-db = { workspace = true, features = ["wasm-full"] }
+wasm-bindgen = { workspace = true }
+serde-wasm-bindgen = { workspace = true }
+js-sys = { workspace = true }
+wasm-bindgen-futures = { workspace = true }
+web-sys = { workspace = true }

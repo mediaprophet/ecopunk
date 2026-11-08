@@ -1,0 +1,703 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ecopunk per-model claim ledger structure",
+  "description": "Record schema only. Exact catalogue/case coverage, evidence truth, authority, freshness and completion require the native gate specified in model-completion-claims.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_kind",
+    "schema_version",
+    "catalogue",
+    "subject",
+    "reported_status",
+    "profiles",
+    "inventories",
+    "claims",
+    "evidence_index",
+    "review_index",
+    "subject_specific_claims",
+    "native_gate_report_ref"
+  ],
+  "properties": {
+    "document_kind": {
+      "enum": [
+        "template",
+        "claim_ledger"
+      ]
+    },
+    "schema_version": {
+      "const": "ecopunk-model-claims-v2"
+    },
+    "catalogue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "const": "ecopunk-model-deliverables"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "dossier_id",
+        "families",
+        "source_revision",
+        "corpus_revision",
+        "requirements_baseline_ref",
+        "package_content_refs",
+        "identifiers",
+        "identifier_mapping_refs"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "description": "Compatibility/local record reference only; it does not assert one universal identifier for the subject. Preserve the associated identifiers and mappings."
+        },
+        "dossier_id": {
+          "type": "string"
+        },
+        "families": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "flora_funga",
+              "fauna",
+              "made",
+              "micro_scientific",
+              "environment",
+              "human_avatar",
+              "other"
+            ]
+          }
+        },
+        "source_revision": {
+          "type": "string"
+        },
+        "corpus_revision": {
+          "type": "string"
+        },
+        "requirements_baseline_ref": {
+          "type": "string"
+        },
+        "package_content_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "identifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier_association"
+          }
+        },
+        "identifier_mapping_refs": {
+          "$ref": "#/$defs/refs"
+        }
+      }
+    },
+    "reported_status": {
+      "enum": [
+        "incomplete",
+        "claimed_complete",
+        "verified_complete"
+      ]
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "style",
+          "delivery_target",
+          "criteria_ref",
+          "status",
+          "representation_refs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "style": {
+            "type": "string"
+          },
+          "delivery_target": {
+            "type": "string"
+          },
+          "criteria_ref": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "unassessed",
+              "missing",
+              "partial",
+              "blocked",
+              "failed",
+              "satisfied"
+            ]
+          },
+          "representation_refs": {
+            "$ref": "#/$defs/refs"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "film"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "open_world_game"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "const": "cartoon"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "inventories": {
+      "type": "object",
+      "description": "Keys are repeat_by dimensions. Each value is an explicit finite inventory or a native derived view in the referenced dossier; empty inventories do not pass completeness.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "description",
+            "source_ref",
+            "compatibility_ref"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "type": "string"
+            },
+            "source_ref": {
+              "type": "string"
+            },
+            "compatibility_ref": {
+              "type": "string"
+            },
+            "identifiers": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/identifier_association"
+              }
+            }
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "subject_specific_claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "evidence_index": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "review_index": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/review"
+      }
+    },
+    "native_gate_report_ref": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "reported_status": {
+            "const": "verified_complete"
+          }
+        },
+        "required": [
+          "reported_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "document_kind": {
+            "const": "claim_ledger"
+          },
+          "native_gate_report_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject": {
+            "properties": {
+              "identifiers": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applicability",
+        "applicability_rationale",
+        "applicability_authority_ref",
+        "claim_status",
+        "claim",
+        "claimant",
+        "evaluated_at",
+        "artifact_refs",
+        "evidence_refs",
+        "review_refs",
+        "blocked_by",
+        "remaining_work"
+      ],
+      "properties": {
+        "applicability": {
+          "enum": [
+            "unassessed",
+            "required",
+            "not_applicable_proposed",
+            "not_applicable_authorized"
+          ]
+        },
+        "applicability_rationale": {
+          "type": "string"
+        },
+        "applicability_authority_ref": {
+          "type": "string"
+        },
+        "claim_status": {
+          "enum": [
+            "unassessed",
+            "missing",
+            "partial",
+            "blocked",
+            "failed",
+            "satisfied"
+          ]
+        },
+        "claim": {
+          "type": "string"
+        },
+        "claimant": {
+          "type": "string"
+        },
+        "evaluated_at": {
+          "type": "string"
+        },
+        "artifact_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "review_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "blocked_by": {
+          "$ref": "#/$defs/refs"
+        },
+        "remaining_work": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "applicability",
+              "claim_status"
+            ],
+            "properties": {
+              "applicability": {
+                "const": "required"
+              },
+              "claim_status": {
+                "const": "satisfied"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "claim": {
+                "minLength": 1
+              },
+              "claimant": {
+                "minLength": 1
+              },
+              "evaluated_at": {
+                "format": "date-time",
+                "minLength": 1
+              },
+              "artifact_refs": {
+                "minItems": 1
+              },
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "applicability"
+            ],
+            "properties": {
+              "applicability": {
+                "const": "not_applicable_authorized"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "applicability_rationale": {
+                "minLength": 1
+              },
+              "applicability_authority_ref": {
+                "minLength": 1
+              },
+              "claim": {
+                "minLength": 1
+              },
+              "claimant": {
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deliverable_id",
+        "assessment",
+        "cases"
+      ],
+      "properties": {
+        "deliverable_id": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*-[0-9]{2,}$"
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "dimensions",
+              "assessment"
+            ],
+            "properties": {
+              "dimensions": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "assessment": {
+                "$ref": "#/$defs/assessment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "artifact_refs",
+        "input_refs",
+        "method_ref",
+        "result",
+        "status",
+        "location",
+        "content_sha256",
+        "issued_by",
+        "at",
+        "scope"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "source_inspection",
+            "format_check",
+            "build",
+            "executed_scenario",
+            "measurement",
+            "image",
+            "audio",
+            "video",
+            "graph_reconciliation",
+            "native_gate",
+            "other"
+          ]
+        },
+        "artifact_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "input_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "method_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "not_executed",
+            "passed",
+            "failed",
+            "partial",
+            "inconclusive"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "issued_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "domain",
+        "reviewer",
+        "reviewer_kind",
+        "authority_ref",
+        "decision",
+        "artifact_refs",
+        "evidence_refs",
+        "scope",
+        "at",
+        "decision_record_ref"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "enum": [
+            "technical",
+            "visual",
+            "domain",
+            "rights",
+            "audio",
+            "accessibility",
+            "applicability"
+          ]
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewer_kind": {
+          "enum": [
+            "human",
+            "agent",
+            "native_verifier",
+            "institution"
+          ]
+        },
+        "authority_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "enum": [
+            "pending",
+            "accepted",
+            "rejected",
+            "changes_required"
+          ]
+        },
+        "artifact_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decision_record_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "identifier_association": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "An identifier associated with this subject or inventory referent, scoped to its scheme/source and evidence; identifier values alone do not prove authority or equivalence.",
+      "required": [
+        "value",
+        "scheme",
+        "issuer_or_authority_ref",
+        "scope",
+        "source_ref",
+        "association_status",
+        "valid_from",
+        "valid_until",
+        "mapping_ref"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scheme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issuer_or_authority_ref": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "association_status": {
+          "enum": [
+            "asserted",
+            "verified",
+            "disputed",
+            "retired",
+            "unknown"
+          ]
+        },
+        "valid_from": {
+          "type": "string"
+        },
+        "valid_until": {
+          "type": "string"
+        },
+        "mapping_ref": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
