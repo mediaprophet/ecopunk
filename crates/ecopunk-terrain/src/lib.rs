@@ -32,6 +32,7 @@ pub mod world_continuum;
 pub mod zoological_anatomy;
 pub mod zoological_loft_builder;
 
+pub use biosphere_authoring_forge;
 pub use etalon;
 pub use etalon_agent;
 pub use etalon_nquin;

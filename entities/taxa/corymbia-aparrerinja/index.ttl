@@ -1,0 +1,70 @@
+# Working species index (RDF). Frozen copy rides on each GitHub Release.
+# Members gain dcat:downloadURL + spdx checksums when a release is signed.
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix po:     <http://purl.obolibrary.org/obo/PO_> .
+@prefix qualia: <urn:qualia:taxon:> .
+@prefix rel:    <urn:qualia:release:corymbia-aparrerinja:> .
+@prefix member: <urn:qualia:member:corymbia-aparrerinja:> .
+
+qualia:corymbia_aparrerinja a dcat:Dataset ;
+    dct:hasPart member:evidence-q42 , member:skeleton-fspm , member:organ-scale-1 ,
+                member:organ-scale-2 , member:organ-scale-3 , member:organ-scale-4 .
+
+member:evidence-q42 a dcat:Distribution ;
+    dct:title "Sourced taxon evidence" ;
+    dct:format "application/vnd.qualia.q42" ;
+    dcat:accessURL <file:taxon.ttl> ;
+    rdfs:comment "Working: Turtle in git. Release attaches taxon.q42 with sha256."@en .
+
+member:skeleton-fspm a dcat:Distribution ;
+    dct:title "Murray-law vascular skeleton (mature)" ;
+    dct:format "application/vnd.qualia.10d" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:fspm_vascular_grow> ;
+    rdfs:comment "generations=4, base_radius=0.28 m, base_length=5.5 m, branch_angle_deg=52, turgor_kpa=650, gdd_accumulated=1100."@en .
+
+member:organ-scale-1 a dcat:Distribution ;
+    dct:title "Whole organism scale 1" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:compile_botanical_organ_10d> ;
+    rdfs:comment "scale=1, stage=mature, species_id=corymbia-aparrerinja."@en .
+
+member:organ-scale-2 a dcat:Distribution ;
+    dct:title "Stem / bark / cambium / xylem wedge" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:compile_botanical_organ_10d> ;
+    rdfs:comment "scale=2, peel_01=0.65 (powdery white decorticating ribbons)."@en .
+
+member:organ-scale-3 a dcat:Distribution ;
+    dct:title "Floral / operculum / gumnut" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:compile_botanical_organ_10d> ;
+    rdfs:comment "scale=3, anthesis_01=0.75."@en .
+
+member:organ-scale-4 a dcat:Distribution ;
+    dct:title "Falcate isobilateral leaf" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:compile_botanical_organ_10d> ;
+    rdfs:comment "scale=4, peel_01=0.4."@en .
+
+rel:working a dcat:Dataset ;
+    dct:isVersionOf qualia:corymbia_aparrerinja ;
+    dct:identifier "working" ;
+    rdfs:comment "Single species HMC. Individuals are this model at a stage plus FSPM/root parameters, not extra repos or meshes."@en .
+
+member:root-plate a dcat:Distribution ;
+    dct:title "Lignotuber, flare and lateral roots" ;
+    dct:format "application/vnd.qualia.10d" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:revolve> ;
+    rdfs:comment "Anchors XPBD (inv_mass 0). Wind/pressure loads into this plate, not a floating trunk."@en .
+
+member:wind-xpbd a dcat:Distribution ;
+    dct:title "Island XPBD wind step" ;
+    prov:wasGeneratedBy <urn:qualia:morphism:step_island_xpbd> ;
+    rdfs:comment "bodies: lignotuber (fixed), collar, trunk, crown. Area3D wind + gravity + damping. ground_y=0."@en .
+
+qualia:corymbia_aparrerinja_template a rdfs:Class ;
+    rdfs:label "Corymbia aparrerinja organism template"@en ;
+    rdfs:comment "Generate an individual by choosing stage in {seedling, sapling, mature, ancient} and FSPM (generations, base_radius, base_length, branch_angle_deg, turgor_kpa, gdd_accumulated) plus peel_01 / anthesis_01. Scene supplies translation, Hamilton rotation, scale. Do not mint a new HMC per tree."@en .

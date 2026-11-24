@@ -29,6 +29,8 @@ Each candidate source is scored on:
 9. **Fit to layers** — which ecopunk layer(s) it feeds (names backbone / occurrences / traits / environment / media / models).
 10. **Pipeline cost** — estimated effort to normalize into the ontology stack.
 
+Operator / Grok can register a candidate as a **semantic bookmark** (`synth bookmark add URL` or MCP `synth_bookmarks`) before a fetch. Landing pages, SPARQL endpoints, and RDF dumps are all valid. The agent may fill `data_endpoint` when the user only had a docs URL, and mark `requires_api_key` without putting the key in git: public metadata is `.synth/bookmarks.json`; secrets are `.synth/secrets.json` (gitignored). Synth fetches through `synth job` / MCP `synth_jobs` into `.synth/inbox` (PROV/DCT wrap, optional `.q42`). Inbox is staging; review licence before promoting.
+
 ## Acquisition workflow (mirrors QualiaDB's acquisition-inbox pattern)
 
 ```

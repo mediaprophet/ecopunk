@@ -99,6 +99,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "anvil-core"
+version = "0.1.0"
+source = "git+https://github.com/mediaprophet/anvil.git?rev=4d8e5be4dd8c0014fd0cb9acf42b4058af14ca3c#4d8e5be4dd8c0014fd0cb9acf42b4058af14ca3c"
+
+[[package]]
+name = "anvil-gpu"
+version = "0.1.0"
+source = "git+https://github.com/mediaprophet/anvil.git?rev=4d8e5be4dd8c0014fd0cb9acf42b4058af14ca3c#4d8e5be4dd8c0014fd0cb9acf42b4058af14ca3c"
+dependencies = [
+ "anvil-core",
+]
+
+[[package]]
 name = "anyhow"
 version = "1.0.104"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -328,7 +341,7 @@ version = "0.38.0+1.3.281"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0bb44936d800fea8f016d7f2311c6a4f97aebd5dc86f09906139ec848cf3a46f"
 dependencies = [
- "libloading",
+ "libloading 0.8.9",
 ]
 
 [[package]]
@@ -588,6 +601,15 @@ name = "base64"
 version = "0.23.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ac07cdecf99051d9a5238b80f35af32cdeba5b336e55d957b318b50137e18da5"
+
+[[package]]
+name = "biosphere-authoring-forge"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "sha2 0.10.9",
+]
 
 [[package]]
 name = "bit-set"
@@ -1139,6 +1161,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "cudarc"
+version = "0.19.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7359bf1de037ddada72729c3acec9b040f3468400c6e9e740b01ba0cd2e89562"
+dependencies = [
+ "libloading 0.9.1",
+]
+
+[[package]]
 name = "curve25519-dalek"
 version = "4.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1281,7 +1312,7 @@ version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ab8ecd87370524b461f8557c119c405552c396ed91fc0a8eec68679eab26f94a"
 dependencies = [
- "libloading",
+ "libloading 0.8.9",
 ]
 
 [[package]]
@@ -1303,15 +1334,16 @@ dependencies = [
 name = "ecopunk-terrain"
 version = "0.1.0"
 dependencies = [
+ "biosphere-authoring-forge",
  "bytemuck",
  "crc32c",
- "etalon",
- "etalon-agent",
- "etalon-nquin",
- "etalon-render",
- "etalon-tensor",
- "etalon-wasm",
- "etalon-wgsl-forge",
+ "etalon 0.0.1",
+ "etalon-agent 0.0.1",
+ "etalon-nquin 0.0.1",
+ "etalon-render 0.0.1",
+ "etalon-tensor 0.0.1",
+ "etalon-wasm 0.0.1",
+ "etalon-wgsl-forge 0.0.1",
  "flate2",
  "image",
  "qualia-core-db",
@@ -1481,14 +1513,42 @@ dependencies = [
  "cfg-if",
  "cfg_aliases",
  "document-features",
- "etalon-core",
- "etalon-hal",
- "etalon-sync",
- "etalon-types",
+ "etalon-core 0.0.1",
+ "etalon-hal 0.0.1",
+ "etalon-sync 0.0.1",
+ "etalon-types 0.0.1",
  "hashbrown 0.17.1",
  "js-sys",
  "log",
- "naga",
+ "naga 0.0.1",
+ "profiling",
+ "raw-window-handle",
+ "smallvec",
+ "static_assertions",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+]
+
+[[package]]
+name = "etalon"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "arrayvec",
+ "bitflags 2.13.2",
+ "bytemuck",
+ "cfg-if",
+ "cfg_aliases",
+ "document-features",
+ "etalon-core 0.0.2",
+ "etalon-hal 0.0.2",
+ "etalon-sync 0.0.2",
+ "etalon-types 0.0.2",
+ "hashbrown 0.17.1",
+ "js-sys",
+ "log",
+ "naga 0.0.2",
  "profiling",
  "raw-window-handle",
  "smallvec",
@@ -1504,10 +1564,26 @@ version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
  "bytemuck",
- "etalon",
- "etalon-types",
+ "etalon 0.0.1",
+ "etalon-types 0.0.1",
  "log",
  "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-agent"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "anvil-core",
+ "anvil-gpu",
+ "bytemuck",
+ "etalon 0.0.2",
+ "etalon-resources",
+ "etalon-types 0.0.2",
+ "log",
+ "thiserror 2.0.21",
+ "windows",
 ]
 
 [[package]]
@@ -1522,20 +1598,57 @@ dependencies = [
  "bytemuck",
  "cfg_aliases",
  "document-features",
- "etalon-core-deps-apple",
- "etalon-core-deps-emscripten",
- "etalon-core-deps-linux-android-bsd",
- "etalon-core-deps-windows",
- "etalon-hal",
- "etalon-naga-bridge",
- "etalon-sync",
- "etalon-types",
+ "etalon-core-deps-apple 0.0.1",
+ "etalon-core-deps-emscripten 0.0.1",
+ "etalon-core-deps-linux-android-bsd 0.0.1",
+ "etalon-core-deps-windows 0.0.1",
+ "etalon-hal 0.0.1",
+ "etalon-naga-bridge 0.0.1",
+ "etalon-sync 0.0.1",
+ "etalon-types 0.0.1",
  "hashbrown 0.17.1",
  "indexmap",
  "log",
  "macro_rules_attribute",
- "naga",
- "naga-types",
+ "naga 0.0.1",
+ "naga-types 0.0.1",
+ "num-traits",
+ "profiling",
+ "raw-window-handle",
+ "rustc-hash",
+ "scopeguard",
+ "serde",
+ "smallvec",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-core"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "arrayvec",
+ "bit-set",
+ "bit-vec 0.10.1",
+ "bitflags 2.13.2",
+ "bytemuck",
+ "cfg_aliases",
+ "document-features",
+ "etalon-core-deps-apple 0.0.2",
+ "etalon-core-deps-emscripten 0.0.2",
+ "etalon-core-deps-linux-android-bsd 0.0.2",
+ "etalon-core-deps-wasm",
+ "etalon-core-deps-windows 0.0.2",
+ "etalon-hal 0.0.2",
+ "etalon-naga-bridge 0.0.2",
+ "etalon-sync 0.0.2",
+ "etalon-types 0.0.2",
+ "hashbrown 0.17.1",
+ "indexmap",
+ "log",
+ "macro_rules_attribute",
+ "naga 0.0.2",
+ "naga-types 0.0.2",
  "num-traits",
  "profiling",
  "raw-window-handle",
@@ -1551,7 +1664,15 @@ name = "etalon-core-deps-apple"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
- "etalon-hal",
+ "etalon-hal 0.0.1",
+]
+
+[[package]]
+name = "etalon-core-deps-apple"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-hal 0.0.2",
 ]
 
 [[package]]
@@ -1559,7 +1680,15 @@ name = "etalon-core-deps-emscripten"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
- "etalon-hal",
+ "etalon-hal 0.0.1",
+]
+
+[[package]]
+name = "etalon-core-deps-emscripten"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-hal 0.0.2",
 ]
 
 [[package]]
@@ -1567,7 +1696,23 @@ name = "etalon-core-deps-linux-android-bsd"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
- "etalon-hal",
+ "etalon-hal 0.0.1",
+]
+
+[[package]]
+name = "etalon-core-deps-linux-android-bsd"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-hal 0.0.2",
+]
+
+[[package]]
+name = "etalon-core-deps-wasm"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-hal 0.0.2",
 ]
 
 [[package]]
@@ -1575,7 +1720,29 @@ name = "etalon-core-deps-windows"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
- "etalon-hal",
+ "etalon-hal 0.0.1",
+]
+
+[[package]]
+name = "etalon-core-deps-windows"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-hal 0.0.2",
+]
+
+[[package]]
+name = "etalon-diagnostics"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "ciborium",
+ "etalon 0.0.2",
+ "pollster",
+ "rayon",
+ "serde",
+ "tempfile",
 ]
 
 [[package]]
@@ -1592,9 +1759,9 @@ dependencies = [
  "bytemuck",
  "cfg-if",
  "cfg_aliases",
- "etalon-naga-bridge",
- "etalon-sync",
- "etalon-types",
+ "etalon-naga-bridge 0.0.1",
+ "etalon-sync 0.0.1",
+ "etalon-types 0.0.1",
  "glow",
  "glutin_wgl_sys",
  "gpu-allocator",
@@ -1602,10 +1769,10 @@ dependencies = [
  "js-sys",
  "khronos-egl",
  "libc",
- "libloading",
+ "libloading 0.8.9",
  "log",
- "naga",
- "naga-types",
+ "naga 0.0.1",
+ "naga-types 0.0.1",
  "ndk-sys",
  "objc2",
  "objc2-core-foundation",
@@ -1631,12 +1798,143 @@ dependencies = [
 ]
 
 [[package]]
+name = "etalon-hal"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "android_system_properties",
+ "arrayvec",
+ "ash",
+ "bit-set",
+ "bitflags 2.13.2",
+ "block2",
+ "bytemuck",
+ "cfg-if",
+ "cfg_aliases",
+ "etalon-naga-bridge 0.0.2",
+ "etalon-sync 0.0.2",
+ "etalon-types 0.0.2",
+ "glow",
+ "glutin_wgl_sys",
+ "gpu-allocator",
+ "hashbrown 0.17.1",
+ "js-sys",
+ "khronos-egl",
+ "libc",
+ "libloading 0.8.9",
+ "log",
+ "naga 0.0.2",
+ "naga-types 0.0.2",
+ "ndk-sys",
+ "objc2",
+ "objc2-core-foundation",
+ "objc2-core-graphics",
+ "objc2-foundation",
+ "objc2-metal",
+ "objc2-quartz-core",
+ "ordered-float",
+ "profiling",
+ "range-alloc",
+ "raw-window-handle",
+ "raw-window-metal",
+ "renderdoc-sys",
+ "smallvec",
+ "static_assertions",
+ "thiserror 2.0.21",
+ "wasm-bindgen",
+ "wayland-sys",
+ "web-sys",
+ "windows",
+ "windows-core",
+ "windows-result",
+]
+
+[[package]]
+name = "etalon-inference"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon 0.0.2",
+ "etalon-inference-kernel",
+ "etalon-model",
+ "etalon-model-io",
+ "etalon-resources",
+ "etalon-wgsl-forge 0.0.2",
+ "futures-channel",
+ "half",
+ "libc",
+ "log",
+ "memmap2",
+ "rayon",
+ "serde",
+ "sha2 0.10.9",
+ "windows",
+]
+
+[[package]]
+name = "etalon-inference-contract"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+
+[[package]]
+name = "etalon-inference-kernel"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+
+[[package]]
+name = "etalon-inference-lab"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "ciborium",
+ "etalon-diagnostics",
+ "etalon-inference",
+ "etalon-inference-kernel",
+ "etalon-model",
+ "log",
+ "serde",
+ "serde_json",
+ "tempfile",
+]
+
+[[package]]
+name = "etalon-model"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon-inference-kernel",
+ "half",
+ "serde",
+]
+
+[[package]]
+name = "etalon-model-io"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "memmap2",
+ "sha2 0.10.9",
+ "tempfile",
+]
+
+[[package]]
 name = "etalon-naga-bridge"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
- "etalon-types",
- "naga",
+ "etalon-types 0.0.1",
+ "naga 0.0.1",
+]
+
+[[package]]
+name = "etalon-naga-bridge"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-types 0.0.2",
+ "naga 0.0.2",
 ]
 
 [[package]]
@@ -1645,7 +1943,18 @@ version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
  "bytemuck",
- "etalon",
+ "etalon 0.0.1",
+ "log",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-nquin"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon 0.0.2",
  "log",
  "thiserror 2.0.21",
 ]
@@ -1656,10 +1965,60 @@ version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
  "bytemuck",
- "etalon",
- "etalon-types",
+ "etalon 0.0.1",
+ "etalon-types 0.0.1",
  "log",
  "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-render"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon 0.0.2",
+ "etalon-types 0.0.2",
+ "etalon-wasm 0.0.2",
+ "flate2",
+ "js-sys",
+ "log",
+ "naga 0.0.2",
+ "serde",
+ "thiserror 2.0.21",
+ "wasm-bindgen",
+ "zstd",
+]
+
+[[package]]
+name = "etalon-resources"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "anvil-core",
+ "anvil-gpu",
+ "etalon 0.0.2",
+]
+
+[[package]]
+name = "etalon-sense-core"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+
+[[package]]
+name = "etalon-signal"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+
+[[package]]
+name = "etalon-sim"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon-render 0.0.2",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -1676,14 +2035,41 @@ dependencies = [
 ]
 
 [[package]]
+name = "etalon-sync"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "cfg-if",
+ "lock_api",
+ "once_cell",
+ "parking_lot",
+ "portable-atomic",
+ "portable-atomic-util",
+]
+
+[[package]]
 name = "etalon-tensor"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
  "bytemuck",
- "etalon",
- "etalon-types",
+ "etalon 0.0.1",
+ "etalon-types 0.0.1",
  "log",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-tensor"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon 0.0.2",
+ "etalon-types 0.0.2",
+ "hashbrown 0.17.1",
+ "log",
+ "serde",
  "thiserror 2.0.21",
 ]
 
@@ -1697,11 +2083,41 @@ dependencies = [
  "js-sys",
  "log",
  "macro_rules_attribute",
- "naga-types",
+ "naga-types 0.0.1",
  "raw-window-handle",
  "serde",
  "static_assertions",
  "web-sys",
+]
+
+[[package]]
+name = "etalon-types"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bitflags 2.13.2",
+ "bytemuck",
+ "js-sys",
+ "log",
+ "macro_rules_attribute",
+ "naga-types 0.0.2",
+ "raw-window-handle",
+ "serde",
+ "static_assertions",
+ "web-sys",
+]
+
+[[package]]
+name = "etalon-vibe"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "etalon-nquin 0.0.2",
+ "etalon-resources",
+ "etalon-sense-core",
+ "etalon-signal",
+ "etalon-wgsl-forge 0.0.2",
+ "vibescript-abi",
 ]
 
 [[package]]
@@ -1710,7 +2126,19 @@ version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
 dependencies = [
  "bytemuck",
- "etalon-types",
+ "etalon-types 0.0.1",
+ "log",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-wasm"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "bytemuck",
+ "etalon 0.0.2",
+ "etalon-types 0.0.2",
  "log",
  "thiserror 2.0.21",
 ]
@@ -1723,7 +2151,30 @@ dependencies = [
  "blake3",
  "bytemuck",
  "log",
- "naga",
+ "naga 0.0.1",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "etalon-wgsl-forge"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "blake3",
+ "bytemuck",
+ "cudarc",
+ "etalon 0.0.2",
+ "etalon-resources",
+ "etalon-signal",
+ "futures-channel",
+ "half",
+ "hashbrown 0.17.1",
+ "log",
+ "naga 0.0.2",
+ "pollster",
  "serde",
  "serde_json",
  "tempfile",
@@ -2727,7 +3178,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6aae1df220ece3c0ada96b8153459b67eebe9ae9212258bb0134ae60416fdf76"
 dependencies = [
  "libc",
- "libloading",
+ "libloading 0.8.9",
  "pkg-config",
 ]
 
@@ -2754,6 +3205,16 @@ name = "libloading"
 version = "0.8.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d7c4b02199fee7c5d21a5ae7d8cfa79a6ef5bb2fc834d6e9058e89c825efdc55"
+dependencies = [
+ "cfg-if",
+ "windows-link",
+]
+
+[[package]]
+name = "libloading"
+version = "0.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a1832accd5a4ca2795ace4d05d15c4039be15b62d3b950eff99746a990e3cc10"
 dependencies = [
  "cfg-if",
  "windows-link",
@@ -2847,9 +3308,9 @@ checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
 
 [[package]]
 name = "memmap2"
-version = "0.9.11"
+version = "0.9.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1219ed1b7f229ee7104d281dd01d6802fe28bb6e95d292942c4daacdeb798c0"
+checksum = "6b0ca1155a9ecc25aa12e8313a119f32edf0255fea2f44839c4ac0a12b2ac157"
 dependencies = [
  "libc",
 ]
@@ -2983,7 +3444,7 @@ dependencies = [
  "indexmap",
  "libm",
  "log",
- "naga-types",
+ "naga-types 0.0.1",
  "num-traits",
  "once_cell",
  "petgraph",
@@ -2994,9 +3455,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "naga"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
+dependencies = [
+ "arrayvec",
+ "bit-set",
+ "bitflags 2.13.2",
+ "cfg-if",
+ "cfg_aliases",
+ "codespan-reporting",
+ "half",
+ "hashbrown 0.17.1",
+ "indexmap",
+ "libm",
+ "log",
+ "naga-types 0.0.2",
+ "num-traits",
+ "once_cell",
+ "rustc-hash",
+ "spirv",
+ "thiserror 2.0.21",
+ "unicode-ident",
+]
+
+[[package]]
 name = "naga-types"
 version = "0.0.1"
 source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
+dependencies = [
+ "bytemuck",
+ "hashbrown 0.17.1",
+ "indexmap",
+ "rustc-hash",
+ "serde",
+]
+
+[[package]]
+name = "naga-types"
+version = "0.0.2"
+source = "git+https://github.com/mediaprophet/etalon.git?rev=d4a6af1ad689c82696a07d68fb9999e8f301170d#d4a6af1ad689c82696a07d68fb9999e8f301170d"
 dependencies = [
  "bytemuck",
  "hashbrown 0.17.1",
@@ -3641,7 +4139,7 @@ checksum = "d55d956fa96f5ec02be2e13af0e20391a5aa83d6a074e3ad368959d0fab299ea"
 
 [[package]]
 name = "qualia-app-contract"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "ciborium",
  "serde",
@@ -3651,11 +4149,14 @@ dependencies = [
 
 [[package]]
 name = "qualia-audio"
-version = "0.0.40"
+version = "0.0.41"
+dependencies = [
+ "etalon-signal",
+]
 
 [[package]]
 name = "qualia-cooperative-core"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "chrono",
  "hex",
@@ -3668,10 +4169,11 @@ dependencies = [
 
 [[package]]
 name = "qualia-core-db"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "aead 0.6.1",
  "aes-gcm",
+ "anvil-core",
  "ark-bls12-381",
  "ark-ec",
  "ark-ff",
@@ -3695,15 +4197,25 @@ dependencies = [
  "core_affinity",
  "crossbeam-channel",
  "csv",
+ "cudarc",
  "dashmap",
  "ed25519-dalek",
- "etalon",
- "etalon-agent",
- "etalon-nquin",
- "etalon-render",
- "etalon-tensor",
- "etalon-wasm",
- "etalon-wgsl-forge",
+ "etalon 0.0.2",
+ "etalon-agent 0.0.2",
+ "etalon-diagnostics",
+ "etalon-inference",
+ "etalon-inference-contract",
+ "etalon-inference-lab",
+ "etalon-model",
+ "etalon-model-io",
+ "etalon-nquin 0.0.2",
+ "etalon-render 0.0.2",
+ "etalon-resources",
+ "etalon-signal",
+ "etalon-sim",
+ "etalon-tensor 0.0.2",
+ "etalon-wasm 0.0.2",
+ "etalon-wgsl-forge 0.0.2",
  "fast_qr",
  "fhe",
  "fhe-traits",
@@ -3738,7 +4250,7 @@ dependencies = [
  "mikktspace",
  "minicbor",
  "mp4",
- "naga",
+ "naga 0.0.2",
  "num_cpus",
  "oxiri",
  "png 0.17.16",
@@ -3777,10 +4289,10 @@ dependencies = [
  "tower-http 0.7.1",
  "urlencoding",
  "vibe",
+ "vibescript-abi",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
- "wgpu",
  "windows",
  "windows-native-keyring-store",
  "x25519-dalek 3.0.0",
@@ -3790,7 +4302,7 @@ dependencies = [
 
 [[package]]
 name = "qualia-geospatial"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "bytemuck",
  "qualia-core-db",
@@ -3800,16 +4312,17 @@ dependencies = [
 
 [[package]]
 name = "qualia-inference-kernel"
-version = "0.0.40"
+version = "0.0.41"
+dependencies = [
+ "etalon-inference-kernel",
+]
 
 [[package]]
 name = "qualia-sim"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
- "bytemuck",
- "qualia-core-db",
- "serde",
- "serde_json",
+ "etalon-render 0.0.2",
+ "etalon-sim",
 ]
 
 [[package]]
@@ -4822,9 +5335,9 @@ dependencies = [
 
 [[package]]
 name = "tokio"
-version = "1.54.0"
+version = "1.54.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a0c168a474b95bfecfe908a65d4bdffc523144b649a74c09c286afb35d53e0bc"
+checksum = "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3"
 dependencies = [
  "bytes",
  "libc",
@@ -5174,15 +5687,17 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
 name = "vibe"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "bytemuck",
+ "etalon-vibe",
  "unicode-xid",
+ "vibescript-abi",
 ]
 
 [[package]]
 name = "vibe-wasm"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "js-sys",
  "serde",
@@ -5191,6 +5706,10 @@ dependencies = [
  "vibe",
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "vibescript-abi"
+version = "0.0.41"
 
 [[package]]
 name = "walkdir"
@@ -5306,12 +5825,13 @@ dependencies = [
 
 [[package]]
 name = "webizen-render"
-version = "0.0.40"
+version = "0.0.41"
 dependencies = [
  "base64 0.23.1",
  "bytemuck",
  "cfg_aliases",
- "etalon-render",
+ "etalon 0.0.2",
+ "etalon-render 0.0.2",
  "image",
  "js-sys",
  "log",
@@ -5321,7 +5841,6 @@ dependencies = [
  "vibe",
  "wasm-bindgen",
  "web-sys",
- "wgpu",
 ]
 
 [[package]]
@@ -5331,14 +5850,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b96554aa2acc8ccdb7e1c9a58a7a68dd5d13bccc69cd124cb09406db612a1c9b"
 dependencies = [
  "rustls-pki-types",
-]
-
-[[package]]
-name = "wgpu"
-version = "30.0.0"
-source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"
-dependencies = [
- "etalon",
 ]
 
 [[package]]
@@ -5933,3 +6444,8 @@ dependencies = [
  "syn 3.0.9",
  "winnow",
 ]
+
+[[patch.unused]]
+name = "wgpu"
+version = "30.0.0"
+source = "git+https://github.com/mediaprophet/etalon.git?branch=qualia-main#ed0b671d8903e8e0d3f7a7f38fba5a0f6b4e08a6"

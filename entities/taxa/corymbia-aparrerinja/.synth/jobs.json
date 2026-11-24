@@ -1,0 +1,41 @@
+{
+  "schema": "synth.jobs/v1",
+  "items": [
+    {
+      "id": "corymbia-taxon-ttl",
+      "kind": "compile",
+      "title": "Corymbia taxon Turtle",
+      "source_path": "ecopunk/entities/taxa/corymbia-aparrerinja/taxon.ttl",
+      "out_q42": "corymbia-aparrerinja-taxon.q42",
+      "interval_secs": 0,
+      "enabled": false,
+      "created_at": 1794909744,
+      "updated_at": 1794909821,
+      "next_run_at": 0,
+      "last_run_at": 1794909821,
+      "last_status": "ok",
+      "last_sha256": "906b5be5b429b5a82827f72d9851eee8012eadfa013d3ec6cefa4fedb99a4b5e",
+      "last_run_dir": "C:\\github\\ecopunk\\entities\\taxa\\corymbia-aparrerinja\\.synth\\inbox\\corymbia-taxon-ttl\\1794909821-3252-1",
+      "last_q42": "C:\\github\\ecopunk\\entities\\taxa\\corymbia-aparrerinja\\.synth\\inbox\\corymbia-taxon-ttl\\1794909821-3252-1\\snapshot.q42",
+      "run_count": 2
+    },
+    {
+      "id": "corymbia-index-ttl",
+      "kind": "compile",
+      "title": "Corymbia index Turtle",
+      "source_path": "ecopunk/entities/taxa/corymbia-aparrerinja/index.ttl",
+      "out_q42": "corymbia-aparrerinja-index.q42",
+      "interval_secs": 0,
+      "enabled": false,
+      "created_at": 1794909744,
+      "updated_at": 1794909821,
+      "next_run_at": 0,
+      "last_run_at": 1794909821,
+      "last_status": "ok",
+      "last_sha256": "bb7a99dca4cd87594163abf999263d5b578bb8d5a66ac3158212522a9e57ed35",
+      "last_run_dir": "C:\\github\\ecopunk\\entities\\taxa\\corymbia-aparrerinja\\.synth\\inbox\\corymbia-index-ttl\\1794909821-3764-1",
+      "last_q42": "C:\\github\\ecopunk\\entities\\taxa\\corymbia-aparrerinja\\.synth\\inbox\\corymbia-index-ttl\\1794909821-3764-1\\snapshot.q42",
+      "run_count": 2
+    }
+  ]
+}

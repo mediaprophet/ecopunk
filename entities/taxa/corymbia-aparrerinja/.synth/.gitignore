@@ -1,0 +1,8 @@
+# Local secrets and acquisition inbox. Never commit to GitHub.
+secrets.json
+secrets.*.json
+*.key
+*.pem
+update-seed.hex
+*-seed.hex
+inbox/

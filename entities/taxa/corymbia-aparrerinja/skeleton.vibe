@@ -1,0 +1,22 @@
+requires [capability("capability.invoke")];
+
+// Corymbia aparrerinja (Ghost Gum) — mature Murray-law vascular skeleton.
+// Typical height ~15 m, open forks (not broccoli). Arid turgor, not mesic.
+// Evidence: entities/taxa/corymbia-aparrerinja/taxon.ttl (ALA, APC, Qld RE, SA/NT horticulture).
+
+let skeleton = capability.invoke("hypermedia.manifold.fspm_vascular_grow", {
+    generations: 4,
+    base_radius: 0.28,
+    base_length: 5.5,
+    branch_angle_deg: 52.0,
+    turgor_kpa: 650.0,
+    gdd_accumulated: 1100.0
+});
+
+let skeleton10d = capability.invoke("hypermedia.manifold.compile_10d", {
+    mesh: skeleton.mesh
+});
+
+let asset = {files: [
+    {key: "corymbia-aparrerinja-skeleton.10d", resource: skeleton10d}
+]};

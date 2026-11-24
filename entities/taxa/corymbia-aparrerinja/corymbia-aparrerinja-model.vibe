@@ -1,0 +1,171 @@
+requires [capability("capability.invoke")];
+
+// One Corymbia aparrerinja species HMC.
+// Individuals are this model at a stage + FSPM/root parameters, not extra assets.
+// Lignotuber / root plate is the fixed XPBD island so wind pressure loads into ground.
+
+// --- vascular skeletons (Murray r_p^3 = Σ r_c^3) ---
+let skelSeedling = capability.invoke("hypermedia.manifold.fspm_vascular_grow", {
+    generations: 1,
+    base_radius: 0.035,
+    base_length: 0.55,
+    branch_angle_deg: 38.0,
+    turgor_kpa: 720.0,
+    gdd_accumulated: 180.0
+});
+let skelSapling = capability.invoke("hypermedia.manifold.fspm_vascular_grow", {
+    generations: 2,
+    base_radius: 0.09,
+    base_length: 1.8,
+    branch_angle_deg: 44.0,
+    turgor_kpa: 680.0,
+    gdd_accumulated: 480.0
+});
+let skelMature = capability.invoke("hypermedia.manifold.fspm_vascular_grow", {
+    generations: 4,
+    base_radius: 0.28,
+    base_length: 5.5,
+    branch_angle_deg: 52.0,
+    turgor_kpa: 650.0,
+    gdd_accumulated: 1100.0
+});
+let skelAncient = capability.invoke("hypermedia.manifold.fspm_vascular_grow", {
+    generations: 5,
+    base_radius: 0.42,
+    base_length: 6.2,
+    branch_angle_deg: 58.0,
+    turgor_kpa: 580.0,
+    gdd_accumulated: 2100.0
+});
+
+// --- lignotuber + flare + tap (revolve about +Y). Meets trunk radius at the collar. ---
+let rootSeedling = capability.invoke("hypermedia.manifold.revolve", {
+    points: [[0.02, -0.35], [0.06, -0.22], [0.12, -0.08], [0.14, 0.02], [0.08, 0.12], [0.035, 0.22]],
+    segments: 24
+});
+let rootSapling = capability.invoke("hypermedia.manifold.revolve", {
+    points: [[0.03, -0.85], [0.10, -0.55], [0.22, -0.18], [0.28, 0.04], [0.16, 0.28], [0.09, 0.55]],
+    segments: 28
+});
+let rootMature = capability.invoke("hypermedia.manifold.revolve", {
+    points: [[0.04, -2.2], [0.14, -1.55], [0.38, -0.85], [0.72, -0.22], [0.82, 0.06], [0.58, 0.38], [0.40, 0.78], [0.28, 1.15]],
+    segments: 32
+});
+let rootAncient = capability.invoke("hypermedia.manifold.revolve", {
+    points: [[0.05, -2.8], [0.18, -1.9], [0.48, -1.05], [0.95, -0.28], [1.08, 0.08], [0.78, 0.48], [0.55, 0.95], [0.42, 1.35]],
+    segments: 32
+});
+
+let rootFluted = capability.invoke("hypermedia.manifold.evaluate_field", {
+    mesh: rootMature,
+    domain: "point",
+    expression: "clay",
+    clay_mode: "pinch",
+    brush_center: [0.0, 0.0, 0.0],
+    radius: 0.9,
+    strength: 0.12,
+    falloff: 2.2,
+    apply_displacement: true
+});
+
+let lateralProfile = capability.invoke("hypermedia.locus.construct", {
+    shape: "circle",
+    radius: 0.055,
+    segments: 12
+});
+let lateralA = capability.invoke("hypermedia.manifold.extrude", {
+    profile: lateralProfile,
+    path: [[0.55, -0.15, 0.0], [1.8, -0.45, 0.35], [3.2, -0.85, 0.15]],
+    caps: true
+});
+let lateralB = capability.invoke("hypermedia.manifold.extrude", {
+    profile: lateralProfile,
+    path: [[-0.40, -0.12, 0.45], [-1.6, -0.50, 1.1], [-2.8, -0.95, 0.70]],
+    caps: true
+});
+let lateralC = capability.invoke("hypermedia.manifold.extrude", {
+    profile: lateralProfile,
+    path: [[0.20, -0.18, -0.50], [0.9, -0.55, -1.7], [0.35, -1.05, -2.9]],
+    caps: true
+});
+
+// Shared organs (Plant Ontology scales). Crown leaves instance these, they are not extra species.
+let organWhole = capability.invoke("hypermedia.manifold.compile_botanical_organ_10d", {
+    scale: 1,
+    species_id: "corymbia-aparrerinja",
+    peel_01: 0.35,
+    anthesis_01: 0.72,
+    stage: "mature"
+});
+let organBark = capability.invoke("hypermedia.manifold.compile_botanical_organ_10d", {
+    scale: 2,
+    species_id: "corymbia-aparrerinja",
+    peel_01: 0.65,
+    anthesis_01: 0.5,
+    stage: "mature"
+});
+let organFloral = capability.invoke("hypermedia.manifold.compile_botanical_organ_10d", {
+    scale: 3,
+    species_id: "corymbia-aparrerinja",
+    peel_01: 0.4,
+    anthesis_01: 0.78,
+    stage: "mature"
+});
+let organLeaf = capability.invoke("hypermedia.manifold.compile_botanical_organ_10d", {
+    scale: 4,
+    species_id: "corymbia-aparrerinja",
+    peel_01: 0.4,
+    anthesis_01: 0.5,
+    stage: "mature"
+});
+
+// Wind: lignotuber inv_mass 0 (anchored). Canopy bodies take Area3D wind.
+let windGust = capability.invoke("hypermedia.kinetics.step_island_xpbd", {
+    bodies: [
+        {id: "lignotuber", position: [0.0, 0.0, 0.0], velocity: [0.0, 0.0, 0.0], radius: 0.82, inv_mass: 0.0},
+        {id: "collar", position: [0.0, 1.1, 0.0], velocity: [0.0, 0.0, 0.0], radius: 0.30, inv_mass: 0.05},
+        {id: "trunk", position: [0.0, 4.2, 0.0], velocity: [0.0, 0.0, 0.0], radius: 0.22, inv_mass: 0.18},
+        {id: "crown", position: [0.0, 9.4, 0.0], velocity: [0.0, 0.0, 0.0], radius: 3.2, inv_mass: 0.85}
+    ],
+    area_override: {
+        bounds_min: [-18.0, -3.0, -18.0],
+        bounds_max: [18.0, 22.0, 18.0],
+        gravity: [0.0, -9.81, 0.0],
+        linear_damping: 0.35,
+        wind: [11.0, 0.0, 3.5]
+    },
+    dt: 0.015625,
+    steps: 8,
+    substeps: 4,
+    ground_y: 0.0
+});
+
+let seedlingSkel10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: skelSeedling.mesh });
+let saplingSkel10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: skelSapling.mesh });
+let matureSkel10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: skelMature.mesh });
+let ancientSkel10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: skelAncient.mesh });
+let seedlingRoot10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: rootSeedling });
+let saplingRoot10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: rootSapling });
+let matureRoot10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: rootFluted.mesh });
+let ancientRoot10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: rootAncient });
+let lateralA10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: lateralA });
+let lateralB10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: lateralB });
+let lateralC10d = capability.invoke("hypermedia.manifold.compile_10d", { mesh: lateralC });
+
+let asset = {files: [
+    {key: "individuals/seedling-skeleton.10d", resource: seedlingSkel10d},
+    {key: "individuals/sapling-skeleton.10d", resource: saplingSkel10d},
+    {key: "individuals/mature-skeleton.10d", resource: matureSkel10d},
+    {key: "individuals/ancient-skeleton.10d", resource: ancientSkel10d},
+    {key: "root/seedling-lignotuber.10d", resource: seedlingRoot10d},
+    {key: "root/sapling-lignotuber.10d", resource: saplingRoot10d},
+    {key: "root/mature-lignotuber.10d", resource: matureRoot10d},
+    {key: "root/ancient-lignotuber.10d", resource: ancientRoot10d},
+    {key: "root/lateral-a.10d", resource: lateralA10d},
+    {key: "root/lateral-b.10d", resource: lateralB10d},
+    {key: "root/lateral-c.10d", resource: lateralC10d},
+    {key: "organs/whole-organism.10d", resource: organWhole.container_10d},
+    {key: "organs/bark-wedge.10d", resource: organBark.container_10d},
+    {key: "organs/floral-gumnut.10d", resource: organFloral.container_10d},
+    {key: "organs/leaf.10d", resource: organLeaf.container_10d}
+]};
